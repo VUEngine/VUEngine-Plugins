@@ -1,39 +1,21 @@
-VUEngine Components
-===================
+VUEngine Components: AdjustmentScreenState
+==========================================
 
-A library of reusable VUEngine 6 components.
-
-
-USAGE
------
-
-Coming soon.
+The default VUEngine 6 adjustment/splash screen.
 
 
-COMPONENTS LIST
----------------
+PREVIEW
+-------
 
-**Entities**
+![Preview Image](preview.png)
 
-- ReflectiveEntity  
-  `An Entity that can mirror other parts of the virtual screen`
 
-**States**
+DEPENDENCIES
+------------
 
-- SplashScreenState  
-  `Generic abstract splash screen base class`
-	- AdjustmentScreenState  
-	  `The default VUEngine 6 adjustment/splash screen`
+This component uses the following other components. Make sure to also include these in your config.make file.
 
-**Fonts**
-
-- VUEngineDefaultFont  
-  `The default VUEngine font`
-
-**Other**
-
-- SaveDataManager  
-  `Manages persisting of user data in SRAM`
+- SplashScreenState
 
 
 LICENSE

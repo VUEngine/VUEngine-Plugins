@@ -6,6 +6,7 @@ build/
 .cproject
 .project
 cproject
+watchdog
 *.a
 *.vb
 *.elf
