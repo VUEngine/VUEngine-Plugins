@@ -31,6 +31,12 @@ extern BYTE VUEngineFontTiles[];
 //												DEFINITIONS
 //---------------------------------------------------------------------------------------------------------
 
+/**
+ * VUEngine default font
+ *
+ * @ingroup vuengine-components-fonts
+ */
+
 CharSetROMDef VUENGINE_FONT_CH =
 {
 	// number of chars

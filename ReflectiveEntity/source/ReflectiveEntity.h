@@ -128,9 +128,11 @@ typedef const ReflectiveEntityDefinition ReflectiveEntityROMDef;
 //											CLASS'S DECLARATION
 //---------------------------------------------------------------------------------------------------------
 
-/// An Entity that can mirror other parts of the virtual screen
-///
-/// @ingroup components-entities
+/**
+ * An Entity that can mirror other parts of the screen.
+ *
+ * @ingroup vuengine-components-entities
+ */
 class ReflectiveEntity : Entity
 {
 	//

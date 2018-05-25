@@ -69,7 +69,7 @@ typedef struct SaveData
  * Class that handles SRAM save data, including checksum mechanism to detect manipulation or corruption of
  * such data. Easily extendable with custom data, see VUEngine Barebone project for an example.
  *
- * @ingroup components-other
+ * @ingroup vuengine-components-other
  */
 singleton class SaveDataManager : Object
 {

@@ -19,6 +19,7 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
+#include <AdjustmentScreenState.h>
 #if(__ADJUSTMENT_SCREEN_VARIANT == 1)
 
 
@@ -152,7 +153,7 @@ BgmapSpriteROMDef* const ADJUSTMENT_SCREEN_ICON_R_SPRITES[] =
 
 };
 
-EntityROMDef ADJUSTMENT_SCREEN_ICON_L =
+EntityROMDef ADJUSTMENT_SCREEN_ICON_L_EN =
 {
 	// class allocator
 	__TYPE(Entity),
@@ -174,7 +175,7 @@ EntityROMDef ADJUSTMENT_SCREEN_ICON_L =
 	(PhysicalSpecification*)NULL,
 };
 
-EntityROMDef ADJUSTMENT_SCREEN_ICON_R =
+EntityROMDef ADJUSTMENT_SCREEN_ICON_R_EN =
 {
 	// class allocator
 	__TYPE(Entity),

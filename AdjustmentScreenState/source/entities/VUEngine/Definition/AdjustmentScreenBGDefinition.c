@@ -19,6 +19,7 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
+#include <AdjustmentScreenState.h>
 #if(__ADJUSTMENT_SCREEN_VARIANT == 0)
 
 

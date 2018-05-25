@@ -24,6 +24,7 @@
 //---------------------------------------------------------------------------------------------------------
 
 #include <Stage.h>
+#include <AdjustmentScreenState.h>
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -31,8 +32,8 @@
 //---------------------------------------------------------------------------------------------------------
 
 extern EntityDefinition ADJUSTMENT_SCREEN_BG_EN;
-extern EntityDefinition ADJUSTMENT_SCREEN_ICON_L;
-extern EntityDefinition ADJUSTMENT_SCREEN_ICON_R;
+extern EntityDefinition ADJUSTMENT_SCREEN_ICON_L_EN;
+extern EntityDefinition ADJUSTMENT_SCREEN_ICON_R_EN;
 extern EntityDefinition ADJUSTMENT_SCREEN_LOGO_EN;
 
 
@@ -42,28 +43,57 @@ extern EntityDefinition ADJUSTMENT_SCREEN_LOGO_EN;
 
 PositionedEntityROMDef ADJUSTMENT_SCREEN_STAGE_ST_ENTITIES[] =
 {
-	{&ADJUSTMENT_SCREEN_ICON_L, {12, 12, 0, 0}, 0, NULL, NULL, NULL, false}, // Icon Top Left (Left Eye)
-	{&ADJUSTMENT_SCREEN_ICON_R, {12, 212, 0, 0}, 0, NULL, NULL, NULL, false}, // Icon Bottom Left (Right Eye)
-	{&ADJUSTMENT_SCREEN_BG_EN, {192, 112, 16, 0}, 0, NULL, NULL, NULL, false}, // Background
-	{&ADJUSTMENT_SCREEN_LOGO_EN, {192, 112, 0, 0}, 0, NULL, NULL, NULL, false}, // Logo
-	{&ADJUSTMENT_SCREEN_ICON_L, {372, 212, 0, 0}, 0, NULL, NULL, NULL, false}, // Icon Bottom Right (Left Eye)
-	{&ADJUSTMENT_SCREEN_ICON_R, {372, 12, 0, 0}, 0, NULL, NULL, NULL, false}, // Icon Top Right (Right Eye)
+
+#if(__ADJUSTMENT_SCREEN_VARIANT == 0)
+
+	// VUEngine
+	{&ADJUSTMENT_SCREEN_ICON_L_EN, 	{ 12,  12,  0, 0}, 0, NULL, NULL, NULL, false},
+	{&ADJUSTMENT_SCREEN_ICON_R_EN, 	{ 12, 212,  0, 0}, 0, NULL, NULL, NULL, false},
+	{&ADJUSTMENT_SCREEN_BG_EN, 		{192, 112,  0, 2}, 0, NULL, NULL, NULL, false},
+	{&ADJUSTMENT_SCREEN_LOGO_EN, 	{192, 112,  0, 0}, 0, NULL, NULL, NULL, false},
+	{&ADJUSTMENT_SCREEN_ICON_L_EN, 	{372, 212,  0, 0}, 0, NULL, NULL, NULL, false},
+	{&ADJUSTMENT_SCREEN_ICON_R_EN, 	{372,  12,  0, 0}, 0, NULL, NULL, NULL, false},
+
+#endif
+#if(__ADJUSTMENT_SCREEN_VARIANT == 1)
+
+	// PVB
+	{&ADJUSTMENT_SCREEN_ICON_L_EN, 	{  8,   8,  0, 0}, 0, NULL, NULL, NULL, false},
+	{&ADJUSTMENT_SCREEN_ICON_R_EN, 	{  8, 216,  0, 0}, 0, NULL, NULL, NULL, false},
+	{&ADJUSTMENT_SCREEN_BG_EN, 		{192, 112,  0, 2}, 0, NULL, NULL, NULL, false},
+	{&ADJUSTMENT_SCREEN_LOGO_EN, 	{192, 110,  0, 0}, 0, NULL, NULL, NULL, false},
+	{&ADJUSTMENT_SCREEN_ICON_L_EN, 	{376, 216,  0, 0}, 0, NULL, NULL, NULL, false},
+	{&ADJUSTMENT_SCREEN_ICON_R_EN, 	{376,   8,  0, 0}, 0, NULL, NULL, NULL, false},
+
+#endif
+#if(__ADJUSTMENT_SCREEN_VARIANT == 2)
+
+	// Nintendo
+	{&ADJUSTMENT_SCREEN_ICON_L_EN, 	{  8,   8,  0, 0}, 0, NULL, NULL, NULL, false},
+	{&ADJUSTMENT_SCREEN_ICON_R_EN, 	{  8, 216,  0, 0}, 0, NULL, NULL, NULL, false},
+	{&ADJUSTMENT_SCREEN_BG_EN, 		{192, 112,  1, 0}, 0, NULL, NULL, NULL, false},
+	{&ADJUSTMENT_SCREEN_LOGO_EN, 	{192, 100,  0, 0}, 0, NULL, NULL, NULL, false},
+	{&ADJUSTMENT_SCREEN_ICON_L_EN, 	{376, 216,  0, 0}, 0, NULL, NULL, NULL, false},
+	{&ADJUSTMENT_SCREEN_ICON_R_EN, 	{376,   8,  0, 0}, 0, NULL, NULL, NULL, false},
+
+#endif
+#if(__ADJUSTMENT_SCREEN_VARIANT == 3)
+
+	// Prototype
+	{&ADJUSTMENT_SCREEN_ICON_L_EN, 	{  8,   8,  0, 0}, 0, NULL, NULL, NULL, false},
+	{&ADJUSTMENT_SCREEN_ICON_R_EN, 	{  8, 216,  0, 0}, 0, NULL, NULL, NULL, false},
+	{&ADJUSTMENT_SCREEN_BG_EN, 		{192, 112,  1, 0}, 0, NULL, NULL, NULL, false},
+	{&ADJUSTMENT_SCREEN_LOGO_EN, 	{192, 104,  0, 0}, 0, NULL, NULL, NULL, false},
+	{&ADJUSTMENT_SCREEN_ICON_L_EN, 	{376, 216,  0, 0}, 0, NULL, NULL, NULL, false},
+	{&ADJUSTMENT_SCREEN_ICON_R_EN, 	{376,   8,  0, 0}, 0, NULL, NULL, NULL, false},
+
+#endif
 
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
 };
 
 PositionedEntityROMDef ADJUSTMENT_SCREEN_STAGE_ST_UI_ENTITIES[] =
 {	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
-};
-
-
-//---------------------------------------------------------------------------------------------------------
-// 											PRELOAD LISTS
-//---------------------------------------------------------------------------------------------------------
-
-FontROMDef* const ADJUSTMENT_SCREEN_STAGE_ST_FONTS[] =
-{
-	NULL
 };
 
 
@@ -250,7 +280,7 @@ StageROMDef ADJUSTMENT_SCREEN_STAGE_ST =
 	// assets
 	{
 		// fonts to preload
-		(FontDefinition**)ADJUSTMENT_SCREEN_STAGE_ST_FONTS,
+		(FontDefinition**)NULL,
 
 		// char sets to preload
 		(CharSetDefinition**)NULL,

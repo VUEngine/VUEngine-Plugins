@@ -1,3 +1,4 @@
+#include <AdjustmentScreenState.h>
 #if(__ADJUSTMENT_SCREEN_VARIANT == 2)
 
 //{{BLOCK(AdjustmentScreenBG)
