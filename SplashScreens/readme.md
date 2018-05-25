@@ -1,5 +1,5 @@
-VUEngine Components: AdjustmentScreenState
-==========================================
+VUEngine Components: SplashScreens
+==================================
 
 The default VUEngine 6 adjustment/splash screen.
 

@@ -137,7 +137,7 @@ void SaveDataManager::initialize()
 		I18n::setActiveLanguage(I18n::getInstance(), SaveDataManager::getLanguage(this));
 
 		// load and set auto pause state
-		// TODO: find a way to decouple this from AutoPauseScreenState
+		// TODO: decouple AutoPauseScreenState
 		Game::setAutomaticPauseState(Game::getInstance(), SaveDataManager::getAutomaticPauseStatus(this)
 			//? GameState::safeCast(AutoPauseScreenState::getInstance())
 			? NULL

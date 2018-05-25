@@ -1,6 +1,6 @@
 # Makefile taken from Wikipedia.org
 
-NAME = SplashScreenState
+NAME = SplashScreens
 
 # Default build type
 TYPE = debug

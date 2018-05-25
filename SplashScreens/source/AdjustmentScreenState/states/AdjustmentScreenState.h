@@ -34,7 +34,9 @@
 //---------------------------------------------------------------------------------------------------------
 
 // Variant to use (0: VUEngine, 1: Planet Virtual Boy, 2: Nintendo or 3: Prototype)
+#ifndef __ADJUSTMENT_SCREEN_VARIANT
 #define __ADJUSTMENT_SCREEN_VARIANT					0
+#endif
 
 #define __ADJUSTMENT_SCREEN_RHOMBUS_INITIAL_VALUE	-64
 
