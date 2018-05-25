@@ -67,8 +67,10 @@ void AdjustmentScreenState::enter(void* owner)
 	// move the printing area out of the visible screen to save CPU resources
 	Printing::setWorldCoordinates(Printing::getInstance(), __SCREEN_WIDTH, __SCREEN_HEIGHT);
 
+#if(__ADJUSTMENT_SCREEN_VARIANT == 0)
 	// add rhombus effect
 	VIPManager::pushBackPostProcessingEffect(VIPManager::getInstance(), AdjustmentScreenState::rhombusEmitterPostProcessingEffect, NULL);
+#endif
 }
 
 void AdjustmentScreenState::processInput(u32 pressedKey __attribute__ ((unused)))
@@ -89,7 +91,7 @@ static void AdjustmentScreenState::rhombusEmitterPostProcessingEffect(u32 curren
 {
 	// runtime working variables
 	// negative value to achieve an initial delay
-	static int radius = ADJUSTMENT_SCREEN_RHOMBUS_INITIAL_VALUE;
+	static int radius = __ADJUSTMENT_SCREEN_RHOMBUS_INITIAL_VALUE;
 
 	// increase radius in each cycle
 	radius += 2;
@@ -101,7 +103,7 @@ static void AdjustmentScreenState::rhombusEmitterPostProcessingEffect(u32 curren
 	else if(radius > 300)
 	{
 		// reset radius when reaching a certain length
-		radius = ADJUSTMENT_SCREEN_RHOMBUS_INITIAL_VALUE;
+		radius = __ADJUSTMENT_SCREEN_RHOMBUS_INITIAL_VALUE;
 		return;
 	}
 
@@ -111,32 +113,32 @@ static void AdjustmentScreenState::rhombusEmitterPostProcessingEffect(u32 curren
 	// top left line
 	DirectDraw::drawLine(
 		directDraw,
-		(PixelVector) {(192 - radius),	(112),			0, -((radius + ADJUSTMENT_SCREEN_RHOMBUS_INITIAL_VALUE)>>5)},
-		(PixelVector) {(192),			(112 - radius),	0, -((radius + ADJUSTMENT_SCREEN_RHOMBUS_INITIAL_VALUE)>>5)},
+		(PixelVector) {(192 - radius),	(112),			0, -((radius + __ADJUSTMENT_SCREEN_RHOMBUS_INITIAL_VALUE)>>5)},
+		(PixelVector) {(192),			(112 - radius),	0, -((radius + __ADJUSTMENT_SCREEN_RHOMBUS_INITIAL_VALUE)>>5)},
 		__COLOR_BRIGHT_RED
 	);
 
 	// top right line
 	DirectDraw::drawLine(
 		directDraw,
-		(PixelVector) {(192 + radius),	(112),			0, -((radius + ADJUSTMENT_SCREEN_RHOMBUS_INITIAL_VALUE)>>5)},
-		(PixelVector) {(192),			(112 - radius),	0, -((radius + ADJUSTMENT_SCREEN_RHOMBUS_INITIAL_VALUE)>>5)},
+		(PixelVector) {(192 + radius),	(112),			0, -((radius + __ADJUSTMENT_SCREEN_RHOMBUS_INITIAL_VALUE)>>5)},
+		(PixelVector) {(192),			(112 - radius),	0, -((radius + __ADJUSTMENT_SCREEN_RHOMBUS_INITIAL_VALUE)>>5)},
 		__COLOR_BRIGHT_RED
 	);
 
 	// bottom right line
 	DirectDraw::drawLine(
 		directDraw,
-		(PixelVector) {(192 + radius),	(112),			0, -((radius + ADJUSTMENT_SCREEN_RHOMBUS_INITIAL_VALUE)>>5)},
-		(PixelVector) {(192),			(112 + radius),	0, -((radius + ADJUSTMENT_SCREEN_RHOMBUS_INITIAL_VALUE)>>5)},
+		(PixelVector) {(192 + radius),	(112),			0, -((radius + __ADJUSTMENT_SCREEN_RHOMBUS_INITIAL_VALUE)>>5)},
+		(PixelVector) {(192),			(112 + radius),	0, -((radius + __ADJUSTMENT_SCREEN_RHOMBUS_INITIAL_VALUE)>>5)},
 		__COLOR_BRIGHT_RED
 	);
 
 	// bottom left line
 	DirectDraw::drawLine(
 		directDraw,
-		(PixelVector) {(192 - radius),	(112),			0, -((radius + ADJUSTMENT_SCREEN_RHOMBUS_INITIAL_VALUE)>>5)},
-		(PixelVector) {(192),			(112 + radius),	0, -((radius + ADJUSTMENT_SCREEN_RHOMBUS_INITIAL_VALUE)>>5)},
+		(PixelVector) {(192 - radius),	(112),			0, -((radius + __ADJUSTMENT_SCREEN_RHOMBUS_INITIAL_VALUE)>>5)},
+		(PixelVector) {(192),			(112 + radius),	0, -((radius + __ADJUSTMENT_SCREEN_RHOMBUS_INITIAL_VALUE)>>5)},
 		__COLOR_BRIGHT_RED
 	);
 }

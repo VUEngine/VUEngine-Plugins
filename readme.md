@@ -33,7 +33,7 @@ COMPONENTS LIST
 **Other**
 
 - SaveDataManager  
-  `Manages persisting of user data in SRAM`
+  `Manages persistance of user data in SRAM`
 
 
 LICENSE

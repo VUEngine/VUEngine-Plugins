@@ -1,8 +1,10 @@
-//{{BLOCK(AdjustmentScreenVUEngineLogo)
+#if(__ADJUSTMENT_SCREEN_VARIANT == 0)
+
+//{{BLOCK(AdjustmentScreenLogo)
 
 //======================================================================
 //
-//	AdjustmentScreenVUEngineLogo, 144x144@2,
+//	AdjustmentScreenLogo, 144x144@2,
 //	+ 74 tiles (t|f reduced) not compressed
 //	+ regular map (flat), not compressed, 18x18
 //	Total size: 1184 + 648 = 1832
@@ -12,7 +14,7 @@
 //
 //======================================================================
 
-const unsigned int AdjustmentScreenVUEngineLogoTiles[296] __attribute__((aligned(4)))=
+const unsigned int AdjustmentScreenLogoTiles[296] __attribute__((aligned(4)))=
 {
 	0x00000000,0x00000000,0x00000000,0x00000000,0x00000000,0x00000000,0x80000000,0xF800E000,
 	0x00000000,0x00000000,0x00020000,0x001F0007,0xAF80BE00,0xAAF8ABE0,0x6AAFAABE,0x5AAA5AAB,
@@ -57,7 +59,7 @@ const unsigned int AdjustmentScreenVUEngineLogoTiles[296] __attribute__((aligned
 	0x99969996,0x99969996,0xAAAA9996,0xAAAAAAAA,0xAAA5AAA9,0xAAD5AA95,0xAAD0AAD4,0xA900AA40,
 };
 
-const unsigned short AdjustmentScreenVUEngineLogoMap[324] __attribute__((aligned(4)))=
+const unsigned short AdjustmentScreenLogoMap[324] __attribute__((aligned(4)))=
 {
 	0x0000,0x0000,0x0000,0x0000,0x0000,0x0000,0x0000,0x0000,
 	0x0001,0x0002,0x0000,0x0000,0x0000,0x0000,0x0000,0x0000,
@@ -107,5 +109,7 @@ const unsigned short AdjustmentScreenVUEngineLogoMap[324] __attribute__((aligned
 	0x0000,0x0000,0x0000,0x0000,
 };
 
-//}}BLOCK(AdjustmentScreenVUEngineLogo)
+//}}BLOCK(AdjustmentScreenLogo)
 
+
+#endif

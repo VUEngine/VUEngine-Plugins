@@ -42,9 +42,6 @@
 //											TYPE DEFINITIONS
 //---------------------------------------------------------------------------------------------------------
 
-// forward declare game's custom save data struct
-struct GameSaveData;
-
 // this struct is never instantiated, its sole purpose is to determine offsets of its members.
 // therefore it acts as kind of like a map of sram content.
 typedef struct SaveData
@@ -61,9 +58,6 @@ typedef struct SaveData
 	/// auto pause status (0: on, 1: off)
 	u8 autoPauseStatus;
 
-	/// custom save data to be defined by the implementing game
-//	GameSaveData gameSaveData;
-
 } SaveData;
 
 
@@ -71,6 +65,12 @@ typedef struct SaveData
 //											CLASS'S DECLARATION
 //---------------------------------------------------------------------------------------------------------
 
+/**
+ * Class that handles SRAM save data, including checksum mechanism to detect manipulation or corruption of
+ * such data. Easily extendable with custom data, see VUEngine Barebone project for an example.
+ *
+ * @ingroup components-other
+ */
 singleton class SaveDataManager : Object
 {
 	/// @protectedsection
@@ -81,21 +81,94 @@ singleton class SaveDataManager : Object
 
 	/// @publicsection
 
+	/**
+	 * Get instance.
+	 *
+	 * @return	SaveDataManager instance
+	 */
 	static SaveDataManager getInstance();
+
+	/**
+	 * Retrieve automatic pause status flag.
+	 *
+	 * @return	flag
+	 */
 	bool getAutomaticPauseStatus();
+
+	/**
+	 * Retrieve ID of currently active language.
+	 *
+	 * @return	Language ID
+	 */
 	u8 getLanguage();
+
+	/**
+	 *
+	 */
 	void initialize();
+
+	/**
+	 * Write automatic pause status flag to SRAM.
+	 *
+	 * @param	autoPauseStatus		Automatic pause status flag
+	 */
 	void setAutomaticPauseStatus(u8 autoPauseStatus);
+
+	/**
+	 * Write ID of currently active language to SRAM.
+	 *
+	 * @param	languageId	Language ID
+	 */
 	void setLanguage(u8 languageId);
 
 
 	/// @privatesection
 
-	void constructor();
-	bool verifySaveStamp();
-	u32 computeChecksum();
-	void writeChecksum();
-	bool verifyChecksum();
+	/**
+	 * Class constructor.
+	 *
+	 * @fn 			void SaveDataManager::constructor()
+     * @memberof 	SaveDataManager
+	 */
+
+	/**
+	 * Class destructor.
+	 *
+	 * @fn			void SaveDataManager::destructor()
+     * @memberof 	SaveDataManager
+	 */
+
+	/**
+	 * Write then immediately read save stamp to check for SRAM presence and validity.
+	 *
+	 * @fn			bool SaveDataManager::verifySaveStamp()
+     * @memberof 	SaveDataManager
+     * @return 	  	Valid save stamp found?
+	 */
+
+	/**
+	 * Computes a CRC32 checksum over whole SRAM content, starting right after the previously saved
+	 * checksum's address.
+	 *
+	 * @fn			u32 computeChecksum()
+     * @memberof 	SaveDataManager
+     * @return 	  	CRC32 checksum
+	 */
+
+	/**
+	 * Write given checksum to SRAM.
+	 *
+	 * @fn			void SaveDataManager::writeChecksum()
+     * @memberof 	SaveDataManager
+	 */
+
+	/**
+	 * Recompute checksum and compare to that stored in SRAM.
+	 *
+	 * @fn			bool SaveDataManager::verifyChecksum()
+     * @memberof	SaveDataManager
+     * @return 	  	Valid checksum found?
+	 */
 }
 
 

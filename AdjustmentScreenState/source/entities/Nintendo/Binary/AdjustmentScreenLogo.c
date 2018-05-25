@@ -1,8 +1,10 @@
-//{{BLOCK(AdjustmentScreenNintendoLogo)
+#if(__ADJUSTMENT_SCREEN_VARIANT == 2)
+
+//{{BLOCK(AdjustmentScreenLogo)
 
 //======================================================================
 //
-//	AdjustmentScreenNintendoLogo, 144x40@2,
+//	AdjustmentScreenLogo, 144x40@2,
 //	+ 41 tiles (t|f reduced) not compressed
 //	+ regular map (flat), not compressed, 18x5
 //	Total size: 656 + 180 = 836
@@ -12,7 +14,7 @@
 //
 //======================================================================
 
-const unsigned int AdjustmentScreenNintendoLogoTiles[164] __attribute__((aligned(4)))=
+const unsigned int AdjustmentScreenLogoTiles[164] __attribute__((aligned(4)))=
 {
 	0x00000000,0x00000000,0x00000000,0x00000000,0x5557FFFF,0x55575557,0x55575557,0x55575557,
 	0x5555FFFF,0x55555555,0x55555555,0x55555555,0x55575557,0x55575557,0x55575557,0x55575557,
@@ -39,7 +41,7 @@ const unsigned int AdjustmentScreenNintendoLogoTiles[164] __attribute__((aligned
 	0x55555555,0x55555555,0x55555555,0x0000FFFF,
 };
 
-const unsigned short AdjustmentScreenNintendoLogoMap[90] __attribute__((aligned(4)))=
+const unsigned short AdjustmentScreenLogoMap[90] __attribute__((aligned(4)))=
 {
 	0x0001,0x0002,0x0002,0x0002,0x0002,0x0002,0x0002,0x0002,
 	0x0002,0x0002,0x0002,0x0002,0x0002,0x0002,0x0002,0x0002,
@@ -56,5 +58,7 @@ const unsigned short AdjustmentScreenNintendoLogoMap[90] __attribute__((aligned(
 	0x0028,0x2027,
 };
 
-//}}BLOCK(AdjustmentScreenNintendoLogo)
+//}}BLOCK(AdjustmentScreenLogo)
 
+
+#endif

@@ -1,8 +1,10 @@
-//{{BLOCK(AdjustmentScreenPvbLogo)
+#if(__ADJUSTMENT_SCREEN_VARIANT == 1)
+
+//{{BLOCK(AdjustmentScreenLogo)
 
 //======================================================================
 //
-//	AdjustmentScreenPvbLogo, 208x40@2,
+//	AdjustmentScreenLogo, 208x40@2,
 //	+ 65 tiles (t|f reduced) not compressed
 //	+ regular map (flat), not compressed, 26x5
 //	Total size: 1040 + 260 = 1300
@@ -12,7 +14,7 @@
 //
 //======================================================================
 
-const unsigned int AdjustmentScreenPvbLogoTiles[260] __attribute__((aligned(4)))=
+const unsigned int AdjustmentScreenLogoTiles[260] __attribute__((aligned(4)))=
 {
 	0x00000000,0x00000000,0x00000000,0x00000000,0x5557FFFF,0x55575557,0x55575557,0x55575557,
 	0x5555FFFF,0x55555555,0x55555555,0x55555555,0x55575557,0x55575557,0x55575557,0x55575557,
@@ -53,7 +55,7 @@ const unsigned int AdjustmentScreenPvbLogoTiles[260] __attribute__((aligned(4)))
 	0x55555555,0x55555555,0x55555555,0x0000FFFF,
 };
 
-const unsigned short AdjustmentScreenPvbLogoMap[130] __attribute__((aligned(4)))=
+const unsigned short AdjustmentScreenLogoMap[130] __attribute__((aligned(4)))=
 {
 	0x0001,0x0002,0x0002,0x0002,0x0002,0x0002,0x0002,0x0002,
 	0x0002,0x0002,0x0002,0x0002,0x0002,0x0002,0x0002,0x0002,
@@ -76,5 +78,7 @@ const unsigned short AdjustmentScreenPvbLogoMap[130] __attribute__((aligned(4)))
 	0x0040,0x203F,
 };
 
-//}}BLOCK(AdjustmentScreenPvbLogo)
+//}}BLOCK(AdjustmentScreenLogo)
 
+
+#endif

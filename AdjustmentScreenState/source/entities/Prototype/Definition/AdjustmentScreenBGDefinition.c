@@ -17,9 +17,12 @@
  * NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
  * WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- */
+*/
 
- //---------------------------------------------------------------------------------------------------------
+#if(__ADJUSTMENT_SCREEN_VARIANT == 3)
+
+
+//---------------------------------------------------------------------------------------------------------
 //												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
@@ -30,15 +33,15 @@
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern BYTE AdjustmentScreenPrototypeBGTiles[];
-extern BYTE AdjustmentScreenPrototypeBGMap[];
+extern BYTE AdjustmentScreenBGTiles[];
+extern BYTE AdjustmentScreenBGMap[];
 
 
 //---------------------------------------------------------------------------------------------------------
 //												DEFINITIONS
 //---------------------------------------------------------------------------------------------------------
 
-CharSetROMDef ADJUSTMENT_SCREEN_PROTOTYPE_BG_CH =
+CharSetROMDef ADJUSTMENT_SCREEN_BG_CH =
 {
 	// number of chars, depending on allocation type:
 	// __ANIMATED_SINGLE*, __ANIMATED_SHARED*: number of chars of a single animation frame (cols * rows)
@@ -50,16 +53,16 @@ CharSetROMDef ADJUSTMENT_SCREEN_PROTOTYPE_BG_CH =
 	__NOT_ANIMATED,
 
 	// char definition
-	AdjustmentScreenPrototypeBGTiles,
+	AdjustmentScreenBGTiles,
 };
 
-TextureROMDef ADJUSTMENT_SCREEN_PROTOTYPE_BG_TX =
+TextureROMDef ADJUSTMENT_SCREEN_BG_TX =
 {
 	// charset definition
-	(CharSetDefinition*)&ADJUSTMENT_SCREEN_PROTOTYPE_BG_CH,
+	(CharSetDefinition*)&ADJUSTMENT_SCREEN_BG_CH,
 
 	// bgmap definition
-	AdjustmentScreenPrototypeBGMap,
+	AdjustmentScreenBGMap,
 
 	// cols (max 64)
 	12,
@@ -82,14 +85,14 @@ TextureROMDef ADJUSTMENT_SCREEN_PROTOTYPE_BG_TX =
 	false,
 };
 
-BgmapSpriteROMDef ADJUSTMENT_SCREEN_PROTOTYPE_BG_IM_SPRITE =
+BgmapSpriteROMDef ADJUSTMENT_SCREEN_BG_SPRITE =
 {
 	{
 		// sprite's type
 		__TYPE(BgmapSprite),
 
 		// texture definition
-		(TextureDefinition*)&ADJUSTMENT_SCREEN_PROTOTYPE_BG_TX,
+		(TextureDefinition*)&ADJUSTMENT_SCREEN_BG_TX,
 
 		// transparent (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
@@ -109,19 +112,19 @@ BgmapSpriteROMDef ADJUSTMENT_SCREEN_PROTOTYPE_BG_IM_SPRITE =
 	__WORLD_ON,
 };
 
-BgmapSpriteROMDef* const ADJUSTMENT_SCREEN_PROTOTYPE_BG_IM_SPRITES[] =
+BgmapSpriteROMDef* const ADJUSTMENT_SCREEN_BG_SPRITES[] =
 {
-	&ADJUSTMENT_SCREEN_PROTOTYPE_BG_IM_SPRITE,
+	&ADJUSTMENT_SCREEN_BG_SPRITE,
 	NULL
 };
 
-EntityROMDef ADJUSTMENT_SCREEN_PROTOTYPE_BG_IM =
+EntityROMDef ADJUSTMENT_SCREEN_BG_EN =
 {
 	// class allocator
 	__TYPE(Entity),
 
 	// sprites
-	(SpriteROMDef**)ADJUSTMENT_SCREEN_PROTOTYPE_BG_IM_SPRITES,
+	(SpriteROMDef**)ADJUSTMENT_SCREEN_BG_SPRITES,
 
 	// collision shapes
 	(ShapeDefinition*)NULL,
@@ -137,3 +140,5 @@ EntityROMDef ADJUSTMENT_SCREEN_PROTOTYPE_BG_IM =
 	(PhysicalSpecification*)NULL,
 };
 
+
+#endif

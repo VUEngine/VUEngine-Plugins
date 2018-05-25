@@ -17,9 +17,12 @@
  * NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
  * WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- */
+*/
 
- //---------------------------------------------------------------------------------------------------------
+#if(__ADJUSTMENT_SCREEN_VARIANT == 2)
+
+
+//---------------------------------------------------------------------------------------------------------
 //												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
@@ -30,15 +33,15 @@
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern BYTE AdjustmentScreenNintendoIconTiles[];
-extern BYTE AdjustmentScreenNintendoIconMap[];
+extern BYTE AdjustmentScreenIconTiles[];
+extern BYTE AdjustmentScreenIconMap[];
 
 
 //---------------------------------------------------------------------------------------------------------
 //												DEFINITIONS
 //---------------------------------------------------------------------------------------------------------
 
-CharSetROMDef ADJUSTMENT_SCREEN_NINTENDO_ICON_CH =
+CharSetROMDef ADJUSTMENT_SCREEN_ICON_CH =
 {
 	// number of chars, depending on allocation type:
 	// __ANIMATED_SINGLE*, __ANIMATED_SHARED*: number of chars of a single animation frame (cols * rows)
@@ -50,16 +53,16 @@ CharSetROMDef ADJUSTMENT_SCREEN_NINTENDO_ICON_CH =
 	__NOT_ANIMATED,
 
 	// char definition
-	AdjustmentScreenNintendoIconTiles,
+	AdjustmentScreenIconTiles,
 };
 
-TextureROMDef ADJUSTMENT_SCREEN_NINTENDO_ICON_TX =
+TextureROMDef ADJUSTMENT_SCREEN_ICON_TX =
 {
 	// charset definition
-	(CharSetDefinition*)&ADJUSTMENT_SCREEN_NINTENDO_ICON_CH,
+	(CharSetDefinition*)&ADJUSTMENT_SCREEN_ICON_CH,
 
 	// bgmap definition
-	AdjustmentScreenNintendoIconMap,
+	AdjustmentScreenIconMap,
 
 	// cols (max 64)
 	2,
@@ -82,14 +85,14 @@ TextureROMDef ADJUSTMENT_SCREEN_NINTENDO_ICON_TX =
 	false,
 };
 
-BgmapSpriteROMDef ADJUSTMENT_SCREEN_NINTENDO_ICON_IM_L_SPRITE =
+BgmapSpriteROMDef ADJUSTMENT_SCREEN_ICON_L_SPRITE =
 {
 	{
 		// sprite's type
 		__TYPE(BgmapSprite),
 
 		// texture definition
-		(TextureDefinition*)&ADJUSTMENT_SCREEN_NINTENDO_ICON_TX,
+		(TextureDefinition*)&ADJUSTMENT_SCREEN_ICON_TX,
 
 		// transparent (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
@@ -109,20 +112,20 @@ BgmapSpriteROMDef ADJUSTMENT_SCREEN_NINTENDO_ICON_IM_L_SPRITE =
 	__WORLD_LON,
 };
 
-BgmapSpriteROMDef* const ADJUSTMENT_SCREEN_NINTENDO_ICON_IM_L_SPRITES[] =
+BgmapSpriteROMDef* const ADJUSTMENT_SCREEN_ICON_L_SPRITES[] =
 {
-	&ADJUSTMENT_SCREEN_NINTENDO_ICON_IM_L_SPRITE,
+	&ADJUSTMENT_SCREEN_ICON_L_SPRITE,
 	NULL
 };
 
-BgmapSpriteROMDef const ADJUSTMENT_SCREEN_NINTENDO_ICON_IM_R_SPRITE =
+BgmapSpriteROMDef const ADJUSTMENT_SCREEN_ICON_R_SPRITE =
 {
 	{
 		// sprite's type
 		__TYPE(BgmapSprite),
 
 		// texture definition
-		(TextureDefinition*)&ADJUSTMENT_SCREEN_NINTENDO_ICON_TX,
+		(TextureDefinition*)&ADJUSTMENT_SCREEN_ICON_TX,
 
 		// transparent (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
@@ -142,20 +145,20 @@ BgmapSpriteROMDef const ADJUSTMENT_SCREEN_NINTENDO_ICON_IM_R_SPRITE =
 	__WORLD_RON,
 };
 
-BgmapSpriteROMDef* const ADJUSTMENT_SCREEN_NINTENDO_ICON_IM_R_SPRITES[] =
+BgmapSpriteROMDef* const ADJUSTMENT_SCREEN_ICON_R_SPRITES[] =
 {
-	&ADJUSTMENT_SCREEN_NINTENDO_ICON_IM_R_SPRITE,
+	&ADJUSTMENT_SCREEN_ICON_R_SPRITE,
 	NULL
 
 };
 
-EntityROMDef ADJUSTMENT_SCREEN_NINTENDO_ICON_IM_L =
+EntityROMDef ADJUSTMENT_SCREEN_ICON_L =
 {
 	// class allocator
 	__TYPE(Entity),
 
 	// sprites
-	(SpriteROMDef**)ADJUSTMENT_SCREEN_NINTENDO_ICON_IM_L_SPRITES,
+	(SpriteROMDef**)ADJUSTMENT_SCREEN_ICON_L_SPRITES,
 
 	// collision shapes
 	(ShapeDefinition*)NULL,
@@ -171,13 +174,13 @@ EntityROMDef ADJUSTMENT_SCREEN_NINTENDO_ICON_IM_L =
 	(PhysicalSpecification*)NULL,
 };
 
-EntityROMDef ADJUSTMENT_SCREEN_NINTENDO_ICON_IM_R =
+EntityROMDef ADJUSTMENT_SCREEN_ICON_R =
 {
 	// class allocator
 	__TYPE(Entity),
 
 	// sprites
-	(SpriteROMDef**)ADJUSTMENT_SCREEN_NINTENDO_ICON_IM_R_SPRITES,
+	(SpriteROMDef**)ADJUSTMENT_SCREEN_ICON_R_SPRITES,
 
 	// collision shapes
 	(ShapeDefinition*)NULL,
@@ -193,3 +196,5 @@ EntityROMDef ADJUSTMENT_SCREEN_NINTENDO_ICON_IM_R =
 	(PhysicalSpecification*)NULL,
 };
 
+
+#endif

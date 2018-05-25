@@ -1,8 +1,10 @@
-//{{BLOCK(AdjustmentScreenPrototypeLogo)
+#if(__ADJUSTMENT_SCREEN_VARIANT == 3)
+
+//{{BLOCK(AdjustmentScreenLogo)
 
 //======================================================================
 //
-//	AdjustmentScreenPrototypeLogo, 144x48@2,
+//	AdjustmentScreenLogo, 144x48@2,
 //	+ 52 tiles (t|f reduced) not compressed
 //	+ regular map (flat), not compressed, 18x6
 //	Total size: 832 + 216 = 1048
@@ -12,7 +14,7 @@
 //
 //======================================================================
 
-const unsigned int AdjustmentScreenPrototypeLogoTiles[208] __attribute__((aligned(4)))=
+const unsigned int AdjustmentScreenLogoTiles[208] __attribute__((aligned(4)))=
 {
 	0x00000000,0x00000000,0x00000000,0x00000000,0x5557FFFF,0x55575557,0x55575557,0x55575557,
 	0x5555FFFF,0x55555555,0x55555555,0x55555555,0x55575557,0x55575557,0x55575557,0x55575557,
@@ -45,7 +47,7 @@ const unsigned int AdjustmentScreenPrototypeLogoTiles[208] __attribute__((aligne
 	0x55575557,0x55575557,0x55575557,0x0000FFFF,0x55555555,0x55555555,0x55555555,0x0000FFFF,
 };
 
-const unsigned short AdjustmentScreenPrototypeLogoMap[108] __attribute__((aligned(4)))=
+const unsigned short AdjustmentScreenLogoMap[108] __attribute__((aligned(4)))=
 {
 	0x0001,0x0002,0x0002,0x0002,0x0002,0x0002,0x0002,0x0002,
 	0x0002,0x0002,0x0002,0x0002,0x0002,0x0002,0x0002,0x0002,
@@ -64,5 +66,7 @@ const unsigned short AdjustmentScreenPrototypeLogoMap[108] __attribute__((aligne
 	0x0033,0x0033,0x0033,0x2032,
 };
 
-//}}BLOCK(AdjustmentScreenPrototypeLogo)
+//}}BLOCK(AdjustmentScreenLogo)
 
+
+#endif

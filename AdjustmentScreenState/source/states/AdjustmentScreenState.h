@@ -33,7 +33,10 @@
 //												MACROS
 //---------------------------------------------------------------------------------------------------------
 
-#define ADJUSTMENT_SCREEN_RHOMBUS_INITIAL_VALUE		-64
+// Variant to use (0: VUEngine, 1: Planet Virtual Boy, 2: Nintendo or 3: Prototype)
+#define __ADJUSTMENT_SCREEN_VARIANT					0
+
+#define __ADJUSTMENT_SCREEN_RHOMBUS_INITIAL_VALUE	-64
 
 
 //---------------------------------------------------------------------------------------------------------

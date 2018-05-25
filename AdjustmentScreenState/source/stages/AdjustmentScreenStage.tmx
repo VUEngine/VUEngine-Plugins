@@ -65,96 +65,96 @@
   <property name="stage.streaming.streamingAmplitude" value="24"/>
   <property name="stage.streaming.unloadPadding" value="16"/>
  </properties>
- <tileset firstgid="1" name="Entities" tilewidth="384" tileheight="224" tilecount="4" columns="0">
+ <tileset firstgid="1" name="VUEngine" tilewidth="384" tileheight="224" tilecount="4" columns="0">
   <tile id="0">
    <properties>
-    <property name="entityName" value="ADJUSTMENT_SCREEN_VUENGINE_BG_IM"/>
+    <property name="entityName" value="ADJUSTMENT_SCREEN_BG_EN"/>
    </properties>
-   <image width="384" height="224" source="../entities/VUEngine/Preview/AdjustmentScreenVUEngineBG.png"/>
+   <image width="384" height="224" source="../entities/VUEngine/Preview/AdjustmentScreenBG.png"/>
   </tile>
   <tile id="1">
    <properties>
-    <property name="entityName" value="ADJUSTMENT_SCREEN_VUENGINE_LOGO_IM"/>
+    <property name="entityName" value="ADJUSTMENT_SCREEN_LOGO_EN"/>
    </properties>
-   <image width="144" height="144" source="../entities/VUEngine/Preview/AdjustmentScreenVUEngineLogo.png"/>
+   <image width="144" height="144" source="../entities/VUEngine/Preview/AdjustmentScreenLogo.png"/>
   </tile>
   <tile id="2">
    <properties>
-    <property name="entityName" value="ADJUSTMENT_SCREEN_VUENGINE_ICON_IM_L"/>
+    <property name="entityName" value="ADJUSTMENT_SCREEN_ICON_L"/>
    </properties>
-   <image width="24" height="24" source="../entities/VUEngine/Preview/AdjustmentScreenVUEngineIcon.png"/>
+   <image width="24" height="24" source="../entities/VUEngine/Preview/AdjustmentScreenIcon.png"/>
   </tile>
   <tile id="3">
    <properties>
-    <property name="entityName" value="ADJUSTMENT_SCREEN_VUENGINE_ICON_IM_R"/>
+    <property name="entityName" value="ADJUSTMENT_SCREEN_ICON_R"/>
    </properties>
-   <image width="24" height="24" source="../entities/VUEngine/Preview/AdjustmentScreenVUEngineIcon.png"/>
+   <image width="24" height="24" source="../entities/VUEngine/Preview/AdjustmentScreenIcon.png"/>
   </tile>
  </tileset>
- <tileset firstgid="5" name="Entities" tilewidth="208" tileheight="112" tilecount="2" columns="0">
+ <tileset firstgid="5" name="PVB" tilewidth="208" tileheight="112" tilecount="2" columns="0">
   <tile id="0">
    <properties>
-    <property name="entityName" value="ADJUSTMENT_SCREEN_PVB_BG_IM"/>
+    <property name="entityName" value="ADJUSTMENT_SCREEN_BG_EN"/>
    </properties>
-   <image width="112" height="112" source="../entities/PVB/Preview/AdjustmentScreenPvbBG.png"/>
+   <image width="112" height="112" source="../entities/PVB/Preview/AdjustmentScreenBG.png"/>
   </tile>
   <tile id="2">
    <properties>
-    <property name="entityName" value="ADJUSTMENT_SCREEN_PVB_LOGO_IM"/>
+    <property name="entityName" value="ADJUSTMENT_SCREEN_LOGO_EN"/>
    </properties>
-   <image width="208" height="40" source="../entities/PVB/Preview/AdjustmentScreenPvbLogo.png"/>
+   <image width="208" height="40" source="../entities/PVB/Preview/AdjustmentScreenLogo.png"/>
   </tile>
  </tileset>
- <tileset firstgid="8" name="Entities" tilewidth="144" tileheight="96" tilecount="4" columns="0">
+ <tileset firstgid="8" name="Nintendo" tilewidth="144" tileheight="96" tilecount="4" columns="0">
   <tile id="0">
    <properties>
-    <property name="entityName" value="ADJUSTMENT_SCREEN_NINTENDO_BG_IM"/>
+    <property name="entityName" value="ADJUSTMENT_SCREEN_BG_EN"/>
    </properties>
-   <image width="96" height="96" source="../entities/Nintendo/Preview/AdjustmentScreenNintendoBG.png"/>
+   <image width="96" height="96" source="../entities/Nintendo/Preview/AdjustmentScreenBG.png"/>
   </tile>
   <tile id="1">
    <properties>
-    <property name="entityName" value="ADJUSTMENT_SCREEN_NINTENDO_LOGO_IM"/>
+    <property name="entityName" value="ADJUSTMENT_SCREEN_LOGO_EN"/>
    </properties>
-   <image width="144" height="40" source="../entities/Nintendo/Preview/AdjustmentScreenNintendoLogo.png"/>
+   <image width="144" height="40" source="../entities/Nintendo/Preview/AdjustmentScreenLogo.png"/>
   </tile>
   <tile id="2">
    <properties>
-    <property name="entityName" value="ADJUSTMENT_SCREEN_NINTENDO_ICON_IM_L"/>
+    <property name="entityName" value="ADJUSTMENT_SCREEN_ICON_L"/>
    </properties>
-   <image width="16" height="16" source="../entities/Nintendo/Preview/AdjustmentScreenNintendoIcon.png"/>
+   <image width="16" height="16" source="../entities/Nintendo/Preview/AdjustmentScreenIcon.png"/>
   </tile>
   <tile id="3">
    <properties>
-    <property name="entityName" value="ADJUSTMENT_SCREEN_NINTENDO_ICON_IM_R"/>
+    <property name="entityName" value="ADJUSTMENT_SCREEN_ICON_R"/>
    </properties>
-   <image width="16" height="16" source="../entities/Nintendo/Preview/AdjustmentScreenNintendoIcon.png"/>
+   <image width="16" height="16" source="../entities/Nintendo/Preview/AdjustmentScreenIcon.png"/>
   </tile>
  </tileset>
- <tileset firstgid="12" name="Entities" tilewidth="144" tileheight="96" tilecount="4" columns="0">
+ <tileset firstgid="12" name="Prototype" tilewidth="144" tileheight="96" tilecount="4" columns="0">
   <tile id="0">
    <properties>
-    <property name="entityName" value="ADJUSTMENT_SCREEN_PROTOTYPE_BG_IM"/>
+    <property name="entityName" value="ADJUSTMENT_SCREEN_BG_EN"/>
    </properties>
-   <image width="96" height="96" source="../entities/Prototype/Preview/AdjustmentScreenPrototypeBG.png"/>
+   <image width="96" height="96" source="../entities/Prototype/Preview/AdjustmentScreenBG.png"/>
   </tile>
   <tile id="1">
    <properties>
-    <property name="entityName" value="ADJUSTMENT_SCREEN_PROTOTYPE_LOGO_IM"/>
+    <property name="entityName" value="ADJUSTMENT_SCREEN_LOGO_EN"/>
    </properties>
-   <image width="144" height="48" source="../entities/Prototype/Preview/AdjustmentScreenPrototypeLogo.png"/>
+   <image width="144" height="48" source="../entities/Prototype/Preview/AdjustmentScreenLogo.png"/>
   </tile>
   <tile id="2">
    <properties>
-    <property name="entityName" value="ADJUSTMENT_SCREEN_PROTOTYPE_ICON_IM_L"/>
+    <property name="entityName" value="ADJUSTMENT_SCREEN_ICON_L"/>
    </properties>
-   <image width="16" height="16" source="../entities/Prototype/Preview/AdjustmentScreenPrototypeIcon.png"/>
+   <image width="16" height="16" source="../entities/Prototype/Preview/AdjustmentScreenIcon.png"/>
   </tile>
   <tile id="3">
    <properties>
-    <property name="entityName" value="ADJUSTMENT_SCREEN_PROTOTYPE_ICON_IM_R"/>
+    <property name="entityName" value="ADJUSTMENT_SCREEN_ICON_R"/>
    </properties>
-   <image width="16" height="16" source="../entities/Prototype/Preview/AdjustmentScreenPrototypeIcon.png"/>
+   <image width="16" height="16" source="../entities/Prototype/Preview/AdjustmentScreenIcon.png"/>
   </tile>
  </tileset>
  <objectgroup draworder="index" name="Prototype" visible="0">

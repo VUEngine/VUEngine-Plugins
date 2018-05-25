@@ -1,4 +1,5 @@
-/* VUEngine: a universal engine for the Pvb Virtual Boy
+/* VUEngine - Virtual Utopia Engine <http://vuengine.planetvb.com/>
+ * A universal game engine for the Nintendo Virtual Boy
  *
  * Copyright (C) 2007, 2018 by Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <chris@vr32.de>
  *
@@ -16,9 +17,12 @@
  * NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
  * WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- */
+*/
 
- //---------------------------------------------------------------------------------------------------------
+#if(__ADJUSTMENT_SCREEN_VARIANT == 2)
+
+
+//---------------------------------------------------------------------------------------------------------
 //												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
@@ -29,42 +33,42 @@
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern BYTE AdjustmentScreenPvbLogoTiles[];
-extern BYTE AdjustmentScreenPvbLogoMap[];
+extern BYTE AdjustmentScreenBGTiles[];
+extern BYTE AdjustmentScreenBGMap[];
 
 
 //---------------------------------------------------------------------------------------------------------
 //												DEFINITIONS
 //---------------------------------------------------------------------------------------------------------
 
-CharSetROMDef ADJUSTMENT_SCREEN_PVB_LOGO_CH =
+CharSetROMDef ADJUSTMENT_SCREEN_BG_CH =
 {
 	// number of chars, depending on allocation type:
 	// __ANIMATED_SINGLE*, __ANIMATED_SHARED*: number of chars of a single animation frame (cols * rows)
 	// __ANIMATED_MULTI, __NOT_ANIMATED: sum of all chars
-	64,
+	2,
 
 	// allocation type
 	// (__ANIMATED_SINGLE, __ANIMATED_SINGLE_OPTIMIZED, __ANIMATED_SHARED, __ANIMATED_SHARED_COORDINATED, __ANIMATED_MULTI or __NOT_ANIMATED)
 	__NOT_ANIMATED,
 
 	// char definition
-	AdjustmentScreenPvbLogoTiles,
+	AdjustmentScreenBGTiles,
 };
 
-TextureROMDef ADJUSTMENT_SCREEN_PVB_LOGO_TX =
+TextureROMDef ADJUSTMENT_SCREEN_BG_TX =
 {
 	// charset definition
-	(CharSetDefinition*)&ADJUSTMENT_SCREEN_PVB_LOGO_CH,
+	(CharSetDefinition*)&ADJUSTMENT_SCREEN_BG_CH,
 
 	// bgmap definition
-	AdjustmentScreenPvbLogoMap,
+	AdjustmentScreenBGMap,
 
 	// cols (max 64)
-	26,
+	12,
 
 	// rows (max 64)
-	5,
+	12,
 
 	// padding for affine/hbias transformations (cols, rows)
 	{0, 0},
@@ -75,20 +79,20 @@ TextureROMDef ADJUSTMENT_SCREEN_PVB_LOGO_TX =
 	1,
 
 	// palette number (0-3)
-	1,
+	0,
 
 	// recyclable
 	false,
 };
 
-BgmapSpriteROMDef ADJUSTMENT_SCREEN_PVB_LOGO_IM_SPRITE =
+BgmapSpriteROMDef ADJUSTMENT_SCREEN_BG_SPRITE =
 {
 	{
 		// sprite's type
 		__TYPE(BgmapSprite),
 
 		// texture definition
-		(TextureDefinition*)&ADJUSTMENT_SCREEN_PVB_LOGO_TX,
+		(TextureDefinition*)&ADJUSTMENT_SCREEN_BG_TX,
 
 		// transparent (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
@@ -108,19 +112,19 @@ BgmapSpriteROMDef ADJUSTMENT_SCREEN_PVB_LOGO_IM_SPRITE =
 	__WORLD_ON,
 };
 
-BgmapSpriteROMDef* const ADJUSTMENT_SCREEN_PVB_LOGO_IM_SPRITES[] =
+BgmapSpriteROMDef* const ADJUSTMENT_SCREEN_BG_SPRITES[] =
 {
-	&ADJUSTMENT_SCREEN_PVB_LOGO_IM_SPRITE,
+	&ADJUSTMENT_SCREEN_BG_SPRITE,
 	NULL
 };
 
-EntityROMDef ADJUSTMENT_SCREEN_PVB_LOGO_IM =
+EntityROMDef ADJUSTMENT_SCREEN_BG_EN =
 {
 	// class allocator
 	__TYPE(Entity),
 
 	// sprites
-	(SpriteROMDef**)ADJUSTMENT_SCREEN_PVB_LOGO_IM_SPRITES,
+	(SpriteROMDef**)ADJUSTMENT_SCREEN_BG_SPRITES,
 
 	// collision shapes
 	(ShapeDefinition*)NULL,
@@ -136,3 +140,5 @@ EntityROMDef ADJUSTMENT_SCREEN_PVB_LOGO_IM =
 	(PhysicalSpecification*)NULL,
 };
 
+
+#endif

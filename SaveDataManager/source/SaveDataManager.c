@@ -26,13 +26,11 @@
 
 #include <string.h>
 #include <stddef.h>
-
 #include <Game.h>
 #include <I18n.h>
-#include <Error.h>
 #include <SRAMManager.h>
 #include <Utilities.h>
-#include <AutoPauseScreenState.h>
+//#include <AutoPauseScreenState.h>
 #include <SaveDataManager.h>
 
 
@@ -40,7 +38,6 @@
 //												CLASS'S METHODS
 //---------------------------------------------------------------------------------------------------------
 
-// class's constructor
 void SaveDataManager::constructor()
 {
 	// construct base object
@@ -53,14 +50,12 @@ void SaveDataManager::constructor()
 	SaveDataManager::initialize(this);
 }
 
-// class's destructor
 void SaveDataManager::destructor()
 {
 	// destroy base
 	Base::destructor();
 }
 
-// write then immediately read save stamp to validate sram
 bool SaveDataManager::verifySaveStamp()
 {
 	char saveStamp[SAVE_STAMP_LENGTH];
@@ -138,11 +133,14 @@ void SaveDataManager::initialize()
 		}
 
 		// load and set active language
+		// TODO: decouple from I18n class by using events?
 		I18n::setActiveLanguage(I18n::getInstance(), SaveDataManager::getLanguage(this));
 
 		// load and set auto pause state
+		// TODO: find a way to decouple this from AutoPauseScreenState
 		Game::setAutomaticPauseState(Game::getInstance(), SaveDataManager::getAutomaticPauseStatus(this)
-			? GameState::safeCast(AutoPauseScreenState::getInstance())
+			//? GameState::safeCast(AutoPauseScreenState::getInstance())
+			? NULL
 			: NULL
 		);
 	}
