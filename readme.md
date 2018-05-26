@@ -32,6 +32,8 @@ COMPONENTS LIST
 
 **Other**
 
+- LowBatteryIndicatorManager  
+  `Shows an indicator on screen when the system power is low`
 - SaveDataManager  
   `Manages persistance of user data in SRAM`
 
