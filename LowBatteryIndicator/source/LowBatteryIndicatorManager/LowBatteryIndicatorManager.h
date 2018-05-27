@@ -19,8 +19,8 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-#ifndef LOW_BATTERY_MANAGER_H_
-#define LOW_BATTERY_MANAGER_H_
+#ifndef LOW_BATTERY_INDICATOR_MANAGER_H_
+#define LOW_BATTERY_INDICATOR_MANAGER_H_
 
 
 //---------------------------------------------------------------------------------------------------------

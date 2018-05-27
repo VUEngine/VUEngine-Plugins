@@ -1,6 +1,6 @@
 # Makefile taken from Wikipedia.org
 
-NAME = ReflectiveEntity
+NAME = LowBatteryIndicator
 
 # Default build type
 TYPE = release

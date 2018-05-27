@@ -34,9 +34,12 @@
 #include <I18n.h>
 #include <AutoPauseSelectScreenState.h>
 #include <LangSelectScreenState.h>
-//#include <AutoPauseScreenState.h>
 #include <Languages.h>
 #include <KeyPadManager.h>
+/*
+#include <AutoPauseManager.h>
+#include <AutoPauseScreenState.h>
+*/
 #include <SaveDataManager.h>
 #include <GameSaveDataManager.h>
 
@@ -157,10 +160,12 @@ void AutoPauseSelectScreenState::processInput(u32 pressedKey)
 	else if((pressedKey & K_A) || (pressedKey & K_STA))
 	{
 		// TODO: decouple AutoPauseScreenState
-		Game::setAutomaticPauseState(Game::getInstance(), this->selection
-			? NULL//GameState::safeCast(AutoPauseScreenState::getInstance())
+		/*
+		AutoPauseManager::setAutomaticPauseState(Game::getInstance(), this->selection
+			? GameState::safeCast(AutoPauseScreenState::getInstance())
 			: NULL
 		);
+		*/
 		SaveDataManager::setAutomaticPauseStatus(GameSaveDataManager::getInstance(), (bool)this->selection);
 		SplashScreenState::loadNextState(SplashScreenState::safeCast(this));
 	}

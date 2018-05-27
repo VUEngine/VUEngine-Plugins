@@ -30,7 +30,10 @@
 #include <I18n.h>
 #include <SRAMManager.h>
 #include <Utilities.h>
-//#include <AutoPauseScreenState.h>
+/*
+#include <AutoPauseScreenState.h>
+#include <AutoPauseManager.h>
+*/
 #include <SaveDataManager.h>
 
 
@@ -138,11 +141,12 @@ void SaveDataManager::initialize()
 
 		// load and set auto pause state
 		// TODO: decouple AutoPauseScreenState
-		Game::setAutomaticPauseState(Game::getInstance(), SaveDataManager::getAutomaticPauseStatus(this)
-			//? GameState::safeCast(AutoPauseScreenState::getInstance())
-			? NULL
+		/*
+		AutoPauseManager::setAutomaticPauseState(Game::getInstance(), SaveDataManager::getAutomaticPauseStatus(this)
+			? GameState::safeCast(AutoPauseScreenState::getInstance())
 			: NULL
 		);
+		*/
 	}
 }
 

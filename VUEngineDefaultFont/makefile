@@ -3,10 +3,10 @@
 NAME = VUEngineDefaultFont
 
 # Default build type
-TYPE = debug
-#TYPE = release
+TYPE = release
 #TYPE = beta
 #TYPE = tools
+#TYPE = debug
 #TYPE = preprocessor
 
 # Which libraries are linked

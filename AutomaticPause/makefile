@@ -1,12 +1,12 @@
 # Makefile taken from Wikipedia.org
 
-NAME = LowBatteryIndicatorManager
+NAME = AutomaticPause
 
 # Default build type
-TYPE = debug
-#TYPE = release
+TYPE = release
 #TYPE = beta
 #TYPE = tools
+#TYPE = debug
 #TYPE = preprocessor
 
 # Which libraries are linked

@@ -1,43 +1,20 @@
-VUEngine Components
-===================
+VUEngine Components: AutomaticPause
+===================================
 
-A library of reusable VUEngine 6 components.
-
-
-USAGE
------
-
-Coming soon.
+Automatically pauses the game every 30 minutes. Interval can be freely defined. 
+Also comes with a default Automatic Pause Screen State.
 
 
-COMPONENTS LIST
----------------
+PREVIEW
+-------
 
-**Entities**
+![Preview Image](preview.png)
 
-- ReflectiveEntity  
-  `An Entity that can mirror other parts of the virtual screen`
 
-**States**
+DEPENDENCIES
+------------
 
-- SplashScreenState  
-  `Generic abstract splash screen base class`
-	- AdjustmentScreenState  
-	  `The default VUEngine 6 adjustment/splash screen`
-
-**Fonts**
-
-- VUEngineDefaultFont  
-  `The default VUEngine font`
-
-**Other**
-
-- AutomaticPause  
-  `Automatically pauses the game after a definable amount of time`
-- LowBatteryIndicator  
-  `Shows an indicator on screen when the system power is low`
-- SaveDataManager  
-  `Manages persistance of user data in SRAM`
+This component has no external dependencies.
 
 
 LICENSE
