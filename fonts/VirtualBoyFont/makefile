@@ -1,5 +1,5 @@
 # Full component name
-NAME = vuengine-components/fonts/VUEngineDefaultFont
+NAME = vuengine-components/fonts/VirtualBoyFont
 
 # Clean component name by stripping out everything up to (and including) the last slash
 BASENAME = $(shell sed -e "s@.*/@@" <<< $(NAME))
