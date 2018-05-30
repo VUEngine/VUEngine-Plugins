@@ -1,41 +1,31 @@
-VUEngine Components
-===================
+VUEngine Components: SplashScreens
+==================================
 
-A library of reusable VUEngine 6 components.
-
-
-USAGE
------
-
-Coming soon.
+A collection of default splash screens.
+- Precaution screen
+- Adjustment screen
+- Automatic Pause selection screen
+- Language selection screen
 
 
-COMPONENTS LIST
----------------
+PREVIEW
+-------
 
-**Entities**
+![Preview Image](preview.png)
 
-- ReflectiveEntity  
-  `An Entity that can mirror other parts of the virtual screen`
 
-**States**
+DEPENDENCIES
+------------
 
-- SplashScreens  
-  `A collection of default splash screens`
+This component has no external dependencies.
 
-**Fonts**
 
-- VUEngineDefaultFont  
-  `The default VUEngine font`
+NAME
+----
 
-**Other**
+Add the following to the COMPONENTS variable in your project's `config.make` file to include this component.
 
-- AutomaticPause  
-  `Automatically pauses the game after a definable amount of time`
-- LowBatteryIndicator  
-  `Shows an indicator on screen when the system power is low`
-- SaveDataManager  
-  `Manages persistance of user data in SRAM`
+	vuengine-components/states/SplashScreens
 
 
 LICENSE
