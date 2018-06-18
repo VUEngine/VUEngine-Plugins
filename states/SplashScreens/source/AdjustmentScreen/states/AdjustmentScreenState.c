@@ -76,8 +76,7 @@ void AdjustmentScreenState::enter(void* owner)
 
 void AdjustmentScreenState::processUserInput(UserInput userInput __attribute__ ((unused)))
 {
-	// TODO: replace this ugly hack with a proper Game::isPaused check or something similar
-	if(this->nextState == NULL)
+	if(Game::isPaused(Game::getInstance()))
 	{
 		Camera::startEffect(Camera::getInstance(), kFadeOut, __FADE_DELAY);
 		Game::unpause(Game::getInstance(), GameState::safeCast(this));

@@ -44,11 +44,12 @@ void AutoPauseManager::constructor()
 	this->lastAutoPauseCheckTime = Clock::getTime(Game::getClock(Game::getInstance()));
 
 	// set default automatic pause state
-	AutoPauseManager::setAutomaticPauseState(AutoPauseManager::getInstance(), GameState::safeCast(AutoPauseScreenState::getInstance()));
+	AutoPauseManager::setAutomaticPauseState(this, GameState::safeCast(AutoPauseScreenState::getInstance()));
 
 	// add event listeners
-	Object::addEventListener(this, Object::safeCast(Game::getInstance()), (EventListener)AutoPauseManager::onGamePaused, kEventGamePaused);
-	Object::addEventListener(this, Object::safeCast(Game::getInstance()), (EventListener)AutoPauseManager::onGameUnpaused, kEventGameUnpaused);
+	Object gameInstance = Object::safeCast(Game::getInstance());
+	Object::addEventListener(this, gameInstance, (EventListener)AutoPauseManager::onGamePaused, kEventGamePaused);
+	Object::addEventListener(this, gameInstance, (EventListener)AutoPauseManager::onGameUnpaused, kEventGameUnpaused);
 
 	// start
 	AutoPauseManager::startCheckDelay(this, __AUTO_PAUSE_DELAY);
@@ -57,8 +58,9 @@ void AutoPauseManager::constructor()
 void AutoPauseManager::destructor()
 {
 	// remove event listeners
-	Object::removeEventListener(this, Object::safeCast(Game::getInstance()), (EventListener)AutoPauseManager::onGamePaused, kEventGamePaused);
-	Object::removeEventListener(this, Object::safeCast(Game::getInstance()), (EventListener)AutoPauseManager::onGameUnpaused, kEventGameUnpaused);
+	Object gameInstance = Object::safeCast(Game::getInstance());
+	Object::removeEventListener(this, gameInstance, (EventListener)AutoPauseManager::onGamePaused, kEventGamePaused);
+	Object::removeEventListener(this, gameInstance, (EventListener)AutoPauseManager::onGameUnpaused, kEventGameUnpaused);
 
 	// destroy base
 	Base::destructor();
