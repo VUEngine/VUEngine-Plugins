@@ -18,75 +18,24 @@
  * WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
+#ifndef AUTOMATIC_PAUSE_CONFIG_H_
+#define AUTOMATIC_PAUSE_CONFIG_H_
 
 
 //---------------------------------------------------------------------------------------------------------
-//												DECLARATIONS
+//												MACROS
 //---------------------------------------------------------------------------------------------------------
 
-extern BYTE VirtualBoyFontTiles[];
+// Amount of time after which to show auto pause (in milliseconds)
+#ifndef __AUTO_PAUSE_DELAY
+#define __AUTO_PAUSE_DELAY						(30 * 60 * 1000)
+#endif
+
+// The automatic pause state is not pushed until there is only one state in the game's stack.
+// The following defines the time between checks whether the condition is met (in milliseconds)
+#ifndef __AUTO_PAUSE_RECHECK_DELAY
+#define __AUTO_PAUSE_RECHECK_DELAY				(30 * 1000)
+#endif
 
 
-//---------------------------------------------------------------------------------------------------------
-//												DEFINITIONS
-//---------------------------------------------------------------------------------------------------------
-
-/**
- * VUEngine default font
- *
- * @ingroup vuengine-components-fonts
- */
-
-CharSetROMDef VIRTUAL_BOY_FONT_CH =
-{
-	// number of chars
-	576,
-
-	// allocation type
-	__NOT_ANIMATED,
-
-	// char definition
-	VirtualBoyFontTiles,
-};
-
-FontROMDef VIRTUAL_BOY_FONT =
-{
-	// font charset definition pointer
-	(CharSetDefinition*)&VIRTUAL_BOY_FONT_CH,
-
-	// character number at which the font starts, allows you to skip the control characters for example
-	32,
-
-	// size of a single character (in chars) ({width, height})
-	{2, 3},
-
-	// font's name
-	"VirtualBoyFont",
-};
-
-CharSetROMDef VIRTUAL_BOY_EXTENDED_FONT_CH =
-{
-	// number of chars
-	1440,
-
-	// allocation type
-	__NOT_ANIMATED,
-
-	// char definition
-	VirtualBoyFontTiles,
-};
-
-FontROMDef VIRTUAL_BOY_EXTENDED_FONT =
-{
-	// font charset definition pointer
-	(CharSetDefinition*)&VIRTUAL_BOY_FONT_CH,
-
-	// character number at which the font starts, allows you to skip the control characters for example
-	32,
-
-	// size of a single character (in chars) ({width, height})
-	{2, 3},
-
-	// font's name
-	"VirtualBoyFont",
-};
+#endif

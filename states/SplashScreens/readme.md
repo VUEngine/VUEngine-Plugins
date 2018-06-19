@@ -3,27 +3,17 @@ VUEngine Components: SplashScreens
 
 A collection of default splash screens.
 - Precaution screen
-- Adjustment screen
+- IPD/Focus adjustment screen
 - Automatic Pause selection screen
 - Language selection screen
-
-
-PREVIEW
--------
 
 ![Preview Image](preview.png)
 
 
-DEPENDENCIES
-------------
+USAGE
+-----
 
-This component has no external dependencies.
-
-
-NAME
-----
-
-Add the following to the COMPONENTS variable in your project's `config.make` file to include this component.
+Add the following to the COMPONENTS variable in your project's `config.make` file to include this component:
 
 	vuengine-components/states/SplashScreens
 

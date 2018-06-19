@@ -1,7 +1,7 @@
-VUEngine Components: AutomaticPause
-===================================
+VUEngine Components: LowBatteryIndicator
+========================================
 
-Automatically pauses the game every 30 minutes. Also comes with a default Automatic Pause Screen State.
+Shows a blinking low battery indicator on screen when the system power is low.
 
 ![Preview Image](preview.png)
 
@@ -11,15 +11,17 @@ USAGE
 
 Add the following to the COMPONENTS variable in your project's `config.make` file to include this component:
 
-	vuengine-components/other/AutomaticPause
+	vuengine-components/other/LowBatteryIndicator
 
-Make sure that an instance of the AutoPauseManager class exists. The recommended way is to call the function `AutoPauseManager::getInstance()` from your game's main function before calling `Game::start(…)`.
+Make sure that an instance of the LowBatteryIndicatorManager class exists. The recommended way is to call the function `LowBatteryIndicatorManager::getInstance()` from your game's main function before calling `Game::start(…)`.
+
+The LowBatteryIndicatorManager assumes that characters 2 and 3 of your default font contain the low battery indicator image. See the VUEngine default font for an example. 
 
 
 CONFIGURATION
 -------------
 
-See `source/AutoPauseConfig.h` for the available macros. Define the desired macro in your game's `config.h` file to override. 
+See `source/LowBatteryIndicatorConfig.h` for the available macros to configure the position of the low battery indicator on screen, its blinking interval or the interval between power checks. Define the desired macro in your game's `config.h` file to override. 
 
 
 LICENSE

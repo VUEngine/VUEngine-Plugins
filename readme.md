@@ -4,12 +4,6 @@ VUEngine Components
 A library of reusable VUEngine 6 components.
 
 
-USAGE
------
-
-Coming soon.
-
-
 COMPONENTS LIST
 ---------------
 
@@ -18,15 +12,10 @@ COMPONENTS LIST
 - ReflectiveEntity  
   `An Entity that can mirror other parts of the virtual screen`
 
-**States**
-
-- SplashScreens  
-  `A collection of default splash screens`
-
 **Fonts**
 
-- VUEngineDefaultFont  
-  `The default VUEngine font`
+- VirtualBoyFont  
+  `Large font based on the "Virtual Boy" writing from the official IPD adjustment screen`
 
 **Other**
 
@@ -36,6 +25,11 @@ COMPONENTS LIST
   `Shows an indicator on screen when the system power is low`
 - SaveDataManager  
   `Manages persistance of user data in SRAM`
+
+**States**
+
+- SplashScreens  
+  `A collection of default splash screens`
 
 
 LICENSE

@@ -1,7 +1,7 @@
-VUEngine Components: AutomaticPause
+VUEngine Components: VirtualBoyFont
 ===================================
 
-Automatically pauses the game every 30 minutes. Also comes with a default Automatic Pause Screen State.
+Large font based on the "Virtual Boy" writing from the official IPD/Focus adjustment screen.
 
 ![Preview Image](preview.png)
 
@@ -11,15 +11,14 @@ USAGE
 
 Add the following to the COMPONENTS variable in your project's `config.make` file to include this component:
 
-	vuengine-components/other/AutomaticPause
+	vuengine-components/fonts/VirtualBoyFont
 
-Make sure that an instance of the AutoPauseManager class exists. The recommended way is to call the function `AutoPauseManager::getInstance()` from your game's main function before calling `Game::start(…)`.
+Included are two versions of the font: 
 
+- `VIRTUAL_BOY_FONT` contains the most important 96 characters (punctuation character, numbers and letters)
+- `VIRTUAL_BOY_EXTENDED_FONT` additionally contains the full set of European special characters
 
-CONFIGURATION
--------------
-
-See `source/AutoPauseConfig.h` for the available macros. Define the desired macro in your game's `config.h` file to override. 
+Include the desired font version in your `__FONTS` array. Be warned that the extended font uses up a large portion of character memory (1440 chars!).
 
 
 LICENSE

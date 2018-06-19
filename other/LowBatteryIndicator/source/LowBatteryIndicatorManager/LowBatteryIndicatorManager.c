@@ -33,8 +33,6 @@
 //												CLASS'S METHODS
 //---------------------------------------------------------------------------------------------------------
 
-// TODO: make sure an instance of this always exists
-
 void LowBatteryIndicatorManager::constructor()
 {
 	// construct base object

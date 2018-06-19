@@ -29,19 +29,7 @@
 
 #include <Object.h>
 #include <GameState.h>
-
-
-//---------------------------------------------------------------------------------------------------------
-//												MACROS
-//---------------------------------------------------------------------------------------------------------
-
-// Amount of time after which to show auto pause (in milliseconds)
-#define __AUTO_PAUSE_DELAY						3000
-//#define __AUTO_PAUSE_DELAY						(30 * 60 * 1000)
-
-// The automatic pause state is not pushed until there is only one state in the game's stack.
-// The following defines the time between checks whether the condition is met (in milliseconds)
-#define __AUTO_PAUSE_RECHECK_DELAY				(30 * 1000)
+#include <AutomaticPauseConfig.h>
 
 
 //---------------------------------------------------------------------------------------------------------

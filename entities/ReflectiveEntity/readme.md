@@ -1,7 +1,7 @@
-VUEngine Components: AutomaticPause
-===================================
+VUEngine Components: ReflectiveEntity
+=====================================
 
-Automatically pauses the game every 30 minutes. Also comes with a default Automatic Pause Screen State.
+An Entity that can mirror other parts of the virtual screen.
 
 ![Preview Image](preview.png)
 
@@ -11,15 +11,13 @@ USAGE
 
 Add the following to the COMPONENTS variable in your project's `config.make` file to include this component:
 
-	vuengine-components/other/AutomaticPause
-
-Make sure that an instance of the AutoPauseManager class exists. The recommended way is to call the function `AutoPauseManager::getInstance()` from your game's main function before calling `Game::start(…)`.
+	vuengine-components/entities/ReflectiveEntity 
 
 
 CONFIGURATION
 -------------
 
-See `source/AutoPauseConfig.h` for the available macros. Define the desired macro in your game's `config.h` file to override. 
+See `source/ReflectiveEntity.h` for the available macros to configure the position of the low battery indicator on screen, its blinking interval or the interval between power checks. Define the desired macro in your game's `config.h` file to override. 
 
 
 LICENSE

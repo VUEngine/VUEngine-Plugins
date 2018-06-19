@@ -18,48 +18,31 @@
  * WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
+#ifndef LOW_BATTERY_INDICATOR_CONFIG_H_
+#define LOW_BATTERY_INDICATOR_CONFIG_H_
 
 
 //---------------------------------------------------------------------------------------------------------
-//												DECLARATIONS
+//												MACROS
 //---------------------------------------------------------------------------------------------------------
 
-extern BYTE VUEngineFontTiles[];
+// Position of low battery indicator
+#ifndef __LOW_BATTERY_INDICATOR_POS_X
+#define __LOW_BATTERY_INDICATOR_POS_X			45
+#endif
+#ifndef __LOW_BATTERY_INDICATOR_POS_Y
+#define __LOW_BATTERY_INDICATOR_POS_Y			1
+#endif
+
+// Delay between showing/not showing the low battery indicator (in milliseconds)
+#ifndef __LOW_BATTERY_INDICATOR_BLINK_INTERVAL
+#define __LOW_BATTERY_INDICATOR_BLINK_INTERVAL	500
+#endif
+
+// Check for the PWR signal every X milliseconds
+#ifndef __LOW_BATTERY_CHECK_INTERVAL
+#define __LOW_BATTERY_CHECK_INTERVAL			1000
+#endif
 
 
-//---------------------------------------------------------------------------------------------------------
-//												DEFINITIONS
-//---------------------------------------------------------------------------------------------------------
-
-/**
- * VUEngine default font
- *
- * @ingroup vuengine-components-fonts
- */
-
-CharSetROMDef VUENGINE_FONT_CH =
-{
-	// number of chars
-	256,
-
-	// allocation type
-	__NOT_ANIMATED,
-
-	// char definition
-	VUEngineFontTiles,
-};
-
-FontROMDef VUENGINE_FONT =
-{
-	// font charset definition pointer
-	(CharSetDefinition*)&VUENGINE_FONT_CH,
-
-	// character number at which the font starts, allows you to skip the control characters for example
-	0,
-
-	// size of a single character (in chars) ({width, height})
-	{1, 1},
-
-	// font's name
-	"VUEngineFont",
-};
+#endif

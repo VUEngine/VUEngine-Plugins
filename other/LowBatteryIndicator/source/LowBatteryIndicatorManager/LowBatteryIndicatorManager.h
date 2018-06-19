@@ -28,21 +28,7 @@
 //---------------------------------------------------------------------------------------------------------
 
 #include <Object.h>
-
-
-//---------------------------------------------------------------------------------------------------------
-//												MACROS
-//---------------------------------------------------------------------------------------------------------
-
-// Position of low battery indicator
-#define __LOW_BATTERY_INDICATOR_POS_X			45
-#define __LOW_BATTERY_INDICATOR_POS_Y			1
-
-// Delay between showing/not showing the low battery indicator (in milliseconds)
-#define __LOW_BATTERY_INDICATOR_BLINK_INTERVAL	500
-
-// Check for the PWR signal every X milliseconds
-#define __LOW_BATTERY_CHECK_INTERVAL			1000
+#include <LowBatteryIndicatorConfig.h>
 
 
 //---------------------------------------------------------------------------------------------------------

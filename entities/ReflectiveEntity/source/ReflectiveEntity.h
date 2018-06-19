@@ -34,20 +34,36 @@
 //												MACROS
 //---------------------------------------------------------------------------------------------------------
 
+#ifndef POINTER_TYPE
 #define POINTER_TYPE			u32 // sizeof(u32) + (sizeof(u32) / sizeof(POINTER_TYPE) / 2)
+#endif
+
+#ifndef Y_SHIFT
 #define Y_SHIFT					4 // sizeof(POINTER_TYPE) << 2
+#endif
+
+#ifndef Y_STEP_SIZE
 #define Y_STEP_SIZE				16
+#endif
+
+#ifndef Y_STEP_SIZE_2_EXP
 #define Y_STEP_SIZE_2_EXP		4 // sizeof(POINTER_TYPE) << 3
+#endif
+
+#ifndef BITS_PER_STEP
 #define BITS_PER_STEP 			32
+#endif
 
 
 //---------------------------------------------------------------------------------------------------------
 //											TYPE DEFINITIONS
 //---------------------------------------------------------------------------------------------------------
 
-/// Definition of a ReflectiveEntity
-///
-/// @memberof 	ReflectiveEntity
+/**
+ * Definition of a ReflectiveEntity
+ *
+ * @memberof 	ReflectiveEntity
+ */
 typedef struct ReflectiveEntityDefinition
 {
 	/// entity definition
@@ -118,9 +134,11 @@ typedef struct ReflectiveEntityDefinition
 
 } ReflectiveEntityDefinition;
 
-/// A ReflectiveEntityDefinition that is stored in ROM
-///
-/// @memberof	ReflectiveEntity
+/**
+ * A ReflectiveEntityDefinition that is stored in ROM
+ *
+ * @memberof 	ReflectiveEntity
+ */
 typedef const ReflectiveEntityDefinition ReflectiveEntityROMDef;
 
 
@@ -147,77 +165,94 @@ class ReflectiveEntity : Entity
 
 	/// @publicsection
 
-	/// Class constructor
-	///
-	/// @param reflectiveEntityDefinition
-	/// @param id
-	/// @param internalId
-	/// @param name
+	/**
+	 * Class constructor
+	 *
+	 * @param reflectiveEntityDefinition
+	 * @param id
+	 * @param internalId
+	 * @param name
+	 */
 	void constructor(ReflectiveEntityDefinition* mirrorDefinition, s16 id, s16 internalId, const char* const name);
 
-	/// Reflection algorithm that is called by the postprocessing effect
-	///
-	/// @param currentDrawingFrameBufferSet	The framebuffer set that's currently being accessed
+	/**
+	 * Reflection algorithm that is called by the postprocessing effect
+	 *
+	 * @param currentDrawingFrameBufferSet	The framebuffer set that's currently being accessed
+	 */
 	virtual void applyReflection(u32 currentDrawingFrameBufferSet);
 
-	/// @param currentDrawingFrameBufferSet	The framebuffer set that's currently being accessed
-    /// @param xSourceStart
-    /// @param ySourceStart
-    /// @param xOutputStart
-    /// @param yOutputStart
-    /// @param width
-    /// @param height
-    /// @param overallMask
-    /// @param reflectionMask
-    /// @param backgroundMask
-    /// @param axisForReversing
-    /// @param transparent
-    /// @param reflectParallax
-    /// @param parallaxDisplacement
-    /// @param waveLut
-    /// @param numberOfWaveLutEntries
-    /// @param waveLutThrottleFactor
-    /// @param flattenTop
-    /// @param flattenBottom
-    /// @param topBorderMask
-    /// @param bottomBorderMask
-    /// @param leftBorderMask
-    /// @param rightBorderMask
+	/**
+	 * @param currentDrawingFrameBufferSet	The framebuffer set that's currently being accessed
+     * @param xSourceStart
+     * @param ySourceStart
+     * @param xOutputStart
+     * @param yOutputStart
+     * @param width
+     * @param height
+     * @param overallMask
+     * @param reflectionMask
+     * @param backgroundMask
+     * @param axisForReversing
+     * @param transparent
+     * @param reflectParallax
+     * @param parallaxDisplacement
+     * @param waveLut
+     * @param numberOfWaveLutEntries
+     * @param waveLutThrottleFactor
+     * @param flattenTop
+     * @param flattenBottom
+     * @param topBorderMask
+     * @param bottomBorderMask
+     * @param leftBorderMask
+     * @param rightBorderMask
+     */
 	void drawReflection(u32 currentDrawingFrameBufferSet, s16 xSourceStart, s16 ySourceStart, s16 xOutputStart, s16 yOutputStart, s16 width, s16 height, u32 overallMask, u32 reflectionMask, u32 backgroundMask, u16 axisForReversing, bool transparent, bool reflectParallax, s16 parallaxDisplacement, const u8 waveLut[], int numberOfWaveLutEntries, fix10_6 waveLutThrottleFactor, bool flattenTop, bool flattenBottom, u32 topBorderMask, u32 bottomBorderMask, u32 leftBorderMask, u32 rightBorderMask);
 
-	/// Entity is ready
-	///
-	/// @param recursive
+	/**
+	 * Entity is ready
+	 *
+	 * @param recursive
+	 */
 	override void ready(bool recursive);
 
-	/// Resume after pause
+	/**
+	 * Resume after pause
+	 */
 	override void resume();
 
-	/// @param pixelShift
-    /// @param sourceValue
-    /// @param nextSourceValue
-    /// @param remainderValue
-    /// @param overallMask
-    /// @param reflectionMask
+	/**
+	 * @param pixelShift
+     * @param sourceValue
+     * @param nextSourceValue
+     * @param remainderValue
+     * @param overallMask
+     * @param reflectionMask
+     */
 	static void shiftPixels(int pixelShift, POINTER_TYPE* sourceValue, u32 nextSourceValue, POINTER_TYPE* remainderValue, u32 overallMask, u32 reflectionMask);
 
-	/// Suspend for pause
+	/**
+	 * Suspend for pause
+	 */
 	override void suspend();
 
-	///
 	override void synchronizeGraphics();
 
 
 	/// @privatesection
 
-	/// @fn ReflectiveEntity::destructor
-	/// Class destructor
+	/**
+	 * @fn ReflectiveEntity::destructor
+	 * Class destructor
+	 */
 
-	/// @fn ReflectiveEntity::reflect
-	/// Postprocessing effect that does the actual reflection
-	///
-	/// @param currentDrawingFrameBufferSet		The framebuffer set that's currently being accessed
-	/// @param spatialObject					Spatial object relative to which the effect is positioned
+	/**
+	 * @fn ReflectiveEntity::reflect
+	 * Postprocessing effect that does the actual reflection
+	 *
+	 * @param currentDrawingFrameBufferSet	The framebuffer set that's currently being accessed
+	 * @param spatialObject					Spatial object relative to which the effect is positioned
+	 */
 }
 
 
