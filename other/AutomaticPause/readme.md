@@ -13,13 +13,13 @@ Add the following to the COMPONENTS variable in your project's `config.make` fil
 
 	vuengine-components/other/AutomaticPause
 
-Make sure that an instance of the AutoPauseManager class exists. The recommended way is to call the function `AutoPauseManager::getInstance()` from your game's main function before calling `Game::start(…)`.
+For the automatic pause to work, you need to first activate it. The recommended way is to call the function `AutoPauseManager::setActive(AutoPauseManager::getInstance(), true);` from your game's main function before calling `Game::start(…);`.
 
 
 CONFIGURATION
 -------------
 
-See `source/AutoPauseConfig.h` for the available macros. Define the desired macro in your game's `config.h` file to override. 
+You can set the desired delay before automatic pause (in minutes) with `setAutomaticPauseDelay(u8 automaticPauseDelay)`. You can set another state to use as the automatic pause state with `setAutomaticPauseState(GameState automaticPauseState)`.
 
 
 LICENSE

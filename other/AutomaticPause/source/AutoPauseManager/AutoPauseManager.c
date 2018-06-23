@@ -42,16 +42,16 @@ void AutoPauseManager::constructor()
 	this->automaticPauseState = NULL;
 	this->isActive = false;
 	this->elapsedTime = 0;
-	this->autoPauseDelay = 5;
+	this->autoPauseDelay = 30;
 
 	// add event listeners
-	Object::addEventListener(Object::safeCast(Game::getClock(Game::getInstance())), Object::safeCast(this), (EventListener)AutoPauseManager::onMinuteChange, kEventSecondChanged);
+	Object::addEventListener(Object::safeCast(Game::getClock(Game::getInstance())), Object::safeCast(this), (EventListener)AutoPauseManager::onMinuteChange, kEventMinuteChanged);
 }
 
 void AutoPauseManager::destructor()
 {
 	// remove event listeners
-	Object::removeEventListener(Object::safeCast(Game::getClock(Game::getInstance())), Object::safeCast(this), (EventListener)AutoPauseManager::onMinuteChange, kEventSecondChanged);
+	Object::removeEventListener(Object::safeCast(Game::getClock(Game::getInstance())), Object::safeCast(this), (EventListener)AutoPauseManager::onMinuteChange, kEventMinuteChanged);
 
 	// destroy base
 	Base::destructor();
@@ -67,6 +67,12 @@ void AutoPauseManager::setAutomaticPauseState(GameState automaticPauseState)
 GameState AutoPauseManager::getAutomaticPauseState()
 {
 	return this->automaticPauseState;
+}
+
+// set auto pause delay
+void AutoPauseManager::setAutomaticPauseDelay(u8 automaticPauseDelay)
+{
+	this->autoPauseDelay = automaticPauseDelay;
 }
 
 void AutoPauseManager::setActive(bool active)
@@ -86,9 +92,6 @@ void AutoPauseManager::onMinuteChange(Object eventFirer __attribute__ ((unused))
 	if(this->automaticPauseState && this->isActive && !Game::isPaused(Game::getInstance()))
 	{
 		this->elapsedTime++;
-
-		Printing_int(Printing_getInstance(), this->elapsedTime, 0, 0, NULL);
-		Printing_int(Printing_getInstance(), this->autoPauseDelay, 0, 1, NULL);
 
 		// only pause if no more than one state is active
 		if((this->elapsedTime >= this->autoPauseDelay) &&

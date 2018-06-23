@@ -67,7 +67,7 @@ FontROMDef VIRTUAL_BOY_FONT =
 CharSetROMDef VIRTUAL_BOY_EXTENDED_FONT_CH =
 {
 	// number of chars
-	1440,
+	1344,
 
 	// allocation type
 	__NOT_ANIMATED,
