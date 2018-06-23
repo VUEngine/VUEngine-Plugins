@@ -13,7 +13,7 @@ Add the following to the COMPONENTS variable in your project's `config.make` fil
 
 	vuengine-components/other/LowBatteryIndicator
 
-Make sure that an instance of the LowBatteryIndicatorManager class exists. The recommended way is to call the function `LowBatteryIndicatorManager::getInstance()` from your game's main function before calling `Game::start(…)`.
+For the low battery indicator to work, you need to first activate it. The recommended way is to call the function `LowBatteryIndicatorManager::setActive(LowBatteryIndicatorManager::getInstance(), true);` from your game's main function before calling `Game::start(…);`.
 
 The LowBatteryIndicatorManager assumes that characters 2 and 3 of your default font contain the low battery indicator image. See the VUEngine default font for an example. 
 
@@ -21,7 +21,7 @@ The LowBatteryIndicatorManager assumes that characters 2 and 3 of your default f
 CONFIGURATION
 -------------
 
-See `source/LowBatteryIndicatorConfig.h` for the available macros to configure the position of the low battery indicator on screen, its blinking interval or the interval between power checks. Define the desired macro in your game's `config.h` file to override. 
+You can set the position of the low battery indicator using the `LowBatteryIndicatorManager::setPosition(u8 x, u8 y)` function, where x and y are columns and rows in tiles, *not* pixel positions. Default is 45, 1 (top right corner).  
 
 
 LICENSE

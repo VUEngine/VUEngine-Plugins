@@ -28,23 +28,6 @@
 //---------------------------------------------------------------------------------------------------------
 
 #include <Object.h>
-#include <LowBatteryIndicatorConfig.h>
-
-
-//---------------------------------------------------------------------------------------------------------
-//												ENUMS
-//---------------------------------------------------------------------------------------------------------
-
-/**
- * Low Battery Manager messages
- *
- * @memberof LowBatteryIndicatorManager
- */
-enum LowBatteryIndicatorManagerMessages
-{
-	kLowBatteryIndicatorCheck = 0,
-	kLowBatteryIndicatorBlink,
-};
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -60,8 +43,14 @@ singleton class LowBatteryIndicatorManager : Object
 {
 	/// @protectedsection
 
+	// low battery indicator active flag
+	bool isActive;
 	// low battery indicator showing flag
 	bool isShowingIndicator;
+	// x position of the low battery indicator
+	u8 indicatorXPos;
+	// y position of the low battery indicator
+	u8 indicatorYPos;
 
 
 	/// @publicsection
@@ -74,19 +63,19 @@ singleton class LowBatteryIndicatorManager : Object
 	static LowBatteryIndicatorManager getInstance();
 
 	/**
-     * Process a telegram
-     *
-     * @param telegram	Received telegram
-     * @return			True if successfully processed, false otherwise
-     */
-    override bool handleMessage(Telegram telegram);
-
-	/**
      * De/activate indicator
      *
      * @param active	Set as active or inactive?
      */
     void setActive(bool active);
+
+	/**
+     * Sets the position of the low battery indicator.
+     *
+     * @param x		X position (in tiles)
+     * @param y		Y position (in tiles)
+     */
+    void setPosition(u8 x, u8 y);
 
 
 	/// @privatesection
@@ -115,40 +104,10 @@ singleton class LowBatteryIndicatorManager : Object
 	/**
 	 *
 	 *
-	 * @fn					void LowBatteryIndicatorManager::printLowBatteryIndicator(bool showIndicator)
+	 * @fn					void LowBatteryIndicatorManager::onSecondChange(Object eventFirer)
      * @memberof 			LowBatteryIndicatorManager
-     * @param showIndicator	Whether to print or remove indicator
+     * @param eventFirer	Object that has fired the event
 	 */
-
-	/**
-	 *
-	 *
-	 * @fn			void LowBatteryIndicatorManager::queueNextCheck()
-     * @memberof 	LowBatteryIndicatorManager
-	 */
-
-	/**
-	 *
-	 *
-	 * @fn					void LowBatteryIndicatorManager::queueNextBlink(bool showIndicator)
-     * @memberof 			LowBatteryIndicatorManager
-     * @param showIndicator	Whether to print or remove indicator
-	 */
-
-	/**
-     * Show indicator if it's not already being shown
-     *
-     * @fn			void LowBatteryIndicatorManager::startShowingIndicator()
-     * @memberof 	LowBatteryIndicatorManager
-	 */
-
-	/**
-     * Remove indicator if it's currently being shown
-     *
-     * @fn			void LowBatteryIndicatorManager::stopShowingIndicator()
-     * @memberof 	LowBatteryIndicatorManager
-	 */
-	 //
 }
 
 

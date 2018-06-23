@@ -30,7 +30,6 @@
 #include <MessageDispatcher.h>
 #include <I18n.h>
 #include <LangSelectScreenState.h>
-#include <HelloWorldScreenState.h>
 #include <Languages.h>
 #include <KeyPadManager.h>
 #include <Utilities.h>
@@ -54,7 +53,6 @@ void LangSelectScreenState::constructor()
 {
 	Base::constructor();
 
-	SplashScreenState::setNextState(SplashScreenState::safeCast(this), GameState::safeCast(HelloWorldScreenState::getInstance()));
 	this->stageDefinition = (StageDefinition*)&LANGUAGE_SELECTION_SCREEN_STAGE_ST;
 
 	// create options selector and populate with language names

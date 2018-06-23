@@ -89,6 +89,11 @@ singleton class SaveDataManager : Object
 	static SaveDataManager getInstance();
 
 	/**
+	 * Class constructor.
+	 */
+	void constructor();
+
+	/**
 	 * Retrieve automatic pause status flag.
 	 *
 	 * @return	flag
@@ -121,15 +126,13 @@ singleton class SaveDataManager : Object
 	 */
 	void setLanguage(u8 languageId);
 
+	/**
+	 * Write given checksum to SRAM.
+	 */
+	void writeChecksum();
+
 
 	/// @privatesection
-
-	/**
-	 * Class constructor.
-	 *
-	 * @fn 			void SaveDataManager::constructor()
-     * @memberof 	SaveDataManager
-	 */
 
 	/**
 	 * Class destructor.
@@ -153,13 +156,6 @@ singleton class SaveDataManager : Object
 	 * @fn			u32 computeChecksum()
      * @memberof 	SaveDataManager
      * @return 	  	CRC32 checksum
-	 */
-
-	/**
-	 * Write given checksum to SRAM.
-	 *
-	 * @fn			void SaveDataManager::writeChecksum()
-     * @memberof 	SaveDataManager
 	 */
 
 	/**

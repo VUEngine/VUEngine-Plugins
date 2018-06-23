@@ -33,21 +33,6 @@
 
 
 //---------------------------------------------------------------------------------------------------------
-//												ENUMS
-//---------------------------------------------------------------------------------------------------------
-
-/**
- * Automatic Pause Manager messages
- *
- * @memberof AutoPauseManager
- */
-enum AutoPauseManagerMessages
-{
-	kAutoPause = 0,
-};
-
-
-//---------------------------------------------------------------------------------------------------------
 //											CLASS'S DECLARATION
 //---------------------------------------------------------------------------------------------------------
 
@@ -62,8 +47,12 @@ singleton class AutoPauseManager : Object
 
 	// auto pause state
 	GameState automaticPauseState;
-	// auto pause last checked time
-	u32 lastAutoPauseCheckTime;
+	// auto pause active flag
+	bool isActive;
+	// after this many minutes the auto pause kicks in
+	u8 autoPauseDelay;
+	// minutes elapsed since last automatic pause
+	u8 elapsedTime;
 
 
 	/// @publicsection
@@ -77,7 +66,13 @@ singleton class AutoPauseManager : Object
 
 	GameState getAutomaticPauseState();
 	void setAutomaticPauseState(GameState automaticPauseState);
-	override bool handleMessage(Telegram telegram);
+
+	/**
+     * De/activate
+     *
+     * @param active	Set as active or inactive?
+     */
+    void setActive(bool active);
 
 
 	/// @privatesection

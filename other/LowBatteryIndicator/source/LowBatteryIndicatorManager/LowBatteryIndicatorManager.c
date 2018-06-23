@@ -24,8 +24,8 @@
 //												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
+#include <Game.h>
 #include <KeypadManager.h>
-#include <MessageDispatcher.h>
 #include <LowBatteryIndicatorManager.h>
 
 
@@ -40,91 +40,47 @@ void LowBatteryIndicatorManager::constructor()
 
 	// init class variables
 	this->isShowingIndicator = false;
+	this->isActive = false;
+	this->indicatorXPos = 45;
+	this->indicatorYPos = 1;
 
-	// start in active state
-	LowBatteryIndicatorManager::setActive(this, true);
+	// add event listeners
+	Object::addEventListener(Object::safeCast(Game::getClock(Game::getInstance())), Object::safeCast(this), (EventListener)LowBatteryIndicatorManager::onSecondChange, kEventSecondChanged);
 }
 
 void LowBatteryIndicatorManager::destructor()
 {
-	// discard possibly still pending delayed messages
-	MessageDispatcher::discardAllDelayedMessagesFromSender(MessageDispatcher::getInstance(), Object::safeCast(this));
+	// remove event listeners
+	Object::removeEventListener(Object::safeCast(Game::getClock(Game::getInstance())), Object::safeCast(this), (EventListener)LowBatteryIndicatorManager::onSecondChange, kEventSecondChanged);
 
 	// destroy base
 	Base::destructor();
 }
 
-bool LowBatteryIndicatorManager::handleMessage(Telegram telegram)
-{
-	switch(Telegram::getMessage(telegram))
-	{
-		case kLowBatteryIndicatorCheck:
-
-			LowBatteryIndicatorManager::checkLowBattery(this);
-			break;
-
-		case kLowBatteryIndicatorBlink:
-
-			LowBatteryIndicatorManager::printLowBatteryIndicator(this, Telegram::getExtraInfo(telegram) ? true : false);
-			LowBatteryIndicatorManager::queueNextBlink(this, Telegram::getExtraInfo(telegram) ? true : false);
-			break;
-	}
-
-	return true;
-}
-
 void LowBatteryIndicatorManager::setActive(bool active)
 {
-	// discard possibly still pending delayed messages
-	MessageDispatcher::discardAllDelayedMessagesFromSender(MessageDispatcher::getInstance(), Object::safeCast(this));
-
-	if(active)
-	{
-		// initiate regular checks for low battery
-		LowBatteryIndicatorManager::queueNextCheck(this);
-	}
-	else
-	{
-		// stop showing indicator in case it's being shown
-		LowBatteryIndicatorManager::stopShowingIndicator(this);
-	}
+	this->isActive = active;
 }
 
-void LowBatteryIndicatorManager::checkLowBattery()
+void LowBatteryIndicatorManager::setPosition(u8 x, u8 y)
+{
+	this->indicatorXPos = x;
+	this->indicatorYPos = y;
+}
+
+void LowBatteryIndicatorManager::onSecondChange(Object eventFirer __attribute__ ((unused)))
 {
 	// poll the user's input
 	UserInput userInput = KeypadManager::read(KeypadManager::getInstance());
 
 	// check low battery flag
-	if(userInput.powerFlag)
+	if(userInput.powerFlag & this->isActive)
 	{
-		LowBatteryIndicatorManager::startShowingIndicator(this);
+		LowBatteryIndicatorManager::printLowBatteryIndicator(this, !this->isShowingIndicator);
 	}
-	else
+	else if(this->isShowingIndicator)
 	{
-		LowBatteryIndicatorManager::stopShowingIndicator(this);
-	}
-
-	// check again in a moment
-	LowBatteryIndicatorManager::queueNextCheck(this);
-}
-
-void LowBatteryIndicatorManager::startShowingIndicator()
-{
-	if(!this->isShowingIndicator)
-	{
-		LowBatteryIndicatorManager::queueNextBlink(this, true);
-		this->isShowingIndicator = true;
-	}
-}
-
-void LowBatteryIndicatorManager::stopShowingIndicator()
-{
-	if(this->isShowingIndicator)
-	{
-		MessageDispatcher::discardDelayedMessagesFromSender(MessageDispatcher::getInstance(), Object::safeCast(this), kLowBatteryIndicatorBlink);
 		LowBatteryIndicatorManager::printLowBatteryIndicator(this, false);
-		this->isShowingIndicator = false;
 	}
 }
 
@@ -133,30 +89,10 @@ void LowBatteryIndicatorManager::printLowBatteryIndicator(bool showIndicator)
 	Printing::text(
 		Printing::getInstance(),
 		(showIndicator) ? __CHAR_BATTERY : "  ",
-		__LOW_BATTERY_INDICATOR_POS_X,
-		__LOW_BATTERY_INDICATOR_POS_Y,
+		this->indicatorXPos,
+		this->indicatorYPos,
 		NULL
 	);
-}
 
-void LowBatteryIndicatorManager::queueNextCheck()
-{
-	MessageDispatcher::dispatchMessage(
-		__LOW_BATTERY_CHECK_INTERVAL,
-		Object::safeCast(this),
-		Object::safeCast(this),
-		kLowBatteryIndicatorCheck,
-		NULL
-	);
-}
-
-void LowBatteryIndicatorManager::queueNextBlink(bool showIndicator)
-{
-	MessageDispatcher::dispatchMessage(
-		__LOW_BATTERY_INDICATOR_BLINK_INTERVAL,
-		Object::safeCast(this),
-		Object::safeCast(this),
-		kLowBatteryIndicatorBlink,
-		(bool*)(!showIndicator)
-	);
+	this->isShowingIndicator = showIndicator;
 }

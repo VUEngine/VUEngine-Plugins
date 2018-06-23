@@ -25,8 +25,6 @@
 //---------------------------------------------------------------------------------------------------------
 
 #include <Game.h>
-#include <KeypadManager.h>
-#include <MessageDispatcher.h>
 #include <AutoPauseScreenState.h>
 #include <AutoPauseManager.h>
 
@@ -40,44 +38,23 @@ void AutoPauseManager::constructor()
 	// construct base object
 	Base::constructor();
 
-	// register start time for auto pause check
-	this->lastAutoPauseCheckTime = Clock::getTime(Game::getClock(Game::getInstance()));
-
-	// set default automatic pause state
-	AutoPauseManager::setAutomaticPauseState(this, GameState::safeCast(AutoPauseScreenState::getInstance()));
+	// init members
+	this->automaticPauseState = NULL;
+	this->isActive = false;
+	this->elapsedTime = 0;
+	this->autoPauseDelay = 5;
 
 	// add event listeners
-	Object gameInstance = Object::safeCast(Game::getInstance());
-	Object::addEventListener(this, gameInstance, (EventListener)AutoPauseManager::onGamePaused, kEventGamePaused);
-	Object::addEventListener(this, gameInstance, (EventListener)AutoPauseManager::onGameUnpaused, kEventGameUnpaused);
-
-	// start
-	AutoPauseManager::startCheckDelay(this, __AUTO_PAUSE_DELAY);
+	Object::addEventListener(Object::safeCast(Game::getClock(Game::getInstance())), Object::safeCast(this), (EventListener)AutoPauseManager::onMinuteChange, kEventSecondChanged);
 }
 
 void AutoPauseManager::destructor()
 {
 	// remove event listeners
-	Object gameInstance = Object::safeCast(Game::getInstance());
-	Object::removeEventListener(this, gameInstance, (EventListener)AutoPauseManager::onGamePaused, kEventGamePaused);
-	Object::removeEventListener(this, gameInstance, (EventListener)AutoPauseManager::onGameUnpaused, kEventGameUnpaused);
+	Object::removeEventListener(Object::safeCast(Game::getClock(Game::getInstance())), Object::safeCast(this), (EventListener)AutoPauseManager::onMinuteChange, kEventSecondChanged);
 
 	// destroy base
 	Base::destructor();
-}
-
-// process a telegram
-bool AutoPauseManager::handleMessage(Telegram telegram)
-{
-	switch(Telegram::getMessage(telegram))
-	{
-		case kAutoPause:
-
-			AutoPauseManager::autoPause(this);
-			break;
-	}
-
-	return true;
 }
 
 // set auto pause state
@@ -92,56 +69,33 @@ GameState AutoPauseManager::getAutomaticPauseState()
 	return this->automaticPauseState;
 }
 
-// show auto pause screen
-void AutoPauseManager::autoPause()
+void AutoPauseManager::setActive(bool active)
 {
-	if(this->automaticPauseState)
+	this->isActive = active;
+	this->elapsedTime = 0;
+
+	if(this->automaticPauseState == NULL)
 	{
-		// only pause if no more than one state is active, otherwise wait a moment to check again
-		if(1 == StateMachine::getStackSize(Game::getStateMachine(Game::getInstance())))
+		// set default automatic pause state
+		AutoPauseManager::setAutomaticPauseState(this, GameState::safeCast(AutoPauseScreenState::getInstance()));
+	}
+}
+
+void AutoPauseManager::onMinuteChange(Object eventFirer __attribute__ ((unused)))
+{
+	if(this->automaticPauseState && this->isActive && !Game::isPaused(Game::getInstance()))
+	{
+		this->elapsedTime++;
+
+		Printing_int(Printing_getInstance(), this->elapsedTime, 0, 0, NULL);
+		Printing_int(Printing_getInstance(), this->autoPauseDelay, 0, 1, NULL);
+
+		// only pause if no more than one state is active
+		if((this->elapsedTime >= this->autoPauseDelay) &&
+			(1 == StateMachine::getStackSize(Game::getStateMachine(Game::getInstance()))))
 		{
 			Game::pause(Game::getInstance(), this->automaticPauseState);
-		}
-		else
-		{
-			MessageDispatcher::dispatchMessage(__AUTO_PAUSE_RECHECK_DELAY, Object::safeCast(this), Object::safeCast(this), kAutoPause, NULL);
+			this->elapsedTime = 0;
 		}
 	}
 }
-
-void AutoPauseManager::startCheckDelay(u32 checkDelay)
-{
-	MessageDispatcher::discardDelayedMessagesFromSender(MessageDispatcher::getInstance(), Object::safeCast(this), kAutoPause);
-	MessageDispatcher::dispatchMessage(checkDelay, Object::safeCast(this), Object::safeCast(this), kAutoPause, NULL);
-	this->lastAutoPauseCheckTime = Clock::getTime(Game::getClock(Game::getInstance()));
-}
-
-void AutoPauseManager::onGamePaused(Object eventFirer __attribute__ ((unused)))
-{
-}
-
-void AutoPauseManager::onGameUnpaused(Object eventFirer __attribute__ ((unused)))
-{
-	// restart auto pause check after auto pause screen has been exited
-	if(Game::getCurrentState(Game::getInstance()) == this->automaticPauseState)
-	{
-		AutoPauseManager::startCheckDelay(this, __AUTO_PAUSE_DELAY);
-	}
-}
-
-/*
-void AutoPauseManager::onNextGameStateSet(Object eventFirer __attribute__ ((unused)))
-{
-	// on next state set
-	if(this->automaticPauseState)
-	{
-		int automaticPauseCheckDelay = __AUTO_PAUSE_DELAY - (Clock::getTime(Game::getClock(Game::getInstance())) - this->lastAutoPauseCheckTime);
-		if(automaticPauseCheckDelay < 0)
-		{
-			automaticPauseCheckDelay = 0;
-		}
-
-		AutoPauseManager::startCheckDelay(this, (u32)automaticPauseCheckDelay);
-	}
-}
-*/
