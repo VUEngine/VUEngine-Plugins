@@ -63,7 +63,7 @@ void PrecautionScreenState::constructor()
 void PrecautionScreenState::destructor()
 {
 	// destroy base
-	__SINGLETON_DESTROY;
+	Base::destructor();
 }
 
 void PrecautionScreenState::enter(void* owner)

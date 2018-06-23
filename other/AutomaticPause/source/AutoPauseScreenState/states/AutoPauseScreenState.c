@@ -56,7 +56,7 @@ void AutoPauseScreenState::constructor()
 void AutoPauseScreenState::destructor()
 {
 	// destroy base
-	__SINGLETON_DESTROY;
+	Base::destructor();
 }
 
 // state's enter
@@ -105,9 +105,6 @@ void AutoPauseScreenState::exit(void* owner __attribute__ ((unused)))
 {
 	// call base
 	Base::exit(this, owner);
-
-	// destroy the state
-	delete this;
 }
 
 void AutoPauseScreenState::processUserInput(UserInput userInput)

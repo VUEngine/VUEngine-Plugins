@@ -84,7 +84,7 @@ void LangSelectScreenState::destructor()
 	delete this->languageSelector;
 
 	// destroy base
-	__SINGLETON_DESTROY;
+	Base::destructor();
 }
 
 void LangSelectScreenState::processUserInput(UserInput userInput)

@@ -70,7 +70,7 @@ void AutoPauseSelectScreenState::constructor()
 void AutoPauseSelectScreenState::destructor()
 {
 	// destroy base
-	__SINGLETON_DESTROY;
+	Base::destructor();
 }
 
 void AutoPauseSelectScreenState::print()
