@@ -26,10 +26,7 @@
 
 #include <Game.h>
 #include <Camera.h>
-#include <MessageDispatcher.h>
 #include <SplashScreenState.h>
-#include <KeypadManager.h>
-
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -125,9 +122,12 @@ bool SplashScreenState::processMessage(void* owner __attribute__ ((unused)), Tel
 	return false;
 }
 
-void SplashScreenState::processUserInput(UserInput userInput __attribute__ ((unused)))
+void SplashScreenState::processUserInput(UserInput userInput)
 {
-	SplashScreenState::loadNextState(this);
+	if(userInput.pressedKey & (K_STA | K_SEL | K_A | K_B))
+	{
+		SplashScreenState::loadNextState(this);
+	}
 }
 
 void SplashScreenState::print()

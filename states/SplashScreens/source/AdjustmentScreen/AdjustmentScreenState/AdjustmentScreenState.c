@@ -76,14 +76,17 @@ void AdjustmentScreenState::enter(void* owner)
 
 void AdjustmentScreenState::processUserInput(UserInput userInput __attribute__ ((unused)))
 {
-	if(Game::isPaused(Game::getInstance()))
+	if(userInput.pressedKey & (K_STA | K_SEL | K_A | K_B))
 	{
-		Camera::startEffect(Camera::getInstance(), kFadeOut, __FADE_DELAY);
-		Game::unpause(Game::getInstance(), GameState::safeCast(this));
-	}
-	else
-	{
-		SplashScreenState::loadNextState(this);
+		if(Game::isPaused(Game::getInstance()))
+		{
+			Camera::startEffect(Camera::getInstance(), kFadeOut, __FADE_DELAY);
+			Game::unpause(Game::getInstance(), GameState::safeCast(this));
+		}
+		else
+		{
+			SplashScreenState::loadNextState(this);
+		}
 	}
 }
 

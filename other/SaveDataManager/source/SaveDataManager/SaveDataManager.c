@@ -30,10 +30,9 @@
 #include <I18n.h>
 #include <SRAMManager.h>
 #include <Utilities.h>
-/*
-#include <AutoPauseScreenState.h>
+#ifdef __AUTOMATIC_PAUSE_MANAGER_ENABLED
 #include <AutoPauseManager.h>
-*/
+#endif
 #include <SaveDataManager.h>
 
 
@@ -48,9 +47,6 @@ void SaveDataManager::constructor()
 
 	// init class variables
 	this->sramAvailable = false;
-
-	// initialize
-	SaveDataManager::initialize(this);
 }
 
 void SaveDataManager::destructor()
@@ -61,15 +57,15 @@ void SaveDataManager::destructor()
 
 bool SaveDataManager::verifySaveStamp()
 {
-	char saveStamp[SAVE_STAMP_LENGTH];
+	char saveStamp[__SAVE_DATA_MANAGER_SAVE_STAMP_LENGTH];
 
 	// write save stamp
-	SRAMManager::save(SRAMManager::getInstance(), (BYTE*)SAVE_STAMP, offsetof(struct SaveData, saveStamp), sizeof(saveStamp));
+	SRAMManager::save(SRAMManager::getInstance(), (BYTE*)__SAVE_DATA_MANAGER_SAVE_STAMP, offsetof(struct SaveData, saveStamp), sizeof(saveStamp));
 
 	// read save stamp
 	SRAMManager::read(SRAMManager::getInstance(), (BYTE*)&saveStamp, offsetof(struct SaveData, saveStamp), sizeof(saveStamp));
 
-	return !strncmp(saveStamp, SAVE_STAMP, SAVE_STAMP_LENGTH);
+	return !strncmp(saveStamp, __SAVE_DATA_MANAGER_SAVE_STAMP, __SAVE_DATA_MANAGER_SAVE_STAMP_LENGTH);
 }
 
 u32 SaveDataManager::computeChecksum()
@@ -129,24 +125,19 @@ void SaveDataManager::initialize()
 		if(!SaveDataManager::verifyChecksum(this))
 		{
 			// if no previous save could be verified, completely erase sram to start clean
-			SRAMManager::clear(SRAMManager::getInstance(), 0, (int)sizeof(SaveData));
+			SRAMManager::clear(SRAMManager::getInstance(), offsetof(struct SaveData, checksum), (int)sizeof(SaveData));
 
 			// write checksum
 			SaveDataManager::writeChecksum(this);
 		}
 
 		// load and set active language
-		// TODO: decouple from I18n class by using events?
 		I18n::setActiveLanguage(I18n::getInstance(), SaveDataManager::getLanguage(this));
 
 		// load and set auto pause state
-		// TODO: decouple AutoPauseScreenState
-		/*
-		AutoPauseManager::setAutomaticPauseState(Game::getInstance(), SaveDataManager::getAutomaticPauseStatus(this)
-			? GameState::safeCast(AutoPauseScreenState::getInstance())
-			: NULL
-		);
-		*/
+		#ifdef __AUTOMATIC_PAUSE_MANAGER_ENABLED
+		AutoPauseManager::setActive(AutoPauseManager::getInstance(), SaveDataManager::getAutomaticPauseStatus(this));
+		#endif
 	}
 }
 

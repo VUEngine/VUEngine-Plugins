@@ -28,14 +28,16 @@
 //---------------------------------------------------------------------------------------------------------
 
 #include <Object.h>
+#include <SaveDataManagerConfig.h>
 
 
 //---------------------------------------------------------------------------------------------------------
 //												MACROS
 //---------------------------------------------------------------------------------------------------------
 
-#define SAVE_STAMP			"VUEngine"
-#define SAVE_STAMP_LENGTH	8
+#ifndef	__SAVE_DATA_MANAGER_ENABLED
+#define __SAVE_DATA_MANAGER_ENABLED
+#endif
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -47,7 +49,7 @@
 typedef struct SaveData
 {
 	/// flag to know if there is data saved
-	u8 saveStamp[SAVE_STAMP_LENGTH];
+	u8 saveStamp[__SAVE_DATA_MANAGER_SAVE_STAMP_LENGTH];
 
 	/// checksum over sram content to prevent save data manipulation
 	u32 checksum;

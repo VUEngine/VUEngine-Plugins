@@ -24,7 +24,7 @@ COMPONENTS LIST
 - LowBatteryIndicator  
   `Shows an indicator on screen when the system power is low`
 - SaveDataManager  
-  `Manages persistance of user data in SRAM`
+  `Manages persistence of user data in SRAM`
 
 **States**
 
@@ -34,6 +34,8 @@ COMPONENTS LIST
 
 LICENSE
 -------
+
+Unless otherwise noted, the following applies to all included components.
 
 Copyright (C) 2007, 2018 by Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <chris@vr32.de>
 

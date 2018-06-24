@@ -33,6 +33,7 @@
 #include <I18n.h>
 #include <Languages.h>
 #include <AutoPauseScreenState.h>
+#include <AutoPauseConfig.h>
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -66,22 +67,34 @@ void AutoPauseScreenState::enter(void* owner __attribute__ ((unused)))
 	GameState::loadStage(GameState::safeCast(this), (StageDefinition*)&AUTOMATIC_PAUSE_SCREEN_STAGE_ST, NULL, true);
 
 	// print text
-	const char* strAutomaticPauseTitle = I18n::getText(I18n::getInstance(), STR_AUTOMATIC_PAUSE);
-	const char* strAutomaticPauseText = I18n::getText(I18n::getInstance(), STR_TAKE_A_REST);
-	FontSize strAutomaticPauseSize = Printing::getTextSize(Printing::getInstance(), strAutomaticPauseTitle, NULL);
-	FontSize strAutomaticPauseTextSize = Printing::getTextSize(Printing::getInstance(), strAutomaticPauseText, NULL);
+	FontSize strAutomaticPauseSize = Printing::getTextSize(
+		Printing::getInstance(),
+		__AUTOMATIC_PAUSE_SCREEN_TITLE_TEXT,
+		__AUTOMATIC_PAUSE_SCREEN_TITLE_TEXT_FONT
+	);
+	FontSize strAutomaticPauseTextSize = Printing::getTextSize(
+		Printing::getInstance(),
+		__AUTOMATIC_PAUSE_SCREEN_BODY_TEXT,
+		__AUTOMATIC_PAUSE_SCREEN_BODY_TEXT_FONT
+	);
 
 	u8 strHeaderXPos = ((__HALF_SCREEN_WIDTH_IN_CHARS) - (strAutomaticPauseSize.x >> 1));
 	Printing::text(
 		Printing::getInstance(),
-		strAutomaticPauseTitle,
+		__AUTOMATIC_PAUSE_SCREEN_TITLE_TEXT,
 		strHeaderXPos,
-		14,
-		NULL
+		18,
+		__AUTOMATIC_PAUSE_SCREEN_TITLE_TEXT_FONT
 	);
 
 	u8 strTextXPos = (__HALF_SCREEN_WIDTH_IN_CHARS) - (strAutomaticPauseTextSize.x >> 1);
-	Printing::text(Printing::getInstance(), strAutomaticPauseText, strTextXPos, 15 + strAutomaticPauseSize.y, NULL);
+	Printing::text(
+		Printing::getInstance(),
+		__AUTOMATIC_PAUSE_SCREEN_BODY_TEXT,
+		strTextXPos,
+		19 + strAutomaticPauseSize.y,
+		__AUTOMATIC_PAUSE_SCREEN_BODY_TEXT_FONT
+	);
 
 	// disable user input
 	Game::disableKeypad(Game::getInstance());

@@ -18,74 +18,29 @@
  * WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-
-#ifndef AUTOMATIC_PAUSE_MANAGER_H_
-#define AUTOMATIC_PAUSE_MANAGER_H_
-
-
-//---------------------------------------------------------------------------------------------------------
-//												INCLUDES
-//---------------------------------------------------------------------------------------------------------
-
-#include <Object.h>
-#include <GameState.h>
+#ifndef AUTO_PAUSE_CONFIG_H_
+#define AUTO_PAUSE_CONFIG_H_
 
 
 //---------------------------------------------------------------------------------------------------------
 //												MACROS
 //---------------------------------------------------------------------------------------------------------
 
-#ifndef __AUTOMATIC_PAUSE_MANAGER_ENABLED
-#define __AUTOMATIC_PAUSE_MANAGER_ENABLED
+#ifndef __AUTOMATIC_PAUSE_SCREEN_TITLE_TEXT
+#define __AUTOMATIC_PAUSE_SCREEN_TITLE_TEXT			"AUTOMATIC PAUSE"
 #endif
 
+#ifndef __AUTOMATIC_PAUSE_SCREEN_TITLE_TEXT_FONT
+#define __AUTOMATIC_PAUSE_SCREEN_TITLE_TEXT_FONT	NULL
+#endif
 
-//---------------------------------------------------------------------------------------------------------
-//											CLASS'S DECLARATION
-//---------------------------------------------------------------------------------------------------------
+#ifndef __AUTOMATIC_PAUSE_SCREEN_BODY_TEXT
+#define __AUTOMATIC_PAUSE_SCREEN_BODY_TEXT			"Please take a rest!"
+#endif
 
-/**
- * Shows an indicator on screen when the system power is low
- *
- * @ingroup vuengine-components-other
- */
-singleton class AutoPauseManager : Object
-{
-	/// @protectedsection
-
-	// auto pause state
-	GameState automaticPauseState;
-	// auto pause active flag
-	bool isActive;
-	// after this many minutes the auto pause kicks in
-	u8 autoPauseDelay;
-	// minutes elapsed since last automatic pause
-	u8 elapsedTime;
-
-
-	/// @publicsection
-
-	/**
-	 * Get instance.
-	 *
-	 * @return	AutoPauseManager instance
-	 */
-	static AutoPauseManager getInstance();
-
-	GameState getAutomaticPauseState();
-	void setAutomaticPauseState(GameState automaticPauseState);
-	void setAutomaticPauseDelay(u8 automaticPauseDelay);
-
-	/**
-     * De/activate
-     *
-     * @param active	Set as active or inactive?
-     */
-    void setActive(bool active);
-
-
-	/// @privatesection
-}
+#ifndef __AUTOMATIC_PAUSE_SCREEN_BODY_TEXT_FONT
+#define __AUTOMATIC_PAUSE_SCREEN_BODY_TEXT_FONT		NULL
+#endif
 
 
 #endif

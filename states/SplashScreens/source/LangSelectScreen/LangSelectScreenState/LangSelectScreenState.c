@@ -32,9 +32,11 @@
 #include <LangSelectScreenState.h>
 #include <Languages.h>
 #include <KeyPadManager.h>
-#include <Utilities.h>
+#ifdef __SAVE_DATA_MANAGER_ENABLED
 #include <SaveDataManager.h>
+#endif
 #include <GameSaveDataManager.h>
+#include <SplashScreensConfig.h>
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -53,30 +55,9 @@ void LangSelectScreenState::constructor()
 {
 	Base::constructor();
 
+	// init members
 	this->stageDefinition = (StageDefinition*)&LANGUAGE_SELECTION_SCREEN_STAGE_ST;
-
-	// create options selector and populate with language names
-	this->languageSelector = new OptionsSelector(1, 8, NULL);
-	VirtualList languageNames = new VirtualList();
-
-	u8 activeLanguage = SaveDataManager::getLanguage(GameSaveDataManager::getInstance());
-
-	int i = 0;
-	for(; __LANGUAGES[i]; i++)
-	{
-		I18n::setActiveLanguage(I18n::getInstance(), i);
-
-		Option* option = new Option;
-		option->value = (char*)I18n::getActiveLanguageName(I18n::getInstance());
-		option->type = kString;
-		VirtualList::pushBack(languageNames, option);
-	}
-
-	OptionsSelector::setOptions(this->languageSelector, languageNames);
-	delete languageNames;
-
-	I18n::setActiveLanguage(I18n::getInstance(), activeLanguage);
-	OptionsSelector::setSelectedOption(this->languageSelector, activeLanguage);
+	this->languageSelector = NULL;
 }
 
 void LangSelectScreenState::destructor()
@@ -101,26 +82,51 @@ void LangSelectScreenState::processUserInput(UserInput userInput)
 	{
 		int selectedLanguage = OptionsSelector::getSelectedOption(this->languageSelector);
 		I18n::setActiveLanguage(I18n::getInstance(), selectedLanguage);
+		#ifdef __SAVE_DATA_MANAGER_ENABLED
 		SaveDataManager::setLanguage(GameSaveDataManager::getInstance(), selectedLanguage);
+		#endif
 		SplashScreenState::loadNextState(SplashScreenState::safeCast(this));
 	}
 }
 
 void LangSelectScreenState::print()
 {
+	// create options selector and populate with language names
+	this->languageSelector = new OptionsSelector(1, 8, __LANGUAGE_SELECTION_SCREEN_OPTIONS_FONT);
+	VirtualList languageNames = new VirtualList();
+	u8 activeLanguage = I18n::getActiveLanguage(I18n::getInstance());
+	int i = 0;
+	for(; __LANGUAGES[i]; i++)
+	{
+		I18n::setActiveLanguage(I18n::getInstance(), i);
+
+		Option* option = new Option;
+		option->value = (char*)I18n::getActiveLanguageName(I18n::getInstance());
+		option->type = kString;
+		VirtualList::pushBack(languageNames, option);
+	}
+	OptionsSelector::setOptions(this->languageSelector, languageNames);
+	delete languageNames;
+
+	// get active language from sram
+	#ifdef __SAVE_DATA_MANAGER_ENABLED
+	activeLanguage = SaveDataManager::getLanguage(GameSaveDataManager::getInstance());
+	#endif
+	I18n::setActiveLanguage(I18n::getInstance(), activeLanguage);
+
 	// print header
-	const char* strLanguageSelectTitle = I18n::getText(I18n::getInstance(), STR_LANGUAGE);
-	FontSize size = Printing::getTextSize(Printing::getInstance(), strLanguageSelectTitle, NULL);
+	FontSize size = Printing::getTextSize(Printing::getInstance(), __LANGUAGE_SELECTION_SCREEN_TITLE_TEXT, __LANGUAGE_SELECTION_SCREEN_TITLE_TEXT_FONT);
 	u8 strHeaderXPos = (__HALF_SCREEN_WIDTH_IN_CHARS) - (size.x >> 1);
 	Printing::text(
 		Printing::getInstance(),
-		Utilities::toUppercase(strLanguageSelectTitle),
+		__LANGUAGE_SELECTION_SCREEN_TITLE_TEXT,
 		strHeaderXPos,
 		8,
-		NULL
+		__LANGUAGE_SELECTION_SCREEN_TITLE_TEXT_FONT
 	);
 
 	// print options
 	OptionsSelector::printOptions(this->languageSelector, strHeaderXPos, 9 + size.y);
+	OptionsSelector::setSelectedOption(this->languageSelector, activeLanguage);
 }
 

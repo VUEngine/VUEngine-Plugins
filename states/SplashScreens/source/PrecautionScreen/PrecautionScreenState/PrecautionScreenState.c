@@ -33,7 +33,6 @@
 #include <SoundManager.h>
 #include <PrecautionScreenState.h>
 #include <AdjustmentScreenState.h>
-#include <Utilities.h>
 #include <Languages.h>
 #include <SplashScreensConfig.h>
 
@@ -90,9 +89,7 @@ bool PrecautionScreenState::processMessage(void* owner __attribute__ ((unused)),
 	switch(Telegram::getMessage(telegram))
 	{
 		case kScreenAllowUserInput:
-			{
-				Game::enableKeypad(Game::getInstance());
-			}
+			Game::enableKeypad(Game::getInstance());
 			break;
 	}
 
@@ -101,14 +98,17 @@ bool PrecautionScreenState::processMessage(void* owner __attribute__ ((unused)),
 
 void PrecautionScreenState::print()
 {
-	const char* strPrecautionText = I18n::getText(I18n::getInstance(), __PRECAUTION_SCREEN_TEXT_LANGUAGE_ID);
-	FontSize textSize = Printing::getTextSize(Printing::getInstance(), strPrecautionText, NULL);
+	FontSize textSize = Printing::getTextSize(
+		Printing::getInstance(),
+		__PRECAUTION_SCREEN_TEXT,
+		__PRECAUTION_SCREEN_TEXT_FONT
+	);
 
 	Printing::text(
 		Printing::getInstance(),
-		strPrecautionText,
+		__PRECAUTION_SCREEN_TEXT,
 		(__HALF_SCREEN_WIDTH_IN_CHARS) - (textSize.x >> 1),
 		(__HALF_SCREEN_HEIGHT_IN_CHARS) - (textSize.y >> 1),
-		NULL
+		__PRECAUTION_SCREEN_TEXT_FONT
 	);
 }

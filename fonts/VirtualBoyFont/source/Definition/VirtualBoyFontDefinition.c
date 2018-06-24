@@ -61,7 +61,7 @@ FontROMDef VIRTUAL_BOY_FONT =
 	{2, 3},
 
 	// font's name
-	"VirtualBoyFont",
+	"VirtualBoy",
 };
 
 CharSetROMDef VIRTUAL_BOY_EXTENDED_FONT_CH =
@@ -88,5 +88,5 @@ FontROMDef VIRTUAL_BOY_EXTENDED_FONT =
 	{2, 3},
 
 	// font's name
-	"VirtualBoyFont",
+	"VirtualBoy",
 };
