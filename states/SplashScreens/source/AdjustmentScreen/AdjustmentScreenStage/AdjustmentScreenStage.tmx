@@ -23,7 +23,7 @@
   <property name="stage.level.pixelSize.z" value="__SCREEN_DEPTH"/>
   <property name="stage.physics.frictionCoefficient" value="0.1f"/>
   <property name="stage.physics.gravity.x" value="0"/>
-  <property name="stage.physics.gravity.y" value="__GRAVITY"/>
+  <property name="stage.physics.gravity.y" value="0"/>
   <property name="stage.physics.gravity.z" value="0"/>
   <property name="stage.postProcessingEffects" value="NULL"/>
   <property name="stage.rendering.colorConfig.backgroundColor" value="__COLOR_BLACK"/>
