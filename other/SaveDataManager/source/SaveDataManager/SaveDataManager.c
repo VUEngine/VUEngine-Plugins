@@ -47,6 +47,9 @@ void SaveDataManager::constructor()
 
 	// init class variables
 	this->sramAvailable = false;
+
+	// initialize
+	SaveDataManager::initialize(this);
 }
 
 void SaveDataManager::destructor()
@@ -130,7 +133,13 @@ void SaveDataManager::initialize()
 			// write checksum
 			SaveDataManager::writeChecksum(this);
 		}
+	}
+}
 
+void SaveDataManager::restoreSettings()
+{
+	if(this->sramAvailable)
+	{
 		// load and set active language
 		I18n::setActiveLanguage(I18n::getInstance(), SaveDataManager::getLanguage(this));
 

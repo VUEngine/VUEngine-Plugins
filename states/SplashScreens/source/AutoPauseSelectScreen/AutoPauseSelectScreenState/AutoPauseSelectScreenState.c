@@ -41,7 +41,6 @@
 #ifdef __SAVE_DATA_MANAGER_ENABLED
 #include <SaveDataManager.h>
 #endif
-#include <GameSaveDataManager.h>
 #include <SplashScreensConfig.h>
 
 
@@ -76,7 +75,7 @@ void AutoPauseSelectScreenState::destructor()
 void AutoPauseSelectScreenState::print()
 {
 	#ifdef __SAVE_DATA_MANAGER_ENABLED
-	this->selection = SaveDataManager::getAutomaticPauseStatus(GameSaveDataManager::getInstance());
+	this->selection = SaveDataManager::getAutomaticPauseStatus(SaveDataManager::getInstance());
 	#endif
 
 	const char* strAutomaticPauseTitle = __AUTOMATIC_PAUSE_SELECTION_SCREEN_TITLE_TEXT;
@@ -162,7 +161,7 @@ void AutoPauseSelectScreenState::processUserInput(UserInput userInput)
 		AutoPauseManager::setActive(AutoPauseManager::getInstance(), !this->selection);
 		#endif
 		#ifdef __SAVE_DATA_MANAGER_ENABLED
-		SaveDataManager::setAutomaticPauseStatus(GameSaveDataManager::getInstance(), (bool)this->selection);
+		SaveDataManager::setAutomaticPauseStatus(SaveDataManager::getInstance(), (bool)this->selection);
 		#endif
 		SplashScreenState::loadNextState(SplashScreenState::safeCast(this));
 	}

@@ -35,7 +35,6 @@
 #ifdef __SAVE_DATA_MANAGER_ENABLED
 #include <SaveDataManager.h>
 #endif
-#include <GameSaveDataManager.h>
 #include <SplashScreensConfig.h>
 
 
@@ -83,7 +82,7 @@ void LangSelectScreenState::processUserInput(UserInput userInput)
 		int selectedLanguage = OptionsSelector::getSelectedOption(this->languageSelector);
 		I18n::setActiveLanguage(I18n::getInstance(), selectedLanguage);
 		#ifdef __SAVE_DATA_MANAGER_ENABLED
-		SaveDataManager::setLanguage(GameSaveDataManager::getInstance(), selectedLanguage);
+		SaveDataManager::setLanguage(SaveDataManager::getInstance(), selectedLanguage);
 		#endif
 		SplashScreenState::loadNextState(SplashScreenState::safeCast(this));
 	}
@@ -110,7 +109,7 @@ void LangSelectScreenState::print()
 
 	// get active language from sram
 	#ifdef __SAVE_DATA_MANAGER_ENABLED
-	activeLanguage = SaveDataManager::getLanguage(GameSaveDataManager::getInstance());
+	activeLanguage = SaveDataManager::getLanguage(SaveDataManager::getInstance());
 	#endif
 	I18n::setActiveLanguage(I18n::getInstance(), activeLanguage);
 

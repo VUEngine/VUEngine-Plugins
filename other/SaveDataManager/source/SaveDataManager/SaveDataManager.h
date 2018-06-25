@@ -112,7 +112,7 @@ singleton class SaveDataManager : Object
 	/**
 	 *
 	 */
-	void initialize();
+	virtual void restoreSettings();
 
 	/**
 	 * Write automatic pause status flag to SRAM.
@@ -158,6 +158,13 @@ singleton class SaveDataManager : Object
 	 * @fn			u32 computeChecksum()
      * @memberof 	SaveDataManager
      * @return 	  	CRC32 checksum
+	 */
+
+	/**
+	 *
+	 *
+	 * @fn			void initialize()
+     * @memberof 	SaveDataManager
 	 */
 
 	/**
