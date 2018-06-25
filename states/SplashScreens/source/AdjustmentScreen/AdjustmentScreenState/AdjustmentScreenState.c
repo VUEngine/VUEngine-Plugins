@@ -48,7 +48,7 @@ void AdjustmentScreenState::constructor()
 {
 	Base::constructor();
 
-	SplashScreenState::setNextState(this, GameState::safeCast(AutoPauseSelectScreenState::getInstance()));
+	SplashScreenState::setNextState(SplashScreenState::safeCast(this), GameState::safeCast(AutoPauseSelectScreenState::getInstance()));
 	this->stageDefinition = (StageDefinition*)&ADJUSTMENT_SCREEN_STAGE_ST;
 }
 
