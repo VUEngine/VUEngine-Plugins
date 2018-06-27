@@ -75,6 +75,11 @@ void AutoPauseManager::setAutomaticPauseDelay(u8 automaticPauseDelay)
 	this->autoPauseDelay = automaticPauseDelay;
 }
 
+bool AutoPauseManager::isActive()
+{
+	return this->isActive;
+}
+
 void AutoPauseManager::setActive(bool active)
 {
 	this->isActive = active;
