@@ -75,6 +75,7 @@ singleton class AutoPauseManager : Object
 	GameState getAutomaticPauseState();
 	void setAutomaticPauseState(GameState automaticPauseState);
 	void setAutomaticPauseDelay(u8 automaticPauseDelay);
+	bool isActive();
 
 	/**
      * De/activate
