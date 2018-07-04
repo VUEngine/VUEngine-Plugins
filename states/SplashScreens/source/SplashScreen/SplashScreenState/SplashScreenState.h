@@ -51,6 +51,7 @@ abstract class SplashScreenState : GameState
 	GameState nextState;
 	// definition of screen's stage
 	StageDefinition* stageDefinition;
+	u16 initialFadeInDelay;
 
 	void constructor();
 	void setNextState(GameState nextState);

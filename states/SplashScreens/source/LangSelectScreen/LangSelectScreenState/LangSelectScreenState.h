@@ -37,11 +37,14 @@
 
 dynamic_singleton class LangSelectScreenState: SplashScreenState
 {
+	Entity flagCursorEntity;
 	OptionsSelector languageSelector;
+	u8 selection;
+	u8 flagsTotalHalfWidth;
 
 	static LangSelectScreenState getInstance();
+	override void enter(void* owner);
 	override void processUserInput(UserInput userInput);
-	override void print();
 }
 
 
