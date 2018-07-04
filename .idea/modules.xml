@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/vuengine-components.iml" filepath="$PROJECT_DIR$/.idea/vuengine-components.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../vuengine/.idea/vuengine.iml" filepath="$PROJECT_DIR$/../vuengine/.idea/vuengine.iml" />
     </modules>
   </component>
 </project>
