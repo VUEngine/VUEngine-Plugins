@@ -1,13 +1,11 @@
-#include <SplashScreensConfig.h>
-#if(__LANGUAGE_SELECTION_SCREEN_VARIANT == 1)
 
 //{{BLOCK(FlagCursor)
 
 //======================================================================
 //
-//	FlagCursor, 40x32@2,
+//	FlagCursor, 40x32@2, 
 //	+ 4 tiles (t|f reduced) not compressed
-//	+ regular map (flat), not compressed, 5x4
+//	+ regular map (flat), not compressed, 5x4 
 //	Total size: 64 + 40 = 104
 //
 //	Exported by Cearn's GBA Image Transmogrifier, v0.8.6
@@ -29,5 +27,3 @@ const unsigned short FlagCursorMap[20] __attribute__((aligned(4)))=
 };
 
 //}}BLOCK(FlagCursor)
-
-#endif

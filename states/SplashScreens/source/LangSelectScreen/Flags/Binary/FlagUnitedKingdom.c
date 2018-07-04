@@ -1,13 +1,11 @@
-#include <SplashScreensConfig.h>
-#if(__LANGUAGE_SELECTION_SCREEN_VARIANT == 1)
 
 //{{BLOCK(FlagUnitedKingdom)
 
 //======================================================================
 //
-//	FlagUnitedKingdom, 40x32@2,
+//	FlagUnitedKingdom, 40x32@2, 
 //	+ 11 tiles (t|f reduced) not compressed
-//	+ regular map (flat), not compressed, 5x4
+//	+ regular map (flat), not compressed, 5x4 
 //	Total size: 176 + 40 = 216
 //
 //	Exported by Cearn's GBA Image Transmogrifier, v0.8.6
@@ -33,5 +31,3 @@ const unsigned short FlagUnitedKingdomMap[20] __attribute__((aligned(4)))=
 };
 
 //}}BLOCK(FlagUnitedKingdom)
-
-#endif

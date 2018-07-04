@@ -33,15 +33,15 @@
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern BYTE FlagGermanyTiles[];
-extern BYTE FlagGermanyMap[];
+extern BYTE FlagNetherlandsTiles[];
+extern BYTE FlagNetherlandsMap[];
 
 
 //---------------------------------------------------------------------------------------------------------
 //												DEFINITIONS
 //---------------------------------------------------------------------------------------------------------
 
-CharSetROMDef FLAG_GERMANY_CH =
+CharSetROMDef FLAG_NETHERLANDS_CH =
 {
 	// number of chars, depending on allocation type:
 	// __ANIMATED_SINGLE*, __ANIMATED_SHARED*: number of chars of a single animation frame (cols * rows)
@@ -53,16 +53,16 @@ CharSetROMDef FLAG_GERMANY_CH =
 	__NOT_ANIMATED,
 
 	// char definition
-	FlagGermanyTiles,
+	FlagNetherlandsTiles,
 };
 
-TextureROMDef FLAG_GERMANY_TX =
+TextureROMDef FLAG_NETHERLANDS_TX =
 {
 	// charset definition
-	(CharSetDefinition*)&FLAG_GERMANY_CH,
+	(CharSetDefinition*)&FLAG_NETHERLANDS_CH,
 
 	// bgmap definition
-	FlagGermanyMap,
+	FlagNetherlandsMap,
 
 	// cols (max 64)
 	5,
@@ -85,14 +85,14 @@ TextureROMDef FLAG_GERMANY_TX =
 	false,
 };
 
-BgmapSpriteROMDef FLAG_GERMANY_SPRITE =
+BgmapSpriteROMDef FLAG_NETHERLANDS_SPRITE =
 {
 	{
 		// sprite's type
 		__TYPE(BgmapSprite),
 
 		// texture definition
-		(TextureDefinition*)&FLAG_GERMANY_TX,
+		(TextureDefinition*)&FLAG_NETHERLANDS_TX,
 
 		// transparent (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
@@ -112,19 +112,19 @@ BgmapSpriteROMDef FLAG_GERMANY_SPRITE =
 	__WORLD_ON,
 };
 
-BgmapSpriteROMDef* const FLAG_GERMANY_SPRITES[] =
+BgmapSpriteROMDef* const FLAG_NETHERLANDS_SPRITES[] =
 {
-	&FLAG_GERMANY_SPRITE,
+	&FLAG_NETHERLANDS_SPRITE,
 	NULL
 };
 
-EntityROMDef FLAG_GERMANY_EN =
+EntityROMDef FLAG_NETHERLANDS_EN =
 {
 	// class allocator
 	__TYPE(Entity),
 
 	// sprites
-	(SpriteROMDef**)FLAG_GERMANY_SPRITES,
+	(SpriteROMDef**)FLAG_NETHERLANDS_SPRITES,
 
 	// collision shapes
 	NULL,

@@ -33,36 +33,36 @@
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern BYTE FlagSpainTiles[];
-extern BYTE FlagSpainMap[];
+extern BYTE FlagCzechRepublicTiles[];
+extern BYTE FlagCzechRepublicMap[];
 
 
 //---------------------------------------------------------------------------------------------------------
 //												DEFINITIONS
 //---------------------------------------------------------------------------------------------------------
 
-CharSetROMDef FLAG_SPAIN_CH =
+CharSetROMDef FLAG_CZECH_REPUBLIC_CH =
 {
 	// number of chars, depending on allocation type:
 	// __ANIMATED_SINGLE*, __ANIMATED_SHARED*: number of chars of a single animation frame (cols * rows)
 	// __ANIMATED_MULTI, __NOT_ANIMATED: sum of all chars
-	4,
+	15,
 
 	// allocation type
 	// (__ANIMATED_SINGLE, __ANIMATED_SINGLE_OPTIMIZED, __ANIMATED_SHARED, __ANIMATED_SHARED_COORDINATED, __ANIMATED_MULTI or __NOT_ANIMATED)
 	__NOT_ANIMATED,
 
 	// char definition
-	FlagSpainTiles,
+	FlagCzechRepublicTiles,
 };
 
-TextureROMDef FLAG_SPAIN_TX =
+TextureROMDef FLAG_CZECH_REPUBLIC_TX =
 {
 	// charset definition
-	(CharSetDefinition*)&FLAG_SPAIN_CH,
+	(CharSetDefinition*)&FLAG_CZECH_REPUBLIC_CH,
 
 	// bgmap definition
-	FlagSpainMap,
+	FlagCzechRepublicMap,
 
 	// cols (max 64)
 	5,
@@ -85,14 +85,14 @@ TextureROMDef FLAG_SPAIN_TX =
 	false,
 };
 
-BgmapSpriteROMDef FLAG_SPAIN_SPRITE =
+BgmapSpriteROMDef FLAG_CZECH_REPUBLIC_SPRITE =
 {
 	{
 		// sprite's type
 		__TYPE(BgmapSprite),
 
 		// texture definition
-		(TextureDefinition*)&FLAG_SPAIN_TX,
+		(TextureDefinition*)&FLAG_CZECH_REPUBLIC_TX,
 
 		// transparent (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
@@ -112,19 +112,19 @@ BgmapSpriteROMDef FLAG_SPAIN_SPRITE =
 	__WORLD_ON,
 };
 
-BgmapSpriteROMDef* const FLAG_SPAIN_SPRITES[] =
+BgmapSpriteROMDef* const FLAG_CZECH_REPUBLIC_SPRITES[] =
 {
-	&FLAG_SPAIN_SPRITE,
+	&FLAG_CZECH_REPUBLIC_SPRITE,
 	NULL
 };
 
-EntityROMDef FLAG_SPAIN_EN =
+EntityROMDef FLAG_CZECH_REPUBLIC_EN =
 {
 	// class allocator
 	__TYPE(Entity),
 
 	// sprites
-	(SpriteROMDef**)FLAG_SPAIN_SPRITES,
+	(SpriteROMDef**)FLAG_CZECH_REPUBLIC_SPRITES,
 
 	// collision shapes
 	NULL,

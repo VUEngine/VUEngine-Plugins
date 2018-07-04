@@ -33,36 +33,36 @@
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern BYTE FlagCursorTiles[];
-extern BYTE FlagCursorMap[];
+extern BYTE FlagFinlandTiles[];
+extern BYTE FlagFinlandMap[];
 
 
 //---------------------------------------------------------------------------------------------------------
 //												DEFINITIONS
 //---------------------------------------------------------------------------------------------------------
 
-CharSetROMDef FLAG_CURSOR_CH =
+CharSetROMDef FLAG_FINLAND_CH =
 {
 	// number of chars, depending on allocation type:
 	// __ANIMATED_SINGLE*, __ANIMATED_SHARED*: number of chars of a single animation frame (cols * rows)
 	// __ANIMATED_MULTI, __NOT_ANIMATED: sum of all chars
-	3,
+	6,
 
 	// allocation type
 	// (__ANIMATED_SINGLE, __ANIMATED_SINGLE_OPTIMIZED, __ANIMATED_SHARED, __ANIMATED_SHARED_COORDINATED, __ANIMATED_MULTI or __NOT_ANIMATED)
 	__NOT_ANIMATED,
 
 	// char definition
-	FlagCursorTiles,
+	FlagFinlandTiles,
 };
 
-TextureROMDef FLAG_CURSOR_TX =
+TextureROMDef FLAG_FINLAND_TX =
 {
 	// charset definition
-	(CharSetDefinition*)&FLAG_CURSOR_CH,
+	(CharSetDefinition*)&FLAG_FINLAND_CH,
 
 	// bgmap definition
-	FlagCursorMap,
+	FlagFinlandMap,
 
 	// cols (max 64)
 	5,
@@ -85,14 +85,14 @@ TextureROMDef FLAG_CURSOR_TX =
 	false,
 };
 
-BgmapSpriteROMDef FLAG_CURSOR_SPRITE =
+BgmapSpriteROMDef FLAG_FINLAND_SPRITE =
 {
 	{
 		// sprite's type
 		__TYPE(BgmapSprite),
 
 		// texture definition
-		(TextureDefinition*)&FLAG_CURSOR_TX,
+		(TextureDefinition*)&FLAG_FINLAND_TX,
 
 		// transparent (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
@@ -112,19 +112,19 @@ BgmapSpriteROMDef FLAG_CURSOR_SPRITE =
 	__WORLD_ON,
 };
 
-BgmapSpriteROMDef* const FLAG_CURSOR_SPRITES[] =
+BgmapSpriteROMDef* const FLAG_FINLAND_SPRITES[] =
 {
-	&FLAG_CURSOR_SPRITE,
+	&FLAG_FINLAND_SPRITE,
 	NULL
 };
 
-EntityROMDef FLAG_CURSOR_EN =
+EntityROMDef FLAG_FINLAND_EN =
 {
 	// class allocator
 	__TYPE(Entity),
 
 	// sprites
-	(SpriteROMDef**)FLAG_CURSOR_SPRITES,
+	(SpriteROMDef**)FLAG_FINLAND_SPRITES,
 
 	// collision shapes
 	NULL,

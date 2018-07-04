@@ -45,6 +45,7 @@
 extern StageROMDef LANGUAGE_SELECTION_SCREEN_STAGE_ST;
 extern LangROMDef* __LANGUAGES[];
 extern EntityDefinition FLAG_CURSOR_EN;
+extern EntityDefinition FLAG_UNKNOWN_EN;
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -152,7 +153,10 @@ void LangSelectScreenState::enter(void* owner)
 		for(i = 0; __LANGUAGES[i]; i++)
 		{
 			// add flag
-			LangSelectScreenState::addFlagToStage(this, __LANGUAGES[i]->entityDefinition, i);
+			EntityDefinition* entityDefinition = (__LANGUAGES[i]->entityDefinition != NULL)
+				? __LANGUAGES[i]->entityDefinition
+				: &FLAG_UNKNOWN_EN;
+			LangSelectScreenState::addFlagToStage(this, entityDefinition, i);
 		}
 
 		LangSelectScreenState::printSelection(this);
@@ -177,7 +181,7 @@ void LangSelectScreenState::printSelection()
 		// print header
 		FontSize strHeaderSize = Printing::getTextSize(Printing::getInstance(), __LANGUAGE_SELECTION_SCREEN_TITLE_TEXT, __LANGUAGE_SELECTION_SCREEN_TITLE_TEXT_FONT);
 		u8 strHeaderXPos = (__HALF_SCREEN_WIDTH_IN_CHARS) - (strHeaderSize.x >> 1);
-		u8 strHeaderYPos = 10;
+		u8 strHeaderYPos = 11 - strHeaderSize.y;
 		Printing::text(Printing::getInstance(), "                                                ", 0, strHeaderYPos, __LANGUAGE_SELECTION_SCREEN_TITLE_TEXT_FONT);
 		Printing::text(Printing::getInstance(), __LANGUAGE_SELECTION_SCREEN_TITLE_TEXT, strHeaderXPos, strHeaderYPos, __LANGUAGE_SELECTION_SCREEN_TITLE_TEXT_FONT);
 

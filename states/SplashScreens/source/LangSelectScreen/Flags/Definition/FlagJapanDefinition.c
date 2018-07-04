@@ -33,36 +33,36 @@
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern BYTE FlagUnitedKingdomTiles[];
-extern BYTE FlagUnitedKingdomMap[];
+extern BYTE FlagJapanTiles[];
+extern BYTE FlagJapanMap[];
 
 
 //---------------------------------------------------------------------------------------------------------
 //												DEFINITIONS
 //---------------------------------------------------------------------------------------------------------
 
-CharSetROMDef FLAG_UNITED_KINGDOM_CH =
+CharSetROMDef FLAG_JAPAN_CH =
 {
 	// number of chars, depending on allocation type:
 	// __ANIMATED_SINGLE*, __ANIMATED_SHARED*: number of chars of a single animation frame (cols * rows)
 	// __ANIMATED_MULTI, __NOT_ANIMATED: sum of all chars
-	10,
+	5,
 
 	// allocation type
 	// (__ANIMATED_SINGLE, __ANIMATED_SINGLE_OPTIMIZED, __ANIMATED_SHARED, __ANIMATED_SHARED_COORDINATED, __ANIMATED_MULTI or __NOT_ANIMATED)
 	__NOT_ANIMATED,
 
 	// char definition
-	FlagUnitedKingdomTiles,
+	FlagJapanTiles,
 };
 
-TextureROMDef FLAG_UNITED_KINGDOM_TX =
+TextureROMDef FLAG_JAPAN_TX =
 {
 	// charset definition
-	(CharSetDefinition*)&FLAG_UNITED_KINGDOM_CH,
+	(CharSetDefinition*)&FLAG_JAPAN_CH,
 
 	// bgmap definition
-	FlagUnitedKingdomMap,
+	FlagJapanMap,
 
 	// cols (max 64)
 	5,
@@ -85,14 +85,14 @@ TextureROMDef FLAG_UNITED_KINGDOM_TX =
 	false,
 };
 
-BgmapSpriteROMDef FLAG_UNITED_KINGDOM_SPRITE =
+BgmapSpriteROMDef FLAG_JAPAN_SPRITE =
 {
 	{
 		// sprite's type
 		__TYPE(BgmapSprite),
 
 		// texture definition
-		(TextureDefinition*)&FLAG_UNITED_KINGDOM_TX,
+		(TextureDefinition*)&FLAG_JAPAN_TX,
 
 		// transparent (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
@@ -112,19 +112,19 @@ BgmapSpriteROMDef FLAG_UNITED_KINGDOM_SPRITE =
 	__WORLD_ON,
 };
 
-BgmapSpriteROMDef* const FLAG_UNITED_KINGDOM_SPRITES[] =
+BgmapSpriteROMDef* const FLAG_JAPAN_SPRITES[] =
 {
-	&FLAG_UNITED_KINGDOM_SPRITE,
+	&FLAG_JAPAN_SPRITE,
 	NULL
 };
 
-EntityROMDef FLAG_UNITED_KINGDOM_EN =
+EntityROMDef FLAG_JAPAN_EN =
 {
 	// class allocator
 	__TYPE(Entity),
 
 	// sprites
-	(SpriteROMDef**)FLAG_UNITED_KINGDOM_SPRITES,
+	(SpriteROMDef**)FLAG_JAPAN_SPRITES,
 
 	// collision shapes
 	NULL,

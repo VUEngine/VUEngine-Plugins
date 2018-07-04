@@ -19,9 +19,6 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-#include <SplashScreensConfig.h>
-#if(__LANGUAGE_SELECTION_SCREEN_VARIANT == 1)
-
 
 //---------------------------------------------------------------------------------------------------------
 //												INCLUDES
@@ -142,5 +139,3 @@ EntityROMDef FLAG_CURSOR_EN =
 	// physical specification
 	NULL,
 };
-
-#endif

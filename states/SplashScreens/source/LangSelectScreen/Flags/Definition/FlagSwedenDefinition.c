@@ -33,36 +33,36 @@
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern BYTE FlagFranceTiles[];
-extern BYTE FlagFranceMap[];
+extern BYTE FlagSwedenTiles[];
+extern BYTE FlagSwedenMap[];
 
 
 //---------------------------------------------------------------------------------------------------------
 //												DEFINITIONS
 //---------------------------------------------------------------------------------------------------------
 
-CharSetROMDef FLAG_FRANCE_CH =
+CharSetROMDef FLAG_SWEDEN_CH =
 {
 	// number of chars, depending on allocation type:
 	// __ANIMATED_SINGLE*, __ANIMATED_SHARED*: number of chars of a single animation frame (cols * rows)
 	// __ANIMATED_MULTI, __NOT_ANIMATED: sum of all chars
-	10,
+	6,
 
 	// allocation type
 	// (__ANIMATED_SINGLE, __ANIMATED_SINGLE_OPTIMIZED, __ANIMATED_SHARED, __ANIMATED_SHARED_COORDINATED, __ANIMATED_MULTI or __NOT_ANIMATED)
 	__NOT_ANIMATED,
 
 	// char definition
-	FlagFranceTiles,
+	FlagSwedenTiles,
 };
 
-TextureROMDef FLAG_FRANCE_TX =
+TextureROMDef FLAG_SWEDEN_TX =
 {
 	// charset definition
-	(CharSetDefinition*)&FLAG_FRANCE_CH,
+	(CharSetDefinition*)&FLAG_SWEDEN_CH,
 
 	// bgmap definition
-	FlagFranceMap,
+	FlagSwedenMap,
 
 	// cols (max 64)
 	5,
@@ -85,14 +85,14 @@ TextureROMDef FLAG_FRANCE_TX =
 	false,
 };
 
-BgmapSpriteROMDef FLAG_FRANCE_SPRITE =
+BgmapSpriteROMDef FLAG_SWEDEN_SPRITE =
 {
 	{
 		// sprite's type
 		__TYPE(BgmapSprite),
 
 		// texture definition
-		(TextureDefinition*)&FLAG_FRANCE_TX,
+		(TextureDefinition*)&FLAG_SWEDEN_TX,
 
 		// transparent (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
@@ -112,19 +112,19 @@ BgmapSpriteROMDef FLAG_FRANCE_SPRITE =
 	__WORLD_ON,
 };
 
-BgmapSpriteROMDef* const FLAG_FRANCE_SPRITES[] =
+BgmapSpriteROMDef* const FLAG_SWEDEN_SPRITES[] =
 {
-	&FLAG_FRANCE_SPRITE,
+	&FLAG_SWEDEN_SPRITE,
 	NULL
 };
 
-EntityROMDef FLAG_FRANCE_EN =
+EntityROMDef FLAG_SWEDEN_EN =
 {
 	// class allocator
 	__TYPE(Entity),
 
 	// sprites
-	(SpriteROMDef**)FLAG_FRANCE_SPRITES,
+	(SpriteROMDef**)FLAG_SWEDEN_SPRITES,
 
 	// collision shapes
 	NULL,
