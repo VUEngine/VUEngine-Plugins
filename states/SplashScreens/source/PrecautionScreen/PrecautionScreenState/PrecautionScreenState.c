@@ -34,7 +34,6 @@
 #include <PrecautionScreenState.h>
 #include <AdjustmentScreenState.h>
 #include <Languages.h>
-#include <SplashScreensConfig.h>
 
 
 //---------------------------------------------------------------------------------------------------------

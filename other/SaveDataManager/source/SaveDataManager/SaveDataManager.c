@@ -30,7 +30,7 @@
 #include <I18n.h>
 #include <SRAMManager.h>
 #include <Utilities.h>
-#ifdef __AUTOMATIC_PAUSE_MANAGER_ENABLED
+#ifdef __AUTOMATIC_PAUSE_ENABLED
 #include <AutoPauseManager.h>
 #endif
 #include <SaveDataManager.h>
@@ -144,7 +144,7 @@ void SaveDataManager::restoreSettings()
 		I18n::setActiveLanguage(I18n::getInstance(), SaveDataManager::getLanguage(this));
 
 		// load and set auto pause state
-		#ifdef __AUTOMATIC_PAUSE_MANAGER_ENABLED
+		#ifdef __AUTOMATIC_PAUSE_ENABLED
 		AutoPauseManager::setActive(AutoPauseManager::getInstance(), SaveDataManager::getAutomaticPauseStatus(this));
 		#endif
 	}

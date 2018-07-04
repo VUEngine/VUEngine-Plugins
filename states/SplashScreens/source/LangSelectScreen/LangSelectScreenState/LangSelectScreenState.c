@@ -35,7 +35,6 @@
 #ifdef __SAVE_DATA_MANAGER_ENABLED
 #include <SaveDataManager.h>
 #endif
-#include <SplashScreensConfig.h>
 
 
 //---------------------------------------------------------------------------------------------------------

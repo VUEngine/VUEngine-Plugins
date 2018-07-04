@@ -35,13 +35,12 @@
 #include <LangSelectScreenState.h>
 #include <Languages.h>
 #include <KeyPadManager.h>
-#ifdef __AUTOMATIC_PAUSE_MANAGER_ENABLED
+#ifdef __AUTOMATIC_PAUSE_ENABLED
 #include <AutoPauseManager.h>
 #endif
 #ifdef __SAVE_DATA_MANAGER_ENABLED
 #include <SaveDataManager.h>
 #endif
-#include <SplashScreensConfig.h>
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -157,7 +156,7 @@ void AutoPauseSelectScreenState::processUserInput(UserInput userInput)
 	}
 	else if(userInput.pressedKey & (K_A | K_STA))
 	{
-		#ifdef __AUTOMATIC_PAUSE_MANAGER_ENABLED
+		#ifdef __AUTOMATIC_PAUSE_ENABLED
 		AutoPauseManager::setActive(AutoPauseManager::getInstance(), !this->selection);
 		#endif
 		#ifdef __SAVE_DATA_MANAGER_ENABLED

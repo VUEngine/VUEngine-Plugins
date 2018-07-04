@@ -25,7 +25,6 @@
 
 #include <Stage.h>
 #include <AdjustmentScreenState.h>
-#include <SplashScreensConfig.h>
 
 
 //---------------------------------------------------------------------------------------------------------

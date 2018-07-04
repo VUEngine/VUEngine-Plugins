@@ -1,4 +1,3 @@
-#include <SplashScreensConfig.h>
 #if(__ADJUSTMENT_SCREEN_VARIANT == 1)
 
 //{{BLOCK(AdjustmentScreenIcon)

@@ -29,7 +29,6 @@
 #include <AdjustmentScreenState.h>
 #include <AutoPauseSelectScreenState.h>
 #include <DirectDraw.h>
-#include <SplashScreensConfig.h>
 
 
 //---------------------------------------------------------------------------------------------------------

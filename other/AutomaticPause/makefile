@@ -12,7 +12,7 @@ TYPE = release
 #TYPE = preprocessor
 
 # Which libraries are linked
-LIBRARIES = vuengine $(COMPONENTS)
+LIBRARIES = vuengine
 
 # Where the game lives
 GAME_HOME = .
@@ -125,7 +125,8 @@ HEADERS_DIRS = $(shell find $(MY_HOME)/source -type d -print)
 # Obligatory headers
 CONFIG_FILE =       $(shell pwd)/source/config.h
 ESSENTIAL_HEADERS = -include $(CONFIG_FILE) \
-                    -include $(VUENGINE_HOME)/source/libvuengine.h
+                    -include $(VUENGINE_HOME)/source/libvuengine.h \
+                    $(foreach COMPONENT, $(COMPONENTS), $(shell if [ -f $(VBDE)libs/$(COMPONENT)/source/config.h ]; then echo -include $(VBDE)libs/$(COMPONENT)/source/config.h; fi; )) \
 
 # Common macros for all build types
 COMMON_MACROS = $(DATA_SECTION_ATTRIBUTES)

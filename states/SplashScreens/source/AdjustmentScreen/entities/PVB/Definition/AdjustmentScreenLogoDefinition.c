@@ -18,7 +18,6 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-#include <SplashScreensConfig.h>
 #if(__ADJUSTMENT_SCREEN_VARIANT == 1)
 
 
