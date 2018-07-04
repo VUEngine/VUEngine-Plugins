@@ -58,9 +58,6 @@ void LangSelectScreenState::constructor()
 
 	// init members
 	this->stageDefinition = (StageDefinition*)&LANGUAGE_SELECTION_SCREEN_STAGE_ST;
-	#if(__LANGUAGE_SELECTION_SCREEN_VARIANT == 1)
-	this->initialFadeInDelay = 500;
-	#endif
 	this->flagCursorEntity = NULL;
 	this->languageSelector = NULL;
 	this->selection = 0;
@@ -98,20 +95,25 @@ void LangSelectScreenState::enter(void* owner)
 {
 	Base::enter(this, owner);
 
+	// get active language from sram
+	u8 activeLanguage = I18n::getActiveLanguage(I18n::getInstance());
+	#ifdef __SAVE_DATA_MANAGER_ENABLED
+		activeLanguage = SaveDataManager::getLanguage(SaveDataManager::getInstance());
+		I18n::setActiveLanguage(I18n::getInstance(), activeLanguage);
+	#endif
+	this->selection = activeLanguage;
+
 	#if(__LANGUAGE_SELECTION_SCREEN_VARIANT == 0)
 
 		// create options selector and populate with language names
 		this->languageSelector = new OptionsSelector(1, 8, __LANGUAGE_SELECTION_SCREEN_LANGUAGE_NAME_FONT);
 		VirtualList languageNames = new VirtualList();
-		u8 activeLanguage = I18n::getActiveLanguage(I18n::getInstance());
 		u8 optionsWidth = 0;
 		int i = 0;
 		for(; __LANGUAGES[i]; i++)
 		{
-			I18n::setActiveLanguage(I18n::getInstance(), i);
-
 			Option* option = new Option;
-			option->value = (char*)I18n::getActiveLanguageName(I18n::getInstance());
+			option->value = (char*)__LANGUAGES[i]->name;
 			option->type = kString;
 			VirtualList::pushBack(languageNames, option);
 
@@ -121,13 +123,6 @@ void LangSelectScreenState::enter(void* owner)
 		OptionsSelector::setOptions(this->languageSelector, languageNames);
 		delete languageNames;
 
-		// get active language from sram
-		#ifdef __SAVE_DATA_MANAGER_ENABLED
-			activeLanguage = SaveDataManager::getLanguage(SaveDataManager::getInstance());
-		#endif
-		I18n::setActiveLanguage(I18n::getInstance(), activeLanguage);
-		this->selection = activeLanguage;
-
 		// print options
 		OptionsSelector::printOptions(this->languageSelector, (__HALF_SCREEN_WIDTH_IN_CHARS) - (optionsWidth >> 1), 10);
 		OptionsSelector::setSelectedOption(this->languageSelector, activeLanguage);
@@ -136,15 +131,6 @@ void LangSelectScreenState::enter(void* owner)
 
 	#endif
 	#if(__LANGUAGE_SELECTION_SCREEN_VARIANT == 1)
-
-		u8 activeLanguage = I18n::getActiveLanguage(I18n::getInstance());
-
-		// get active language from sram
-		#ifdef __SAVE_DATA_MANAGER_ENABLED
-			activeLanguage = SaveDataManager::getLanguage(SaveDataManager::getInstance());
-		#endif
-		I18n::setActiveLanguage(I18n::getInstance(), activeLanguage);
-		this->selection = activeLanguage;
 
 		// add flags to stage
 		this->flagsTotalHalfWidth = LangSelectScreenState::getFlagsTotalHalfWidth(this);
@@ -270,6 +256,7 @@ Entity LangSelectScreenState::addFlagToStage(EntityDefinition* entityDefinition,
 		},
 		0, NULL, NULL, NULL, false
 	};
+
 	return Stage::addChildEntity(Game::getStage(Game::getInstance()), &flagPositionedEntity, true);
 }
 

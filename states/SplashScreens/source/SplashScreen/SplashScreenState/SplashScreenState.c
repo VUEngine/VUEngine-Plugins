@@ -40,7 +40,6 @@ void SplashScreenState::constructor()
 	// init class members
 	this->stageDefinition = NULL;
 	this->nextState = NULL;
-	this->initialFadeInDelay = 0;
 }
 
 void SplashScreenState::destructor()
@@ -67,7 +66,7 @@ void SplashScreenState::enter(void* owner)
 	// start fade in effect
 	Camera::startEffect(Camera::getInstance(),
 		kFadeTo, // effect type
-		this->initialFadeInDelay, // initial delay (in ms)
+		0, // initial delay (in ms)
 		NULL, // target brightness
 		__FADE_DELAY, // delay between fading steps (in ms)
 		(void (*)(Object, Object))SplashScreenState::onFadeInComplete, // callback function
