@@ -39,6 +39,7 @@ dynamic_singleton class AutoPauseSelectScreenState: SplashScreenState
 	bool selection;
 
 	static AutoPauseSelectScreenState getInstance();
+	override void initNextState();
 	override void print();
 	override void processUserInput(UserInput userInput);
 }

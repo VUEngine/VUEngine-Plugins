@@ -134,6 +134,10 @@ void SplashScreenState::print()
 {
 }
 
+void SplashScreenState::initNextState()
+{
+}
+
 void SplashScreenState::setNextState(GameState nextState)
 {
 	this->nextState = nextState;
@@ -166,6 +170,11 @@ void SplashScreenState::onFadeInComplete(Object eventFirer __attribute__ ((unuse
 // handle event
 void SplashScreenState::onFadeOutComplete(Object eventFirer __attribute__ ((unused)))
 {
+	if(this->nextState == NULL)
+	{
+		SplashScreenState::initNextState(this);
+	}
+
 	// switch to next stage
 	Game::changeState(Game::getInstance(), this->nextState);
 }

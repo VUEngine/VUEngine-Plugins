@@ -59,7 +59,6 @@ void AutoPauseSelectScreenState::constructor()
 {
 	Base::constructor();
 
-	SplashScreenState::setNextState(SplashScreenState::safeCast(this), GameState::safeCast(LangSelectScreenState::getInstance()));
 	this->stageDefinition = (StageDefinition*)&AUTO_PAUSE_SELECTION_SCREEN_STAGE_ST;
 	this->selection = true;
 }
@@ -69,6 +68,11 @@ void AutoPauseSelectScreenState::destructor()
 {
 	// destroy base
 	Base::destructor();
+}
+
+void AutoPauseSelectScreenState::initNextState()
+{
+	this->nextState = GameState::safeCast(LangSelectScreenState::getInstance());
 }
 
 void AutoPauseSelectScreenState::print()

@@ -47,7 +47,6 @@ void AdjustmentScreenState::constructor()
 {
 	Base::constructor();
 
-	SplashScreenState::setNextState(SplashScreenState::safeCast(this), GameState::safeCast(AutoPauseSelectScreenState::getInstance()));
 	this->stageDefinition = (StageDefinition*)&ADJUSTMENT_SCREEN_STAGE_ST;
 }
 
@@ -71,6 +70,11 @@ void AdjustmentScreenState::enter(void* owner)
 	// add rhombus effect
 	VIPManager::pushBackPostProcessingEffect(VIPManager::getInstance(), AdjustmentScreenState::rhombusEmitterPostProcessingEffect, NULL);
 #endif
+}
+
+void AdjustmentScreenState::initNextState()
+{
+	this->nextState = GameState::safeCast(AutoPauseSelectScreenState::getInstance());
 }
 
 void AdjustmentScreenState::processUserInput(UserInput userInput __attribute__ ((unused)))

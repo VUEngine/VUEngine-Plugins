@@ -53,7 +53,6 @@ void PrecautionScreenState::constructor()
 {
 	Base::constructor();
 
-	SplashScreenState::setNextState(SplashScreenState::safeCast(this), GameState::safeCast(AdjustmentScreenState::getInstance()));
 	this->stageDefinition = (StageDefinition*)&PRECAUTION_SCREEN_STAGE_ST;
 }
 
@@ -93,6 +92,11 @@ bool PrecautionScreenState::processMessage(void* owner __attribute__ ((unused)),
 	}
 
 	return false;
+}
+
+void PrecautionScreenState::initNextState()
+{
+	this->nextState = GameState::safeCast(AdjustmentScreenState::getInstance());
 }
 
 void PrecautionScreenState::print()

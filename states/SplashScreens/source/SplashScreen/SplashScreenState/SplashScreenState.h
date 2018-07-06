@@ -53,8 +53,9 @@ abstract class SplashScreenState : GameState
 	StageDefinition* stageDefinition;
 
 	void constructor();
-	void setNextState(GameState nextState);
 	void loadNextState();
+	void setNextState(GameState nextState);
+	virtual void initNextState();
 	virtual void print();
 	override bool processMessage(void* owner, Telegram telegram);
 	override void enter(void* owner);
