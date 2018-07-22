@@ -27,11 +27,24 @@
 
 
 //---------------------------------------------------------------------------------------------------------
+//											DECLARATIONS
+//---------------------------------------------------------------------------------------------------------
+
+#ifdef __LOW_BATTERY_INDICATOR_ENTITY_ENABLED
+extern EntityDefinition LOW_BATTERY_INDICATOR_LB;
+#endif
+
+
+//---------------------------------------------------------------------------------------------------------
 // 											ENTITY LISTS
 //---------------------------------------------------------------------------------------------------------
 
 PositionedEntityROMDef LANGUAGE_SELECTION_SCREEN_STAGE_ST_ENTITIES[] =
 {
+#ifdef __LOW_BATTERY_INDICATOR_ENTITY_ENABLED
+	{&LOW_BATTERY_INDICATOR_LB, 	{16, 12, 0, 0}, 0, NULL, NULL, NULL, false},
+#endif
+
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
 };
 

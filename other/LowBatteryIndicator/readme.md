@@ -3,6 +3,8 @@ VUEngine Components: LowBatteryIndicator
 
 Shows a blinking low battery indicator on screen when the system power is low.
 
+Uses the printing layer to do so. If you can spare the extra World, you can instead use the `vuengine-components/entities/LowBatteryIndicatorEntity` component, which uses an Entity.
+
 ![Preview Image](preview.png)
 
 
@@ -11,7 +13,7 @@ USAGE
 
 Add the following to the COMPONENTS variable in your project's `config.make` file to include this component:
 
-	vuengine-components/other/LowBatteryIndicator
+		vuengine-components/other/LowBatteryIndicator
 
 For the low battery indicator to work, you need to first activate it. The recommended way is to call the function `LowBatteryIndicatorManager::setActive(LowBatteryIndicatorManager::getInstance(), true);` from your game's main function before calling `Game::start(…);`.
 

@@ -36,6 +36,10 @@ extern EntityDefinition ADJUSTMENT_SCREEN_ICON_L_EN;
 extern EntityDefinition ADJUSTMENT_SCREEN_ICON_R_EN;
 extern EntityDefinition ADJUSTMENT_SCREEN_LOGO_EN;
 
+#ifdef __LOW_BATTERY_INDICATOR_ENTITY_ENABLED
+extern EntityDefinition LOW_BATTERY_INDICATOR_LB;
+#endif
+
 
 //---------------------------------------------------------------------------------------------------------
 // 											ENTITY LISTS
@@ -43,6 +47,9 @@ extern EntityDefinition ADJUSTMENT_SCREEN_LOGO_EN;
 
 PositionedEntityROMDef ADJUSTMENT_SCREEN_STAGE_ST_ENTITIES[] =
 {
+#ifdef __LOW_BATTERY_INDICATOR_ENTITY_ENABLED
+	{&LOW_BATTERY_INDICATOR_LB, 	{ 40,  12,	0, 0}, 0, NULL, NULL, NULL, false},
+#endif
 
 #if(__ADJUSTMENT_SCREEN_VARIANT == 0)
 

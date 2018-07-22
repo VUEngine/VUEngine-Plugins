@@ -11,6 +11,8 @@ COMPONENTS LIST
 
 - ReflectiveEntity
   `An Entity that can mirror other parts of the virtual screen`
+- LowBatteryIndicatorEntity
+  `Entity based indicator that flashes when the system power is low`
 
 **Fonts**
 
@@ -26,7 +28,7 @@ COMPONENTS LIST
 - AutomaticPause
   `Automatically pauses the game after a definable amount of time`
 - LowBatteryIndicator
-  `Shows an indicator on screen when the system power is low`
+  `Printing layer based indicator that flashes when the system power is low`
 - SaveDataManager
   `Manages persistence of user data in SRAM`
 
