@@ -161,10 +161,10 @@ void AutoPauseSelectScreenState::processUserInput(UserInput userInput)
 	else if(userInput.pressedKey & (K_A | K_STA))
 	{
 		#ifdef __AUTOMATIC_PAUSE_ENABLED
-		AutoPauseManager::setActive(AutoPauseManager::getInstance(), !this->selection);
+		AutoPauseManager::setActive(AutoPauseManager::getInstance(), this->selection);
 		#endif
 		#ifdef __SAVE_DATA_MANAGER_ENABLED
-		SaveDataManager::setAutomaticPauseStatus(SaveDataManager::getInstance(), (bool)this->selection);
+		SaveDataManager::setAutomaticPauseStatus(SaveDataManager::getInstance(), this->selection);
 		#endif
 		SplashScreenState::loadNextState(SplashScreenState::safeCast(this));
 	}

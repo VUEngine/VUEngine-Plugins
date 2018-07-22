@@ -25,6 +25,7 @@
 //---------------------------------------------------------------------------------------------------------
 
 #include <Game.h>
+#include <Debug.h>
 #include <AutoPauseScreenState.h>
 #include <AutoPauseManager.h>
 
@@ -85,11 +86,14 @@ void AutoPauseManager::setActive(bool active)
 	this->isActive = active;
 	this->elapsedTime = 0;
 
+	// set automatic pause state to default if it is not set yet
 	if(this->automaticPauseState == NULL)
 	{
-		// set default automatic pause state
 		AutoPauseManager::setAutomaticPauseState(this, GameState::safeCast(AutoPauseScreenState::getInstance()));
 	}
+
+	// register with debug tools
+	Debug::registerAutomaticPauseState(Debug::getInstance(), active ? GameState::safeCast(this->automaticPauseState) : NULL);
 }
 
 void AutoPauseManager::onMinuteChange(Object eventFirer __attribute__ ((unused)))
