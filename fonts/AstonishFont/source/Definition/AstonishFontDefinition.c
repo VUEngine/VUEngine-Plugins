@@ -24,7 +24,7 @@
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern BYTE VirtualBoyFontTiles[];
+extern BYTE AstonishFontTiles[];
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -32,61 +32,61 @@ extern BYTE VirtualBoyFontTiles[];
 //---------------------------------------------------------------------------------------------------------
 
 /**
- * Virtual Boy font
+ * Astonish font
  *
  * @ingroup vuengine-components-fonts
  */
 
-CharSetROMDef VIRTUAL_BOY_FONT_CH =
+CharSetROMDef ASTONISH_FONT_CH =
 {
 	// number of chars
-	576,
+	256,
 
 	// allocation type
 	__NOT_ANIMATED,
 
 	// char definition
-	VirtualBoyFontTiles,
+	AstonishFontTiles,
 };
 
-FontROMDef VIRTUAL_BOY_FONT =
+FontROMDef ASTONISH_FONT =
 {
 	// font charset definition pointer
-	(CharSetDefinition*)&VIRTUAL_BOY_FONT_CH,
+	(CharSetDefinition*)&ASTONISH_FONT_CH,
 
 	// character number at which the font starts, allows you to skip the control characters for example
 	32,
 
 	// size of a single character (in chars) ({width, height})
-	{2, 3},
+	{1, 2},
 
 	// font's name
-	"VirtualBoy",
+	"Astonish",
 };
 
-CharSetROMDef VIRTUAL_BOY_EXTENDED_FONT_CH =
+CharSetROMDef ASTONISH_EXTENDED_FONT_CH =
 {
 	// number of chars
-	1344,
+	512,
 
 	// allocation type
 	__NOT_ANIMATED,
 
 	// char definition
-	VirtualBoyFontTiles,
+	AstonishFontTiles,
 };
 
-FontROMDef VIRTUAL_BOY_EXTENDED_FONT =
+FontROMDef ASTONISH_EXTENDED_FONT =
 {
 	// font charset definition pointer
-	(CharSetDefinition*)&VIRTUAL_BOY_FONT_CH,
+	(CharSetDefinition*)&ASTONISH_FONT_CH,
 
 	// character number at which the font starts, allows you to skip the control characters for example
-	32,
+	0,
 
 	// size of a single character (in chars) ({width, height})
-	{2, 3},
+	{1, 2},
 
 	// font's name
-	"VirtualBoy",
+	"Astonish",
 };
