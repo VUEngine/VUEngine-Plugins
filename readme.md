@@ -16,6 +16,8 @@ COMPONENTS LIST
 
 - AstonishFont
   `A beautiful 8x16 pixel font for medium size text`
+- IndustrialFont
+  `A bold, angular 8x8 pixel font that resembles industrial lettering.`
 - VirtualBoyFont
   `Large font based on the "Virtual Boy" writing from the official IPD adjustment screen`
 
