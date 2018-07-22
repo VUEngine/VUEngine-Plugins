@@ -55,7 +55,10 @@ FontROMDef ASTONISH_FONT =
 	(CharSetDefinition*)&ASTONISH_FONT_CH,
 
 	// character number at which the font starts, allows you to skip the control characters for example
-	32,
+	0,
+
+	// number of characters in this font
+	128,
 
 	// size of a single character (in chars) ({width, height})
 	{1, 2},
@@ -79,10 +82,13 @@ CharSetROMDef ASTONISH_EXTENDED_FONT_CH =
 FontROMDef ASTONISH_EXTENDED_FONT =
 {
 	// font charset definition pointer
-	(CharSetDefinition*)&ASTONISH_FONT_CH,
+	(CharSetDefinition*)&ASTONISH_EXTENDED_FONT_CH,
 
 	// character number at which the font starts, allows you to skip the control characters for example
 	0,
+
+	// number of characters in this font
+	256,
 
 	// size of a single character (in chars) ({width, height})
 	{1, 2},

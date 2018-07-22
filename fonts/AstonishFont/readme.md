@@ -15,7 +15,7 @@ Add the following to the COMPONENTS variable in your project's `config.make` fil
 
 Included are two versions of the font:
 
-- `ASTONISH_FONT` contains the most important 96 characters (punctuation character, numbers and letters)
-- `ASTONISH_EXTENDED_FONT` additionally contains control characters and the full set of European special characters
+- `ASTONISH_FONT` contains the most important 96 characters (punctuation character, numbers and letters) plus control characters
+- `ASTONISH_EXTENDED_FONT` additionally contains the full set of European special characters
 
 Include the desired font versions in your `__FONTS` array.

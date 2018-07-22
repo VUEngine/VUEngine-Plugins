@@ -57,6 +57,9 @@ FontROMDef VIRTUAL_BOY_FONT =
 	// character number at which the font starts, allows you to skip the control characters for example
 	32,
 
+	// number of characters in this font
+	96,
+
 	// size of a single character (in chars) ({width, height})
 	{2, 3},
 
@@ -83,6 +86,9 @@ FontROMDef VIRTUAL_BOY_EXTENDED_FONT =
 
 	// character number at which the font starts, allows you to skip the control characters for example
 	32,
+
+	// number of characters in this font
+	224,
 
 	// size of a single character (in chars) ({width, height})
 	{2, 3},
