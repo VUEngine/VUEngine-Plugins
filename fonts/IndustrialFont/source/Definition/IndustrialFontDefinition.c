@@ -40,7 +40,7 @@ extern BYTE IndustrialFontTiles[];
 CharSetROMDef INDUSTRIAL_FONT_CH =
 {
 	// number of chars
-	256,
+	128,
 
 	// allocation type
 	__NOT_ANIMATED,
@@ -61,7 +61,7 @@ FontROMDef INDUSTRIAL_FONT =
 	128,
 
 	// size of a single character (in chars) ({width, height})
-	{1, 2},
+	{1, 1},
 
 	// font's name
 	"Industrial",
@@ -70,7 +70,7 @@ FontROMDef INDUSTRIAL_FONT =
 CharSetROMDef INDUSTRIAL_EXTENDED_FONT_CH =
 {
 	// number of chars
-	512,
+	256,
 
 	// allocation type
 	__NOT_ANIMATED,
@@ -91,7 +91,7 @@ FontROMDef INDUSTRIAL_EXTENDED_FONT =
 	256,
 
 	// size of a single character (in chars) ({width, height})
-	{1, 2},
+	{1, 1},
 
 	// font's name
 	"IndustrialExt",
