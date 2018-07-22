@@ -45,6 +45,9 @@ typedef const LowBatteryIndicatorEntityDefinition LowBatteryIndicatorEntityROMDe
 
 class LowBatteryIndicatorEntity : AnimatedEntity
 {
+	// number of seconds of receiving the low power signal
+	u8 lowBatteryDuration;
+
 	void constructor(const LowBatteryIndicatorEntityDefinition* LowBatteryIndicatorEntityDefinition, s16 id, s16 internalId, const char* const name);
 }
 

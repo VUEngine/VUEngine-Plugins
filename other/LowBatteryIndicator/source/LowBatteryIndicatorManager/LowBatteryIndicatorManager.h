@@ -51,6 +51,8 @@ singleton class LowBatteryIndicatorManager : Object
 	u8 indicatorXPos;
 	// y position of the low battery indicator
 	u8 indicatorYPos;
+	// number of seconds of receiving the low power signal
+	u8 lowBatteryDuration;
 
 
 	/// @publicsection

@@ -41,6 +41,7 @@ void LowBatteryIndicatorManager::constructor()
 	// init class variables
 	this->isShowingIndicator = false;
 	this->isActive = false;
+	this->lowBatteryDuration = 0;
 	this->indicatorXPos = __LOW_BATTERY_INDICATOR_X_POSITION;
 	this->indicatorYPos = __LOW_BATTERY_INDICATOR_Y_POSITION;
 
@@ -76,10 +77,19 @@ void LowBatteryIndicatorManager::onSecondChange(Object eventFirer __attribute__ 
 	// check low battery flag
 	if(userInput.powerFlag & this->isActive)
 	{
-		LowBatteryIndicatorManager::printLowBatteryIndicator(this, !this->isShowingIndicator);
+		if(this->lowBatteryDuration >= __LOW_BATTERY_INDICATOR_BLINK_DELAY - 1)
+		{
+			LowBatteryIndicatorManager::printLowBatteryIndicator(this, !this->isShowingIndicator);
+		}
+		else
+		{
+			this->lowBatteryDuration++;
+			LowBatteryIndicatorManager::printLowBatteryIndicator(this, false);
+		}
 	}
 	else if(this->isShowingIndicator)
 	{
+		this->lowBatteryDuration = 0;
 		LowBatteryIndicatorManager::printLowBatteryIndicator(this, false);
 	}
 }

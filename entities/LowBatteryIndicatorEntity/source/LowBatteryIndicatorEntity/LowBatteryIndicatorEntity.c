@@ -25,9 +25,7 @@
 //---------------------------------------------------------------------------------------------------------
 
 #include <Game.h>
-#include <I18n.h>
-#include <Utilities.h>
-#include <GameEvents.h>
+#include <Events.h>
 #include "LowBatteryIndicatorEntity.h"
 
 
@@ -40,6 +38,9 @@ void LowBatteryIndicatorEntity::constructor(const LowBatteryIndicatorEntityDefin
 {
 	// construct base object
 	Base::constructor((AnimatedEntityDefinition*)LowBatteryIndicatorEntityDefinition, id, internalId, name);
+
+	// init class variables
+	this->lowBatteryDuration = 0;
 
 	// add event listeners
 	Object::addEventListener(Object::safeCast(Game::getClock(Game::getInstance())), Object::safeCast(this), (EventListener)LowBatteryIndicatorEntity::onSecondChange, kEventSecondChanged);
@@ -64,10 +65,25 @@ void LowBatteryIndicatorEntity::onSecondChange(Object eventFirer __attribute__ (
 	// check low battery flag
 	if(userInput.powerFlag)
 	{
-		AnimatedEntity::playAnimation(this, "Blink");
+		if(this->lowBatteryDuration >= __LOW_BATTERY_INDICATOR_ENTITY_BLINK_DELAY - 1)
+		{
+			AnimatedEntity::playAnimation(this, "Blink");
+		}
+		else
+		{
+			this->lowBatteryDuration++;
+			if(AnimatedEntity::isPlayingAnimation(this))
+			{
+				AnimatedEntity::playAnimation(this, "Hide");
+			}
+		}
 	}
 	else
 	{
-		AnimatedEntity::playAnimation(this, "Hide");
+		this->lowBatteryDuration = 0;
+			if(AnimatedEntity::isPlayingAnimation(this))
+			{
+				AnimatedEntity::playAnimation(this, "Hide");
+			}
 	}
 }

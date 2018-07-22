@@ -61,6 +61,9 @@ void SplashScreenState::enter(void* owner)
 
 	SplashScreenState::print(this);
 
+	// start clocks to start animations
+	GameState::startClocks(GameState::safeCast(this));
+
 	Game::disableKeypad(Game::getInstance());
 
 	// start fade in effect

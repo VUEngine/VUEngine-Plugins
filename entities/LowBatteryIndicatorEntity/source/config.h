@@ -30,4 +30,14 @@
 #define __LOW_BATTERY_INDICATOR_ENTITY_ENABLED
 
 
+//---------------------------------------------------------------------------------------------------------
+//											CONFIGURATION MACROS
+//---------------------------------------------------------------------------------------------------------
+
+// show low battery indicator after this many seconds of receiving the low power signal
+#ifndef __LOW_BATTERY_INDICATOR_ENTITY_BLINK_DELAY
+#define __LOW_BATTERY_INDICATOR_ENTITY_BLINK_DELAY		3
+#endif
+
+
 #endif

@@ -34,6 +34,11 @@
 //											CONFIGURATION MACROS
 //---------------------------------------------------------------------------------------------------------
 
+// show low battery indicator after this many seconds of receiving the low power signal
+#ifndef __LOW_BATTERY_INDICATOR_BLINK_DELAY
+#define __LOW_BATTERY_INDICATOR_BLINK_DELAY			3
+#endif
+
 #ifndef	__LOW_BATTERY_INDICATOR_X_POSITION
 #define __LOW_BATTERY_INDICATOR_X_POSITION			1
 #endif
