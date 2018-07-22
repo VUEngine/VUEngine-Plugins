@@ -41,8 +41,8 @@ void LowBatteryIndicatorManager::constructor()
 	// init class variables
 	this->isShowingIndicator = false;
 	this->isActive = false;
-	this->indicatorXPos = 45;
-	this->indicatorYPos = 1;
+	this->indicatorXPos = __LOW_BATTERY_INDICATOR_X_POSITION;
+	this->indicatorYPos = __LOW_BATTERY_INDICATOR_Y_POSITION;
 
 	// add event listeners
 	Object::addEventListener(Object::safeCast(Game::getClock(Game::getInstance())), Object::safeCast(this), (EventListener)LowBatteryIndicatorManager::onSecondChange, kEventSecondChanged);

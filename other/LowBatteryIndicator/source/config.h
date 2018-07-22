@@ -19,38 +19,28 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-#ifndef ADJUSTMENT_SCREEN_STATE_H_
-#define ADJUSTMENT_SCREEN_STATE_H_
+#ifndef LOW_BATTERY_INDICATOR_CONFIG_H_
+#define LOW_BATTERY_INDICATOR_CONFIG_H_
 
 
 //---------------------------------------------------------------------------------------------------------
-//												INCLUDES
+//											ESSENTIAL MACROS
 //---------------------------------------------------------------------------------------------------------
 
-#include <SplashScreenState.h>
-
-
-//---------------------------------------------------------------------------------------------------------
-//												MACROS
-//---------------------------------------------------------------------------------------------------------
-
-#define __ADJUSTMENT_SCREEN_RHOMBUS_INITIAL_VALUE				-64
+#define __LOW_BATTERY_INDICATOR_ENABLED
 
 
 //---------------------------------------------------------------------------------------------------------
-//											CLASS'S DECLARATION
+//											CONFIGURATION MACROS
 //---------------------------------------------------------------------------------------------------------
 
-dynamic_singleton class AdjustmentScreenState : SplashScreenState
-{
-	static AdjustmentScreenState getInstance(void);
-	override void initNextState();
-	override void enter(void* owner);
-	override void exit(void* owner);
-	override void suspend(void* owner);
-	override void resume(void* owner);
-	override void processUserInput(UserInput userInput);
-}
+#ifndef	__LOW_BATTERY_INDICATOR_X_POSITION
+#define __LOW_BATTERY_INDICATOR_X_POSITION			1
+#endif
+
+#ifndef	__LOW_BATTERY_INDICATOR_Y_POSITION
+#define __LOW_BATTERY_INDICATOR_Y_POSITION			1
+#endif
 
 
 #endif

@@ -29,6 +29,9 @@
 #include <AdjustmentScreenState.h>
 #include <AutoPauseSelectScreenState.h>
 #include <DirectDraw.h>
+#ifdef __LOW_BATTERY_INDICATOR_ENABLED
+#include <LowBatteryIndicatorManager.h>
+#endif
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -63,18 +66,65 @@ void AdjustmentScreenState::enter(void* owner)
 	// call base
 	Base::enter(this, owner);
 
-	// move the printing area out of the visible screen to save CPU resources
-	Printing::setWorldCoordinates(Printing::getInstance(), __SCREEN_WIDTH, __SCREEN_HEIGHT);
-
-#if(__ADJUSTMENT_SCREEN_VARIANT == 0)
+	#if(__ADJUSTMENT_SCREEN_VARIANT == 0)
 	// add rhombus effect
 	VIPManager::pushBackPostProcessingEffect(VIPManager::getInstance(), AdjustmentScreenState::rhombusEmitterPostProcessingEffect, NULL);
-#endif
+	#endif
+
+	// set low battery indicator position
+	AdjustmentScreenState::setLowBatteryIndicatorPosition(this);
+}
+
+// state's exit
+void AdjustmentScreenState::exit(void* owner)
+{
+	// reset low battery indicator position
+	AdjustmentScreenState::resetLowBatteryIndicatorPosition(this);
+
+	// call base
+	Base::exit(this, owner);
 }
 
 void AdjustmentScreenState::initNextState()
 {
 	this->nextState = GameState::safeCast(AutoPauseSelectScreenState::getInstance());
+}
+
+void AdjustmentScreenState::suspend(void* owner)
+{
+	// set low battery indicator position
+	AdjustmentScreenState::resetLowBatteryIndicatorPosition(this);
+
+	if(!Game::isExitingSpecialMode(Game::getInstance()))
+	{
+		// do a fade out effect
+		Camera::startEffect(Camera::getInstance(), kFadeOut, __FADE_DELAY);
+	}
+
+	// call base
+	Base::suspend(this, owner);
+}
+
+void AdjustmentScreenState::resume(void* owner)
+{
+	// set low battery indicator position
+	AdjustmentScreenState::setLowBatteryIndicatorPosition(this);
+
+	// call base
+	Base::resume(this, owner);
+
+	if(!Game::isExitingSpecialMode(Game::getInstance()))
+	{
+		// start a fade in effect
+		Camera::startEffect(Camera::getInstance(),
+			kFadeTo, // effect type
+			0, // initial delay (in ms)
+			NULL, // target brightness
+			__FADE_DELAY, // delay between fading steps (in ms)
+			NULL, // callback function
+			NULL // callback scope
+		);
+	}
 }
 
 void AdjustmentScreenState::processUserInput(UserInput userInput __attribute__ ((unused)))
@@ -91,6 +141,20 @@ void AdjustmentScreenState::processUserInput(UserInput userInput __attribute__ (
 			SplashScreenState::loadNextState(this);
 		}
 	}
+}
+
+void AdjustmentScreenState::setLowBatteryIndicatorPosition()
+{
+	#ifdef __LOW_BATTERY_INDICATOR_ENABLED
+	LowBatteryIndicatorManager::setPosition(LowBatteryIndicatorManager::getInstance(), __ADJUSTMENT_SCREEN_LOW_BATTERY_INDICATOR_X_POSITION, __ADJUSTMENT_SCREEN_LOW_BATTERY_INDICATOR_Y_POSITION);
+	#endif
+}
+
+void AdjustmentScreenState::resetLowBatteryIndicatorPosition()
+{
+	#ifdef __LOW_BATTERY_INDICATOR_ENABLED
+	LowBatteryIndicatorManager::setPosition(LowBatteryIndicatorManager::getInstance(), __LOW_BATTERY_INDICATOR_X_POSITION, __LOW_BATTERY_INDICATOR_Y_POSITION);
+	#endif
 }
 
 static void AdjustmentScreenState::rhombusEmitterPostProcessingEffect(u32 currentDrawingFrameBufferSet __attribute__ ((unused)), SpatialObject spatialObject __attribute__ ((unused)))
