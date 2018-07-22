@@ -88,5 +88,5 @@ FontROMDef ASTONISH_EXTENDED_FONT =
 	{1, 2},
 
 	// font's name
-	"Astonish",
+	"AstonishExt",
 };

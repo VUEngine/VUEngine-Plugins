@@ -18,4 +18,4 @@ Included are two versions of the font:
 - `ASTONISH_FONT` contains the most important 96 characters (punctuation character, numbers and letters)
 - `ASTONISH_EXTENDED_FONT` additionally contains control characters and the full set of European special characters
 
-Include the desired font version in your `__FONTS` array.
+Include the desired font versions in your `__FONTS` array.
