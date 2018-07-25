@@ -19,4 +19,4 @@ For the low battery indicator to work, you need to first activate it. The recomm
 
 The LowBatteryIndicatorManager assumes that characters 2 and 3 of your default font contain the low battery indicator image. See the VUEngine default font for an example.
 
-The default position of the low battery indicator is 45, 26 (bottom right corner), where x and y are columns and rows in tiles, *not* pixel positions. It can be changed via `__LOW_BATTERY_INDICATOR_X_POSITION` and `__LOW_BATTERY_INDICATOR_Y_POSITION`. The position can also be manipulated at any time using the `LowBatteryIndicatorManager::setPosition()` function.
+The default position of the low battery indicator is 1, 1 (top left corner), where x and y are columns and rows in tiles, *not* pixel positions. It can be changed via `__LOW_BATTERY_INDICATOR_X_POSITION` and `__LOW_BATTERY_INDICATOR_Y_POSITION`. The position can also be manipulated at any time using the `LowBatteryIndicatorManager::setPosition()` function.

@@ -13,6 +13,8 @@ USAGE
 
 Add the following to the COMPONENTS variable in your project's `config.make` file to include this component:
 
-	vuengine-components/entities/LowBatteryIndicatorEntity 
+	vuengine-components/entities/LowBatteryIndicatorEntity
 
 Add `LOW_BATTERY_INDICATOR_LB` to your game's stages.
+
+The default position of the low battery indicator is 16, 12 (top left corner), where x and y are the pixel position of the entity's center. It can be changed via `__LOW_BATTERY_INDICATOR_ENTITY_X_POSITION`, `__LOW_BATTERY_INDICATOR_ENTITY_Y_POSITION`, `__LOW_BATTERY_INDICATOR_ENTITY_Z_POSITION` AND `__LOW_BATTERY_INDICATOR_ENTITY_Z_DISPLACEMENT`.
