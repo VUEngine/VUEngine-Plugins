@@ -1,5 +1,5 @@
-VUEngine Components: ReflectiveEntity
-=====================================
+VUEngine Plugin: ReflectiveEntity
+=================================
 
 An Entity that can mirror other parts of the virtual screen.
 
@@ -9,6 +9,6 @@ An Entity that can mirror other parts of the virtual screen.
 USAGE
 -----
 
-Add the following to the COMPONENTS variable in your project's `config.make` file to include this component:
+Add the following to the PLUGINS variable in your project's `config.make` file to include this plugin:
 
-	vuengine-components/entities/ReflectiveEntity 
+	vuengine/plugins/entities/ReflectiveEntity

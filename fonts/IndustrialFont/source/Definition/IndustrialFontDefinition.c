@@ -34,7 +34,7 @@ extern BYTE IndustrialFontTiles[];
 /**
  * Industrial font
  *
- * @ingroup vuengine-components-fonts
+ * @ingroup vuengine-plugins-fonts
  */
 
 CharSetROMDef INDUSTRIAL_FONT_CH =

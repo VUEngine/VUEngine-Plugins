@@ -1,9 +1,9 @@
-VUEngine Components: LowBatteryIndicatorEntity
-==============================================
+VUEngine Plugin: LowBatteryIndicatorEntity
+==========================================
 
 Shows a blinking low battery indicator on screen when the system power is low.
 
-Uses an entity to do so. If you want to save the extra World needed, you can instead use the `vuengine-components/other/LowBatteryIndicator` component, which makes use of the printing layer instead.
+Uses an entity to do so. If you want to save the extra World needed, you can instead use the `vuengine/plugins/other/LowBatteryIndicator` plugin, which makes use of the printing layer instead.
 
 ![Preview Image](preview.png)
 
@@ -11,9 +11,9 @@ Uses an entity to do so. If you want to save the extra World needed, you can ins
 USAGE
 -----
 
-Add the following to the COMPONENTS variable in your project's `config.make` file to include this component:
+Add the following to the PLUGINS variable in your project's `config.make` file to include this plugin:
 
-	vuengine-components/entities/LowBatteryIndicatorEntity
+	vuengine/plugins/entities/LowBatteryIndicatorEntity
 
 Add `LOW_BATTERY_INDICATOR_LB` to your game's stages.
 

@@ -1,5 +1,5 @@
-VUEngine Components: VirtualBoyFont
-===================================
+VUEngine Plugin: VirtualBoyFont
+===============================
 
 Large font based on the "Virtual Boy" writing from the official IPD/Focus adjustment screen.
 
@@ -9,9 +9,9 @@ Large font based on the "Virtual Boy" writing from the official IPD/Focus adjust
 USAGE
 -----
 
-Add the following to the COMPONENTS variable in your project's `config.make` file to include this component:
+Add the following to the PLUGINS variable in your project's `config.make` file to include this plugin:
 
-	vuengine-components/fonts/VirtualBoyFont
+	vuengine/plugins/fonts/VirtualBoyFont
 
 Included are two versions of the font:
 

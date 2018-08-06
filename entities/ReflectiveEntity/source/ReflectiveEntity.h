@@ -149,7 +149,7 @@ typedef const ReflectiveEntityDefinition ReflectiveEntityROMDef;
 /**
  * An Entity that can mirror other parts of the screen.
  *
- * @ingroup vuengine-components-entities
+ * @ingroup vuengine-plugins-entities
  */
 class ReflectiveEntity : Entity
 {

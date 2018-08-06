@@ -34,7 +34,7 @@ extern BYTE VirtualBoyFontTiles[];
 /**
  * Virtual Boy font
  *
- * @ingroup vuengine-components-fonts
+ * @ingroup vuengine-plugins-fonts
  */
 
 CharSetROMDef VIRTUAL_BOY_FONT_CH =

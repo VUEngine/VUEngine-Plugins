@@ -1,5 +1,5 @@
-VUEngine Components: AutomaticPause
-===================================
+VUEngine Plugin: AutomaticPause
+===============================
 
 Automatically pauses the game every 30 minutes. Also comes with a default Automatic Pause Screen State.
 
@@ -9,9 +9,9 @@ Automatically pauses the game every 30 minutes. Also comes with a default Automa
 USAGE
 -----
 
-Add the following to the COMPONENTS variable in your project's `config.make` file to include this component:
+Add the following to the PLUGINS variable in your project's `config.make` file to include this plugin:
 
-	vuengine-components/other/AutomaticPause
+	vuengine/plugins/other/AutomaticPause
 
 For the automatic pause to work, you need to first activate it. The recommended way is to call the function `AutoPauseManager::setActive(AutoPauseManager::getInstance(), true);` from your game's main function before calling `Game::start(…);`.
 

@@ -37,7 +37,7 @@
 /**
  * Shows an indicator on screen when the system power is low
  *
- * @ingroup vuengine-components-other
+ * @ingroup vuengine-plugins-other
  */
 singleton class LowBatteryIndicatorManager : Object
 {

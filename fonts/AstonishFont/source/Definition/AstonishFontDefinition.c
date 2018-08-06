@@ -34,7 +34,7 @@ extern BYTE AstonishFontTiles[];
 /**
  * Astonish font
  *
- * @ingroup vuengine-components-fonts
+ * @ingroup vuengine-plugins-fonts
  */
 
 CharSetROMDef ASTONISH_FONT_CH =

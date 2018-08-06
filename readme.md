@@ -1,11 +1,11 @@
-VUEngine Components
-===================
+VUEngine Plugins
+================
 
-A library of reusable VUEngine 6 components.
+A library of reusable, prefab code components like entities, states or fonts, that can be easily plugged into VUEngine projects to add new functionality.
 
 
-COMPONENTS LIST
----------------
+PLUGIN LIST
+-----------
 
 **Entities**
 
@@ -41,7 +41,7 @@ COMPONENTS LIST
 LICENSE
 -------
 
-Unless otherwise noted, the following applies to all included components.
+Unless otherwise noted, the following applies to all included plugins.
 
 Copyright (C) 2007, 2018 by Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <chris@vr32.de>
 

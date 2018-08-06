@@ -1,5 +1,5 @@
-VUEngine Components: IndustrialFont
-===================================
+VUEngine Plugin: IndustrialFont
+===============================
 
 A bold, angular 8x8 pixel font that resembles industrial lettering.
 
@@ -9,9 +9,9 @@ A bold, angular 8x8 pixel font that resembles industrial lettering.
 USAGE
 -----
 
-Add the following to the COMPONENTS variable in your project's `config.make` file to include this component:
+Add the following to the PLUGINS variable in your project's `config.make` file to include this plugin:
 
-	vuengine-components/fonts/IndustrialFont
+	vuengine/plugins/fonts/IndustrialFont
 
 Included are two versions of the font:
 

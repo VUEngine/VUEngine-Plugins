@@ -1,17 +1,2 @@
 build/
 /.idea/workspace.xml
-/.settings/
-/old/
-.cdtproject
-.cproject
-.project
-cproject
-*.a
-*.vb
-*.elf
-*.ram
-*.lnk
-*.asm
-*.map
-*.iml
-sections*.txt
