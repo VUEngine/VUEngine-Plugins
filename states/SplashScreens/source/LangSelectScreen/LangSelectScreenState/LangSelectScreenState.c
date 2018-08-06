@@ -149,7 +149,7 @@ void LangSelectScreenState::enter(void* owner)
 	#endif
 }
 
-void LangSelectScreenState::printSelection()
+void LangSelectScreenState::print()
 {
 	#if(__LANGUAGE_SELECTION_SCREEN_VARIANT == 0)
 
@@ -177,6 +177,15 @@ void LangSelectScreenState::printSelection()
 		int strLanguageNameYPos = ((LangSelectScreenState::getFlagYPosition(this) + __LANGUAGE_SELECTION_SCREEN_IMAGE_HEIGHT) >> 3) - 1;
 		Printing::text(Printing::getInstance(), "                                                ", 0, strLanguageNameYPos, __LANGUAGE_SELECTION_SCREEN_LANGUAGE_NAME_FONT);
 		Printing::text(Printing::getInstance(), strLanguageName, strLanguageNameXPos, strLanguageNameYPos, __LANGUAGE_SELECTION_SCREEN_LANGUAGE_NAME_FONT);
+
+	#endif
+}
+
+void LangSelectScreenState::printSelection()
+{
+	LangSelectScreenState::print(this);
+
+	#if(__LANGUAGE_SELECTION_SCREEN_VARIANT == 1)
 
 		// set cursor position
 		Vector3D position =

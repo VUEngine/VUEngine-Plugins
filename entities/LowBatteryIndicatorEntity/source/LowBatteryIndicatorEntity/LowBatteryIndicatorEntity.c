@@ -72,18 +72,12 @@ void LowBatteryIndicatorEntity::onSecondChange(Object eventFirer __attribute__ (
 		else
 		{
 			this->lowBatteryDuration++;
-			if(AnimatedEntity::isPlayingAnimation(this))
-			{
-				AnimatedEntity::playAnimation(this, "Hide");
-			}
+			AnimatedEntity::playAnimation(this, "Hide");
 		}
 	}
 	else
 	{
 		this->lowBatteryDuration = 0;
-			if(AnimatedEntity::isPlayingAnimation(this))
-			{
-				AnimatedEntity::playAnimation(this, "Hide");
-			}
+		AnimatedEntity::playAnimation(this, "Hide");
 	}
 }

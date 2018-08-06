@@ -66,13 +66,7 @@ void AdjustmentScreenState::enter(void* owner)
 	// call base
 	Base::enter(this, owner);
 
-	#if(__ADJUSTMENT_SCREEN_VARIANT == 0)
-	// add rhombus effect
-	VIPManager::pushBackPostProcessingEffect(VIPManager::getInstance(), AdjustmentScreenState::rhombusEmitterPostProcessingEffect, NULL);
-	#endif
-
-	// set low battery indicator position
-	AdjustmentScreenState::setLowBatteryIndicatorPosition(this);
+	AdjustmentScreenState::init(this);
 }
 
 // state's exit
@@ -85,6 +79,17 @@ void AdjustmentScreenState::exit(void* owner)
 	Base::exit(this, owner);
 }
 
+void AdjustmentScreenState::init()
+{
+	#if(__ADJUSTMENT_SCREEN_VARIANT == 0)
+	// add rhombus effect
+	VIPManager::pushBackPostProcessingEffect(VIPManager::getInstance(), AdjustmentScreenState::rhombusEmitterPostProcessingEffect, NULL);
+	#endif
+
+	// set low battery indicator position
+	AdjustmentScreenState::setLowBatteryIndicatorPosition(this);
+}
+
 void AdjustmentScreenState::initNextState()
 {
 	this->nextState = GameState::safeCast(AutoPauseSelectScreenState::getInstance());
@@ -92,39 +97,19 @@ void AdjustmentScreenState::initNextState()
 
 void AdjustmentScreenState::suspend(void* owner)
 {
-	// set low battery indicator position
-	AdjustmentScreenState::resetLowBatteryIndicatorPosition(this);
-
-	if(!Game::isExitingSpecialMode(Game::getInstance()))
-	{
-		// do a fade out effect
-		Camera::startEffect(Camera::getInstance(), kFadeOut, __FADE_DELAY);
-	}
-
 	// call base
 	Base::suspend(this, owner);
+
+	// set low battery indicator position
+	AdjustmentScreenState::resetLowBatteryIndicatorPosition(this);
 }
 
 void AdjustmentScreenState::resume(void* owner)
 {
-	// set low battery indicator position
-	AdjustmentScreenState::setLowBatteryIndicatorPosition(this);
-
 	// call base
 	Base::resume(this, owner);
 
-	if(!Game::isExitingSpecialMode(Game::getInstance()))
-	{
-		// start a fade in effect
-		Camera::startEffect(Camera::getInstance(),
-			kFadeTo, // effect type
-			0, // initial delay (in ms)
-			NULL, // target brightness
-			__FADE_DELAY, // delay between fading steps (in ms)
-			NULL, // callback function
-			NULL // callback scope
-		);
-	}
+	AdjustmentScreenState::init(this);
 }
 
 void AdjustmentScreenState::processUserInput(UserInput userInput __attribute__ ((unused)))

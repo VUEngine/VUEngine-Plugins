@@ -86,6 +86,19 @@ void SplashScreenState::exit(void* owner)
 	delete this;
 }
 
+// state's suspend
+void SplashScreenState::suspend(void* owner)
+{
+	if(!Game::isEnteringSpecialMode(Game::getInstance()))
+	{
+		// do a fade out effect
+		Camera::startEffect(Camera::getInstance(), kFadeOut, __FADE_DELAY);
+	}
+
+	// call base
+	Base::suspend(this, owner);
+}
+
 // state's resume
 void SplashScreenState::resume(void* owner)
 {
@@ -93,31 +106,20 @@ void SplashScreenState::resume(void* owner)
 
 	SplashScreenState::print(this);
 
-#ifdef __DEBUG_TOOLS
 	if(!Game::isExitingSpecialMode(Game::getInstance()))
 	{
-#endif
-#ifdef __STAGE_EDITOR
-	if(!Game::isExitingSpecialMode(Game::getInstance()))
-	{
-#endif
-#ifdef __ANIMATION_INSPECTOR
-	if(!Game::isExitingSpecialMode(Game::getInstance()))
-	{
-#endif
+		Game::disableKeypad(Game::getInstance());
 
-	// start a fade in effect
-	Camera::startEffect(Camera::getInstance(), kFadeIn, __FADE_DELAY);
-
-#ifdef __DEBUG_TOOLS
+		// start fade in effect
+		Camera::startEffect(Camera::getInstance(),
+			kFadeTo, // effect type
+			0, // initial delay (in ms)
+			NULL, // target brightness
+			__FADE_DELAY, // delay between fading steps (in ms)
+			(void (*)(Object, Object))SplashScreenState::onFadeInComplete, // callback function
+			Object::safeCast(this) // callback scope
+		);
 	}
-#endif
-#ifdef __STAGE_EDITOR
-	}
-#endif
-#ifdef __ANIMATION_INSPECTOR
-	}
-#endif
 }
 
 bool SplashScreenState::processMessage(void* owner __attribute__ ((unused)), Telegram telegram __attribute__ ((unused)))

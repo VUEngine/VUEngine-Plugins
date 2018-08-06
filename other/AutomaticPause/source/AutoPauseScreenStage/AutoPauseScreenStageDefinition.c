@@ -32,6 +32,10 @@
 
 extern EntityDefinition AUTO_PAUSE_LOGO_EN;
 
+#ifdef __LOW_BATTERY_INDICATOR_ENTITY_ENABLED
+extern EntityDefinition LOW_BATTERY_INDICATOR_LB;
+#endif
+
 
 //---------------------------------------------------------------------------------------------------------
 // 											ENTITY LISTS
@@ -39,7 +43,11 @@ extern EntityDefinition AUTO_PAUSE_LOGO_EN;
 
 PositionedEntityROMDef AUTOMATIC_PAUSE_SCREEN_STAGE_ST_ENTITIES[] =
 {
-	{&AUTO_PAUSE_LOGO_EN, 	{200, 80, 0, 0}, 0, NULL, NULL, NULL, false},
+	{&AUTO_PAUSE_LOGO_EN, 	{200, 72, 0, 0}, 0, NULL, NULL, NULL, false},
+
+#ifdef __LOW_BATTERY_INDICATOR_ENTITY_ENABLED
+	{&LOW_BATTERY_INDICATOR_LB, 	{__LOW_BATTERY_INDICATOR_ENTITY_X_POSITION, __LOW_BATTERY_INDICATOR_ENTITY_Y_POSITION, __LOW_BATTERY_INDICATOR_ENTITY_Z_POSITION, __LOW_BATTERY_INDICATOR_ENTITY_Z_DISPLACEMENT}, 0, NULL, NULL, NULL, false},
+#endif
 
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
 };
@@ -135,7 +143,7 @@ StageROMDef AUTOMATIC_PAUSE_SCREEN_STAGE_ST =
 			// brightness values on the respective regions of the screen. maximum brightness is 128.
 			{
 				// dark red
-				8,
+				__BRIGHTNESS_DARK_RED,
 				// medium red
 				__BRIGHTNESS_MEDIUM_RED,
 				// bright red
