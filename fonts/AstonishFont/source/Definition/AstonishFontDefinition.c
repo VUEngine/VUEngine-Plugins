@@ -25,6 +25,7 @@
 //---------------------------------------------------------------------------------------------------------
 
 extern BYTE AstonishFontTiles[];
+extern BYTE AstonishFontShadowTiles[];
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -36,6 +37,8 @@ extern BYTE AstonishFontTiles[];
  *
  * @ingroup vuengine-plugins-fonts
  */
+
+/* Regular */
 
 CharSetROMDef ASTONISH_FONT_CH =
 {
@@ -95,4 +98,66 @@ FontROMDef ASTONISH_EXTENDED_FONT =
 
 	// font's name
 	"AstonishExt",
+};
+
+/* With Dropshadow */
+
+CharSetROMDef ASTONISH_FONT_SHADOW_CH =
+{
+	// number of chars
+	256,
+
+	// allocation type
+	__NOT_ANIMATED,
+
+	// char definition
+	AstonishFontShadowTiles,
+};
+
+FontROMDef ASTONISH_FONT_SHADOW =
+{
+	// font charset definition pointer
+	(CharSetDefinition*)&ASTONISH_FONT_SHADOW_CH,
+
+	// character number at which the font starts, allows you to skip the control characters for example
+	0,
+
+	// number of characters in this font
+	128,
+
+	// size of a single character (in chars) ({width, height})
+	{1, 2},
+
+	// font's name
+	"AstonishS",
+};
+
+CharSetROMDef ASTONISH_EXTENDED_FONT_SHADOW_CH =
+{
+	// number of chars
+	512,
+
+	// allocation type
+	__NOT_ANIMATED,
+
+	// char definition
+	AstonishFontShadowTiles,
+};
+
+FontROMDef ASTONISH_EXTENDED_FONT_SHADOW =
+{
+	// font charset definition pointer
+	(CharSetDefinition*)&ASTONISH_EXTENDED_FONT_SHADOW_CH,
+
+	// character number at which the font starts, allows you to skip the control characters for example
+	0,
+
+	// number of characters in this font
+	256,
+
+	// size of a single character (in chars) ({width, height})
+	{1, 2},
+
+	// font's name
+	"AstonishSExt",
 };

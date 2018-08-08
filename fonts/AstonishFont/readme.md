@@ -18,4 +18,9 @@ Included are two versions of the font:
 - `ASTONISH_FONT` contains the most important 96 characters (punctuation character, numbers and letters) plus control characters
 - `ASTONISH_EXTENDED_FONT` additionally contains the full set of European special characters
 
+There's also a version of the font with dropshadows:
+
+- `ASTONISH_FONT_SHADOW`
+- `ASTONISH_EXTENDED_FONT_SHADOW`
+
 Include the desired font versions in your `__FONTS` array.
