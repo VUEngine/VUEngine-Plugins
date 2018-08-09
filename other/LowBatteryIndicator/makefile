@@ -126,10 +126,12 @@ SOURCES_DIRS = $(shell find $(MY_HOME)/source -type d -print)
 HEADERS_DIRS = $(shell find $(MY_HOME)/source -type d -print)
 
 # Obligatory headers
-CONFIG_FILE =       $(shell pwd)/source/config.h
-ESSENTIAL_HEADERS = -include $(CONFIG_FILE) \
-                    -include $(VUENGINE_HOME)/source/libvuengine.h \
-                    $(foreach PLUGIN, $(PLUGINS), $(shell if [ -f $(VBDE)libs/$(PLUGIN)/source/config.h ]; then echo -include $(VBDE)libs/$(PLUGIN)/source/config.h; fi; )) \
+PLUGIN_CONFIG_FILE =	$(VBDE)libs/$(NAME)/source/config.h
+CONFIG_FILE =       	$(VUENGINE_HOME)/source/config.h
+ESSENTIAL_HEADERS = 	-include $(CONFIG_FILE) \
+						-include $(PLUGIN_CONFIG_FILE) \
+                    	-include $(VUENGINE_HOME)/source/libvuengine.h \
+                    	$(foreach PLUGIN, $(PLUGINS), $(shell if [ -f $(VBDE)libs/$(PLUGIN)/source/config.h ]; then echo -include $(VBDE)libs/$(PLUGIN)/source/config.h; fi; )) \
 
 # Common macros for all build types
 COMMON_MACROS = $(DATA_SECTION_ATTRIBUTES)
