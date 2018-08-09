@@ -67,7 +67,7 @@ void LowPowerEntity::onSecondChange(Object eventFirer __attribute__ ((unused)))
 	{
 		if(this->lowPowerDuration >= __LOW_POWER_ENTITY_BLINK_DELAY - 1)
 		{
-			AnimatedEntity::playAnimation(this, "Blink");
+			AnimatedEntity::playAnimation(this, "Flash");
 		}
 		else
 		{

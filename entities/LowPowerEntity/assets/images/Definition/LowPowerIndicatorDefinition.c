@@ -83,7 +83,7 @@ AnimationFunctionROMDef LOW_POWER_INDICATOR_BLINK_ANIM =
 	NULL,
 
 	// function's name
-	"Blink",
+	"Flash",
 };
 
 // an animation definition
@@ -191,7 +191,7 @@ LowPowerEntityROMDef LOW_POWER_INDICATOR_LB =
 		{0, 0, 0},
 
 		// gameworld's character's type
-		0,
+		kNoType,
 
 		// physical specification
 		(PhysicalSpecification*)NULL,
@@ -203,4 +203,3 @@ LowPowerEntityROMDef LOW_POWER_INDICATOR_LB =
 	// initial animation
 	"Hide",
 };
-
