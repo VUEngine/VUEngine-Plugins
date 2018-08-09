@@ -15,8 +15,8 @@ Add the following to the PLUGINS variable in your project's `config.make` file t
 
 		vuengine/plugins/other/LowPowerIndicator
 
-For the low power indicator to work, you need to first activate it. The recommended way is to call the function `LowPowerIndicatorManager::setActive(LowPowerIndicatorManager::getInstance(), true);` from your game's main function before calling `Game::start(…);`.
+For the low power indicator to work, you need to first activate it. The recommended way is to call the function `LowPowerManager::setActive(LowPowerManager::getInstance(), true);` from your game's main function before calling `Game::start(…);`.
 
 The LowPowerManager assumes that characters 2 and 3 of your default font contain the low power indicator image. See the VUEngine default font for an example.
 
-The default position of the low power indicator is 1, 1 (top left corner), where x and y are columns and rows in tiles, *not* pixel positions. It can be changed via `__LOW_POWER_INDICATOR_X_POSITION` and `__LOW_POWER_INDICATOR_Y_POSITION`. The position can also be manipulated at any time using the `LowPowerIndicatorManager::setPosition()` function.
+The default position of the low power indicator is 1, 1 (top left corner), where x and y are columns and rows in tiles, *not* pixel positions. It can be changed via `__LOW_POWER_INDICATOR_X_POSITION` and `__LOW_POWER_INDICATOR_Y_POSITION`. The position can also be manipulated at any time using the `LowPowerManager::setPosition()` function.

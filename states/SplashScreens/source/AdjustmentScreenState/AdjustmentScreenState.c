@@ -30,7 +30,7 @@
 #include <AutoPauseSelectScreenState.h>
 #include <DirectDraw.h>
 #ifdef __LOW_POWER_INDICATOR_ENABLED
-#include <LowPowerIndicatorManager.h>
+#include <LowPowerManager.h>
 #endif
 
 
@@ -131,14 +131,14 @@ void AdjustmentScreenState::processUserInput(UserInput userInput __attribute__ (
 void AdjustmentScreenState::setLowPowerIndicatorPosition()
 {
 	#ifdef __LOW_POWER_INDICATOR_ENABLED
-	LowPowerIndicatorManager::setPosition(LowPowerIndicatorManager::getInstance(), __ADJUSTMENT_SCREEN_LOW_POWER_INDICATOR_X_POSITION, __ADJUSTMENT_SCREEN_LOW_POWER_INDICATOR_Y_POSITION);
+	LowPowerManager::setPosition(LowPowerManager::getInstance(), __ADJUSTMENT_SCREEN_LOW_POWER_INDICATOR_X_POSITION, __ADJUSTMENT_SCREEN_LOW_POWER_INDICATOR_Y_POSITION);
 	#endif
 }
 
 void AdjustmentScreenState::resetLowPowerIndicatorPosition()
 {
 	#ifdef __LOW_POWER_INDICATOR_ENABLED
-	LowPowerIndicatorManager::setPosition(LowPowerIndicatorManager::getInstance(), __LOW_POWER_INDICATOR_X_POSITION, __LOW_POWER_INDICATOR_Y_POSITION);
+	LowPowerManager::setPosition(LowPowerManager::getInstance(), __LOW_POWER_INDICATOR_X_POSITION, __LOW_POWER_INDICATOR_Y_POSITION);
 	#endif
 }
 
