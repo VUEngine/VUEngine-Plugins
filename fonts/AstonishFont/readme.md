@@ -15,12 +15,12 @@ Add the following to the PLUGINS variable in your project's `config.make` file t
 
 Included are two versions of the font:
 
-- `ASTONISH_FONT` contains the most important 96 characters (punctuation character, numbers and letters) plus control characters
-- `ASTONISH_EXTENDED_FONT` additionally contains the full set of European special characters
+- `ASTONISH_FONT` ("Astonish") contains the most important 96 characters (punctuation character, numbers and letters) plus control characters
+- `ASTONISH_EXTENDED_FONT` ("AstonishExt") additionally contains the full set of European special characters
 
 There's also a version of the font with dropshadows:
 
-- `ASTONISH_FONT_SHADOW`
-- `ASTONISH_EXTENDED_FONT_SHADOW`
+- `ASTONISH_FONT_SHADOW` ("AstonishS")
+- `ASTONISH_EXTENDED_FONT_SHADOW` ("AstonishSExt")
 
 Include the desired font versions in your `__FONTS` array.

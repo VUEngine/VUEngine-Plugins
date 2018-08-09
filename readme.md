@@ -1,7 +1,7 @@
 VUEngine Plugins
 ================
 
-A library of reusable, prefab code components like entities, states or fonts, that can be easily plugged into VUEngine projects to add new functionality.
+A library of reusable, prefab code components like entities, states or fonts, that can be easily plugged into VUEngine projects to, e.g., add new functionality.
 
 
 PLUGIN LIST
