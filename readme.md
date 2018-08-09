@@ -11,23 +11,23 @@ PLUGIN LIST
 
 - ReflectiveEntity
   `An Entity that can mirror other parts of the virtual screen`
-- LowBatteryIndicatorEntity
+- LowPowerEntity
   `Entity based indicator that flashes when the system power is low`
 
 **Fonts**
 
-- AstonishFont
+- Astonish
   `A beautiful 8x16 pixel font for medium size text`
-- IndustrialFont
+- Industrial
   `A bold, angular 8x8 pixel font that resembles industrial lettering.`
-- VirtualBoyFont
+- VirtualBoy
   `Large font based on the "Virtual Boy" writing from the official IPD adjustment screen`
 
 **Other**
 
 - AutomaticPause
   `Automatically pauses the game after a definable amount of time`
-- LowBatteryIndicator
+- LowPowerIndicator
   `Printing layer based indicator that flashes when the system power is low`
 - SaveDataManager
   `Manages persistence of user data in SRAM`
