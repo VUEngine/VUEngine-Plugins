@@ -77,7 +77,7 @@ void LowPowerManager::onSecondChange(Object eventFirer __attribute__ ((unused)))
 	// check low power flag
 	if(userInput.powerFlag & this->isActive)
 	{
-		if(this->lowPowerDuration >= __LOW_POWER_INDICATOR_BLINK_DELAY - 1)
+		if(this->lowPowerDuration >= __LOW_POWER_INDICATOR_FLASH_DELAY - 1)
 		{
 			LowPowerManager::printLowPowerIndicator(this, !this->isShowingIndicator);
 		}

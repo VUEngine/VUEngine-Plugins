@@ -35,8 +35,8 @@
 //---------------------------------------------------------------------------------------------------------
 
 // show low power indicator after this many seconds of receiving the low power signal
-#ifndef __LOW_POWER_INDICATOR_BLINK_DELAY
-#define __LOW_POWER_INDICATOR_BLINK_DELAY			3
+#ifndef __LOW_POWER_INDICATOR_FLASH_DELAY
+#define __LOW_POWER_INDICATOR_FLASH_DELAY			3
 #endif
 
 #ifndef	__LOW_POWER_INDICATOR_X_POSITION

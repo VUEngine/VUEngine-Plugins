@@ -64,10 +64,10 @@ AnimationFunctionROMDef LOW_POWER_INDICATOR_HIDE_ANIM =
 	NULL,
 
 	// function's name
-	"Flash",
+	"Hide",
 };
 
-AnimationFunctionROMDef LOW_POWER_INDICATOR_BLINK_ANIM =
+AnimationFunctionROMDef LOW_POWER_INDICATOR_FLASH_ANIM =
 {
 	// number of frames of this animation function
 	12,
@@ -87,7 +87,7 @@ AnimationFunctionROMDef LOW_POWER_INDICATOR_BLINK_ANIM =
 	NULL,
 
 	// function's name
-	"Hide",
+	"Flash",
 };
 
 // an animation definition
@@ -96,7 +96,7 @@ AnimationDescriptionROMDef LOW_POWER_INDICATOR_ANIM =
 	// animation functions
 	{
 		(AnimationFunction*)&LOW_POWER_INDICATOR_HIDE_ANIM,
-		(AnimationFunction*)&LOW_POWER_INDICATOR_BLINK_ANIM,
+		(AnimationFunction*)&LOW_POWER_INDICATOR_FLASH_ANIM,
 		NULL,
 	}
 };
