@@ -19,65 +19,48 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
+#ifndef GUI_BGMAP_ANIMATED_SPRITE_H_
+#define GUI_BGMAP_ANIMATED_SPRITE_H_
+
 
 //---------------------------------------------------------------------------------------------------------
 //												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
-#include <Game.h>
-#include <Events.h>
-#include "LowPowerEntity.h"
+#include <BgmapAnimatedSprite.h>
 
 
 //---------------------------------------------------------------------------------------------------------
-//												CLASS'S METHODS
+//											CLASS'S DECLARATION
 //---------------------------------------------------------------------------------------------------------
 
-// class's constructor
-void LowPowerEntity::constructor(const LowPowerEntityDefinition* LowPowerEntityDefinition, s16 id, s16 internalId, const char* const name)
+/**
+ * Manages printing layer and offers various functions to write to it.
+ */
+class GuiBgmapAnimatedSprite : BgmapAnimatedSprite
 {
-	// construct base object
-	Base::constructor((AnimatedEntityDefinition*)LowPowerEntityDefinition, id, internalId, name);
+	/// @publicsection
 
-	// init class variables
-	this->lowPowerDuration = 0;
+	/**
+	 * Class constructor
+	 *
+	 * @param bgmapSpriteDefinition		Sprite definition
+	 * @param owner						Owner
+	 */
+	void constructor(const BgmapSpriteDefinition* bgmapSpriteDefinition, Object owner);
 
-	// add event listeners
-	Object::addEventListener(Object::safeCast(Game::getClock(Game::getInstance())), Object::safeCast(this), (EventListener)LowPowerEntity::onSecondChange, kEventSecondChanged);
+	/**
+     * Class destructor
+     */
+    void destructor();
+
+	/**
+     * Render
+     *
+     * @param evenFrame
+     */
+	override void render(bool evenFrame);
 }
 
-// class's destructor
-void LowPowerEntity::destructor()
-{
-	// remove event listeners
-	Object::removeEventListener(Object::safeCast(Game::getClock(Game::getInstance())), Object::safeCast(this), (EventListener)LowPowerEntity::onSecondChange, kEventSecondChanged);
 
-	// destroy the super object
-	// must always be called at the end of the destructor
-	Base::destructor();
-}
-
-void LowPowerEntity::onSecondChange(Object eventFirer __attribute__ ((unused)))
-{
-	// poll the user's input
-	UserInput userInput = KeypadManager::read(KeypadManager::getInstance());
-
-	// check low power flag
-	if(userInput.powerFlag)
-	{
-		if(this->lowPowerDuration >= __LOW_POWER_ENTITY_FLASH_DELAY - 1)
-		{
-			AnimatedEntity::playAnimation(this, "Flash");
-		}
-		else
-		{
-			this->lowPowerDuration++;
-			AnimatedEntity::playAnimation(this, "Hide");
-		}
-	}
-	else
-	{
-		this->lowPowerDuration = 0;
-		AnimatedEntity::playAnimation(this, "Hide");
-	}
-}
+#endif

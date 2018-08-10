@@ -24,7 +24,11 @@
 //												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
+#ifdef __LOW_POWER_ENTITY_USE_GUI_BGMAP_ANIMATED_SPRITE
+#include <GuiBgmapAnimatedSprite.h>
+#else
 #include <BgmapAnimatedSprite.h>
+#endif
 #include <LowPowerEntity.h>
 
 
@@ -60,7 +64,7 @@ AnimationFunctionROMDef LOW_POWER_INDICATOR_HIDE_ANIM =
 	NULL,
 
 	// function's name
-	"Hide",
+	"Flash",
 };
 
 AnimationFunctionROMDef LOW_POWER_INDICATOR_BLINK_ANIM =
@@ -83,7 +87,7 @@ AnimationFunctionROMDef LOW_POWER_INDICATOR_BLINK_ANIM =
 	NULL,
 
 	// function's name
-	"Flash",
+	"Hide",
 };
 
 // an animation definition
@@ -145,7 +149,11 @@ BgmapSpriteROMDef LOW_POWER_INDICATOR_SPRITE =
 {
 	{
 		// sprite's type
+#ifdef __LOW_POWER_ENTITY_USE_GUI_BGMAP_ANIMATED_SPRITE
+		__TYPE(GuiBgmapAnimatedSprite),
+#else
 		__TYPE(BgmapAnimatedSprite),
+#endif
 
 		// texture definition
 		(TextureDefinition*)&LOW_POWER_INDICATOR_TX,

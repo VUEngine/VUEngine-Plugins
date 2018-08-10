@@ -19,45 +19,15 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-#ifndef LOW_POWER_ENTITY_CONFIG_H_
-#define LOW_POWER_ENTITY_CONFIG_H_
+#ifndef GUI_BGMAP_ANIMATED_SPRITE_CONFIG_H_
+#define GUI_BGMAP_ANIMATED_SPRITE_CONFIG_H_
 
 
 //---------------------------------------------------------------------------------------------------------
 //											ESSENTIAL MACROS
 //---------------------------------------------------------------------------------------------------------
 
-#define __LOW_POWER_ENTITY_ENABLED
-
-
-//---------------------------------------------------------------------------------------------------------
-//											CONFIGURATION MACROS
-//---------------------------------------------------------------------------------------------------------
-
-// show low power indicator after this many seconds of receiving the low power signal
-#ifndef __LOW_POWER_ENTITY_FLASH_DELAY
-#define __LOW_POWER_ENTITY_FLASH_DELAY						3
-#endif
-
-#ifndef __LOW_POWER_ENTITY_USE_GUI_BGMAP_ANIMATED_SPRITE
-#define __LOW_POWER_ENTITY_USE_GUI_BGMAP_ANIMATED_SPRITE	0
-#endif
-
-#ifndef	__LOW_POWER_ENTITY_X_POSITION
-#define __LOW_POWER_ENTITY_X_POSITION						16
-#endif
-
-#ifndef	__LOW_POWER_ENTITY_Y_POSITION
-#define __LOW_POWER_ENTITY_Y_POSITION						12
-#endif
-
-#ifndef	__LOW_POWER_ENTITY_Z_POSITION
-#define __LOW_POWER_ENTITY_Z_POSITION						0
-#endif
-
-#ifndef	__LOW_POWER_ENTITY_Z_DISPLACEMENT
-#define __LOW_POWER_ENTITY_Z_DISPLACEMENT					0
-#endif
+#define __GUI_BGMAP_ANIMATED_SPRITE_ENABLED
 
 
 #endif

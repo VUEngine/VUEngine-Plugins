@@ -23,6 +23,11 @@ PLUGIN LIST
 - VirtualBoy
   `Large font based on the "Virtual Boy" writing from the official IPD adjustment screen`
 
+**Graphics**
+
+- GuiBgmapAnimatedSprite
+  `An animated BGMap sprite that is not affected by the camera frustum. Optimal for GUIs.`
+
 **Other**
 
 - AutomaticPause

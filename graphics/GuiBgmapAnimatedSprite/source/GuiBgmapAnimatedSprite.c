@@ -24,60 +24,55 @@
 //												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
-#include <Game.h>
-#include <Events.h>
-#include "LowPowerEntity.h"
+#include <GuiBgmapAnimatedSprite.h>
 
 
 //---------------------------------------------------------------------------------------------------------
 //												CLASS'S METHODS
 //---------------------------------------------------------------------------------------------------------
 
-// class's constructor
-void LowPowerEntity::constructor(const LowPowerEntityDefinition* LowPowerEntityDefinition, s16 id, s16 internalId, const char* const name)
+void GuiBgmapAnimatedSprite::constructor(const BgmapSpriteDefinition* bgmapSpriteDefinition, Object owner)
 {
 	// construct base object
-	Base::constructor((AnimatedEntityDefinition*)LowPowerEntityDefinition, id, internalId, name);
-
-	// init class variables
-	this->lowPowerDuration = 0;
-
-	// add event listeners
-	Object::addEventListener(Object::safeCast(Game::getClock(Game::getInstance())), Object::safeCast(this), (EventListener)LowPowerEntity::onSecondChange, kEventSecondChanged);
+	Base::constructor(bgmapSpriteDefinition, owner);
 }
 
-// class's destructor
-void LowPowerEntity::destructor()
+void GuiBgmapAnimatedSprite::destructor()
 {
-	// remove event listeners
-	Object::removeEventListener(Object::safeCast(Game::getClock(Game::getInstance())), Object::safeCast(this), (EventListener)LowPowerEntity::onSecondChange, kEventSecondChanged);
-
 	// destroy the super object
 	// must always be called at the end of the destructor
 	Base::destructor();
 }
 
-void LowPowerEntity::onSecondChange(Object eventFirer __attribute__ ((unused)))
+void GuiBgmapAnimatedSprite::render(bool evenFrame)
 {
-	// poll the user's input
-	UserInput userInput = KeypadManager::read(KeypadManager::getInstance());
+	Base::render(this, evenFrame);
 
-	// check low power flag
-	if(userInput.powerFlag)
+	if(!this->positioned)
 	{
-		if(this->lowPowerDuration >= __LOW_POWER_ENTITY_FLASH_DELAY - 1)
-		{
-			AnimatedEntity::playAnimation(this, "Flash");
-		}
-		else
-		{
-			this->lowPowerDuration++;
-			AnimatedEntity::playAnimation(this, "Hide");
-		}
+		return;
 	}
-	else
+
+	if(!this->worldLayer)
 	{
-		this->lowPowerDuration = 0;
-		AnimatedEntity::playAnimation(this, "Hide");
+		return;
 	}
+
+	static WorldAttributes* worldPointer = NULL;
+	worldPointer = &_worldAttributesBaseAddress[this->worldLayer];
+
+	// set the head
+	worldPointer->head = this->head | BgmapTexture::getSegment(this->texture);
+
+	// get coordinates
+	worldPointer->gx = this->position.x + this->displacement.x - this->halfWidth;
+	worldPointer->gy = this->position.y + this->displacement.y - this->halfHeight;
+	worldPointer->gp = this->position.parallax + this->displacement.parallax;
+
+	worldPointer->mx = this->drawSpec.textureSource.mx;
+	worldPointer->my = this->drawSpec.textureSource.my;
+	worldPointer->mp = this->drawSpec.textureSource.mp;
+
+	worldPointer->w = this->halfWidth << 1;
+	worldPointer->h = this->halfHeight << 1;
 }
