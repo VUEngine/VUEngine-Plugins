@@ -19,8 +19,8 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-#ifndef AUTOMATIC_PAUSE_SCREEN_STATE_H_
-#define AUTOMATIC_PAUSE_SCREEN_STATE_H_
+#ifndef AUTO_PAUSE_SCREEN_STATE_H_
+#define AUTO_PAUSE_SCREEN_STATE_H_
 
 
 //---------------------------------------------------------------------------------------------------------
