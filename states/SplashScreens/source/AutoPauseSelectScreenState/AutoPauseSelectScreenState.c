@@ -35,12 +35,8 @@
 #include <LangSelectScreenState.h>
 #include <Languages.h>
 #include <KeyPadManager.h>
-#ifdef __AUTOMATIC_PAUSE_ENABLED
 #include <AutoPauseManager.h>
-#endif
-#ifdef __SAVE_DATA_MANAGER_ENABLED
 #include <SaveDataManager.h>
-#endif
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -77,9 +73,7 @@ void AutoPauseSelectScreenState::initNextState()
 
 void AutoPauseSelectScreenState::print()
 {
-	#ifdef __SAVE_DATA_MANAGER_ENABLED
 	this->selection = SaveDataManager::getAutomaticPauseStatus(SaveDataManager::getInstance());
-	#endif
 
 	const char* strAutomaticPauseTitle = __AUTOMATIC_PAUSE_SELECTION_SCREEN_TITLE_TEXT;
 	FontSize strAutomaticPauseSize = Printing::getTextSize(Printing::getInstance(), strAutomaticPauseTitle, __AUTOMATIC_PAUSE_SELECTION_SCREEN_TITLE_TEXT_FONT);
@@ -160,12 +154,8 @@ void AutoPauseSelectScreenState::processUserInput(UserInput userInput)
 	}
 	else if(userInput.pressedKey & (K_A | K_STA))
 	{
-		#ifdef __AUTOMATIC_PAUSE_ENABLED
 		AutoPauseManager::setActive(AutoPauseManager::getInstance(), this->selection);
-		#endif
-		#ifdef __SAVE_DATA_MANAGER_ENABLED
 		SaveDataManager::setAutomaticPauseStatus(SaveDataManager::getInstance(), this->selection);
-		#endif
 		SplashScreenState::loadNextState(SplashScreenState::safeCast(this));
 	}
 }

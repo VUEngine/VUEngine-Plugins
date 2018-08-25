@@ -24,30 +24,27 @@
 
 
 //---------------------------------------------------------------------------------------------------------
-//											ESSENTIAL MACROS
-//---------------------------------------------------------------------------------------------------------
-
-#define __AUTOMATIC_PAUSE_ENABLED
-
-
-//---------------------------------------------------------------------------------------------------------
 //											CONFIGURATION MACROS
 //---------------------------------------------------------------------------------------------------------
 
 #ifndef __AUTOMATIC_PAUSE_SCREEN_TITLE_TEXT
-#define __AUTOMATIC_PAUSE_SCREEN_TITLE_TEXT			"AUTOMATIC PAUSE"
+#define __AUTOMATIC_PAUSE_SCREEN_TITLE_TEXT				"AUTOMATIC PAUSE"
 #endif
 
 #ifndef __AUTOMATIC_PAUSE_SCREEN_TITLE_TEXT_FONT
-#define __AUTOMATIC_PAUSE_SCREEN_TITLE_TEXT_FONT	"AstonishExt"
+#define __AUTOMATIC_PAUSE_SCREEN_TITLE_TEXT_FONT		"AstonishExt"
 #endif
 
 #ifndef __AUTOMATIC_PAUSE_SCREEN_BODY_TEXT
-#define __AUTOMATIC_PAUSE_SCREEN_BODY_TEXT			"Please take a rest!"
+#define __AUTOMATIC_PAUSE_SCREEN_BODY_TEXT				"Please take a rest!"
 #endif
 
 #ifndef __AUTOMATIC_PAUSE_SCREEN_BODY_TEXT_FONT
-#define __AUTOMATIC_PAUSE_SCREEN_BODY_TEXT_FONT		NULL
+#define __AUTOMATIC_PAUSE_SCREEN_BODY_TEXT_FONT			NULL
+#endif
+
+#ifndef __AUTOMATIC_PAUSE_SCREEN_USE_LOW_POWER_ENTITY
+#define __AUTOMATIC_PAUSE_SCREEN_USE_LOW_POWER_ENTITY	0
 #endif
 
 

@@ -29,9 +29,7 @@
 #include <AdjustmentScreenState.h>
 #include <AutoPauseSelectScreenState.h>
 #include <DirectDraw.h>
-#ifdef __LOW_POWER_INDICATOR_ENABLED
 #include <LowPowerManager.h>
-#endif
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -130,16 +128,12 @@ void AdjustmentScreenState::processUserInput(UserInput userInput __attribute__ (
 
 void AdjustmentScreenState::setLowPowerIndicatorPosition()
 {
-	#ifdef __LOW_POWER_INDICATOR_ENABLED
 	LowPowerManager::setPosition(LowPowerManager::getInstance(), __ADJUSTMENT_SCREEN_LOW_POWER_INDICATOR_X_POSITION, __ADJUSTMENT_SCREEN_LOW_POWER_INDICATOR_Y_POSITION);
-	#endif
 }
 
 void AdjustmentScreenState::resetLowPowerIndicatorPosition()
 {
-	#ifdef __LOW_POWER_INDICATOR_ENABLED
 	LowPowerManager::setPosition(LowPowerManager::getInstance(), __LOW_POWER_INDICATOR_X_POSITION, __LOW_POWER_INDICATOR_Y_POSITION);
-	#endif
 }
 
 static void AdjustmentScreenState::rhombusEmitterPostProcessingEffect(u32 currentDrawingFrameBufferSet __attribute__ ((unused)), SpatialObject spatialObject __attribute__ ((unused)))

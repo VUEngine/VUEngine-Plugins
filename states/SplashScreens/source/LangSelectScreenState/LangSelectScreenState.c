@@ -32,9 +32,7 @@
 #include <LangSelectScreenState.h>
 #include <Languages.h>
 #include <KeyPadManager.h>
-#ifdef __SAVE_DATA_MANAGER_ENABLED
 #include <SaveDataManager.h>
-#endif
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -96,10 +94,8 @@ void LangSelectScreenState::enter(void* owner)
 
 	// get active language from sram
 	u8 activeLanguage = I18n::getActiveLanguage(I18n::getInstance());
-	#ifdef __SAVE_DATA_MANAGER_ENABLED
-		activeLanguage = SaveDataManager::getLanguage(SaveDataManager::getInstance());
-		I18n::setActiveLanguage(I18n::getInstance(), activeLanguage);
-	#endif
+	activeLanguage = SaveDataManager::getLanguage(SaveDataManager::getInstance());
+	I18n::setActiveLanguage(I18n::getInstance(), activeLanguage);
 	this->selection = activeLanguage;
 
 	#if(__LANGUAGE_SELECTION_SCREEN_VARIANT == 0)
@@ -231,9 +227,7 @@ void LangSelectScreenState::select(bool next)
 void LangSelectScreenState::persistChoice()
 {
 	I18n::setActiveLanguage(I18n::getInstance(), this->selection);
-	#ifdef __SAVE_DATA_MANAGER_ENABLED
-		SaveDataManager::setLanguage(SaveDataManager::getInstance(), this->selection);
-	#endif
+	SaveDataManager::setLanguage(SaveDataManager::getInstance(), this->selection);
 }
 
 u8 LangSelectScreenState::getNumLangs()

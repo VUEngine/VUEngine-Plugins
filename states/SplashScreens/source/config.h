@@ -27,6 +27,12 @@
 //											CONFIGURATION MACROS
 //---------------------------------------------------------------------------------------------------------
 
+// GENERAL
+
+#ifndef __SPLASH_SCREENS_USE_LOW_POWER_ENTITY
+#define __SPLASH_SCREENS_USE_LOW_POWER_ENTITY								0
+#endif
+
 // ADJUSTMENT SCREEN
 
 // adjustment screen variant to use (0: VUEngine, 1: Planet Virtual Boy, 2: Nintendo or 3: Prototype)
