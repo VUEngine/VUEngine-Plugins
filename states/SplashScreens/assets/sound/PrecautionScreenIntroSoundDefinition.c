@@ -38,9 +38,9 @@ const u16 PRECAUTION_SCREEN_INTRO_SND[] =
 	//stdwait
 	0x0C,
 	//stdSxLRV
-	0xFF,
+	0x55,
 	//stdSxEV0
-	0xF1,
+	0xD1,
 	//stdSxEV1
 	0x01,
 	//stdSxRAM
@@ -50,27 +50,5 @@ const u16 PRECAUTION_SCREEN_INTRO_SND[] =
 	//song's notes
 	F_4,
 	F_5,
-	NONE,
-	NONE,
-	NONE,
-	C_3,
-	D_3,
-	NONE,
-	NONE,
-	NONE,
-	C_3,
-	D_3,
-	NONE,
-	NONE,
-	NONE,
-	C_3,
-	D_3,
-	NONE,
-	NONE,
-	NONE,
-	C_3,
-	D_3,
-	NONE,
-	NONE,
 	NONE,
 };
