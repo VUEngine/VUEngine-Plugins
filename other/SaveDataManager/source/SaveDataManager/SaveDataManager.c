@@ -46,6 +46,9 @@ void SaveDataManager::constructor()
 	// init class variables
 	this->sramAvailable = false;
 
+	// register with game
+	Game::registerSaveDataManager(Game::getInstance(), Object::safeCast(this));
+
 	// initialize
 	SaveDataManager::initialize(this);
 }
@@ -60,13 +63,20 @@ bool SaveDataManager::verifySaveStamp()
 {
 	char saveStamp[__SAVE_DATA_MANAGER_SAVE_STAMP_LENGTH];
 
-	// write save stamp
-	SRAMManager::save(SRAMManager::getInstance(), (BYTE*)__SAVE_DATA_MANAGER_SAVE_STAMP, offsetof(struct SaveData, saveStamp), sizeof(saveStamp));
-
 	// read save stamp
 	SRAMManager::read(SRAMManager::getInstance(), (BYTE*)&saveStamp, offsetof(struct SaveData, saveStamp), sizeof(saveStamp));
 
 	return !strncmp(saveStamp, __SAVE_DATA_MANAGER_SAVE_STAMP, __SAVE_DATA_MANAGER_SAVE_STAMP_LENGTH);
+}
+
+bool SaveDataManager::checkSRAM()
+{
+	char saveStamp[__SAVE_DATA_MANAGER_SAVE_STAMP_LENGTH];
+
+	// write save stamp
+	SRAMManager::save(SRAMManager::getInstance(), (BYTE*)__SAVE_DATA_MANAGER_SAVE_STAMP, offsetof(struct SaveData, saveStamp), sizeof(saveStamp));
+
+	return SaveDataManager::verifySaveStamp(this);
 }
 
 u32 SaveDataManager::computeChecksum()
@@ -75,7 +85,7 @@ u32 SaveDataManager::computeChecksum()
 
 	// iterate over whole save data, starting right after the previously saved checksum
 	int i = (offsetof(struct SaveData, checksum) + sizeof(crc32));
-	for(; i < (int)sizeof(SaveData); i++)
+	for(; i < SaveDataManager::getSaveDataSize(this); i++)
 	{
 		// get the current byte
 		u8 currentByte;
@@ -116,17 +126,23 @@ bool SaveDataManager::verifyChecksum()
 
 void SaveDataManager::initialize()
 {
+	// first check if save data is from this game
+	// (we have to do this before even checking for SRAM's existence because save stamp serves two
+	// purposes: marking a save as being from a certain game as well as checking for SRAM existence.
+	// checkSRAM() overwrites previous the save stamp, though.)
+	bool saveIsFromThisGame = SaveDataManager::verifySaveStamp(this);
+
 	// verify sram validity
-	if(SaveDataManager::verifySaveStamp(this))
+	if(saveIsFromThisGame || SaveDataManager::checkSRAM(this))
 	{
 		// set sram available flag
 		this->sramAvailable = true;
 
 		// verify saved progress presence and integrity
-		if(!SaveDataManager::verifyChecksum(this))
+		if(!saveIsFromThisGame || !SaveDataManager::verifyChecksum(this))
 		{
 			// if no previous save could be verified, completely erase sram to start clean
-			SRAMManager::clear(SRAMManager::getInstance(), offsetof(struct SaveData, checksum), (int)sizeof(SaveData));
+			SRAMManager::clear(SRAMManager::getInstance(), offsetof(struct SaveData, checksum), SaveDataManager::getSaveDataSize(this));
 
 			// write checksum
 			SaveDataManager::writeChecksum(this);
@@ -195,4 +211,9 @@ void SaveDataManager::setAutomaticPauseStatus(u8 autoPauseStatus)
 		// write checksum
 		SaveDataManager::writeChecksum(this);
 	}
+}
+
+int SaveDataManager::getSaveDataSize()
+{
+	return (int)sizeof(SaveData);
 }

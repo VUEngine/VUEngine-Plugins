@@ -92,9 +92,14 @@ void LangSelectScreenState::enter(void* owner)
 {
 	Base::enter(this, owner);
 
+	Object saveDataManager = Game::getSaveDataManager(Game::getInstance());
+
 	// get active language from sram
 	u8 activeLanguage = I18n::getActiveLanguage(I18n::getInstance());
-	activeLanguage = SaveDataManager::getLanguage(SaveDataManager::getInstance());
+	if(saveDataManager)
+	{
+		activeLanguage = SaveDataManager::getLanguage(saveDataManager);
+	}
 	I18n::setActiveLanguage(I18n::getInstance(), activeLanguage);
 	this->selection = activeLanguage;
 
@@ -226,8 +231,13 @@ void LangSelectScreenState::select(bool next)
 
 void LangSelectScreenState::persistChoice()
 {
+	Object saveDataManager = Game::getSaveDataManager(Game::getInstance());
+
 	I18n::setActiveLanguage(I18n::getInstance(), this->selection);
-	SaveDataManager::setLanguage(SaveDataManager::getInstance(), this->selection);
+	if(saveDataManager)
+	{
+		SaveDataManager::setLanguage(saveDataManager, this->selection);
+	}
 }
 
 u8 LangSelectScreenState::getNumLangs()

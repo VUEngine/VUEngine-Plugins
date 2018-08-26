@@ -73,7 +73,11 @@ void AutoPauseSelectScreenState::initNextState()
 
 void AutoPauseSelectScreenState::print()
 {
-	this->selection = SaveDataManager::getAutomaticPauseStatus(SaveDataManager::getInstance());
+	Object saveDataManager = Game::getSaveDataManager(Game::getInstance());
+
+	this->selection = saveDataManager
+		? SaveDataManager::getAutomaticPauseStatus(saveDataManager)
+		: 0;
 
 	const char* strAutomaticPauseTitle = __AUTOMATIC_PAUSE_SELECTION_SCREEN_TITLE_TEXT;
 	FontSize strAutomaticPauseSize = Printing::getTextSize(Printing::getInstance(), strAutomaticPauseTitle, __AUTOMATIC_PAUSE_SELECTION_SCREEN_TITLE_TEXT_FONT);
@@ -154,8 +158,13 @@ void AutoPauseSelectScreenState::processUserInput(UserInput userInput)
 	}
 	else if(userInput.pressedKey & (K_A | K_STA))
 	{
+		Object saveDataManager = Game::getSaveDataManager(Game::getInstance());
+
 		AutoPauseManager::setActive(AutoPauseManager::getInstance(), this->selection);
-		SaveDataManager::setAutomaticPauseStatus(SaveDataManager::getInstance(), this->selection);
+		if(saveDataManager)
+		{
+			SaveDataManager::setAutomaticPauseStatus(saveDataManager, this->selection);
+		}
 		SplashScreenState::loadNextState(SplashScreenState::safeCast(this));
 	}
 }

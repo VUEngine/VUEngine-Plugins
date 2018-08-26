@@ -38,7 +38,7 @@
 // therefore it acts as kind of like a map of sram content.
 typedef struct SaveData
 {
-	/// flag to know if there is data saved
+	/// flag to know if there is data from this game saved
 	u8 saveStamp[__SAVE_DATA_MANAGER_SAVE_STAMP_LENGTH];
 
 	/// checksum over sram content to prevent save data manipulation
@@ -123,6 +123,11 @@ singleton class SaveDataManager : Object
 	 */
 	void writeChecksum();
 
+	/**
+	 * Return size of SaveData
+	 */
+	virtual int getSaveDataSize();
+
 
 	/// @privatesection
 
@@ -134,11 +139,19 @@ singleton class SaveDataManager : Object
 	 */
 
 	/**
-	 * Write then immediately read save stamp to check for SRAM presence and validity.
+	 * Read save stamp from SRAM and compare to game's stamp to verify that save is from this game.
 	 *
 	 * @fn			bool SaveDataManager::verifySaveStamp()
      * @memberof 	SaveDataManager
      * @return 	  	Valid save stamp found?
+	 */
+
+	/**
+	 * Write then immediately read save stamp to check for SRAM presence and validity.
+	 *
+	 * @fn			bool SaveDataManager::checkSRAM()
+     * @memberof 	SaveDataManager
+     * @return 	  	SRAM detected?
 	 */
 
 	/**
