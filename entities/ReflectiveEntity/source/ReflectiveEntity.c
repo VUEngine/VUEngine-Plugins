@@ -61,7 +61,7 @@ void ReflectiveEntity::ready(bool recursive)
 	// call base
 	Base::ready(this, recursive);
 
-	// add post processing effect to make key emit rhombuses
+	// add post processing effect
 	Game::pushFrontProcessingEffect(Game::getInstance(), ReflectiveEntity::reflect, SpatialObject::safeCast(this));
 }
 
@@ -77,7 +77,7 @@ void ReflectiveEntity::resume()
 {
 	Base::resume(this);
 
-	// add post processing effect to make key emit rhombuses
+	// add post processing effect
 	Game::pushFrontProcessingEffect(Game::getInstance(), ReflectiveEntity::reflect, SpatialObject::safeCast(this));
 }
 
