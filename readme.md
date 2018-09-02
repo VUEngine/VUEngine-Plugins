@@ -37,6 +37,23 @@ PLUGIN LIST
 - SaveDataManager
   `Manages persistence of user data in SRAM`
 
+**Post Processing**
+
+- DwarfPlanet
+  `"Bends down" the left and right edges of the screen to make the world look like a very small planet`
+- Lantern
+  `Adds a lantern like effect to any SpatialObject, where everything outside of a certain radius around the SpatialObject is rendered black`
+- Rain
+  `Dynamic full screen rain effect`
+- Rhombus
+  `Draws a rhombus emitted from any SpatialObject`
+- Test
+  `Simple test effect that lights up a rectangular area around any SpatialObject`
+- Tilt
+  `"Tilts" the game image by a few percent by gradually shifting columns`
+- Wobble
+  `Applies a full screen wobble distortion that is reminiscent of water waves`
+
 **States**
 
 - SplashScreens
