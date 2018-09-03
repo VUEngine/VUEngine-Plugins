@@ -60,7 +60,7 @@ void LowPowerEntity::destructor()
 void LowPowerEntity::onSecondChange(Object eventFirer __attribute__ ((unused)))
 {
 	// poll the user's input
-	UserInput userInput = KeypadManager::read(KeypadManager::getInstance());
+	UserInput userInput = KeypadManager::getUserInput(KeypadManager::getInstance());
 
 	// check low power flag
 	if(userInput.powerFlag)
