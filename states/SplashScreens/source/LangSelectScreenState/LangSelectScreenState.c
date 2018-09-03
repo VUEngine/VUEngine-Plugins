@@ -31,7 +31,7 @@
 #include <I18n.h>
 #include <LangSelectScreenState.h>
 #include <Languages.h>
-#include <KeyPadManager.h>
+#include <KeypadManager.h>
 #include <SaveDataManager.h>
 
 

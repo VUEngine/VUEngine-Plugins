@@ -34,7 +34,7 @@
 #include <AutoPauseSelectScreenState.h>
 #include <LangSelectScreenState.h>
 #include <Languages.h>
-#include <KeyPadManager.h>
+#include <KeypadManager.h>
 #include <AutoPauseManager.h>
 #include <SaveDataManager.h>
 
