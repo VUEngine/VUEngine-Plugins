@@ -31,7 +31,7 @@
 // 												DEFINITIONS
 //---------------------------------------------------------------------------------------------------------
 
-const u16 PRECAUTION_SCREEN_INTRO_SND[] =
+const u16 SPLASH_SCREENS_INTRO_SND[] =
 {
 	//songlength
 	2,

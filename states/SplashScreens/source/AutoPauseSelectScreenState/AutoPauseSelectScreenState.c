@@ -35,6 +35,7 @@
 #include <LangSelectScreenState.h>
 #include <Languages.h>
 #include <KeypadManager.h>
+#include <SoundManager.h>
 #include <AutoPauseManager.h>
 #include <SaveDataManager.h>
 
@@ -44,6 +45,8 @@
 //---------------------------------------------------------------------------------------------------------
 
 extern StageROMDef AUTO_PAUSE_SELECTION_SCREEN_STAGE_ST;
+extern const u16 SPLASH_SCREENS_OPTION_SELECT_SND[];
+extern const u16 SPLASH_SCREENS_OPTION_CONFIRM_SND[];
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -155,6 +158,10 @@ void AutoPauseSelectScreenState::processUserInput(UserInput userInput)
 	{
 		this->selection = !this->selection;
 		AutoPauseSelectScreenState::renderSelection(this);
+
+		// play sound
+		Vector3D position = {128 + (!this->selection << 7), 112, 0};
+		SoundManager::playFxSound(SoundManager::getInstance(), SPLASH_SCREENS_OPTION_SELECT_SND, position);
 	}
 	else if(userInput.pressedKey & (K_A | K_STA))
 	{
@@ -165,6 +172,11 @@ void AutoPauseSelectScreenState::processUserInput(UserInput userInput)
 		{
 			SaveDataManager::setAutomaticPauseStatus(saveDataManager, this->selection);
 		}
+
+		// play sound
+		Vector3D position = {192, 112, 0};
+		SoundManager::playFxSound(SoundManager::getInstance(), SPLASH_SCREENS_OPTION_CONFIRM_SND, position);
+
 		SplashScreenState::loadNextState(SplashScreenState::safeCast(this));
 	}
 }

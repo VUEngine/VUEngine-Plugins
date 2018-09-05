@@ -32,6 +32,7 @@
 #include <LangSelectScreenState.h>
 #include <Languages.h>
 #include <KeypadManager.h>
+#include <SoundManager.h>
 #include <SaveDataManager.h>
 
 
@@ -43,6 +44,8 @@ extern StageROMDef LANGUAGE_SELECTION_SCREEN_STAGE_ST;
 extern LangROMDef* __LANGUAGES[];
 extern EntityDefinition FLAG_CURSOR_EN;
 extern EntityDefinition FLAG_UNKNOWN_EN;
+extern const u16 SPLASH_SCREENS_OPTION_SELECT_SND[];
+extern const u16 SPLASH_SCREENS_OPTION_CONFIRM_SND[];
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -84,6 +87,10 @@ void LangSelectScreenState::processUserInput(UserInput userInput)
 	}
 	else if(userInput.pressedKey & (K_A | K_STA))
 	{
+		// play sound
+		Vector3D position = {192, 112, 0};
+		SoundManager::playFxSound(SoundManager::getInstance(), SPLASH_SCREENS_OPTION_CONFIRM_SND, position);
+
 		SplashScreenState::loadNextState(SplashScreenState::safeCast(this));
 	}
 }
@@ -227,6 +234,10 @@ void LangSelectScreenState::select(bool next)
 
 	LangSelectScreenState::persistChoice(this);
 	LangSelectScreenState::printSelection(this);
+
+	// play sound
+	Vector3D position = {192, 112, 0};
+	SoundManager::playFxSound(SoundManager::getInstance(), SPLASH_SCREENS_OPTION_SELECT_SND, position);;
 }
 
 void LangSelectScreenState::persistChoice()

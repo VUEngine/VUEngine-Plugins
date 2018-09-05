@@ -41,7 +41,7 @@
 //---------------------------------------------------------------------------------------------------------
 
 extern StageROMDef PRECAUTION_SCREEN_STAGE_ST;
-extern const u16 PRECAUTION_SCREEN_INTRO_SND[];
+extern const u16 SPLASH_SCREENS_INTRO_SND[];
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -70,7 +70,7 @@ void PrecautionScreenState::enter(void* owner)
 
 	// play start-up sound
 	Vector3D position = {192, 112, 0};
-	SoundManager::playFxSound(SoundManager::getInstance(), PRECAUTION_SCREEN_INTRO_SND, position);
+	SoundManager::playFxSound(SoundManager::getInstance(), SPLASH_SCREENS_INTRO_SND, position);
 
 	// wait some seconds for the screen to stabilize before displaying anything
 	// as defined by Nintendo in the official development manual
