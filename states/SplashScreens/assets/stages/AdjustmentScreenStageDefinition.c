@@ -56,7 +56,7 @@ PositionedEntityROMDef ADJUSTMENT_SCREEN_STAGE_ST_ENTITIES[] =
 	// VUEngine
 	{&ADJUSTMENT_SCREEN_ICON_L_EN, 	{ 12,  12,  0, 0}, 0, NULL, NULL, NULL, false},
 	{&ADJUSTMENT_SCREEN_ICON_R_EN, 	{ 12, 212,  0, 0}, 0, NULL, NULL, NULL, false},
-	{&ADJUSTMENT_SCREEN_BG_EN, 		{192, 112,  0, 2}, 0, NULL, NULL, NULL, false},
+	{&ADJUSTMENT_SCREEN_BG_EN, 		{192, 112, 16, 0}, 0, NULL, NULL, NULL, false},
 	{&ADJUSTMENT_SCREEN_LOGO_EN, 	{192, 112,  0, 0}, 0, NULL, NULL, NULL, false},
 	{&ADJUSTMENT_SCREEN_ICON_L_EN, 	{372, 212,  0, 0}, 0, NULL, NULL, NULL, false},
 	{&ADJUSTMENT_SCREEN_ICON_R_EN, 	{372,  12,  0, 0}, 0, NULL, NULL, NULL, false},
@@ -67,7 +67,7 @@ PositionedEntityROMDef ADJUSTMENT_SCREEN_STAGE_ST_ENTITIES[] =
 	// PVB
 	{&ADJUSTMENT_SCREEN_ICON_L_EN, 	{  8,   8,  0, 0}, 0, NULL, NULL, NULL, false},
 	{&ADJUSTMENT_SCREEN_ICON_R_EN, 	{  8, 216,  0, 0}, 0, NULL, NULL, NULL, false},
-	{&ADJUSTMENT_SCREEN_BG_EN, 		{192, 112,  0, 2}, 0, NULL, NULL, NULL, false},
+	{&ADJUSTMENT_SCREEN_BG_EN, 		{192, 112, 16, 0}, 0, NULL, NULL, NULL, false},
 	{&ADJUSTMENT_SCREEN_LOGO_EN, 	{192, 110,  0, 0}, 0, NULL, NULL, NULL, false},
 	{&ADJUSTMENT_SCREEN_ICON_L_EN, 	{376, 216,  0, 0}, 0, NULL, NULL, NULL, false},
 	{&ADJUSTMENT_SCREEN_ICON_R_EN, 	{376,   8,  0, 0}, 0, NULL, NULL, NULL, false},
@@ -190,7 +190,12 @@ StageROMDef ADJUSTMENT_SCREEN_STAGE_ST =
 			// brightness values on the respective regions of the screen. maximum brightness is 128.
 			{
 				// dark red
-				8,
+#if(__ADJUSTMENT_SCREEN_VARIANT == 0)
+				16,
+#endif
+#if(__ADJUSTMENT_SCREEN_VARIANT > 0)
+				__BRIGHTNESS_DARK_RED,
+#endif
 				// medium red
 				__BRIGHTNESS_MEDIUM_RED,
 				// bright red

@@ -1,11 +1,12 @@
+#if(__ADJUSTMENT_SCREEN_VARIANT == 0)
 
 //{{BLOCK(AdjustmentScreenBG)
 
 //======================================================================
 //
-//	AdjustmentScreenBG, 384x224@2, 
+//	AdjustmentScreenBG, 384x224@2,
 //	+ 321 tiles (t|f reduced) not compressed
-//	+ regular map (flat), not compressed, 48x28 
+//	+ regular map (flat), not compressed, 48x28
 //	Total size: 5136 + 2688 = 7824
 //
 //	Exported by Cearn's GBA Image Transmogrifier, v0.8.6
@@ -391,3 +392,6 @@ const unsigned short AdjustmentScreenBGMap[1344] __attribute__((aligned(4)))=
 };
 
 //}}BLOCK(AdjustmentScreenBG)
+
+
+#endif
