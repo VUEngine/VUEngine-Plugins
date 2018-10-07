@@ -237,7 +237,7 @@ void LangSelectScreenState::select(bool next)
 
 	// play sound
 	Vector3D position = {192, 112, 0};
-	SoundManager::playFxSound(SoundManager::getInstance(), SPLASH_SCREENS_OPTION_SELECT_SND, position);;
+	SoundManager::playFxSound(SoundManager::getInstance(), SPLASH_SCREENS_OPTION_SELECT_SND, position);
 }
 
 void LangSelectScreenState::persistChoice()
