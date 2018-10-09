@@ -46,13 +46,13 @@ void LowPowerManager::constructor()
 	this->indicatorYPos = __LOW_POWER_INDICATOR_Y_POSITION;
 
 	// add event listeners
-	Object::addEventListener(Object::safeCast(Game::getClock(Game::getInstance())), Object::safeCast(this), (EventListener)LowPowerManager::onSecondChange, kEventSecondChanged);
+	Object::addEventListener(Game::getClock(Game::getInstance()), Object::safeCast(this), (EventListener)LowPowerManager::onSecondChange, kEventSecondChanged);
 }
 
 void LowPowerManager::destructor()
 {
 	// remove event listeners
-	Object::removeEventListener(Object::safeCast(Game::getClock(Game::getInstance())), Object::safeCast(this), (EventListener)LowPowerManager::onSecondChange, kEventSecondChanged);
+	Object::removeEventListener(Game::getClock(Game::getInstance()), Object::safeCast(this), (EventListener)LowPowerManager::onSecondChange, kEventSecondChanged);
 
 	// destroy base
 	Base::destructor();

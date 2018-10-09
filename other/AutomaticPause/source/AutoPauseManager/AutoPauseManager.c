@@ -45,13 +45,13 @@ void AutoPauseManager::constructor()
 	this->autoPauseDelay = 30;
 
 	// add event listeners
-	Object::addEventListener(Object::safeCast(Game::getClock(Game::getInstance())), Object::safeCast(this), (EventListener)AutoPauseManager::onMinuteChange, kEventMinuteChanged);
+	Object::addEventListener(Game::getClock(Game::getInstance()), Object::safeCast(this), (EventListener)AutoPauseManager::onMinuteChange, kEventMinuteChanged);
 }
 
 void AutoPauseManager::destructor()
 {
 	// remove event listeners
-	Object::removeEventListener(Object::safeCast(Game::getClock(Game::getInstance())), Object::safeCast(this), (EventListener)AutoPauseManager::onMinuteChange, kEventMinuteChanged);
+	Object::removeEventListener(Game::getClock(Game::getInstance()), Object::safeCast(this), (EventListener)AutoPauseManager::onMinuteChange, kEventMinuteChanged);
 
 	// destroy base
 	Base::destructor();
