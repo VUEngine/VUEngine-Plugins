@@ -90,7 +90,6 @@ AnimationFunctionROMDef LOW_POWER_INDICATOR_FLASH_ANIM =
 	"Flash",
 };
 
-// an animation definition
 AnimationDescriptionROMDef LOW_POWER_INDICATOR_ANIM =
 {
 	// animation functions
