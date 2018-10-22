@@ -1,7 +1,7 @@
 VUEngine Plugin: GuiBgmapAnimatedSprite
 =======================================
 
-An animated BGMap sprite that is not affected by the camera frustum. Optimal for GUIs.
+An animated BGMap sprite that is not affected by the camera frustum. Perfect for GUIs.
 
 
 USAGE
