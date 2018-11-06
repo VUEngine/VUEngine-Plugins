@@ -62,7 +62,7 @@ void SplashScreenState::enter(void* owner)
 	SplashScreenState::print(this);
 
 	// start clocks to start animations
-	GameState::startClocks(GameState::safeCast(this));
+	GameState::startClocks(this);
 
 	Game::disableKeypad(Game::getInstance());
 

@@ -63,7 +63,7 @@ void AutoPauseScreenState::destructor()
 void AutoPauseScreenState::enter(void* owner __attribute__ ((unused)))
 {
 	// load stage
-	GameState::loadStage(GameState::safeCast(this), (StageDefinition*)&AUTOMATIC_PAUSE_SCREEN_STAGE_ST, NULL, true);
+	GameState::loadStage(this, (StageDefinition*)&AUTOMATIC_PAUSE_SCREEN_STAGE_ST, NULL, true);
 
 	// print text
 	FontSize strAutomaticPauseSize = Printing::getTextSize(
@@ -99,7 +99,7 @@ void AutoPauseScreenState::enter(void* owner __attribute__ ((unused)))
 	Game::disableKeypad(Game::getInstance());
 
 	// start clocks to start animations
-	GameState::startClocks(GameState::safeCast(this));
+	GameState::startClocks(this);
 
 	// fade in screen
 	Camera::startEffect(Camera::getInstance(),
