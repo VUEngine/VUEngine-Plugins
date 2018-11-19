@@ -75,4 +75,14 @@ void GuiBgmapAnimatedSprite::render(bool evenFrame)
 
 	worldPointer->w = this->halfWidth << 1;
 	worldPointer->h = this->halfHeight << 1;
+
+	if(0 < worldPointer->w)
+	{
+		worldPointer->w -= __WORLD_SIZE_DISPLACEMENT;
+	}
+
+	if(0 < worldPointer->h)
+	{
+		worldPointer->h -= __WORLD_SIZE_DISPLACEMENT;
+	}
 }
