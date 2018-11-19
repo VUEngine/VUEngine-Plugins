@@ -72,10 +72,6 @@ void PrecautionScreenState::enter(void* owner)
 	Vector3D position = {192, 112, 0};
 	SoundManager::playFxSound(SoundManager::getInstance(), SPLASH_SCREENS_INTRO_SND, position);
 
-	// wait some seconds for the screen to stabilize before displaying anything
-	// as defined by Nintendo in the official development manual
-	Game::wait(Game::getInstance(), 1500);
-
 	// show this screen for at least 2 seconds
 	// as defined by Nintendo in the official development manual (Appendix 1)
 	MessageDispatcher::dispatchMessage(2000, Object::safeCast(this), Object::safeCast(Game::getInstance()), kScreenAllowUserInput, NULL);
