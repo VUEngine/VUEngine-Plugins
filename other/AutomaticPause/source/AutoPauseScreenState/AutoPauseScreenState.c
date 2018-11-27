@@ -117,6 +117,8 @@ void AutoPauseScreenState::exit(void* owner __attribute__ ((unused)))
 {
 	// call base
 	Base::exit(this, owner);
+
+	delete this;
 }
 
 void AutoPauseScreenState::processUserInput(UserInput userInput)
