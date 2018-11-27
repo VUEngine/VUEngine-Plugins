@@ -62,6 +62,9 @@ void AutoPauseScreenState::destructor()
 // state's enter
 void AutoPauseScreenState::enter(void* owner __attribute__ ((unused)))
 {
+	// call base
+	Base::enter(this, owner);
+
 	// load stage
 	GameState::loadStage(this, (StageDefinition*)&AUTOMATIC_PAUSE_SCREEN_STAGE_ST, NULL, true);
 
