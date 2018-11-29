@@ -27,7 +27,6 @@
 #include <PostProcessingWobble.h>
 #include <Optics.h>
 #include <Utilities.h>
-#include <Hero.h>
 #include <DirectDraw.h>
 #include <Game.h>
 #include <Container.h>

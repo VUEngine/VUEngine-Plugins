@@ -25,7 +25,6 @@
 //---------------------------------------------------------------------------------------------------------
 
 #include <PostProcessingLantern.h>
-#include <Hero.h>
 #include <Container.h>
 #include <Camera.h>
 
