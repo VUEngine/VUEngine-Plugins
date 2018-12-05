@@ -40,10 +40,10 @@
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern StageROMDef LANGUAGE_SELECTION_SCREEN_STAGE_ST;
-extern LangROMDef* __LANGUAGES[];
-extern EntityDefinition FLAG_CURSOR_EN;
-extern EntityDefinition FLAG_UNKNOWN_EN;
+extern StageROMSpec LANGUAGE_SELECTION_SCREEN_STAGE_ST;
+extern LangROMSpec* __LANGUAGES[];
+extern EntitySpec FLAG_CURSOR_EN;
+extern EntitySpec FLAG_UNKNOWN_EN;
 extern const u16 SPLASH_SCREENS_OPTION_SELECT_SND[];
 extern const u16 SPLASH_SCREENS_OPTION_CONFIRM_SND[];
 
@@ -57,7 +57,7 @@ void LangSelectScreenState::constructor()
 	Base::constructor();
 
 	// init members
-	this->stageDefinition = (StageDefinition*)&LANGUAGE_SELECTION_SCREEN_STAGE_ST;
+	this->stageSpec = (StageSpec*)&LANGUAGE_SELECTION_SCREEN_STAGE_ST;
 	this->flagCursorEntity = NULL;
 	this->languageSelector = NULL;
 	this->selection = 0;
@@ -146,10 +146,10 @@ void LangSelectScreenState::enter(void* owner)
 		for(i = 0; __LANGUAGES[i]; i++)
 		{
 			// add flag
-			EntityDefinition* entityDefinition = (__LANGUAGES[i]->entityDefinition != NULL)
-				? __LANGUAGES[i]->entityDefinition
+			EntitySpec* entitySpec = (__LANGUAGES[i]->entitySpec != NULL)
+				? __LANGUAGES[i]->entitySpec
 				: &FLAG_UNKNOWN_EN;
-			LangSelectScreenState::addFlagToStage(this, entityDefinition, i);
+			LangSelectScreenState::addFlagToStage(this, entitySpec, i);
 		}
 
 		LangSelectScreenState::printSelection(this);
@@ -267,10 +267,10 @@ u8 LangSelectScreenState::getFlagsTotalHalfWidth()
 	return ((LangSelectScreenState::getNumLangs(this) - 1) * (__LANGUAGE_SELECTION_SCREEN_IMAGE_WIDTH)) >> 1;
 }
 
-Entity LangSelectScreenState::addFlagToStage(EntityDefinition* entityDefinition, u8 position)
+Entity LangSelectScreenState::addFlagToStage(EntitySpec* entitySpec, u8 position)
 {
 	PositionedEntity flagPositionedEntity = {
-		entityDefinition,
+		entitySpec,
 		{
 			LangSelectScreenState::getFlagXPosition(this, position),
 			LangSelectScreenState::getFlagYPosition(this),

@@ -31,10 +31,10 @@
 //												CLASS'S METHODS
 //---------------------------------------------------------------------------------------------------------
 
-void GuiBgmapAnimatedSprite::constructor(const BgmapSpriteDefinition* bgmapSpriteDefinition, Object owner)
+void GuiBgmapAnimatedSprite::constructor(const BgmapSpriteSpec* bgmapSpriteSpec, Object owner)
 {
 	// construct base object
-	Base::constructor(bgmapSpriteDefinition, owner);
+	Base::constructor(bgmapSpriteSpec, owner);
 }
 
 void GuiBgmapAnimatedSprite::destructor()

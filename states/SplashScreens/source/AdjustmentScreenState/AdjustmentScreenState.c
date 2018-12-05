@@ -36,7 +36,7 @@
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern StageROMDef ADJUSTMENT_SCREEN_STAGE_ST;
+extern StageROMSpec ADJUSTMENT_SCREEN_STAGE_ST;
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -48,7 +48,7 @@ void AdjustmentScreenState::constructor()
 {
 	Base::constructor();
 
-	this->stageDefinition = (StageDefinition*)&ADJUSTMENT_SCREEN_STAGE_ST;
+	this->stageSpec = (StageSpec*)&ADJUSTMENT_SCREEN_STAGE_ST;
 }
 
 // class's destructor

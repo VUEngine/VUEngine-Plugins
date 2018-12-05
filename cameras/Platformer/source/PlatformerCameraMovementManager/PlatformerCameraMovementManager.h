@@ -60,9 +60,9 @@ singleton class PlatformerCameraMovementManager : CameraMovementManager
 	/* pointer to function that implements the required focusing */
 	bool (*focusFunction)(void*, u32, u32);
 	bool (*previousFocusFunction)(void*, u32, u32);
-	PlatformerCameraTriggerEntityDefinition platformerCameraTriggerEntityDefinition;
+	PlatformerCameraTriggerEntitySpec platformerCameraTriggerEntitySpec;
 	Vector3D boundingBoxDisplacement;
-	ShapeDefinition platformerCameraTriggerEntityShapesDefinition[2];
+	ShapeSpec platformerCameraTriggerEntityShapesSpec[2];
 	Entity cameraTrigger;
 
 	// declare a PlatformerCameraMovementManager

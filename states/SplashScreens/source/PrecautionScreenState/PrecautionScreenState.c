@@ -40,7 +40,7 @@
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern StageROMDef PRECAUTION_SCREEN_STAGE_ST;
+extern StageROMSpec PRECAUTION_SCREEN_STAGE_ST;
 extern const u16 SPLASH_SCREENS_INTRO_SND[];
 
 
@@ -53,7 +53,7 @@ void PrecautionScreenState::constructor()
 {
 	Base::constructor();
 
-	this->stageDefinition = (StageDefinition*)&PRECAUTION_SCREEN_STAGE_ST;
+	this->stageSpec = (StageSpec*)&PRECAUTION_SCREEN_STAGE_ST;
 }
 
 // class's destructor

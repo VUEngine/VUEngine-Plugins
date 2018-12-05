@@ -60,14 +60,14 @@
 //---------------------------------------------------------------------------------------------------------
 
 /**
- * Definition of a ReflectiveEntity
+ * Spec of a ReflectiveEntity
  *
  * @memberof 	ReflectiveEntity
  */
-typedef struct ReflectiveEntityDefinition
+typedef struct ReflectiveEntitySpec
 {
-	/// entity definition
-	EntityDefinition entityDefinition;
+	/// entity spec
+	EntitySpec entitySpec;
 
 	/// the starting point from where start to reflect data
 	/// relative to my position
@@ -132,14 +132,14 @@ typedef struct ReflectiveEntityDefinition
 	/// right border mask
 	u32 rightBorder;
 
-} ReflectiveEntityDefinition;
+} ReflectiveEntitySpec;
 
 /**
- * A ReflectiveEntityDefinition that is stored in ROM
+ * A ReflectiveEntitySpec that is stored in ROM
  *
  * @memberof 	ReflectiveEntity
  */
-typedef const ReflectiveEntityDefinition ReflectiveEntityROMDef;
+typedef const ReflectiveEntitySpec ReflectiveEntityROMSpec;
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -168,12 +168,12 @@ class ReflectiveEntity : Entity
 	/**
 	 * Class constructor
 	 *
-	 * @param reflectiveEntityDefinition
+	 * @param reflectiveEntitySpec
 	 * @param id
 	 * @param internalId
 	 * @param name
 	 */
-	void constructor(ReflectiveEntityDefinition* mirrorDefinition, s16 id, s16 internalId, const char* const name);
+	void constructor(ReflectiveEntitySpec* mirrorSpec, s16 id, s16 internalId, const char* const name);
 
 	/**
 	 * Reflection algorithm that is called by the postprocessing effect

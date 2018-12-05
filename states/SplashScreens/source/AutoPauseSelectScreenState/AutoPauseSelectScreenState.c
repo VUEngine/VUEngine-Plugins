@@ -44,7 +44,7 @@
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern StageROMDef AUTO_PAUSE_SELECTION_SCREEN_STAGE_ST;
+extern StageROMSpec AUTO_PAUSE_SELECTION_SCREEN_STAGE_ST;
 extern const u16 SPLASH_SCREENS_OPTION_SELECT_SND[];
 extern const u16 SPLASH_SCREENS_OPTION_CONFIRM_SND[];
 
@@ -58,7 +58,7 @@ void AutoPauseSelectScreenState::constructor()
 {
 	Base::constructor();
 
-	this->stageDefinition = (StageDefinition*)&AUTO_PAUSE_SELECTION_SCREEN_STAGE_ST;
+	this->stageSpec = (StageSpec*)&AUTO_PAUSE_SELECTION_SCREEN_STAGE_ST;
 	this->selection = true;
 }
 

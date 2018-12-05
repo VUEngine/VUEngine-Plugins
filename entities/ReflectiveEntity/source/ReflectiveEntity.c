@@ -36,13 +36,13 @@
 //												CLASS'S METHODS
 //---------------------------------------------------------------------------------------------------------
 
-void ReflectiveEntity::constructor(ReflectiveEntityDefinition* reflectiveEntityDefinition, s16 id, s16 internalId, const char* const name)
+void ReflectiveEntity::constructor(ReflectiveEntitySpec* reflectiveEntitySpec, s16 id, s16 internalId, const char* const name)
 {
 	// construct base
-	Base::constructor(&reflectiveEntityDefinition->entityDefinition, id, internalId, name);
+	Base::constructor(&reflectiveEntitySpec->entitySpec, id, internalId, name);
 
 	this->waveLutIndex = 0;
-	this->waveLutIndexIncrement = __FIX10_6_MULT(reflectiveEntityDefinition->waveLutThrottleFactor, __FIX10_6_DIV(__I_TO_FIX10_6(reflectiveEntityDefinition->numberOfWaveLutEntries), __I_TO_FIX10_6(reflectiveEntityDefinition->width)));
+	this->waveLutIndexIncrement = __FIX10_6_MULT(reflectiveEntitySpec->waveLutThrottleFactor, __FIX10_6_DIV(__I_TO_FIX10_6(reflectiveEntitySpec->numberOfWaveLutEntries), __I_TO_FIX10_6(reflectiveEntitySpec->width)));
 	this->nextFramePosition2D = this->position2D = (Point){_cameraFrustum->x1 + 1, _cameraFrustum->y1 + 1};
 }
 
@@ -108,7 +108,7 @@ static void ReflectiveEntity::reflect(u32 currentDrawingFrameBufferSet, SpatialO
 
 void ReflectiveEntity::applyReflection(u32 currentDrawingFrameBufferSet)
 {
-	ReflectiveEntityDefinition* reflectiveEntityDefinition = (ReflectiveEntityDefinition*)this->entityDefinition;
+	ReflectiveEntitySpec* reflectiveEntitySpec = (ReflectiveEntitySpec*)this->entitySpec;
 
 /*
 	static fix10_6 index = 0;
@@ -131,25 +131,25 @@ void ReflectiveEntity::applyReflection(u32 currentDrawingFrameBufferSet)
 
 	ReflectiveEntity::drawReflection(this,
 		currentDrawingFrameBufferSet,
-		this->position2D.x + reflectiveEntityDefinition->sourceDisplacement.x,
-		this->position2D.y + reflectiveEntityDefinition->sourceDisplacement.y,
-		this->position2D.x + reflectiveEntityDefinition->outputDisplacement.x,
-		this->position2D.y + reflectiveEntityDefinition->outputDisplacement.y,
-		reflectiveEntityDefinition->width,
-		reflectiveEntityDefinition->height,
-		reflectiveEntityDefinition->overallMask,
-		reflectiveEntityDefinition->reflectionMask,
-		reflectiveEntityDefinition->backgroundMask,
-		reflectiveEntityDefinition->axisForReversing,
-		reflectiveEntityDefinition->transparent,
-		reflectiveEntityDefinition->reflectParallax,
-		reflectiveEntityDefinition->parallaxDisplacement,
-		reflectiveEntityDefinition->waveLut,
-		reflectiveEntityDefinition->numberOfWaveLutEntries,
-		reflectiveEntityDefinition->waveLutThrottleFactor,
-		reflectiveEntityDefinition->flattenTop, reflectiveEntityDefinition->flattenBottom,
-		reflectiveEntityDefinition->topBorder, reflectiveEntityDefinition->bottomBorder,
-		reflectiveEntityDefinition->leftBorder, reflectiveEntityDefinition->rightBorder
+		this->position2D.x + reflectiveEntitySpec->sourceDisplacement.x,
+		this->position2D.y + reflectiveEntitySpec->sourceDisplacement.y,
+		this->position2D.x + reflectiveEntitySpec->outputDisplacement.x,
+		this->position2D.y + reflectiveEntitySpec->outputDisplacement.y,
+		reflectiveEntitySpec->width,
+		reflectiveEntitySpec->height,
+		reflectiveEntitySpec->overallMask,
+		reflectiveEntitySpec->reflectionMask,
+		reflectiveEntitySpec->backgroundMask,
+		reflectiveEntitySpec->axisForReversing,
+		reflectiveEntitySpec->transparent,
+		reflectiveEntitySpec->reflectParallax,
+		reflectiveEntitySpec->parallaxDisplacement,
+		reflectiveEntitySpec->waveLut,
+		reflectiveEntitySpec->numberOfWaveLutEntries,
+		reflectiveEntitySpec->waveLutThrottleFactor,
+		reflectiveEntitySpec->flattenTop, reflectiveEntitySpec->flattenBottom,
+		reflectiveEntitySpec->topBorder, reflectiveEntitySpec->bottomBorder,
+		reflectiveEntitySpec->leftBorder, reflectiveEntitySpec->rightBorder
 	);
 }
 

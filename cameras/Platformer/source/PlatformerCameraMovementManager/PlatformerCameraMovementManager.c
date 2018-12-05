@@ -312,7 +312,7 @@ void PlatformerCameraMovementManager::lockMovement(u8 axisToLockUp, bool locked)
 
 void PlatformerCameraMovementManager::configure(Entity focusEntity, u32 focusEntityLayer, u32 cameraTriggerLayer, PixelSize boundingBoxSize, Vector3D boundingBoxDisplacement, Vector3D screenDisplacement)
 {
-	this->platformerCameraTriggerEntityShapesDefinition[0] = (ShapeDefinition)
+	this->platformerCameraTriggerEntityShapesSpec[0] = (ShapeSpec)
 	{
 		// shape
 		__TYPE(InverseBox),
@@ -339,18 +339,18 @@ void PlatformerCameraMovementManager::configure(Entity focusEntity, u32 focusEnt
 		~(focusEntityLayer),
 	};
 
-	this->platformerCameraTriggerEntityShapesDefinition[1] = (ShapeDefinition) {NULL, {0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0}, {0, 0, 0}, false, kNoLayer, kNoLayer};
+	this->platformerCameraTriggerEntityShapesSpec[1] = (ShapeSpec) {NULL, {0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0}, {0, 0, 0}, false, kNoLayer, kNoLayer};
 
-	this->platformerCameraTriggerEntityDefinition = (PlatformerCameraTriggerEntityDefinition)
+	this->platformerCameraTriggerEntitySpec = (PlatformerCameraTriggerEntitySpec)
 	{
 		// class allocator
 		__TYPE(PlatformerCameraTriggerEntity),
 
 		// sprites
-		(SpriteROMDef**)NULL,
+		(SpriteROMSpec**)NULL,
 
 		// collision shapes
-		(ShapeDefinition*)this->platformerCameraTriggerEntityShapesDefinition,
+		(ShapeSpec*)this->platformerCameraTriggerEntityShapesSpec,
 
 		// size
 		// if 0, width and height will be inferred from the first sprite's texture's size
@@ -370,7 +370,7 @@ void PlatformerCameraMovementManager::configure(Entity focusEntity, u32 focusEnt
 		Camera::setFocusEntityPositionDisplacement(Camera::getInstance(), screenDisplacement);
 
 		// Configure the camera trigger
-		this->cameraTrigger = Entity::addChildEntity(focusEntity, (EntityDefinition*)&this->platformerCameraTriggerEntityDefinition, 0, NULL, &boundingBoxDisplacement, NULL);
+		this->cameraTrigger = Entity::addChildEntity(focusEntity, (EntitySpec*)&this->platformerCameraTriggerEntitySpec, 0, NULL, &boundingBoxDisplacement, NULL);
 
 		// make sure that focusing gets completed immediately
 		PlatformerCameraMovementManager::enable(this);

@@ -34,8 +34,8 @@
 //											CLASS'S DECLARATION
 //---------------------------------------------------------------------------------------------------------
 
-typedef EntityDefinition PlatformerCameraTriggerEntityDefinition;
-typedef const PlatformerCameraTriggerEntityDefinition PlatformerCameraTriggerEntityROMDef;
+typedef EntitySpec PlatformerCameraTriggerEntitySpec;
+typedef const PlatformerCameraTriggerEntitySpec PlatformerCameraTriggerEntityROMSpec;
 
 class PlatformerCameraTriggerEntity : Entity
 {
@@ -44,7 +44,7 @@ class PlatformerCameraTriggerEntity : Entity
 	Direction direction;
 	Vector3D previousGlobalPosition;
 
-	void constructor(PlatformerCameraTriggerEntityDefinition* cameraEntityDefinition, s16 id, s16 internalId, const char* const name);
+	void constructor(PlatformerCameraTriggerEntitySpec* cameraEntitySpec, s16 id, s16 internalId, const char* const name);
 	void setOverridePositionFlag(Vector3DFlag overridePositionFlag);
 	Vector3DFlag getOverridePositionFlag();
 	void lockMovement(u8 axisToLockUp, bool locked);

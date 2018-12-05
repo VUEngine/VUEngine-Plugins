@@ -19,52 +19,80 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-#ifndef SPLASH_SCREEN_STATE_H_
-#define SPLASH_SCREEN_STATE_H_
+
+//---------------------------------------------------------------------------------------------------------
+//												DECLARATIONS
+//---------------------------------------------------------------------------------------------------------
+
+extern BYTE IndustrialFontTiles[];
 
 
 //---------------------------------------------------------------------------------------------------------
-//												INCLUDES
+//												DEFINITIONS
 //---------------------------------------------------------------------------------------------------------
 
-#include <GameState.h>
-#include "../config.h"
+/**
+ * Industrial font
+ *
+ * @ingroup vuengine-plugins-fonts
+ */
 
-
-//---------------------------------------------------------------------------------------------------------
-//											CLASS'S ENUMS
-//---------------------------------------------------------------------------------------------------------
-
-enum SplashScreenMessageTypes
+CharSetROMSpec INDUSTRIAL_FONT_CH =
 {
-	kScreenStarted = kLastEngineMessage + 1,
-	kScreenAllowUserInput
+	// number of chars
+	128,
+
+	// allocation type
+	__NOT_ANIMATED,
+
+	// char spec
+	IndustrialFontTiles,
 };
 
-
-//---------------------------------------------------------------------------------------------------------
-//											CLASS'S DECLARATION
-//---------------------------------------------------------------------------------------------------------
-
-abstract class SplashScreenState : GameState
+FontROMSpec INDUSTRIAL_FONT =
 {
-	// state to enter after this one
-	GameState nextState;
-	// spec of screen's stage
-	StageSpec* stageSpec;
+	// font charset spec pointer
+	(CharSetSpec*)&INDUSTRIAL_FONT_CH,
 
-	void constructor();
-	void loadNextState();
-	void setNextState(GameState nextState);
-	virtual void initNextState();
-	virtual void print();
-	override bool processMessage(void* owner, Telegram telegram);
-	override void enter(void* owner);
-	override void exit(void* owner);
-	override void suspend(void* owner);
-	override void resume(void* owner);
-	override void processUserInput(UserInput userInput);
-}
+	// character number at which the font starts, allows you to skip the control characters for example
+	0,
 
+	// number of characters in this font
+	128,
 
-#endif
+	// size of a single character (in chars) ({width, height})
+	{1, 1},
+
+	// font's name
+	"Industrial",
+};
+
+CharSetROMSpec INDUSTRIAL_EXTENDED_FONT_CH =
+{
+	// number of chars
+	256,
+
+	// allocation type
+	__NOT_ANIMATED,
+
+	// char spec
+	IndustrialFontTiles,
+};
+
+FontROMSpec INDUSTRIAL_EXTENDED_FONT =
+{
+	// font charset spec pointer
+	(CharSetSpec*)&INDUSTRIAL_EXTENDED_FONT_CH,
+
+	// character number at which the font starts, allows you to skip the control characters for example
+	0,
+
+	// number of characters in this font
+	256,
+
+	// size of a single character (in chars) ({width, height})
+	{1, 1},
+
+	// font's name
+	"IndustrialExt",
+};

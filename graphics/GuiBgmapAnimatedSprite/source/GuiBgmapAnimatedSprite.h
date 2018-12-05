@@ -44,10 +44,10 @@ class GuiBgmapAnimatedSprite : BgmapAnimatedSprite
 	/**
 	 * Class constructor
 	 *
-	 * @param bgmapSpriteDefinition		Sprite definition
+	 * @param bgmapSpriteSpec		Sprite spec
 	 * @param owner						Owner
 	 */
-	void constructor(const BgmapSpriteDefinition* bgmapSpriteDefinition, Object owner);
+	void constructor(const BgmapSpriteSpec* bgmapSpriteSpec, Object owner);
 
 	/**
      * Class destructor

@@ -39,12 +39,12 @@
 //---------------------------------------------------------------------------------------------------------
 
 // class's constructor
-void PlatformerCameraTriggerEntity::constructor(PlatformerCameraTriggerEntityDefinition* cameraEntityDefinition, s16 id, s16 internalId, const char* const name)
+void PlatformerCameraTriggerEntity::constructor(PlatformerCameraTriggerEntitySpec* cameraEntitySpec, s16 id, s16 internalId, const char* const name)
 {
-	ASSERT(cameraEntityDefinition, "PlatformerCameraTriggerEntity::constructor: null definition");
+	ASSERT(cameraEntitySpec, "PlatformerCameraTriggerEntity::constructor: null spec");
 
 	// construct base object
-	Base::constructor((EntityDefinition*)cameraEntityDefinition, id, internalId, name);
+	Base::constructor((EntitySpec*)cameraEntitySpec, id, internalId, name);
 
 	this->overridePositionFlag.x = false;
 	this->overridePositionFlag.y = false;

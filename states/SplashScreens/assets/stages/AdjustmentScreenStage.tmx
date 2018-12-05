@@ -5,9 +5,9 @@
   <property name="declaration" value="NULL"/>
   <property name="include" value="NULL"/>
   <property name="stage.assets.bgm" value="NULL"/>
-  <property name="stage.assets.charSetDefinitions" value="NULL"/>
-  <property name="stage.assets.fontDefinitions" value="NULL"/>
-  <property name="stage.assets.textureDefinitions" value="NULL"/>
+  <property name="stage.assets.charSetSpecs" value="NULL"/>
+  <property name="stage.assets.fontSpecs" value="NULL"/>
+  <property name="stage.assets.textureSpecs" value="NULL"/>
   <property name="stage.level.cameraFrustum.x0" value="0"/>
   <property name="stage.level.cameraFrustum.x1" value="__SCREEN_WIDTH"/>
   <property name="stage.level.cameraFrustum.y0" value="0"/>
