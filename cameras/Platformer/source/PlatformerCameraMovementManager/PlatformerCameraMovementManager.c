@@ -57,7 +57,7 @@ void PlatformerCameraMovementManager::constructor()
 
 	this->camera = Camera::getInstance();
 
-	PlatformerCameraMovementManager::configure(this, kNoType, kNoLayer, kNoLayer, (PixelSize){8 * 8, 8 * 8, 8 * 8}, (Vector3D){0, 0, 0});
+	PlatformerCameraMovementManager::configure(this, NULL, kNoLayer, kNoLayer, (PixelSize){8 * 8, 8 * 8, 8 * 8}, (Vector3D){0, 0, 0}, (Vector3D){0, 0, 0});
 
 	NM_ASSERT(this->camera, "PlatformerCameraMovementManager::constructor: null this->camera");
 }
@@ -302,14 +302,6 @@ void PlatformerCameraMovementManager::dontAlertWhenTargetFocused()
 	this->focusFunction = this->previousFocusFunction;
 }
 
-void PlatformerCameraMovementManager::focusGameEntitySet(Entity focusEntity)
-{
-	if(focusEntity)
-	{
-		this->cameraTrigger = Entity::addChildEntity(focusEntity, (EntityDefinition*)&this->platformerCameraTriggerEntityDefinition, 0, NULL, &this->boundingBoxDisplacement, NULL);
-	}
-}
-
 void PlatformerCameraMovementManager::lockMovement(u8 axisToLockUp, bool locked)
 {
 	if(!isDeleted(this->cameraTrigger))
@@ -318,10 +310,8 @@ void PlatformerCameraMovementManager::lockMovement(u8 axisToLockUp, bool locked)
 	}
 }
 
-void PlatformerCameraMovementManager::configure(u32 focusEntityInGameType, u32 focusEntityLayer, u32 cameraTriggerLayer, PixelSize boundingBoxSize, Vector3D boundingBoxDisplacement)
+void PlatformerCameraMovementManager::configure(Entity focusEntity, u32 focusEntityLayer, u32 cameraTriggerLayer, PixelSize boundingBoxSize, Vector3D boundingBoxDisplacement, Vector3D screenDisplacement)
 {
-	this->boundingBoxDisplacement = boundingBoxDisplacement;
-
 	this->platformerCameraTriggerEntityShapesDefinition[0] = (ShapeDefinition)
 	{
 		// shape
@@ -367,9 +357,22 @@ void PlatformerCameraMovementManager::configure(u32 focusEntityInGameType, u32 f
 		{0, 0, 0},
 
 		// gameworld's character's type
-		focusEntityInGameType,
+		!isDeleted(focusEntity) ? Entity::getInGameType(focusEntity) : kNoType,
 
 		// physical specification
 		(PhysicalSpecification*)NULL,
 	};
+
+	if(!isDeleted(focusEntity))
+	{
+		// Configure the camera
+		Camera::setFocusGameEntity(Camera::getInstance(), focusEntity);
+		Camera::setFocusEntityPositionDisplacement(Camera::getInstance(), screenDisplacement);
+
+		// Configure the camera trigger
+		this->cameraTrigger = Entity::addChildEntity(focusEntity, (EntityDefinition*)&this->platformerCameraTriggerEntityDefinition, 0, NULL, &boundingBoxDisplacement, NULL);
+
+		// make sure that focusing gets completed immediately
+		PlatformerCameraMovementManager::enable(this);
+	}
 }
