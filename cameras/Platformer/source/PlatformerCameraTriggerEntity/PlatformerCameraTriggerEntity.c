@@ -73,7 +73,7 @@ void PlatformerCameraTriggerEntity::ready(bool recursive)
 {
 	Base::ready(this, recursive);
 
-	Entity::activateShapes(this, true);
+	Entity::activeCollisionChecks(this, true);
 }
 
 void PlatformerCameraTriggerEntity::transform(const Transformation* environmentTransform, u8 invalidateTransformationFlag)
