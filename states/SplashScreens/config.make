@@ -2,4 +2,5 @@
 DEPENDENCIES = 	vuengine/plugins/entities/LowPowerEntity												\
 				vuengine/plugins/other/AutomaticPause													\
 				vuengine/plugins/other/LowPowerIndicator												\
-				vuengine/plugins/other/SaveDataManager													\
+				vuengine/plugins/other/SaveDataManager
+				
