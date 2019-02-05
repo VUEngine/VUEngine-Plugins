@@ -250,7 +250,12 @@ static void PostProcessingRain::calculateRainPrecipitation(fix19_13* yStepThrott
 		1, 0, -1, 0,
 	};
 
-	u32 currentTime = Clock::getTime(PlatformerLevelState::getClock(PlatformerLevelState::getInstance()));
+	if(isDeleted(Game::getCurrentState(Game::getInstance())))
+	{
+		return;
+	}
+
+	u32 currentTime = Clock::getTime(GameState::getClock(Game::getCurrentState(Game::getInstance())));
 
 	if((currentTime - previousTime) / 1000 > timePeriod[timePeriodIndex])
 	{
