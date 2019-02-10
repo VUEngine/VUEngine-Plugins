@@ -1,2 +1,2 @@
 # VUEngine based plugins that the project uses
-DEPENDENCIES = 	vuengine/plugins/entities/LowPowerEntity
+PLUGINS = 	vuengine/plugins/entities/LowPowerEntity
