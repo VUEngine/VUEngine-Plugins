@@ -11,7 +11,7 @@ USAGE
 
 Add the following to the PLUGINS variable in your project's `config.make` file to include this plugin:
 
-	vuengine/plugins/fonts/VirtualBoy
+	vuengine/plugins/fonts/VirtualBoyFont
 
 Included are two versions of the font:
 

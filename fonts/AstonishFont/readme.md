@@ -11,7 +11,7 @@ USAGE
 
 Add the following to the PLUGINS variable in your project's `config.make` file to include this plugin:
 
-	vuengine/plugins/fonts/Astonish
+	vuengine/plugins/fonts/AstonishFont
 
 Included are two versions of the font:
 
