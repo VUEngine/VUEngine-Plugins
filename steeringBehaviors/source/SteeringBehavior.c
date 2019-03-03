@@ -24,7 +24,8 @@
 //												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
-#include "SteeringBehavior.h"
+#include <SteeringBehavior.h>
+#include <Vehicle.h>
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -34,9 +35,9 @@
 /**
  * Class constructor
  */
-void SteeringBehavior::constructor()
+void SteeringBehavior::constructor(const SteeringBehaviorSpec* steeringBehaviorSpec)
 {
-	Base::constructor();
+	Base::constructor(&steeringBehaviorSpec->behaviorSpec);
 }
 
 /**

@@ -122,8 +122,11 @@ EntityROMSpec FLAG_CURSOR_EN =
 	// class allocator
 	__TYPE(Entity),
 
+	// behaviors 
+	NULL,
+
 	// sprites
-	(SpriteROMSpec**)FLAG_CURSOR_SPRITES,
+	(SpriteSpec**)FLAG_CURSOR_SPRITES,
 
 	// collision shapes
 	NULL,

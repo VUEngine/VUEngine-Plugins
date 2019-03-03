@@ -122,8 +122,11 @@ EntityROMSpec FLAG_UNKNOWN_EN =
 	// class allocator
 	__TYPE(Entity),
 
+	// behaviors 
+	NULL,
+
 	// sprites
-	(SpriteROMSpec**)FLAG_UNKNOWN_SPRITES,
+	(SpriteSpec**)FLAG_UNKNOWN_SPRITES,
 
 	// collision shapes
 	NULL,

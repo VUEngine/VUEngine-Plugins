@@ -157,8 +157,11 @@ EntityROMSpec ADJUSTMENT_SCREEN_ICON_L_EN =
 	// class allocator
 	__TYPE(Entity),
 
+	// behaviors 
+	NULL,
+
 	// sprites
-	(SpriteROMSpec**)ADJUSTMENT_SCREEN_ICON_L_SPRITES,
+	(SpriteSpec**)ADJUSTMENT_SCREEN_ICON_L_SPRITES,
 
 	// collision shapes
 	(ShapeSpec*)NULL,
@@ -179,8 +182,11 @@ EntityROMSpec ADJUSTMENT_SCREEN_ICON_R_EN =
 	// class allocator
 	__TYPE(Entity),
 
+	// behaviors 
+	NULL,
+
 	// sprites
-	(SpriteROMSpec**)ADJUSTMENT_SCREEN_ICON_R_SPRITES,
+	(SpriteSpec**)ADJUSTMENT_SCREEN_ICON_R_SPRITES,
 
 	// collision shapes
 	(ShapeSpec*)NULL,

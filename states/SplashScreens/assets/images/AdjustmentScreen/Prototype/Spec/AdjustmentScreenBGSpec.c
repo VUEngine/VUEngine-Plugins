@@ -123,8 +123,11 @@ EntityROMSpec ADJUSTMENT_SCREEN_BG_EN =
 	// class allocator
 	__TYPE(Entity),
 
+	// behaviors 
+	NULL,
+
 	// sprites
-	(SpriteROMSpec**)ADJUSTMENT_SCREEN_BG_SPRITES,
+	(SpriteSpec**)ADJUSTMENT_SCREEN_BG_SPRITES,
 
 	// collision shapes
 	(ShapeSpec*)NULL,

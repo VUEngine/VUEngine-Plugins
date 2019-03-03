@@ -122,8 +122,11 @@ EntityROMSpec FLAG_JAPAN_EN =
 	// class allocator
 	__TYPE(Entity),
 
+	// behaviors 
+	NULL,
+
 	// sprites
-	(SpriteROMSpec**)FLAG_JAPAN_SPRITES,
+	(SpriteSpec**)FLAG_JAPAN_SPRITES,
 
 	// collision shapes
 	NULL,

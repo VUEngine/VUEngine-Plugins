@@ -57,7 +57,7 @@ int Vehicle::getSummingMethod()
 
 SteeringBehavior* Vehicle::getSteeringBehaviors()
 {
-	return this->vehicleSpec->steeringBehaviors;
+	return NULL;
 }
 
 void Vehicle::update(u32 elapsedTime)

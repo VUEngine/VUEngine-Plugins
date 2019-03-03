@@ -122,8 +122,11 @@ EntityROMSpec FLAG_NETHERLANDS_EN =
 	// class allocator
 	__TYPE(Entity),
 
+	// behaviors 
+	NULL,
+
 	// sprites
-	(SpriteROMSpec**)FLAG_NETHERLANDS_SPRITES,
+	(SpriteSpec**)FLAG_NETHERLANDS_SPRITES,
 
 	// collision shapes
 	NULL,

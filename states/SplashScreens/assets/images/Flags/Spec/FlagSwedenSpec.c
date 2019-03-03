@@ -122,8 +122,11 @@ EntityROMSpec FLAG_SWEDEN_EN =
 	// class allocator
 	__TYPE(Entity),
 
+	// behaviors 
+	NULL,
+
 	// sprites
-	(SpriteROMSpec**)FLAG_SWEDEN_SPRITES,
+	(SpriteSpec**)FLAG_SWEDEN_SPRITES,
 
 	// collision shapes
 	NULL,

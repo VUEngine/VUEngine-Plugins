@@ -187,8 +187,11 @@ LowPowerEntityROMSpec LOW_POWER_INDICATOR_LB =
 		// class allocator
 		__TYPE(LowPowerEntity),
 
+		// behaviors 
+		NULL,
+
 		// sprites
-		(SpriteROMSpec**)LOW_POWER_INDICATOR_SPRITES,
+		(SpriteSpec**)LOW_POWER_INDICATOR_SPRITES,
 
 		// collision shapes
 		(ShapeSpec*)NULL,

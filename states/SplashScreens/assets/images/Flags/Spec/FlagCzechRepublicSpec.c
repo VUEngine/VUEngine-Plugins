@@ -122,8 +122,11 @@ EntityROMSpec FLAG_CZECH_REPUBLIC_EN =
 	// class allocator
 	__TYPE(Entity),
 
+	// behaviors 
+	NULL,
+
 	// sprites
-	(SpriteROMSpec**)FLAG_CZECH_REPUBLIC_SPRITES,
+	(SpriteSpec**)FLAG_CZECH_REPUBLIC_SPRITES,
 
 	// collision shapes
 	NULL,

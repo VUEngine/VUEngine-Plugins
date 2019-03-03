@@ -28,21 +28,17 @@
 //---------------------------------------------------------------------------------------------------------
 
 #include <Actor.h>
+#include <SteeringBehavior.h>
 
 
 //---------------------------------------------------------------------------------------------------------
 //											CLASS'S DECLARATION
 //---------------------------------------------------------------------------------------------------------
 
-class SteeringBehavior;
-
 typedef struct VehicleSpec
 {
 	// animated entity
 	ActorROMSpec actorSpec;
-
-	// Pointer to array of steering behaviors
-	const SteeringBehavior* steeringBehaviors;
 
 	// Force accumulation method: kPrioritized, kWeightedAverage
 	int summingMethod;

@@ -346,8 +346,11 @@ void PlatformerCameraMovementManager::configure(Entity focusEntity, u32 focusEnt
 		// class allocator
 		__TYPE(PlatformerCameraTriggerEntity),
 
+		// behaviors 
+		NULL,
+
 		// sprites
-		(SpriteROMSpec**)NULL,
+		(SpriteSpec**)NULL,
 
 		// collision shapes
 		(ShapeSpec*)this->platformerCameraTriggerEntityShapesSpec,

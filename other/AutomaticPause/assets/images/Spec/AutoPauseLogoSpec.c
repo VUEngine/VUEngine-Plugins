@@ -121,8 +121,11 @@ EntityROMSpec AUTO_PAUSE_LOGO_EN =
 	// class allocator
 	__TYPE(Entity),
 
+	// behaviors 
+	NULL,
+
 	// sprites
-	(SpriteROMSpec**)AUTO_PAUSE_LOGO_SPRITES,
+	(SpriteSpec**)AUTO_PAUSE_LOGO_SPRITES,
 
 	// collision shapes
 	(ShapeSpec*)NULL,

@@ -122,8 +122,11 @@ EntityROMSpec FLAG_UNITED_STATES_EN =
 	// class allocator
 	__TYPE(Entity),
 
+	// behaviors 
+	NULL,
+
 	// sprites
-	(SpriteROMSpec**)FLAG_UNITED_STATES_SPRITES,
+	(SpriteSpec**)FLAG_UNITED_STATES_SPRITES,
 
 	// collision shapes
 	NULL,

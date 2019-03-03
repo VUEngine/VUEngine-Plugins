@@ -28,17 +28,28 @@
 //---------------------------------------------------------------------------------------------------------
 
 #include <Behavior.h>
-#include <Vehicle.h>
+
 
 //---------------------------------------------------------------------------------------------------------
 //											 DEFINITIONS
 //---------------------------------------------------------------------------------------------------------
+
+class Vehicle;
 
 enum SummingMethod
 {
 	kPrioritized = 1,
 	kWeightedAverage
 };
+
+// defines an entity in ROM memory
+typedef struct SteeringBehaviorSpec
+{
+	BehaviorSpec behaviorSpec;
+
+} SteeringBehaviorSpec;
+
+typedef const SteeringBehaviorSpec SteeringBehaviorROMSpec;
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -48,7 +59,7 @@ enum SummingMethod
 /// @ingroup base
 class SteeringBehavior : Behavior
 {
-	void constructor();
+	void constructor(const SteeringBehaviorSpec* steeringBehaviorSpec);
 
 	static Vector3D calculateForce(Vehicle vehicle);
 }
