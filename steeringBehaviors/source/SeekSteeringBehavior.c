@@ -1,7 +1,7 @@
 /* VUEngine - Virtual Utopia Engine <http://vuengine.planetvb.com/>
  * A universal game engine for the Nintendo Virtual Boy
  *
- * Copyright (C) 2007, 2018 by Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <chris@vr32.de>
+ * Copyright (C) 2007, 2017 by Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <chris@vr32.de>
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
  * associated documentation files (the "Software"), to deal in the Software without restriction, including
@@ -19,69 +19,75 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-#ifndef STEERING_BEHAVIOR_H_
-#define STEERING_BEHAVIOR_H_
-
 
 //---------------------------------------------------------------------------------------------------------
 //												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
-#include <Behavior.h>
+#include <SeekSteeringBehavior.h>
+#include <Vehicle.h>
+#include <VirtualList.h>
 
 
 //---------------------------------------------------------------------------------------------------------
-//											 DEFINITIONS
+//												CLASS'S METHODS
 //---------------------------------------------------------------------------------------------------------
 
-class Vehicle;
-
-enum SummingMethod
+/**
+ * Class constructor
+ */
+void SeekSteeringBehavior::constructor(const SeekSteeringBehaviorSpec* seekSteeringBehaviorSpec)
 {
-	kPrioritized = 1,
-	kWeightedAverage
-};
+	Base::constructor(&seekSteeringBehaviorSpec->steeringBehaviorSpec);
 
-// defines an entity in ROM memory
-typedef struct SteeringBehaviorSpec
-{
-	/// BehaviorSpec
-	BehaviorSpec behaviorSpec;
-
-	/// Priority: higher values have more priority
-	int priority;
-
-	/// Weight to this behavior on the overal effect (range: 0-1)
-	fix10_6 weight;
-
-	/// Maximum force to apply
-	fix10_6 maximumForce;
-
-} SteeringBehaviorSpec;
-
-typedef const SteeringBehaviorSpec SteeringBehaviorROMSpec;
-
-
-//---------------------------------------------------------------------------------------------------------
-//											CLASS'S DECLARATION
-//---------------------------------------------------------------------------------------------------------
-
-/// @ingroup base
-class SteeringBehavior : Behavior
-{
-	// higher value has more priority
-	int priority;
-	fix10_6 weight;
-	fix10_6 maximumForce;
-
-	void constructor(const SteeringBehaviorSpec* steeringBehaviorSpec);
-
-	static Vector3D calculateForce(Vehicle vehicle);
-	int getPriority();
-	void setPriority(int value);
-
-	virtual Vector3D calculate(Vehicle owner) = 0;
+	this->target = (Vector3D){0, 0, 0};
+	this->slowDownWhenReachingTarget = true;
 }
 
+/**
+ * Class destructor
+ */
+void SeekSteeringBehavior::destructor()
+{
+	// destroy the super object
+	// must always be called at the end of the destructor
+	Base::destructor();
+}
 
-#endif
+Vector3D SeekSteeringBehavior::getTarget()
+{
+	return this->target;
+}
+
+void SeekSteeringBehavior::setTarget(Vector3D value)
+{
+	this->target = value;
+}
+
+bool SeekSteeringBehavior::getSlowDownWhenReachingTarget()
+{
+	return this->slowDownWhenReachingTarget;
+}
+
+void SeekSteeringBehavior::setSlowDownWhenReachingTarget(bool value)
+{
+	this->slowDownWhenReachingTarget = value;
+}
+
+Vector3D SeekSteeringBehavior::calculate(Vehicle owner)
+{
+	if(isDeleted(owner))
+	{
+		this->enabled = false;
+		return (Vector3D){0, 0, 0};
+	}
+
+	return SeekSteeringBehavior::toTarget(owner, this->target, this->slowDownWhenReachingTarget);
+}
+
+static Vector3D SeekSteeringBehavior::toTarget(Vehicle vehicle, Vector3D target, bool proportionalToDistance)
+{
+	Vector3D desiredVelocity = Vector3D::scalarProduct(Vector3D::normalize(Vector3D::get(target, *Vehicle::getPosition(vehicle))), Vehicle::getMaximumSpeed(vehicle));
+
+	return proportionalToDistance ? Vector3D::get(desiredVelocity, Vehicle::getVelocity(vehicle)) : desiredVelocity;
+}

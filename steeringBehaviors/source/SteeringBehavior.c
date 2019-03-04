@@ -38,6 +38,10 @@
 void SteeringBehavior::constructor(const SteeringBehaviorSpec* steeringBehaviorSpec)
 {
 	Base::constructor(&steeringBehaviorSpec->behaviorSpec);
+
+	this->priority = steeringBehaviorSpec->priority;
+	this->weight = steeringBehaviorSpec->weight;
+	this->maximumForce = steeringBehaviorSpec->maximumForce;
 }
 
 /**
@@ -55,8 +59,8 @@ static Vector3D SteeringBehavior::calculateForce(Vehicle vehicle)
 	Vector3D steeringForce = {0, 0, 0};
 	
 	// otherwise it's just a velocity and add it
-	switch(Vehicle::getSummingMethod(vehicle)){
-
+	switch(Vehicle::getSummingMethod(vehicle))
+	{
 		case kPrioritized:
 		
 			steeringForce = SteeringBehavior::calculatePrioritized(vehicle);
@@ -71,16 +75,43 @@ static Vector3D SteeringBehavior::calculateForce(Vehicle vehicle)
 	return steeringForce;
 }
 
+static Vector3D SteeringBehavior::clampForce(Vector3D force, fix10_6 maximumForce)
+{
+	if(maximumForce)
+	{		
+		if(Vector3D::squareLength(force) > __FIX10_6_MULT(maximumForce, maximumForce))
+		{
+			force = Vector3D::scalarProduct(Vector3D::normalize(force), maximumForce);
+		}
+	}
+
+	return force;
+}
+
 static Vector3D SteeringBehavior::calculatePrioritized(Vehicle vehicle)
 {
 	Vector3D steeringForce = {0, 0, 0};
 
-	SteeringBehavior* steeringBehaviors = Vehicle::getSteeringBehaviors(vehicle);
-	int i = 0;
+	VirtualList steeringBehaviors = Vehicle::getSteeringBehaviors(vehicle);
 
-	for(; steeringBehaviors[i]; i++)
+	if(!isDeleted(steeringBehaviors))
 	{
+		VirtualNode node = VirtualList::begin(steeringBehaviors);
 
+		for(; node; node = VirtualNode::getNext(node))
+		{
+			SteeringBehavior steeringBehavior = SteeringBehavior::safeCast(VirtualNode::getData(node));
+
+			if(SteeringBehavior::isEnabled(steeringBehavior))
+			{
+				Vector3D force = SteeringBehavior::clampForce(Vector3D::scalarProduct(SteeringBehavior::calculate(steeringBehavior, vehicle), steeringBehavior->weight), steeringBehavior->maximumForce);
+				
+				if(!SteeringBehavior::accumulateForce(steeringBehavior->maximumForce, &steeringForce, force))
+				{					
+					return steeringForce;
+				}
+			}
+		}
 	}
 
 	return steeringForce;
@@ -90,13 +121,71 @@ static Vector3D SteeringBehavior::calculateWeightedSum(Vehicle vehicle)
 {
 	Vector3D steeringForce = {0, 0, 0};
 
-	SteeringBehavior* steeringBehaviors = Vehicle::getSteeringBehaviors(vehicle);
-	int i = 0;
+	VirtualList steeringBehaviors = Vehicle::getSteeringBehaviors(vehicle);
 
-	for(; steeringBehaviors[i]; i++)
+	if(!isDeleted(steeringBehaviors))
 	{
+		VirtualNode node = VirtualList::begin(steeringBehaviors);
 
+		for(; node; node = VirtualNode::getNext(node))
+		{
+			SteeringBehavior steeringBehavior = SteeringBehavior::safeCast(VirtualNode::getData(node));
+
+			if(SteeringBehavior::isEnabled(steeringBehavior))
+			{
+				Vector3D force = SteeringBehavior::clampForce(Vector3D::scalarProduct(SteeringBehavior::calculate(steeringBehavior, vehicle), steeringBehavior->weight), steeringBehavior->maximumForce);
+				
+				steeringForce = Vector3D::sum(steeringForce, force);
+			}
+		}
 	}
 
 	return steeringForce;
+}
+
+//  This function calculates how much of its max steering force the 
+//  vehicle has left to apply and then applies that amount of the
+//  force to add.
+static bool SteeringBehavior::accumulateForce(fix10_6 maximumForce, Vector3D *totalForce, Vector3D forceToAdd)
+{	
+	//calculate how much steering force the vehicle has used so far
+	fix10_6 magnitudeSoFar = Vector3D::length(*totalForce);
+	
+	//calculate how much steering force remains to be used by this vehicle
+	fix10_6 magnitudeRemaining = maximumForce - magnitudeSoFar;
+	
+	//return false if there is no more force left to use
+	if (magnitudeRemaining < 0)
+	{
+		return false;
+	}
+
+	//calculate the magnitude of the force we want to add
+	fix10_6 magnitudeToAdd = Vector3D::length(forceToAdd);
+	
+	//if the magnitude of the sum of forceToAdd and the running total
+	//does not exceed the maximum force available to this vehicle, just
+	//add together. Otherwise add as much of the forceToAdd vector is
+	//possible without going over the max.
+	if (magnitudeToAdd < magnitudeRemaining)
+	{	
+		*totalForce = Vector3D::sum(*totalForce, forceToAdd);
+	}		
+	else
+	{
+		//add it to the steering force
+		*totalForce = Vector3D::sum(*totalForce, Vector3D::scalarProduct(Vector3D::normalize(forceToAdd), magnitudeRemaining));
+	}
+
+	return true;
+}
+
+int SteeringBehavior::getPriority()
+{
+	return this->priority;
+}
+
+void SteeringBehavior::setPriority(int value)
+{
+	this->priority = value;
 }

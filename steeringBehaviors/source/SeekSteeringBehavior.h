@@ -19,68 +19,51 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-#ifndef STEERING_BEHAVIOR_H_
-#define STEERING_BEHAVIOR_H_
+#ifndef SEEK_STEERING_BEHAVIOR_H_
+#define SEEK_STEERING_BEHAVIOR_H_
 
 
 //---------------------------------------------------------------------------------------------------------
 //												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
-#include <Behavior.h>
+#include <SteeringBehavior.h>
 
 
 //---------------------------------------------------------------------------------------------------------
 //											 DEFINITIONS
 //---------------------------------------------------------------------------------------------------------
 
-class Vehicle;
-
-enum SummingMethod
-{
-	kPrioritized = 1,
-	kWeightedAverage
-};
-
 // defines an entity in ROM memory
-typedef struct SteeringBehaviorSpec
+typedef struct SeekSteeringBehaviorSpec
 {
-	/// BehaviorSpec
-	BehaviorSpec behaviorSpec;
+	SteeringBehaviorSpec steeringBehaviorSpec;
 
-	/// Priority: higher values have more priority
-	int priority;
+} SeekSteeringBehaviorSpec;
 
-	/// Weight to this behavior on the overal effect (range: 0-1)
-	fix10_6 weight;
-
-	/// Maximum force to apply
-	fix10_6 maximumForce;
-
-} SteeringBehaviorSpec;
-
-typedef const SteeringBehaviorSpec SteeringBehaviorROMSpec;
+typedef const SeekSteeringBehaviorSpec SeekSteeringBehaviorROMSpec;
 
 
 //---------------------------------------------------------------------------------------------------------
 //											CLASS'S DECLARATION
 //---------------------------------------------------------------------------------------------------------
 
+//  Given a target, this behavior returns a steering force which will
+//  direct the agent towards the target
+
 /// @ingroup base
-class SteeringBehavior : Behavior
+class SeekSteeringBehavior : SteeringBehavior
 {
-	// higher value has more priority
-	int priority;
-	fix10_6 weight;
-	fix10_6 maximumForce;
+	Vector3D target;
+	bool slowDownWhenReachingTarget;
 
-	void constructor(const SteeringBehaviorSpec* steeringBehaviorSpec);
+	void constructor(const SeekSteeringBehaviorSpec* seekSteeringBehaviorSpec);
 
-	static Vector3D calculateForce(Vehicle vehicle);
-	int getPriority();
-	void setPriority(int value);
-
-	virtual Vector3D calculate(Vehicle owner) = 0;
+	Vector3D getTarget();
+	void setTarget(Vector3D value);
+	bool getSlowDownWhenReachingTarget();
+	void setSlowDownWhenReachingTarget(bool value);
+	override Vector3D calculate(Vehicle owner);
 }
 
 

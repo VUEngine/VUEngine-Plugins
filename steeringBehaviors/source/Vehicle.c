@@ -40,14 +40,59 @@ void Vehicle::constructor(VehicleSpec* vehicleSpec, s16 id, s16 internalId, cons
 
 	// save vehicle spec
 	this->vehicleSpec = vehicleSpec;
+	this->steeringBehaviors = NULL;
 }
 
 // class's destructor
 void Vehicle::destructor()
 {
+	if(this->steeringBehaviors)
+	{
+		delete this->steeringBehaviors;
+		this->steeringBehaviors = NULL;
+	}
+
 	// delete the super object
 	// must always be called at the end of the destructor
 	Base::destructor();
+}
+
+void Vehicle::ready(bool recursive)
+{
+	Base::ready(this, recursive);
+	
+	// get steering behaviors to sort them based on their priority
+	this->steeringBehaviors = Container::getBehaviors(this, (ObjectBaseClassPointer)&SteeringBehavior_getBaseClass);
+
+	if(this->steeringBehaviors)
+	{
+		VirtualNode node = VirtualList::begin(this->steeringBehaviors);
+
+		// just an easy bubble sort
+		for(; node; node = VirtualNode::getNext(node))
+		{
+			SteeringBehavior steeringBehavior = SteeringBehavior::safeCast(VirtualNode::getData(node));
+
+			VirtualNode auxNode = VirtualNode::getNext(node);
+
+			for(; auxNode; auxNode = VirtualNode::getNext(auxNode))
+			{
+				SteeringBehavior auxSteeringBehavior = SteeringBehavior::safeCast(VirtualNode::getData(auxNode));
+				
+				// check the priority and swap them to make the higher priority to come first in the array
+				if(SteeringBehavior::getPriority(steeringBehavior) < SteeringBehavior::getPriority(auxSteeringBehavior))
+				{
+					VirtualNode::swapData(node, auxNode);
+					steeringBehavior = auxSteeringBehavior;
+					auxNode = VirtualNode::getNext(node);
+				}				
+			}
+		}
+	}
+
+	//m_headingSmoother = new BLGSmoother(m_iSamplesForSmoothing, new Vector3(0.0F, 0.0F, 0.0F));
+
+
 }
 
 int Vehicle::getSummingMethod()
@@ -55,12 +100,17 @@ int Vehicle::getSummingMethod()
 	return this->vehicleSpec->summingMethod;
 }
 
-SteeringBehavior* Vehicle::getSteeringBehaviors()
+VirtualList Vehicle::getSteeringBehaviors()
 {
-	return NULL;
+	return this->steeringBehaviors;
 }
 
 void Vehicle::update(u32 elapsedTime)
 {
-	Vector3D steeringForce = SteeringBehavior::calculateForce(this);
+	if(this->steeringBehaviors)
+	{
+		Vector3D steeringForce = SteeringBehavior::calculateForce(this);
+
+		Vehicle::addForce(this, &steeringForce);
+	}
 }

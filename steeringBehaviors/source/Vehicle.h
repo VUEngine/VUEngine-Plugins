@@ -50,11 +50,14 @@ class Vehicle : Actor
 {
 	VehicleSpec* vehicleSpec;
 
+	VirtualList steeringBehaviors;
+
 	/// @publicsection
 	void constructor(VehicleSpec* vehicleSpec, s16 id, s16 internalId, const char* const name);
 
 	int getSummingMethod();
-	SteeringBehavior* getSteeringBehaviors();
+	VirtualList getSteeringBehaviors();
+	override void ready(bool recursive);
 	override void update(u32 elapsedTime);
 }
 
