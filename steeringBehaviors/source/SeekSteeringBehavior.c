@@ -82,12 +82,34 @@ Vector3D SeekSteeringBehavior::calculate(Vehicle owner)
 		return (Vector3D){0, 0, 0};
 	}
 
-	return SeekSteeringBehavior::toTarget(owner, this->target, this->slowDownWhenReachingTarget);
+	return SeekSteeringBehavior::toTarget(owner, this->target, this->slowDownWhenReachingTarget, this->easingDistanceThreshold);
 }
 
-static Vector3D SeekSteeringBehavior::toTarget(Vehicle vehicle, Vector3D target, bool proportionalToDistance)
+static Vector3D SeekSteeringBehavior::toTarget(Vehicle vehicle, Vector3D target, bool proportionalToDistance, fix10_6 easingDistanceThreshold)
 {
-	Vector3D desiredVelocity = Vector3D::scalarProduct(Vector3D::normalize(Vector3D::get(target, *Vehicle::getPosition(vehicle))), Vehicle::getMaximumSpeed(vehicle));
+	Vector3D trajectory = Vector3D::get(target, *Vehicle::getPosition(vehicle));
+	fix10_6 length = Vector3D::length(trajectory);
 
-	return proportionalToDistance ? Vector3D::get(desiredVelocity, Vehicle::getVelocity(vehicle)) : desiredVelocity;
+	if(!length)
+	{
+		return (Vector3D){0, 0, 0};
+	}
+
+	fix10_6 magnitude = Vehicle::getMaximumSpeed(vehicle);
+
+	Vector3D desiredVelocity = Vector3D::scalarProduct(Vector3D::scalarDivision(trajectory, length), magnitude);
+	
+	if(proportionalToDistance)
+	{
+		desiredVelocity = Vector3D::get(desiredVelocity, Vehicle::getVelocity(vehicle));
+		
+		if(easingDistanceThreshold > length)
+		{
+			fix10_6 scaleFactor = __FIX10_6_EXT_TO_FIX10_6(__FIX10_6_EXT_MULT(magnitude, __FIX10_6_EXT_DIV(length, easingDistanceThreshold)));
+
+			desiredVelocity = Vector3D::scalarProduct(desiredVelocity, scaleFactor);
+		}
+	}
+
+	return desiredVelocity;
 }
