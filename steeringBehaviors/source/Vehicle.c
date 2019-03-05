@@ -60,33 +60,35 @@ void Vehicle::destructor()
 void Vehicle::ready(bool recursive)
 {
 	Base::ready(this, recursive);
+
+	if(!this->steeringBehaviors)
+	{
+		this->steeringBehaviors = new VirtualList();
+	}
 	
 	// get steering behaviors to sort them based on their priority
-	this->steeringBehaviors = Container::getBehaviors(this, (ObjectBaseClassPointer)&SteeringBehavior_getBaseClass);
+	Container::getBehaviors(this, typeofclass(SteeringBehavior), this->steeringBehaviors);
 
-	if(this->steeringBehaviors)
+	VirtualNode node = VirtualList::begin(this->steeringBehaviors);
+
+	// just an easy bubble sort
+	for(; node; node = VirtualNode::getNext(node))
 	{
-		VirtualNode node = VirtualList::begin(this->steeringBehaviors);
+		SteeringBehavior steeringBehavior = SteeringBehavior::safeCast(VirtualNode::getData(node));
 
-		// just an easy bubble sort
-		for(; node; node = VirtualNode::getNext(node))
+		VirtualNode auxNode = VirtualNode::getNext(node);
+
+		for(; auxNode; auxNode = VirtualNode::getNext(auxNode))
 		{
-			SteeringBehavior steeringBehavior = SteeringBehavior::safeCast(VirtualNode::getData(node));
-
-			VirtualNode auxNode = VirtualNode::getNext(node);
-
-			for(; auxNode; auxNode = VirtualNode::getNext(auxNode))
+			SteeringBehavior auxSteeringBehavior = SteeringBehavior::safeCast(VirtualNode::getData(auxNode));
+			
+			// check the priority and swap them to make the higher priority to come first in the array
+			if(SteeringBehavior::getPriority(steeringBehavior) < SteeringBehavior::getPriority(auxSteeringBehavior))
 			{
-				SteeringBehavior auxSteeringBehavior = SteeringBehavior::safeCast(VirtualNode::getData(auxNode));
-				
-				// check the priority and swap them to make the higher priority to come first in the array
-				if(SteeringBehavior::getPriority(steeringBehavior) < SteeringBehavior::getPriority(auxSteeringBehavior))
-				{
-					VirtualNode::swapData(node, auxNode);
-					steeringBehavior = auxSteeringBehavior;
-					auxNode = VirtualNode::getNext(node);
-				}				
-			}
+				VirtualNode::swapData(node, auxNode);
+				steeringBehavior = auxSteeringBehavior;
+				auxNode = VirtualNode::getNext(node);
+			}				
 		}
 	}
 
