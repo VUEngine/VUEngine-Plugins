@@ -4,9 +4,9 @@
 
 //======================================================================
 //
-//	LowPowerIndicator, 16x32@2,
+//	LowPowerIndicator, 16x32@2, 
 //	+ 8 tiles not compressed
-//	+ regular map (flat), not compressed, 2x4
+//	+ regular map (flat), not compressed, 2x4 
 //	Total size: 144 + 16 = 160
 //
 //	Exported by Cearn's GBA Image Transmogrifier, v0.8.6
