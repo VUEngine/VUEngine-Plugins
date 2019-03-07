@@ -15,4 +15,4 @@ Add the following to the PLUGINS variable in your project's `config.make` file t
 
 You'll want to restore the previously saved settings for language and auto pause on startup. The recommended way is to call the function `SaveDataManager::initialize(SaveDataManager::restoreSettings());` from your game's main function before calling `Game::start(…);`.
 
-See `source/config.h` for the available macros to modify the save manager's behaviour. Define the desired macro in your game's `config.h` file to override.
+See `source/config.h` for the available macros to modify the save manager's behavior. Define the desired macro in your game's `config.h` file to override.

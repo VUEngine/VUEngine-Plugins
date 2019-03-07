@@ -1,3 +1,4 @@
 build/
 /.idea/workspace.xml
+.history
 .DS_Store

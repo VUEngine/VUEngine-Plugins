@@ -11,7 +11,7 @@ USAGE
 
 Add the following to the PLUGINS variable in your project's `config.make` file to include this plugin:
 
-	vuengine/plugins/cameras/Platformer
+	vuengine/plugins/cameras/PlatformerCamera
 
 
 To setup to your needs, call:
