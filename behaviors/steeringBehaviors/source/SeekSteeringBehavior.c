@@ -42,6 +42,7 @@ void SeekSteeringBehavior::constructor(const SeekSteeringBehaviorSpec* seekSteer
 
 	this->target = (Vector3D){0, 0, 0};
 	this->slowDownWhenReachingTarget = true;
+	this->reachedTarget = false;
 }
 
 /**
@@ -62,6 +63,7 @@ Vector3D SeekSteeringBehavior::getTarget()
 void SeekSteeringBehavior::setTarget(Vector3D value)
 {
 	this->target = value;
+	this->reachedTarget = false;
 }
 
 bool SeekSteeringBehavior::getSlowDownWhenReachingTarget()
@@ -82,16 +84,27 @@ Vector3D SeekSteeringBehavior::calculate(Vehicle owner)
 		return (Vector3D){0, 0, 0};
 	}
 
-	return SeekSteeringBehavior::toTarget(owner, this->target, this->slowDownWhenReachingTarget, this->easingDistanceThreshold);
+	if(this->reachedTarget)
+	{
+		return (Vector3D){0, 0, 0};
+	}
+
+	return SeekSteeringBehavior::toTarget(this, owner, this->target, this->slowDownWhenReachingTarget, this->reachedDistanceThreshold, this->easingDistanceThreshold);
 }
 
-static Vector3D SeekSteeringBehavior::toTarget(Vehicle vehicle, Vector3D target, bool proportionalToDistance, fix10_6 easingDistanceThreshold)
+static Vector3D SeekSteeringBehavior::toTarget(SeekSteeringBehavior seekSteeringBehavior, Vehicle vehicle, Vector3D target, bool proportionalToDistance, fix10_6 reachedDistanceThreshold, fix10_6 easingDistanceThreshold)
 {
 	Vector3D trajectory = Vector3D::get(target, *Vehicle::getPosition(vehicle));
 	fix10_6 length = Vector3D::length(trajectory);
 
-	if(!length)
+	if(!length || length < reachedDistanceThreshold)
 	{
+		if(!seekSteeringBehavior->reachedTarget)
+		{
+			seekSteeringBehavior->reachedTarget = true;
+			SeekSteeringBehavior::fireEvent(seekSteeringBehavior, kTargetReached);
+		}
+
 		return (Vector3D){0, 0, 0};
 	}
 
@@ -106,7 +119,6 @@ static Vector3D SeekSteeringBehavior::toTarget(Vehicle vehicle, Vector3D target,
 		if(easingDistanceThreshold > length)
 		{
 			fix10_6 scaleFactor = __FIX10_6_EXT_TO_FIX10_6(__FIX10_6_EXT_MULT(magnitude, __FIX10_6_EXT_DIV(length, easingDistanceThreshold)));
-
 			desiredVelocity = Vector3D::scalarProduct(desiredVelocity, scaleFactor);
 		}
 	}

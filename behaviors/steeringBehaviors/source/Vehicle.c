@@ -107,7 +107,7 @@ VirtualList Vehicle::getSteeringBehaviors()
 	return this->steeringBehaviors;
 }
 
-void Vehicle::update(u32 elapsedTime)
+void Vehicle::update(u32 elapsedTime __attribute__((unused)))
 {
 	if(this->steeringBehaviors)
 	{

@@ -56,6 +56,7 @@ class SeekSteeringBehavior : SteeringBehavior
 {
 	Vector3D target;
 	bool slowDownWhenReachingTarget;
+	bool reachedTarget;
 
 	void constructor(const SeekSteeringBehaviorSpec* seekSteeringBehaviorSpec);
 
