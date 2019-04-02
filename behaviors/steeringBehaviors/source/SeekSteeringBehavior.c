@@ -40,7 +40,7 @@ void SeekSteeringBehavior::constructor(const SeekSteeringBehaviorSpec* seekSteer
 {
 	Base::constructor(&seekSteeringBehaviorSpec->steeringBehaviorSpec);
 
-	this->target = (Vector3D){0, 0, 0};
+	this->target = Vector3D::zero();
 	this->slowDownWhenReachingTarget = true;
 	this->reachedTarget = false;
 }
@@ -81,12 +81,12 @@ Vector3D SeekSteeringBehavior::calculate(Vehicle owner)
 	if(isDeleted(owner))
 	{
 		this->enabled = false;
-		return (Vector3D){0, 0, 0};
+		return Vector3D::zero();
 	}
 
 	if(this->reachedTarget)
 	{
-		return (Vector3D){0, 0, 0};
+		return Vector3D::zero();
 	}
 
 	return SeekSteeringBehavior::toTarget(this, owner, this->target, this->slowDownWhenReachingTarget, this->reachedDistanceThreshold, this->easingDistanceThreshold);
@@ -105,7 +105,7 @@ static Vector3D SeekSteeringBehavior::toTarget(SeekSteeringBehavior seekSteering
 			SeekSteeringBehavior::fireEvent(seekSteeringBehavior, kTargetReached);
 		}
 
-		return (Vector3D){0, 0, 0};
+		return Vector3D::zero();
 	}
 
 	fix10_6 magnitude = Vehicle::getMaximumSpeed(vehicle);

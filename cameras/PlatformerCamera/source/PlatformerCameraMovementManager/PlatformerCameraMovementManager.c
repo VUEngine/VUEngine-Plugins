@@ -57,7 +57,7 @@ void PlatformerCameraMovementManager::constructor()
 
 	this->camera = Camera::getInstance();
 
-	PlatformerCameraMovementManager::configure(this, NULL, kNoLayer, kNoLayer, (PixelSize){8 * 8, 8 * 8, 8 * 8}, (Vector3D){0, 0, 0}, (Vector3D){0, 0, 0});
+	PlatformerCameraMovementManager::configure(this, NULL, kNoLayer, kNoLayer, (PixelSize){8 * 8, 8 * 8, 8 * 8}, Vector3D::zero(), Vector3D::zero());
 
 	NM_ASSERT(this->camera, "PlatformerCameraMovementManager::constructor: null this->camera");
 }
