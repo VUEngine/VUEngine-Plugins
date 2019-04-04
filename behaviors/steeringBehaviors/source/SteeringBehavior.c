@@ -81,9 +81,12 @@ static Vector3D SteeringBehavior::clampForce(Vector3D force, fix10_6 maximumForc
 {
 	if(maximumForce)
 	{		
-		if(Vector3D::squareLength(force) > __FIX10_6_MULT(maximumForce, maximumForce))
+		fix10_6 squaredForceMagnitude = Vector3D::squareLength(force);
+
+		if(squaredForceMagnitude > __FIX10_6_MULT(maximumForce, maximumForce))
 		{
-			force = Vector3D::scalarProduct(Vector3D::normalize(force), maximumForce);
+			fix10_6 forceMagnitude = __F_TO_FIX10_6(Math_squareRoot(__FIX10_6_EXT_TO_F(squaredForceMagnitude)));
+			force = Vector3D::scalarProduct(force, __FIX10_6_DIV(maximumForce, forceMagnitude));
 		}
 	}
 
@@ -176,7 +179,7 @@ static bool SteeringBehavior::accumulateForce(fix10_6 maximumForce, Vector3D *to
 	else
 	{
 		//add it to the steering force
-		*totalForce = Vector3D::sum(*totalForce, Vector3D::scalarProduct(Vector3D::normalize(forceToAdd), magnitudeRemaining));
+		*totalForce = Vector3D::sum(*totalForce, Vector3D::scalarProduct(forceToAdd, __FIX10_6_DIV(magnitudeRemaining, magnitudeToAdd)));
 	}
 
 	return true;
