@@ -81,12 +81,16 @@ static Vector3D SteeringBehavior::clampForce(Vector3D force, fix10_6 maximumForc
 {
 	if(maximumForce)
 	{		
-		fix10_6 squaredForceMagnitude = Vector3D::squareLength(force);
+		fix10_6_ext squaredForceMagnitude = Vector3D::squareLength(force);
 
-		if(squaredForceMagnitude > __FIX10_6_MULT(maximumForce, maximumForce))
+		if(squaredForceMagnitude > __FIX10_6_EXT_MULT(maximumForce, maximumForce))
 		{
 			fix10_6 forceMagnitude = __F_TO_FIX10_6(Math_squareRoot(__FIX10_6_EXT_TO_F(squaredForceMagnitude)));
-			force = Vector3D::scalarProduct(force, __FIX10_6_DIV(maximumForce, forceMagnitude));
+
+			if(forceMagnitude)
+			{
+				force = Vector3D::scalarProduct(force, __FIX10_6_DIV(maximumForce, forceMagnitude));
+			}
 		}
 	}
 
