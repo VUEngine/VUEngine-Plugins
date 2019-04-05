@@ -26,6 +26,7 @@
 
 #include <SteeringBehavior.h>
 #include <Vehicle.h>
+#include <Game.h>
 #include <Utilities.h>
 
 
@@ -82,7 +83,7 @@ static Vector3D SteeringBehavior::calculateForce(Vehicle vehicle)
 
 static Vector3D SteeringBehavior::applyDeviation(Vector3D force, fix10_6 deviation)
 {
-	long seed = Utilities::randomSeed();
+	long seed = Game::getRandomSeed(Game::getInstance());
 	force.x -= force.x ? Utilities::random(seed, deviation << 1) - deviation : 0;
 	force.y -= force.y ? Utilities::random(seed, deviation << 1) - deviation : 0;
 	force.z -= force.z ? Utilities::random(seed, deviation << 1) - deviation : 0;
