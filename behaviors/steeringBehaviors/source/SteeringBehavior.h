@@ -68,6 +68,9 @@ typedef struct SteeringBehaviorSpec
 	/// Distance when easing starts to apply to the computed force
 	fix10_6 easingDistanceThreshold;
 
+	/// Random deviation range
+	fix10_6 deviation;
+
 } SteeringBehaviorSpec;
 
 typedef const SteeringBehaviorSpec SteeringBehaviorROMSpec;
@@ -86,6 +89,7 @@ class SteeringBehavior : Behavior
 	fix10_6 maximumForce;
 	fix10_6 reachedDistanceThreshold;
 	fix10_6 easingDistanceThreshold;
+	fix10_6 deviation;
 
 	void constructor(const SteeringBehaviorSpec* steeringBehaviorSpec);
 

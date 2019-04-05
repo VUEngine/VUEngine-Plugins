@@ -26,6 +26,8 @@
 
 #include <SteeringBehavior.h>
 #include <Vehicle.h>
+#include <Utilities.h>
+
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -44,6 +46,7 @@ void SteeringBehavior::constructor(const SteeringBehaviorSpec* steeringBehaviorS
 	this->maximumForce = steeringBehaviorSpec->maximumForce;
 	this->reachedDistanceThreshold = steeringBehaviorSpec->reachedDistanceThreshold; 
 	this->easingDistanceThreshold = steeringBehaviorSpec->easingDistanceThreshold;
+	this->deviation = steeringBehaviorSpec->deviation;
 }
 
 /**
@@ -75,6 +78,16 @@ static Vector3D SteeringBehavior::calculateForce(Vehicle vehicle)
 	}
 
 	return steeringForce;
+}
+
+static Vector3D SteeringBehavior::applyDeviation(Vector3D force, fix10_6 deviation)
+{
+	long seed = Utilities::randomSeed();
+	force.x -= force.x ? Utilities::random(seed, deviation << 1) - deviation : 0;
+	force.y -= force.y ? Utilities::random(seed, deviation << 1) - deviation : 0;
+	force.z -= force.z ? Utilities::random(seed, deviation << 1) - deviation : 0;
+
+	return force;
 }
 
 static Vector3D SteeringBehavior::clampForce(Vector3D force, fix10_6 maximumForce)
@@ -113,7 +126,14 @@ static Vector3D SteeringBehavior::calculatePrioritized(Vehicle vehicle)
 
 			if(SteeringBehavior::isEnabled(steeringBehavior))
 			{
-				Vector3D force = SteeringBehavior::clampForce(Vector3D::scalarProduct(SteeringBehavior::calculate(steeringBehavior, vehicle), steeringBehavior->weight), steeringBehavior->maximumForce);
+				Vector3D force = Vector3D::scalarProduct(SteeringBehavior::calculate(steeringBehavior, vehicle), steeringBehavior->weight);
+				
+				if(steeringBehavior->deviation)
+				{
+					force = SteeringBehavior::applyDeviation(force, steeringBehavior->deviation);
+				}
+
+				force = SteeringBehavior::clampForce(force, steeringBehavior->maximumForce);
 				
 				if(!SteeringBehavior::accumulateForce(steeringBehavior->maximumForce, &steeringForce, force))
 				{					
@@ -142,9 +162,14 @@ static Vector3D SteeringBehavior::calculateWeightedSum(Vehicle vehicle)
 
 			if(SteeringBehavior::isEnabled(steeringBehavior))
 			{
-				Vector3D force = SteeringBehavior::clampForce(Vector3D::scalarProduct(SteeringBehavior::calculate(steeringBehavior, vehicle), steeringBehavior->weight), steeringBehavior->maximumForce);
+				Vector3D force = Vector3D::scalarProduct(SteeringBehavior::calculate(steeringBehavior, vehicle), steeringBehavior->weight);
 				
-				steeringForce = Vector3D::sum(steeringForce, force);
+				if(steeringBehavior->deviation)
+				{
+					force = SteeringBehavior::applyDeviation(force, steeringBehavior->deviation);
+				}
+
+				steeringForce = Vector3D::sum(steeringForce, SteeringBehavior::clampForce(force, steeringBehavior->maximumForce));
 			}
 		}
 	}
