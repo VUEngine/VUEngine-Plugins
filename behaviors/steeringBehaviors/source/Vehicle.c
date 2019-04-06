@@ -96,10 +96,9 @@ void Vehicle::ready(bool recursive)
 	}
 
 	//m_headingSmoother = new BLGSmoother(m_iSamplesForSmoothing, new Vector3(0.0F, 0.0F, 0.0F));
-
 	if(0 <= this->evenCycle)
 	{
-		this->evenCycle = Utilities::random(Game::getRandomSeed(Game::getInstance()), 10) % 2;
+		this->evenCycle = this->internalId % 2;
 	}
 }
 
