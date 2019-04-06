@@ -24,8 +24,9 @@
 //												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
-#include "Vehicle.h"
+#include <Game.h>
 #include <SteeringBehavior.h>
+#include "Vehicle.h"
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -42,6 +43,7 @@ void Vehicle::constructor(VehicleSpec* vehicleSpec, s16 id, s16 internalId, cons
 	this->vehicleSpec = vehicleSpec;
 	this->steeringBehaviors = NULL;
 	this->evenCycle = vehicleSpec->runSteeringBehaviorsAtHalfSpeed ? 0 : -1;
+	this->steeringForce = Vector3D::zero();
 }
 
 // class's destructor
@@ -97,7 +99,7 @@ void Vehicle::ready(bool recursive)
 
 	if(0 <= this->evenCycle)
 	{
-		this->evenCycle = Utilities::random(Utilities::randomSeed(), 10) % 2;
+		this->evenCycle = Utilities::random(Game::getRandomSeed(Game::getInstance()), 10) % 2;
 	}
 }
 
@@ -115,20 +117,20 @@ void Vehicle::update(u32 elapsedTime __attribute__((unused)))
 {
 	if(this->steeringBehaviors)
 	{
-		bool addForce = 0 > this->evenCycle;
+		bool computeForce = 0 > this->evenCycle;
 		
-		if(!addForce)
+		if(!computeForce)
 		{
 			u16 modulo = __MODULO(this->evenCycle, 2);
-			addForce = 1 == modulo;
+			computeForce = 1 == modulo;
 			this->evenCycle = !modulo;
 		}
 
-		if(addForce)
+		if(computeForce)
 		{
-			Vector3D steeringForce = SteeringBehavior::calculateForce(this);
-
-			Vehicle::addForce(this, &steeringForce);
+			this->steeringForce = SteeringBehavior::calculateForce(this);
 		}
+
+		Vehicle::addForce(this, &this->steeringForce);
 	}
 }

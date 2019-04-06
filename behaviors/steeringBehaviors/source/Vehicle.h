@@ -51,6 +51,7 @@ typedef struct VehicleSpec
 /// @ingroup base
 class Vehicle : Actor
 {
+	Vector3D steeringForce;
 	VehicleSpec* vehicleSpec;
 	s8 evenCycle;
 
