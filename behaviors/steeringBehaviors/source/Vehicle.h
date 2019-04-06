@@ -43,12 +43,16 @@ typedef struct VehicleSpec
 	// Force accumulation method: kPrioritized, kWeightedAverage
 	int summingMethod;
 
+	/// Run steering behaviors at half speed
+	bool runSteeringBehaviorsAtHalfSpeed;
+
 } VehicleSpec;
 
 /// @ingroup base
 class Vehicle : Actor
 {
 	VehicleSpec* vehicleSpec;
+	s8 evenCycle;
 
 	VirtualList steeringBehaviors;
 

@@ -184,32 +184,41 @@ static Vector3D SteeringBehavior::calculateWeightedSum(Vehicle vehicle)
 static bool SteeringBehavior::accumulateForce(fix10_6 maximumForce, Vector3D *totalForce, Vector3D forceToAdd)
 {	
 	//calculate how much steering force the vehicle has used so far
-	fix10_6 magnitudeSoFar = Vector3D::length(*totalForce);
+	fix10_6 squareMagnitudeSoFar = Vector3D::squareLength(*totalForce);
 	
 	//calculate how much steering force remains to be used by this vehicle
-	fix10_6 magnitudeRemaining = maximumForce - magnitudeSoFar;
+	fix10_6 squareMagnitudeRemaining = __FIX10_6_EXT_MULT(maximumForce, maximumForce) - squareMagnitudeSoFar;
 	
 	//return false if there is no more force left to use
-	if (magnitudeRemaining < 0)
+	if (squareMagnitudeRemaining < 0)
 	{
 		return false;
 	}
 
 	//calculate the magnitude of the force we want to add
-	fix10_6 magnitudeToAdd = Vector3D::length(forceToAdd);
+	fix10_6 squareMagnitudeToAdd = Vector3D::squareLength(forceToAdd);
 	
 	//if the magnitude of the sum of forceToAdd and the running total
 	//does not exceed the maximum force available to this vehicle, just
 	//add together. Otherwise add as much of the forceToAdd vector is
 	//possible without going over the max.
-	if (magnitudeToAdd < magnitudeRemaining)
+	if (squareMagnitudeToAdd < squareMagnitudeRemaining)
 	{	
 		*totalForce = Vector3D::sum(*totalForce, forceToAdd);
 	}		
-	else
+	else if(squareMagnitudeToAdd)
 	{
+		fix10_6 magnitudeToAdd = __F_TO_FIX10_6(Math_squareRoot(__FIX10_6_EXT_TO_F(squareMagnitudeToAdd)));
+		fix10_6 magnitudeSoFar = __F_TO_FIX10_6(Math_squareRoot(__FIX10_6_EXT_TO_F(squareMagnitudeSoFar)));
+	
+		//calculate how much steering force remains to be used by this vehicle
+		fix10_6 magnitudeRemaining = maximumForce - magnitudeSoFar;
+		
 		//add it to the steering force
-		*totalForce = Vector3D::sum(*totalForce, Vector3D::scalarProduct(forceToAdd, __FIX10_6_DIV(magnitudeRemaining, magnitudeToAdd)));
+		if(magnitudeToAdd)
+		{
+			*totalForce = Vector3D::sum(*totalForce, Vector3D::scalarProduct(forceToAdd, __FIX10_6_DIV(magnitudeRemaining, magnitudeToAdd)));
+		}
 	}
 
 	return true;

@@ -41,6 +41,7 @@ void Vehicle::constructor(VehicleSpec* vehicleSpec, s16 id, s16 internalId, cons
 	// save vehicle spec
 	this->vehicleSpec = vehicleSpec;
 	this->steeringBehaviors = NULL;
+	this->evenCycle = vehicleSpec->runSteeringBehaviorsAtHalfSpeed ? 0 : -1;
 }
 
 // class's destructor
@@ -94,7 +95,10 @@ void Vehicle::ready(bool recursive)
 
 	//m_headingSmoother = new BLGSmoother(m_iSamplesForSmoothing, new Vector3(0.0F, 0.0F, 0.0F));
 
-
+	if(0 <= this->evenCycle)
+	{
+		this->evenCycle = Utilities::random(Utilities::randomSeed(), 10) % 2;
+	}
 }
 
 int Vehicle::getSummingMethod()
@@ -111,8 +115,20 @@ void Vehicle::update(u32 elapsedTime __attribute__((unused)))
 {
 	if(this->steeringBehaviors)
 	{
-		Vector3D steeringForce = SteeringBehavior::calculateForce(this);
+		bool addForce = 0 > this->evenCycle;
+		
+		if(!addForce)
+		{
+			u16 modulo = __MODULO(this->evenCycle, 2);
+			addForce = 1 == modulo;
+			this->evenCycle = !modulo;
+		}
 
-		Vehicle::addForce(this, &steeringForce);
+		if(addForce)
+		{
+			Vector3D steeringForce = SteeringBehavior::calculateForce(this);
+
+			Vehicle::addForce(this, &steeringForce);
+		}
 	}
 }
