@@ -45,8 +45,6 @@ void SteeringBehavior::constructor(const SteeringBehaviorSpec* steeringBehaviorS
 	this->priority = steeringBehaviorSpec->priority;
 	this->weight = steeringBehaviorSpec->weight;
 	this->maximumForce = steeringBehaviorSpec->maximumForce;
-	this->reachedDistanceThreshold = steeringBehaviorSpec->reachedDistanceThreshold; 
-	this->easingDistanceThreshold = steeringBehaviorSpec->easingDistanceThreshold;
 	this->deviation = steeringBehaviorSpec->deviation;
 }
 
@@ -252,24 +250,4 @@ fix10_6 SteeringBehavior::getMaximumForce()
 void SteeringBehavior::setMaximumForce(fix10_6 value)
 {
 	this->maximumForce = value;
-}
-
-fix10_6 SteeringBehavior::getEasingDistanceThreshold()
-{
-	return this->easingDistanceThreshold;
-}
-
-void SteeringBehavior::setEasingDistanceThreshold(fix10_6 value)
-{
-	this->easingDistanceThreshold = value;
-}
-
-fix10_6 SteeringBehavior::getReachedDistanceThreshold()
-{
-	return this->reachedDistanceThreshold;
-}
-
-void SteeringBehavior::setReachedDistanceThreshold(fix10_6 value)
-{
-	this->reachedDistanceThreshold = value;
 }

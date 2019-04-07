@@ -43,6 +43,8 @@ void SeekSteeringBehavior::constructor(const SeekSteeringBehaviorSpec* seekSteer
 	this->target = Vector3D::zero();
 	this->slowDownWhenReachingTarget = true;
 	this->reachedTarget = false;
+	this->reachedDistanceThreshold = seekSteeringBehaviorSpec->reachedDistanceThreshold; 
+	this->easingDistanceThreshold = seekSteeringBehaviorSpec->easingDistanceThreshold;
 }
 
 /**
@@ -124,4 +126,24 @@ static Vector3D SeekSteeringBehavior::toTarget(SeekSteeringBehavior seekSteering
 	}
 
 	return desiredVelocity;
+}
+
+fix10_6 SeekSteeringBehavior::getEasingDistanceThreshold()
+{
+	return this->easingDistanceThreshold;
+}
+
+void SeekSteeringBehavior::setEasingDistanceThreshold(fix10_6 value)
+{
+	this->easingDistanceThreshold = value;
+}
+
+fix10_6 SeekSteeringBehavior::getReachedDistanceThreshold()
+{
+	return this->reachedDistanceThreshold;
+}
+
+void SeekSteeringBehavior::setReachedDistanceThreshold(fix10_6 value)
+{
+	this->reachedDistanceThreshold = value;
 }

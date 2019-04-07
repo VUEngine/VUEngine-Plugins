@@ -19,8 +19,8 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-#ifndef SEEK_STEERING_BEHAVIOR_H_
-#define SEEK_STEERING_BEHAVIOR_H_
+#ifndef AVOID_STEERING_BEHAVIOR_H_
+#define AVOID_STEERING_BEHAVIOR_H_
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -28,6 +28,7 @@
 //---------------------------------------------------------------------------------------------------------
 
 #include <SteeringBehavior.h>
+#include <SpatialObject.h>
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -35,19 +36,13 @@
 //---------------------------------------------------------------------------------------------------------
 
 // defines an entity in ROM memory
-typedef struct SeekSteeringBehaviorSpec
+typedef struct AvoidSteeringBehaviorSpec
 {
 	SteeringBehaviorSpec steeringBehaviorSpec;
 
-	/// Distance when it is considered that the target has been reached
-	fix10_6 reachedDistanceThreshold;
+} AvoidSteeringBehaviorSpec;
 
-	/// Distance when easing starts to apply to the computed force
-	fix10_6 easingDistanceThreshold;
-
-} SeekSteeringBehaviorSpec;
-
-typedef const SeekSteeringBehaviorSpec SeekSteeringBehaviorROMSpec;
+typedef const AvoidSteeringBehaviorSpec AvoidSteeringBehaviorROMSpec;
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -58,20 +53,13 @@ typedef const SeekSteeringBehaviorSpec SeekSteeringBehaviorROMSpec;
 //  direct the agent towards the target
 
 /// @ingroup base
-class SeekSteeringBehavior : SteeringBehavior
+class AvoidSteeringBehavior : SteeringBehavior
 {
-	Vector3D target;
-	fix10_6 reachedDistanceThreshold;
-	fix10_6 easingDistanceThreshold;
-	bool slowDownWhenReachingTarget;
-	bool reachedTarget;
+	VirtualList obstacles;
 
-	void constructor(const SeekSteeringBehaviorSpec* seekSteeringBehaviorSpec);
+	void constructor(const AvoidSteeringBehaviorSpec* seekSteeringBehaviorSpec);
 
-	Vector3D getTarget();
-	void setTarget(Vector3D value);
-	bool getSlowDownWhenReachingTarget();
-	void setSlowDownWhenReachingTarget(bool value);
+	void addObstacle(SpatialObject spatialObject);
 	override Vector3D calculate(Vehicle owner);
 }
 

@@ -62,12 +62,6 @@ typedef struct SteeringBehaviorSpec
 	/// Maximum force to apply
 	fix10_6 maximumForce;
 
-	/// Distance when it is considered that the target has been reached
-	fix10_6 reachedDistanceThreshold;
-
-	/// Distance when easing starts to apply to the computed force
-	fix10_6 easingDistanceThreshold;
-
 	/// Random deviation range
 	fix10_6 deviation;
 
@@ -87,8 +81,6 @@ class SteeringBehavior : Behavior
 	int priority;
 	fix10_6 weight;
 	fix10_6 maximumForce;
-	fix10_6 reachedDistanceThreshold;
-	fix10_6 easingDistanceThreshold;
 	fix10_6 deviation;
 
 	void constructor(const SteeringBehaviorSpec* steeringBehaviorSpec);
@@ -100,11 +92,6 @@ class SteeringBehavior : Behavior
 	void setWeight(fix10_6 value);
 	fix10_6 getMaximumForce();
 	void setMaximumForce(fix10_6 value);
-	fix10_6 getEasingDistanceThreshold();
-	void setEasingDistanceThreshold(fix10_6 value);
-	fix10_6 getReachedDistanceThreshold();
-	void setReachedDistanceThreshold(fix10_6 value);
-
 	virtual Vector3D calculate(Vehicle owner) = 0;
 }
 
