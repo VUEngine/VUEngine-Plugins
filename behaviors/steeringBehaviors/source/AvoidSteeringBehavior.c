@@ -119,36 +119,28 @@ Vector3D AvoidSteeringBehavior::calculate(Vehicle owner)
 
 static Vector3D AvoidSteeringBehavior::awayFromObstacles(AvoidSteeringBehavior avoidSteeringBehavior, Vehicle vehicle, VirtualList obstacles)
 {
-	fix10_6 magnitude = Vehicle::getMaximumSpeed(vehicle);
-
 	Vector3D desiredVelocity = Vector3D::zero();
 
-	if(avoidSteeringBehavior->obstacles)
+	if(obstacles)
 	{
 		Vector3D position = *Vehicle::getPosition(vehicle);
 		Body body = Vehicle::getBody(vehicle);
 		Velocity velocity = Body::getVelocity(body);
 		Direction3D direction = Body::getDirection3D(body);
-		Direction3D mirrorDirection = Vector3D::scalarProduct(direction, __I_TO_FIX10_6(-1));
+		fix10_6 projectedDistance = __FIX10_6_MULT(Vector3D::length(velocity), __F_TO_FIX10_6(0.4f));
 
-		fix10_6 radius = SpatialObject::getRadius(vehicle);
-		fix10_6 speed = Vector3D::length(velocity);
-		fix10_6 projectedDistance = __FIX10_6_MULT(speed, __F_TO_FIX10_6(0.4f));
-
-		VirtualNode node = VirtualList::begin(avoidSteeringBehavior->obstacles);
+		VirtualNode node = VirtualList::begin(obstacles);
 
 		for(; node; node = VirtualNode::getNext(node))
 		{
 			Obstacle* obstacle = (Obstacle*)VirtualNode::getData(node);
 
-			Vector3D obstacleStartPosition = Vector3D::sum(*obstacle->position, Vector3D::scalarProduct(mirrorDirection, obstacle->radius));
-
 			Vector3D vectorVehicleObstacle = Vector3D::get(position, *obstacle->position);
 			fix10_6 distance = Vector3D::length(vectorVehicleObstacle);// - radius - obstacle->radius;
 
 			fix10_6 dotProduct = Vector3D::dotProduct(Vector3D::normalize(vectorVehicleObstacle), direction);
-
-			if(distance < projectedDistance)
+			
+			if(__F_TO_FIX10_6(-0.5f) < dotProduct && distance < projectedDistance)
 			{
 				Vector3D desiredDirection1 = 
 				{	
