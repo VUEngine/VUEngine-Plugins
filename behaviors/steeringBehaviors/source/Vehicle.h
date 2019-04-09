@@ -38,7 +38,7 @@
 typedef struct VehicleSpec
 {
 	// animated entity
-	ActorROMSpec actorSpec;
+	ActorSpec actorSpec;
 
 	// Force accumulation method: kPrioritized, kWeightedAverage
 	int summingMethod;
