@@ -60,6 +60,15 @@ void AvoidSteeringBehavior::constructor(const AvoidSteeringBehaviorSpec* avoidSt
  */
 void AvoidSteeringBehavior::destructor()
 {
+	AvoidSteeringBehavior::removeAllObstacles(this);
+
+	// destroy the super object
+	// must always be called at the end of the destructor
+	Base::destructor();
+}
+
+void AvoidSteeringBehavior::removeAllObstacles()
+{
 	if(this->obstacles)
 	{
 		VirtualNode node = VirtualList::begin(this->obstacles);
@@ -72,10 +81,6 @@ void AvoidSteeringBehavior::destructor()
 		delete this->obstacles;
 		this->obstacles = NULL;
 	}
-
-	// destroy the super object
-	// must always be called at the end of the destructor
-	Base::destructor();
 }
 
 void AvoidSteeringBehavior::addObstacle(SpatialObject spatialObject)
@@ -114,10 +119,10 @@ Vector3D AvoidSteeringBehavior::calculate(Vehicle owner)
 		return Vector3D::zero();
 	}
 
-	return AvoidSteeringBehavior::awayFromObstacles(this, owner, this->obstacles);
+	return AvoidSteeringBehavior::awayFromObstacles(owner, this->obstacles);
 }
 
-static Vector3D AvoidSteeringBehavior::awayFromObstacles(AvoidSteeringBehavior avoidSteeringBehavior, Vehicle vehicle, VirtualList obstacles)
+static Vector3D AvoidSteeringBehavior::awayFromObstacles(Vehicle vehicle, VirtualList obstacles)
 {
 	Vector3D desiredVelocity = Vector3D::zero();
 

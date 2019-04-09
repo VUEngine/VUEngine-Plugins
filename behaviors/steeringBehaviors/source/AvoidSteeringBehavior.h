@@ -60,6 +60,7 @@ class AvoidSteeringBehavior : SteeringBehavior
 	void constructor(const AvoidSteeringBehaviorSpec* seekSteeringBehaviorSpec);
 
 	void addObstacle(SpatialObject spatialObject);
+	void removeAllObstacles();
 	override Vector3D calculate(Vehicle owner);
 }
 
