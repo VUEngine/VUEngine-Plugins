@@ -112,7 +112,7 @@ VirtualList Vehicle::getSteeringBehaviors()
 	return this->steeringBehaviors;
 }
 
-void Vehicle::update(u32 elapsedTime __attribute__((unused)))
+void Vehicle::updateForce()
 {
 	if(this->steeringBehaviors)
 	{
@@ -132,4 +132,11 @@ void Vehicle::update(u32 elapsedTime __attribute__((unused)))
 
 		Vehicle::addForce(this, &this->steeringForce);
 	}
+}
+
+void Vehicle::update(u32 elapsedTime __attribute__((unused)))
+{
+	Base::update(this, elapsedTime);
+	
+	Vehicle::updateForce(this);
 }

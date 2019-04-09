@@ -61,6 +61,7 @@ class Vehicle : Actor
 	void constructor(VehicleSpec* vehicleSpec, s16 id, s16 internalId, const char* const name);
 
 	int getSummingMethod();
+	void updateForce();
 	VirtualList getSteeringBehaviors();
 	override void ready(bool recursive);
 	override void update(u32 elapsedTime);
