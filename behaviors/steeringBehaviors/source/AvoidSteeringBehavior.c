@@ -53,6 +53,7 @@ void AvoidSteeringBehavior::constructor(const AvoidSteeringBehaviorSpec* avoidSt
 	Base::constructor(&avoidSteeringBehaviorSpec->steeringBehaviorSpec);
 
 	this->obstacles = NULL;
+	this->avoidSteeringBehaviorSpec = avoidSteeringBehaviorSpec;
 }
 
 /**
@@ -119,10 +120,10 @@ Vector3D AvoidSteeringBehavior::calculate(Vehicle owner)
 		return Vector3D::zero();
 	}
 
-	return AvoidSteeringBehavior::awayFromObstacles(owner, this->obstacles);
+	return AvoidSteeringBehavior::awayFromObstacles(this, owner, this->obstacles);
 }
 
-static Vector3D AvoidSteeringBehavior::awayFromObstacles(Vehicle vehicle, VirtualList obstacles)
+Vector3D AvoidSteeringBehavior::awayFromObstacles(Vehicle vehicle, VirtualList obstacles)
 {
 	Vector3D desiredVelocity = Vector3D::zero();
 
@@ -145,7 +146,7 @@ static Vector3D AvoidSteeringBehavior::awayFromObstacles(Vehicle vehicle, Virtua
 
 			fix10_6 dotProduct = Vector3D::dotProduct(Vector3D::normalize(vectorVehicleObstacle), direction);
 			
-			if(__F_TO_FIX10_6(-0.5f) < dotProduct && distance < projectedDistance)
+			if(__FIX7_9_TO_FIX10_6(-__ABS(__COS(this->avoidSteeringBehaviorSpec->maximumAngle))) < dotProduct && distance < projectedDistance)
 			{
 				Vector3D desiredDirection1 = 
 				{	

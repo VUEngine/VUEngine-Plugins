@@ -40,6 +40,9 @@ typedef struct AvoidSteeringBehaviorSpec
 {
 	SteeringBehaviorSpec steeringBehaviorSpec;
 
+	/// Maximum angle betwen vehicle and obstacle to account for
+	fix10_6 maximumAngle;
+
 } AvoidSteeringBehaviorSpec;
 
 typedef const AvoidSteeringBehaviorSpec AvoidSteeringBehaviorROMSpec;
@@ -56,6 +59,7 @@ typedef const AvoidSteeringBehaviorSpec AvoidSteeringBehaviorROMSpec;
 class AvoidSteeringBehavior : SteeringBehavior
 {
 	VirtualList obstacles;
+	const AvoidSteeringBehaviorSpec* avoidSteeringBehaviorSpec;
 
 	void constructor(const AvoidSteeringBehaviorSpec* seekSteeringBehaviorSpec);
 
