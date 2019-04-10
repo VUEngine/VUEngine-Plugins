@@ -91,15 +91,14 @@ Vector3D SeekSteeringBehavior::calculate(Vehicle owner)
 		return Vector3D::zero();
 	}
 
-	return SeekSteeringBehavior::toTarget(this, owner, this->target, this->slowDownWhenReachingTarget, this->reachedDistanceThreshold, this->easingDistanceThreshold);
+	return SeekSteeringBehavior::toTarget(this, owner, this->target, this->slowDownWhenReachingTarget, __FIX10_6_TO_FIX10_6_EXT(this->reachedDistanceThreshold), this->easingDistanceThreshold);
 }
 
-static Vector3D SeekSteeringBehavior::toTarget(SeekSteeringBehavior seekSteeringBehavior, Vehicle vehicle, Vector3D target, bool proportionalToDistance, fix10_6 reachedDistanceThreshold, fix10_6 easingDistanceThreshold)
+static Vector3D SeekSteeringBehavior::toTarget(SeekSteeringBehavior seekSteeringBehavior, Vehicle vehicle, Vector3D target, bool proportionalToDistance, fix10_6_ext reachedDistanceThreshold, fix10_6 easingDistanceThreshold)
 {
-	Vector3D trajectory = Vector3D::get(target, *Vehicle::getPosition(vehicle));
-	fix10_6 length = Vector3D::length(trajectory);
+	fix10_6_ext squareDistanceToReference = Vector3D::squareLength(Vector3D::get(target, *Vehicle::getReferencePosition(vehicle)));
 
-	if(!length || length < reachedDistanceThreshold)
+	if(!squareDistanceToReference || squareDistanceToReference < __FIX10_6_EXT_MULT(reachedDistanceThreshold, reachedDistanceThreshold))
 	{
 		if(!seekSteeringBehavior->reachedTarget)
 		{
@@ -109,6 +108,9 @@ static Vector3D SeekSteeringBehavior::toTarget(SeekSteeringBehavior seekSteering
 
 		return Vector3D::zero();
 	}
+
+	Vector3D trajectory = Vector3D::get(target, *Vehicle::getPosition(vehicle));
+	fix10_6 length = Vector3D::length(trajectory);
 
 	fix10_6 magnitude = Vehicle::getMaximumSpeed(vehicle);
 

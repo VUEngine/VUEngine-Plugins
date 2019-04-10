@@ -112,6 +112,11 @@ VirtualList Vehicle::getSteeringBehaviors()
 	return this->steeringBehaviors;
 }
 
+const Vector3D* Vehicle::getReferencePosition()
+{
+	return Vehicle::getPosition(this);
+}
+
 void Vehicle::updateForce()
 {
 	if(this->steeringBehaviors)

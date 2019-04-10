@@ -63,6 +63,9 @@ class Vehicle : Actor
 	int getSummingMethod();
 	void updateForce();
 	VirtualList getSteeringBehaviors();
+
+	virtual const Vector3D* getReferencePosition();
+
 	override void ready(bool recursive);
 	override void update(u32 elapsedTime);
 }
