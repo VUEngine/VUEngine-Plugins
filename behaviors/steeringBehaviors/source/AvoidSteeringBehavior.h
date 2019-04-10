@@ -48,6 +48,15 @@ typedef struct AvoidSteeringBehaviorSpec
 typedef const AvoidSteeringBehaviorSpec AvoidSteeringBehaviorROMSpec;
 
 
+typedef struct Obstacle
+{
+	SpatialObject spatialObject;
+	const Vector3D* position;
+	fix10_6 radius;
+	
+}Obstacle;
+
+
 //---------------------------------------------------------------------------------------------------------
 //											CLASS'S DECLARATION
 //---------------------------------------------------------------------------------------------------------
@@ -65,6 +74,7 @@ class AvoidSteeringBehavior : SteeringBehavior
 
 	void addObstacle(SpatialObject spatialObject);
 	void removeAllObstacles();
+	VirtualList getObstacles();
 	override Vector3D calculate(Vehicle owner);
 }
 

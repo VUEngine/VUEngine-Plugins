@@ -33,13 +33,6 @@
 //												CLASS'S DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-typedef struct Obstacle
-{
-	SpatialObject spatialObject;
-	const Vector3D* position;
-	fix10_6 radius;
-	
-}Obstacle;
 
 //---------------------------------------------------------------------------------------------------------
 //												CLASS'S METHODS
@@ -52,7 +45,7 @@ void AvoidSteeringBehavior::constructor(const AvoidSteeringBehaviorSpec* avoidSt
 {
 	Base::constructor(&avoidSteeringBehaviorSpec->steeringBehaviorSpec);
 
-	this->obstacles = NULL;
+	this->obstacles = new VirtualList();
 	this->avoidSteeringBehaviorSpec = avoidSteeringBehaviorSpec;
 }
 
@@ -62,6 +55,7 @@ void AvoidSteeringBehavior::constructor(const AvoidSteeringBehaviorSpec* avoidSt
 void AvoidSteeringBehavior::destructor()
 {
 	AvoidSteeringBehavior::removeAllObstacles(this);
+	delete this->obstacles;
 
 	// destroy the super object
 	// must always be called at the end of the destructor
@@ -70,18 +64,19 @@ void AvoidSteeringBehavior::destructor()
 
 void AvoidSteeringBehavior::removeAllObstacles()
 {
-	if(this->obstacles)
+	VirtualNode node = VirtualList::begin(this->obstacles);
+
+	for(; node; node = VirtualNode::getNext(node))
 	{
-		VirtualNode node = VirtualList::begin(this->obstacles);
-
-		for(; node; node = VirtualNode::getNext(node))
-		{
-			delete VirtualNode::getData(node);
-		}
-
-		delete this->obstacles;
-		this->obstacles = NULL;
+		delete VirtualNode::getData(node);
 	}
+
+	VirtualList::clear(this->obstacles);
+}
+
+VirtualList AvoidSteeringBehavior::getObstacles()
+{
+	return this->obstacles;
 }
 
 void AvoidSteeringBehavior::addObstacle(SpatialObject spatialObject)
@@ -89,11 +84,6 @@ void AvoidSteeringBehavior::addObstacle(SpatialObject spatialObject)
 	if(isDeleted(spatialObject))
 	{
 		return;
-	}
-
-	if(!this->obstacles)
-	{
-		this->obstacles = new VirtualList();
 	}
 
 	Obstacle* obstacle = new Obstacle;
@@ -115,63 +105,54 @@ Vector3D AvoidSteeringBehavior::calculate(Vehicle owner)
 		return Vector3D::zero();
 	}
 
-	if(!this->obstacles)
-	{
-		return Vector3D::zero();
-	}
-
-	return AvoidSteeringBehavior::awayFromObstacles(this, owner, this->obstacles);
+	return  VirtualList::getSize(this->obstacles) ? AvoidSteeringBehavior::awayFromObstacles(this, owner) : Vector3D::zero();
 }
 
-Vector3D AvoidSteeringBehavior::awayFromObstacles(Vehicle vehicle, VirtualList obstacles)
+Vector3D AvoidSteeringBehavior::awayFromObstacles(Vehicle vehicle)
 {
 	Vector3D desiredVelocity = Vector3D::zero();
 
-	if(obstacles)
+	Vector3D position = *Vehicle::getPosition(vehicle);
+	Body body = Vehicle::getBody(vehicle);
+	Velocity velocity = Body::getVelocity(body);
+	Direction3D direction = Body::getDirection3D(body);
+	fix10_6 projectedDistance = __FIX10_6_MULT(Vector3D::length(velocity), __F_TO_FIX10_6(0.4f));
+
+	VirtualNode node = VirtualList::begin(this->obstacles);
+
+	for(; node; node = VirtualNode::getNext(node))
 	{
-		Vector3D position = *Vehicle::getPosition(vehicle);
-		Body body = Vehicle::getBody(vehicle);
-		Velocity velocity = Body::getVelocity(body);
-		Direction3D direction = Body::getDirection3D(body);
-		fix10_6 projectedDistance = __FIX10_6_MULT(Vector3D::length(velocity), __F_TO_FIX10_6(0.4f));
+		Obstacle* obstacle = (Obstacle*)VirtualNode::getData(node);
 
-		VirtualNode node = VirtualList::begin(obstacles);
+		Vector3D vectorVehicleObstacle = Vector3D::get(position, *obstacle->position);
+		fix10_6 distance = Vector3D::length(vectorVehicleObstacle);// - radius - obstacle->radius;
 
-		for(; node; node = VirtualNode::getNext(node))
+		fix10_6 dotProduct = Vector3D::dotProduct(Vector3D::normalize(vectorVehicleObstacle), direction);
+		
+		if(__FIX7_9_TO_FIX10_6(-__ABS(__COS(this->avoidSteeringBehaviorSpec->maximumAngle))) < dotProduct && distance < projectedDistance)
 		{
-			Obstacle* obstacle = (Obstacle*)VirtualNode::getData(node);
+			Vector3D desiredDirection1 = 
+			{	
+				direction.y,
+				-direction.x,
+				0
+			};
 
-			Vector3D vectorVehicleObstacle = Vector3D::get(position, *obstacle->position);
-			fix10_6 distance = Vector3D::length(vectorVehicleObstacle);// - radius - obstacle->radius;
+			Vector3D desiredDirection2 = 
+			{	
+				-direction.y,
+				direction.x,
+				0
+			};
 
-			fix10_6 dotProduct = Vector3D::dotProduct(Vector3D::normalize(vectorVehicleObstacle), direction);
-			
-			if(__FIX7_9_TO_FIX10_6(-__ABS(__COS(this->avoidSteeringBehaviorSpec->maximumAngle))) < dotProduct && distance < projectedDistance)
-			{
-				Vector3D desiredDirection1 = 
-				{	
-					direction.y,
-					-direction.x,
-					0
-				};
+			Vector3D obstacleEdge1 = Vector3D::sum(*obstacle->position, Vector3D::scalarProduct(desiredDirection1, obstacle->radius));
+			Vector3D obstacleEdge2 = Vector3D::sum(*obstacle->position, Vector3D::scalarProduct(desiredDirection2, obstacle->radius));
 
-				Vector3D desiredDirection2 = 
-				{	
-					-direction.y,
-					direction.x,
-					0
-				};
+			fix10_6 squareDistance1 = Vector3D::squareLength(Vector3D::get(position, obstacleEdge1));
+			fix10_6 squareDistance2 = Vector3D::squareLength(Vector3D::get(position, obstacleEdge2));
 
-				Vector3D obstacleEdge1 = Vector3D::sum(*obstacle->position, Vector3D::scalarProduct(desiredDirection1, obstacle->radius));
-				Vector3D obstacleEdge2 = Vector3D::sum(*obstacle->position, Vector3D::scalarProduct(desiredDirection2, obstacle->radius));
-
-				fix10_6 squareDistance1 = Vector3D::squareLength(Vector3D::get(position, obstacleEdge1));
-				fix10_6 squareDistance2 = Vector3D::squareLength(Vector3D::get(position, obstacleEdge2));
-
-				Vector3D desiredDirection = squareDistance2 < squareDistance1 ? desiredDirection2 : desiredDirection1;				
-				desiredVelocity = Vector3D::sum(desiredVelocity, Vector3D::scalarProduct(desiredDirection, (projectedDistance - distance)));
-			}
-
+			Vector3D desiredDirection = squareDistance2 < squareDistance1 ? desiredDirection2 : desiredDirection1;				
+			desiredVelocity = Vector3D::sum(desiredVelocity, Vector3D::scalarProduct(desiredDirection, (projectedDistance - distance)));
 		}
 	}
 
