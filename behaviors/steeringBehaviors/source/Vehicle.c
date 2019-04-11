@@ -30,6 +30,14 @@
 
 
 //---------------------------------------------------------------------------------------------------------
+//												CLASS'S DECLARATIONS
+//---------------------------------------------------------------------------------------------------------
+
+friend class VirtualNode;
+friend class VirtualList;
+
+
+//---------------------------------------------------------------------------------------------------------
 //												CLASS'S METHODS
 //---------------------------------------------------------------------------------------------------------
 
@@ -72,25 +80,25 @@ void Vehicle::ready(bool recursive)
 	// get steering behaviors to sort them based on their priority
 	Container::getBehaviors(this, typeofclass(SteeringBehavior), this->steeringBehaviors);
 
-	VirtualNode node = VirtualList::begin(this->steeringBehaviors);
+	VirtualNode node = this->steeringBehaviors->head;
 
 	// just an easy bubble sort
-	for(; node; node = VirtualNode::getNext(node))
+	for(; node; node = node->next)
 	{
-		SteeringBehavior steeringBehavior = SteeringBehavior::safeCast(VirtualNode::getData(node));
+		SteeringBehavior steeringBehavior = SteeringBehavior::safeCast(node->data);
 
-		VirtualNode auxNode = VirtualNode::getNext(node);
+		VirtualNode auxNode = node->next;
 
-		for(; auxNode; auxNode = VirtualNode::getNext(auxNode))
+		for(; auxNode; auxNode = auxNode->next)
 		{
-			SteeringBehavior auxSteeringBehavior = SteeringBehavior::safeCast(VirtualNode::getData(auxNode));
+			SteeringBehavior auxSteeringBehavior = SteeringBehavior::safeCast(auxNode->data);
 			
 			// check the priority and swap them to make the higher priority to come first in the array
 			if(SteeringBehavior::getPriority(steeringBehavior) < SteeringBehavior::getPriority(auxSteeringBehavior))
 			{
 				VirtualNode::swapData(node, auxNode);
 				steeringBehavior = auxSteeringBehavior;
-				auxNode = VirtualNode::getNext(node);
+				auxNode = node->next;
 			}				
 		}
 	}

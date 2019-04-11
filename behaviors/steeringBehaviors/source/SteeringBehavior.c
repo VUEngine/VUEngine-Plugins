@@ -30,6 +30,13 @@
 #include <Utilities.h>
 
 
+//---------------------------------------------------------------------------------------------------------
+//												CLASS'S DECLARATIONS
+//---------------------------------------------------------------------------------------------------------
+
+friend class VirtualNode;
+friend class VirtualList;
+
 
 //---------------------------------------------------------------------------------------------------------
 //												CLASS'S METHODS
@@ -118,11 +125,11 @@ static Vector3D SteeringBehavior::calculatePrioritized(Vehicle vehicle)
 	if(!isDeleted(steeringBehaviors))
 	{
 		fix10_6 maximumForce = 0;
-		VirtualNode node = VirtualList::begin(steeringBehaviors);
+		VirtualNode node = steeringBehaviors->head;
 
-		for(; node; node = VirtualNode::getNext(node))
+		for(; node; node = node->next)
 		{
-			SteeringBehavior steeringBehavior = SteeringBehavior::safeCast(VirtualNode::getData(node));
+			SteeringBehavior steeringBehavior = SteeringBehavior::safeCast(node->data);
 
 			if(SteeringBehavior::isEnabled(steeringBehavior))
 			{
@@ -130,11 +137,11 @@ static Vector3D SteeringBehavior::calculatePrioritized(Vehicle vehicle)
 			}
 		}
 
-		node = VirtualList::begin(steeringBehaviors);
+		node = steeringBehaviors->head;
 
-		for(; node; node = VirtualNode::getNext(node))
+		for(; node; node = node->next)
 		{
-			SteeringBehavior steeringBehavior = SteeringBehavior::safeCast(VirtualNode::getData(node));
+			SteeringBehavior steeringBehavior = SteeringBehavior::safeCast(node->data);
 
 			if(SteeringBehavior::isEnabled(steeringBehavior))
 			{
@@ -166,11 +173,11 @@ static Vector3D SteeringBehavior::calculateWeightedSum(Vehicle vehicle)
 
 	if(!isDeleted(steeringBehaviors))
 	{
-		VirtualNode node = VirtualList::begin(steeringBehaviors);
+		VirtualNode node = steeringBehaviors->head;
 
-		for(; node; node = VirtualNode::getNext(node))
+		for(; node; node = node->next)
 		{
-			SteeringBehavior steeringBehavior = SteeringBehavior::safeCast(VirtualNode::getData(node));
+			SteeringBehavior steeringBehavior = SteeringBehavior::safeCast(node->data);
 
 			if(SteeringBehavior::isEnabled(steeringBehavior))
 			{

@@ -33,6 +33,9 @@
 //												CLASS'S DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
+friend class VirtualNode;
+friend class VirtualList;
+
 
 //---------------------------------------------------------------------------------------------------------
 //												CLASS'S METHODS
@@ -64,11 +67,11 @@ void AvoidSteeringBehavior::destructor()
 
 void AvoidSteeringBehavior::removeAllObstacles()
 {
-	VirtualNode node = VirtualList::begin(this->obstacles);
+	VirtualNode node = this->obstacles->head;
 
-	for(; node; node = VirtualNode::getNext(node))
+	for(; node; node = node->next)
 	{
-		delete VirtualNode::getData(node);
+		delete node->data;
 	}
 
 	VirtualList::clear(this->obstacles);
@@ -118,11 +121,11 @@ Vector3D AvoidSteeringBehavior::awayFromObstacles(Vehicle vehicle)
 	Direction3D direction = Body::getDirection3D(body);
 	fix10_6 projectedDistance = __FIX10_6_MULT(Vector3D::length(velocity), __F_TO_FIX10_6(0.4f));
 
-	VirtualNode node = VirtualList::begin(this->obstacles);
+	VirtualNode node = this->obstacles->head;
 
-	for(; node; node = VirtualNode::getNext(node))
+	for(; node; node = node->next)
 	{
-		Obstacle* obstacle = (Obstacle*)VirtualNode::getData(node);
+		Obstacle* obstacle = (Obstacle*)node->data;
 
 		Vector3D vectorVehicleObstacle = Vector3D::get(position, *obstacle->position);
 		fix10_6 distance = Vector3D::length(vectorVehicleObstacle);// - radius - obstacle->radius;
