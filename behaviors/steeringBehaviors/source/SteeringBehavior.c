@@ -117,7 +117,20 @@ static Vector3D SteeringBehavior::calculatePrioritized(Vehicle vehicle)
 
 	if(!isDeleted(steeringBehaviors))
 	{
+		fix10_6 maximumForce = 0;
 		VirtualNode node = VirtualList::begin(steeringBehaviors);
+
+		for(; node; node = VirtualNode::getNext(node))
+		{
+			SteeringBehavior steeringBehavior = SteeringBehavior::safeCast(VirtualNode::getData(node));
+
+			if(SteeringBehavior::isEnabled(steeringBehavior))
+			{
+				maximumForce += steeringBehavior->maximumForce;
+			}
+		}
+
+		node = VirtualList::begin(steeringBehaviors);
 
 		for(; node; node = VirtualNode::getNext(node))
 		{
@@ -134,7 +147,7 @@ static Vector3D SteeringBehavior::calculatePrioritized(Vehicle vehicle)
 
 				force = SteeringBehavior::clampForce(force, steeringBehavior->maximumForce);
 				
-				if(!SteeringBehavior::accumulateForce(steeringBehavior->maximumForce, &steeringForce, force))
+				if(!SteeringBehavior::accumulateForce(maximumForce, &steeringForce, force))
 				{					
 					return steeringForce;
 				}
