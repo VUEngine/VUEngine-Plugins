@@ -79,6 +79,7 @@ class AvoidSteeringBehavior : SteeringBehavior
 	void addObstacle(SpatialObject spatialObject);
 	void removeAllObstacles();
 	VirtualList getObstacles();
+	fix10_6 getAvoidanceDetectionDistance();
 	Vector3D getForce();
 	override Vector3D calculate(Vehicle owner);
 }
