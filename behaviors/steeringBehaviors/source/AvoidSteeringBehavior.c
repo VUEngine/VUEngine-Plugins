@@ -27,6 +27,7 @@
 #include <AvoidSteeringBehavior.h>
 #include <Vehicle.h>
 #include <VirtualList.h>
+#include <Game.h>
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -35,6 +36,10 @@
 
 friend class VirtualNode;
 friend class VirtualList;
+
+
+#undef DRAW_FORCE
+
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -50,6 +55,7 @@ void AvoidSteeringBehavior::constructor(const AvoidSteeringBehaviorSpec* avoidSt
 
 	this->obstacles = new VirtualList();
 	this->avoidSteeringBehaviorSpec = avoidSteeringBehaviorSpec;
+	this->force = Vector3D::zero();
 }
 
 /**
@@ -77,6 +83,11 @@ void AvoidSteeringBehavior::removeAllObstacles()
 	VirtualList::clear(this->obstacles);
 }
 
+fix10_6 AvoidSteeringBehavior::getAvoidanceDetectionDistance()
+{
+	return this->avoidSteeringBehaviorSpec->avoidanceDetectionDistance;
+}
+
 VirtualList AvoidSteeringBehavior::getObstacles()
 {
 	return this->obstacles;
@@ -101,38 +112,41 @@ void AvoidSteeringBehavior::addObstacle(SpatialObject spatialObject)
 
 Vector3D AvoidSteeringBehavior::calculate(Vehicle owner)
 {
-
 	if(isDeleted(owner))
 	{
 		this->enabled = false;
 		return Vector3D::zero();
 	}
 
-	return  VirtualList::getSize(this->obstacles) ? AvoidSteeringBehavior::awayFromObstacles(this, owner) : Vector3D::zero();
+	return  AvoidSteeringBehavior::awayFromObstacles(this, owner);
 }
 
 Vector3D AvoidSteeringBehavior::awayFromObstacles(Vehicle vehicle)
 {
+	VirtualNode node = this->obstacles->head;
+
+	if(!node)
+	{
+		return Vector3D::zero();
+	}
+
 	Vector3D desiredVelocity = Vector3D::zero();
 
 	Vector3D position = *Vehicle::getPosition(vehicle);
-	Body body = Vehicle::getBody(vehicle);
-	Velocity velocity = Body::getVelocity(body);
-	Direction3D direction = Body::getDirection3D(body);
-	fix10_6 projectedDistance = __FIX10_6_MULT(Vector3D::length(velocity), __F_TO_FIX10_6(0.4f));
+	Direction3D direction = Vehicle::getDirection3D(vehicle);
 
-	VirtualNode node = this->obstacles->head;
+	fix10_6 squareAvoidanceDetectionDistance = __FIX10_6_MULT(this->avoidSteeringBehaviorSpec->avoidanceDetectionDistance, this->avoidSteeringBehaviorSpec->avoidanceDetectionDistance);
+	fix10_6 squareMaximumForce = __FIX10_6_MULT(this->maximumForce, this->maximumForce);
 
 	for(; node; node = node->next)
 	{
 		Obstacle* obstacle = (Obstacle*)node->data;
 
 		Vector3D vectorVehicleObstacle = Vector3D::get(position, *obstacle->position);
-		fix10_6 distance = Vector3D::length(vectorVehicleObstacle);// - radius - obstacle->radius;
-
-		fix10_6 dotProduct = Vector3D::dotProduct(Vector3D::normalize(vectorVehicleObstacle), direction);
+		fix10_6 squareDistance = __FIX10_6_EXT_TO_FIX10_6(Vector3D::squareLength(vectorVehicleObstacle));
 		
-		if(__FIX7_9_TO_FIX10_6(-__ABS(__COS(this->avoidSteeringBehaviorSpec->maximumAngle))) < dotProduct && distance < projectedDistance)
+//		if(__FIX7_9_TO_FIX10_6(-__ABS(__COS(this->avoidSteeringBehaviorSpec->maximumAngle))) < dotProduct && distance < this->avoidSteeringBehaviorSpec->avoidanceDetectionDistance)
+		if(squareDistance < squareAvoidanceDetectionDistance)
 		{
 			Vector3D desiredDirection1 = 
 			{	
@@ -154,10 +168,28 @@ Vector3D AvoidSteeringBehavior::awayFromObstacles(Vehicle vehicle)
 			fix10_6 squareDistance1 = Vector3D::squareLength(Vector3D::get(position, obstacleEdge1));
 			fix10_6 squareDistance2 = Vector3D::squareLength(Vector3D::get(position, obstacleEdge2));
 
-			Vector3D desiredDirection = squareDistance2 < squareDistance1 ? desiredDirection2 : desiredDirection1;				
-			desiredVelocity = Vector3D::sum(desiredVelocity, Vector3D::scalarProduct(desiredDirection, (projectedDistance - distance)));
+			Vector3D desiredDirection = squareDistance2 < squareDistance1 ? desiredDirection2 : desiredDirection1;
+
+			if(0 == squareDistance)
+			{
+				desiredVelocity = Vector3D::sum(desiredVelocity, Vector3D::scalarProduct(desiredDirection, squareMaximumForce));
+			}
+			else
+			{
+				desiredVelocity = Vector3D::sum(desiredVelocity, Vector3D::scalarProduct(desiredDirection, __FIX10_6_DIV(squareMaximumForce, squareDistance)));
+			}
+//			fix10_6 dotProduct = Vector3D::dotProduct(Vector3D::normalize(vectorVehicleObstacle), direction);
+//			desiredVelocity = Vector3D::sum(desiredVelocity, Vector3D::scalarProduct(desiredDirection, __FIX10_6_MULT(dotProduct, __FIX10_6_DIV(squareMaximumForce, squareDistance))));
+
 		}
 	}
 
+	this->force = desiredVelocity;
+
 	return desiredVelocity;
+}
+
+Vector3D AvoidSteeringBehavior::getForce()
+{
+	return this->enabled ? this->force : Vector3D::zero();
 }

@@ -53,6 +53,7 @@ class Vehicle : Actor
 {
 	Vector3D steeringForce;
 	VehicleSpec* vehicleSpec;
+	fix10_6 radius;
 	s8 evenCycle;
 
 	VirtualList steeringBehaviors;
@@ -63,11 +64,14 @@ class Vehicle : Actor
 	int getSummingMethod();
 	void updateForce();
 	VirtualList getSteeringBehaviors();
+	Velocity getVelocity();
+	Direction3D getDirection3D();
 
 	virtual const Vector3D* getReferencePosition();
 
 	override void ready(bool recursive);
 	override void update(u32 elapsedTime);
+	override fix10_6 getRadius();
 }
 
 

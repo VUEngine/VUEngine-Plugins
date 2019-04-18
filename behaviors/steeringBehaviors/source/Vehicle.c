@@ -52,6 +52,7 @@ void Vehicle::constructor(VehicleSpec* vehicleSpec, s16 id, s16 internalId, cons
 	this->steeringBehaviors = NULL;
 	this->evenCycle = vehicleSpec->runSteeringBehaviorsAtHalfSpeed ? 0 : -1;
 	this->steeringForce = Vector3D::zero();
+	this->radius = 0;
 }
 
 // class's destructor
@@ -71,6 +72,9 @@ void Vehicle::destructor()
 void Vehicle::ready(bool recursive)
 {
 	Base::ready(this, recursive);
+
+	this->radius = Vehicle::getRadius(this);
+
 
 	if(!this->steeringBehaviors)
 	{
@@ -120,6 +124,16 @@ VirtualList Vehicle::getSteeringBehaviors()
 	return this->steeringBehaviors;
 }
 
+Velocity Vehicle::getVelocity()
+{
+	return Body::getVelocity(this->body);
+}
+
+Direction3D Vehicle::getDirection3D()
+{
+	return Body::getDirection3D(this->body);
+}
+
 const Vector3D* Vehicle::getReferencePosition()
 {
 	return Vehicle::getPosition(this);
@@ -152,4 +166,14 @@ void Vehicle::update(u32 elapsedTime __attribute__((unused)))
 	Base::update(this, elapsedTime);
 	
 	Vehicle::updateForce(this);
+}
+
+fix10_6 Vehicle::getRadius()
+{
+	if(0 == this->radius)
+	{
+		this->radius = Base::getRadius(this);
+	}
+
+	return this->radius;
 }
