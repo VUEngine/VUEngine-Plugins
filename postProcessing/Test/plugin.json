@@ -1,0 +1,6 @@
+{
+	"title": "Test",
+	"author": "VUEngine",
+	"category": "postProcessing",
+	"description": "Simple test effect that lights up a rectangular area around any SpatialObject"
+}
