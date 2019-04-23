@@ -1,6 +1,6 @@
 {
 	"title": "Platformer Camera",
 	"author": "VUEngine",
-	"category": "cameras",
+	"category": "Cameras",
 	"description": "A common platformer camera that follows an entity"
 }

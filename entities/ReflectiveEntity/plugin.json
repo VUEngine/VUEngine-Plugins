@@ -1,6 +1,6 @@
 {
 	"title": "Reflective Entity",
 	"author": "VUEngine",
-	"category": "entities",
+	"category": "Entities",
 	"description": "An Entity that can mirror other parts of the virtual screen"
 }

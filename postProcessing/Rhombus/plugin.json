@@ -1,6 +1,6 @@
 {
 	"title": "Rhombus",
 	"author": "VUEngine",
-	"category": "postProcessing",
+	"category": "Post-processing",
 	"description": "Draws a rhombus emitted from any SpatialObject"
 }

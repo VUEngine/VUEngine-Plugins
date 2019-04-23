@@ -1,6 +1,6 @@
 {
 	"title": "Save Data Manager",
 	"author": "VUEngine",
-	"category": "other",
+	"category": "Other",
 	"description": "Manages persistence of user data in SRAM"
 }

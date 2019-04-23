@@ -9,10 +9,6 @@ Large font based on the "Virtual Boy" writing from the official IPD/Focus adjust
 USAGE
 -----
 
-Add the following to the PLUGINS variable in your project's `config.make` file to include this plugin:
-
-	vuengine/plugins/fonts/VirtualBoyFont
-
 Included are two versions of the font:
 
 - `VIRTUAL_BOY_FONT` ("VirtualBoy") contains the most important 96 characters (punctuation character, numbers and letters)

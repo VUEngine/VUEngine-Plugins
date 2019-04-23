@@ -1,6 +1,6 @@
 {
 	"title": "GuiBgmapAnimatedSprite",
 	"author": "VUEngine",
-	"category": "graphics",
+	"category": "Graphics",
 	"description": "An animated BGMap sprite that is not affected by the camera frustum. Optimal for GUIs."
 }

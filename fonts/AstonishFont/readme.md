@@ -9,10 +9,6 @@ A beautiful 8x16 pixel font for medium size text.
 USAGE
 -----
 
-Add the following to the PLUGINS variable in your project's `config.make` file to include this plugin:
-
-	vuengine/plugins/fonts/AstonishFont
-
 Included are two versions of the font:
 
 - `ASTONISH_FONT` ("Astonish") contains the most important 96 characters (punctuation character, numbers and letters) plus control characters

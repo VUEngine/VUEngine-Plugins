@@ -1,6 +1,6 @@
 {
 	"title": "Low Power Indicator",
 	"author": "VUEngine",
-	"category": "other",
+	"category": "Other",
 	"description": "Printing layer based indicator that flashes when the system power is low"
 }

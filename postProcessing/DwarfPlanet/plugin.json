@@ -1,6 +1,6 @@
 {
 	"title": "Dwarf Planet",
 	"author": "VUEngine",
-	"category": "postProcessing",
+	"category": "Post-processing",
 	"description": "\"Bends down\" the left and right edges of the screen to make the world look like a very small planet"
 }
