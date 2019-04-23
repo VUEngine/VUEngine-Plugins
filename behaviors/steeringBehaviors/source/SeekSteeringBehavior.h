@@ -73,6 +73,7 @@ class SeekSteeringBehavior : SteeringBehavior
 	bool getSlowDownWhenReachingTarget();
 	void setSlowDownWhenReachingTarget(bool value);
 	fix10_6 getReachedDistanceThreshold();
+	void setReachedDistanceThreshold(fix10_6 value);
 	override Vector3D calculate(Vehicle owner);
 }
 
