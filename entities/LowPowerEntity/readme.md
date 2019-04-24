@@ -1,5 +1,5 @@
 VUEngine Plugin: LowPowerEntity
-==========================================
+===============================
 
 Shows a flashing low power indicator on screen when the system power is low.
 
