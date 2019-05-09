@@ -1,6 +1,6 @@
 # VUEngine based plugins that the project uses
-PLUGINS = 	vuengine/plugins/entities/LowPowerEntity												\
-				vuengine/plugins/other/AutomaticPause													\
-				vuengine/plugins/other/LowPowerIndicator												\
-				vuengine/plugins/other/SaveDataManager
+PLUGINS = 	vuengine/entities/LowPowerEntity												\
+			vuengine/other/AutomaticPause													\
+			vuengine/other/LowPowerIndicator												\
+			vuengine/other/SaveDataManager
 				
