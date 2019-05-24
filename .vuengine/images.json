@@ -1,0 +1,34 @@
+{
+	"folders": {
+		"entities/LowPowerEntity/assets/images": {
+			"template": "animatedEntity"
+		},
+		"fonts/AstonishFont/assets/images": {
+			"template": "font"
+		},
+		"fonts/IndustrialFont/assets/images": {
+			"template": "font"
+		},
+		"fonts/VirtualBoyFont/assets/images": {
+			"template": "font"
+		},
+		"other/AutomaticPause/assets/images": {
+			"template": "entity"
+		},
+		"states/SplashScreens/assets/images/AdjustmentScreen/Nintendo": {
+			"template": "entity"
+		},
+		"states/SplashScreens/assets/images/AdjustmentScreen/Prototype": {
+			"template": "entity"
+		},
+		"states/SplashScreens/assets/images/AdjustmentScreen/PVB": {
+			"template": "entity"
+		},
+		"states/SplashScreens/assets/images/AdjustmentScreen/VUEngine": {
+			"template": "entity"
+		},
+		"states/SplashScreens/assets/images/Flags": {
+			"template": "entity"
+		}
+	}
+}
