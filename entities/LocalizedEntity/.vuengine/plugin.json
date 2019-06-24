@@ -1,0 +1,6 @@
+{
+	"title": "Localized Entity",
+	"author": "VUEngine",
+	"category": "Entities",
+	"description": "Uses an AninmatedEntity to implement localized Sprites"
+}
