@@ -31,6 +31,7 @@
 #include <MessageDispatcher.h>
 #include <PhysicalWorld.h>
 #include <Languages.h>
+#include <I18n.h>
 #include <AutoPauseScreenState.h>
 
 

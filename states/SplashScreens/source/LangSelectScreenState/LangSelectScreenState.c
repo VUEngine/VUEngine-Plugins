@@ -33,6 +33,7 @@
 #include <KeypadManager.h>
 #include <SoundManager.h>
 #include <SaveDataManager.h>
+#include <I18n.h>
 
 
 //---------------------------------------------------------------------------------------------------------
