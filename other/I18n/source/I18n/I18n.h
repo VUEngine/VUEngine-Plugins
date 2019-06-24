@@ -19,94 +19,88 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
+#ifndef I18N_H_
+#define I18N_H_
+
 
 //---------------------------------------------------------------------------------------------------------
 //												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
-#include <Game.h>
-#include <Camera.h>
-#include <Printing.h>
-#include <MessageDispatcher.h>
-#include <KeypadManager.h>
-#include <SoundManager.h>
-#include <PrecautionScreenState.h>
-#include <AdjustmentScreenState.h>
-#include <Languages.h>
+#include <Object.h>
+#include <Entity.h>
 
 
 //---------------------------------------------------------------------------------------------------------
-//												DECLARATIONS
+//												MACROS
 //---------------------------------------------------------------------------------------------------------
 
-extern StageROMSpec PRECAUTION_SCREEN_STAGE_ST;
-extern const u16 SPLASH_SCREENS_INTRO_SND[];
+// handy macros
+#define __TRANSLATE(id)				I18n_getText(I18n_getInstance(), id)
+
+// max length of a font's name
+#define __MAX_LANGUAGE_NAME_LENGTH	32
 
 
 //---------------------------------------------------------------------------------------------------------
-//											CLASS'S DEFINITION
+//												ENUMS
 //---------------------------------------------------------------------------------------------------------
 
-// class's constructor
-void PrecautionScreenState::constructor()
+enum I18nEvents
 {
-	Base::constructor();
+	kEventLanguageChanged = kLastEngineEvent + 1
+};
 
-	this->stageSpec = (StageSpec*)&PRECAUTION_SCREEN_STAGE_ST;
+
+//---------------------------------------------------------------------------------------------------------
+//											TYPE DEFINITIONS
+//---------------------------------------------------------------------------------------------------------
+
+/**
+ * A language spec
+ * @memberof I18n
+ */
+typedef struct LangSpec
+{
+	/// language name
+	char name[__MAX_LANGUAGE_NAME_LENGTH];
+
+	/// pointer to a representative entity (i.e. flag)
+	EntitySpec* entitySpec;
+
+	/// language strings
+	const char** language;
+
+} LangSpec;
+
+/**
+ * A LangSpec that is stored in ROM
+ * @memberof I18n
+ */
+typedef const LangSpec LangROMSpec;
+
+
+//---------------------------------------------------------------------------------------------------------
+//											CLASS'S DECLARATION
+//---------------------------------------------------------------------------------------------------------
+
+/**
+ * Handles internationalization of text output and thus allows for multiple selectable languages.
+ * @ingroup base
+ */
+singleton class I18n : Object
+{
+	// Currently active language
+	u8 activeLanguage;
+
+	/// @publicsection
+	static I18n getInstance();
+	u8 getActiveLanguage();
+	char* getActiveLanguageName();
+	LangSpec * getLanguages();
+	const char* getText(int string);
+	void setActiveLanguage(u8 languageId);
 }
 
-// class's destructor
-void PrecautionScreenState::destructor()
-{
-	// destroy base
-	Base::destructor();
-}
 
-void PrecautionScreenState::enter(void* owner)
-{
-	// call base
-	Base::enter(this, owner);
-
-	// play start-up sound
-	Vector3D position = {192, 112, 0};
-	SoundManager::playFxSound(SoundManager::getInstance(), SPLASH_SCREENS_INTRO_SND, position);
-
-	// show this screen for at least 2 seconds
-	// as defined by Nintendo in the official development manual (Appendix 1)
-	MessageDispatcher::dispatchMessage(2000, Object::safeCast(this), Object::safeCast(Game::getInstance()), kScreenAllowUserInput, NULL);
-}
-
-// state's handle message
-bool PrecautionScreenState::processMessage(void* owner __attribute__ ((unused)), Telegram telegram)
-{
-	switch(Telegram::getMessage(telegram))
-	{
-		case kScreenAllowUserInput:
-			Game::enableKeypad(Game::getInstance());
-			break;
-	}
-
-	return false;
-}
-
-void PrecautionScreenState::initNextState()
-{
-	this->nextState = GameState::safeCast(AdjustmentScreenState::getInstance());
-}
-
-void PrecautionScreenState::print()
-{
-	FontSize textSize = Printing::getTextSize(
-		Printing::getInstance(),
-		__PRECAUTION_SCREEN_TEXT,
-		__PRECAUTION_SCREEN_TEXT_FONT
-	);
-
-	Printing::text(
-		Printing::getInstance(),
-		__PRECAUTION_SCREEN_TEXT,
-		(__HALF_SCREEN_WIDTH_IN_CHARS) - (textSize.x >> 1),
-		(__HALF_SCREEN_HEIGHT_IN_CHARS) - (textSize.y >> 1),
-		__PRECAUTION_SCREEN_TEXT_FONT
-	);
-}
+#endif

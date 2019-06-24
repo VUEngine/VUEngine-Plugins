@@ -30,7 +30,6 @@
 #include <Printing.h>
 #include <MessageDispatcher.h>
 #include <PhysicalWorld.h>
-#include <I18n.h>
 #include <Languages.h>
 #include <AutoPauseScreenState.h>
 

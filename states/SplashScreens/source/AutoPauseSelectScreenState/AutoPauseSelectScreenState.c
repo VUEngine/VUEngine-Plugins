@@ -30,7 +30,6 @@
 #include <Camera.h>
 #include <Printing.h>
 #include <MessageDispatcher.h>
-#include <I18n.h>
 #include <AutoPauseSelectScreenState.h>
 #include <LangSelectScreenState.h>
 #include <Languages.h>

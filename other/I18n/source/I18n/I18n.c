@@ -24,89 +24,100 @@
 //												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
+#include <string.h>
+#include <I18n.h>
 #include <Game.h>
-#include <Camera.h>
-#include <Printing.h>
-#include <MessageDispatcher.h>
-#include <KeypadManager.h>
-#include <SoundManager.h>
-#include <PrecautionScreenState.h>
-#include <AdjustmentScreenState.h>
-#include <Languages.h>
 
 
 //---------------------------------------------------------------------------------------------------------
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern StageROMSpec PRECAUTION_SCREEN_STAGE_ST;
-extern const u16 SPLASH_SCREENS_INTRO_SND[];
+extern LangROMSpec* __LANGUAGES[];
 
 
 //---------------------------------------------------------------------------------------------------------
-//											CLASS'S DEFINITION
+//												CLASS'S METHODS
 //---------------------------------------------------------------------------------------------------------
 
-// class's constructor
-void PrecautionScreenState::constructor()
+/// Get instance
+/// @fn			I18n::getInstance()
+/// @memberof	I18n
+/// @public
+/// @return		I18n instance
+
+
+/**
+ * Class constructor
+ * 
+ * @private
+ */
+void I18n::constructor()
 {
 	Base::constructor();
 
-	this->stageSpec = (StageSpec*)&PRECAUTION_SCREEN_STAGE_ST;
+	this->activeLanguage = 0;
 }
 
-// class's destructor
-void PrecautionScreenState::destructor()
+/**
+ * Class destructor
+ */
+void I18n::destructor()
 {
-	// destroy base
+	// allow a new construct
 	Base::destructor();
 }
 
-void PrecautionScreenState::enter(void* owner)
+/**
+ * Get localized string
+ * 
+ * @param string	The identifier of the string to localize
+ * @return 			localized string or NULL if no translation could be found
+ */
+const char* I18n::getText(int string)
 {
-	// call base
-	Base::enter(this, owner);
-
-	// play start-up sound
-	Vector3D position = {192, 112, 0};
-	SoundManager::playFxSound(SoundManager::getInstance(), SPLASH_SCREENS_INTRO_SND, position);
-
-	// show this screen for at least 2 seconds
-	// as defined by Nintendo in the official development manual (Appendix 1)
-	MessageDispatcher::dispatchMessage(2000, Object::safeCast(this), Object::safeCast(Game::getInstance()), kScreenAllowUserInput, NULL);
+	// TODO: check if __LANGUAGES is empty
+	return 0 <= string ? __LANGUAGES[this->activeLanguage]->language[string] : NULL;
 }
 
-// state's handle message
-bool PrecautionScreenState::processMessage(void* owner __attribute__ ((unused)), Telegram telegram)
+/**
+ * Set the active language
+ * @param languageId	ID of the language to make active
+ */
+void I18n::setActiveLanguage(u8 languageId)
 {
-	switch(Telegram::getMessage(telegram))
-	{
-		case kScreenAllowUserInput:
-			Game::enableKeypad(Game::getInstance());
-			break;
-	}
+	this->activeLanguage = languageId;
 
-	return false;
+	Object::fireEvent(Game::getCurrentState(Game::getInstance()), kEventLanguageChanged);
 }
 
-void PrecautionScreenState::initNextState()
+/**
+ * Get all registered languages
+ * 
+ * @return		Array of LangSpec pointers
+ */
+LangSpec * I18n::getLanguages()
 {
-	this->nextState = GameState::safeCast(AdjustmentScreenState::getInstance());
+	return (LangSpec *)__LANGUAGES;
 }
 
-void PrecautionScreenState::print()
+/**
+ * Retrieves ID of the currently active language
+ * 
+ * @return		ID of currently active language
+ */
+u8 I18n::getActiveLanguage()
 {
-	FontSize textSize = Printing::getTextSize(
-		Printing::getInstance(),
-		__PRECAUTION_SCREEN_TEXT,
-		__PRECAUTION_SCREEN_TEXT_FONT
-	);
+	return this->activeLanguage;
+}
 
-	Printing::text(
-		Printing::getInstance(),
-		__PRECAUTION_SCREEN_TEXT,
-		(__HALF_SCREEN_WIDTH_IN_CHARS) - (textSize.x >> 1),
-		(__HALF_SCREEN_HEIGHT_IN_CHARS) - (textSize.y >> 1),
-		__PRECAUTION_SCREEN_TEXT_FONT
-	);
+/**
+ * Retrieves name of the currently active language
+ * 
+ * @return	Name of currently active language
+ */
+char* I18n::getActiveLanguageName()
+{
+	// TODO: check if __LANGUAGES is empty, return "none" if so
+	return (char*)__LANGUAGES[this->activeLanguage]->name;
 }
