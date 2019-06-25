@@ -255,7 +255,7 @@ StageROMSpec AUTO_PAUSE_SELECTION_SCREEN_STAGE_ST =
 		// ui
 		{
 			AUTO_PAUSE_SELECTION_SCREEN_STAGE_ST_UI_ENTITIES,
-			__TYPE(UiContainer),
+			__TYPE(UIContainer),
 		},
 
 		// children

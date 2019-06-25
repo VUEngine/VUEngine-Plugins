@@ -311,7 +311,7 @@ StageROMSpec ADJUSTMENT_SCREEN_STAGE_ST =
 		// ui
 		{
 			ADJUSTMENT_SCREEN_STAGE_ST_UI_ENTITIES,
-			__TYPE(UiContainer),
+			__TYPE(UIContainer),
 		},
 
 		// children
