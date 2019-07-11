@@ -19,70 +19,81 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-#ifndef AVOID_STEERING_BEHAVIOR_H_
-#define AVOID_STEERING_BEHAVIOR_H_
+
+//---------------------------------------------------------------------------------------------------------
+//												DECLARATIONS
+//---------------------------------------------------------------------------------------------------------
+
+extern BYTE BulkyFontTiles[];
+extern BYTE BulkyFontShadowTiles[];
 
 
 //---------------------------------------------------------------------------------------------------------
-//												INCLUDES
+//												DEFINITIONS
 //---------------------------------------------------------------------------------------------------------
 
-#include <SteeringBehavior.h>
-#include <SpatialObject.h>
 
+/* Regular */
 
-//---------------------------------------------------------------------------------------------------------
-//											 DEFINITIONS
-//---------------------------------------------------------------------------------------------------------
-
-// defines an entity in ROM memory
-typedef struct AvoidSteeringBehaviorSpec
+CharSetROMSpec BULKY_FONT_CH =
 {
-	SteeringBehaviorSpec steeringBehaviorSpec;
+	// number of chars
+	256,
 
-	/// Maximum angle betwen vehicle and obstacle to account for
-	fix10_6 maximumAngle;
+	// allocation type
+	__NOT_ANIMATED,
 
-	/// Avoidance check distance modification percentage
-	fix10_6 avoidanceDetectionDistance;
+	// char spec
+	BulkyFontTiles,
+};
 
-} AvoidSteeringBehaviorSpec;
-
-typedef const AvoidSteeringBehaviorSpec AvoidSteeringBehaviorROMSpec;
-
-
-typedef struct Obstacle
+FontROMSpec BULKY_FONT =
 {
-	SpatialObject spatialObject;
-	const Vector3D* position;
-	fix10_6 radius;
-	
-}Obstacle;
+	// font charset spec pointer
+	(CharSetSpec*)&BULKY_FONT_CH,
+
+	// character number at which the font starts, allows you to skip the control characters for example
+	32,
+
+	// number of characters in this font
+	64,
+
+	// size of a single character (in chars) ({width, height})
+	{2, 2},
+
+	// font's name
+	"Bulky",
+};
 
 
-//---------------------------------------------------------------------------------------------------------
-//											CLASS'S DECLARATION
-//---------------------------------------------------------------------------------------------------------
+/* With Dropshadow */
 
-//  Given a target, this behavior returns a steering force which will
-//  direct the agent towards the target
-
-/// @ingroup base
-class AvoidSteeringBehavior : SteeringBehavior
+CharSetROMSpec BULKY_FONT_SHADOW_CH =
 {
-	Force force;
-	VirtualList obstacles;
-	const AvoidSteeringBehaviorSpec* avoidSteeringBehaviorSpec;
+	// number of chars
+	256,
 
-	void constructor(const AvoidSteeringBehaviorSpec* seekSteeringBehaviorSpec);
+	// allocation type
+	__NOT_ANIMATED,
 
-	void addObstacle(SpatialObject spatialObject);
-	void removeAllObstacles();
-	VirtualList getObstacles();
-	fix10_6 getAvoidanceDetectionDistance();
-	Vector3D getForce();
-	override Vector3D calculate(Vehicle owner);
-}
+	// char spec
+	BulkyFontShadowTiles,
+};
 
+FontROMSpec BULKY_FONT_SHADOW =
+{
+	// font charset spec pointer
+	(CharSetSpec*)&BULKY_FONT_SHADOW_CH,
 
-#endif
+	// character number at which the font starts, allows you to skip the control characters for example
+	32,
+
+	// number of characters in this font
+	64,
+
+	// size of a single character (in chars) ({width, height})
+	{2, 2},
+
+	// font's name
+	"BulkyS",
+};
