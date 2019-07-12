@@ -12,6 +12,6 @@ USAGE
 Included are two versions of the font:
 
 - `VIRTUAL_BOY_FONT` ("VirtualBoy") contains the most important 96 characters (punctuation character, numbers and letters)
-- `VIRTUAL_BOY_EXTENDED_FONT` ("VirtualBoyExt") additionally contains the full set of European special characters
+- `VIRTUAL_BOY_EXTENDED_FONT` ("VirtualBoyExt") additionally contains European characters and Katakana
 
-Include the desired font versions in your `__FONTS` array. Be warned that the extended font uses up a large portion of character memory (1440 chars!).
+Include the desired font versions in your `__FONTS` array. Be warned that the extended font uses up a large portion of character memory (1344 chars).

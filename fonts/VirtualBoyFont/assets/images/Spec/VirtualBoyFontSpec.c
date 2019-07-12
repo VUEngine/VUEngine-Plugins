@@ -40,7 +40,7 @@ extern BYTE VirtualBoyFontTiles[];
 CharSetROMSpec VIRTUAL_BOY_FONT_CH =
 {
 	// number of chars
-	576,
+	1344,
 
 	// allocation type
 	__NOT_ANIMATED,
