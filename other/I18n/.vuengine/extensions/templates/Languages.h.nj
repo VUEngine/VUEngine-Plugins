@@ -1,0 +1,30 @@
+{% include('./base/header.c.nj') %}
+
+#ifndef LANGUAGES_H_
+#define LANGUAGES_H_
+
+{% if (languages | length) or (strings | length) %}
+//---------------------------------------------------------------------------------------------------------
+//												DEFINITIONS
+//---------------------------------------------------------------------------------------------------------
+
+{% if languages | length -%}
+enum LanguageIdentifiers
+{
+	{% for key, value in languages -%}
+	LNG_{{ key }},
+	{% endfor %}
+};
+
+{% endif -%}
+{% if strings | length -%}
+enum LanguageStrings
+{
+	{% for key, value in strings -%}
+	{{ key }},
+	{% endfor %}
+};
+
+{% endif -%}
+{% endif %}
+#endif

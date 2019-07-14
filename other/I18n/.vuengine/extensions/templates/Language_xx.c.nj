@@ -1,0 +1,49 @@
+{% include('./base/header.c.nj') %}
+
+
+//---------------------------------------------------------------------------------------------------------
+//												INCLUDES
+//---------------------------------------------------------------------------------------------------------
+
+#include <I18n.h>
+{% if languages[languageKey].flag %}
+
+//---------------------------------------------------------------------------------------------------------
+//												DECLARATIONS
+//---------------------------------------------------------------------------------------------------------
+
+extern EntitySpec {{ languages[languageKey].flag }};
+{% endif %}
+
+//---------------------------------------------------------------------------------------------------------
+//												DEFINITIONS
+//---------------------------------------------------------------------------------------------------------
+
+/*
+ * IMPORTANT: Ensure that this file is encoded in Windows-1252 or ISO-8859-1 ("ANSI") to make use
+ * of the full extended ASCII character set including special characters of European languages.
+ */
+
+const char* const LANGUAGE_{{ languageKey }}_STRINGS[] =
+{
+	{% for key, value in strings -%}
+	/* {{ key }}: */
+	{# TODO: the filters below are ugly -#}
+	"{{ value[languageKey] | replace('\n', '\\n') | replace('\"', '\\"') | safe }}",
+	{% endfor %}
+};
+
+const LangROMSpec LANGUAGE_{{ languageKey }} =
+{
+	// language name
+	"{{ languages[languageKey].name }}",
+
+	// flag entity
+	{% if languages[languageKey].flag -%}
+	&{{ languages[languageKey].flag }},
+	{% else -%}
+	NULL,
+	{% endif %}
+	// strings
+	(const char**)LANGUAGE_{{ languageKey }}_STRINGS
+};

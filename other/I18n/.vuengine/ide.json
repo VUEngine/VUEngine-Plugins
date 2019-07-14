@@ -1,0 +1,50 @@
+{
+	"ide": {
+		"contributes": {
+			"activityBar": {
+				"project": [
+					{
+						"id": "languages",
+						"label": {
+							"en": "Languages",
+							"de": "Sprachen"
+						},
+						"type": "configFile",
+						"icon": "language",
+						"configFile": "languages"
+					}
+				]
+			},
+			"configFiles": [
+				"languages"
+			],
+			"fileTemplates": [
+				{
+					"file": "Languages.c",
+					"configFiles": [
+						"languages"
+					],
+					"target": "assets/languages/Languages.c"
+				},
+				{
+					"file": "Languages.h",
+					"configFiles": [
+						"languages"
+					],
+					"target": "source/assets/Languages.h"
+				},
+				{
+					"file": "Language_xx.c",
+					"configFiles": [
+						"languages",
+						{
+							"languageKey": "{key}"
+						}
+					],
+					"target": "/assets/languages/Language_{key}.c",
+					"forEachKeyOf": "languages"
+				}
+			]
+		}
+	}
+}
