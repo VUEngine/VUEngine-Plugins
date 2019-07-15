@@ -1,6 +1,6 @@
 {
 	"ide": {
-		"contributes": {
+		"components": {
 			"activityBar": {
 				"project": [
 					{
@@ -11,31 +11,33 @@
 						},
 						"type": "configFile",
 						"icon": "language",
-						"configFile": "languages"
+						"value": "languages",
+						"parent": null
 					}
 				]
 			},
-			"configFiles": [
+			"config": [
 				"languages"
 			],
+			"configPresets": [],
 			"fileTemplates": [
 				{
 					"file": "Languages.c",
-					"configFiles": [
+					"config": [
 						"languages"
 					],
 					"target": "assets/languages/Languages.c"
 				},
 				{
 					"file": "Languages.h",
-					"configFiles": [
+					"config": [
 						"languages"
 					],
 					"target": "source/assets/Languages.h"
 				},
 				{
 					"file": "Language_xx.c",
-					"configFiles": [
+					"config": [
 						"languages",
 						{
 							"languageKey": "{key}"
