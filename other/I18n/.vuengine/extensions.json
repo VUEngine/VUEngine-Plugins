@@ -1,0 +1,50 @@
+{
+	"extensions": {
+		"activityBar": {
+			"project": [
+				{
+					"id": "languages",
+					"label": {
+						"en": "Languages",
+						"de": "Sprachen"
+					},
+					"type": "configFile",
+					"icon": "language",
+					"value": "languages",
+					"parent": null
+				}
+			]
+		},
+		"config": [
+			"languages"
+		],
+		"configPresets": [],
+		"fileTemplates": [
+			{
+				"file": "Languages.c",
+				"config": [
+					"languages"
+				],
+				"target": "assets/languages/Languages.c"
+			},
+			{
+				"file": "Languages.h",
+				"config": [
+					"languages"
+				],
+				"target": "source/assets/Languages.h"
+			},
+			{
+				"file": "Language_xx.c",
+				"config": [
+					"languages",
+					{
+						"languageKey": "{key}"
+					}
+				],
+				"target": "/assets/languages/Language_{key}.c",
+				"forEachKeyOf": "languages"
+			}
+		]
+	}
+}
