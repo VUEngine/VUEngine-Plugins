@@ -49,10 +49,9 @@ void SteeringBehavior::constructor(const SteeringBehaviorSpec* steeringBehaviorS
 {
 	Base::constructor(&steeringBehaviorSpec->behaviorSpec);
 
-	this->priority = steeringBehaviorSpec->priority;
-	this->weight = steeringBehaviorSpec->weight;
-	this->maximumForce = steeringBehaviorSpec->maximumForce;
-	this->deviation = steeringBehaviorSpec->deviation;
+	this->steeringBehaviorSpec = steeringBehaviorSpec;
+
+	SteeringBehavior::reset(this);
 }
 
 /**
@@ -270,4 +269,12 @@ fix10_6 SteeringBehavior::getMaximumForce()
 void SteeringBehavior::setMaximumForce(fix10_6 value)
 {
 	this->maximumForce = value;
+}
+
+void SteeringBehavior::reset()
+{
+	this->priority = steeringBehaviorSpec->priority;
+	this->weight = steeringBehaviorSpec->weight;
+	this->maximumForce = steeringBehaviorSpec->maximumForce;
+	this->deviation = steeringBehaviorSpec->deviation;
 }

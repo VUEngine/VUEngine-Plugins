@@ -77,6 +77,8 @@ typedef const SteeringBehaviorSpec SteeringBehaviorROMSpec;
 /// @ingroup base
 class SteeringBehavior : Behavior
 {
+	SteeringBehaviorSpec* steeringBehaviorSpec;
+
 	// higher value has more priority
 	int priority;
 	fix10_6 weight;
@@ -92,6 +94,8 @@ class SteeringBehavior : Behavior
 	void setWeight(fix10_6 value);
 	fix10_6 getMaximumForce();
 	void setMaximumForce(fix10_6 value);
+	void reset();
+
 	virtual Vector3D calculate(Vehicle owner) = 0;
 }
 
