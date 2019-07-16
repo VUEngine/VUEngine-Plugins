@@ -273,8 +273,8 @@ void SteeringBehavior::setMaximumForce(fix10_6 value)
 
 void SteeringBehavior::reset()
 {
-	this->priority = steeringBehaviorSpec->priority;
-	this->weight = steeringBehaviorSpec->weight;
-	this->maximumForce = steeringBehaviorSpec->maximumForce;
-	this->deviation = steeringBehaviorSpec->deviation;
+	this->priority = this->steeringBehaviorSpec->priority;
+	this->weight = this->steeringBehaviorSpec->weight;
+	this->maximumForce = this->steeringBehaviorSpec->maximumForce;
+	this->deviation = this->steeringBehaviorSpec->deviation;
 }

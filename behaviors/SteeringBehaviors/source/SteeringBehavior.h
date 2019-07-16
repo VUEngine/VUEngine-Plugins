@@ -77,7 +77,7 @@ typedef const SteeringBehaviorSpec SteeringBehaviorROMSpec;
 /// @ingroup base
 class SteeringBehavior : Behavior
 {
-	SteeringBehaviorSpec* steeringBehaviorSpec;
+	const SteeringBehaviorSpec* steeringBehaviorSpec;
 
 	// higher value has more priority
 	int priority;
