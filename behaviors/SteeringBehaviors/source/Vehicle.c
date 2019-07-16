@@ -52,7 +52,9 @@ void Vehicle::constructor(VehicleSpec* vehicleSpec, s16 id, s16 internalId, cons
 	this->steeringBehaviors = NULL;
 	this->evenCycle = vehicleSpec->runSteeringBehaviorsAtHalfSpeed ? 0 : -1;
 	this->steeringForce = Vector3D::zero();
+	this->accumulatedForce = Vector3D::zero();
 	this->radius = 0;
+	this->checkIfCanMove = false;
 }
 
 // class's destructor
@@ -114,6 +116,12 @@ void Vehicle::ready(bool recursive)
 	}
 }
 
+void Vehicle::addForce(const Force* force, bool checkIfCanMove __attribute__((unused)))
+{
+	this->checkIfCanMove |= checkIfCanMove;
+	this->accumulatedForce = Vector3D::sum(this->accumulatedForce, *force);
+}
+
 int Vehicle::getSummingMethod()
 {
 	return this->vehicleSpec->summingMethod;
@@ -157,7 +165,12 @@ void Vehicle::updateForce()
 			this->steeringForce = SteeringBehavior::calculateForce(this);
 		}
 
-		Vehicle::addForce(this, &this->steeringForce);
+		Force totalForce = Vector3D::sum(this->accumulatedForce, this->steeringForce);
+
+		Base::addForce(this, &totalForce, this->checkIfCanMove);
+
+		this->accumulatedForce = Vector3D::zero();
+		this->checkIfCanMove = false;
 	}
 }
 

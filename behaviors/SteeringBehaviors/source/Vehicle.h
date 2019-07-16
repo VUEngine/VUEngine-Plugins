@@ -52,8 +52,10 @@ typedef struct VehicleSpec
 class Vehicle : Actor
 {
 	Vector3D steeringForce;
+	Vector3D accumulatedForce;
 	VehicleSpec* vehicleSpec;
 	fix10_6 radius;
+	bool checkIfCanMove;
 	s8 evenCycle;
 
 	VirtualList steeringBehaviors;
@@ -72,6 +74,7 @@ class Vehicle : Actor
 	override void ready(bool recursive);
 	override void update(u32 elapsedTime);
 	override fix10_6 getRadius();
+	override void addForce(const Force* force, bool checkIfCanMove);
 }
 
 
