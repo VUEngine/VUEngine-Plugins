@@ -6,13 +6,13 @@
 //---------------------------------------------------------------------------------------------------------
 
 #include <I18n.h>
-{% if languages[languageKey].flag %}
+{% if languages[loopKey].flag %}
 
 //---------------------------------------------------------------------------------------------------------
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern EntitySpec {{ languages[languageKey].flag }};
+extern EntitySpec {{ languages[loopKey].flag }};
 {% endif %}
 
 //---------------------------------------------------------------------------------------------------------
@@ -24,26 +24,26 @@ extern EntitySpec {{ languages[languageKey].flag }};
  * of the full extended ASCII character set including special characters of European languages.
  */
 
-const char* const LANGUAGE_{{ languageKey }}_STRINGS[] =
+const char* const LANGUAGE_{{ loopKey }}_STRINGS[] =
 {
 	{% for key, value in strings -%}
 	/* {{ key }}: */
 	{# TODO: the filters below are ugly -#}
-	"{{ value[languageKey] | replace('\n', '\\n') | replace('\"', '\\"') | safe }}",
+	"{{ value[loopKey] | replace('\n', '\\n') | replace('\"', '\\"') | safe }}",
 	{% endfor %}
 };
 
-const LangROMSpec LANGUAGE_{{ languageKey }} =
+const LangROMSpec LANGUAGE_{{ loopKey }} =
 {
 	// language name
-	"{{ languages[languageKey].name }}",
+	"{{ languages[loopKey].name }}",
 
 	// flag entity
-	{% if languages[languageKey].flag -%}
-	&{{ languages[languageKey].flag }},
+	{% if languages[loopKey].flag -%}
+	&{{ languages[loopKey].flag }},
 	{% else -%}
 	NULL,
 	{% endif %}
 	// strings
-	(const char**)LANGUAGE_{{ languageKey }}_STRINGS
+	(const char**)LANGUAGE_{{ loopKey }}_STRINGS
 };
