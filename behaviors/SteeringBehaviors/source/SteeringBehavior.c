@@ -130,7 +130,7 @@ static Vector3D SteeringBehavior::calculatePrioritized(Vehicle vehicle)
 		{
 			SteeringBehavior steeringBehavior = SteeringBehavior::safeCast(node->data);
 
-			if(SteeringBehavior::isEnabled(steeringBehavior))
+			if(steeringBehavior->enabled)
 			{
 				maximumForce += steeringBehavior->maximumForce;
 			}
@@ -142,7 +142,7 @@ static Vector3D SteeringBehavior::calculatePrioritized(Vehicle vehicle)
 		{
 			SteeringBehavior steeringBehavior = SteeringBehavior::safeCast(node->data);
 
-			if(SteeringBehavior::isEnabled(steeringBehavior))
+			if(steeringBehavior->enabled)
 			{
 				Vector3D force = Vector3D::scalarProduct(SteeringBehavior::calculate(steeringBehavior, vehicle), steeringBehavior->weight);
 				
@@ -178,7 +178,7 @@ static Vector3D SteeringBehavior::calculateWeightedSum(Vehicle vehicle)
 		{
 			SteeringBehavior steeringBehavior = SteeringBehavior::safeCast(node->data);
 
-			if(SteeringBehavior::isEnabled(steeringBehavior))
+			if(steeringBehavior->enabled)
 			{
 				Vector3D force = Vector3D::scalarProduct(SteeringBehavior::calculate(steeringBehavior, vehicle), steeringBehavior->weight);
 				

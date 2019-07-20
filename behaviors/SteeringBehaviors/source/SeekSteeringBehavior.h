@@ -65,11 +65,14 @@ class SeekSteeringBehavior : SteeringBehavior
 	fix10_6 easingDistanceThreshold;
 	bool slowDownWhenReachingTarget;
 	bool reachedTarget;
+	bool allowEasing;
 
 	void constructor(const SeekSteeringBehaviorSpec* seekSteeringBehaviorSpec);
 
 	Vector3D getTarget();
 	void setTarget(Vector3D value);
+	bool getAllowEasing();
+	void setAllowEasing(bool value);
 	bool getSlowDownWhenReachingTarget();
 	void setSlowDownWhenReachingTarget(bool value);
 	fix10_6 getReachedDistanceThreshold();
