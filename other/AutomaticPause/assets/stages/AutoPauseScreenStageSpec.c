@@ -67,6 +67,12 @@ StageROMSpec AUTOMATIC_PAUSE_SCREEN_STAGE_ST =
 	// allocator
 	__TYPE(Stage),
 
+	// Timer config
+	{
+		__TIMER_100US,
+		__TIME_MS(10)
+	},
+
 	// level
 	{
 		// size
@@ -250,8 +256,8 @@ StageROMSpec AUTOMATIC_PAUSE_SCREEN_STAGE_ST =
 		// textures to preload
 		(TextureSpec**)NULL,
 
-		// background music
-		(const u16 (*)[])NULL,
+		// background sounds
+		NULL,
 	},
 
 	// entities
