@@ -1,9 +1,7 @@
 {
-	"images": {
-		"folders": {
-			"assets/images": {
-				"template": "animatedEntity"
-			}
+	"folders": {
+		"assets/images": {
+			"template": "animatedEntity"
 		}
 	}
 }

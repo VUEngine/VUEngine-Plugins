@@ -6,13 +6,13 @@
 //---------------------------------------------------------------------------------------------------------
 
 #include <I18n.h>
-{% if languages[loopKey].flag %}
+{% if project.i18n.languages[loopKey].flag %}
 
 //---------------------------------------------------------------------------------------------------------
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern EntitySpec {{ languages[loopKey].flag }};
+extern EntitySpec {{ project.i18n.languages[loopKey].flag }};
 {% endif %}
 
 //---------------------------------------------------------------------------------------------------------
@@ -26,7 +26,7 @@ extern EntitySpec {{ languages[loopKey].flag }};
 
 const char* const LANGUAGE_{{ loopKey }}_STRINGS[] =
 {
-	{% for key, value in strings -%}
+	{% for key, value in project.i18n.strings -%}
 	/* {{ key }}: */
 	{# TODO: the filters below are ugly -#}
 	"{{ value[loopKey] | replace('\n', '\\n') | replace('\"', '\\"') | safe }}",
@@ -36,11 +36,11 @@ const char* const LANGUAGE_{{ loopKey }}_STRINGS[] =
 const LangROMSpec LANGUAGE_{{ loopKey }} =
 {
 	// language name
-	"{{ languages[loopKey].name }}",
+	"{{ project.i18n.languages[loopKey].name }}",
 
 	// flag entity
-	{% if languages[loopKey].flag -%}
-	&{{ languages[loopKey].flag }},
+	{% if project.i18n.languages[loopKey].flag -%}
+	&{{ project.i18n.languages[loopKey].flag }},
 	{% else -%}
 	NULL,
 	{% endif %}

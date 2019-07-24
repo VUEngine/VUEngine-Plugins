@@ -1,21 +1,19 @@
 {
-	"images": {
-		"folders": {
-			"assets/images/AdjustmentScreen/Nintendo": {
-				"template": "entity"
-			},
-			"assets/images/AdjustmentScreen/Prototype": {
-				"template": "entity"
-			},
-			"assets/images/AdjustmentScreen/PVB": {
-				"template": "entity"
-			},
-			"assets/images/AdjustmentScreen/VUEngine": {
-				"template": "entity"
-			},
-			"assets/images/Flags": {
-				"template": "entity"
-			}
+	"folders": {
+		"assets/images/AdjustmentScreen/Nintendo": {
+			"template": "entity"
+		},
+		"assets/images/AdjustmentScreen/Prototype": {
+			"template": "entity"
+		},
+		"assets/images/AdjustmentScreen/PVB": {
+			"template": "entity"
+		},
+		"assets/images/AdjustmentScreen/VUEngine": {
+			"template": "entity"
+		},
+		"assets/images/Flags": {
+			"template": "entity"
 		}
 	}
 }

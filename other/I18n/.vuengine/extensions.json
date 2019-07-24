@@ -1,50 +1,47 @@
 {
-	"extensions": {
-		"activityBar": {
-			"project": [
-				{
-					"id": "languages",
-					"label": {
-						"en": "Languages",
-						"de": "Sprachen"
-					},
-					"type": "configFile",
-					"icon": "language",
-					"value": "languages"
-				}
-			]
-		},
-		"config": [
-			"languages"
-		],
-		"configPresets": [],
-		"fileTemplates": [
+	"activityBar": {
+		"project": [
 			{
-				"file": "Languages.c",
-				"data": [
-					"languages"
-				],
-				"target": "assets/languages/Languages.c"
-			},
-			{
-				"file": "Languages.h",
-				"data": [
-					"languages"
-				],
-				"target": "source/assets/Languages.h"
-			},
-			{
-				"file": "Language_xx.c",
-				"data": [
-					"languages"
-				],
-				"target": "/assets/languages/Language_{loopKey}.c",
-				"forEachKeyOf": {
-					"config": "languages",
-					"path": "languages"
+				"id": "i18n",
+				"label": {
+					"en": "Languages",
+					"de": "Sprachen"
 				},
-				"encoding": "latin1"
+				"type": "configFile",
+				"icon": "language",
+				"value": "i18n"
 			}
 		]
-	}
+	},
+	"config": [
+		"i18n"
+	],
+	"fileTemplates": [
+		{
+			"file": "Languages.c",
+			"config": [
+				"i18n"
+			],
+			"target": "assets/languages/Languages.c"
+		},
+		{
+			"file": "Languages.h",
+			"config": [
+				"i18n"
+			],
+			"target": "source/assets/Languages.h"
+		},
+		{
+			"file": "Language_xx.c",
+			"config": [
+				"i18n"
+			],
+			"loop": {
+				"config": "i18n",
+				"path": "project.i18n.languages"
+			},
+			"target": "/assets/languages/Language_{loopKey}.c",
+			"encoding": "latin1"
+		}
+	]
 }

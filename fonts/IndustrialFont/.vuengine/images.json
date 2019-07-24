@@ -1,9 +1,7 @@
 {
-	"images": {
-		"folders": {
-			"assets/images": {
-				"template": "font"
-			}
+	"folders": {
+		"assets/images": {
+			"template": "font"
 		}
 	}
 }
