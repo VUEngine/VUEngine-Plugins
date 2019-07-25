@@ -64,6 +64,12 @@ void AdjustmentScreenState::enter(void* owner)
 	// call base
 	Base::enter(this, owner);
 
+	this->stream = false;
+	this->transform = false;
+	this->synchronizeGraphics = false;
+	this->updatePhysics = false;
+	this->processCollisions = false;
+
 	AdjustmentScreenState::init(this);
 }
 
@@ -81,7 +87,7 @@ void AdjustmentScreenState::init()
 {
 	#if(__ADJUSTMENT_SCREEN_VARIANT == 0)
 	// add rhombus effect
-	VIPManager::pushBackPostProcessingEffect(VIPManager::getInstance(), AdjustmentScreenState::rhombusEmitterPostProcessingEffect, NULL);
+//	VIPManager::pushBackPostProcessingEffect(VIPManager::getInstance(), AdjustmentScreenState::rhombusEmitterPostProcessingEffect, NULL);
 	#endif
 
 	// set low power indicator position

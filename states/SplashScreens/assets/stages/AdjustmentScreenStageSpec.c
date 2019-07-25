@@ -36,6 +36,8 @@ extern EntitySpec ADJUSTMENT_SCREEN_ICON_L_EN;
 extern EntitySpec ADJUSTMENT_SCREEN_ICON_R_EN;
 extern EntitySpec ADJUSTMENT_SCREEN_LOGO_EN;
 
+extern Sound ADJUSTMENT_SCREEN_THEME_SOUND;
+
 #ifdef __SPLASH_SCREENS_USE_LOW_POWER_ENTITY
 extern EntitySpec LOW_POWER_INDICATOR_LB;
 #endif
@@ -104,6 +106,12 @@ PositionedEntityROMSpec ADJUSTMENT_SCREEN_STAGE_ST_UI_ENTITIES[] =
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
 };
 
+
+SoundROM* const ADJUSTMENT_STAGE_ST_SOUNDS[] =
+{
+	&ADJUSTMENT_SCREEN_THEME_SOUND,
+	NULL
+};
 
 //---------------------------------------------------------------------------------------------------------
 //											STAGE DEFINITION
@@ -309,7 +317,7 @@ StageROMSpec ADJUSTMENT_SCREEN_STAGE_ST =
 		(TextureSpec**)NULL,
 
 		// background sounds
-		NULL,
+		(Sound**)ADJUSTMENT_STAGE_ST_SOUNDS,
 	},
 
 	// entities
