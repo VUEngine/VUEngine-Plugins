@@ -71,6 +71,16 @@ void AdjustmentScreenState::enter(void* owner)
 	this->processCollisions = false;
 
 	AdjustmentScreenState::init(this);
+
+	extern Sound ADJUSTMENT_SCREEN_THEME_SOUND;
+
+	SoundWrapper soundWrapper = SoundManager::getSound(SoundManager::getInstance(), &ADJUSTMENT_SCREEN_THEME_SOUND, false);
+
+	if(!isDeleted(soundWrapper))
+	{
+		SoundWrapper::addEventListener(soundWrapper, Object::safeCast(this), (EventListener)AdjustmentScreenState::onSoundThemeFinish, kSoundFinished);
+		SoundWrapper::play(soundWrapper, NULL);
+	}
 }
 
 // state's exit
@@ -198,3 +208,9 @@ static void AdjustmentScreenState::rhombusEmitterPostProcessingEffect(u32 curren
 	);
 }
 
+void AdjustmentScreenState::onSoundThemeFinish(Object eventFirer __attribute__((unused)))
+{
+	SoundWrapper::removeEventListener(SoundWrapper::safeCast(eventFirer), Object::safeCast(this), (EventListener)AdjustmentScreenState::onSoundThemeFinish, kSoundFinished);
+
+	AdjustmentScreenState::loadNextState(this);
+}

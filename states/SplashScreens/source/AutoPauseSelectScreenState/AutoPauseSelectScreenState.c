@@ -161,7 +161,7 @@ void AutoPauseSelectScreenState::processUserInput(UserInput userInput)
 
 		// play sound
 		Vector3D position = {128 + (!this->selection << 7), 112, 0};
-		SoundManager::playFxSound(SoundManager::getInstance(), SPLASH_SCREENS_OPTION_SELECT_SND, position);
+		//SoundManager::playFxSound(SoundManager::getInstance(), SPLASH_SCREENS_OPTION_SELECT_SND, position);
 	}
 	else if(userInput.pressedKey & (K_A | K_STA))
 	{
@@ -175,7 +175,7 @@ void AutoPauseSelectScreenState::processUserInput(UserInput userInput)
 
 		// play sound
 		Vector3D position = {192, 112, 0};
-		SoundManager::playFxSound(SoundManager::getInstance(), SPLASH_SCREENS_OPTION_CONFIRM_SND, position);
+		//SoundManager::playFxSound(SoundManager::getInstance(), SPLASH_SCREENS_OPTION_CONFIRM_SND, position);
 
 		SplashScreenState::loadNextState(SplashScreenState::safeCast(this));
 	}
