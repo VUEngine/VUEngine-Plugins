@@ -88,8 +88,7 @@ void LangSelectScreenState::processUserInput(UserInput userInput)
 	else if(userInput.pressedKey & (K_A | K_STA))
 	{
 		// play sound
-		Vector3D position = {192, 112, 0};
-		//SoundManager::playFxSound(SoundManager::getInstance(), SPLASH_SCREENS_OPTION_CONFIRM_SND, position);
+		//SoundManager::playFxSound(SoundManager::getInstance(), SPLASH_SCREENS_OPTION_CONFIRM_SND, playSound);
 
 		SplashScreenState::loadNextState(SplashScreenState::safeCast(this));
 	}
@@ -236,8 +235,7 @@ void LangSelectScreenState::select(bool next)
 	LangSelectScreenState::printSelection(this);
 
 	// play sound
-	Vector3D position = {192, 112, 0};
-	//SoundManager::playFxSound(SoundManager::getInstance(), SPLASH_SCREENS_OPTION_SELECT_SND, position);
+	//SoundManager::playSound(SoundManager::getInstance(), SPLASH_SCREENS_OPTION_SELECT_SND, NULL);
 }
 
 void LangSelectScreenState::persistChoice()
