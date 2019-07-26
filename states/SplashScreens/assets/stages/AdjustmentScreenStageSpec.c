@@ -125,6 +125,11 @@ StageROMSpec ADJUSTMENT_SCREEN_STAGE_ST =
 		__TIME_MS(1000)
 	},
 
+	// Sound config
+	{
+		__DEFAULT_PCM_HZ,
+	},
+
 	// level
 	{
 		// size

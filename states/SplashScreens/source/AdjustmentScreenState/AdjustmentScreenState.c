@@ -71,16 +71,6 @@ void AdjustmentScreenState::enter(void* owner)
 	this->processCollisions = false;
 
 	AdjustmentScreenState::init(this);
-
-	extern Sound ADJUSTMENT_SCREEN_THEME_SOUND;
-
-	SoundWrapper soundWrapper = SoundManager::getSound(SoundManager::getInstance(), &ADJUSTMENT_SCREEN_THEME_SOUND, false);
-
-	if(!isDeleted(soundWrapper))
-	{
-		SoundWrapper::addEventListener(soundWrapper, Object::safeCast(this), (EventListener)AdjustmentScreenState::onSoundThemeFinish, kSoundFinished);
-		SoundWrapper::play(soundWrapper, NULL);
-	}
 }
 
 // state's exit
@@ -97,7 +87,7 @@ void AdjustmentScreenState::init()
 {
 	#if(__ADJUSTMENT_SCREEN_VARIANT == 0)
 	// add rhombus effect
-//	VIPManager::pushBackPostProcessingEffect(VIPManager::getInstance(), AdjustmentScreenState::rhombusEmitterPostProcessingEffect, NULL);
+	VIPManager::pushBackPostProcessingEffect(VIPManager::getInstance(), AdjustmentScreenState::rhombusEmitterPostProcessingEffect, NULL);
 	#endif
 
 	// set low power indicator position
@@ -206,11 +196,4 @@ static void AdjustmentScreenState::rhombusEmitterPostProcessingEffect(u32 curren
 		(PixelVector) {(192),			(112 + radius),	0, -((radius + __ADJUSTMENT_SCREEN_RHOMBUS_INITIAL_VALUE)>>5)},
 		__COLOR_BRIGHT_RED
 	);
-}
-
-void AdjustmentScreenState::onSoundThemeFinish(Object eventFirer __attribute__((unused)))
-{
-	SoundWrapper::removeEventListener(SoundWrapper::safeCast(eventFirer), Object::safeCast(this), (EventListener)AdjustmentScreenState::onSoundThemeFinish, kSoundFinished);
-
-	AdjustmentScreenState::loadNextState(this);
 }

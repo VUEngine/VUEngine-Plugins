@@ -73,6 +73,11 @@ StageROMSpec AUTOMATIC_PAUSE_SCREEN_STAGE_ST =
 		__TIME_MS(10)
 	},
 
+	// Sound config
+	{
+		__DEFAULT_PCM_HZ,
+	},
+
 	// level
 	{
 		// size
