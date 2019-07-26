@@ -1,5 +1,3 @@
-{
-	"plugins": [
-		"vuengine/graphics/GuiBgmapAnimatedSprite"
-	]
-}
+[
+	"vuengine/graphics/GuiBgmapAnimatedSprite"
+]

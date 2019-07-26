@@ -1,5 +1,3 @@
-{
-	"plugins": [
-		"vuengine/other/I18n"
-	]
-}
+[
+	"vuengine/other/I18n"
+]

@@ -9,12 +9,12 @@
 #include <Languages.h>
 
 
-{% if languages | length -%}
+{% if project.i18n.languages | length -%}
 //---------------------------------------------------------------------------------------------------------
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-{% for key, value in languages -%}
+{% for key, value in project.i18n.languages -%}
 extern LangROMSpec LANGUAGE_{{ key }};
 {% endfor %}
 
@@ -25,7 +25,7 @@ extern LangROMSpec LANGUAGE_{{ key }};
 
 LangROMSpec* const __LANGUAGES[] =
 {
-	{% for key, value in languages -%}
+	{% for key, value in project.i18n.languages -%}
 	&LANGUAGE_{{ key }},
 	{% endfor %}
 	NULL
