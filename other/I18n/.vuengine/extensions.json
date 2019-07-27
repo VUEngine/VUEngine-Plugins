@@ -3,36 +3,36 @@
 		"project": [
 			{
 				"id": "i18n",
-				"label": {
-					"en": "Languages",
-					"de": "Sprachen"
-				},
+				"label": "views.project.menu.i18n.label",
 				"type": "configFile",
-				"icon": "language",
+				"icon": {
+					"dark": "extensions/icon/dark/language.png",
+					"light": "extensions/icon/light/language.png"
+				},
 				"value": "i18n"
 			}
 		]
 	},
-	"config": [
-		"i18n"
-	],
+	"config": {
+		"i18n": "extensions/config/i18n.json"
+	},
 	"fileTemplates": [
 		{
-			"file": "Languages.c",
+			"file": "extensions/templates/Languages.c.nj",
 			"config": [
 				"i18n"
 			],
 			"target": "assets/languages/Languages.c"
 		},
 		{
-			"file": "Languages.h",
+			"file": "extensions/templates/Languages.h.nj",
 			"config": [
 				"i18n"
 			],
 			"target": "source/assets/Languages.h"
 		},
 		{
-			"file": "Language_xx.c",
+			"file": "extensions/templates/Language_xx.c.nj",
 			"config": [
 				"i18n"
 			],
@@ -42,6 +42,16 @@
 			},
 			"target": "/assets/languages/Language_{loopKey}.c",
 			"encoding": "latin1"
+		}
+	],
+	"i18n": [
+		{
+			"lang": "en",
+			"file": "extensions/i18n/en.json"
+		},
+		{
+			"lang": "de",
+			"file": "extensions/i18n/de.json"
 		}
 	]
 }
