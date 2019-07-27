@@ -33,22 +33,4 @@
 
 const u16 SPLASH_SCREENS_INTRO_SND[] =
 {
-	//songlength
-	2,
-	//stdwait
-	0x0C,
-	//stdSxLRV
-	0x55,
-	//stdSxEV0
-	0xD1,
-	//stdSxEV1
-	0x01,
-	//stdSxRAM
-	0x00,
-	//stdS5SWP
-	//0x00,
-	//song's notes
-	F_4,
-	F_5,
-	NONE,
 };

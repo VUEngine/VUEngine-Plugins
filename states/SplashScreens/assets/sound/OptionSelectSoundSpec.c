@@ -32,21 +32,5 @@
 
 const u16 SPLASH_SCREENS_OPTION_SELECT_SND[] =
 {
-	//songlength
-	1,
-	//stdwait
-	0x0C,
-	//stdSxLRV
-	0x40,
-	//stdSxEV0
-	0x40,
-	//stdSxEV1
-	0x01,
-	//stdSxRAM
-	0x00,
-	//stdS5SWP
-	//0x00,
-	//song's notes
-	E_3,
-	NONE,
+	
 };
