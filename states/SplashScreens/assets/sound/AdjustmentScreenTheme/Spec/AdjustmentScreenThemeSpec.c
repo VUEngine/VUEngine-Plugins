@@ -428,12 +428,18 @@ SoundChannelROM* ADJUSTMENT_SCREEN_THEME_SOUND_CHANNELS[] =
 
 SoundROM ADJUSTMENT_SCREEN_THEME_SOUND =
 {
+	/// Name
+	"Adjunstment screen theme",
+
 	/// Play in loop
 	false,
 
-	/// Combine all channels into a single sound
+	/// Syncronize channels
 	true,
 
+	/// Ticks per note to add to all channels
+	0,
+	
 	/// Tracks
 	(SoundChannel**)ADJUSTMENT_SCREEN_THEME_SOUND_CHANNELS
 };
