@@ -37,7 +37,7 @@
 extern const u8 ADJUSTMENT_SCREEN_THEME_SOUND_TRACK_1[];
 
 
-#define ADJUSTMENT_SCREEN_THEME_SOUND_TRACK_1_DELAY			0
+
 #define ADJUSTMENT_SCREEN_THEME_SOUND_TRACK_1_LENGTH		730000
 
 #define WAVE_1_AMPLITUDE			2
@@ -318,11 +318,8 @@ SoundChannelROM ADJUSTMENT_SCREEN_THEME_SOUND_CHANNEL_1_1 =
 	/// Configuration
 	(SoundChannelConfiguration*) &ADJUSTMENT_SCREEN_THEME_SOUND_CHANNEL_1_1_CONFIGURATION,
 
-	/// Length
-	ADJUSTMENT_SCREEN_THEME_SOUND_TRACK_1_LENGTH,
-
-	/// Delay before moving the cursor
-	ADJUSTMENT_SCREEN_THEME_SOUND_TRACK_1_DELAY,
+	/// Length (PCM)
+	0,
 
 	/// Sound track
 	{ 
@@ -335,11 +332,8 @@ SoundChannelROM ADJUSTMENT_SCREEN_THEME_SOUND_CHANNEL_1_2 =
 	/// Configuration
 	(SoundChannelConfiguration*) &ADJUSTMENT_SCREEN_THEME_SOUND_CHANNEL_1_2_CONFIGURATION,
 
-	/// Length
-	ADJUSTMENT_SCREEN_THEME_SOUND_TRACK_1_LENGTH,
-
-	/// Delay before moving the cursor
-	ADJUSTMENT_SCREEN_THEME_SOUND_TRACK_1_DELAY,
+	/// Length (PCM)
+	0,
 
 	/// Sound track
 	{ 
@@ -352,11 +346,8 @@ SoundChannelROM ADJUSTMENT_SCREEN_THEME_SOUND_CHANNEL_1_3 =
 	/// Configuration
 	(SoundChannelConfiguration*) &ADJUSTMENT_SCREEN_THEME_SOUND_CHANNEL_1_3_CONFIGURATION,
 
-	/// Length
-	ADJUSTMENT_SCREEN_THEME_SOUND_TRACK_1_LENGTH,
-
-	/// Delay before moving the cursor
-	ADJUSTMENT_SCREEN_THEME_SOUND_TRACK_1_DELAY,
+	/// Length (PCM)
+	0,
 
 	/// Sound track
 	{ 
@@ -369,11 +360,8 @@ SoundChannelROM ADJUSTMENT_SCREEN_THEME_SOUND_CHANNEL_1_4 =
 	/// Configuration
 	(SoundChannelConfiguration*) &ADJUSTMENT_SCREEN_THEME_SOUND_CHANNEL_1_4_CONFIGURATION,
 
-	/// Length
-	ADJUSTMENT_SCREEN_THEME_SOUND_TRACK_1_LENGTH,
-
-	/// Delay before moving the cursor
-	ADJUSTMENT_SCREEN_THEME_SOUND_TRACK_1_DELAY,
+	/// Length (PCM)
+	0,
 
 	/// Sound track
 	{ 
@@ -386,11 +374,8 @@ SoundChannelROM ADJUSTMENT_SCREEN_THEME_SOUND_CHANNEL_1_5 =
 	/// Configuration
 	(SoundChannelConfiguration*) &ADJUSTMENT_SCREEN_THEME_SOUND_CHANNEL_1_5_CONFIGURATION,
 
-	/// Length
-	ADJUSTMENT_SCREEN_THEME_SOUND_TRACK_1_LENGTH,
-
-	/// Delay before moving the cursor
-	ADJUSTMENT_SCREEN_THEME_SOUND_TRACK_1_DELAY,
+	/// Length (PCM)
+	0,
 
 	/// Sound track
 	{ 
@@ -403,11 +388,8 @@ SoundChannelROM ADJUSTMENT_SCREEN_THEME_SOUND_CHANNEL_1_6 =
 	/// Configuration
 	(SoundChannelConfiguration*) &ADJUSTMENT_SCREEN_THEME_SOUND_CHANNEL_1_6_CONFIGURATION,
 
-	/// Length
-	ADJUSTMENT_SCREEN_THEME_SOUND_TRACK_1_LENGTH,
-
-	/// Delay before moving the cursor
-	ADJUSTMENT_SCREEN_THEME_SOUND_TRACK_1_DELAY,
+	/// Length (PCM)
+	0,
 
 	/// Sound track
 	{ 
