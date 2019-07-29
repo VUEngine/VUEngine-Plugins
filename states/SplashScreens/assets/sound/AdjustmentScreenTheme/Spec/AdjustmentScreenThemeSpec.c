@@ -437,7 +437,7 @@ SoundROM ADJUSTMENT_SCREEN_THEME_SOUND =
 	/// Syncronize channels
 	true,
 
-	/// Ticks per note to add to all channels
+	/// Target timer resolution in us
 	0,
 	
 	/// Tracks
