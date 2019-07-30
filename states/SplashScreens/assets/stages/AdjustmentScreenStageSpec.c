@@ -122,7 +122,8 @@ StageROMSpec ADJUSTMENT_SCREEN_STAGE_ST =
 	// Timer config
 	{
 		__TIMER_100US,
-		__TIME_MS(1000)
+		1000,
+		kMS
 	},
 
 	// Sound config

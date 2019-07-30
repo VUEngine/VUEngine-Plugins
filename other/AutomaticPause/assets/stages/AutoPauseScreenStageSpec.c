@@ -70,7 +70,8 @@ StageROMSpec AUTOMATIC_PAUSE_SCREEN_STAGE_ST =
 	// Timer config
 	{
 		__TIMER_100US,
-		__TIME_MS(10)
+		10,
+		kMS
 	},
 
 	// Sound config
