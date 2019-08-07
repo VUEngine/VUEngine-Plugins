@@ -416,9 +416,6 @@ SoundROM ADJUSTMENT_SCREEN_THEME_SOUND =
 	/// Play in loop
 	false,
 
-	/// Syncronize channels
-	true,
-
 	/// Target timer resolution in us
 	0,
 	
