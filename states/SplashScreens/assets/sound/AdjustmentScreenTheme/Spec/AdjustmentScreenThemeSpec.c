@@ -128,8 +128,11 @@ SoundChannelConfigurationROM ADJUSTMENT_SCREEN_THEME_SOUND_CHANNEL_1_1_CONFIGURA
 	/// Waveform data pointer
 	adjustmentScreenThemeWave1,
 
-	/// Is modulation
-	false
+	/// kSoundNormal, kSoundModulation, kSoundNoise
+	kSoundNormal,
+
+	/// Volume
+	__SOUND_LR
 };
 
 SoundChannelConfigurationROM ADJUSTMENT_SCREEN_THEME_SOUND_CHANNEL_1_2_CONFIGURATION =
@@ -164,8 +167,11 @@ SoundChannelConfigurationROM ADJUSTMENT_SCREEN_THEME_SOUND_CHANNEL_1_2_CONFIGURA
 	/// Waveform data pointer
 	adjustmentScreenThemeWave2,
 
-	/// Is modulation
-	false
+	/// kSoundNormal, kSoundModulation, kSoundNoise
+	kSoundNormal,
+
+	/// Volume
+	__SOUND_LR
 };
 
 SoundChannelConfigurationROM ADJUSTMENT_SCREEN_THEME_SOUND_CHANNEL_1_3_CONFIGURATION =
@@ -200,8 +206,11 @@ SoundChannelConfigurationROM ADJUSTMENT_SCREEN_THEME_SOUND_CHANNEL_1_3_CONFIGURA
 	/// Waveform data pointer
 	adjustmentScreenThemeWave3,
 
-	/// Is modulation
-	false
+	/// kSoundNormal, kSoundModulation, kSoundNoise
+	kSoundNormal,
+
+	/// Volume
+	__SOUND_LR
 };
 
 SoundChannelConfigurationROM ADJUSTMENT_SCREEN_THEME_SOUND_CHANNEL_1_4_CONFIGURATION =
@@ -236,8 +245,11 @@ SoundChannelConfigurationROM ADJUSTMENT_SCREEN_THEME_SOUND_CHANNEL_1_4_CONFIGURA
 	/// Waveform data pointer
 	adjustmentScreenThemeWave4,
 
-	/// Is modulation
-	false
+	/// kSoundNormal, kSoundModulation, kSoundNoise
+	kSoundNormal,
+
+	/// Volume
+	__SOUND_LR
 };
 
 SoundChannelConfigurationROM ADJUSTMENT_SCREEN_THEME_SOUND_CHANNEL_1_5_CONFIGURATION =
@@ -272,8 +284,11 @@ SoundChannelConfigurationROM ADJUSTMENT_SCREEN_THEME_SOUND_CHANNEL_1_5_CONFIGURA
 	/// Waveform data pointer
 	adjustmentScreenThemeWave5,
 
-	/// Is modulation
-	false
+	/// kSoundNormal, kSoundModulation, kSoundNoise
+	kSoundNormal,
+
+	/// Volume
+	__SOUND_LR
 };
 
 SoundChannelConfigurationROM ADJUSTMENT_SCREEN_THEME_SOUND_CHANNEL_1_6_CONFIGURATION =
@@ -308,8 +323,11 @@ SoundChannelConfigurationROM ADJUSTMENT_SCREEN_THEME_SOUND_CHANNEL_1_6_CONFIGURA
 	/// Waveform data pointer
 	adjustmentScreenThemeWave6,
 
-	/// Is modulation
-	false
+	/// kSoundNormal, kSoundModulation, kSoundNoise
+	kSoundNormal,
+
+	/// Volume
+	__SOUND_LR
 };
 
 
