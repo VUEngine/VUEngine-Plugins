@@ -128,8 +128,8 @@ SoundChannelConfigurationROM ADJUSTMENT_SCREEN_THEME_SOUND_CHANNEL_1_1_CONFIGURA
 	/// Waveform data pointer
 	adjustmentScreenThemeWave1,
 
-	/// kSoundNormal, kSoundModulation, kSoundNoise
-	kSoundNormal,
+	/// kChannelNormal, kChannelModulation, kChannelNoise
+	kChannelNormal,
 
 	/// Volume
 	__SOUND_LR
@@ -167,8 +167,8 @@ SoundChannelConfigurationROM ADJUSTMENT_SCREEN_THEME_SOUND_CHANNEL_1_2_CONFIGURA
 	/// Waveform data pointer
 	adjustmentScreenThemeWave2,
 
-	/// kSoundNormal, kSoundModulation, kSoundNoise
-	kSoundNormal,
+	/// kChannelNormal, kChannelModulation, kChannelNoise
+	kChannelNormal,
 
 	/// Volume
 	__SOUND_LR
@@ -206,8 +206,8 @@ SoundChannelConfigurationROM ADJUSTMENT_SCREEN_THEME_SOUND_CHANNEL_1_3_CONFIGURA
 	/// Waveform data pointer
 	adjustmentScreenThemeWave3,
 
-	/// kSoundNormal, kSoundModulation, kSoundNoise
-	kSoundNormal,
+	/// kChannelNormal, kChannelModulation, kChannelNoise
+	kChannelNormal,
 
 	/// Volume
 	__SOUND_LR
@@ -245,8 +245,8 @@ SoundChannelConfigurationROM ADJUSTMENT_SCREEN_THEME_SOUND_CHANNEL_1_4_CONFIGURA
 	/// Waveform data pointer
 	adjustmentScreenThemeWave4,
 
-	/// kSoundNormal, kSoundModulation, kSoundNoise
-	kSoundNormal,
+	/// kChannelNormal, kChannelModulation, kChannelNoise
+	kChannelNormal,
 
 	/// Volume
 	__SOUND_LR
@@ -284,8 +284,8 @@ SoundChannelConfigurationROM ADJUSTMENT_SCREEN_THEME_SOUND_CHANNEL_1_5_CONFIGURA
 	/// Waveform data pointer
 	adjustmentScreenThemeWave5,
 
-	/// kSoundNormal, kSoundModulation, kSoundNoise
-	kSoundNormal,
+	/// kChannelNormal, kChannelModulation, kChannelNoise
+	kChannelNormal,
 
 	/// Volume
 	__SOUND_LR
@@ -323,8 +323,8 @@ SoundChannelConfigurationROM ADJUSTMENT_SCREEN_THEME_SOUND_CHANNEL_1_6_CONFIGURA
 	/// Waveform data pointer
 	adjustmentScreenThemeWave6,
 
-	/// kSoundNormal, kSoundModulation, kSoundNoise
-	kSoundNormal,
+	/// kChannelNormal, kChannelModulation, kChannelNoise
+	kChannelNormal,
 
 	/// Volume
 	__SOUND_LR
