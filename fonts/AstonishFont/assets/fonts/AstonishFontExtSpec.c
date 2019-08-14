@@ -25,50 +25,11 @@
 //---------------------------------------------------------------------------------------------------------
 
 extern BYTE AstonishFontTiles[];
-extern BYTE AstonishFontShadowTiles[];
 
 
 //---------------------------------------------------------------------------------------------------------
 //												DEFINITIONS
 //---------------------------------------------------------------------------------------------------------
-
-/**
- * Astonish font
- *
- * @ingroup vuengine-plugins-fonts
- */
-
-/* Regular */
-
-CharSetROMSpec ASTONISH_FONT_CH =
-{
-	// number of chars
-	256,
-
-	// allocation type
-	__NOT_ANIMATED,
-
-	// char spec
-	AstonishFontTiles,
-};
-
-FontROMSpec ASTONISH_FONT =
-{
-	// font charset spec pointer
-	(CharSetSpec*)&ASTONISH_FONT_CH,
-
-	// character number at which the font starts, allows you to skip the control characters for example
-	0,
-
-	// number of characters in this font
-	128,
-
-	// size of a single character (in chars) ({width, height})
-	{1, 2},
-
-	// font's name
-	"Astonish",
-};
 
 CharSetROMSpec ASTONISH_EXTENDED_FONT_CH =
 {
@@ -98,66 +59,4 @@ FontROMSpec ASTONISH_EXTENDED_FONT =
 
 	// font's name
 	"AstonishExt",
-};
-
-/* With Dropshadow */
-
-CharSetROMSpec ASTONISH_FONT_SHADOW_CH =
-{
-	// number of chars
-	256,
-
-	// allocation type
-	__NOT_ANIMATED,
-
-	// char spec
-	AstonishFontShadowTiles,
-};
-
-FontROMSpec ASTONISH_FONT_SHADOW =
-{
-	// font charset spec pointer
-	(CharSetSpec*)&ASTONISH_FONT_SHADOW_CH,
-
-	// character number at which the font starts, allows you to skip the control characters for example
-	0,
-
-	// number of characters in this font
-	128,
-
-	// size of a single character (in chars) ({width, height})
-	{1, 2},
-
-	// font's name
-	"AstonishS",
-};
-
-CharSetROMSpec ASTONISH_EXTENDED_FONT_SHADOW_CH =
-{
-	// number of chars
-	512,
-
-	// allocation type
-	__NOT_ANIMATED,
-
-	// char spec
-	AstonishFontShadowTiles,
-};
-
-FontROMSpec ASTONISH_EXTENDED_FONT_SHADOW =
-{
-	// font charset spec pointer
-	(CharSetSpec*)&ASTONISH_EXTENDED_FONT_SHADOW_CH,
-
-	// character number at which the font starts, allows you to skip the control characters for example
-	0,
-
-	// number of characters in this font
-	256,
-
-	// size of a single character (in chars) ({width, height})
-	{1, 2},
-
-	// font's name
-	"AstonishSExt",
 };

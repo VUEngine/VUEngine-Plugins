@@ -24,75 +24,39 @@
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern BYTE VirtualBoyFontTiles[];
+extern BYTE BulkyFontShadowTiles[];
 
 
 //---------------------------------------------------------------------------------------------------------
 //												DEFINITIONS
 //---------------------------------------------------------------------------------------------------------
 
-/**
- * Virtual Boy font
- *
- * @ingroup vuengine-plugins-fonts
- */
-
-CharSetROMSpec VIRTUAL_BOY_FONT_CH =
+CharSetROMSpec BULKY_FONT_SHADOW_CH =
 {
 	// number of chars
-	1344,
+	256,
 
 	// allocation type
 	__NOT_ANIMATED,
 
 	// char spec
-	VirtualBoyFontTiles,
+	BulkyFontShadowTiles,
 };
 
-FontROMSpec VIRTUAL_BOY_FONT =
+FontROMSpec BULKY_FONT_SHADOW =
 {
 	// font charset spec pointer
-	(CharSetSpec*)&VIRTUAL_BOY_FONT_CH,
+	(CharSetSpec*)&BULKY_FONT_SHADOW_CH,
 
 	// character number at which the font starts, allows you to skip the control characters for example
 	32,
 
 	// number of characters in this font
-	96,
+	64,
 
 	// size of a single character (in chars) ({width, height})
-	{2, 3},
+	{2, 2},
 
 	// font's name
-	"VirtualBoy",
-};
-
-CharSetROMSpec VIRTUAL_BOY_EXTENDED_FONT_CH =
-{
-	// number of chars
-	1344,
-
-	// allocation type
-	__NOT_ANIMATED,
-
-	// char spec
-	VirtualBoyFontTiles,
-};
-
-FontROMSpec VIRTUAL_BOY_EXTENDED_FONT =
-{
-	// font charset spec pointer
-	(CharSetSpec*)&VIRTUAL_BOY_FONT_CH,
-
-	// character number at which the font starts, allows you to skip the control characters for example
-	32,
-
-	// number of characters in this font
-	224,
-
-	// size of a single character (in chars) ({width, height})
-	{2, 3},
-
-	// font's name
-	"VirtualBoyExt",
+	"BulkyS",
 };

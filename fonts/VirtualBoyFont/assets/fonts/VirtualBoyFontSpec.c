@@ -24,75 +24,39 @@
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern BYTE IndustrialFontTiles[];
+extern BYTE VirtualBoyFontTiles[];
 
 
 //---------------------------------------------------------------------------------------------------------
 //												DEFINITIONS
 //---------------------------------------------------------------------------------------------------------
 
-/**
- * Industrial font
- *
- * @ingroup vuengine-plugins-fonts
- */
-
-CharSetROMSpec INDUSTRIAL_FONT_CH =
+CharSetROMSpec VIRTUAL_BOY_FONT_CH =
 {
 	// number of chars
-	128,
+	1344,
 
 	// allocation type
 	__NOT_ANIMATED,
 
 	// char spec
-	IndustrialFontTiles,
+	VirtualBoyFontTiles,
 };
 
-FontROMSpec INDUSTRIAL_FONT =
+FontROMSpec VIRTUAL_BOY_FONT =
 {
 	// font charset spec pointer
-	(CharSetSpec*)&INDUSTRIAL_FONT_CH,
+	(CharSetSpec*)&VIRTUAL_BOY_FONT_CH,
 
 	// character number at which the font starts, allows you to skip the control characters for example
-	0,
+	32,
 
 	// number of characters in this font
-	128,
+	96,
 
 	// size of a single character (in chars) ({width, height})
-	{1, 1},
+	{2, 3},
 
 	// font's name
-	"Industrial",
-};
-
-CharSetROMSpec INDUSTRIAL_EXTENDED_FONT_CH =
-{
-	// number of chars
-	256,
-
-	// allocation type
-	__NOT_ANIMATED,
-
-	// char spec
-	IndustrialFontTiles,
-};
-
-FontROMSpec INDUSTRIAL_EXTENDED_FONT =
-{
-	// font charset spec pointer
-	(CharSetSpec*)&INDUSTRIAL_EXTENDED_FONT_CH,
-
-	// character number at which the font starts, allows you to skip the control characters for example
-	0,
-
-	// number of characters in this font
-	256,
-
-	// size of a single character (in chars) ({width, height})
-	{1, 1},
-
-	// font's name
-	"IndustrialExt",
+	"VirtualBoy",
 };

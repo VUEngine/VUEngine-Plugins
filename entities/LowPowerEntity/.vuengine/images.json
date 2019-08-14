@@ -1,6 +1,6 @@
 {
 	"folders": {
-		"assets/images": {
+		"LowPowerIndicator": {
 			"template": "animatedEntity"
 		}
 	}

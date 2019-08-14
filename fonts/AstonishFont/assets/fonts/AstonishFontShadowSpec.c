@@ -24,18 +24,14 @@
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern BYTE BulkyFontTiles[];
-extern BYTE BulkyFontShadowTiles[];
+extern BYTE AstonishFontShadowTiles[];
 
 
 //---------------------------------------------------------------------------------------------------------
 //												DEFINITIONS
 //---------------------------------------------------------------------------------------------------------
 
-
-/* Regular */
-
-CharSetROMSpec BULKY_FONT_CH =
+CharSetROMSpec ASTONISH_FONT_SHADOW_CH =
 {
 	// number of chars
 	256,
@@ -44,56 +40,23 @@ CharSetROMSpec BULKY_FONT_CH =
 	__NOT_ANIMATED,
 
 	// char spec
-	BulkyFontTiles,
+	AstonishFontShadowTiles,
 };
 
-FontROMSpec BULKY_FONT =
+FontROMSpec ASTONISH_FONT_SHADOW =
 {
 	// font charset spec pointer
-	(CharSetSpec*)&BULKY_FONT_CH,
+	(CharSetSpec*)&ASTONISH_FONT_SHADOW_CH,
 
 	// character number at which the font starts, allows you to skip the control characters for example
-	32,
+	0,
 
 	// number of characters in this font
-	64,
+	128,
 
 	// size of a single character (in chars) ({width, height})
-	{2, 2},
+	{1, 2},
 
 	// font's name
-	"Bulky",
-};
-
-
-/* With Dropshadow */
-
-CharSetROMSpec BULKY_FONT_SHADOW_CH =
-{
-	// number of chars
-	256,
-
-	// allocation type
-	__NOT_ANIMATED,
-
-	// char spec
-	BulkyFontShadowTiles,
-};
-
-FontROMSpec BULKY_FONT_SHADOW =
-{
-	// font charset spec pointer
-	(CharSetSpec*)&BULKY_FONT_SHADOW_CH,
-
-	// character number at which the font starts, allows you to skip the control characters for example
-	32,
-
-	// number of characters in this font
-	64,
-
-	// size of a single character (in chars) ({width, height})
-	{2, 2},
-
-	// font's name
-	"BulkyS",
+	"AstonishS",
 };

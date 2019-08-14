@@ -41,7 +41,7 @@
 				"path": "project.i18n.languages"
 			},
 			"target": "/assets/languages/Language_{loopKey}.c",
-			"encoding": "latin1"
+			"encoding": "win1252"
 		}
 	],
 	"i18n": [
