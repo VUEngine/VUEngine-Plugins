@@ -11,8 +11,8 @@
 {% if project.i18n.languages | length -%}
 enum LanguageIdentifiers
 {
-	{% for key, value in project.i18n.languages -%}
-	LNG_{{ key }},
+	{% for language in project.i18n.languages -%}
+	LNG_{{ language.id | upper }},
 	{% endfor %}
 };
 
@@ -20,8 +20,8 @@ enum LanguageIdentifiers
 {% if project.i18n.strings | length -%}
 enum LanguageStrings
 {
-	{% for key, value in project.i18n.strings -%}
-	{{ key }},
+	{% for string in project.i18n.strings -%}
+	{{ string.id }},
 	{% endfor %}
 };
 

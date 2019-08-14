@@ -14,29 +14,29 @@
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern BYTE IndustrialFontTiles[];
+extern BYTE AstonishFontShadowTiles[];
 
 
 //---------------------------------------------------------------------------------------------------------
 //												DEFINITIONS
 //---------------------------------------------------------------------------------------------------------
 
-CharSetROMSpec INDUSTRIAL_FONT_CH =
+CharSetROMSpec ASTONISH_S_FONT_CH =
 {
 	// number of chars
-	128,
+	256,
 
 	// allocation type
 	__NOT_ANIMATED,
 
 	// char spec
-	IndustrialFontTiles,
+	AstonishFontShadowTiles,
 };
 
-FontROMSpec INDUSTRIAL_FONT =
+FontROMSpec ASTONISH_S_FONT =
 {
 	// font charset spec pointer
-	(CharSetSpec*)&INDUSTRIAL_FONT_CH,
+	(CharSetSpec*)&ASTONISH_S_FONT_CH,
 
 	// character number at which the font starts, allows you to skip the control characters for example
 	0,
@@ -45,8 +45,8 @@ FontROMSpec INDUSTRIAL_FONT =
 	128,
 
 	// size of a single character (in chars) ({width, height})
-	{1, 1},
+	{1, 2},
 
 	// font's name
-	"Industrial",
+	"AstonishS",
 };

@@ -14,8 +14,8 @@
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-{% for key, value in project.i18n.languages -%}
-extern LangROMSpec LANGUAGE_{{ key }};
+{% for language in project.i18n.languages -%}
+extern LangROMSpec LANGUAGE_{{ language.id | upper }};
 {% endfor %}
 
 {% endif -%}
@@ -25,8 +25,8 @@ extern LangROMSpec LANGUAGE_{{ key }};
 
 LangROMSpec* const __LANGUAGES[] =
 {
-	{% for key, value in project.i18n.languages -%}
-	&LANGUAGE_{{ key }},
+	{% for language in project.i18n.languages -%}
+	&LANGUAGE_{{ language.id | upper }},
 	{% endfor %}
 	NULL
 };

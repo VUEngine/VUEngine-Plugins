@@ -14,39 +14,39 @@
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern BYTE IndustrialFontTiles[];
+extern BYTE VirtualBoyFontTiles[];
 
 
 //---------------------------------------------------------------------------------------------------------
 //												DEFINITIONS
 //---------------------------------------------------------------------------------------------------------
 
-CharSetROMSpec INDUSTRIAL_FONT_CH =
+CharSetROMSpec VIRTUAL_BOY_EXT_FONT_CH =
 {
 	// number of chars
-	128,
+	1344,
 
 	// allocation type
 	__NOT_ANIMATED,
 
 	// char spec
-	IndustrialFontTiles,
+	VirtualBoyFontTiles,
 };
 
-FontROMSpec INDUSTRIAL_FONT =
+FontROMSpec VIRTUAL_BOY_EXT_FONT =
 {
 	// font charset spec pointer
-	(CharSetSpec*)&INDUSTRIAL_FONT_CH,
+	(CharSetSpec*)&VIRTUAL_BOY_EXT_FONT_CH,
 
 	// character number at which the font starts, allows you to skip the control characters for example
-	0,
+	32,
 
 	// number of characters in this font
-	128,
+	224,
 
 	// size of a single character (in chars) ({width, height})
-	{1, 1},
+	{2, 3},
 
 	// font's name
-	"Industrial",
+	"VirtualBoyExt",
 };

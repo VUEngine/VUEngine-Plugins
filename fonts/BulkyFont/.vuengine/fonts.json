@@ -1,0 +1,22 @@
+[
+	{
+		"name": "Bulky",
+		"image": "BulkyFont/BulkyFont",
+		"offset": 32,
+		"characterCount": 64,
+		"size": {
+			"x": 2,
+			"y": 2
+		}
+	},
+	{
+		"name": "BulkyS",
+		"image": "BulkyFontShadow/BulkyFontShadow",
+		"offset": 32,
+		"characterCount": 64,
+		"size": {
+			"x": 2,
+			"y": 2
+		}
+	}
+]

@@ -1,0 +1,22 @@
+[
+	{
+		"name": "VirtualBoy",
+		"image": "VirtualBoyFont/VirtualBoyFont",
+		"offset": 32,
+		"characterCount": 96,
+		"size": {
+			"x": 2,
+			"y": 3
+		}
+	},
+	{
+		"name": "VirtualBoyExt",
+		"image": "VirtualBoyFont/VirtualBoyFont",
+		"offset": 32,
+		"characterCount": 224,
+		"size": {
+			"x": 2,
+			"y": 3
+		}
+	}
+]
