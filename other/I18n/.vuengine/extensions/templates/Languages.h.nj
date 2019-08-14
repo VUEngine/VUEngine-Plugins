@@ -21,7 +21,7 @@ enum LanguageIdentifiers
 enum LanguageStrings
 {
 	{% for string in project.i18n.strings -%}
-	{{ string.id }},
+	STR_{{ string.id | toUpperSnakeCase }},
 	{% endfor %}
 };
 

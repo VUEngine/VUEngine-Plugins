@@ -259,7 +259,7 @@ StageROMSpec AUTO_PAUSE_SELECTION_SCREEN_STAGE_ST =
 		(TextureSpec**)NULL,
 
 		// background sounds
-		NULL,
+		(Sound**)NULL,
 	},
 
 	// entities
