@@ -32,6 +32,7 @@
 #include <InverseBox.h>
 #include <PlatformerLevelState.h>
 #include <PlatformerCameraMovementManager.h>
+#include <macros.h>
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -180,8 +181,8 @@ bool PlatformerCameraTriggerEntity::enterCollision(const CollisionInformation* c
 
 	switch(SpatialObject::getInGameType(collidingObject))
 	{
-
-		case kNoType + 1:
+		// TODO: pass in type from outside
+		case kTypeHero:
 			{
 				if(collisionInformation->solutionVector.direction.y)
 				{

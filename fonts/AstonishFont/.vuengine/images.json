@@ -1,6 +1,9 @@
 {
 	"folders": {
-		"assets/images": {
+		"AstonishFont": {
+			"template": "font"
+		},
+		"AstonishFontShadow": {
 			"template": "font"
 		}
 	}

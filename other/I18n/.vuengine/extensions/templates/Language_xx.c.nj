@@ -2,48 +2,54 @@
 
 
 //---------------------------------------------------------------------------------------------------------
+// IMPORTANT: Ensure that this file is encoded in Windows-1252 to make use of the full
+//            character set including special characters of European languages.
+//---------------------------------------------------------------------------------------------------------
+
+//---------------------------------------------------------------------------------------------------------
 //												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
 #include <I18n.h>
-{% if project.i18n.languages[loopKey].flag %}
+{% if currentItem.flag %}
 
 //---------------------------------------------------------------------------------------------------------
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern EntitySpec {{ project.i18n.languages[loopKey].flag }};
+extern EntitySpec {{ currentItem.flag }};
 {% endif %}
 
 //---------------------------------------------------------------------------------------------------------
 //												DEFINITIONS
 //---------------------------------------------------------------------------------------------------------
 
-/*
- * IMPORTANT: Ensure that this file is encoded in Windows-1252 or ISO-8859-1 ("ANSI") to make use
- * of the full extended ASCII character set including special characters of European languages.
- */
-
-const char* const LANGUAGE_{{ loopKey }}_STRINGS[] =
+const char* const LANGUAGE_{{ currentItem.id }}_STRINGS[] =
 {
-	{% for key, value in project.i18n.strings -%}
-	/* {{ key }}: */
+	{% for string in project.i18n.strings -%}
+	/* STR_{{ string.id | toUpperSnakeCase }}: */
+	{% set trans = "" -%}
+	{% for translation in string.translations -%}
+		{% if translation.language == currentItem.id -%}
+			{% set trans = translation.translation -%}
+		{% endif -%}
+	{% endfor -%}
 	{# TODO: the filters below are ugly -#}
-	"{{ value[loopKey] | replace('\n', '\\n') | replace('\"', '\\"') | safe }}",
+	"{{ trans | replace('\n', '\\n') | replace('\"', '\\"') | safe }}",
 	{% endfor %}
 };
 
-const LangROMSpec LANGUAGE_{{ loopKey }} =
+const LangROMSpec LANGUAGE_{{ currentItem.id }} =
 {
 	// language name
-	"{{ project.i18n.languages[loopKey].name }}",
+	"{{ currentItem.name }}",
 
 	// flag entity
-	{% if project.i18n.languages[loopKey].flag -%}
-	&{{ project.i18n.languages[loopKey].flag }},
+	{% if currentItem.flag -%}
+	&{{ currentItem.flag }},
 	{% else -%}
 	NULL,
 	{% endif %}
 	// strings
-	(const char**)LANGUAGE_{{ loopKey }}_STRINGS
+	(const char**)LANGUAGE_{{ currentItem.id }}_STRINGS
 };

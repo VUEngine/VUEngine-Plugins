@@ -40,8 +40,8 @@
 				"config": "i18n",
 				"path": "project.i18n.languages"
 			},
-			"target": "/assets/languages/Language_{loopKey}.c",
-			"encoding": "latin1"
+			"target": "/assets/languages/Language_{id}.c",
+			"encoding": "win1252"
 		}
 	],
 	"i18n": [

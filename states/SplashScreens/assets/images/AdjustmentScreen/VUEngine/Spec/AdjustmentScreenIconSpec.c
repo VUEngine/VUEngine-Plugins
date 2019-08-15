@@ -171,7 +171,7 @@ EntityROMSpec ADJUSTMENT_SCREEN_ICON_L_EN =
 	{0, 0, 0},
 
 	// gameworld's character's type
-	kNoType,
+	kTypeNone,
 
 	// physical specification
 	(PhysicalSpecification*)NULL,
@@ -196,7 +196,7 @@ EntityROMSpec ADJUSTMENT_SCREEN_ICON_R_EN =
 	{0, 0, 0},
 
 	// gameworld's character's type
-	kNoType,
+	kTypeNone,
 
 	// physical specification
 	(PhysicalSpecification*)NULL,

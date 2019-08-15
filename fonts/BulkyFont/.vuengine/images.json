@@ -1,6 +1,9 @@
 {
 	"folders": {
-		"assets/images": {
+		"BulkyFont": {
+			"template": "font"
+		},
+		"BulkyFontShadow": {
 			"template": "font"
 		}
 	}

@@ -1,0 +1,22 @@
+[
+	{
+		"name": "Industrial",
+		"image": "IndustrialFont/IndustrialFont",
+		"offset": 0,
+		"characterCount": 128,
+		"size": {
+			"x": 1,
+			"y": 1
+		}
+	},
+	{
+		"name": "IndustrialExt",
+		"image": "IndustrialFont/IndustrialFont",
+		"offset": 0,
+		"characterCount": 256,
+		"size": {
+			"x": 1,
+			"y": 1
+		}
+	}
+]
