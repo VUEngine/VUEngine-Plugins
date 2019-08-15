@@ -57,7 +57,7 @@ void PlatformerCameraMovementManager::constructor()
 
 	this->camera = Camera::getInstance();
 
-	PlatformerCameraMovementManager::configure(this, NULL, kNoLayer, kNoLayer, (PixelSize){8 * 8, 8 * 8, 8 * 8}, Vector3D::zero(), Vector3D::zero());
+	PlatformerCameraMovementManager::configure(this, NULL, kLayerNone, kLayerNone, (PixelSize){8 * 8, 8 * 8, 8 * 8}, Vector3D::zero(), Vector3D::zero());
 
 	NM_ASSERT(this->camera, "PlatformerCameraMovementManager::constructor: null this->camera");
 }
@@ -339,7 +339,7 @@ void PlatformerCameraMovementManager::configure(Entity focusEntity, u32 focusEnt
 		~(focusEntityLayer),
 	};
 
-	this->platformerCameraTriggerEntityShapesSpec[1] = (ShapeSpec) {NULL, {0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0}, {0, 0, 0}, false, kNoLayer, kNoLayer};
+	this->platformerCameraTriggerEntityShapesSpec[1] = (ShapeSpec) {NULL, {0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0}, {0, 0, 0}, false, kLayerNone, kLayerNone};
 
 	this->platformerCameraTriggerEntitySpec = (PlatformerCameraTriggerEntitySpec)
 	{
@@ -360,7 +360,7 @@ void PlatformerCameraMovementManager::configure(Entity focusEntity, u32 focusEnt
 		{0, 0, 0},
 
 		// gameworld's character's type
-		!isDeleted(focusEntity) ? Entity::getInGameType(focusEntity) : kNoType,
+		!isDeleted(focusEntity) ? Entity::getInGameType(focusEntity) : kTypeNone,
 
 		// physical specification
 		(PhysicalSpecification*)NULL,

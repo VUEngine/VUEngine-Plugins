@@ -73,7 +73,7 @@ void PrecautionScreenState::enter(void* owner)
 
 	// show this screen for at least 2 seconds
 	// as defined by Nintendo in the official development manual (Appendix 1)
-	MessageDispatcher::dispatchMessage(2000, Object::safeCast(this), Object::safeCast(Game::getInstance()), kScreenAllowUserInput, NULL);
+	MessageDispatcher::dispatchMessage(2000, Object::safeCast(this), Object::safeCast(Game::getInstance()), kMessageAllowUserInput, NULL);
 }
 
 // state's handle message
@@ -81,7 +81,7 @@ bool PrecautionScreenState::processMessage(void* owner __attribute__ ((unused)),
 {
 	switch(Telegram::getMessage(telegram))
 	{
-		case kScreenAllowUserInput:
+		case kMessageAllowUserInput:
 			Game::enableKeypad(Game::getInstance());
 			break;
 	}
