@@ -48,7 +48,7 @@
 
 enum I18nEvents
 {
-	kEventLanguageChanged = kLastEngineEvent + 1
+	kEventLanguageChanged = kEventEngineLast + 1
 };
 
 
