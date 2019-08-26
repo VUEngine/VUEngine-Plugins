@@ -1,3 +1,6 @@
 {
+	"app.i18n.title": "Übersetzungen",
+	"app.translations.title": "Übersetzungen",
+	"app.languages.title": "Sprachen",
 	"views.project.menu.i18n.label": "Übersetzungen"
 }

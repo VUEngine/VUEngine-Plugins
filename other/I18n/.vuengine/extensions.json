@@ -4,7 +4,7 @@
 			{
 				"id": "i18n",
 				"label": "views.project.menu.i18n.label",
-				"type": "configFile",
+				"type": "app",
 				"icon": {
 					"dark": "extensions/icon/dark/language.png",
 					"light": "extensions/icon/light/language.png"
@@ -12,6 +12,30 @@
 				"value": "i18n"
 			}
 		]
+	},
+	"apps": {
+		"i18n": {
+			"title": "app.i18n.title",
+			"icon": {
+				"dark": "extensions/icon/dark/language.png",
+				"light": "extensions/icon/light/language.png"
+			},
+			"config": [
+				"i18n"
+			],
+			"components": {
+				"languages": "extensions/app/appLanguages.vue",
+				"translations": "extensions/app/appTranslations.vue"
+			},
+			"tabs": {
+				"languages": {
+					"title": "app.languages.title"
+				},
+				"translations": {
+					"title": "app.translations.title"
+				}
+			}
+		}
 	},
 	"config": {
 		"i18n": "extensions/config/i18n.json"

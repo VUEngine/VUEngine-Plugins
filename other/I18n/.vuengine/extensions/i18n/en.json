@@ -1,3 +1,6 @@
 {
+	"app.i18n.title": "Translations",
+	"app.translations.title": "Translations",
+	"app.languages.title": "Languages",
 	"views.project.menu.i18n.label": "Translations"
 }
