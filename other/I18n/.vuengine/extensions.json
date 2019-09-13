@@ -16,6 +16,7 @@
 	"apps": {
 		"i18n": {
 			"title": "app.i18n.title",
+			"titleIcon": "translate",
 			"icon": {
 				"dark": "extensions/icon/dark/language.png",
 				"light": "extensions/icon/light/language.png"
@@ -27,14 +28,16 @@
 				"languages": "extensions/app/appLanguages.vue",
 				"translations": "extensions/app/appTranslations.vue"
 			},
-			"tabs": {
-				"languages": {
-					"title": "app.languages.title"
+			"tabs": [
+				{
+					"title": "app.languages.title",
+					"component": "languages"
 				},
-				"translations": {
-					"title": "app.translations.title"
+				{
+					"title": "app.translations.title",
+					"component": "translations"
 				}
-			}
+			]
 		}
 	},
 	"config": {
