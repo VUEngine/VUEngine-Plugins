@@ -6,8 +6,8 @@
 				"label": "views.project.menu.i18n.label",
 				"type": "app",
 				"icon": {
-					"dark": "extensions/icon/dark/language.png",
-					"light": "extensions/icon/light/language.png"
+					"dark": "extensions/icon/dark/i18n.png",
+					"light": "extensions/icon/light/i18n.png"
 				},
 				"value": "i18n"
 			}
@@ -18,8 +18,8 @@
 			"title": "app.i18n.title",
 			"titleIcon": "translate",
 			"icon": {
-				"dark": "extensions/icon/dark/language.png",
-				"light": "extensions/icon/light/language.png"
+				"dark": "extensions/icon/dark/i18n.png",
+				"light": "extensions/icon/light/i18n.png"
 			},
 			"config": [
 				"i18n"

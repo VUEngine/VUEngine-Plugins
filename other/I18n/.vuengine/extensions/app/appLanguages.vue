@@ -9,12 +9,13 @@
 
 		<v-row>
 			<v-col>
-				
+
 				<s-data-table
 					:data.sync="data.config.project.i18n.languages"
 					:compare="data.lastSavedConfig.project.i18n.languages"
 					:i18n="i18n"
 					:fields="fields"
+					draggable=true
 				></s-data-table>
 
 			</v-col>
