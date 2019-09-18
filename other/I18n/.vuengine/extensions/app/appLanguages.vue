@@ -3,12 +3,6 @@
 
 		<v-row>
 			<v-col>
-				First language is the default one.
-			</v-col>
-		</v-row>
-
-		<v-row>
-			<v-col>
 
 				<s-data-table
 					:data.sync="data.config.project.i18n.languages"
@@ -16,6 +10,7 @@
 					:i18n="i18n"
 					:fields="fields"
 					draggable=true
+					label="First language is the default one."
 				></s-data-table>
 
 			</v-col>
