@@ -40,7 +40,42 @@
 					key: 'flag'
 				},
 			]
-		})
+		}),
+		methods: {
+			onDataChanged() {
+				let filteredStrings = [];
+
+				for (let string of this.data.config.project.i18n.strings) {
+					let filteredString = {
+						"id": string.id,
+						"translations": []
+					};
+					for (let language of this.data.config.project.i18n.languages) {
+						let filteredTranslation = {
+							language: language.id,
+							translation: ''
+						}
+						for (let translation of string.translations) {
+							if (translation.language == language.id) {
+								filteredTranslation.translation = translation.translation
+							}
+						}
+						filteredString.translations.push(filteredTranslation)
+					}
+					filteredStrings.push(filteredString);
+				}
+
+				this.data.config.project.i18n.strings = filteredStrings
+			}
+		},
+		watch: {
+			'data.config.project.i18n.languages': {
+				handler: function (val, oldVal) {
+					this.onDataChanged();
+				},
+				deep: true
+			}
+		}
 	}
 </script>
 

@@ -38,12 +38,15 @@
 					type: 'array',
 					items: [
 						{
-							text: 'EN',
-							value: 'en'
+							label: 'Language',
+							key: 'language',
+							type: 'text',
+							editable: false
 						},
 						{
-							text: 'DE',
-							value: 'de'
+							label: 'Translations',
+							key: 'translation',
+							type: 'text'
 						}
 					]
 				},
