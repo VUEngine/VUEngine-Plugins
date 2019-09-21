@@ -5,8 +5,8 @@
 			<v-col>
 
 				<s-data-table
-					:data.sync="data.config.project.i18n.languages"
-					:compare="data.lastSavedConfig.project.i18n.languages"
+					:data.sync="data.data.config.project.i18n.languages"
+					:compare="data.lastSavedData.config.project.i18n.languages"
 					:i18n="i18n"
 					:fields="fields"
 					draggable=true
@@ -50,12 +50,12 @@
 
 				// get a sorted list of languages so the order of translations under "strings" won't depend on the order of languages
 				let languages = []
-				for (let language of this.data.config.project.i18n.languages) {
+				for (let language of this.data.data.config.project.i18n.languages) {
 					languages.push(language.id)
 				}
 				languages.sort()
 
-				for (let string of this.data.config.project.i18n.strings) {
+				for (let string of this.data.data.config.project.i18n.strings) {
 					let filteredString = {
 						"id": string.id,
 						"translations": []
@@ -75,11 +75,11 @@
 					filteredStrings.push(filteredString);
 				}
 
-				this.data.config.project.i18n.strings = filteredStrings
+				this.data.data.config.project.i18n.strings = filteredStrings
 			}
 		},
 		watch: {
-			'data.config.project.i18n.languages': {
+			'data.data.config.project.i18n.languages': {
 				handler: function (val, oldVal) {
 					this.onDataChanged();
 				},

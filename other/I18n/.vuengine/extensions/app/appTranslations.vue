@@ -5,8 +5,8 @@
 			<v-col>
 
 				<s-data-table
-					:data.sync="data.config.project.i18n.strings"
-					:compare="data.lastSavedConfig.project.i18n.strings"
+					:data.sync="data.data.config.project.i18n.strings"
+					:compare="data.lastSavedData.config.project.i18n.strings"
 					:i18n="i18n"
 					:fields="fields"
 					sort-by="id"

@@ -17,13 +17,16 @@
 		"i18n": {
 			"title": "app.i18n.title",
 			"titleIcon": "translate",
+			"data": [{
+				"type": "config",
+				"items": [
+					"i18n"
+				]
+			}], 
 			"icon": {
 				"dark": "extensions/icon/dark/i18n.png",
 				"light": "extensions/icon/light/i18n.png"
 			},
-			"config": [
-				"i18n"
-			],
 			"components": {
 				"languages": "extensions/app/appLanguages.vue",
 				"translations": "extensions/app/appTranslations.vue"
