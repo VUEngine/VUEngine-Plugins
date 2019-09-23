@@ -103,7 +103,7 @@ static Vector3D SteeringBehavior::clampForce(Vector3D force, fix10_6 maximumForc
 
 		if(squaredForceMagnitude > __FIX10_6_EXT_MULT(maximumForce, maximumForce))
 		{
-			fix10_6 forceMagnitude = __F_TO_FIX10_6(Math_squareRoot(__FIX10_6_EXT_TO_F(squaredForceMagnitude)));
+			fix10_6 forceMagnitude = __F_TO_FIX10_6(Math::squareRoot(__FIX10_6_EXT_TO_F(squaredForceMagnitude)));
 
 			if(forceMagnitude)
 			{
@@ -225,8 +225,8 @@ static bool SteeringBehavior::accumulateForce(fix10_6 maximumForce, Vector3D *to
 	}		
 	else if(squareMagnitudeToAdd)
 	{
-		fix10_6 magnitudeToAdd = __F_TO_FIX10_6(Math_squareRoot(__FIX10_6_EXT_TO_F(squareMagnitudeToAdd)));
-		fix10_6 magnitudeSoFar = __F_TO_FIX10_6(Math_squareRoot(__FIX10_6_EXT_TO_F(squareMagnitudeSoFar)));
+		fix10_6 magnitudeToAdd = __F_TO_FIX10_6(Math::squareRoot(__FIX10_6_EXT_TO_F(squareMagnitudeToAdd)));
+		fix10_6 magnitudeSoFar = __F_TO_FIX10_6(Math::squareRoot(__FIX10_6_EXT_TO_F(squareMagnitudeSoFar)));
 	
 		//calculate how much steering force remains to be used by this vehicle
 		fix10_6 magnitudeRemaining = maximumForce - magnitudeSoFar;
