@@ -5,9 +5,7 @@
 			<v-col>
 
 				<s-data-table
-					:data.sync="data.data.config.project.i18n.languages"
-					:compare="data.lastSavedData.config.project.i18n.languages"
-					:i18n="i18n"
+					data="config.project.i18n.languages"
 					:fields="fields"
 					draggable=true
 					label="First language is the default one."
@@ -21,10 +19,6 @@
 
 <script>
 	module.exports = {
-		props: [
-			'data',
-			'i18n'
-		],
 		data: () => ({
 			fields: [
 				{
