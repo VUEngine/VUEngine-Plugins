@@ -6,8 +6,8 @@
 				"label": "views.project.menu.i18n.label",
 				"type": "app",
 				"icon": {
-					"dark": "extensions/icon/dark/i18n.png",
-					"light": "extensions/icon/light/i18n.png"
+					"dark": "extensions/icon/dark/translate.svg",
+					"light": "extensions/icon/light/translate.svg"
 				},
 				"value": "i18n"
 			}
@@ -22,10 +22,10 @@
 				"items": [
 					"i18n"
 				]
-			}], 
+			}],
 			"icon": {
-				"dark": "extensions/icon/dark/i18n.png",
-				"light": "extensions/icon/light/i18n.png"
+				"dark": "extensions/icon/dark/translate.svg",
+				"light": "extensions/icon/light/translate.svg"
 			},
 			"components": {
 				"languages": "extensions/app/appLanguages.vue",
