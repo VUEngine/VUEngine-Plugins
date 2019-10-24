@@ -278,3 +278,8 @@ void SteeringBehavior::reset()
 	this->maximumForce = this->steeringBehaviorSpec->maximumForce;
 	this->deviation = this->steeringBehaviorSpec->deviation;
 }
+
+const SteeringBehaviorSpec* SteeringBehavior::getSpec()
+{
+	return this->steeringBehaviorSpec;
+}
