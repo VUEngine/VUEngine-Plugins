@@ -142,7 +142,7 @@ Vector3D AvoidSteeringBehavior::awayFromObstacles(Vehicle vehicle)
 	{
 		Obstacle* obstacle = (Obstacle*)node->data;
 
-		Vector3D vectorVehicleObstacle = Vector3D::get(position, *obstacle->position);
+		Vector3D vectorVehicleObstacle = Vector3D::get(*obstacle->position, position);
 		fix10_6 squareDistance = __FIX10_6_EXT_TO_FIX10_6(Vector3D::squareLength(vectorVehicleObstacle));
 		
 //		if(__FIX7_9_TO_FIX10_6(-__ABS(__COS(this->avoidSteeringBehaviorSpec->maximumAngle))) < dotProduct && distance < this->avoidSteeringBehaviorSpec->avoidanceDetectionDistance)
@@ -170,17 +170,14 @@ Vector3D AvoidSteeringBehavior::awayFromObstacles(Vehicle vehicle)
 
 			Vector3D desiredDirection = squareDistance2 < squareDistance1 ? desiredDirection2 : desiredDirection1;
 
-			if(0 == squareDistance)
-			{
-				desiredVelocity = Vector3D::sum(desiredVelocity, Vector3D::scalarProduct(desiredDirection, squareMaximumForce));
-			}
-			else
-			{
-				desiredVelocity = Vector3D::sum(desiredVelocity, Vector3D::scalarProduct(desiredDirection, __FIX10_6_DIV(squareMaximumForce, squareDistance)));
-			}
-//			fix10_6 dotProduct = Vector3D::dotProduct(Vector3D::normalize(vectorVehicleObstacle), direction);
-//			desiredVelocity = Vector3D::sum(desiredVelocity, Vector3D::scalarProduct(desiredDirection, __FIX10_6_MULT(dotProduct, __FIX10_6_DIV(squareMaximumForce, squareDistance))));
+			fix10_6 factor = squareMaximumForce;
 
+			if(0 != squareDistance)
+			{
+				factor = __FIX10_6_DIV(factor, squareDistance);
+			}
+
+			desiredVelocity = Vector3D::sum(desiredVelocity, Vector3D::scalarProduct(desiredDirection, factor));
 		}
 	}
 
