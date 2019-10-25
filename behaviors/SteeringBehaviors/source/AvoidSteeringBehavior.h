@@ -76,11 +76,13 @@ class AvoidSteeringBehavior : SteeringBehavior
 	Force force;
 	VirtualList obstacles;
 	const AvoidSteeringBehaviorSpec* avoidSteeringBehaviorSpec;
+	bool isBraking;
 
 	void constructor(const AvoidSteeringBehaviorSpec* seekSteeringBehaviorSpec);
 
 	void addObstacle(SpatialObject spatialObject);
 	void removeAllObstacles();
+	bool isBraking();
 	VirtualList getObstacles();
 	fix10_6 getAvoidanceDetectionDistance();
 	Vector3D getForce();

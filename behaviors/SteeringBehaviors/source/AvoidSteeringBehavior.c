@@ -56,6 +56,7 @@ void AvoidSteeringBehavior::constructor(const AvoidSteeringBehaviorSpec* avoidSt
 	this->obstacles = new VirtualList();
 	this->avoidSteeringBehaviorSpec = avoidSteeringBehaviorSpec;
 	this->force = Vector3D::zero();
+	this->isBraking = false;
 }
 
 /**
@@ -112,6 +113,8 @@ void AvoidSteeringBehavior::addObstacle(SpatialObject spatialObject)
 
 Vector3D AvoidSteeringBehavior::calculate(Vehicle owner)
 {
+	this->isBraking = false;
+
 	if(isDeleted(owner))
 	{
 		this->enabled = false;
@@ -183,6 +186,8 @@ Vector3D AvoidSteeringBehavior::awayFromObstacles(Vehicle vehicle)
 
 			if(this->avoidSteeringBehaviorSpec->brakingMinimumAngleCos < dotProduct)
 			{
+				this->isBraking = true;
+
 				factor = __FIX10_6_MULT(__ABS(Vehicle::getSpeed(vehicle) - Vehicle::getSpeed(obstacle->spatialObject)), factor);
 				Direction3D reverseDirection = Vector3D::scalarProduct(direction, -(__FIX10_6_MULT(factor, dotProduct)));
 				desiredVelocity = Vector3D::sum(desiredVelocity, reverseDirection);
@@ -198,4 +203,9 @@ Vector3D AvoidSteeringBehavior::awayFromObstacles(Vehicle vehicle)
 Vector3D AvoidSteeringBehavior::getForce()
 {
 	return this->enabled ? this->force : Vector3D::zero();
+}
+
+bool AvoidSteeringBehavior::isBraking()
+{
+	return this->isBraking;
 }
