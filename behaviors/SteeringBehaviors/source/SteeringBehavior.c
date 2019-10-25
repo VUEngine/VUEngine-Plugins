@@ -279,7 +279,7 @@ void SteeringBehavior::reset()
 	this->deviation = this->steeringBehaviorSpec->deviation;
 }
 
-const SteeringBehaviorSpec* SteeringBehavior::getSpec()
+const SteeringBehaviorSpec* SteeringBehavior::getSteeringBehaviorSpec()
 {
 	return this->steeringBehaviorSpec;
 }

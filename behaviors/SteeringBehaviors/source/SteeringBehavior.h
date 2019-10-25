@@ -95,7 +95,7 @@ class SteeringBehavior : Behavior
 	fix10_6 getMaximumForce();
 	void setMaximumForce(fix10_6 value);
 	void reset();
-	const SteeringBehaviorSpec* getSpec();
+	const SteeringBehaviorSpec* getSteeringBehaviorSpec();
 
 	virtual Vector3D calculate(Vehicle owner) = 0;
 }
