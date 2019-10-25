@@ -139,7 +139,7 @@ Vector3D AvoidSteeringBehavior::awayFromObstacles(Vehicle vehicle)
 	Direction3D direction = Vehicle::getDirection3D(vehicle);
 
 	fix10_6 squareAvoidanceDetectionDistance = __FIX10_6_MULT(this->avoidSteeringBehaviorSpec->avoidanceDetectionDistance, this->avoidSteeringBehaviorSpec->avoidanceDetectionDistance);
-	fix10_6 squareMaximumForce = __FIX10_6_MULT(this->maximumForce, this->maximumForce);
+	fix10_6_ext squareMaximumForce = __FIX10_6_EXT_MULT(this->maximumForce, this->maximumForce);
 
 	for(; node; node = node->next)
 	{
@@ -173,11 +173,11 @@ Vector3D AvoidSteeringBehavior::awayFromObstacles(Vehicle vehicle)
 
 			Vector3D desiredDirection = squareDistance2 < squareDistance1 ? desiredDirection2 : desiredDirection1;
 
-			fix10_6 factor = squareMaximumForce;
+			fix10_6_ext factor = squareMaximumForce;
 
 			if(0 != squareDistance)
 			{
-				factor = __FIX10_6_DIV(factor, squareDistance);
+				factor = __FIX10_6_EXT_DIV(factor, squareDistance);
 			}
 
 			desiredVelocity = Vector3D::sum(desiredVelocity, Vector3D::scalarProduct(desiredDirection, factor));
@@ -188,7 +188,7 @@ Vector3D AvoidSteeringBehavior::awayFromObstacles(Vehicle vehicle)
 			{
 				this->isBraking = true;
 
-				factor = __FIX10_6_MULT(__ABS(Vehicle::getSpeed(vehicle) - Vehicle::getSpeed(obstacle->spatialObject)), factor);
+				factor = __FIX10_6_EXT_MULT(__ABS(Vehicle::getSpeed(vehicle) - Vehicle::getSpeed(obstacle->spatialObject)), factor);
 				Direction3D reverseDirection = Vector3D::scalarProduct(direction, -(__FIX10_6_MULT(factor, dotProduct)));
 				desiredVelocity = Vector3D::sum(desiredVelocity, reverseDirection);
 			}
@@ -207,5 +207,5 @@ Vector3D AvoidSteeringBehavior::getForce()
 
 bool AvoidSteeringBehavior::isBraking()
 {
-	return this->isBraking;
+	return this->isBraking && this->enabled;
 }
