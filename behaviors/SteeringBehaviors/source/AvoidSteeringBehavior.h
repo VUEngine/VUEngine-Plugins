@@ -46,6 +46,9 @@ typedef struct AvoidSteeringBehaviorSpec
 	/// Avoidance check distance modification percentage
 	fix10_6 avoidanceDetectionDistance;
 
+	/// Minimum angle's cos to start braking
+	fix10_6 brakingMinimumAngleCos;
+
 } AvoidSteeringBehaviorSpec;
 
 typedef const AvoidSteeringBehaviorSpec AvoidSteeringBehaviorROMSpec;

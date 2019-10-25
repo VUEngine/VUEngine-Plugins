@@ -142,7 +142,7 @@ Vector3D AvoidSteeringBehavior::awayFromObstacles(Vehicle vehicle)
 	{
 		Obstacle* obstacle = (Obstacle*)node->data;
 
-		Vector3D vectorVehicleObstacle = Vector3D::get(*obstacle->position, position);
+		Vector3D vectorVehicleObstacle = Vector3D::get(position, *obstacle->position);
 		fix10_6 squareDistance = __FIX10_6_EXT_TO_FIX10_6(Vector3D::squareLength(vectorVehicleObstacle));
 		
 //		if(__FIX7_9_TO_FIX10_6(-__ABS(__COS(this->avoidSteeringBehaviorSpec->maximumAngle))) < dotProduct && distance < this->avoidSteeringBehaviorSpec->avoidanceDetectionDistance)
@@ -178,6 +178,15 @@ Vector3D AvoidSteeringBehavior::awayFromObstacles(Vehicle vehicle)
 			}
 
 			desiredVelocity = Vector3D::sum(desiredVelocity, Vector3D::scalarProduct(desiredDirection, factor));
+
+			fix10_6 dotProduct = Vector3D::dotProduct(direction, Vector3D::normalize(vectorVehicleObstacle));
+
+			if(this->avoidSteeringBehaviorSpec->brakingMinimumAngleCos < dotProduct)
+			{
+				//factor = __FIX10_6_MULT(__ABS(Vehicle::getSpeedSquare(vehicle) - SpatialObject::getSpeedSquare(obstacle->spatialObject)), factor);
+				Direction3D reverseDirection = Vector3D::scalarProduct(direction, -(__FIX10_6_MULT(factor, dotProduct)));
+				desiredVelocity = Vector3D::sum(desiredVelocity, reverseDirection);
+			}
 		}
 	}
 
