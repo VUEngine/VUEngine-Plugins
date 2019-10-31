@@ -109,17 +109,20 @@ static Vector3D SeekSteeringBehavior::toTarget(SeekSteeringBehavior seekSteering
 {
 	fix10_6_ext squareDistanceToReference = Vector3D::squareLength(Vector3D::get(target, *Vehicle::getReferencePosition(vehicle)));
 
-	if(!squareDistanceToReference || squareDistanceToReference < __FIX10_6_EXT_MULT(reachedDistanceThreshold, reachedDistanceThreshold))
+	if(0 <= reachedDistanceThreshold)
 	{
-		if(!seekSteeringBehavior->reachedTarget)
+		if(!squareDistanceToReference || squareDistanceToReference < __FIX10_6_EXT_MULT(reachedDistanceThreshold, reachedDistanceThreshold))
 		{
-			seekSteeringBehavior->reachedTarget = true;
-			SeekSteeringBehavior::fireEvent(seekSteeringBehavior, kTargetReached);
+			if(!seekSteeringBehavior->reachedTarget)
+			{
+				seekSteeringBehavior->reachedTarget = true;
+				SeekSteeringBehavior::fireEvent(seekSteeringBehavior, kTargetReached);
+			}
+
+			return Vector3D::zero();
 		}
-
-		return Vector3D::zero();
 	}
-
+	
 	Vector3D trajectory = Vector3D::get(*Vehicle::getPosition(vehicle), target);
 	fix10_6 length = Vector3D::length(trajectory);
 
