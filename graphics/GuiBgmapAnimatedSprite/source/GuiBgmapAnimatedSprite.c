@@ -44,9 +44,9 @@ void GuiBgmapAnimatedSprite::destructor()
 	Base::destructor();
 }
 
-void GuiBgmapAnimatedSprite::render(bool evenFrame, const PixelVector* displacement)
+void GuiBgmapAnimatedSprite::render(const PixelVector* displacement)
 {
-	Base::render(this, evenFrame, displacement);
+	Base::render(this, displacement);
 
 	if(!this->positioned)
 	{

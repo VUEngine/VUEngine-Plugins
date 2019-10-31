@@ -59,7 +59,7 @@ class GuiBgmapAnimatedSprite : BgmapAnimatedSprite
      *
      * @param evenFrame
      */
-	override void render(bool evenFrame, const PixelVector* displacement);
+	override void render(const PixelVector* displacement);
 }
 
 
