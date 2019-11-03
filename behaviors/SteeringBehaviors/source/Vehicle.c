@@ -149,29 +149,26 @@ const Vector3D* Vehicle::getReferencePosition()
 
 void Vehicle::updateForce()
 {
-	if(this->steeringBehaviors)
+	bool computeForce = 0 > this->evenCycle;
+	
+	if(!computeForce)
 	{
-		bool computeForce = 0 > this->evenCycle;
-		
-		if(!computeForce)
-		{
-			u16 modulo = __MODULO(this->evenCycle, 2);
-			computeForce = 1 == modulo;
-			this->evenCycle = !modulo;
-		}
-
-		if(computeForce)
-		{
-			this->steeringForce = SteeringBehavior::calculateForce(this);
-		}
-
-		Force totalForce = Vector3D::sum(this->accumulatedForce, this->steeringForce);
-
-		Base::addForce(this, &totalForce, this->checkIfCanMove);
-
-		this->accumulatedForce = Vector3D::zero();
-		this->checkIfCanMove = false;
+		u16 modulo = __MODULO(this->evenCycle, 2);
+		computeForce = 1 == modulo;
+		this->evenCycle = !modulo;
 	}
+
+	if(computeForce)
+	{
+		this->steeringForce = SteeringBehavior::calculateForce(this);
+	}
+
+	Force totalForce = Vector3D::sum(this->accumulatedForce, this->steeringForce);
+
+	Base::addForce(this, &totalForce, this->checkIfCanMove);
+
+	this->accumulatedForce = Vector3D::zero();
+	this->checkIfCanMove = false;
 }
 
 void Vehicle::update(u32 elapsedTime __attribute__((unused)))
