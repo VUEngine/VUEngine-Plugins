@@ -182,7 +182,7 @@ Vector3D AvoidSteeringBehavior::awayFromObstacles(Vehicle vehicle)
 			}
 
 			desiredVelocity = Vector3D::sum(desiredVelocity, Vector3D::scalarProduct(desiredDirection, __FIX10_6_EXT_MULT(dotProduct, factor)));
-			fix10_6 speedDifference = Vehicle::getSpeed(vehicle) - Vehicle::getSpeed(obstacle->spatialObject);
+			fix10_6 speedDifference = Vehicle::getSpeed(vehicle) - SpatialObject::getSpeed(obstacle->spatialObject);
 
 			if(0 < speedDifference && this->avoidSteeringBehaviorSpec->brakingMinimumAngleCos < dotProduct)
 			{
