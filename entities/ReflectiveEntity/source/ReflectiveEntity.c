@@ -524,8 +524,7 @@ void ReflectiveEntity::drawReflection(u32 currentDrawingFrameBufferSet,
 			{
 				u32 maskDisplacement = (BITS_PER_STEP - yOutputRemainder);
 				effectiveContentMask = 0xFFFFFFFF >> maskDisplacement;
-				// Don't know if needed
-				//effectiveContentMask &= ~(bottomBorderMask >> maskDisplacement);
+				effectiveContentMask &= ~(bottomBorderMask >> maskDisplacement);
 
 				if(!transparent)
 				{
@@ -538,6 +537,11 @@ void ReflectiveEntity::drawReflection(u32 currentDrawingFrameBufferSet,
 					remainderLeftValue |= (sourceCurrentValueLeft << pixelShift);
 					remainderRightValue |= (sourceCurrentValueRight << pixelShift);
 				}
+				else
+				{
+					remainderLeftValue |= (sourceNextValueLeft << (BITS_PER_STEP + pixelShift));
+					remainderRightValue |= (sourceNextValueRight << (BITS_PER_STEP + pixelShift));
+				}
 
 				remainderLeftValue &= reflectionMask;
 				remainderRightValue &= reflectionMask;
@@ -546,7 +550,7 @@ void ReflectiveEntity::drawReflection(u32 currentDrawingFrameBufferSet,
 				remainderRightValue |= appliedBackgroundMask & outputValueRight;
 
 				*columnOutputPointerLeft = (outputValueLeft & ~effectiveContentMask) | (remainderLeftValue & effectiveContentMask);
-				*columnOutputPointerRight = (outputValueRight & ~effectiveContentMask) | (remainderLeftValue & effectiveContentMask);
+				*columnOutputPointerRight = (outputValueLeft & ~effectiveContentMask) | (remainderLeftValue & effectiveContentMask);
 			}
 		}
 	}
@@ -688,6 +692,7 @@ void ReflectiveEntity::drawReflection(u32 currentDrawingFrameBufferSet,
 				}
 
 				remainderLeftValue &= reflectionMask;
+				remainderLeftValue |= appliedBackgroundMask & outputValueLeft;
 
 				*columnOutputPointerLeft = (outputValueLeft & ~effectiveContentMask) | (remainderLeftValue & effectiveContentMask);
 				*columnOutputPointerRight = (outputValueLeft & ~effectiveContentMask) | (remainderLeftValue & effectiveContentMask);
