@@ -187,8 +187,8 @@ void ReflectiveEntity::drawReflection(u32 currentDrawingFrameBufferSet,
 	bool flattenTop __attribute__ ((unused)), bool flattenBottom,
 	u32 topBorderMask,
 	u32 bottomBorderMask,
-	u32 leftBorderMask __attribute__ ((unused)),
-	u32 rightBorderMask __attribute__ ((unused)))
+	u32 leftBorderMask,
+	u32 rightBorderMask)
 {
     s16 xSourceEnd = xSourceStart + width;
     s16 ySourceEnd = ySourceStart + height;
@@ -375,12 +375,30 @@ void ReflectiveEntity::drawReflection(u32 currentDrawingFrameBufferSet,
 		this->waveLutIndex = 0;
 	}
 
+	u32 rightBorderSize = 0;
+	u32 temp = rightBorderMask;
+	
+	while(temp)
+	{
+		rightBorderSize++;
+		temp >>= 2;
+	}
+
 	int xCounter = xOutputStart - xOutputStartSave;
 
 	if(reflectParallax)
 	{
 		for(; xTotal--; xOutput += xOutputIncrement, xSource++, xCounter++)
 		{
+			u32 border = leftBorderMask ? 0xFFFFFFFF : 0;
+			leftBorderMask <<= 2;
+
+			if(!border && xTotal < rightBorderSize)
+			{
+				border = rightBorderMask ? 0xFFFFFFFF : 0;
+				rightBorderMask >= 2;
+			}
+
 			this->waveLutIndex += waveLutIndexIncrement;
 
 			if(this->waveLutIndex >= fixedNumberOfWaveLutEntries)
@@ -482,6 +500,8 @@ void ReflectiveEntity::drawReflection(u32 currentDrawingFrameBufferSet,
 				ReflectiveEntity::shiftPixels(pixelShift, &sourceCurrentValueLeft, sourceNextValueLeft, &remainderLeftValue, overallMask, reflectionMask);
 				ReflectiveEntity::shiftPixels(pixelShift, &sourceCurrentValueRight, sourceNextValueRight, &remainderRightValue, overallMask, reflectionMask);
 
+				sourceCurrentValueLeft &= ~border;
+				sourceCurrentValueRight &= ~border;
 				sourceCurrentValueLeft |= appliedBackgroundMask & outputValueLeft;
 				sourceCurrentValueRight |= appliedBackgroundMask & outputValueRight;
 				sourceCurrentValueLeft &= effectiveContentMask;
@@ -549,9 +569,8 @@ void ReflectiveEntity::drawReflection(u32 currentDrawingFrameBufferSet,
 				remainderLeftValue |= appliedBackgroundMask & outputValueLeft;
 				remainderRightValue |= appliedBackgroundMask & outputValueRight;
 
-
-				*columnOutputPointerLeft = (outputValueLeft & ~effectiveContentMask) | (remainderLeftValue & remainderContentMask);
-				*columnOutputPointerRight = (outputValueRight & ~effectiveContentMask) | (remainderRightValue & remainderContentMask);
+				*columnOutputPointerLeft = (outputValueLeft & ~effectiveContentMask) | (remainderLeftValue & remainderContentMask) & ~border;
+				*columnOutputPointerRight = (outputValueRight & ~effectiveContentMask) | (remainderRightValue & remainderContentMask) & ~border;
 			}
 			else
 			{
@@ -562,9 +581,17 @@ void ReflectiveEntity::drawReflection(u32 currentDrawingFrameBufferSet,
 	}
 	else
 	{
-		u32 aux = 0;
 		for(; xTotal--; xOutput += xOutputIncrement, xSource++, xCounter++)
 		{
+			u32 border = leftBorderMask ? 0xFFFFFFFF : 0;
+			leftBorderMask <<= 2;
+
+			if(!border && xTotal < rightBorderSize)
+			{
+				border = rightBorderMask ? 0xFFFFFFFF : 0;
+				rightBorderMask >= 2;
+			}
+
 			int leftColumn = xOutput;
 			int rightColumn = xOutput;
 
@@ -648,6 +675,7 @@ void ReflectiveEntity::drawReflection(u32 currentDrawingFrameBufferSet,
 			{
 				ReflectiveEntity::shiftPixels(pixelShift, &sourceCurrentValueLeft, sourceNextValueLeft, &remainderLeftValue, overallMask, reflectionMask);
 
+				sourceCurrentValueLeft &= ~border;
 				sourceCurrentValueLeft |= appliedBackgroundMask & outputValueLeft;
 				sourceCurrentValueLeft &= effectiveContentMask;
 				sourceCurrentValueLeft |= (outputValueLeft & effectiveBackgroundMask);
@@ -701,8 +729,8 @@ void ReflectiveEntity::drawReflection(u32 currentDrawingFrameBufferSet,
 				remainderLeftValue &= reflectionMask;
 				remainderLeftValue |= appliedBackgroundMask & outputValueLeft;
 
-				*columnOutputPointerLeft = (outputValueLeft & ~effectiveContentMask) | (remainderLeftValue & remainderContentMask);
-				*columnOutputPointerRight = (outputValueLeft & ~effectiveContentMask) | (remainderLeftValue & remainderContentMask);
+				*columnOutputPointerLeft = (outputValueLeft & ~effectiveContentMask) | (remainderLeftValue & remainderContentMask) & ~border;
+				*columnOutputPointerRight = (outputValueLeft & ~effectiveContentMask) | (remainderLeftValue & remainderContentMask) & ~border;
 			}
 			else
 			{
