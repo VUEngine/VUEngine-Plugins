@@ -194,6 +194,7 @@ void ReflectiveEntity::drawReflection(u32 currentDrawingFrameBufferSet,
     s16 ySourceEnd = ySourceStart + height;
 	s16 xOutputEnd = xOutputStart + width;
 	s16 yOutputEnd = yOutputStart + height;
+
 /*
     s16 xSourceStartTemp = xSourceStart;
     s16 ySourceStartTemp = ySourceStart;
@@ -258,6 +259,10 @@ void ReflectiveEntity::drawReflection(u32 currentDrawingFrameBufferSet,
 		xSourceStart += xClamping;
 		xOutputStart = _cameraFrustum->x0;
 	}
+	else if(xOutputStart >= _cameraFrustum->x1)
+	{
+		return;
+	}
 
 	if(xOutputEnd > _cameraFrustum->x1)
 	{
@@ -274,6 +279,10 @@ void ReflectiveEntity::drawReflection(u32 currentDrawingFrameBufferSet,
 
 		xOutputEnd = _cameraFrustum->x1 - 1;
 	}
+	else if(xOutputEnd <= _cameraFrustum->x0)
+	{
+		return;
+	}
 
 	// must clamp the output too, but moving the wave lut index accordingly
 	if(yOutputStart < _cameraFrustum->y0)
@@ -289,6 +298,10 @@ void ReflectiveEntity::drawReflection(u32 currentDrawingFrameBufferSet,
 
 		yOutputStart = _cameraFrustum->y0;
 	}
+	else if(yOutputStart >= _cameraFrustum->y1)
+	{
+		return;
+	}
 
 	if(yOutputEnd > _cameraFrustum->y1)
 	{
@@ -298,6 +311,10 @@ void ReflectiveEntity::drawReflection(u32 currentDrawingFrameBufferSet,
 		}
 
 		yOutputEnd = _cameraFrustum->y1;
+	}
+	else if(yOutputEnd <= _cameraFrustum->y0)
+	{
+		return;
 	}
 
 	int xSource = xSourceStart;
@@ -455,11 +472,10 @@ void ReflectiveEntity::drawReflection(u32 currentDrawingFrameBufferSet,
 			waveLutPixelDisplacement =  flattenBottom ? 0 : waveLutPixelDisplacement;
 
 			int yOutputRemainder = __MODULO((yOutputEnd + waveLutPixelDisplacement), Y_STEP_SIZE) << 1;
-
-			POINTER_TYPE remainderLeftValue = 0;
-			POINTER_TYPE remainderRightValue = 0;
-
 			int yOutputLimit = (yOutputEnd + waveLutPixelDisplacement) >> Y_STEP_SIZE_2_EXP;
+
+			POINTER_TYPE remainderLeftValue = yOutput >= yOutputLimit ? sourceCurrentValueLeft : 0;
+			POINTER_TYPE remainderRightValue = yOutput >= yOutputLimit ? sourceCurrentValueRight : 0;
 
 			for(; yOutput < yOutputLimit; yOutput++, ySource += ySourceIncrement)
 			{
@@ -507,8 +523,9 @@ void ReflectiveEntity::drawReflection(u32 currentDrawingFrameBufferSet,
 			if(yOutputRemainder)
 			{
 				u32 maskDisplacement = (BITS_PER_STEP - yOutputRemainder);
-				effectiveContentMask = 0xFFFFFFFF << maskDisplacement;
-				effectiveContentMask &= ~(bottomBorderMask >> maskDisplacement);
+				effectiveContentMask = 0xFFFFFFFF >> maskDisplacement;
+				// Don't know if needed
+				//effectiveContentMask &= ~(bottomBorderMask >> maskDisplacement);
 
 				if(!transparent)
 				{
@@ -528,8 +545,8 @@ void ReflectiveEntity::drawReflection(u32 currentDrawingFrameBufferSet,
 				remainderLeftValue |= appliedBackgroundMask & outputValueLeft;
 				remainderRightValue |= appliedBackgroundMask & outputValueRight;
 
-				*columnOutputPointerLeft = (outputValueLeft & effectiveContentMask) | (remainderLeftValue & ~effectiveContentMask);
-				*columnOutputPointerRight = (outputValueLeft & effectiveContentMask) | (remainderLeftValue & ~effectiveContentMask);
+				*columnOutputPointerLeft = (outputValueLeft & ~effectiveContentMask) | (remainderLeftValue & effectiveContentMask);
+				*columnOutputPointerRight = (outputValueRight & ~effectiveContentMask) | (remainderLeftValue & effectiveContentMask);
 			}
 		}
 	}
@@ -612,9 +629,9 @@ void ReflectiveEntity::drawReflection(u32 currentDrawingFrameBufferSet,
 
 			int yOutputRemainder = __MODULO((yOutputEnd + waveLutPixelDisplacement), Y_STEP_SIZE) << 1;
 
-			POINTER_TYPE remainderLeftValue = 0;
-
 			int yOutputLimit = (yOutputEnd + waveLutPixelDisplacement) >> Y_STEP_SIZE_2_EXP;
+
+			POINTER_TYPE remainderLeftValue = yOutput >= yOutputLimit ? sourceCurrentValueLeft : 0;
 
 			for(; yOutput < yOutputLimit; yOutput++, ySource += ySourceIncrement)
 			{
@@ -653,8 +670,9 @@ void ReflectiveEntity::drawReflection(u32 currentDrawingFrameBufferSet,
 			if(yOutputRemainder)
 			{
 				u32 maskDisplacement = (BITS_PER_STEP - yOutputRemainder);
-				effectiveContentMask = 0xFFFFFFFF << maskDisplacement;
-				effectiveContentMask &= ~(bottomBorderMask >> maskDisplacement);
+				effectiveContentMask = 0xFFFFFFFF >> maskDisplacement;
+				// Don't know if needed
+				//effectiveContentMask &= ~(bottomBorderMask >> maskDisplacement);
 
 				if(!transparent)
 				{
@@ -669,8 +687,8 @@ void ReflectiveEntity::drawReflection(u32 currentDrawingFrameBufferSet,
 				remainderLeftValue &= reflectionMask;
 				remainderLeftValue |= appliedBackgroundMask & outputValueLeft;
 
-				*columnOutputPointerLeft = (outputValueLeft & effectiveContentMask) | (remainderLeftValue & ~effectiveContentMask);
-				*columnOutputPointerRight = (outputValueLeft & effectiveContentMask) | (remainderLeftValue & ~effectiveContentMask);
+				*columnOutputPointerLeft = (outputValueLeft & ~effectiveContentMask) | (remainderLeftValue & effectiveContentMask);
+				*columnOutputPointerRight = (outputValueLeft & ~effectiveContentMask) | (remainderLeftValue & effectiveContentMask);
 			}
 		}
 	}
