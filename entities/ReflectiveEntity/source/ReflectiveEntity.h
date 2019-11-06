@@ -83,14 +83,8 @@ typedef struct ReflectiveEntitySpec
 	/// height of the reflection
 	u16 height;
 
-	/// mask to apply to the whole reflection
-	u32 overallMask;
-
 	/// mask to apply to the mirrored image
 	u32 reflectionMask;
-
-	/// mask to apply to the image behind the reflection
-	u32 backgroundMask;
 
 	/// transparent
 	bool transparent;
@@ -131,6 +125,9 @@ typedef struct ReflectiveEntitySpec
 
 	/// right border mask
 	u32 rightBorder;
+
+	/// Noise passes: higher values means less noise
+	s16 noisePasses;
 
 } ReflectiveEntitySpec;
 
@@ -190,9 +187,7 @@ class ReflectiveEntity : Entity
      * @param yOutputStart
      * @param width
      * @param height
-     * @param overallMask
      * @param reflectionMask
-     * @param backgroundMask
      * @param axisForReversing
      * @param transparent
      * @param reflectParallax
@@ -206,8 +201,9 @@ class ReflectiveEntity : Entity
      * @param bottomBorderMask
      * @param leftBorderMask
      * @param rightBorderMask
+     * @param noisePasses
      */
-	virtual void drawReflection(u32 currentDrawingFrameBufferSet, s16 xSourceStart, s16 ySourceStart, s16 xOutputStart, s16 yOutputStart, s16 width, s16 height, u32 overallMask, u32 reflectionMask, u32 backgroundMask, u16 axisForReversing, bool transparent, bool reflectParallax, s16 parallaxDisplacement, const u8 waveLut[], int numberOfWaveLutEntries, fix10_6 waveLutThrottleFactor, bool flattenTop, bool flattenBottom, u32 topBorderMask, u32 bottomBorderMask, u32 leftBorderMask, u32 rightBorderMask);
+	virtual void drawReflection(u32 currentDrawingFrameBufferSet, s16 xSourceStart, s16 ySourceStart, s16 xOutputStart, s16 yOutputStart, s16 width, s16 height, u32 reflectionMask, u16 axisForReversing, bool transparent, bool reflectParallax, s16 parallaxDisplacement, const u8 waveLut[], int numberOfWaveLutEntries, fix10_6 waveLutThrottleFactor, bool flattenTop, bool flattenBottom, u32 topBorderMask, u32 bottomBorderMask, u32 leftBorderMask, u32 rightBorderMask, s16 noisePasses);
 
 	/**
 	 * Entity is ready
@@ -229,7 +225,7 @@ class ReflectiveEntity : Entity
      * @param overallMask
      * @param reflectionMask
      */
-	static void shiftPixels(int pixelShift, POINTER_TYPE* sourceValue, u32 nextSourceValue, POINTER_TYPE* remainderValue, u32 overallMask, u32 reflectionMask);
+	static void shiftPixels(int pixelShift, POINTER_TYPE* sourceValue, u32 nextSourceValue, POINTER_TYPE* remainderValue, u32 reflectionMask, u32 noise);
 
 	/**
 	 * Suspend for pause
