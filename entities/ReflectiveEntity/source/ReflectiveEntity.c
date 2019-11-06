@@ -248,7 +248,7 @@ void ReflectiveEntity::drawReflection(u32 currentDrawingFrameBufferSet,
 
 	if(ySourceEnd > _cameraFrustum->y1)
 	{
-		yOutputEnd -= ySourceEnd - _cameraFrustum->y1;
+		yOutputEnd -= (ySourceEnd - _cameraFrustum->y1);
 		ySourceEnd = _cameraFrustum->y1;
 	}
 
@@ -631,7 +631,7 @@ void ReflectiveEntity::drawReflection(u32 currentDrawingFrameBufferSet,
 
 			int yOutputLimit = (yOutputEnd + waveLutPixelDisplacement) >> Y_STEP_SIZE_2_EXP;
 
-			POINTER_TYPE remainderLeftValue = yOutput >= yOutputLimit ? sourceCurrentValueLeft : 0;
+			POINTER_TYPE remainderLeftValue = yOutput < yOutputLimit ? 0 : sourceCurrentValueLeft;
 
 			for(; yOutput < yOutputLimit; yOutput++, ySource += ySourceIncrement)
 			{
@@ -671,8 +671,7 @@ void ReflectiveEntity::drawReflection(u32 currentDrawingFrameBufferSet,
 			{
 				u32 maskDisplacement = (BITS_PER_STEP - yOutputRemainder);
 				effectiveContentMask = 0xFFFFFFFF >> maskDisplacement;
-				// Don't know if needed
-				//effectiveContentMask &= ~(bottomBorderMask >> maskDisplacement);
+				effectiveContentMask &= ~(bottomBorderMask >> maskDisplacement);
 
 				if(!transparent)
 				{
@@ -683,9 +682,12 @@ void ReflectiveEntity::drawReflection(u32 currentDrawingFrameBufferSet,
 				{
 					remainderLeftValue |= (sourceCurrentValueLeft << pixelShift);
 				}
+				else
+				{
+					remainderLeftValue |= (sourceNextValueLeft << (BITS_PER_STEP + pixelShift));
+				}
 
 				remainderLeftValue &= reflectionMask;
-				remainderLeftValue |= appliedBackgroundMask & outputValueLeft;
 
 				*columnOutputPointerLeft = (outputValueLeft & ~effectiveContentMask) | (remainderLeftValue & effectiveContentMask);
 				*columnOutputPointerRight = (outputValueLeft & ~effectiveContentMask) | (remainderLeftValue & effectiveContentMask);
