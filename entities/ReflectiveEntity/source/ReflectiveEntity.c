@@ -685,16 +685,19 @@ void ReflectiveEntity::drawReflection(u32 currentDrawingFrameBufferSet,
 			effectiveContentMask &= ~(topBorderMask << effectiveContentMaskDisplacement);
 
 			POINTER_TYPE* columnSourcePointerLeft = (POINTER_TYPE*) (currentDrawingFrameBufferSet) + (xSource << Y_SHIFT) + ySource;
+			POINTER_TYPE* columnSourcePointerRight = (POINTER_TYPE*) (currentDrawingFrameBufferSet | 0x00010000) + (xSource << Y_SHIFT) + ySource;
 			POINTER_TYPE* columnOutputPointerLeft = (POINTER_TYPE*) (currentDrawingFrameBufferSet) + (leftColumn << Y_SHIFT) + yOutput;
 			POINTER_TYPE* columnOutputPointerRight = (POINTER_TYPE*) (currentDrawingFrameBufferSet | 0x00010000) + (rightColumn << Y_SHIFT) + yOutput;
 
 			int columnSourcePointerLeftIncrement = ySourceIncrement;
 
 			POINTER_TYPE sourceCurrentValueLeft = *columnSourcePointerLeft;
+			POINTER_TYPE sourceCurrentValueRight = *columnSourcePointerRight;
 			columnSourcePointerLeft += columnSourcePointerLeftIncrement;
 			POINTER_TYPE sourceNextValueLeft = *columnSourcePointerLeft;
 
 			POINTER_TYPE outputValueLeft = *columnOutputPointerLeft;
+			POINTER_TYPE outputValueRight = *columnOutputPointerRight;
 
 			if(__Y_AXIS & axisForReversing)
 			{
@@ -719,13 +722,15 @@ void ReflectiveEntity::drawReflection(u32 currentDrawingFrameBufferSet,
 				sourceCurrentValueLeft &= ~border;
 				sourceCurrentValueLeft |= transparentMask & outputValueLeft;
 				sourceCurrentValueLeft &= effectiveContentMask;
+				sourceCurrentValueRight = sourceCurrentValueLeft;
 				sourceCurrentValueLeft |= (outputValueLeft & effectiveBackgroundMask);
+				sourceCurrentValueRight |= (outputValueRight & effectiveBackgroundMask);
 
 				effectiveContentMask = 0xFFFFFFFF;
 				effectiveBackgroundMask = 0;
 
 				*columnOutputPointerLeft = sourceCurrentValueLeft;
-				*columnOutputPointerRight = sourceCurrentValueLeft;
+				*columnOutputPointerRight = sourceCurrentValueRight;
 
 				columnOutputPointerLeft++;
 				columnOutputPointerRight++;
@@ -772,14 +777,16 @@ void ReflectiveEntity::drawReflection(u32 currentDrawingFrameBufferSet,
 
 				u32 finalValue = (outputValueLeft & ~effectiveContentMask) | (((remainderLeftValue | noise) & remainderContentMask) & ~border);
 
-				*columnOutputPointerLeft = finalValue;
-				*columnOutputPointerRight = finalValue;
+				u32 finalLeftValue = (outputValueLeft & ~effectiveContentMask) | (((remainderLeftValue | noise) & remainderContentMask) & ~border);
+				u32 finalRightValue = (*columnOutputPointerRight & ~effectiveContentMask) | (((remainderLeftValue | noise) & remainderContentMask) & ~border);
+
+				*columnOutputPointerLeft = finalLeftValue;
+				*columnOutputPointerRight = finalRightValue;
 			}
 			else
 			{
-				u32 finalValue = sourceCurrentValueLeft & ~(bottomBorderMask);
-				*(columnOutputPointerLeft - 1) = finalValue;
-				*(columnOutputPointerRight - 1) = finalValue;
+				*(columnOutputPointerLeft - 1) &= ~(bottomBorderMask);
+				*(columnOutputPointerRight - 1) &= ~(bottomBorderMask);
 			}
 		}
 	}
