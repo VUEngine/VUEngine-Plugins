@@ -608,7 +608,7 @@ void ReflectiveEntity::drawReflection(u32 currentDrawingFrameBufferSet,
 				*columnOutputPointerLeft = finalLeftValue;
 				*columnOutputPointerRight = finalRightValue;
 			}
-			else
+			else if(bottomBorderMask)
 			{
 				*(columnOutputPointerLeft - 1) &= ~(bottomBorderMask);
 				*(columnOutputPointerRight - 1) &= ~(bottomBorderMask);
@@ -783,7 +783,7 @@ void ReflectiveEntity::drawReflection(u32 currentDrawingFrameBufferSet,
 				*columnOutputPointerLeft = finalLeftValue;
 				*columnOutputPointerRight = finalRightValue;
 			}
-			else
+			else if(bottomBorderMask)
 			{
 				*(columnOutputPointerLeft - 1) &= ~(bottomBorderMask);
 				*(columnOutputPointerRight - 1) &= ~(bottomBorderMask);
