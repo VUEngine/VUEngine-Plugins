@@ -188,7 +188,7 @@ Vector3D AvoidSteeringBehavior::awayFromObstacles(Vehicle vehicle)
 			{
 				fix10_6 speedDifference = __FIX10_6_DIV(Vehicle::getSpeed(vehicle), obstacleSpeed) - __I_TO_FIX10_6(1);
 
-				if(0 < speedDifference && __F_TO_FIX10_6(0.2f) > speedDifference && this->avoidSteeringBehaviorSpec->brakingMinimumAngleCos < dotProduct)
+				if(0 < speedDifference && __F_TO_FIX10_6(0.6f) > speedDifference && this->avoidSteeringBehaviorSpec->brakingMinimumAngleCos < dotProduct)
 				{
 					this->isBraking = true;
 
