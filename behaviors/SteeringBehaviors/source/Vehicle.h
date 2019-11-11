@@ -64,7 +64,7 @@ class Vehicle : Actor
 	void constructor(VehicleSpec* vehicleSpec, s16 id, s16 internalId, const char* const name);
 
 	int getSummingMethod();
-	void updateForce();
+	bool updateForce();
 	VirtualList getSteeringBehaviors();
 	Velocity getVelocity();
 	Direction3D getDirection3D();

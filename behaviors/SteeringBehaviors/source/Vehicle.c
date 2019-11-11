@@ -147,7 +147,7 @@ const Vector3D* Vehicle::getReferencePosition()
 	return Vehicle::getPosition(this);
 }
 
-void Vehicle::updateForce()
+bool Vehicle::updateForce()
 {
 	bool computeForce = 0 > this->evenCycle;
 	
@@ -169,6 +169,8 @@ void Vehicle::updateForce()
 
 	this->accumulatedForce = Vector3D::zero();
 	this->checkIfCanMove = false;
+
+	return computeForce;
 }
 
 void Vehicle::update(u32 elapsedTime __attribute__((unused)))
