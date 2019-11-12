@@ -51,6 +51,8 @@ void SteeringBehavior::constructor(const SteeringBehaviorSpec* steeringBehaviorS
 
 	this->steeringBehaviorSpec = steeringBehaviorSpec;
 
+	this->force = Vector3D::zero();
+
 	SteeringBehavior::reset(this);
 }
 
@@ -273,7 +275,6 @@ void SteeringBehavior::setMaximumForce(fix10_6 value)
 
 void SteeringBehavior::reset()
 {
-	this->force = Vector3D::zero();
 	this->priority = this->steeringBehaviorSpec->priority;
 	this->weight = this->steeringBehaviorSpec->weight;
 	this->maximumForce = this->steeringBehaviorSpec->maximumForce;

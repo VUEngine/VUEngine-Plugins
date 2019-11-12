@@ -55,6 +55,7 @@ class Vehicle : Actor
 	Vector3D accumulatedForce;
 	VehicleSpec* vehicleSpec;
 	fix10_6 radius;
+	fix10_6 frictionMassRatio;
 	bool checkIfCanMove;
 	s8 evenCycle;
 
@@ -68,6 +69,7 @@ class Vehicle : Actor
 	VirtualList getSteeringBehaviors();
 	Velocity getVelocity();
 	Direction3D getDirection3D();
+	fix10_6 getFrictionMassRatio();
 
 	virtual const Vector3D* getReferencePosition();
 
