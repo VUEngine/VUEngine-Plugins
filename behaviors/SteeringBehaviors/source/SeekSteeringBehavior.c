@@ -91,18 +91,22 @@ void SeekSteeringBehavior::setSlowDownWhenReachingTarget(bool value)
 
 Vector3D SeekSteeringBehavior::calculate(Vehicle owner)
 {
+	this->force = Vector3D::zero();
+
 	if(isDeleted(owner))
 	{
 		this->enabled = false;
-		return Vector3D::zero();
+		return this->force;
 	}
 
 	if(this->reachedTarget)
 	{
-		return Vector3D::zero();
+		return this->force;
 	}
 
-	return SeekSteeringBehavior::toTarget(this, owner, this->target, this->slowDownWhenReachingTarget, __FIX10_6_TO_FIX10_6_EXT(this->reachedDistanceThreshold), this->easingDistanceThreshold, this->allowEasing);
+	this->force = SeekSteeringBehavior::toTarget(this, owner, this->target, this->slowDownWhenReachingTarget, __FIX10_6_TO_FIX10_6_EXT(this->reachedDistanceThreshold), this->easingDistanceThreshold, this->allowEasing);
+
+	return this->force;
 }
 
 static Vector3D SeekSteeringBehavior::toTarget(SeekSteeringBehavior seekSteeringBehavior, Vehicle vehicle, Vector3D target, bool proportionalToDistance, fix10_6_ext reachedDistanceThreshold, fix10_6 easingDistanceThreshold, bool allowEasing)

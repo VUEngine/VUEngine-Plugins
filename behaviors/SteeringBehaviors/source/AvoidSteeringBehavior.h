@@ -73,7 +73,6 @@ typedef struct Obstacle
 /// @ingroup base
 class AvoidSteeringBehavior : SteeringBehavior
 {
-	Force force;
 	VirtualList obstacles;
 	const AvoidSteeringBehaviorSpec* avoidSteeringBehaviorSpec;
 	bool isBraking;

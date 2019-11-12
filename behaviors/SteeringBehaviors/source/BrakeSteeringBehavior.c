@@ -66,13 +66,17 @@ void BrakeSteeringBehavior::setStrength(fix10_6 value)
 
 Vector3D BrakeSteeringBehavior::calculate(Vehicle owner)
 {
+	this->force = Vector3D::zero();
+
 	if(isDeleted(owner))
 	{
 		this->enabled = false;
-		return Vector3D::zero();
+		return this->force;
 	}
 
-	return BrakeSteeringBehavior::toTarget(this, owner);
+	this->force = BrakeSteeringBehavior::toTarget(this, owner);
+
+	return this->force;
 }
 
 static Vector3D BrakeSteeringBehavior::toTarget(BrakeSteeringBehavior seekSteeringBehavior, Vehicle vehicle)

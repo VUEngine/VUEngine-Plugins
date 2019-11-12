@@ -79,6 +79,8 @@ class SteeringBehavior : Behavior
 {
 	const SteeringBehaviorSpec* steeringBehaviorSpec;
 
+	Vector3D force;
+
 	// higher value has more priority
 	int priority;
 	fix10_6 weight;
@@ -96,6 +98,7 @@ class SteeringBehavior : Behavior
 	void setMaximumForce(fix10_6 value);
 	void reset();
 	const SteeringBehaviorSpec* getSteeringBehaviorSpec();
+	Vector3D getForce();
 
 	virtual Vector3D calculate(Vehicle owner) = 0;
 }
