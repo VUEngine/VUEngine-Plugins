@@ -155,18 +155,21 @@ const Vector3D* Vehicle::getReferencePosition()
 
 bool Vehicle::updateForce()
 {
-	bool computeForce = 0 > this->evenCycle;
+	bool computeForce = this->behaviors && 0 > this->evenCycle;
 	
-	if(!computeForce)
+	if(this->behaviors)
 	{
-		u16 modulo = __MODULO(this->evenCycle, 2);
-		computeForce = 1 == modulo;
-		this->evenCycle = !modulo;
-	}
+		if(!computeForce)
+		{
+			u16 modulo = __MODULO(this->evenCycle, 2);
+			computeForce = 1 == modulo;
+			this->evenCycle = !modulo;
+		}
 
-	if(computeForce)
-	{
-		this->steeringForce = SteeringBehavior::calculateForce(this);
+		if(computeForce)
+		{
+			this->steeringForce = SteeringBehavior::calculateForce(this);
+		}
 	}
 
 	Force totalForce = Vector3D::sum(this->accumulatedForce, this->steeringForce);

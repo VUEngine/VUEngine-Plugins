@@ -194,7 +194,7 @@ Vector3D AvoidSteeringBehavior::awayFromObstacles(Vehicle vehicle)
 				{
 					this->isBraking = true;
 
-					factor = __FIX10_6_EXT_MULT(speedDifference, factor);
+					factor = __FIX10_6_EXT_MULT(speedDifference, __FIX10_6_DIV(factor, Vehicle::getFrictionMassRatio(vehicle)));
 					Direction3D reverseDirection = Vector3D::scalarProduct(direction, -(__FIX10_6_MULT(factor, dotProduct)));
 					desiredVelocity = Vector3D::sum(desiredVelocity, reverseDirection);
 				}
