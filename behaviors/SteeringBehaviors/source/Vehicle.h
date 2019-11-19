@@ -55,7 +55,7 @@ class Vehicle : Actor
 	Vector3D accumulatedForce;
 	VehicleSpec* vehicleSpec;
 	fix10_6 radius;
-	fix10_6 frictionMassRatio;
+	//fix10_6 frictionMassRatio;
 	bool checkIfCanMove;
 	s8 evenCycle;
 

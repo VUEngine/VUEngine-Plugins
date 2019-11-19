@@ -55,7 +55,7 @@ void Vehicle::constructor(VehicleSpec* vehicleSpec, s16 id, s16 internalId, cons
 	this->accumulatedForce = Vector3D::zero();
 	this->radius = 0;
 	this->checkIfCanMove = false;
-	this->frictionMassRatio = Body::getFrictionCoefficient(this->body) + Body::getMass(this->body);
+//	this->frictionMassRatio = Body::getFrictionCoefficient(this->body) + Body::getMass(this->body);
 }
 
 // class's destructor
@@ -145,7 +145,7 @@ Direction3D Vehicle::getDirection3D()
 
 fix10_6 Vehicle::getFrictionMassRatio()
 {
-	return this->frictionMassRatio;
+	return 0;//this->frictionMassRatio;
 }
 
 const Vector3D* Vehicle::getReferencePosition()
