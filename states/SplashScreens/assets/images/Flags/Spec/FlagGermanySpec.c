@@ -82,6 +82,12 @@ TextureROMSpec FLAG_GERMANY_TX =
 
 	// recyclable
 	false,
+
+	// vertical flip
+	false,
+
+	// horizontal flip
+	false,
 };
 
 BgmapSpriteROMSpec FLAG_GERMANY_SPRITE =

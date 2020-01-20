@@ -142,6 +142,12 @@ TextureROMSpec LOW_POWER_INDICATOR_TX =
 
 	// recyclable
 	false,
+
+	// vertical flip
+	false,
+
+	// horizontal flip
+	false,
 };
 
 BgmapSpriteROMSpec LOW_POWER_INDICATOR_SPRITE =

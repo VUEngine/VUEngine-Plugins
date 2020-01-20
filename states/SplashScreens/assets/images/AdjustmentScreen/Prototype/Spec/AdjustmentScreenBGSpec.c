@@ -83,6 +83,12 @@ TextureROMSpec ADJUSTMENT_SCREEN_BG_TX =
 
 	// recyclable
 	false,
+
+	// vertical flip
+	false,
+
+	// horizontal flip
+	false,
 };
 
 BgmapSpriteROMSpec ADJUSTMENT_SCREEN_BG_SPRITE =

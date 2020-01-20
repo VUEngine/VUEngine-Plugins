@@ -82,6 +82,12 @@ TextureROMSpec FLAG_UNKNOWN_TX =
 
 	// recyclable
 	false,
+
+	// vertical flip
+	false,
+
+	// horizontal flip
+	false,
 };
 
 BgmapSpriteROMSpec FLAG_UNKNOWN_SPRITE =

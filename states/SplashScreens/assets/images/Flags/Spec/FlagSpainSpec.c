@@ -82,6 +82,12 @@ TextureROMSpec FLAG_SPAIN_TX =
 
 	// recyclable
 	false,
+
+	// vertical flip
+	false,
+
+	// horizontal flip
+	false,
 };
 
 BgmapSpriteROMSpec FLAG_SPAIN_SPRITE =

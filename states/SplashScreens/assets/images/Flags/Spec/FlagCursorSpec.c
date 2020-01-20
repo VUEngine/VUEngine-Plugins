@@ -82,6 +82,12 @@ TextureROMSpec FLAG_CURSOR_TX =
 
 	// recyclable
 	false,
+
+	// vertical flip
+	false,
+
+	// horizontal flip
+	false,
 };
 
 BgmapSpriteROMSpec FLAG_CURSOR_SPRITE =

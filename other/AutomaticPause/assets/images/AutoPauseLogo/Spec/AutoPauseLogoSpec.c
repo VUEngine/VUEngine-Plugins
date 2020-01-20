@@ -81,6 +81,12 @@ TextureROMSpec AUTO_PAUSE_LOGO_TX =
 
 	// recyclable
 	false,
+
+	// vertical flip
+	false,
+
+	// horizontal flip
+	false,
 };
 
 BgmapSpriteROMSpec AUTO_PAUSE_LOGO_SPRITE =

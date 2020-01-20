@@ -82,6 +82,12 @@ TextureROMSpec FLAG_NETHERLANDS_TX =
 
 	// recyclable
 	false,
+
+	// vertical flip
+	false,
+
+	// horizontal flip
+	false,
 };
 
 BgmapSpriteROMSpec FLAG_NETHERLANDS_SPRITE =

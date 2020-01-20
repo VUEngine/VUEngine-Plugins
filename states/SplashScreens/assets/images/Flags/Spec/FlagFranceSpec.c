@@ -82,6 +82,12 @@ TextureROMSpec FLAG_FRANCE_TX =
 
 	// recyclable
 	false,
+
+	// vertical flip
+	false,
+
+	// horizontal flip
+	false,
 };
 
 BgmapSpriteROMSpec FLAG_FRANCE_SPRITE =

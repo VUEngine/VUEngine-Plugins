@@ -82,6 +82,12 @@ TextureROMSpec FLAG_ITALY_TX =
 
 	// recyclable
 	false,
+
+	// vertical flip
+	false,
+
+	// horizontal flip
+	false,
 };
 
 BgmapSpriteROMSpec FLAG_ITALY_SPRITE =

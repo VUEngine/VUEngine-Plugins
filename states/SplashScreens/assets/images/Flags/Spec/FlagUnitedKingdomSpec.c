@@ -82,6 +82,12 @@ TextureROMSpec FLAG_UNITED_KINGDOM_TX =
 
 	// recyclable
 	false,
+
+	// vertical flip
+	false,
+
+	// horizontal flip
+	false,
 };
 
 BgmapSpriteROMSpec FLAG_UNITED_KINGDOM_SPRITE =

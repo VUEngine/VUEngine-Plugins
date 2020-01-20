@@ -82,6 +82,12 @@ TextureROMSpec FLAG_CZECH_REPUBLIC_TX =
 
 	// recyclable
 	false,
+
+	// vertical flip
+	false,
+
+	// horizontal flip
+	false,
 };
 
 BgmapSpriteROMSpec FLAG_CZECH_REPUBLIC_SPRITE =

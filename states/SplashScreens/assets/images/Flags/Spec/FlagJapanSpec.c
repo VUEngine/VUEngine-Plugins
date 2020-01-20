@@ -82,6 +82,12 @@ TextureROMSpec FLAG_JAPAN_TX =
 
 	// recyclable
 	false,
+
+	// vertical flip
+	false,
+
+	// horizontal flip
+	false,
 };
 
 BgmapSpriteROMSpec FLAG_JAPAN_SPRITE =
