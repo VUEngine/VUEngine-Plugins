@@ -68,7 +68,7 @@ class Vehicle : Actor
 	bool updateForce();
 	VirtualList getSteeringBehaviors();
 	Velocity getVelocity();
-	Direction3D getDirection3D();
+	const Direction3D* getDirection3D();
 	fix10_6 getFrictionMassRatio();
 
 	virtual const Vector3D* getReferencePosition();

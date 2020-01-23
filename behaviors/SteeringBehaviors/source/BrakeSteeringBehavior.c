@@ -88,5 +88,5 @@ static Vector3D BrakeSteeringBehavior::toTarget(BrakeSteeringBehavior seekSteeri
 		magnitude = __FIX10_6_MULT(magnitude, seekSteeringBehavior->strength);
 	}
 
-	return Vector3D::scalarProduct(Vehicle::getDirection3D(vehicle), -magnitude);
+	return Vector3D::scalarProduct(*Vehicle::getDirection3D(vehicle), -magnitude);
 }

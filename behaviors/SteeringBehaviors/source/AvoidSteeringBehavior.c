@@ -138,7 +138,7 @@ Vector3D AvoidSteeringBehavior::awayFromObstacles(Vehicle vehicle)
 	Vector3D desiredVelocity = Vector3D::zero();
 
 	Vector3D position = *Vehicle::getPosition(vehicle);
-	Direction3D direction = Vehicle::getDirection3D(vehicle);
+	Direction3D direction = *Vehicle::getDirection3D(vehicle);
 
 	fix10_6 squareAvoidanceDetectionDistance = __FIX10_6_MULT(this->avoidSteeringBehaviorSpec->avoidanceDetectionDistance, this->avoidSteeringBehaviorSpec->avoidanceDetectionDistance);
 	fix10_6_ext squareMaximumForce = __FIX10_6_EXT_MULT(this->maximumForce, this->maximumForce);

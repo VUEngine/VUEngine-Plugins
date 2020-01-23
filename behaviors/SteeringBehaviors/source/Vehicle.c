@@ -138,7 +138,7 @@ Velocity Vehicle::getVelocity()
 	return Body::getVelocity(this->body);
 }
 
-Direction3D Vehicle::getDirection3D()
+const Direction3D* Vehicle::getDirection3D()
 {
 	return Body::getDirection3D(this->body);
 }
