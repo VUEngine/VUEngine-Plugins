@@ -44,9 +44,9 @@ void GuiBgmapAnimatedSprite::destructor()
 	Base::destructor();
 }
 
-void GuiBgmapAnimatedSprite::render(const PixelVector* displacement)
+void GuiBgmapAnimatedSprite::render()
 {
-	Base::render(this, displacement);
+	Base::render(this);
 
 	if(!this->positioned)
 	{
@@ -58,13 +58,6 @@ void GuiBgmapAnimatedSprite::render(const PixelVector* displacement)
 		return;
 	}
 
-	PixelVector finalDisplacement = this->displacement;
-
-	if(displacement)
-	{
-		finalDisplacement = PixelVector::sum(finalDisplacement, *displacement);
-	}
-
 	static WorldAttributes* worldPointer = NULL;
 	worldPointer = &_worldAttributesBaseAddress[this->worldLayer];
 
@@ -72,9 +65,9 @@ void GuiBgmapAnimatedSprite::render(const PixelVector* displacement)
 	worldPointer->head = this->head | BgmapTexture::getSegment(this->texture);
 
 	// get coordinates
-	worldPointer->gx = this->position.x + finalDisplacement.x - this->halfWidth;
-	worldPointer->gy = this->position.y + finalDisplacement.y - this->halfHeight;
-	worldPointer->gp = this->position.parallax + finalDisplacement.parallax;
+	worldPointer->gx = this->position.x + this->displacement.x - this->halfWidth;
+	worldPointer->gy = this->position.y + this->displacement.y - this->halfHeight;
+	worldPointer->gp = this->position.parallax + this->displacement.parallax;
 
 	worldPointer->mx = this->drawSpec.textureSource.mx;
 	worldPointer->my = this->drawSpec.textureSource.my;
