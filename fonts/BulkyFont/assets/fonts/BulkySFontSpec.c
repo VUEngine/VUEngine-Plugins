@@ -44,6 +44,9 @@ FontROMSpec BULKY_S_FONT =
 	// number of characters in this font
 	64,
 
+	// number of characters per line in charset
+	16,
+
 	// size of a single character (in chars) ({width, height})
 	{2, 2},
 

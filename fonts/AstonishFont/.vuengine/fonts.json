@@ -4,6 +4,7 @@
 		"image": "AstonishFont/AstonishFont",
 		"offset": 0,
 		"characterCount": 128,
+		"charactersPerLine": 32,
 		"size": {
 			"x": 1,
 			"y": 2
@@ -14,6 +15,7 @@
 		"image": "AstonishFont/AstonishFont",
 		"offset": 0,
 		"characterCount": 256,
+		"charactersPerLine": 32,
 		"size": {
 			"x": 1,
 			"y": 2
@@ -24,6 +26,7 @@
 		"image": "AstonishFontShadow/AstonishFontShadow",
 		"offset": 0,
 		"characterCount": 128,
+		"charactersPerLine": 32,
 		"size": {
 			"x": 1,
 			"y": 2
@@ -34,6 +37,7 @@
 		"image": "AstonishFontShadow/AstonishFontShadow",
 		"offset": 0,
 		"characterCount": 256,
+		"charactersPerLine": 32,
 		"size": {
 			"x": 1,
 			"y": 2

@@ -4,6 +4,7 @@
 		"image": "BulkyFont/BulkyFont",
 		"offset": 32,
 		"characterCount": 64,
+		"charactersPerLine": 16,
 		"size": {
 			"x": 2,
 			"y": 2
@@ -14,6 +15,7 @@
 		"image": "BulkyFontShadow/BulkyFontShadow",
 		"offset": 32,
 		"characterCount": 64,
+		"charactersPerLine": 16,
 		"size": {
 			"x": 2,
 			"y": 2

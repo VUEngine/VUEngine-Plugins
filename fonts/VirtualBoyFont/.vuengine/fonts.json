@@ -4,6 +4,7 @@
 		"image": "VirtualBoyFont/VirtualBoyFont",
 		"offset": 32,
 		"characterCount": 96,
+		"charactersPerLine": 16,
 		"size": {
 			"x": 2,
 			"y": 3
@@ -14,6 +15,7 @@
 		"image": "VirtualBoyFont/VirtualBoyFont",
 		"offset": 32,
 		"characterCount": 224,
+		"charactersPerLine": 16,
 		"size": {
 			"x": 2,
 			"y": 3
