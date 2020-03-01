@@ -62,7 +62,7 @@ class Vehicle : Actor
 	VirtualList steeringBehaviors;
 
 	/// @publicsection
-	void constructor(VehicleSpec* vehicleSpec, s16 id, s16 internalId, const char* const name);
+	void constructor(VehicleSpec* vehicleSpec, s16 id, const char* const name);
 
 	int getSummingMethod();
 	bool updateForce();

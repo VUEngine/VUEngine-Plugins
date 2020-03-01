@@ -49,7 +49,7 @@ class LowPowerEntity : AnimatedEntity
 	// number of seconds of receiving the low power signal
 	u8 lowPowerDuration;
 
-	void constructor(const LowPowerEntitySpec* LowPowerEntitySpec, s16 id, s16 internalId, const char* const name);
+	void constructor(const LowPowerEntitySpec* LowPowerEntitySpec, s16 id, const char* const name);
 }
 
 

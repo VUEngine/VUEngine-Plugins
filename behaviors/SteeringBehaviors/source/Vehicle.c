@@ -42,10 +42,10 @@ friend class VirtualList;
 //---------------------------------------------------------------------------------------------------------
 
 // class's constructor
-void Vehicle::constructor(VehicleSpec* vehicleSpec, s16 id, s16 internalId, const char* const name)
+void Vehicle::constructor(VehicleSpec* vehicleSpec, s16 id, const char* const name)
 {
 	// construct base
-	Base::constructor((ActorSpec*)&vehicleSpec->actorSpec, id, internalId, name);
+	Base::constructor((ActorSpec*)&vehicleSpec->actorSpec, id, name);
 
 	// save vehicle spec
 	this->vehicleSpec = vehicleSpec;
@@ -113,7 +113,7 @@ void Vehicle::ready(bool recursive)
 	//m_headingSmoother = new BLGSmoother(m_iSamplesForSmoothing, new Vector3(0.0F, 0.0F, 0.0F));
 	if(0 <= this->evenCycle)
 	{
-		this->evenCycle = this->internalId % 2;
+		this->evenCycle = this->id % 2;
 	}
 }
 
