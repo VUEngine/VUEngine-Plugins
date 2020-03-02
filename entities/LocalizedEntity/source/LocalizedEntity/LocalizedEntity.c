@@ -35,10 +35,10 @@
 //												CLASS'S METHODS
 //---------------------------------------------------------------------------------------------------------
 
-void LocalizedEntity::constructor(const LocalizedEntitySpec* localizedEntitySpec, s16 id, const char* const name)
+void LocalizedEntity::constructor(const LocalizedEntitySpec* localizedEntitySpec, s16 id, s16 internalId, const char* const name)
 {
 	// construct base object
-	Base::constructor((AnimatedEntitySpec*)localizedEntitySpec, id, name);
+	Base::constructor((AnimatedEntitySpec*)localizedEntitySpec, id, internalId, name);
 
 	// add event listeners
 	Object::addEventListener(Game::getCurrentState(Game::getInstance()), Object::safeCast(this), (EventListener)LocalizedEntity_onLanguageChanged, kEventLanguageChanged);

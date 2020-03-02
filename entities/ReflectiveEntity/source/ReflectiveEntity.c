@@ -52,10 +52,10 @@ static u32 ReflectiveEntity::randomSeed()
 	return seed;
 }
 
-void ReflectiveEntity::constructor(ReflectiveEntitySpec* reflectiveEntitySpec, s16 id, const char* const name)
+void ReflectiveEntity::constructor(ReflectiveEntitySpec* reflectiveEntitySpec, s16 id, s16 internalId, const char* const name)
 {
 	// construct base
-	Base::constructor(&reflectiveEntitySpec->entitySpec, id, name);
+	Base::constructor(&reflectiveEntitySpec->entitySpec, id, internalId, name);
 
 	this->waveLutIndex = 0;
 	this->waveLutIndexIncrement = __FIX10_6_MULT(reflectiveEntitySpec->waveLutThrottleFactor, __FIX10_6_DIV(__I_TO_FIX10_6(reflectiveEntitySpec->numberOfWaveLutEntries), __I_TO_FIX10_6(reflectiveEntitySpec->width)));
