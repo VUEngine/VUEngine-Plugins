@@ -104,7 +104,7 @@ PositionedEntityROMSpec ADJUSTMENT_SCREEN_STAGE_ST_UI_ENTITIES[] =
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
 };
 
-SoundROM* const ADJUSTMENT_STAGE_ST_SOUNDS[] =
+SoundROM* const ADJUSTMENT_SCREEN_STAGE_ST_SOUNDS[] =
 {
 	NULL
 };
@@ -321,7 +321,7 @@ StageROMSpec ADJUSTMENT_SCREEN_STAGE_ST =
 		(TextureSpec**)NULL,
 
 		// background sounds
-		(Sound**)ADJUSTMENT_STAGE_ST_SOUNDS,
+		(Sound**)ADJUSTMENT_SCREEN_STAGE_ST_SOUNDS,
 	},
 
 	// entities
