@@ -43,7 +43,6 @@
 #define SIZE_OF_S16_POWER		1
 #define Y_STEP_SIZE				16
 #define Y_STEP_SIZE_2_EXP		4
-#define __MODULO(n, m)		(n & (m - 1))
 
 
 //---------------------------------------------------------------------------------------------------------
