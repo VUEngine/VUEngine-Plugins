@@ -1,7 +1,7 @@
-/* VUEngine - Virtual Utopia Engine <http://vuengine.planetvb.com/>
+/* VUEngine - Virtual Utopia Engine <https://www.vuengine.dev>
  * A universal game engine for the Nintendo Virtual Boy
  *
- * Copyright (C) 2007, 2017 by Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <chris@vr32.de>
+ * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>, 2007-2020
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
  * associated documentation files (the "Software"), to deal in the Software without restriction, including
@@ -69,19 +69,19 @@ void SteeringBehavior::destructor()
 static Vector3D SteeringBehavior::calculateForce(Vehicle vehicle)
 {
 	Vector3D steeringForce = {0, 0, 0};
-	
+
 	// otherwise it's just a velocity and add it
 	switch(Vehicle::getSummingMethod(vehicle))
 	{
 		case kPrioritized:
-		
+
 			steeringForce = SteeringBehavior::calculatePrioritized(vehicle);
 			break;
 
 		case kWeightedAverage:
-		
+
 			steeringForce = SteeringBehavior::calculateWeightedSum(vehicle);
-			break;			
+			break;
 	}
 
 	return steeringForce;
@@ -100,7 +100,7 @@ static Vector3D SteeringBehavior::applyDeviation(Vector3D force, fix10_6 deviati
 static Vector3D SteeringBehavior::clampForce(Vector3D force, fix10_6 maximumForce)
 {
 	if(maximumForce)
-	{		
+	{
 		fix10_6_ext squaredForceMagnitude = Vector3D::squareLength(force);
 
 		if(squaredForceMagnitude > __FIX10_6_EXT_MULT(maximumForce, maximumForce))
@@ -147,16 +147,16 @@ static Vector3D SteeringBehavior::calculatePrioritized(Vehicle vehicle)
 			if(steeringBehavior->enabled)
 			{
 				Vector3D force = Vector3D::scalarProduct(SteeringBehavior::calculate(steeringBehavior, vehicle), steeringBehavior->weight);
-				
+
 				if(steeringBehavior->deviation)
 				{
 					force = SteeringBehavior::applyDeviation(force, steeringBehavior->deviation);
 				}
 
 				force = SteeringBehavior::clampForce(force, steeringBehavior->maximumForce);
-				
+
 				if(!SteeringBehavior::accumulateForce(maximumForce, &steeringForce, force))
-				{					
+				{
 					return steeringForce;
 				}
 			}
@@ -183,7 +183,7 @@ static Vector3D SteeringBehavior::calculateWeightedSum(Vehicle vehicle)
 			if(steeringBehavior->enabled)
 			{
 				Vector3D force = Vector3D::scalarProduct(SteeringBehavior::calculate(steeringBehavior, vehicle), steeringBehavior->weight);
-				
+
 				if(steeringBehavior->deviation)
 				{
 					force = SteeringBehavior::applyDeviation(force, steeringBehavior->deviation);
@@ -197,17 +197,17 @@ static Vector3D SteeringBehavior::calculateWeightedSum(Vehicle vehicle)
 	return steeringForce;
 }
 
-//  This function calculates how much of its max steering force the 
+//  This function calculates how much of its max steering force the
 //  vehicle has left to apply and then applies that amount of the
 //  force to add.
 static bool SteeringBehavior::accumulateForce(fix10_6 maximumForce, Vector3D *totalForce, Vector3D forceToAdd)
-{	
+{
 	//calculate how much steering force the vehicle has used so far
 	fix10_6 squareMagnitudeSoFar = Vector3D::squareLength(*totalForce);
-	
+
 	//calculate how much steering force remains to be used by this vehicle
 	fix10_6 squareMagnitudeRemaining = __FIX10_6_EXT_MULT(maximumForce, maximumForce) - squareMagnitudeSoFar;
-	
+
 	//return false if there is no more force left to use
 	if (squareMagnitudeRemaining < 0)
 	{
@@ -216,23 +216,23 @@ static bool SteeringBehavior::accumulateForce(fix10_6 maximumForce, Vector3D *to
 
 	//calculate the magnitude of the force we want to add
 	fix10_6 squareMagnitudeToAdd = Vector3D::squareLength(forceToAdd);
-	
+
 	//if the magnitude of the sum of forceToAdd and the running total
 	//does not exceed the maximum force available to this vehicle, just
 	//add together. Otherwise add as much of the forceToAdd vector is
 	//possible without going over the max.
 	if (squareMagnitudeToAdd < squareMagnitudeRemaining)
-	{	
+	{
 		*totalForce = Vector3D::sum(*totalForce, forceToAdd);
-	}		
+	}
 	else if(squareMagnitudeToAdd)
 	{
 		fix10_6 magnitudeToAdd = __F_TO_FIX10_6(Math::squareRoot(__FIX10_6_EXT_TO_F(squareMagnitudeToAdd)));
 		fix10_6 magnitudeSoFar = __F_TO_FIX10_6(Math::squareRoot(__FIX10_6_EXT_TO_F(squareMagnitudeSoFar)));
-	
+
 		//calculate how much steering force remains to be used by this vehicle
 		fix10_6 magnitudeRemaining = maximumForce - magnitudeSoFar;
-		
+
 		//add it to the steering force
 		if(magnitudeToAdd)
 		{

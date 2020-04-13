@@ -1,7 +1,7 @@
-/* VUEngine - Virtual Utopia Engine <http://vuengine.planetvb.com/>
+/* VUEngine - Virtual Utopia Engine <https://www.vuengine.dev>
  * A universal game engine for the Nintendo Virtual Boy
  *
- * Copyright (C) 2007, 2017 by Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <chris@vr32.de>
+ * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>, 2007-2020
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
  * associated documentation files (the "Software"), to deal in the Software without restriction, including
@@ -149,20 +149,20 @@ Vector3D AvoidSteeringBehavior::awayFromObstacles(Vehicle vehicle)
 
 		Vector3D vectorVehicleObstacle = Vector3D::get(position, *obstacle->position);
 		fix10_6 squareDistance = __FIX10_6_EXT_TO_FIX10_6(Vector3D::squareLength(vectorVehicleObstacle));
-		
+
 		fix10_6 dotProduct = Vector3D::dotProduct(direction, Vector3D::normalize(vectorVehicleObstacle));
 
 		if(squareDistance < squareAvoidanceDetectionDistance && __FIX7_9_TO_FIX10_6(__COS(this->avoidSteeringBehaviorSpec->maximumAngle)) < dotProduct)
 		{
-			Vector3D desiredDirection1 = 
-			{	
+			Vector3D desiredDirection1 =
+			{
 				direction.y,
 				-direction.x,
 				0
 			};
 
-			Vector3D desiredDirection2 = 
-			{	
+			Vector3D desiredDirection2 =
+			{
 				-direction.y,
 				direction.x,
 				0

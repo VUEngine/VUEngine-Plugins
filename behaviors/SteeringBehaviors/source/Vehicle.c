@@ -1,7 +1,7 @@
-/* VUEngine - Virtual Utopia Engine <http://vuengine.planetvb.com/>
+/* VUEngine - Virtual Utopia Engine <https://www.vuengine.dev>
  * A universal game engine for the Nintendo Virtual Boy
  *
- * Copyright (C) 2007, 2017 by Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <chris@vr32.de>
+ * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>, 2007-2020
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
  * associated documentation files (the "Software"), to deal in the Software without restriction, including
@@ -83,7 +83,7 @@ void Vehicle::ready(bool recursive)
 	{
 		this->steeringBehaviors = new VirtualList();
 	}
-	
+
 	// get steering behaviors to sort them based on their priority
 	Container::getBehaviors(this, typeofclass(SteeringBehavior), this->steeringBehaviors);
 
@@ -99,14 +99,14 @@ void Vehicle::ready(bool recursive)
 		for(; auxNode; auxNode = auxNode->next)
 		{
 			SteeringBehavior auxSteeringBehavior = SteeringBehavior::safeCast(auxNode->data);
-			
+
 			// check the priority and swap them to make the higher priority to come first in the array
 			if(SteeringBehavior::getPriority(steeringBehavior) < SteeringBehavior::getPriority(auxSteeringBehavior))
 			{
 				VirtualNode::swapData(node, auxNode);
 				steeringBehavior = auxSteeringBehavior;
 				auxNode = node->next;
-			}				
+			}
 		}
 	}
 
@@ -156,7 +156,7 @@ const Vector3D* Vehicle::getReferencePosition()
 bool Vehicle::updateForce()
 {
 	bool computeForce = 0 > this->evenCycle;
-	
+
 	if(!computeForce)
 	{
 		u16 modulo = __MODULO(this->evenCycle, 2);
@@ -182,7 +182,7 @@ bool Vehicle::updateForce()
 void Vehicle::update(u32 elapsedTime __attribute__((unused)))
 {
 	Base::update(this, elapsedTime);
-	
+
 	Vehicle::updateForce(this);
 }
 

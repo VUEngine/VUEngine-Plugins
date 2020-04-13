@@ -1,7 +1,7 @@
-/* VUEngine - Virtual Utopia Engine <http://vuengine.planetvb.com/>
+/* VUEngine - Virtual Utopia Engine <https://www.vuengine.dev>
  * A universal game engine for the Nintendo Virtual Boy
  *
- * Copyright (C) 2007, 2018 by Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <chris@vr32.de>
+ * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>, 2007-2020
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
  * associated documentation files (the "Software"), to deal in the Software without restriction, including
@@ -48,7 +48,7 @@ static u32 ReflectiveEntity::randomSeed()
 	seed ^= seed << 13;
 	seed ^= seed >> 17;
 	seed ^= seed << 5;
-	
+
 	return seed;
 }
 
@@ -405,7 +405,7 @@ void ReflectiveEntity::drawReflection(u32 currentDrawingFrameBufferSet,
 
 	int rightBorderSize = 0;
 	u32 temp = rightBorderMask;
-	
+
 	while(temp)
 	{
 		rightBorderSize++;

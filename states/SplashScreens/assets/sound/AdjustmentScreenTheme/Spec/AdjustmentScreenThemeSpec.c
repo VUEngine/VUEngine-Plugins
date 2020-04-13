@@ -1,8 +1,8 @@
 
-/* VUEngine - Virtual Utopia Engine <http://vuengine.planetvb.com/>
+/* VUEngine - Virtual Utopia Engine <https://www.vuengine.dev>
  * A universal game engine for the Nintendo Virtual Boy
  *
- * Copyright (C) 2007, 2018 by Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <chris@vr32.de>
+ * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>, 2007-2020
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
  * associated documentation files (the "Software"), to deal in the Software without restriction, including
@@ -110,12 +110,12 @@ SoundChannelConfigurationROM ADJUSTMENT_SCREEN_THEME_SOUND_CHANNEL_1_1_CONFIGURA
 	/// SxRAM (this is overrode by the SoundManager)
 	0x00,
 
-	/// SxEV0 
+	/// SxEV0
 	0xF0,
 
 	/// SxEV1
 	0x00,
-	
+
 	/// SxFQH
 	0xFF,
 
@@ -149,12 +149,12 @@ SoundChannelConfigurationROM ADJUSTMENT_SCREEN_THEME_SOUND_CHANNEL_1_2_CONFIGURA
 	/// SxRAM (this is overrode by the SoundManager)
 	0x00,
 
-	/// SxEV0 
+	/// SxEV0
 	0xF0,
 
 	/// SxEV1
 	0x00,
-	
+
 	/// SxFQH
 	0xFF,
 
@@ -188,12 +188,12 @@ SoundChannelConfigurationROM ADJUSTMENT_SCREEN_THEME_SOUND_CHANNEL_1_3_CONFIGURA
 	/// SxRAM (this is overrode by the SoundManager)
 	0x00,
 
-	/// SxEV0 
+	/// SxEV0
 	0xF0,
 
 	/// SxEV1
 	0x00,
-	
+
 	/// SxFQH
 	0xFF,
 
@@ -227,12 +227,12 @@ SoundChannelConfigurationROM ADJUSTMENT_SCREEN_THEME_SOUND_CHANNEL_1_4_CONFIGURA
 	/// SxRAM (this is overrode by the SoundManager)
 	0x00,
 
-	/// SxEV0 
+	/// SxEV0
 	0xF0,
 
 	/// SxEV1
 	0x00,
-	
+
 	/// SxFQH
 	0xFF,
 
@@ -266,12 +266,12 @@ SoundChannelConfigurationROM ADJUSTMENT_SCREEN_THEME_SOUND_CHANNEL_1_5_CONFIGURA
 	/// SxRAM (this is overrode by the SoundManager)
 	0x00,
 
-	/// SxEV0 
+	/// SxEV0
 	0xF0,
 
 	/// SxEV1
 	0x00,
-	
+
 	/// SxFQH
 	0xFF,
 
@@ -305,12 +305,12 @@ SoundChannelConfigurationROM ADJUSTMENT_SCREEN_THEME_SOUND_CHANNEL_1_6_CONFIGURA
 	/// SxRAM (this is overrode by the SoundManager)
 	0x00,
 
-	/// SxEV0 
+	/// SxEV0
 	0x70,
 
 	/// SxEV1
 	0x00,
-	
+
 	/// SxFQH
 	0xFF,
 
@@ -340,7 +340,7 @@ SoundChannelROM ADJUSTMENT_SCREEN_THEME_SOUND_CHANNEL_1_1 =
 	0,
 
 	/// Sound track
-	{ 
+	{
 		ADJUSTMENT_SCREEN_THEME_SOUND_TRACK_1
 	}
 };
@@ -354,7 +354,7 @@ SoundChannelROM ADJUSTMENT_SCREEN_THEME_SOUND_CHANNEL_1_2 =
 	0,
 
 	/// Sound track
-	{ 
+	{
 		ADJUSTMENT_SCREEN_THEME_SOUND_TRACK_1
 	}
 };
@@ -368,7 +368,7 @@ SoundChannelROM ADJUSTMENT_SCREEN_THEME_SOUND_CHANNEL_1_3 =
 	0,
 
 	/// Sound track
-	{ 
+	{
 		ADJUSTMENT_SCREEN_THEME_SOUND_TRACK_1
 	}
 };
@@ -382,7 +382,7 @@ SoundChannelROM ADJUSTMENT_SCREEN_THEME_SOUND_CHANNEL_1_4 =
 	0,
 
 	/// Sound track
-	{ 
+	{
 		ADJUSTMENT_SCREEN_THEME_SOUND_TRACK_1
 	}
 };
@@ -396,7 +396,7 @@ SoundChannelROM ADJUSTMENT_SCREEN_THEME_SOUND_CHANNEL_1_5 =
 	0,
 
 	/// Sound track
-	{ 
+	{
 		ADJUSTMENT_SCREEN_THEME_SOUND_TRACK_1
 	}
 };
@@ -410,7 +410,7 @@ SoundChannelROM ADJUSTMENT_SCREEN_THEME_SOUND_CHANNEL_1_6 =
 	0,
 
 	/// Sound track
-	{ 
+	{
 		ADJUSTMENT_SCREEN_THEME_SOUND_TRACK_1
 	}
 };
@@ -436,7 +436,7 @@ SoundROM ADJUSTMENT_SCREEN_THEME_SOUND =
 
 	/// Target timer resolution in us
 	0,
-	
+
 	/// Tracks
 	(SoundChannel**)ADJUSTMENT_SCREEN_THEME_SOUND_CHANNELS
 };

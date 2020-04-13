@@ -1,7 +1,7 @@
-/* VUEngine - Virtual Utopia Engine <http://vuengine.planetvb.com/>
+/* VUEngine - Virtual Utopia Engine <https://www.vuengine.dev>
  * A universal game engine for the Nintendo Virtual Boy
  *
- * Copyright (C) 2007, 2018 by Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <chris@vr32.de>
+ * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>, 2007-2020
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
  * associated documentation files (the "Software"), to deal in the Software without restriction, including
@@ -49,7 +49,7 @@ extern LangROMSpec* __LANGUAGES[];
 
 /**
  * Class constructor
- * 
+ *
  * @private
  */
 void I18n::constructor()
@@ -70,7 +70,7 @@ void I18n::destructor()
 
 /**
  * Get localized string
- * 
+ *
  * @param string	The identifier of the string to localize
  * @return 			localized string or NULL if no translation could be found
  */
@@ -93,7 +93,7 @@ void I18n::setActiveLanguage(u8 languageId)
 
 /**
  * Get all registered languages
- * 
+ *
  * @return		Array of LangSpec pointers
  */
 LangSpec * I18n::getLanguages()
@@ -103,7 +103,7 @@ LangSpec * I18n::getLanguages()
 
 /**
  * Retrieves ID of the currently active language
- * 
+ *
  * @return		ID of currently active language
  */
 u8 I18n::getActiveLanguage()
@@ -113,7 +113,7 @@ u8 I18n::getActiveLanguage()
 
 /**
  * Retrieves name of the currently active language
- * 
+ *
  * @return	Name of currently active language
  */
 char* I18n::getActiveLanguageName()

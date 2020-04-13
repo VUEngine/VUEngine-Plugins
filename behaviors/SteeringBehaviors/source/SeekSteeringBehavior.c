@@ -1,7 +1,7 @@
-/* VUEngine - Virtual Utopia Engine <http://vuengine.planetvb.com/>
+/* VUEngine - Virtual Utopia Engine <https://www.vuengine.dev>
  * A universal game engine for the Nintendo Virtual Boy
  *
- * Copyright (C) 2007, 2017 by Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <chris@vr32.de>
+ * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>, 2007-2020
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
  * associated documentation files (the "Software"), to deal in the Software without restriction, including
@@ -44,7 +44,7 @@ void SeekSteeringBehavior::constructor(const SeekSteeringBehaviorSpec* seekSteer
 	this->slowDownWhenReachingTarget = false;
 	this->reachedTarget = false;
 	this->allowEasing = false;
-	this->reachedDistanceThreshold = seekSteeringBehaviorSpec->reachedDistanceThreshold; 
+	this->reachedDistanceThreshold = seekSteeringBehaviorSpec->reachedDistanceThreshold;
 	this->easingDistanceThreshold = seekSteeringBehaviorSpec->easingDistanceThreshold;
 }
 
@@ -125,11 +125,11 @@ static Vector3D SeekSteeringBehavior::toTarget(SeekSteeringBehavior seekSteering
 	fix10_6 desiredVelocityLength = __FIX10_6_DIV(magnitude, length);
 
 	Vector3D desiredVelocity = Vector3D::scalarProduct(trajectory, desiredVelocityLength);
-	
+
 	if(proportionalToDistance)
 	{
 		desiredVelocity = Vector3D::get(Vehicle::getVelocity(vehicle), desiredVelocity);
-		
+
 		if(allowEasing && easingDistanceThreshold > length)
 		{
 			fix10_6 scaleFactor = __FIX10_6_EXT_TO_FIX10_6(__FIX10_6_EXT_MULT(magnitude, __FIX10_6_EXT_DIV(length, easingDistanceThreshold)));
