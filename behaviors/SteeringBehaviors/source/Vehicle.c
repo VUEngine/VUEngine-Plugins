@@ -42,10 +42,10 @@ friend class VirtualList;
 //---------------------------------------------------------------------------------------------------------
 
 // class's constructor
-void Vehicle::constructor(VehicleSpec* vehicleSpec, s16 id, s16 internalId, const char* const name)
+void Vehicle::constructor(VehicleSpec* vehicleSpec, s16 internalId, const char* const name)
 {
 	// construct base
-	Base::constructor((ActorSpec*)&vehicleSpec->actorSpec, id, internalId, name);
+	Base::constructor((ActorSpec*)&vehicleSpec->actorSpec, internalId, name);
 
 	// save vehicle spec
 	this->vehicleSpec = vehicleSpec;

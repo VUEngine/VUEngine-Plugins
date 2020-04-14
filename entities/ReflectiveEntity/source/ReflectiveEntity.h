@@ -170,7 +170,7 @@ class ReflectiveEntity : Entity
 	 * @param internalId
 	 * @param name
 	 */
-	void constructor(ReflectiveEntitySpec* mirrorSpec, s16 id, s16 internalId, const char* const name);
+	void constructor(ReflectiveEntitySpec* mirrorSpec, s16 internalId, const char* const name);
 
 	/**
 	 * Reflection algorithm that is called by the postprocessing effect

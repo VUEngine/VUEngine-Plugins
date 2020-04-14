@@ -46,7 +46,7 @@ typedef const LocalizedEntitySpec LocalizedEntityROMSpec;
 
 class LocalizedEntity : AnimatedEntity
 {
-	void constructor(const LocalizedEntitySpec* localizedEntitySpec, s16 id, s16 internalId, const char* const name);
+	void constructor(const LocalizedEntitySpec* localizedEntitySpec, s16 internalId, const char* const name);
 	override void ready(bool recursive);
 }
 

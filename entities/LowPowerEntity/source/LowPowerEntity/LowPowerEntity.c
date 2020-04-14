@@ -34,10 +34,10 @@
 //---------------------------------------------------------------------------------------------------------
 
 // class's constructor
-void LowPowerEntity::constructor(const LowPowerEntitySpec* LowPowerEntitySpec, s16 id, s16 internalId, const char* const name)
+void LowPowerEntity::constructor(const LowPowerEntitySpec* LowPowerEntitySpec, s16 internalId, const char* const name)
 {
 	// construct base object
-	Base::constructor((AnimatedEntitySpec*)LowPowerEntitySpec, id, internalId, name);
+	Base::constructor((AnimatedEntitySpec*)LowPowerEntitySpec, internalId, name);
 
 	// init class variables
 	this->lowPowerDuration = 0;
