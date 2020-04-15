@@ -34,6 +34,26 @@
 //											CLASS'S DECLARATION
 //---------------------------------------------------------------------------------------------------------
 
+
+/**
+ * A BgmapAnimatedSprite spec
+ *
+ * @memberof BgmapAnimatedSprite
+ */
+typedef struct GuiBgmapAnimatedSpriteSpec
+{
+	/// it has a Sprite spec at the beginning
+	BgmapAnimatedSpriteSpec bgmapAnimatedSpriteSpec;
+
+} GuiBgmapAnimatedSpriteSpec;
+
+/**
+ * A BgmapAnimatedSprite spec that is stored in ROM
+ *
+ * @memberof BgmapAnimatedSprite
+ */
+typedef const GuiBgmapAnimatedSpriteSpec GuiBgmapAnimatedSpriteROMSpec;
+
 /**
  * Manages printing layer and offers various functions to write to it.
  */
@@ -44,10 +64,10 @@ class GuiBgmapAnimatedSprite : BgmapAnimatedSprite
 	/**
 	 * Class constructor
 	 *
-	 * @param bgmapSpriteSpec		Sprite spec
+	 * @param guiBgmapAnimatedSpriteSpec		Sprite spec
 	 * @param owner						Owner
 	 */
-	void constructor(const BgmapSpriteSpec* bgmapSpriteSpec, Object owner);
+	void constructor(const GuiBgmapAnimatedSpriteSpec* guiBgmapAnimatedSpriteSpec, Object owner);
 
 	/**
      * Class destructor
