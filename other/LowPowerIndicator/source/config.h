@@ -29,7 +29,19 @@
 
 // show low power indicator after this many seconds of receiving the low power signal
 #ifndef __LOW_POWER_INDICATOR_FLASH_DELAY
-#define __LOW_POWER_INDICATOR_FLASH_DELAY			3
+#define __LOW_POWER_INDICATOR_FLASH_DELAY			2
+#endif
+
+#ifndef __LOW_POWER_INDICATOR_FONT
+#define __LOW_POWER_INDICATOR_FONT					NULL
+#endif
+
+#ifndef	__LOW_POWER_INDICATOR_ON_TEXT
+#define __LOW_POWER_INDICATOR_ON_TEXT				"\x01\x02"
+#endif
+
+#ifndef	__LOW_POWER_INDICATOR_OFF_TEXT
+#define __LOW_POWER_INDICATOR_OFF_TEXT				"  "
 #endif
 
 #ifndef	__LOW_POWER_INDICATOR_X_POSITION
