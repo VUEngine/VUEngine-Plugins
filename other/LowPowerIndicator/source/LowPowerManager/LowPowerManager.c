@@ -25,7 +25,6 @@
 //---------------------------------------------------------------------------------------------------------
 
 #include <Game.h>
-#include <KeypadManager.h>
 #include <LowPowerManager.h>
 
 
@@ -98,10 +97,10 @@ void LowPowerManager::printLowPowerIndicator(bool showIndicator)
 {
 	Printing::text(
 		Printing::getInstance(),
-		(showIndicator) ? __CHAR_BATTERY : "  ",
+		(showIndicator) ? __LOW_POWER_INDICATOR_ON_TEXT : __LOW_POWER_INDICATOR_OFF_TEXT,
 		this->indicatorXPos,
 		this->indicatorYPos,
-		NULL
+		__LOW_POWER_INDICATOR_FONT
 	);
 
 	this->isShowingIndicator = showIndicator;
