@@ -134,6 +134,9 @@ EntityROMSpec FLAG_CZECH_REPUBLIC_EN =
 	// sprites
 	(SpriteSpec**)FLAG_CZECH_REPUBLIC_SPRITES,
 
+	// use z displacement in projection
+	false,
+			
 	// collision shapes
 	NULL,
 

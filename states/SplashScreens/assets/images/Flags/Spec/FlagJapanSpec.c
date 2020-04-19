@@ -134,6 +134,9 @@ EntityROMSpec FLAG_JAPAN_EN =
 	// sprites
 	(SpriteSpec**)FLAG_JAPAN_SPRITES,
 
+	// use z displacement in projection
+	false,
+			
 	// collision shapes
 	NULL,
 

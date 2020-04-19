@@ -134,6 +134,9 @@ EntityROMSpec FLAG_FINLAND_EN =
 	// sprites
 	(SpriteSpec**)FLAG_FINLAND_SPRITES,
 
+	// use z displacement in projection
+	false,
+			
 	// collision shapes
 	NULL,
 

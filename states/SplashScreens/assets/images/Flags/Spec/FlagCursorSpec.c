@@ -134,6 +134,9 @@ EntityROMSpec FLAG_CURSOR_EN =
 	// sprites
 	(SpriteSpec**)FLAG_CURSOR_SPRITES,
 
+	// use z displacement in projection
+	false,
+			
 	// collision shapes
 	NULL,
 

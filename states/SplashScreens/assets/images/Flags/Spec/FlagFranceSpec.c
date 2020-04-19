@@ -134,6 +134,9 @@ EntityROMSpec FLAG_FRANCE_EN =
 	// sprites
 	(SpriteSpec**)FLAG_FRANCE_SPRITES,
 
+	// use z displacement in projection
+	false,
+			
 	// collision shapes
 	NULL,
 

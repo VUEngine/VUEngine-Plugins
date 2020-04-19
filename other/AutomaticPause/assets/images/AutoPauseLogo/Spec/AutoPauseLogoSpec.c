@@ -133,6 +133,9 @@ EntityROMSpec AUTO_PAUSE_LOGO_EN =
 	// sprites
 	(SpriteSpec**)AUTO_PAUSE_LOGO_SPRITES,
 
+	// use z displacement in projection
+	false,
+			
 	// collision shapes
 	(ShapeSpec*)NULL,
 

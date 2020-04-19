@@ -134,6 +134,9 @@ EntityROMSpec FLAG_SWEDEN_EN =
 	// sprites
 	(SpriteSpec**)FLAG_SWEDEN_SPRITES,
 
+	// use z displacement in projection
+	false,
+			
 	// collision shapes
 	NULL,
 

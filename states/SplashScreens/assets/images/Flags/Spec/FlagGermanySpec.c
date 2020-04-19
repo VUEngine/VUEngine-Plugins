@@ -134,6 +134,9 @@ EntityROMSpec FLAG_GERMANY_EN =
 	// sprites
 	(SpriteSpec**)FLAG_GERMANY_SPRITES,
 
+	// use z displacement in projection
+	false,
+			
 	// collision shapes
 	NULL,
 

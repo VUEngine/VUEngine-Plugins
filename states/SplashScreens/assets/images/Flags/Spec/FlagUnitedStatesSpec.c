@@ -134,6 +134,9 @@ EntityROMSpec FLAG_UNITED_STATES_EN =
 	// sprites
 	(SpriteSpec**)FLAG_UNITED_STATES_SPRITES,
 
+	// use z displacement in projection
+	false,
+			
 	// collision shapes
 	NULL,
 

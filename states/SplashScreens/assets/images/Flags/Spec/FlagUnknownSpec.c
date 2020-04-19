@@ -134,6 +134,9 @@ EntityROMSpec FLAG_UNKNOWN_EN =
 	// sprites
 	(SpriteSpec**)FLAG_UNKNOWN_SPRITES,
 
+	// use z displacement in projection
+	false,
+			
 	// collision shapes
 	NULL,
 

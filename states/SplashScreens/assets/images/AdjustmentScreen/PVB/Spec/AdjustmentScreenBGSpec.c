@@ -135,6 +135,9 @@ EntityROMSpec ADJUSTMENT_SCREEN_BG_EN =
 	// sprites
 	(SpriteSpec**)ADJUSTMENT_SCREEN_BG_SPRITES,
 
+	// use z displacement in projection
+	false,
+			
 	// collision shapes
 	(ShapeSpec*)NULL,
 

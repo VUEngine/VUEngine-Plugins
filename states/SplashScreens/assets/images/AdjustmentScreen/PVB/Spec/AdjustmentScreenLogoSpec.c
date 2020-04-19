@@ -134,6 +134,9 @@ EntityROMSpec ADJUSTMENT_SCREEN_LOGO_EN =
 	// sprites
 	(SpriteSpec**)ADJUSTMENT_SCREEN_LOGO_SPRITES,
 
+	// use z displacement in projection
+	false,
+			
 	// collision shapes
 	(ShapeSpec*)NULL,
 
