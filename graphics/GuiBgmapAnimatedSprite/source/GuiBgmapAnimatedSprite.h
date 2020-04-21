@@ -79,7 +79,7 @@ class GuiBgmapAnimatedSprite : BgmapAnimatedSprite
      *
      * @param evenFrame
      */
-	override void render();
+	override bool render(u8 worldLayer);
 }
 
 

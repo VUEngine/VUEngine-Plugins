@@ -44,18 +44,13 @@ void GuiBgmapAnimatedSprite::destructor()
 	Base::destructor();
 }
 
-void GuiBgmapAnimatedSprite::render()
+bool GuiBgmapAnimatedSprite::render(u8 worldLayer)
 {
-	Base::render(this);
+	bool result = Base::render(this, worldLayer);
 
 	if(!this->positioned)
 	{
-		return;
-	}
-
-	if(!this->worldLayer)
-	{
-		return;
+		return result;
 	}
 
 	static WorldAttributes* worldPointer = NULL;
@@ -85,4 +80,6 @@ void GuiBgmapAnimatedSprite::render()
 	{
 		worldPointer->h -= __WORLD_SIZE_DISPLACEMENT;
 	}
+
+	return result;
 }
