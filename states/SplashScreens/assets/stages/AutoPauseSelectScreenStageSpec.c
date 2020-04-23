@@ -142,9 +142,6 @@ StageROMSpec AUTO_PAUSE_SELECTION_SCREEN_STAGE_ST =
 		// maximum number of rows to compute on each call to the affine functions
 		16,
 
-		// bypass sprite update when writing textures
-		false,
-
 		// colors config
 		{
 			// background color
