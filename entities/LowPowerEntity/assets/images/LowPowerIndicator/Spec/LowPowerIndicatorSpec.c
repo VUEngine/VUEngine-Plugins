@@ -201,7 +201,7 @@ LowPowerEntityROMSpec LOW_POWER_INDICATOR_LB =
 
 		// use z displacement in projection
 		false,
-			
+
 		// collision shapes
 		(ShapeSpec*)NULL,
 

@@ -137,7 +137,7 @@ EntityROMSpec ADJUSTMENT_SCREEN_BG_EN =
 
 	// use z displacement in projection
 	false,
-			
+
 	// collision shapes
 	(ShapeSpec*)NULL,
 

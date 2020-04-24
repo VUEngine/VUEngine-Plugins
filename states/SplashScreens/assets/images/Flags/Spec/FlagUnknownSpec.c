@@ -136,7 +136,7 @@ EntityROMSpec FLAG_UNKNOWN_EN =
 
 	// use z displacement in projection
 	false,
-			
+
 	// collision shapes
 	NULL,
 

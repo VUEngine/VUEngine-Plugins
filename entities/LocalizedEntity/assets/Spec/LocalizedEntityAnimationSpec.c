@@ -25,7 +25,7 @@
 //---------------------------------------------------------------------------------------------------------
 
 #include <BgmapAnimatedSprite.h>
-#include <uiConfig.h>
+
 
 //---------------------------------------------------------------------------------------------------------
 //												DEFINITIONS
@@ -34,15 +34,15 @@
 AnimationFunctionROMSpec LOCALIZED_ENTITY_0_ANIM =
 {
 	// number of frames of this animation function
-	ANIMATED_LABEL_TOTAL_FRAMES,
+	1,
 
 	// frames to play in animation
 	{
-		ANIMATED_LABEL_FRAMES 0
+		0
 	},
 
 	// number of cycles a frame of animation is displayed
-	ANIMATED_LABEL_FRAME_CYCLE,
+	8,
 
 	// whether to play it in loop or not
 	false,
@@ -58,15 +58,15 @@ AnimationFunctionROMSpec LOCALIZED_ENTITY_0_ANIM =
 AnimationFunctionROMSpec LOCALIZED_ENTITY_1_ANIM =
 {
 	// number of frames of this animation function
-	ANIMATED_LABEL_TOTAL_FRAMES,
+	1,
 
 	// frames to play in animation
 	{
-		ANIMATED_LABEL_FRAMES 1
+		1
 	},
 
 	// number of cycles a frame of animation is displayed
-	ANIMATED_LABEL_FRAME_CYCLE,
+	8,
 
 	// whether to play it in loop or not
 	false,
@@ -83,15 +83,15 @@ AnimationFunctionROMSpec LOCALIZED_ENTITY_1_ANIM =
 AnimationFunctionROMSpec LOCALIZED_ENTITY_2_ANIM =
 {
 	// number of frames of this animation function
-	ANIMATED_LABEL_TOTAL_FRAMES,
+	1,
 
 	// frames to play in animation
 	{
-		ANIMATED_LABEL_FRAMES 2
+		2
 	},
 
 	// number of cycles a frame of animation is displayed
-	ANIMATED_LABEL_FRAME_CYCLE,
+	8,
 
 	// whether to play it in loop or not
 	false,
@@ -108,15 +108,15 @@ AnimationFunctionROMSpec LOCALIZED_ENTITY_2_ANIM =
 AnimationFunctionROMSpec LOCALIZED_ENTITY_3_ANIM =
 {
 	// number of frames of this animation function
-	ANIMATED_LABEL_TOTAL_FRAMES,
+	1,
 
 	// frames to play in animation
 	{
-		ANIMATED_LABEL_FRAMES 3
+		3
 	},
 
 	// number of cycles a frame of animation is displayed
-	ANIMATED_LABEL_FRAME_CYCLE,
+	8,
 
 	// whether to play it in loop or not
 	false,
@@ -133,15 +133,15 @@ AnimationFunctionROMSpec LOCALIZED_ENTITY_3_ANIM =
 AnimationFunctionROMSpec LOCALIZED_ENTITY_4_ANIM =
 {
 	// number of frames of this animation function
-	ANIMATED_LABEL_TOTAL_FRAMES,
+	1,
 
 	// frames to play in animation
 	{
-		ANIMATED_LABEL_FRAMES 4
+		4
 	},
 
 	// number of cycles a frame of animation is displayed
-	ANIMATED_LABEL_FRAME_CYCLE,
+	8,
 
 	// whether to play it in loop or not
 	false,
@@ -158,15 +158,15 @@ AnimationFunctionROMSpec LOCALIZED_ENTITY_4_ANIM =
 AnimationFunctionROMSpec LOCALIZED_ENTITY_5_ANIM =
 {
 	// number of frames of this animation function
-	ANIMATED_LABEL_TOTAL_FRAMES,
+	1,
 
 	// frames to play in animation
 	{
-		ANIMATED_LABEL_FRAMES 5
+		5
 	},
 
 	// number of cycles a frame of animation is displayed
-	ANIMATED_LABEL_FRAME_CYCLE,
+	8,
 
 	// whether to play it in loop or not
 	false,
@@ -183,15 +183,15 @@ AnimationFunctionROMSpec LOCALIZED_ENTITY_5_ANIM =
 AnimationFunctionROMSpec LOCALIZED_ENTITY_6_ANIM =
 {
 	// number of frames of this animation function
-	ANIMATED_LABEL_TOTAL_FRAMES,
+	1,
 
 	// frames to play in animation
 	{
-		ANIMATED_LABEL_FRAMES 6
+		6
 	},
 
 	// number of cycles a frame of animation is displayed
-	ANIMATED_LABEL_FRAME_CYCLE,
+	8,
 
 	// whether to play it in loop or not
 	false,
@@ -208,15 +208,15 @@ AnimationFunctionROMSpec LOCALIZED_ENTITY_6_ANIM =
 AnimationFunctionROMSpec LOCALIZED_ENTITY_7_ANIM =
 {
 	// number of frames of this animation function
-	ANIMATED_LABEL_TOTAL_FRAMES,
+	1,
 
 	// frames to play in animation
 	{
-		ANIMATED_LABEL_FRAMES 7
+		7
 	},
 
 	// number of cycles a frame of animation is displayed
-	ANIMATED_LABEL_FRAME_CYCLE,
+	8,
 
 	// whether to play it in loop or not
 	false,
@@ -233,15 +233,15 @@ AnimationFunctionROMSpec LOCALIZED_ENTITY_7_ANIM =
 AnimationFunctionROMSpec LOCALIZED_ENTITY_8_ANIM =
 {
 	// number of frames of this animation function
-	ANIMATED_LABEL_TOTAL_FRAMES,
+	1,
 
 	// frames to play in animation
 	{
-		ANIMATED_LABEL_FRAMES 8
+		8
 	},
 
 	// number of cycles a frame of animation is displayed
-	ANIMATED_LABEL_FRAME_CYCLE,
+	8,
 
 	// whether to play it in loop or not
 	false,
@@ -258,15 +258,15 @@ AnimationFunctionROMSpec LOCALIZED_ENTITY_8_ANIM =
 AnimationFunctionROMSpec LOCALIZED_ENTITY_9_ANIM =
 {
 	// number of frames of this animation function
-	ANIMATED_LABEL_TOTAL_FRAMES,
+	1,
 
 	// frames to play in animation
 	{
-		ANIMATED_LABEL_FRAMES 9
+		9
 	},
 
 	// number of cycles a frame of animation is displayed
-	ANIMATED_LABEL_FRAME_CYCLE,
+	8,
 
 	// whether to play it in loop or not
 	false,
@@ -283,15 +283,15 @@ AnimationFunctionROMSpec LOCALIZED_ENTITY_9_ANIM =
 AnimationFunctionROMSpec LOCALIZED_ENTITY_10_ANIM =
 {
 	// number of frames of this animation function
-	ANIMATED_LABEL_TOTAL_FRAMES,
+	1,
 
 	// frames to play in animation
 	{
-		ANIMATED_LABEL_FRAMES 10
+		0
 	},
 
 	// number of cycles a frame of animation is displayed
-	ANIMATED_LABEL_FRAME_CYCLE,
+	8,
 
 	// whether to play it in loop or not
 	false,
@@ -308,15 +308,15 @@ AnimationFunctionROMSpec LOCALIZED_ENTITY_10_ANIM =
 AnimationFunctionROMSpec LOCALIZED_ENTITY_11_ANIM =
 {
 	// number of frames of this animation function
-	ANIMATED_LABEL_TOTAL_FRAMES,
+	1,
 
 	// frames to play in animation
 	{
-		ANIMATED_LABEL_FRAMES 11
+		1
 	},
 
 	// number of cycles a frame of animation is displayed
-	ANIMATED_LABEL_FRAME_CYCLE,
+	8,
 
 	// whether to play it in loop or not
 	false,
@@ -333,15 +333,15 @@ AnimationFunctionROMSpec LOCALIZED_ENTITY_11_ANIM =
 AnimationFunctionROMSpec LOCALIZED_ENTITY_12_ANIM =
 {
 	// number of frames of this animation function
-	ANIMATED_LABEL_TOTAL_FRAMES,
+	1,
 
 	// frames to play in animation
 	{
-		ANIMATED_LABEL_FRAMES 12
+		2
 	},
 
 	// number of cycles a frame of animation is displayed
-	ANIMATED_LABEL_FRAME_CYCLE,
+	8,
 
 	// whether to play it in loop or not
 	false,
@@ -358,15 +358,15 @@ AnimationFunctionROMSpec LOCALIZED_ENTITY_12_ANIM =
 AnimationFunctionROMSpec LOCALIZED_ENTITY_13_ANIM =
 {
 	// number of frames of this animation function
-	ANIMATED_LABEL_TOTAL_FRAMES,
+	1,
 
 	// frames to play in animation
 	{
-		ANIMATED_LABEL_FRAMES 13
+		3
 	},
 
 	// number of cycles a frame of animation is displayed
-	ANIMATED_LABEL_FRAME_CYCLE,
+	8,
 
 	// whether to play it in loop or not
 	false,
@@ -383,15 +383,15 @@ AnimationFunctionROMSpec LOCALIZED_ENTITY_13_ANIM =
 AnimationFunctionROMSpec LOCALIZED_ENTITY_14_ANIM =
 {
 	// number of frames of this animation function
-	ANIMATED_LABEL_TOTAL_FRAMES,
+	1,
 
 	// frames to play in animation
 	{
-		ANIMATED_LABEL_FRAMES 14
+		4
 	},
 
 	// number of cycles a frame of animation is displayed
-	ANIMATED_LABEL_FRAME_CYCLE,
+	8,
 
 	// whether to play it in loop or not
 	false,
@@ -408,15 +408,15 @@ AnimationFunctionROMSpec LOCALIZED_ENTITY_14_ANIM =
 AnimationFunctionROMSpec LOCALIZED_ENTITY_15_ANIM =
 {
 	// number of frames of this animation function
-	ANIMATED_LABEL_TOTAL_FRAMES,
+	1,
 
 	// frames to play in animation
 	{
-		ANIMATED_LABEL_FRAMES 15
+		5
 	},
 
 	// number of cycles a frame of animation is displayed
-	ANIMATED_LABEL_FRAME_CYCLE,
+	8,
 
 	// whether to play it in loop or not
 	false,

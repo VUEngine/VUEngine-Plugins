@@ -136,7 +136,7 @@ EntityROMSpec FLAG_GERMANY_EN =
 
 	// use z displacement in projection
 	false,
-			
+
 	// collision shapes
 	NULL,
 
