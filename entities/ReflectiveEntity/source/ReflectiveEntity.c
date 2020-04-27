@@ -99,6 +99,8 @@ void ReflectiveEntity::resume()
 
 void ReflectiveEntity::synchronizeGraphics()
 {
+	Base::synchronizeGraphics(this);
+	
 	Vector3D position3D = Vector3D::getRelativeToCamera(this->transformation.globalPosition);
 
 	PixelVector position2D = Vector3D::projectToPixelVector(position3D, 0);
