@@ -44,9 +44,9 @@ void GuiBgmapAnimatedSprite::destructor()
 	Base::destructor();
 }
 
-bool GuiBgmapAnimatedSprite::render(u16 index)
+bool GuiBgmapAnimatedSprite::render(u16 index, bool evenFrame)
 {
-	bool result = Base::render(this, index);
+	bool result = Base::render(this, index, evenFrame);
 
 	if(!this->positioned)
 	{
