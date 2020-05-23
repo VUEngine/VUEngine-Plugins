@@ -44,9 +44,9 @@ void GuiBgmapAnimatedSprite::destructor()
 	Base::destructor();
 }
 
-bool GuiBgmapAnimatedSprite::render(u8 worldLayer)
+bool GuiBgmapAnimatedSprite::render(u16 index)
 {
-	bool result = Base::render(this, worldLayer);
+	bool result = Base::render(this, index);
 
 	if(!this->positioned)
 	{
@@ -54,7 +54,7 @@ bool GuiBgmapAnimatedSprite::render(u8 worldLayer)
 	}
 
 	static WorldAttributes* worldPointer = NULL;
-	worldPointer = &_worldAttributesBaseAddress[this->worldLayer];
+	worldPointer = &_worldAttributesBaseAddress[this->index];
 
 	// set the head
 	worldPointer->head = this->head | BgmapTexture::getSegment(this->texture);
