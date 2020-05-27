@@ -44,13 +44,13 @@ void GuiBgmapAnimatedSprite::destructor()
 	Base::destructor();
 }
 
-bool GuiBgmapAnimatedSprite::render(u16 index, bool evenFrame)
+bool GuiBgmapAnimatedSprite::doRender(u16 index __attribute__((unused)), bool evenFrame __attribute__((unused)))
 {
-	bool result = Base::render(this, index, evenFrame);
+	bool result = Base::doRender(this, index, evenFrame);
 
-	if(!this->positioned)
+	if(!result)
 	{
-		return result;
+		return false;
 	}
 
 	static WorldAttributes* worldPointer = NULL;
@@ -81,5 +81,5 @@ bool GuiBgmapAnimatedSprite::render(u16 index, bool evenFrame)
 		worldPointer->h -= __WORLD_SIZE_DISPLACEMENT;
 	}
 
-	return result;
+	return true;
 }
