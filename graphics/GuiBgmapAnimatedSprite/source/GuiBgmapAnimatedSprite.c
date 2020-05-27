@@ -44,17 +44,17 @@ void GuiBgmapAnimatedSprite::destructor()
 	Base::destructor();
 }
 
-bool GuiBgmapAnimatedSprite::doRender(u16 index __attribute__((unused)), bool evenFrame __attribute__((unused)))
+u16 GuiBgmapAnimatedSprite::doRender(u16 index, bool evenFrame)
 {
-	bool result = Base::doRender(this, index, evenFrame);
+	u16 result = Base::doRender(this, index, evenFrame);
 
 	if(!result)
 	{
-		return false;
+		return 0;
 	}
 
 	static WorldAttributes* worldPointer = NULL;
-	worldPointer = &_worldAttributesBaseAddress[this->index];
+	worldPointer = &_worldAttributesBaseAddress[index];
 
 	// set the head
 	worldPointer->head = this->head | BgmapTexture::getSegment(this->texture);
@@ -81,5 +81,5 @@ bool GuiBgmapAnimatedSprite::doRender(u16 index __attribute__((unused)), bool ev
 		worldPointer->h -= __WORLD_SIZE_DISPLACEMENT;
 	}
 
-	return true;
+	return result;
 }
