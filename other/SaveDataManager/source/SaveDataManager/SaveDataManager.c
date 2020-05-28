@@ -160,6 +160,10 @@ void SaveDataManager::restoreSettings()
 		// load and set auto pause state
 		AutoPauseManager::setActive(AutoPauseManager::getInstance(), SaveDataManager::getAutomaticPauseStatus(this));
 	}
+	else
+	{
+		I18n::setActiveLanguage(I18n::getInstance(), 0);
+	}
 }
 
 u8 SaveDataManager::getLanguage()
