@@ -53,8 +53,7 @@ u16 GuiBgmapAnimatedSprite::doRender(u16 index, bool evenFrame)
 		return 0;
 	}
 
-	static WorldAttributes* worldPointer = NULL;
-	worldPointer = &_worldAttributesBaseAddress[index];
+	WorldAttributes* worldPointer = &_worldAttributesCache[index];
 
 	// set the head
 	worldPointer->head = this->head | BgmapTexture::getSegment(this->texture);
