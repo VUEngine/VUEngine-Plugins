@@ -52,7 +52,7 @@ u16 GuiBgmapAnimatedSprite::doRender(u16 index, bool evenFrame)
 
 	if(!result)
 	{
-		return 0;
+		return __NO_RENDER_INDEX;
 	}
 
 	WorldAttributes* worldPointer = &_worldAttributesCache[index];
