@@ -56,8 +56,6 @@ void PlatformerCameraTriggerEntity::constructor(PlatformerCameraTriggerEntitySpe
 	this->direction.z = __FAR;
 
 	this->previousGlobalPosition = (Vector3D) {0, 0, 0};
-
-	PlatformerCameraTriggerEntity::lockMovement(this, __X_AXIS | __Y_AXIS, false);
 }
 
 // class's destructor
