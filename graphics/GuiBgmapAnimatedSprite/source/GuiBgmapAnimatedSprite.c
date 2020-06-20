@@ -50,7 +50,7 @@ u16 GuiBgmapAnimatedSprite::doRender(u16 index, bool evenFrame)
 
 	u16 result = Base::doRender(this, index, evenFrame);
 
-	if(__NO_RENDER_INDEX == result)
+	if((u16)__NO_RENDER_INDEX == result)
 	{
 		return __NO_RENDER_INDEX;
 	}
