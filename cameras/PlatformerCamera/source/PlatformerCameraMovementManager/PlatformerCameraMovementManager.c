@@ -241,7 +241,8 @@ bool PlatformerCameraMovementManager::doFocusAndAlertWhenTargetReached(u32 check
 {
 	if(PlatformerCameraMovementManager::doFocus(this, checkIfFocusEntityIsMoving, true))
 	{
-		Object::fireEvent(EventManager::getInstance(), kEventScreenFocused);
+		EventManager::fireEvent(EventManager::getInstance(), kEventScreenFocused);
+		NM_ASSERT(!isDeleted(EventManager::getInstance()), "PlatformerCameraMovementManager::doFocusAndAlertWhenTargetReached: deteled entity manager during kEventScreenFocused");
 
 		return true;
 	}
