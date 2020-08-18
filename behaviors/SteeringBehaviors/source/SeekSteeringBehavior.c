@@ -118,7 +118,7 @@ static Vector3D SeekSteeringBehavior::toTarget(SeekSteeringBehavior seekSteering
 	{
 		seekSteeringBehavior->reachedTarget = true;
 		SeekSteeringBehavior::fireEvent(seekSteeringBehavior, kTargetReached);
-		NM_ASSERT(!isDeleted(seekSteeringBehavior), "SeekSteeringBehavior::toTarget: deteled seekSteeringBehavior during kTargetReached");
+		NM_ASSERT(!isDeleted(seekSteeringBehavior), "SeekSteeringBehavior::toTarget: deleted seekSteeringBehavior during kTargetReached");
 		return Vector3D::zero();
 	}
 

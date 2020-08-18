@@ -92,7 +92,7 @@ void I18n::setActiveLanguage(u8 languageId)
 	{
 		GameState currentGameState = Game::getCurrentState(Game::getInstance());
 		GameState::fireEvent(currentGameState, kEventLanguageChanged);
-		NM_ASSERT(!isDeleted(currentGameState), "I18n::setActiveLanguage: deteled game state during kEventLanguageChanged");
+		NM_ASSERT(!isDeleted(currentGameState), "I18n::setActiveLanguage: deleted game state during kEventLanguageChanged");
 	}
 }
 
