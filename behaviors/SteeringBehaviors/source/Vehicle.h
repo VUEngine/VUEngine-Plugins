@@ -68,10 +68,10 @@ class Vehicle : Actor
 	bool updateForce();
 	VirtualList getSteeringBehaviors();
 	Velocity getVelocity();
-	const Direction3D* getDirection3D();
 	fix10_6 getFrictionMassRatio();
 
 	virtual const Vector3D* getReferencePosition();
+	virtual const Direction3D* getDirection3D();
 
 	override void ready(bool recursive);
 	override void update(u32 elapsedTime);
