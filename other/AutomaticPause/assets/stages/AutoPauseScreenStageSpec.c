@@ -271,12 +271,12 @@ StageROMSpec AUTOMATIC_PAUSE_SCREEN_STAGE_ST =
 	{
 		// ui
 		{
-			AUTOMATIC_PAUSE_SCREEN_STAGE_ST_UI_ENTITIES,
+			(PositionedEntity*)AUTOMATIC_PAUSE_SCREEN_STAGE_ST_UI_ENTITIES,
 			__TYPE(UIContainer),
 		},
 
 		// children
-		AUTOMATIC_PAUSE_SCREEN_STAGE_ST_ENTITIES,
+		(PositionedEntity*)AUTOMATIC_PAUSE_SCREEN_STAGE_ST_ENTITIES,
 	},
 
 	// post processing effects

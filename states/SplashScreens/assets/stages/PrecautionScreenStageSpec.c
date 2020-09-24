@@ -267,12 +267,12 @@ StageROMSpec PRECAUTION_SCREEN_STAGE_ST =
 	{
 		// ui
 		{
-			PRECAUTION_SCREEN_STAGE_ST_UI_ENTITIES,
+			(PositionedEntity*)PRECAUTION_SCREEN_STAGE_ST_UI_ENTITIES,
 			__TYPE(UIContainer),
 		},
 
 		// children
-		PRECAUTION_SCREEN_STAGE_ST_ENTITIES,
+		(PositionedEntity*)PRECAUTION_SCREEN_STAGE_ST_ENTITIES,
 	},
 
 	// post processing effects
