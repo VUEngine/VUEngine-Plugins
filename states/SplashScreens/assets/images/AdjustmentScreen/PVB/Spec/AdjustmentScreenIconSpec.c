@@ -163,7 +163,13 @@ EntityROMSpec ADJUSTMENT_SCREEN_ICON_L_EN =
 	// class allocator
 	__TYPE(Entity),
 
+	// children
+	NULL,
+
 	// behaviors
+	NULL,
+
+	// extra
 	NULL,
 
 	// sprites
@@ -191,7 +197,13 @@ EntityROMSpec ADJUSTMENT_SCREEN_ICON_R_EN =
 	// class allocator
 	__TYPE(Entity),
 
+	// children
+	NULL,
+
 	// behaviors
+	NULL,
+
+	// extra
 	NULL,
 
 	// sprites

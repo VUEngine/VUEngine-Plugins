@@ -128,7 +128,13 @@ EntityROMSpec FLAG_SWEDEN_EN =
 	// class allocator
 	__TYPE(Entity),
 
+	// children
+	NULL,
+
 	// behaviors
+	NULL,
+
+	// extra
 	NULL,
 
 	// sprites

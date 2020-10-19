@@ -128,7 +128,13 @@ EntityROMSpec FLAG_UNITED_STATES_EN =
 	// class allocator
 	__TYPE(Entity),
 
+	// children
+	NULL,
+
 	// behaviors
+	NULL,
+
+	// extra
 	NULL,
 
 	// sprites

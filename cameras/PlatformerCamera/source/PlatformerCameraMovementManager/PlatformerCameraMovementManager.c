@@ -347,7 +347,13 @@ void PlatformerCameraMovementManager::configure(Entity focusEntity, u32 focusEnt
 		// class allocator
 		__TYPE(PlatformerCameraTriggerEntity),
 
+		// children
+		NULL,
+
 		// behaviors
+		NULL,
+
+		// extra
 		NULL,
 
 		// sprites

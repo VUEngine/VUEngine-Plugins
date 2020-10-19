@@ -193,7 +193,13 @@ LowPowerEntityROMSpec LOW_POWER_INDICATOR_LB =
 		// class allocator
 		__TYPE(LowPowerEntity),
 
+		// children
+		NULL,
+
 		// behaviors
+		NULL,
+
+		// extra
 		NULL,
 
 		// sprites

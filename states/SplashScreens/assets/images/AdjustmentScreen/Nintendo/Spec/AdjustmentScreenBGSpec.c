@@ -129,7 +129,13 @@ EntityROMSpec ADJUSTMENT_SCREEN_BG_EN =
 	// class allocator
 	__TYPE(Entity),
 
+	// children
+	NULL,
+
 	// behaviors
+	NULL,
+
+	// extra
 	NULL,
 
 	// sprites
