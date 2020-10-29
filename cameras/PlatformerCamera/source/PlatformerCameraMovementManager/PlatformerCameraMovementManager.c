@@ -357,7 +357,7 @@ void PlatformerCameraMovementManager::configure(Entity focusEntity, u32 focusEnt
 		NULL,
 
 		// sprites
-		(SpriteSpec**)NULL,
+		NULL,
 
 		// use z displacement in projection
 		false,
