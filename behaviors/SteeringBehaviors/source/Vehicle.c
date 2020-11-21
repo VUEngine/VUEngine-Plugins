@@ -89,6 +89,15 @@ void Vehicle::ready(bool recursive)
 	if(NULL == this->steeringBehaviors->head)
 	{
 		delete this->steeringBehaviors;
+#ifndef __SILENT_CRASHES
+		this->steeringBehaviors = NULL;
+#else
+#if __SILENT_CRASHES
+		this->steeringBehaviors = this->steeringBehaviors;
+#else
+		this->steeringBehaviors = NULL;
+#endif
+#endif
 	}
 	else
 	{
