@@ -81,8 +81,6 @@ void Shader::renderToTexture()
 	u16 limit = CharSet::getNumberOfChars(charSet);
 	HWORD newTile[__BYTES_PER_CHARS(1) / sizeof(HWORD)] = {0};
 
-	static int xx = 0;
-
 	for(u16 tile = 0; tile < limit; tile++)
 	{
 		// TODO: actually render 3D pixels
