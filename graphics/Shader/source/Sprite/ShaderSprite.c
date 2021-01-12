@@ -24,12 +24,14 @@
 //												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
-#include <Shader.h>
+#include <ShaderSprite.h>
 #include <Mem.h>
 #include <Utilities.h>
 
 
 friend class CharSet;
+
+#define CHARS_PER_BUFFER (__CHAR_MEMORY_TOTAL_CHARS / 2)
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -37,111 +39,155 @@ friend class CharSet;
 //---------------------------------------------------------------------------------------------------------
 
 
-void Shader::constructor(const ShaderSpec* shaderSpec, Object owner)
+void ShaderSprite::constructor(const ShaderSpriteSpec* shaderSpriteSpec, Object owner)
 {
 	// construct base
-	Base::constructor((BgmapSpriteSpec*)&shaderSpec->bgmapSpriteSpec, owner);
+	Base::constructor((BgmapSpriteSpec*)&shaderSpriteSpec->bgmapSpriteSpec, owner);
+
+	this->buffer = shaderSpriteSpec->shaderDisplaySide;
+	this->charSet = NULL;
+
+	if(!isDeleted(this->texture))
+	{
+		this->charSet = Texture::getCharSet(this->texture, true);
+	}
 }
 
-void Shader::destructor()
+void ShaderSprite::destructor()
 {
+	this->charSet = NULL;
+
 	// delete the super object
 	// must always be called at the end of the destructor
 	Base::destructor();
 }
 
-u16 Shader::doRender(s16 index, bool evenFrame __attribute__((unused)))
+
+bool ShaderSprite::hasSpecialEffects()
+{
+	return true;
+}
+
+u16 ShaderSprite::doRender(s16 index, bool evenFrame __attribute__((unused)))
 {
 	if(Base::doRender(this, index, evenFrame) == index)
 	{
-//		Shader::renderToTexture(this);
+//		ShaderSprite::renderToTexture(this, (WORD*)(buffer[this->buffer]));
 		return index;
 	}
 
 	return __NO_RENDER_INDEX;
 }
 
-//static u32 buffer[2][BYTES_PER_PIXELS(BUFFER_ROWS * BUFFER_COLS) / sizeof(u32)] __attribute__((section(".dram_bss")));
 
-void Shader::renderToTexture()
+void ShaderSprite::processEffects()
 {
-	if(isDeleted(this->texture))
+	if(isDeleted(this->charSet))
 	{
 		return;
 	}
 
-	CharSet charSet = Texture::getCharSet(this->texture, true);
+	ShaderSprite::renderToTexture(this, (WORD*)(__CHAR_SPACE_BASE_ADDRESS + (((u32)this->charSet->offset) << 4)));
+}
 
-	if(isDeleted(charSet))
+void ShaderSprite::copyBufferTo(WORD* bufferAddress, WORD* destinationAddress)
+{
+	Mem::copyWORD(
+		destinationAddress,
+		bufferAddress,
+		__BYTES_PER_CHARS(CharSet::getNumberOfChars(this->charSet)) / sizeof(WORD)
+	);
+}
+
+// TODO: Should use the Mem::copyWORD, but this is way faster on hardware somehow
+static void ShaderSprite::addWORD(WORD* destination, const WORD* source, u32 numberOfWORDS, u32 increment)
+{
+	for(; 0 < numberOfWORDS; numberOfWORDS--)
 	{
-		return;
+		*destination++ = *source++ + increment;
 	}
+}
 
-	u16 numberOfChars = CharSet::getNumberOfChars(charSet);
-
+void ShaderSprite::clear(WORD* destinationAddress)
+{
 	extern BYTE ShaderTiles[];
 
-	Mem::copyWORD(
-		(WORD*)(__CHAR_SPACE_BASE_ADDRESS + (((u32)charSet->offset) << 4)),
+	ShaderSprite::addWORD(
+		destinationAddress,
 		(WORD*)(ShaderTiles),
-		__BYTES_PER_CHARS(1) / sizeof(WORD)
+		__BYTES_PER_CHARS(CharSet::getNumberOfChars(this->charSet)) / sizeof(WORD),
+		0
 	);
+}
 
-	PixelVector fromVertex2D = Vector3D::projectToPixelVector((Vector3D){__SCREEN_WIDTH_METERS >> 1, __SCREEN_HEIGHT_METERS >> 1, 0}, 0);
+void ShaderSprite::drawRandom(WORD* destinationAddress)
+{
+	extern BYTE ShaderTiles[];
+
+	static int increment = 0;
+	increment++;
+
+	ShaderSprite::addWORD(
+		destinationAddress,
+		(WORD*)(ShaderTiles),
+		__BYTES_PER_CHARS(CharSet::getNumberOfChars(this->charSet)) / sizeof(WORD),
+		increment
+	);
+}
+
+void ShaderSprite::renderToTexture(WORD* bufferAddress)
+{
+	if(isDeleted(this->charSet))
+	{
+		return;
+	}
+
+	ShaderSprite::clear(this, bufferAddress);
+	ShaderSprite::drawRandom(this, bufferAddress);
+
+	for(int i = 0; i < 12; i++)
+	{
+		ShaderSprite::renderClock(this, bufferAddress);
+	}
+}
+
+const int pad[8192*8*4] = {0};
+
+void ShaderSprite::renderClock(WORD* bufferAddress)
+{
+	Vector3D fromVector = 
+	{
+		__SCREEN_WIDTH_METERS >> 1,
+		__SCREEN_HEIGHT_METERS >> 1,
+		0
+	};
 
 	static s16 angle = 0;
-	angle = ++angle > 512 ? 0 : angle;
+	angle = angle > 512 ? 0 : angle;
+	angle += 4;
 
 	fix10_6 sinAngle = __FIX7_9_TO_FIX10_6(__SIN(angle));
 	fix10_6 cosAngle = __FIX7_9_TO_FIX10_6(__COS(angle));
 
 	Vector3D toVector = 
 	{
-		__FIX10_6_MULT(__PIXELS_TO_METERS(64), cosAngle),
-		__FIX10_6_MULT(__PIXELS_TO_METERS(64), sinAngle),
+		fromVector.x + __FIX10_6_MULT(__PIXELS_TO_METERS(64), cosAngle),
+		fromVector.y + __FIX10_6_MULT(__PIXELS_TO_METERS(64), sinAngle),
 		0
 	};
 
-
+	PixelVector fromVertex2D = Vector3D::projectToPixelVector(fromVector, 0);
 	PixelVector toVertex2D = Vector3D::projectToPixelVector(toVector, 0);
 
-fromVertex2D.x = 0;
-fromVertex2D.y = 0;
-toVertex2D.x = 192;
-toVertex2D.y = 112;
-
-
-	Shader::drawLine(this, fromVertex2D, toVertex2D, __COLOR_BRIGHT_RED);
-
-	
-	/*
-	HWORD newTile[__BYTES_PER_CHARS(1) / sizeof(HWORD)] = {0};
-
-	for(u16 tile = 0; tile < limit; tile++)
-	{
-		// TODO: actually render 3D pixels
-		for(u16 tileRow = 0; tileRow < __BYTES_PER_CHARS(1) / sizeof(HWORD); tileRow++)
-		{
-			newTile[tileRow] = Utilities::random(Utilities::randomSeed(), 1 << (15 - tileRow));
-		}
-
-		Mem::copyWORD(
-			(WORD*)(__CHAR_SPACE_BASE_ADDRESS + ((((u32)charSet->offset) << 4) + (tile << 4))),
-			(WORD*)newTile,
-			__BYTES_PER_CHARS(1) / sizeof(WORD)
-		);
-	}
-	*/
+	ShaderSprite::drawLine(this, bufferAddress, fromVertex2D, toVertex2D, __COLOR_BRIGHT_RED);
 }
 
-void Shader::drawPixel(u16 x, u16 y, int color)
+void ShaderSprite::drawPixel(WORD* bufferAddress, u16 x, u16 y, int color)
 {
-	CharSet charSet = Texture::getCharSet(this->texture, true);
-
 	int cols = Texture::getCols(this->texture);
 
-	u16 col = x / 8;
-	u16 row = y / 8;
+	u16 col = x >> 3;
+	u16 row = y >> 3;
 
 	u16 tile = cols * row + col;  
 
@@ -149,26 +195,23 @@ void Shader::drawPixel(u16 x, u16 y, int color)
 
 //	HWORD newTile[__BYTES_PER_CHARS(1) / sizeof(HWORD)] = {0x0F0F, 0, 0, 0x0F0F, 0, 0, 0x0F0F, 0};
 //	HWORD newTile[__BYTES_PER_CHARS(1) / sizeof(HWORD)] = {0x0F0F, 0, 0, 0, 0, 0, 0, 0};
-	HWORD newTile[__BYTES_PER_CHARS(1) / sizeof(HWORD)] = {0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF};
+	static HWORD newTile[__BYTES_PER_CHARS(1) / sizeof(HWORD)] = {0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF};
 
 	// TODO: actually render 3D pixels
-	for(u16 tileRow = 0; tileRow < __BYTES_PER_CHARS(1) / sizeof(HWORD); tileRow++)
+//	for(u16 tileRow = 0; tileRow < __BYTES_PER_CHARS(1) / sizeof(HWORD); tileRow++)
 	{
 	//	newTile[tileRow] = *(HWORD*)(__CHAR_SPACE_BASE_ADDRESS + ((((u32)charSet->offset) << 4) + ((tile << 4) + tileRow)));
 	//	newTile[tileRow] = 0x0F0F;
 	}
 
-	u16 limit = CharSet::getNumberOfChars(charSet);
-
-
 	Mem::copyWORD(
-		(WORD*)(__CHAR_SPACE_BASE_ADDRESS + ((((u32)charSet->offset) << 4) + (tile << 4))),
+		(WORD*)(bufferAddress + (tile << 2)),
 		(WORD*)newTile,
 		__BYTES_PER_CHARS(1) / sizeof(WORD)
 	);
 }
 
-void Shader::drawLine(PixelVector fromPoint, PixelVector toPoint, int color)
+void ShaderSprite::drawLine(WORD* bufferAddress, PixelVector fromPoint, PixelVector toPoint, int color)
 {
 	fix19_13 fromPointX = __I_TO_FIX19_13(fromPoint.x);
 	fix19_13 fromPointY = __I_TO_FIX19_13(fromPoint.y);
@@ -253,7 +296,7 @@ void Shader::drawLine(PixelVector fromPoint, PixelVector toPoint, int color)
 	{
 		parallax = auxParallax;
 
-		Shader::drawPixel(this, (u16)__FIX19_13_TO_I(fromPointX - parallax), (u16)__FIX19_13_TO_I(fromPointY), color);
+		ShaderSprite::drawPixel(this, bufferAddress, (u16)__FIX19_13_TO_I(fromPointX - parallax), (u16)__FIX19_13_TO_I(fromPointY), color);
 
 		fromPointX += stepX;
 		fromPointY += stepY;

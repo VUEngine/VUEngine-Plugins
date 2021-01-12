@@ -19,8 +19,8 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-#ifndef SHADER_H_
-#define SHADER_H_
+#ifndef ShaderSprite_SPRITE_H_
+#define ShaderSprite_SPRITE_H_
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -39,24 +39,33 @@
 //											TYPE DEFINITIONS
 //---------------------------------------------------------------------------------------------------------
 
+enum ShaderSide
+{
+	kShaderSideLeft = 0,
+	kShaderSideRight
+};
+
 /**
- * Spec of a Shader
+ * Spec of a ShaderSprite
  *
- * @memberof 	Shader
+ * @memberof 	ShaderSprite
  */
-typedef struct ShaderSpec
+typedef struct ShaderSpriteSpec
 {
 	/// entity spec
 	BgmapSpriteSpec bgmapSpriteSpec;
 
-} ShaderSpec;
+	/// display side
+	int shaderDisplaySide;
+
+} ShaderSpriteSpec;
 
 /**
- * A ShaderSpec that is stored in ROM
+ * A ShaderSpriteSpec that is stored in ROM
  *
- * @memberof 	Shader
+ * @memberof 	ShaderSprite
  */
-typedef const ShaderSpec ShaderROMSpec;
+typedef const ShaderSpriteSpec ShaderSpriteROMSpec;
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -64,12 +73,17 @@ typedef const ShaderSpec ShaderROMSpec;
 //---------------------------------------------------------------------------------------------------------
 
 
-class Shader : BgmapSprite
+class ShaderSprite : BgmapSprite
 {
+	CharSet charSet;
+	int buffer;
+
 	/// @publicsection
-	void constructor(const ShaderSpec* shaderSpec, Object owner);
+	void constructor(const ShaderSpriteSpec* shaderSpriteSpec, Object owner);
 
 	override u16 doRender(s16 index, bool evenFrame);
+	override void processEffects();
+	override bool hasSpecialEffects();
 }
 
 
