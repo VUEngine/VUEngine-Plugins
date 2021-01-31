@@ -43,14 +43,14 @@ void LowPowerEntity::constructor(const LowPowerEntitySpec* LowPowerEntitySpec, s
 	this->lowPowerDuration = 0;
 
 	// add event listeners
-	Object::addEventListener(Game::getClock(Game::getInstance()), Object::safeCast(this), (EventListener)LowPowerEntity::onSecondChange, kEventSecondChanged);
+	Clock::addEventListener(Game::getClock(Game::getInstance()), Object::safeCast(this), (EventListener)LowPowerEntity::onSecondChange, kEventSecondChanged);
 }
 
 // class's destructor
 void LowPowerEntity::destructor()
 {
 	// remove event listeners
-	Object::removeEventListener(Game::getClock(Game::getInstance()), Object::safeCast(this), (EventListener)LowPowerEntity::onSecondChange, kEventSecondChanged);
+	Clock::removeEventListener(Game::getClock(Game::getInstance()), Object::safeCast(this), (EventListener)LowPowerEntity::onSecondChange, kEventSecondChanged);
 
 	// destroy the super object
 	// must always be called at the end of the destructor
