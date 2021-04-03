@@ -232,8 +232,8 @@ static void PostProcessingLantern::lantern(u32 currentDrawingFrameBufferSet, Spa
 
  	screenPixelPosition.y -= 10;
 
- 	#define ELLIPSIS_X_AXIS_LENGTH		55
- 	#define ELLIPSIS_Y_AXIS_LENGTH		60
+ 	#define ELLIPSIS_X_AXIS_LENGTH		65
+ 	#define ELLIPSIS_Y_AXIS_LENGTH		70
 	#define PENUMBRA_MASK				0x55555555
 
  	static s16 ellipsisArc[ELLIPSIS_X_AXIS_LENGTH];
