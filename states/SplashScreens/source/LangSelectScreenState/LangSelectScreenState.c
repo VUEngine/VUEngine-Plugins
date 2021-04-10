@@ -44,8 +44,6 @@ extern StageROMSpec LANGUAGE_SELECTION_SCREEN_STAGE_ST;
 extern LangROMSpec* __LANGUAGES[];
 extern EntitySpec FLAG_CURSOR_EN;
 extern EntitySpec FLAG_UNKNOWN_EN;
-extern const u16 SPLASH_SCREENS_OPTION_SELECT_SND[];
-extern const u16 SPLASH_SCREENS_OPTION_CONFIRM_SND[];
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -87,8 +85,9 @@ void LangSelectScreenState::processUserInput(UserInput userInput)
 	}
 	else if(userInput.pressedKey & (K_A | K_STA))
 	{
-		// play sound
-		//SoundManager::playFxSound(SoundManager::getInstance(), SPLASH_SCREENS_OPTION_CONFIRM_SND, playSound);
+		extern Sound OPTION_CONFIRM_SND;
+		Vector3D position = Vector3D::getFromPixelVector((PixelVector){192, 112, 0, 0});
+		SoundManager::playSound(SoundManager::getInstance(), &OPTION_CONFIRM_SND, kPlayAll, (const Vector3D*)&position, kSoundWrapperPlaybackNormal, NULL, NULL);
 
 		SplashScreenState::loadNextState(SplashScreenState::safeCast(this));
 	}
@@ -234,8 +233,9 @@ void LangSelectScreenState::select(bool next)
 	LangSelectScreenState::persistChoice(this);
 	LangSelectScreenState::printSelection(this);
 
-	// play sound
-	//SoundManager::playSound(SoundManager::getInstance(), SPLASH_SCREENS_OPTION_SELECT_SND, NULL);
+	extern Sound OPTION_SELECT_SND;
+	Vector3D position = Vector3D::getFromPixelVector((PixelVector){192, 112, 0, 0});
+	SoundManager::playSound(SoundManager::getInstance(), &OPTION_SELECT_SND, kPlayAll, (const Vector3D*)&position, kSoundWrapperPlaybackNormal, NULL, NULL);
 }
 
 void LangSelectScreenState::persistChoice()

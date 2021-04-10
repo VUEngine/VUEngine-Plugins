@@ -26,7 +26,6 @@
 
 #include <SoundManager.h>
 #include <WaveForms.h>
-#include <MIDI.h>
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -34,20 +33,20 @@
 //---------------------------------------------------------------------------------------------------------
 
 
-
 //---------------------------------------------------------------------------------------------------------
 //												DEFINITIONS
 //---------------------------------------------------------------------------------------------------------
 
+#include <MIDI.h>
 
-const u16 OptionConfirmTrack[] =
+const u16 SplashScreenIntroTrack[] =
 {
-  A_4, B_4, E_5, HOLD, ENDSOUND,
-  80, 80, 80, 1, 1,
-  15, 15, 15, 15 , 0
+  CS4, PAU, ENDSOUND,
+  100, 50, 1,
+  15, 15, 15, 
 };
 
-SoundChannelConfigurationROM OPTION_CONFIRM_SND_CHANNEL_1_CONFIGURATION =
+SoundChannelConfigurationROM SPLASH_SCREENS_INTRO_SND_CHANNEL_1_CONFIGURATION =
 {
 	/// kMIDI, kPCM
 	kMIDI,
@@ -62,7 +61,7 @@ SoundChannelConfigurationROM OPTION_CONFIRM_SND_CHANNEL_1_CONFIGURATION =
 	0x00,
 
 	/// SxEV0
-	0x80,
+	0xF0,
 
 	/// SxEV1
 	0x01,
@@ -86,28 +85,28 @@ SoundChannelConfigurationROM OPTION_CONFIRM_SND_CHANNEL_1_CONFIGURATION =
 	__SOUND_LR
 };
 
-SoundChannelROM OPTION_CONFIRM_SND_CHANNEL_1 =
+SoundChannelROM SPLASH_SCREENS_INTRO_SND_CHANNEL_1 =
 {
 	/// Configuration
-	(SoundChannelConfiguration*)&OPTION_CONFIRM_SND_CHANNEL_1_CONFIGURATION,
+	(SoundChannelConfiguration*)&SPLASH_SCREENS_INTRO_SND_CHANNEL_1_CONFIGURATION,
 
 	/// Length (PCM)
 	0,
 
 	/// Sound track
 	{
-		(const u8*)OptionConfirmTrack
+		(const u8*)SplashScreenIntroTrack
 	}
 };
 
 
-SoundChannelROM* OPTION_CONFIRM_SND_CHANNELS[] =
+SoundChannelROM* SPLASH_SCREENS_INTRO_SND_CHANNELS[] =
 {
-	&OPTION_CONFIRM_SND_CHANNEL_1,
+	&SPLASH_SCREENS_INTRO_SND_CHANNEL_1,
 	NULL
 };
 
-SoundROM OPTION_CONFIRM_SND =
+SoundROM SPLASH_SCREENS_INTRO_SND =
 {
 	/// Name
 	"Select option sound",
@@ -116,8 +115,8 @@ SoundROM OPTION_CONFIRM_SND =
 	false,
 
 	/// Target timer resolution in us
-	500,
+	1000,
 
 	/// Tracks
-	(SoundChannel**)OPTION_CONFIRM_SND_CHANNELS
+	(SoundChannel**)SPLASH_SCREENS_INTRO_SND_CHANNELS
 };

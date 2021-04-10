@@ -69,7 +69,9 @@ void PrecautionScreenState::enter(void* owner)
 	Base::enter(this, owner);
 
 	// play start-up sound
-	//SoundManager::playSound(SoundManager::getInstance(), SPLASH_SCREENS_INTRO_SND, NULL);
+	extern Sound SPLASH_SCREENS_INTRO_SND;
+	Vector3D position = Vector3D::getFromPixelVector((PixelVector){192, 112, 0, 0});
+	SoundManager::playSound(SoundManager::getInstance(), &SPLASH_SCREENS_INTRO_SND, kPlayAll, (const Vector3D*)&position, kSoundWrapperPlaybackNormal, NULL, NULL);
 
 	// show this screen for at least 2 seconds
 	// as defined by Nintendo in the official development manual (Appendix 1)

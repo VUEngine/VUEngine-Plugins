@@ -45,8 +45,6 @@
 //---------------------------------------------------------------------------------------------------------
 
 extern StageROMSpec AUTO_PAUSE_SELECTION_SCREEN_STAGE_ST;
-extern const u16 SPLASH_SCREENS_OPTION_SELECT_SND[];
-extern const u16 SPLASH_SCREENS_OPTION_CONFIRM_SND[];
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -159,8 +157,9 @@ void AutoPauseSelectScreenState::processUserInput(UserInput userInput)
 		this->selection = !this->selection;
 		AutoPauseSelectScreenState::renderSelection(this);
 
-		// play sound
-		//SoundManager::playSound(SoundManager::getInstance(), SPLASH_SCREENS_OPTION_SELECT_SND, NULL);
+		extern Sound OPTION_SELECT_SND;
+		Vector3D position = Vector3D::getFromPixelVector((PixelVector){192, 112, 0, 0});
+		SoundManager::playSound(SoundManager::getInstance(), &OPTION_SELECT_SND, kPlayAll, (const Vector3D*)&position, kSoundWrapperPlaybackNormal, NULL, NULL);
 	}
 	else if(userInput.pressedKey & (K_A | K_STA))
 	{
@@ -173,7 +172,9 @@ void AutoPauseSelectScreenState::processUserInput(UserInput userInput)
 		}
 
 		// play sound
-		//SoundManager::playSound(SoundManager::getInstance(), SPLASH_SCREENS_OPTION_CONFIRM_SND, NULL);
+		extern Sound OPTION_CONFIRM_SND;
+		Vector3D position = Vector3D::getFromPixelVector((PixelVector){192, 112, 0, 0});
+		SoundManager::playSound(SoundManager::getInstance(), &OPTION_CONFIRM_SND, kPlayAll, (const Vector3D*)&position, kSoundWrapperPlaybackNormal, NULL, NULL);
 
 		SplashScreenState::loadNextState(SplashScreenState::safeCast(this));
 	}

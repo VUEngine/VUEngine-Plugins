@@ -1,7 +1,7 @@
-/* VUEngine - Virtual Utopia Engine <https://www.vuengine.dev>
+/* VUHit - Virtual Utopia Hit <http://vuengine.planetvb.com/>
  * A universal game engine for the Nintendo Virtual Boy
  *
- * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>, 2007-2020
+ * Copyright (C) 2007, 2019 by Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <chris@vr32.de>
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
  * associated documentation files (the "Software"), to deal in the Software without restriction, including
@@ -19,18 +19,104 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
- //---------------------------------------------------------------------------------------------------------
+
+//---------------------------------------------------------------------------------------------------------
 //												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
 #include <SoundManager.h>
+#include <WaveForms.h>
+
+
+//---------------------------------------------------------------------------------------------------------
+//												DECLARATIONS
+//---------------------------------------------------------------------------------------------------------
 
 
 //---------------------------------------------------------------------------------------------------------
 //												DEFINITIONS
 //---------------------------------------------------------------------------------------------------------
 
-const u16 SPLASH_SCREENS_OPTION_SELECT_SND[] =
-{
+#include <MIDI.h>
 
+const u16 OptionSelectTrack[] =
+{
+  CS4, PAU, ENDSOUND,
+  100, 50, 1,
+  15, 15, 15, 
+};
+
+SoundChannelConfigurationROM OPTION_SELECT_SND_CHANNEL_1_CONFIGURATION =
+{
+	/// kMIDI, kPCM
+	kMIDI,
+
+	/// SxINT
+	0x9F,
+
+	/// Volume SxLRV
+	0xFF,
+
+	/// SxRAM (this is overrode by the SoundManager)
+	0x00,
+
+	/// SxEV0
+	0xF0,
+
+	/// SxEV1
+	0x01,
+
+	/// SxFQH
+	0x00,
+
+	/// SxFQL
+	0x00,
+
+	/// Ch. 5 only
+	0x00,
+
+	/// Waveform data pointer
+	sawtoothWaveForm,
+
+	/// kChannelNormal, kChannelModulation, kChannelNoise
+	kChannelNormal,
+
+	/// Volume
+	__SOUND_LR
+};
+
+SoundChannelROM OPTION_SELECT_SND_CHANNEL_1 =
+{
+	/// Configuration
+	(SoundChannelConfiguration*)&OPTION_SELECT_SND_CHANNEL_1_CONFIGURATION,
+
+	/// Length (PCM)
+	0,
+
+	/// Sound track
+	{
+		(const u8*)OptionSelectTrack
+	}
+};
+
+
+SoundChannelROM* OPTION_SELECT_SND_CHANNELS[] =
+{
+	&OPTION_SELECT_SND_CHANNEL_1,
+	NULL
+};
+
+SoundROM OPTION_SELECT_SND =
+{
+	/// Name
+	"Select option sound",
+
+	/// Play in loop
+	false,
+
+	/// Target timer resolution in us
+	1000,
+
+	/// Tracks
+	(SoundChannel**)OPTION_SELECT_SND_CHANNELS
 };
