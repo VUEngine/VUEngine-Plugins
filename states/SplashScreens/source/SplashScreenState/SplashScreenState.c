@@ -67,6 +67,7 @@ void SplashScreenState::enter(void* owner)
 	Game::disableKeypad(Game::getInstance());
 
 	// start fade in effect
+	Camera::startEffect(Camera::getInstance(), kHide);
 	Camera::startEffect(Camera::getInstance(),
 		kFadeTo, // effect type
 		0, // initial delay (in ms)
@@ -111,6 +112,7 @@ void SplashScreenState::resume(void* owner)
 		Game::disableKeypad(Game::getInstance());
 
 		// start fade in effect
+		Camera::startEffect(Camera::getInstance(), kHide);
 		Camera::startEffect(Camera::getInstance(),
 			kFadeTo, // effect type
 			0, // initial delay (in ms)
