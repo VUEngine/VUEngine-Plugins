@@ -90,9 +90,6 @@ void AutoPauseManager::setActive(bool active)
 	{
 		AutoPauseManager::setAutomaticPauseState(this, GameState::safeCast(AutoPauseScreenState::getInstance()));
 	}
-
-	// register with game
-	Game::registerAutoPauseState(Game::getInstance(), active ? GameState::safeCast(this->automaticPauseState) : NULL);
 }
 
 void AutoPauseManager::onMinuteChange(Object eventFirer __attribute__ ((unused)))
