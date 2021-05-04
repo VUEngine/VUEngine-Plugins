@@ -43,9 +43,6 @@ void AutoPauseManager::constructor()
 	this->isActive = false;
 	this->elapsedTime = 0;
 	this->autoPauseDelay = 30;
-
-	// add event listeners
-	Clock::addEventListener(Game::getClock(Game::getInstance()), Object::safeCast(this), (EventListener)AutoPauseManager::onMinuteChange, kEventMinuteChanged);
 }
 
 void AutoPauseManager::destructor()
@@ -89,6 +86,17 @@ void AutoPauseManager::setActive(bool active)
 	if(this->automaticPauseState == NULL)
 	{
 		AutoPauseManager::setAutomaticPauseState(this, GameState::safeCast(AutoPauseScreenState::getInstance()));
+	}
+
+	if(this->isActive)
+	{
+		// add event listeners
+		Clock::addEventListener(Game::getClock(Game::getInstance()), Object::safeCast(this), (EventListener)AutoPauseManager::onMinuteChange, kEventMinuteChanged);
+	}
+	else
+	{
+		// remove event listeners
+		Clock::removeEventListener(Game::getClock(Game::getInstance()), Object::safeCast(this), (EventListener)AutoPauseManager::onMinuteChange, kEventMinuteChanged);
 	}
 }
 

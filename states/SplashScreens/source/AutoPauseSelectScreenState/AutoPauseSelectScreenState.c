@@ -166,6 +166,7 @@ void AutoPauseSelectScreenState::processUserInput(UserInput userInput)
 		Object saveDataManager = Game::getSaveDataManager(Game::getInstance());
 
 		AutoPauseManager::setActive(AutoPauseManager::getInstance(), this->selection);
+		
 		if(saveDataManager)
 		{
 			SaveDataManager::setAutomaticPauseStatus(saveDataManager, this->selection);
