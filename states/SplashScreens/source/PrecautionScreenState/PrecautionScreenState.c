@@ -40,7 +40,7 @@
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern StageROMSpec PRECAUTION_SCREEN_STAGE_ST;
+extern StageROMSpec PRECAUTION_SCREEN_STAGE;
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -52,7 +52,7 @@ void PrecautionScreenState::constructor()
 {
 	Base::constructor();
 
-	this->stageSpec = (StageSpec*)&PRECAUTION_SCREEN_STAGE_ST;
+	this->stageSpec = (StageSpec*)&PRECAUTION_SCREEN_STAGE;
 }
 
 // class's destructor

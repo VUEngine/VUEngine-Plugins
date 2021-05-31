@@ -39,7 +39,7 @@ extern EntitySpec LOW_POWER_INDICATOR_LB;
 // 											ENTITY LISTS
 //---------------------------------------------------------------------------------------------------------
 
-PositionedEntityROMSpec LANGUAGE_SELECTION_SCREEN_STAGE_ST_ENTITIES[] =
+PositionedEntityROMSpec LANGUAGE_SELECTION_SCREEN_STAGE_ENTITIES[] =
 {
 #ifdef __SPLASH_SCREENS_USE_LOW_POWER_ENTITY
 	{&LOW_POWER_INDICATOR_LB, 	{__LOW_POWER_ENTITY_X_POSITION, __LOW_POWER_ENTITY_Y_POSITION, __LOW_POWER_ENTITY_Z_POSITION, __LOW_POWER_ENTITY_Z_DISPLACEMENT}, 0, NULL, NULL, NULL, false},
@@ -48,7 +48,7 @@ PositionedEntityROMSpec LANGUAGE_SELECTION_SCREEN_STAGE_ST_ENTITIES[] =
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
 };
 
-PositionedEntityROMSpec LANGUAGE_SELECTION_SCREEN_STAGE_ST_UI_ENTITIES[] =
+PositionedEntityROMSpec LANGUAGE_SELECTION_SCREEN_STAGE_UI_ENTITIES[] =
 {
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
 };
@@ -58,7 +58,7 @@ PositionedEntityROMSpec LANGUAGE_SELECTION_SCREEN_STAGE_ST_UI_ENTITIES[] =
 //											STAGE DEFINITION
 //---------------------------------------------------------------------------------------------------------
 
-StageROMSpec LANGUAGE_SELECTION_SCREEN_STAGE_ST =
+StageROMSpec LANGUAGE_SELECTION_SCREEN_STAGE =
 {
 	// allocator
 	__TYPE(Stage),
@@ -267,12 +267,12 @@ StageROMSpec LANGUAGE_SELECTION_SCREEN_STAGE_ST =
 	{
 		// ui
 		{
-			(PositionedEntity*)LANGUAGE_SELECTION_SCREEN_STAGE_ST_UI_ENTITIES,
+			(PositionedEntity*)LANGUAGE_SELECTION_SCREEN_STAGE_UI_ENTITIES,
 			__TYPE(UIContainer),
 		},
 
 		// children
-		(PositionedEntity*)LANGUAGE_SELECTION_SCREEN_STAGE_ST_ENTITIES,
+		(PositionedEntity*)LANGUAGE_SELECTION_SCREEN_STAGE_ENTITIES,
 	},
 
 	// post processing effects

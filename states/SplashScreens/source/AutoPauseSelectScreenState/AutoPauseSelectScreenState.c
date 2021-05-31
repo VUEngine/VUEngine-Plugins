@@ -44,7 +44,7 @@
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern StageROMSpec AUTO_PAUSE_SELECTION_SCREEN_STAGE_ST;
+extern StageROMSpec AUTO_PAUSE_SELECTION_SCREEN_STAGE;
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -56,7 +56,7 @@ void AutoPauseSelectScreenState::constructor()
 {
 	Base::constructor();
 
-	this->stageSpec = (StageSpec*)&AUTO_PAUSE_SELECTION_SCREEN_STAGE_ST;
+	this->stageSpec = (StageSpec*)&AUTO_PAUSE_SELECTION_SCREEN_STAGE;
 	this->selection = true;
 }
 

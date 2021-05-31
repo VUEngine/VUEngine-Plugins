@@ -41,7 +41,7 @@ extern EntitySpec LOW_POWER_INDICATOR_LB;
 // 											ENTITY LISTS
 //---------------------------------------------------------------------------------------------------------
 
-PositionedEntityROMSpec AUTOMATIC_PAUSE_SCREEN_STAGE_ST_ENTITIES[] =
+PositionedEntityROMSpec AUTOMATIC_PAUSE_SCREEN_STAGE_ENTITIES[] =
 {
 	{&AUTO_PAUSE_LOGO_EN, 	{200, 72, 0, 0}, 0, NULL, NULL, NULL, false},
 
@@ -52,7 +52,7 @@ PositionedEntityROMSpec AUTOMATIC_PAUSE_SCREEN_STAGE_ST_ENTITIES[] =
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
 };
 
-PositionedEntityROMSpec AUTOMATIC_PAUSE_SCREEN_STAGE_ST_UI_ENTITIES[] =
+PositionedEntityROMSpec AUTOMATIC_PAUSE_SCREEN_STAGE_UI_ENTITIES[] =
 {
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
 };
@@ -62,7 +62,7 @@ PositionedEntityROMSpec AUTOMATIC_PAUSE_SCREEN_STAGE_ST_UI_ENTITIES[] =
 //											STAGE DEFINITION
 //---------------------------------------------------------------------------------------------------------
 
-StageROMSpec AUTOMATIC_PAUSE_SCREEN_STAGE_ST =
+StageROMSpec AUTOMATIC_PAUSE_SCREEN_STAGE =
 {
 	// allocator
 	__TYPE(Stage),
@@ -271,12 +271,12 @@ StageROMSpec AUTOMATIC_PAUSE_SCREEN_STAGE_ST =
 	{
 		// ui
 		{
-			(PositionedEntity*)AUTOMATIC_PAUSE_SCREEN_STAGE_ST_UI_ENTITIES,
+			(PositionedEntity*)AUTOMATIC_PAUSE_SCREEN_STAGE_UI_ENTITIES,
 			__TYPE(UIContainer),
 		},
 
 		// children
-		(PositionedEntity*)AUTOMATIC_PAUSE_SCREEN_STAGE_ST_ENTITIES,
+		(PositionedEntity*)AUTOMATIC_PAUSE_SCREEN_STAGE_ENTITIES,
 	},
 
 	// post processing effects

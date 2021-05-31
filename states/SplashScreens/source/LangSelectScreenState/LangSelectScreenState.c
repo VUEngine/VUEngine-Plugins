@@ -40,7 +40,7 @@
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern StageROMSpec LANGUAGE_SELECTION_SCREEN_STAGE_ST;
+extern StageROMSpec LANGUAGE_SELECTION_SCREEN_STAGE;
 extern LangROMSpec* __LANGUAGES[];
 extern EntitySpec FLAG_CURSOR_EN;
 extern EntitySpec FLAG_UNKNOWN_EN;
@@ -55,7 +55,7 @@ void LangSelectScreenState::constructor()
 	Base::constructor();
 
 	// init members
-	this->stageSpec = (StageSpec*)&LANGUAGE_SELECTION_SCREEN_STAGE_ST;
+	this->stageSpec = (StageSpec*)&LANGUAGE_SELECTION_SCREEN_STAGE;
 	this->flagCursorEntity = NULL;
 	this->languageSelector = NULL;
 	this->selection = 0;

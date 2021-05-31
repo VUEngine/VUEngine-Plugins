@@ -39,7 +39,7 @@ extern EntitySpec LOW_POWER_INDICATOR_LB;
 // 											ENTITY LISTS
 //---------------------------------------------------------------------------------------------------------
 
-PositionedEntityROMSpec AUTO_PAUSE_SELECTION_SCREEN_STAGE_ST_ENTITIES[] =
+PositionedEntityROMSpec AUTO_PAUSE_SELECTION_SCREEN_STAGE_ENTITIES[] =
 {
 #ifdef __SPLASH_SCREENS_USE_LOW_POWER_ENTITY
 	{&LOW_POWER_INDICATOR_LB, 	{__LOW_POWER_ENTITY_X_POSITION, __LOW_POWER_ENTITY_Y_POSITION, __LOW_POWER_ENTITY_Z_POSITION, __LOW_POWER_ENTITY_Z_DISPLACEMENT}, 0, NULL, NULL, NULL, false},
@@ -48,7 +48,7 @@ PositionedEntityROMSpec AUTO_PAUSE_SELECTION_SCREEN_STAGE_ST_ENTITIES[] =
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
 };
 
-PositionedEntityROMSpec AUTO_PAUSE_SELECTION_SCREEN_STAGE_ST_UI_ENTITIES[] =
+PositionedEntityROMSpec AUTO_PAUSE_SELECTION_SCREEN_STAGE_UI_ENTITIES[] =
 {
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
 };
@@ -58,7 +58,7 @@ PositionedEntityROMSpec AUTO_PAUSE_SELECTION_SCREEN_STAGE_ST_UI_ENTITIES[] =
 //											STAGE DEFINITION
 //---------------------------------------------------------------------------------------------------------
 
-StageROMSpec AUTO_PAUSE_SELECTION_SCREEN_STAGE_ST =
+StageROMSpec AUTO_PAUSE_SELECTION_SCREEN_STAGE =
 {
 	// allocator
 	__TYPE(Stage),
@@ -267,12 +267,12 @@ StageROMSpec AUTO_PAUSE_SELECTION_SCREEN_STAGE_ST =
 	{
 		// ui
 		{
-			(PositionedEntity*)AUTO_PAUSE_SELECTION_SCREEN_STAGE_ST_UI_ENTITIES,
+			(PositionedEntity*)AUTO_PAUSE_SELECTION_SCREEN_STAGE_UI_ENTITIES,
 			__TYPE(UIContainer),
 		},
 
 		// children
-		(PositionedEntity*)AUTO_PAUSE_SELECTION_SCREEN_STAGE_ST_ENTITIES,
+		(PositionedEntity*)AUTO_PAUSE_SELECTION_SCREEN_STAGE_ENTITIES,
 	},
 
 	// post processing effects

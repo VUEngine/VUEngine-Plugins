@@ -45,7 +45,7 @@ extern EntitySpec LOW_POWER_INDICATOR_LB;
 // 											ENTITY LISTS
 //---------------------------------------------------------------------------------------------------------
 
-PositionedEntityROMSpec ADJUSTMENT_SCREEN_STAGE_ST_ENTITIES[] =
+PositionedEntityROMSpec ADJUSTMENT_SCREEN_STAGE_ENTITIES[] =
 {
 #ifdef __SPLASH_SCREENS_USE_LOW_POWER_ENTITY
 	{&LOW_POWER_INDICATOR_LB, 	{__ADJUSTMENT_SCREEN_LOW_POWER_ENTITY_X_POSITION, __ADJUSTMENT_SCREEN_LOW_POWER_ENTITY_Y_POSITION, __ADJUSTMENT_SCREEN_LOW_POWER_ENTITY_Z_POSITION, __ADJUSTMENT_SCREEN_LOW_POWER_ENTITY_Z_DISPLACEMENT}, 0, NULL, NULL, NULL, false},
@@ -99,12 +99,12 @@ PositionedEntityROMSpec ADJUSTMENT_SCREEN_STAGE_ST_ENTITIES[] =
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
 };
 
-PositionedEntityROMSpec ADJUSTMENT_SCREEN_STAGE_ST_UI_ENTITIES[] =
+PositionedEntityROMSpec ADJUSTMENT_SCREEN_STAGE_UI_ENTITIES[] =
 {
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
 };
 
-SoundROM* const ADJUSTMENT_SCREEN_STAGE_ST_SOUNDS[] =
+SoundROM* const ADJUSTMENT_SCREEN_STAGE_SOUNDS[] =
 {
 	NULL
 };
@@ -114,7 +114,7 @@ SoundROM* const ADJUSTMENT_SCREEN_STAGE_ST_SOUNDS[] =
 //											STAGE DEFINITION
 //---------------------------------------------------------------------------------------------------------
 
-StageROMSpec ADJUSTMENT_SCREEN_STAGE_ST =
+StageROMSpec ADJUSTMENT_SCREEN_STAGE =
 {
 	// allocator
 	__TYPE(Stage),
@@ -321,19 +321,19 @@ StageROMSpec ADJUSTMENT_SCREEN_STAGE_ST =
 		(TextureSpec**)NULL,
 
 		// background sounds
-		(Sound**)ADJUSTMENT_SCREEN_STAGE_ST_SOUNDS,
+		(Sound**)ADJUSTMENT_SCREEN_STAGE_SOUNDS,
 	},
 
 	// entities
 	{
 		// ui
 		{
-			(PositionedEntity*)ADJUSTMENT_SCREEN_STAGE_ST_UI_ENTITIES,
+			(PositionedEntity*)ADJUSTMENT_SCREEN_STAGE_UI_ENTITIES,
 			__TYPE(UIContainer),
 		},
 
 		// children
-		(PositionedEntity*)ADJUSTMENT_SCREEN_STAGE_ST_ENTITIES,
+		(PositionedEntity*)ADJUSTMENT_SCREEN_STAGE_ENTITIES,
 	},
 
 	// post processing effects

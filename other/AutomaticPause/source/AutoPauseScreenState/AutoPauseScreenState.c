@@ -39,7 +39,7 @@
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern StageROMSpec AUTOMATIC_PAUSE_SCREEN_STAGE_ST;
+extern StageROMSpec AUTOMATIC_PAUSE_SCREEN_STAGE;
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -66,7 +66,7 @@ void AutoPauseScreenState::enter(void* owner __attribute__ ((unused)))
 	Base::enter(this, owner);
 
 	// load stage
-	GameState::loadStage(this, (StageSpec*)&AUTOMATIC_PAUSE_SCREEN_STAGE_ST, NULL, true);
+	GameState::loadStage(this, (StageSpec*)&AUTOMATIC_PAUSE_SCREEN_STAGE, NULL, true);
 
 	// print text
 	FontSize strAutomaticPauseSize = Printing::getTextSize(
