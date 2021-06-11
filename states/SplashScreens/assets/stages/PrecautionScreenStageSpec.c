@@ -133,9 +133,6 @@ StageROMSpec PRECAUTION_SCREEN_STAGE =
 
 	// rendering
 	{
-		// number of cycles the texture writing is idle
-		__TARGET_FPS / 10,
-
 		// maximum number of texture's rows to write each time the texture writing is active
 		12,
 
