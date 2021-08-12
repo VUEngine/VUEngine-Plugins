@@ -1,0 +1,15 @@
+{
+	"displayName": "Reflective Entity",
+	"author": "Team VUEngine",
+	"description": "An Entity that can mirror other parts of the virtual screen.",
+	"icon": "./icon.png",
+	"readme": "./readme.md",
+	"repository": "https://github.com/VUEngine/VUEngine-Plugins",
+	"license": "MIT",
+	"categories": [
+		"Entity"
+	],
+	"dependencies": [
+		"vuengine/graphics/GuiBgmapAnimatedSprite"
+	]
+}

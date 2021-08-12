@@ -1,0 +1,13 @@
+{
+	"displayName": "Astonish Font",
+	"author": "Team VUEngine",
+	"description": "A beautiful 8x16 pixel font for medium size text.",
+	"icon": "./icon.png",
+	"readme": "./readme.md",
+	"repository": "https://github.com/VUEngine/VUEngine-Plugins",
+	"license": "MIT",
+	"categories": [
+		"Font"
+	],
+	"dependencies": []
+}

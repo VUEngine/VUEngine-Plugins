@@ -1,0 +1,13 @@
+{
+	"displayName": "Industrial Font",
+	"author": "Team VUEngine",
+	"description": "A bold, angular 8x8 pixel font that resembles industrial lettering.",
+	"icon": "./icon.png",
+	"readme": "./readme.md",
+	"repository": "https://github.com/VUEngine/VUEngine-Plugins",
+	"license": "MIT",
+	"categories": [
+		"Font"
+	],
+	"dependencies": []
+}

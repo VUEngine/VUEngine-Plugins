@@ -1,6 +1,0 @@
-{
-	"title": "Low Power Entity",
-	"author": "VUEngine",
-	"category": "Entities",
-	"description": "Entity based indicator that flashes when the system power is low"
-}

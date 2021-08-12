@@ -1,0 +1,13 @@
+{
+	"displayName": "Dwarf Planet Effect",
+	"author": "Team VUEngine",
+	"description": "\"Bends down\" the left and right edges of the screen to make the world look like a very small planet.",
+	"icon": "./icon.png",
+	"readme": "./readme.md",
+	"repository": "https://github.com/VUEngine/VUEngine-Plugins",
+	"license": "MIT",
+	"categories": [
+		"Post Processing Effect"
+	],
+	"dependencies": []
+}

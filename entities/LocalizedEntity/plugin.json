@@ -1,0 +1,16 @@
+{
+	"displayName": "Localized Entity",
+	"author": "Team VUEngine",
+	"description": "Uses an AninmatedEntity to implement localized Sprites",
+	"icon": "./icon.png",
+	"readme": "./readme.md",
+	"repository": "https://github.com/VUEngine/VUEngine-Plugins",
+	"license": "MIT",
+	"categories": [
+		"Entity",
+		"I18n"
+	],
+	"dependencies": [
+		"vuengine/other/I18n"
+	]
+}

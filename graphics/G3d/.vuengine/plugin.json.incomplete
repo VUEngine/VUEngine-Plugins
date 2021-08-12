@@ -1,6 +1,5 @@
 {
-	"title": "G3d Wireframe Library",
-	"author": "VUEngine",
+	"displayName": "G3d Wireframe Library",
 	"category": "Graphics",
 	"description": "A port of Greg Stevens' Wireframe Library"
 }

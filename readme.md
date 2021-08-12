@@ -9,7 +9,7 @@ LICENSE
 
 Unless otherwise noted, the following applies to all included plugins.
 
-© Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>, 2007-2020
+© Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>, 2007-2021
 
 This software is licensed under the MIT License, which means you can basically do with it whatever you
 want as long as you include the original copyright and license notice in any copy of the software/source.

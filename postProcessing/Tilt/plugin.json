@@ -1,0 +1,13 @@
+{
+	"displayName": "Tilt Effect",
+	"author": "Team VUEngine",
+	"description": "\"Tilts\" the game image by a few percent by gradually shifting columns",
+	"icon": "./icon.png",
+	"readme": "./readme.md",
+	"repository": "https://github.com/VUEngine/VUEngine-Plugins",
+	"license": "MIT",
+	"categories": [
+		"Post Processing Effect"
+	],
+	"dependencies": []
+}

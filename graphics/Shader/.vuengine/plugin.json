@@ -1,6 +1,5 @@
 {
-	"title": "Shader",
-	"author": "VUEngine",
+	"displayName": "Shader",
 	"category": "Graphics",
 	"description": "Sprite that renders to a texture."
 }

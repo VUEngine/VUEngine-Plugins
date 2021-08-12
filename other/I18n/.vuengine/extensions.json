@@ -15,14 +15,16 @@
 	},
 	"apps": {
 		"i18n": {
-			"title": "app.i18n.title",
+			"displayName": "app.i18n.title",
 			"titleIcon": "translate",
-			"data": [{
-				"type": "config",
-				"items": [
-					"i18n"
-				]
-			}],
+			"data": [
+				{
+					"type": "config",
+					"items": [
+						"i18n"
+					]
+				}
+			],
 			"icon": {
 				"dark": "extensions/icon/dark/translate.svg",
 				"light": "extensions/icon/light/translate.svg"
@@ -33,11 +35,11 @@
 			},
 			"tabs": [
 				{
-					"title": "app.languages.title",
+					"displayName": "app.languages.title",
 					"component": "languages"
 				},
 				{
-					"title": "app.translations.title",
+					"displayName": "app.translations.title",
 					"component": "translations"
 				}
 			]

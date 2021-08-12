@@ -1,0 +1,13 @@
+{
+	"displayName": "Automatic Pause",
+	"author": "Team VUEngine",
+	"description": "Automatically pauses the game after a definable amount of time.",
+	"icon": "./icon.png",
+	"readme": "./readme.md",
+	"repository": "https://github.com/VUEngine/VUEngine-Plugins",
+	"license": "MIT",
+	"categories": [],
+	"dependencies": [
+		"vuengine/entities/LowPowerEntity"
+	]
+}

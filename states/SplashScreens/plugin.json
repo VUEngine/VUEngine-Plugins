@@ -1,0 +1,19 @@
+{
+	"displayName": "Splash Screens",
+	"author": "Team VUEngine",
+	"description": "A collection of default splash screens.",
+	"icon": "./icon.png",
+	"readme": "./readme.md",
+	"repository": "https://github.com/VUEngine/VUEngine-Plugins",
+	"license": "MIT",
+	"categories": [
+		"State"
+	],
+	"dependencies": [
+		"vuengine/entities/LowPowerEntity",
+		"vuengine/other/AutomaticPause",
+		"vuengine/other/I18n",
+		"vuengine/other/LowPowerIndicator",
+		"vuengine/other/SaveDataManager"
+	]
+}

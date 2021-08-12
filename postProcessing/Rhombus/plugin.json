@@ -1,0 +1,13 @@
+{
+	"displayName": "Rhombus Effect",
+	"author": "Team VUEngine",
+	"description": "Draws a rhombus emitted from any SpatialObject.",
+	"icon": "./icon.png",
+	"readme": "./readme.md",
+	"repository": "https://github.com/VUEngine/VUEngine-Plugins",
+	"license": "MIT",
+	"categories": [
+		"Post Processing Effect"
+	],
+	"dependencies": []
+}

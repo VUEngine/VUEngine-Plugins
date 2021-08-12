@@ -1,0 +1,15 @@
+{
+	"displayName": "Low Power Entity",
+	"author": "Team VUEngine",
+	"description": "Entity based indicator that flashes when the system power is low",
+	"icon": "./icon.png",
+	"readme": "./readme.md",
+	"repository": "https://github.com/VUEngine/VUEngine-Plugins",
+	"license": "MIT",
+	"categories": [
+		"Entity"
+	],
+	"dependencies": [
+		"vuengine/graphics/GuiBgmapAnimatedSprite"
+	]
+}

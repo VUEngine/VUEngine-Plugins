@@ -1,0 +1,13 @@
+{
+	"displayName": "Steering Behaviors",
+	"author": "Team VUEngine",
+	"description": "",
+	"icon": "",
+	"readme": "",
+	"repository": "https://github.com/VUEngine/VUEngine-Plugins",
+	"license": "MIT",
+	"categories": [
+		"Behavior"
+	],
+	"dependencies": []
+}

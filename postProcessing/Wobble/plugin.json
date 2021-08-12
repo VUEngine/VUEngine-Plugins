@@ -1,0 +1,13 @@
+{
+	"displayName": "Wobble Effect",
+	"author": "Team VUEngine",
+	"description": "Applies a full screen wobble distortion that is reminiscent of water waves.",
+	"icon": "./icon.png",
+	"readme": "./readme.md",
+	"repository": "https://github.com/VUEngine/VUEngine-Plugins",
+	"license": "MIT",
+	"categories": [
+		"Post Processing Effect"
+	],
+	"dependencies": []
+}

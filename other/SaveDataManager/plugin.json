@@ -1,0 +1,14 @@
+{
+	"displayName": "Save Data Manager",
+	"author": "Team VUEngine",
+	"description": "Manages persistence of user data in SRAM.",
+	"icon": "./icon.png",
+	"readme": "./readme.md",
+	"repository": "https://github.com/VUEngine/VUEngine-Plugins",
+	"license": "MIT",
+	"categories": [],
+	"dependencies": [
+		"vuengine/other/AutomaticPause",
+		"vuengine/other/I18n"
+	]
+}
