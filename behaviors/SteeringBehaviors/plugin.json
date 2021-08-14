@@ -1,8 +1,8 @@
 {
 	"displayName": "Steering Behaviors",
 	"author": "Team VUEngine",
-	"description": "",
-	"icon": "",
+	"description": "Various vehicle behaviors for top-down racing games.",
+	"icon": "./icon.png",
 	"readme": "",
 	"repository": "https://github.com/VUEngine/VUEngine-Plugins",
 	"license": "MIT",

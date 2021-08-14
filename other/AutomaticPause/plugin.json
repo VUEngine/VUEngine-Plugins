@@ -6,7 +6,9 @@
 	"readme": "./readme.md",
 	"repository": "https://github.com/VUEngine/VUEngine-Plugins",
 	"license": "MIT",
-	"categories": [],
+	"categories": [
+		"Essentials"
+	],
 	"dependencies": [
 		"vuengine/entities/LowPowerEntity"
 	]

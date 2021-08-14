@@ -7,7 +7,7 @@
 	"repository": "https://github.com/VUEngine/VUEngine-Plugins",
 	"license": "MIT",
 	"categories": [
-		"Post Processing Effect"
+		"Post Processing"
 	],
 	"dependencies": []
 }
