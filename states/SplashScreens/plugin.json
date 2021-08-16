@@ -7,14 +7,13 @@
 	"repository": "https://github.com/VUEngine/VUEngine-Plugins",
 	"license": "MIT",
 	"categories": [
-		"Essentials",
 		"State"
 	],
 	"dependencies": [
-		"vuengine/entities/LowPowerEntity",
-		"vuengine/other/AutomaticPause",
-		"vuengine/other/I18n",
-		"vuengine/other/LowPowerIndicator",
-		"vuengine/other/SaveDataManager"
+		"vuengine//entities/LowPowerEntity",
+		"vuengine//other/AutomaticPause",
+		"vuengine//other/I18n",
+		"vuengine//other/LowPowerIndicator",
+		"vuengine//other/SaveDataManager"
 	]
 }

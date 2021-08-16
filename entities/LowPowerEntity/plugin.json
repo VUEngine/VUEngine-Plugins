@@ -7,8 +7,7 @@
 	"repository": "https://github.com/VUEngine/VUEngine-Plugins",
 	"license": "MIT",
 	"categories": [
-		"Entity",
-		"Essentials"
+		"Entity"
 	],
 	"dependencies": [
 		"vuengine/graphics/GuiBgmapAnimatedSprite"

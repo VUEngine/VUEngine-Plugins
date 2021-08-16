@@ -6,11 +6,9 @@
 	"readme": "./readme.md",
 	"repository": "https://github.com/VUEngine/VUEngine-Plugins",
 	"license": "MIT",
-	"categories": [
-		"Essentials"
-	],
+	"categories": [],
 	"dependencies": [
-		"vuengine/other/AutomaticPause",
-		"vuengine/other/I18n"
+		"vuengine//other/AutomaticPause",
+		"vuengine//other/I18n"
 	]
 }
