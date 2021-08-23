@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "automaticpauseselectionscreenstate.h": "c",
-        "lowpowermanager.h": "c"
+        "lowpowermanager.h": "c",
+        "i18n.h": "c"
     }
 }

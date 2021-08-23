@@ -1,4 +1,4 @@
-/*
+/**
  * VUEngine Plugins Library
  *
  * (c) Christian Radke and Jorge Eremiev

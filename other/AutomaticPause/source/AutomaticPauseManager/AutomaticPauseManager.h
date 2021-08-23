@@ -1,4 +1,4 @@
-/*
+/**
  * VUEngine Plugins Library
  *
  * (c) Christian Radke and Jorge Eremiev
@@ -28,7 +28,7 @@
  *
  * @ingroup vuengine-plugins-other
  */
-singleton class AutoPauseManager : Object
+singleton class AutomaticPauseManager : Object
 {
 	/// @protectedsection
 
@@ -47,9 +47,9 @@ singleton class AutoPauseManager : Object
 	/**
 	 * Get instance.
 	 *
-	 * @return	AutoPauseManager instance
+	 * @return	AutomaticPauseManager instance
 	 */
-	static AutoPauseManager getInstance();
+	static AutomaticPauseManager getInstance();
 
 	GameState getAutomaticPauseState();
 	void setAutomaticPauseState(GameState automaticPauseState);

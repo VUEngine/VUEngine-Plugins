@@ -1,4 +1,4 @@
-/*
+/**
  * VUEngine Plugins Library
  *
  * (c) Christian Radke and Jorge Eremiev
@@ -19,8 +19,8 @@
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern BYTE AutoPauseLogoTiles[];
-extern BYTE AutoPauseLogoMap[];
+extern BYTE AutomaticPauseLogoTiles[];
+extern BYTE AutomaticPauseLogoMap[];
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -39,7 +39,7 @@ CharSetROMSpec AUTOMATIC_PAUSE_LOGO_CH =
 	__NOT_ANIMATED,
 
 	// char spec
-	AutoPauseLogoTiles,
+	AutomaticPauseLogoTiles,
 };
 
 TextureROMSpec AUTOMATIC_PAUSE_LOGO_TX =
@@ -48,7 +48,7 @@ TextureROMSpec AUTOMATIC_PAUSE_LOGO_TX =
 	(CharSetSpec*)&AUTOMATIC_PAUSE_LOGO_CH,
 
 	// bgmap spec
-	AutoPauseLogoMap,
+	AutomaticPauseLogoMap,
 
 	// cols (max 64)
 	15,

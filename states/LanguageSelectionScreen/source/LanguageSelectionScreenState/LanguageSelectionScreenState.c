@@ -1,4 +1,4 @@
-/*
+/**
  * VUEngine Plugins Library
  *
  * (c) Christian Radke and Jorge Eremiev
@@ -17,10 +17,10 @@
 #include <Printing.h>
 #include <MessageDispatcher.h>
 #include <LanguageSelectionScreenState.h>
-#include <Languages.h>
 #include <KeypadManager.h>
 #include <SoundManager.h>
 #include <I18n.h>
+#include <Languages.h>
 #include <SaveDataManager.h>
 
 

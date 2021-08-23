@@ -1,4 +1,4 @@
-/*
+/**
  * VUEngine Plugins Library
  *
  * (c) Christian Radke and Jorge Eremiev
@@ -15,15 +15,15 @@
 #include <string.h>
 
 #include <Game.h>
-#include <I18n.h>
 #include <Camera.h>
 #include <Printing.h>
 #include <MessageDispatcher.h>
 #include <AutomaticPauseSelectionScreenState.h>
-#include <Languages.h>
 #include <KeypadManager.h>
 #include <SoundManager.h>
-#include <AutoPauseManager.h>
+#include <I18n.h>
+#include <Languages.h>
+#include <AutomaticPauseManager.h>
 #include <SaveDataManager.h>
 
 
@@ -32,8 +32,8 @@
 //---------------------------------------------------------------------------------------------------------
 
 extern StageROMSpec AUTOMATIC_PAUSE_SELECTION_SCREEN_STAGE;
-extern Sound AUTO_PAUSE_SELECT_SND;
-extern Sound AUTO_PAUSE_CONFIRM_SND;
+extern Sound AUTOMATIC_PAUSE_SELECT_SND;
+extern Sound AUTOMATIC_PAUSE_CONFIRM_SND;
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -142,13 +142,13 @@ void AutomaticPauseSelectionScreenState::processUserInput(UserInput userInput)
 		AutomaticPauseSelectionScreenState::renderSelection(this);
 
 		Vector3D position = Vector3D::getFromPixelVector((PixelVector){192, 112, 0, 0});
-		SoundManager::playSound(SoundManager::getInstance(), &AUTO_PAUSE__SELECT_SND, kPlayAll, (const Vector3D*)&position, kSoundWrapperPlaybackNormal, NULL, NULL);
+		SoundManager::playSound(SoundManager::getInstance(), &AUTOMATIC_PAUSE_SELECT_SND, kPlayAll, (const Vector3D*)&position, kSoundWrapperPlaybackNormal, NULL, NULL);
 	}
 	else if(userInput.pressedKey & (K_A | K_STA))
 	{
 		Object saveDataManager = Game::getSaveDataManager(Game::getInstance());
 
-		AutoPauseManager::setActive(AutoPauseManager::getInstance(), this->selection);
+		AutomaticPauseManager::setActive(AutomaticPauseManager::getInstance(), this->selection);
 		
 		if(saveDataManager)
 		{
@@ -156,7 +156,7 @@ void AutomaticPauseSelectionScreenState::processUserInput(UserInput userInput)
 		}
 
 		Vector3D position = Vector3D::getFromPixelVector((PixelVector){192, 112, 0, 0});
-		SoundManager::playSound(SoundManager::getInstance(), &AUTO_PAUSE__CONFIRM_SND, kPlayAll, (const Vector3D*)&position, kSoundWrapperPlaybackNormal, NULL, NULL);
+		SoundManager::playSound(SoundManager::getInstance(), &AUTOMATIC_PAUSE_CONFIRM_SND, kPlayAll, (const Vector3D*)&position, kSoundWrapperPlaybackNormal, NULL, NULL);
 
 		SplashScreenState::loadNextState(SplashScreenState::safeCast(this));
 	}

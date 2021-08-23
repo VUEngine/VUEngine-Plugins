@@ -1,4 +1,4 @@
-/*
+/**
  * VUEngine Plugins Library
  *
  * (c) Christian Radke and Jorge Eremiev
@@ -18,8 +18,9 @@
 #include <Printing.h>
 #include <MessageDispatcher.h>
 #include <PhysicalWorld.h>
+#include <I18n.h>
 #include <Languages.h>
-#include <AutoPauseScreenState.h>
+#include <AutomaticPauseScreenState.h>
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -34,20 +35,20 @@ extern StageROMSpec AUTOMATIC_PAUSE_SCREEN_STAGE;
 //---------------------------------------------------------------------------------------------------------
 
 // class's constructor
-void AutoPauseScreenState::constructor()
+void AutomaticPauseScreenState::constructor()
 {
 	Base::constructor();
 }
 
 // class's destructor
-void AutoPauseScreenState::destructor()
+void AutomaticPauseScreenState::destructor()
 {
 	// destroy base
 	Base::destructor();
 }
 
 // state's enter
-void AutoPauseScreenState::enter(void* owner __attribute__ ((unused)))
+void AutomaticPauseScreenState::enter(void* owner __attribute__ ((unused)))
 {
 	// call base
 	Base::enter(this, owner);
@@ -98,19 +99,19 @@ void AutoPauseScreenState::enter(void* owner __attribute__ ((unused)))
 		0, // initial delay (in ms)
 		NULL, // target brightness
 		__FADE_DELAY, // delay between fading steps (in ms)
-		(void (*)(Object, Object))AutoPauseScreenState::onFadeInComplete, // callback function
+		(void (*)(Object, Object))AutomaticPauseScreenState::onFadeInComplete, // callback function
 		Object::safeCast(this) // callback scope
 	);
 }
 
 // state's exit
-void AutoPauseScreenState::exit(void* owner __attribute__ ((unused)))
+void AutomaticPauseScreenState::exit(void* owner __attribute__ ((unused)))
 {
 	// call base
 	Base::exit(this, owner);
 }
 
-void AutoPauseScreenState::processUserInput(UserInput userInput)
+void AutomaticPauseScreenState::processUserInput(UserInput userInput)
 {
 	if(K_STA & userInput.pressedKey)
 	{
@@ -124,21 +125,21 @@ void AutoPauseScreenState::processUserInput(UserInput userInput)
 			0, // initial delay (in ms)
 			&brightness, // target brightness
 			__FADE_DELAY, // delay between fading steps (in ms)
-			(void (*)(Object, Object))AutoPauseScreenState::onFadeOutComplete, // callback function
+			(void (*)(Object, Object))AutomaticPauseScreenState::onFadeOutComplete, // callback function
 			Object::safeCast(this) // callback scope
 		);
 	}
 }
 
 // handle event
-void AutoPauseScreenState::onFadeInComplete(Object eventFirer __attribute__ ((unused)))
+void AutomaticPauseScreenState::onFadeInComplete(Object eventFirer __attribute__ ((unused)))
 {
 	// re-enable user input
 	Game::enableKeypad(Game::getInstance());
 }
 
 // handle event
-void AutoPauseScreenState::onFadeOutComplete(Object eventFirer __attribute__ ((unused)))
+void AutomaticPauseScreenState::onFadeOutComplete(Object eventFirer __attribute__ ((unused)))
 {
 	// re-enable user input
 	Game::enableKeypad(Game::getInstance());

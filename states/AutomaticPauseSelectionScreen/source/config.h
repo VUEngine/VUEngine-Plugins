@@ -1,4 +1,4 @@
-/*
+/**
  * VUEngine Plugins Library
  *
  * (c) Christian Radke and Jorge Eremiev
@@ -15,8 +15,8 @@
 //											CONFIGURATION MACROS
 //---------------------------------------------------------------------------------------------------------
 
-#ifndef __AUTOMATIC_PAUSE_SCREEN_USE_LOW_POWER_ENTITY
-#define __AUTOMATIC_PAUSE_SCREEN_USE_LOW_POWER_ENTITY	0
+#ifndef __AUTOMATIC_PAUSE_SELECTION_SCREEN_USE_LOW_POWER_ENTITY
+#define __AUTOMATIC_PAUSE_SELECTION_SCREEN_USE_LOW_POWER_ENTITY	            false
 #endif
 
 #ifndef __AUTOMATIC_PAUSE_SELECTION_SCREEN_OPTIONS_GAP
@@ -53,10 +53,6 @@
 
 #ifndef __AUTOMATIC_PAUSE_SELECTION_SCREEN_OPTIONS_TEXT_FONT
 #define __AUTOMATIC_PAUSE_SELECTION_SCREEN_OPTIONS_TEXT_FONT				NULL
-#endif
-
-#ifndef __AUTOMATIC_PAUSE_SELECTION_SCREEN_USE_LOW_POWER_ENTITY
-#define __AUTOMATIC_PAUSE_SELECTION_SCREEN_USE_LOW_POWER_ENTITY				false
 #endif
 
 

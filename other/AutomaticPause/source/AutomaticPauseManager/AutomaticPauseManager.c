@@ -1,4 +1,4 @@
-/*
+/**
  * VUEngine Plugins Library
  *
  * (c) Christian Radke and Jorge Eremiev
@@ -13,15 +13,15 @@
 //---------------------------------------------------------------------------------------------------------
 
 #include <Game.h>
-#include <AutoPauseScreenState.h>
-#include <AutoPauseManager.h>
+#include <AutomaticPauseScreenState.h>
+#include <AutomaticPauseManager.h>
 
 
 //---------------------------------------------------------------------------------------------------------
 //												CLASS'S METHODS
 //---------------------------------------------------------------------------------------------------------
 
-void AutoPauseManager::constructor()
+void AutomaticPauseManager::constructor()
 {
 	// construct base object
 	Base::constructor();
@@ -33,39 +33,39 @@ void AutoPauseManager::constructor()
 	this->autoPauseDelay = 30;
 }
 
-void AutoPauseManager::destructor()
+void AutomaticPauseManager::destructor()
 {
 	// remove event listeners
-	Clock::removeEventListener(Game::getClock(Game::getInstance()), Object::safeCast(this), (EventListener)AutoPauseManager::onMinuteChange, kEventMinuteChanged);
+	Clock::removeEventListener(Game::getClock(Game::getInstance()), Object::safeCast(this), (EventListener)AutomaticPauseManager::onMinuteChange, kEventMinuteChanged);
 
 	// destroy base
 	Base::destructor();
 }
 
 // set auto pause state
-void AutoPauseManager::setAutomaticPauseState(GameState automaticPauseState)
+void AutomaticPauseManager::setAutomaticPauseState(GameState automaticPauseState)
 {
 	this->automaticPauseState = automaticPauseState;
 }
 
 // get auto pause state
-GameState AutoPauseManager::getAutomaticPauseState()
+GameState AutomaticPauseManager::getAutomaticPauseState()
 {
 	return this->automaticPauseState;
 }
 
 // set auto pause delay
-void AutoPauseManager::setAutomaticPauseDelay(u8 automaticPauseDelay)
+void AutomaticPauseManager::setAutomaticPauseDelay(u8 automaticPauseDelay)
 {
 	this->autoPauseDelay = automaticPauseDelay;
 }
 
-bool AutoPauseManager::isActive()
+bool AutomaticPauseManager::isActive()
 {
 	return this->isActive;
 }
 
-void AutoPauseManager::setActive(bool active)
+void AutomaticPauseManager::setActive(bool active)
 {
 	this->isActive = active;
 	this->elapsedTime = 0;
@@ -73,22 +73,22 @@ void AutoPauseManager::setActive(bool active)
 	// set automatic pause state to default if it is not set yet
 	if(this->automaticPauseState == NULL)
 	{
-		AutoPauseManager::setAutomaticPauseState(this, GameState::safeCast(AutoPauseScreenState::getInstance()));
+		AutomaticPauseManager::setAutomaticPauseState(this, GameState::safeCast(AutomaticPauseScreenState::getInstance()));
 	}
 
 	if(this->isActive)
 	{
 		// add event listeners
-		Clock::addEventListener(Game::getClock(Game::getInstance()), Object::safeCast(this), (EventListener)AutoPauseManager::onMinuteChange, kEventMinuteChanged);
+		Clock::addEventListener(Game::getClock(Game::getInstance()), Object::safeCast(this), (EventListener)AutomaticPauseManager::onMinuteChange, kEventMinuteChanged);
 	}
 	else
 	{
 		// remove event listeners
-		Clock::removeEventListener(Game::getClock(Game::getInstance()), Object::safeCast(this), (EventListener)AutoPauseManager::onMinuteChange, kEventMinuteChanged);
+		Clock::removeEventListener(Game::getClock(Game::getInstance()), Object::safeCast(this), (EventListener)AutomaticPauseManager::onMinuteChange, kEventMinuteChanged);
 	}
 }
 
-void AutoPauseManager::onMinuteChange(Object eventFirer __attribute__ ((unused)))
+void AutomaticPauseManager::onMinuteChange(Object eventFirer __attribute__ ((unused)))
 {
 	if(this->automaticPauseState && this->isActive && !Game::isPaused(Game::getInstance()))
 	{

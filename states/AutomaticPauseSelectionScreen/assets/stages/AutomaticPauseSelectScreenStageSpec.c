@@ -1,12 +1,23 @@
-/*
- * VUEngine Plugins Library
+/* VUEngine - Virtual Utopia Engine <https://www.vuengine.dev>
+ * A universal game engine for the Nintendo Virtual Boy
  *
- * (c) Christian Radke and Jorge Eremiev
+ * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>, 2007-2020
  *
- * For the full copyright and license information, please view the LICENSE file
- * that was distributed with this source code.
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
+ * associated documentation files (the "Software"), to deal in the Software without restriction, including
+ * without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to
+ * the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all copies or substantial
+ * portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+ * LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+ * NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+ * WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+ * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-
 
 //---------------------------------------------------------------------------------------------------------
 //												INCLUDES
@@ -19,9 +30,7 @@
 //											DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern EntitySpec AUTOMATIC_PAUSE_LOGO_EN;
-
-#ifdef __AUTOMATIC_PAUSE_SCREEN_USE_LOW_POWER_ENTITY
+#ifdef __AUTOMATIC_PAUSE_SELECTION_SCREEN_USE_LOW_POWER_ENTITY
 extern EntitySpec LOW_POWER_INDICATOR_LB;
 #endif
 
@@ -30,18 +39,16 @@ extern EntitySpec LOW_POWER_INDICATOR_LB;
 // 											ENTITY LISTS
 //---------------------------------------------------------------------------------------------------------
 
-PositionedEntityROMSpec AUTOMATIC_PAUSE_SCREEN_STAGE_ENTITIES[] =
+PositionedEntityROMSpec AUTOMATIC_PAUSE_SELECTION_SCREEN_STAGE_ENTITIES[] =
 {
-	{&AUTOMATIC_PAUSE_LOGO_EN, 	{200, 72, 0, 0}, 0, NULL, NULL, NULL, false},
-
-#ifdef __AUTOMATIC_PAUSE_SCREEN_USE_LOW_POWER_ENTITY
+#ifdef __AUTOMATIC_PAUSE_SELECTION_SCREEN_USE_LOW_POWER_ENTITY
 	{&LOW_POWER_INDICATOR_LB, 	{__LOW_POWER_ENTITY_X_POSITION, __LOW_POWER_ENTITY_Y_POSITION, __LOW_POWER_ENTITY_Z_POSITION, __LOW_POWER_ENTITY_Z_DISPLACEMENT}, 0, NULL, NULL, NULL, false},
 #endif
 
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
 };
 
-PositionedEntityROMSpec AUTOMATIC_PAUSE_SCREEN_STAGE_UI_ENTITIES[] =
+PositionedEntityROMSpec AUTOMATIC_PAUSE_SELECTION_SCREEN_STAGE_UI_ENTITIES[] =
 {
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
 };
@@ -51,7 +58,7 @@ PositionedEntityROMSpec AUTOMATIC_PAUSE_SCREEN_STAGE_UI_ENTITIES[] =
 //											STAGE DEFINITION
 //---------------------------------------------------------------------------------------------------------
 
-StageROMSpec AUTOMATIC_PAUSE_SCREEN_STAGE =
+StageROMSpec AUTOMATIC_PAUSE_SELECTION_SCREEN_STAGE =
 {
 	// allocator
 	__TYPE(Stage),
@@ -257,15 +264,14 @@ StageROMSpec AUTOMATIC_PAUSE_SCREEN_STAGE =
 	{
 		// ui
 		{
-			(PositionedEntity*)AUTOMATIC_PAUSE_SCREEN_STAGE_UI_ENTITIES,
+			(PositionedEntity*)AUTOMATIC_PAUSE_SELECTION_SCREEN_STAGE_UI_ENTITIES,
 			__TYPE(UIContainer),
 		},
 
 		// children
-		(PositionedEntity*)AUTOMATIC_PAUSE_SCREEN_STAGE_ENTITIES,
+		(PositionedEntity*)AUTOMATIC_PAUSE_SELECTION_SCREEN_STAGE_ENTITIES,
 	},
 
 	// post processing effects
 	(PostProcessingEffect*)NULL,
 };
-

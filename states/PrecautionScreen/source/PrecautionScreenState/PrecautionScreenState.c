@@ -1,4 +1,4 @@
-/*
+/**
  * VUEngine Plugins Library
  *
  * (c) Christian Radke and Jorge Eremiev
@@ -18,6 +18,8 @@
 #include <MessageDispatcher.h>
 #include <KeypadManager.h>
 #include <SoundManager.h>
+#include <I18n.h>
+#include <Languages.h>
 #include <PrecautionScreenState.h>
 
 

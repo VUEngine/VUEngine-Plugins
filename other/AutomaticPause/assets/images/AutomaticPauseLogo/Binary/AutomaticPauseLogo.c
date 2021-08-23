@@ -1,9 +1,9 @@
 
-//{{BLOCK(AutoPauseLogo)
+//{{BLOCK(AutomaticPauseLogo)
 
 //======================================================================
 //
-//	AutoPauseLogo, 120x96@2, 
+//	AutomaticPauseLogo, 120x96@2, 
 //	+ 76 tiles (t|f reduced) not compressed
 //	+ regular map (flat), not compressed, 15x12 
 //	Total size: 1216 + 360 = 1576
@@ -13,7 +13,7 @@
 //
 //======================================================================
 
-const unsigned int AutoPauseLogoTiles[304] __attribute__((aligned(4)))=
+const unsigned int AutomaticPauseLogoTiles[304] __attribute__((aligned(4)))=
 {
 	0x00000000,0x00000000,0x00000000,0x00000000,0x00000000,0x00000000,0x0FC00000,0xFFFC3FF0,
 	0x00000000,0x00000000,0x00000000,0x00030000,0xFFFCFFFC,0xFC00FFC0,0x0000C000,0x00000000,
@@ -59,7 +59,7 @@ const unsigned int AutoPauseLogoTiles[304] __attribute__((aligned(4)))=
 	0x55551000,0x00040004,0x00040004,0x00000005,0x00010004,0x00000000,0x00000000,0x00000000,
 };
 
-const unsigned short AutoPauseLogoMap[180] __attribute__((aligned(4)))=
+const unsigned short AutomaticPauseLogoMap[180] __attribute__((aligned(4)))=
 {
 	0x0000,0x0000,0x0000,0x0000,0x0000,0x0000,0x0000,0x0000,
 	0x0000,0x0000,0x0000,0x0000,0x0001,0x0002,0x0000,0x0000,
@@ -88,4 +88,4 @@ const unsigned short AutoPauseLogoMap[180] __attribute__((aligned(4)))=
 	0x0000,0x0000,0x0000,0x0000,
 };
 
-//}}BLOCK(AutoPauseLogo)
+//}}BLOCK(AutomaticPauseLogo)

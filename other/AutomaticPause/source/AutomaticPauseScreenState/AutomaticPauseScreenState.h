@@ -1,4 +1,4 @@
-/*
+/**
  * VUEngine Plugins Library
  *
  * (c) Christian Radke and Jorge Eremiev
@@ -23,9 +23,9 @@
 //											CLASS'S DECLARATION
 //---------------------------------------------------------------------------------------------------------
 
-singleton class AutoPauseScreenState : GameState
+singleton class AutomaticPauseScreenState : GameState
 {
-	static AutoPauseScreenState getInstance();
+	static AutomaticPauseScreenState getInstance();
 	override void processUserInput(UserInput userInput);
 	override void exit(void* owner);
 	override void enter(void* owner);

@@ -13,6 +13,7 @@
 	"dependencies": [
 		"vuengine//entities/LowPowerEntity",
 		"vuengine//other/AutomaticPause",
+		"vuengine//other/I18n",
 		"vuengine//other/SaveDataManager",
 		"vuengine//states/SplashScreen"
 	]

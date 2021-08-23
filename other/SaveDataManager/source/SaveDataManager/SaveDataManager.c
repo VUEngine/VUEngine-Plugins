@@ -1,4 +1,4 @@
-/*
+/**
  * VUEngine Plugins Library
  *
  * (c) Christian Radke and Jorge Eremiev
@@ -18,7 +18,7 @@
 #include <I18n.h>
 #include <SRAMManager.h>
 #include <Utilities.h>
-#include <AutoPauseManager.h>
+#include <AutomaticPauseManager.h>
 #include <SaveDataManager.h>
 
 
@@ -146,7 +146,7 @@ void SaveDataManager::restoreSettings()
 		I18n::setActiveLanguage(I18n::getInstance(), SaveDataManager::getLanguage(this));
 
 		// load and set auto pause state
-		AutoPauseManager::setActive(AutoPauseManager::getInstance(), SaveDataManager::getAutomaticPauseStatus(this));
+		AutomaticPauseManager::setActive(AutomaticPauseManager::getInstance(), SaveDataManager::getAutomaticPauseStatus(this));
 	}
 	else
 	{
