@@ -1,0 +1,17 @@
+{
+	"displayName": "Adjustment Screen (Prototype)",
+	"author": "Team VUEngine",
+	"description": "A recreation of Nintendo's prototype IPD/focus adjustment screen.",
+	"icon": "./icon.png",
+	"readme": "./readme.md",
+	"repository": "https://github.com/VUEngine/VUEngine-Plugins",
+	"license": "MIT",
+	"categories": [
+		"State"
+	],
+	"dependencies": [
+		"vuengine//entities/LowPowerEntity",
+		"vuengine//other/LowPowerIndicator",
+		"vuengine//states/SplashScreen"
+	]
+}

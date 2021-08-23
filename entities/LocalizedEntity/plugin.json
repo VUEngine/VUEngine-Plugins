@@ -11,6 +11,6 @@
 		"I18n"
 	],
 	"dependencies": [
-		"vuengine/other/I18n"
+		"vuengine//other/I18n"
 	]
 }

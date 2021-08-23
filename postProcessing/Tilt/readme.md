@@ -5,8 +5,6 @@ VUEngine Plugin: PostProcessingTilt
 
 This effect reads and write almost the whole screen and is therefore not feasible on hardware. 
 
-![Preview Image](preview.png)
-
 
 USAGE
 -----

@@ -1,0 +1,17 @@
+{
+	"displayName": "Precaution Screen",
+	"author": "Team VUEngine",
+	"description": "",
+	"icon": "./icon.png",
+	"readme": "./readme.md",
+	"repository": "https://github.com/VUEngine/VUEngine-Plugins",
+	"license": "MIT",
+	"categories": [
+		"State",
+		"Essentials"
+	],
+	"dependencies": [
+		"vuengine//entities/LowPowerEntity",
+		"vuengine//states/SplashScreen"
+	]
+}

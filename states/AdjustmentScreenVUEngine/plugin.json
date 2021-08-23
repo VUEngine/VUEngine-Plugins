@@ -1,0 +1,18 @@
+{
+	"displayName": "Adjustment Screen (VUEngine)",
+	"author": "Team VUEngine",
+	"description": "VUEngine IPD/focus adjustment screen that resembles a circuit board.",
+	"icon": "./icon.png",
+	"readme": "./readme.md",
+	"repository": "https://github.com/VUEngine/VUEngine-Plugins",
+	"license": "MIT",
+	"categories": [
+		"State",
+		"Essentials"
+	],
+	"dependencies": [
+		"vuengine//entities/LowPowerEntity",
+		"vuengine//other/LowPowerIndicator",
+		"vuengine//states/SplashScreen"
+	]
+}

@@ -1,0 +1,19 @@
+{
+	"displayName": "Automatic Pause Selection Screen",
+	"author": "Team VUEngine",
+	"description": "",
+	"icon": "./icon.png",
+	"readme": "./readme.md",
+	"repository": "https://github.com/VUEngine/VUEngine-Plugins",
+	"license": "MIT",
+	"categories": [
+		"Essentials",
+		"State"
+	],
+	"dependencies": [
+		"vuengine//entities/LowPowerEntity",
+		"vuengine//other/AutomaticPause",
+		"vuengine//other/SaveDataManager",
+		"vuengine//states/SplashScreen"
+	]
+}

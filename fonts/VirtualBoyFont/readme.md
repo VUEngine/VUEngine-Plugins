@@ -3,8 +3,6 @@ VUEngine Plugin: VirtualBoyFont
 
 Large font based on the "Virtual Boy" writing from the official IPD/Focus adjustment screen.
 
-![Preview Image](preview.png)
-
 
 USAGE
 -----

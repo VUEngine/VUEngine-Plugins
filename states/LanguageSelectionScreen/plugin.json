@@ -1,0 +1,18 @@
+{
+	"displayName": "Language Selection Screen",
+	"author": "Team VUEngine",
+	"description": "",
+	"icon": "./icon.png",
+	"readme": "./readme.md",
+	"repository": "https://github.com/VUEngine/VUEngine-Plugins",
+	"license": "MIT",
+	"categories": [
+		"I18n"
+	],
+	"dependencies": [
+		"vuengine//entities/LowPowerEntity",
+		"vuengine//other/I18n",
+		"vuengine//other/SaveDataManager",
+		"vuengine//states/SplashScreen"
+	]
+}

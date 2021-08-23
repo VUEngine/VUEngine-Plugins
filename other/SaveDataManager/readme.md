@@ -3,8 +3,6 @@ VUEngine Plugin: SaveDataManager
 
 Manages persistence of user data in SRAM.
 
-![Preview Image](preview.png)
-
 
 USAGE
 -----

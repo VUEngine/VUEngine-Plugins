@@ -3,8 +3,6 @@ VUEngine Plugin: I18n
 
 The Internationalization ("I18n") class allows you to add multiple selectable languages to your project.
 
-![Preview Image](preview.png)
-
 
 USAGE
 -----

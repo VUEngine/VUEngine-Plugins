@@ -3,8 +3,6 @@ VUEngine Plugin: PostProcessingRain
 
 Dynamic full screen rain effect. 
 
-![Preview Image](preview.png)
-
 
 USAGE
 -----

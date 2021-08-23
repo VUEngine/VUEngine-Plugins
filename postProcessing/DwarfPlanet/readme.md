@@ -5,8 +5,6 @@ VUEngine Plugin: PostProcessingDwarfPlanet
 
 This effect reads and writes a fourth of the screen and is therefore running OK-ish on hardware, reducing the frame rate by about 50%.
 
-![Preview Image](preview.png)
-
 
 USAGE
 -----

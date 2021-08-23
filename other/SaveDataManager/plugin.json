@@ -10,7 +10,7 @@
 		"Essentials"
 	],
 	"dependencies": [
-		"vuengine/other/AutomaticPause",
-		"vuengine/other/I18n"
+		"vuengine//other/AutomaticPause",
+		"vuengine//other/I18n"
 	]
 }

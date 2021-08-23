@@ -11,6 +11,6 @@
 		"Essentials"
 	],
 	"dependencies": [
-		"vuengine/graphics/GuiBgmapAnimatedSprite"
+		"vuengine//graphics/GuiBgmapAnimatedSprite"
 	]
 }

@@ -3,8 +3,6 @@ VUEngine Plugin: BulkyFont
 
 A bulky 16x16 pixel font.
 
-![Preview Image](preview.png)
-
 
 USAGE
 -----

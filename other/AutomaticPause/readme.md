@@ -1,9 +1,7 @@
-VUEngine Plugin: AutomaticPause
-===============================
+VUEngine Plugin: Automatic Pause
+================================
 
-Automatically pauses the game every 30 minutes. Also comes with a default Automatic Pause Screen State.
-
-![Preview Image](preview.png)
+Automatically pauses the game every 30 minutes. Also comes with a default Automatic Pause Screen.
 
 
 USAGE
