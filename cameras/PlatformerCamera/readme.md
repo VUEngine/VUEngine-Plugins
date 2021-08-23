@@ -1,10 +1,6 @@
-VUEngine Plugin: PlatformerCamera
-=================================
-
 Implements a common platformer camera that follows an entity.
 
-
-USAGE
+Usage
 -----
 
 To setup to your needs, call:

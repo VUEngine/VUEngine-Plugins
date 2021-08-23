@@ -1,10 +1,8 @@
-VUEngine Plugin: VirtualBoyFont
-===============================
-
 Large font based on the "Virtual Boy" writing from the official IPD/Focus adjustment screen.
 
+![](https://raw.githubusercontent.com/VUEngine/VUEngine-Plugins/master/fonts/VirtualBoyFont/preview.png)
 
-USAGE
+Usage
 -----
 
 Included are two versions of the font:

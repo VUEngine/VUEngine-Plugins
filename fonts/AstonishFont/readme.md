@@ -1,10 +1,8 @@
-VUEngine Plugin: AstonishFont
-=============================
-
 A beautiful 8x16 pixel font for medium size text.
 
+![](https://raw.githubusercontent.com/VUEngine/VUEngine-Plugins/master/fonts/AstonishFont/preview.png)
 
-USAGE
+Usage
 -----
 
 Included are two versions of the font:

@@ -1,4 +1,3 @@
-VUEngine Plugin: Language Selection Screen
-==========================================
-
 ...
+
+![](https://raw.githubusercontent.com/VUEngine/VUEngine-Plugins/master/states/LanguageSelectionScreen/preview.png)

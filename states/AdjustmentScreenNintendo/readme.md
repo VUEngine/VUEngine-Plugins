@@ -1,6 +1,3 @@
-VUEngine Plugin: Adjustment Screen (Nintendo)
-=============================================
-
 A recreation of Nintendo's official IPD/focus adjustment screen.
 
-![](preview.png)
+![](https://raw.githubusercontent.com/VUEngine/VUEngine-Plugins/master/states/AdjustmentScreenNintendo/preview.png)

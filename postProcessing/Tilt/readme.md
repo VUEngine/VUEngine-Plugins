@@ -1,12 +1,10 @@
-VUEngine Plugin: PostProcessingTilt
-===================================
-
 "Tilts" the game image by a few percent by gradually shifting columns.
 
 This effect reads and write almost the whole screen and is therefore not feasible on hardware. 
 
+![](https://raw.githubusercontent.com/VUEngine/VUEngine-Plugins/master/postProcessing/Tilt/preview.png)
 
-USAGE
+Usage
 -----
 
 Add the following to the PLUGINS variable in your project's `config.make` file to include this plugin:
