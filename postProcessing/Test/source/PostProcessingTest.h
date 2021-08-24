@@ -28,4 +28,5 @@ static class PostProcessingTest : Object
 	static void dummy(u32 currentDrawingFrameBufferSet, SpatialObject spatialObject);
 }
 
+
 #endif

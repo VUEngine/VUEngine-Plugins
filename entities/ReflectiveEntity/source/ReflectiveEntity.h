@@ -22,24 +22,24 @@
 //												MACROS
 //---------------------------------------------------------------------------------------------------------
 
-#ifndef POINTER_TYPE
-#define POINTER_TYPE			u32 // sizeof(u32) + (sizeof(u32) / sizeof(POINTER_TYPE) / 2)
+#ifndef REFLECTIVE_ENTITY_POINTER_TYPE
+#define REFLECTIVE_ENTITY_POINTER_TYPE			u32 // sizeof(u32) + (sizeof(u32) / sizeof(REFLECTIVE_ENTITY_POINTER_TYPE) / 2)
 #endif
 
-#ifndef Y_SHIFT
-#define Y_SHIFT					4 // sizeof(POINTER_TYPE) << 2
+#ifndef REFLECTIVE_ENTITY_Y_SHIFT
+#define REFLECTIVE_ENTITY_Y_SHIFT				4 // sizeof(REFLECTIVE_ENTITY_POINTER_TYPE) << 2
 #endif
 
-#ifndef Y_STEP_SIZE
-#define Y_STEP_SIZE				16
+#ifndef REFLECTIVE_ENTITY_Y_STEP_SIZE
+#define REFLECTIVE_ENTITY_Y_STEP_SIZE			16
 #endif
 
-#ifndef Y_STEP_SIZE_2_EXP
-#define Y_STEP_SIZE_2_EXP		4 // sizeof(POINTER_TYPE) << 3
+#ifndef REFLECTIVE_ENTITY_Y_STEP_SIZE_2_EXP
+#define REFLECTIVE_ENTITY_Y_STEP_SIZE_2_EXP		4 // sizeof(REFLECTIVE_ENTITY_POINTER_TYPE) << 3
 #endif
 
-#ifndef BITS_PER_STEP
-#define BITS_PER_STEP 			32
+#ifndef REFLECTIVE_ENTITY_BITS_PER_STEP
+#define REFLECTIVE_ENTITY_BITS_PER_STEP 		32
 #endif
 
 
@@ -213,7 +213,7 @@ class ReflectiveEntity : Entity
      * @param overallMask
      * @param reflectionMask
      */
-	static void shiftPixels(int pixelShift, POINTER_TYPE* sourceValue, u32 nextSourceValue, POINTER_TYPE* remainderValue, u32 reflectionMask, u32 noise);
+	static void shiftPixels(int pixelShift, REFLECTIVE_ENTITY_POINTER_TYPE* sourceValue, u32 nextSourceValue, REFLECTIVE_ENTITY_POINTER_TYPE* remainderValue, u32 reflectionMask, u32 noise);
 
 	/**
 	 * Suspend for pause

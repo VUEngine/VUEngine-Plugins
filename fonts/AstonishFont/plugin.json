@@ -4,7 +4,7 @@
 	"description": "A beautiful 8x16 pixel font for medium size text.",
 	"icon": "./icon.png",
 	"readme": "./readme.md",
-	"repository": "https://github.com/VUEngine/VUEngine-Plugins",
+	"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/fonts/AstonishFont",
 	"license": "MIT",
 	"categories": [
 		"Font"

@@ -4,7 +4,7 @@
 	"description": "Automatically pauses the game after a definable amount of time.",
 	"icon": "./icon.png",
 	"readme": "./readme.md",
-	"repository": "https://github.com/VUEngine/VUEngine-Plugins",
+	"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/other/AutomaticPause",
 	"license": "MIT",
 	"categories": [
 		"Essentials",

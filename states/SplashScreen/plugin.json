@@ -4,7 +4,7 @@
 	"description": "A simple generic base class for splash screens.",
 	"icon": "",
 	"readme": "./readme.md",
-	"repository": "https://github.com/VUEngine/VUEngine-Plugins",
+	"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/split-splash-screens/states/SplashScreen",
 	"license": "MIT",
 	"categories": [
 		"State"

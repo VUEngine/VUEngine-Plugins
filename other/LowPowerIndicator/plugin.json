@@ -4,7 +4,7 @@
 	"description": "Printing layer based indicator that flashes when the system power is low.",
 	"icon": "./icon.png",
 	"readme": "./readme.md",
-	"repository": "https://github.com/VUEngine/VUEngine-Plugins",
+	"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/other/LowPowerIndicator",
 	"license": "MIT",
 	"categories": [
 		"Essentials"

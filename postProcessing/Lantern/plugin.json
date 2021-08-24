@@ -4,7 +4,7 @@
 	"description": "Adds a lantern-like effect to any SpatialObject, where everything outside of a certain radius is rendered black.",
 	"icon": "./icon.png",
 	"readme": "./readme.md",
-	"repository": "https://github.com/VUEngine/VUEngine-Plugins",
+	"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/postProcessing/Lantern",
 	"license": "MIT",
 	"categories": [
 		"Post Processing"

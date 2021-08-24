@@ -27,4 +27,5 @@ static class PostProcessingRhombus : Object
 	static void rhombus(u32 currentDrawingFrameBufferSet, SpatialObject spatialObject);
 }
 
+
 #endif

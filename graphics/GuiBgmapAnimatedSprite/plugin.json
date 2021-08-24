@@ -4,7 +4,7 @@
 	"description": "An animated BGMap sprite that is not affected by the camera frustum. Perfect for GUIs.",
 	"icon": "",
 	"readme": "./readme.md",
-	"repository": "https://github.com/VUEngine/VUEngine-Plugins",
+	"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/graphics/GuiBgmapAnimatedSprite",
 	"license": "MIT",
 	"categories": [
 		"Entity"

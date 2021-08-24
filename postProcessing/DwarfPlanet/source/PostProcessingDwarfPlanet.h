@@ -27,4 +27,5 @@ static class PostProcessingDwarfPlanet : Object
 	static void dwarfPlanet(u32 currentDrawingFrameBufferSet, SpatialObject spatialObject);
 }
 
+
 #endif

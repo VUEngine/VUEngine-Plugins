@@ -4,7 +4,7 @@
 	"description": "Dynamic full screen rain effect.",
 	"icon": "./icon.png",
 	"readme": "./readme.md",
-	"repository": "https://github.com/VUEngine/VUEngine-Plugins",
+	"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/postProcessing/Rain",
 	"license": "MIT",
 	"categories": [
 		"Post Processing"

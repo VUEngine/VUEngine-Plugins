@@ -4,7 +4,7 @@
 	"description": "Allows you to add multiple selectable languages to your project.",
 	"icon": "./icon.png",
 	"readme": "./readme.md",
-	"repository": "https://github.com/VUEngine/VUEngine-Plugins",
+	"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/other/I18n",
 	"license": "MIT",
 	"categories": [
 		"I18n"

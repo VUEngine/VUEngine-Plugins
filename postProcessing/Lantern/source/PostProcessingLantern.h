@@ -27,4 +27,5 @@ static class PostProcessingLantern : Object
 	static void lantern(u32 currentDrawingFrameBufferSet, SpatialObject spatialObject);
 }
 
+
 #endif

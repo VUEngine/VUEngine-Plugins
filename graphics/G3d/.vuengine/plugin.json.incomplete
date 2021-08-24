@@ -1,5 +1,13 @@
 {
 	"displayName": "G3d Wireframe Library",
 	"category": "Graphics",
-	"description": "A port of Greg Stevens' Wireframe Library"
+	"description": "A port of Greg Stevens' Wireframe Library.",
+	"icon": "",
+	"readme": "",
+	"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/graphics/G3d",
+	"license": "",
+	"categories": [
+		"Graphics"
+	],
+	"dependencies": []
 }

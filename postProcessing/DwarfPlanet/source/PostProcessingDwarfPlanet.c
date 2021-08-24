@@ -21,7 +21,7 @@
 
 /**
  * "Bends down" the left and right edges of the screen to make the world look like a very small planet.
- * This effect reads and write a fourth of the screen and is therefore running OK-ish on hardware,
+ * This effect reads and write a fourth of the screen and is therefore quite heavy on hardware,
  * reducing the frame rate by about 50%.
  *
  * @param currentDrawingFrameBufferSet	The framebuffer set that's currently being accessed

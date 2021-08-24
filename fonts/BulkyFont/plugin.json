@@ -4,7 +4,7 @@
 	"description": "A bulky 16x16 pixel font.",
 	"icon": "./icon.png",
 	"readme": "./readme.md",
-	"repository": "https://github.com/VUEngine/VUEngine-Plugins",
+	"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/fonts/BulkyFont",
 	"license": "MIT",
 	"categories": [
 		"Font"

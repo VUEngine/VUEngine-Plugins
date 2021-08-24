@@ -28,4 +28,5 @@ static class PostProcessingRain : Object
 	static void waterFall20x100(u32 currentDrawingFrameBufferSet, SpatialObject spatialObject);
 }
 
+
 #endif

@@ -4,7 +4,7 @@
 	"description": "A recreation of Nintendo's prototype IPD/focus adjustment screen.",
 	"icon": "./icon.png",
 	"readme": "./readme.md",
-	"repository": "https://github.com/VUEngine/VUEngine-Plugins",
+	"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/split-splash-screens/states/AdjustmentScreenPrototype",
 	"license": "MIT",
 	"categories": [
 		"State"
