@@ -6,7 +6,7 @@
 	"readme": "",
 	"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/graphics/G3d",
 	"license": "",
-	"categories": [
+	"tags": [
 		"Graphics"
 	],
 	"dependencies": []

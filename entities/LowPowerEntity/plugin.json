@@ -6,7 +6,7 @@
 	"readme": "./readme.md",
 	"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/entities/LowPowerEntity",
 	"license": "MIT",
-	"categories": [
+	"tags": [
 		"Entity",
 		"Essentials"
 	],

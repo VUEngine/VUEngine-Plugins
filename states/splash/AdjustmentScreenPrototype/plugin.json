@@ -6,7 +6,7 @@
 	"readme": "./readme.md",
 	"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/states/splash/AdjustmentScreenPrototype",
 	"license": "MIT",
-	"categories": [
+	"tags": [
 		"Splash",
 		"State"
 	],

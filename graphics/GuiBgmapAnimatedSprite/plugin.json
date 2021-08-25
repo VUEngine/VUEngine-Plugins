@@ -6,7 +6,7 @@
 	"readme": "./readme.md",
 	"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/graphics/GuiBgmapAnimatedSprite",
 	"license": "MIT",
-	"categories": [
+	"tags": [
 		"Entity"
 	],
 	"dependencies": []
