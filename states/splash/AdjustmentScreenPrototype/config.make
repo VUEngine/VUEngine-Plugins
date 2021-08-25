@@ -1,3 +1,3 @@
 PLUGINS = 	vuengine//entities/LowPowerEntity \
 			vuengine//other/LowPowerIndicator \
-			vuengine//states/SplashScreen
+			vuengine//states/splash/SplashScreen

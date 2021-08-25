@@ -4,15 +4,16 @@
 	"description": "A recreation of Nintendo's official IPD/focus adjustment screen.",
 	"icon": "./icon.png",
 	"readme": "./readme.md",
-	"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/split-splash-screens/states/AdjustmentScreenNintendo",
+	"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/states/splash/AdjustmentScreenNintendo",
 	"license": "MIT",
 	"categories": [
+		"Splash",
 		"State",
 		"Essentials"
 	],
 	"dependencies": [
 		"vuengine//entities/LowPowerEntity",
 		"vuengine//other/LowPowerIndicator",
-		"vuengine//states/SplashScreen"
+		"vuengine//states/splash/SplashScreen"
 	]
 }
