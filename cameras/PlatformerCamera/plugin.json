@@ -2,11 +2,11 @@
 	"displayName": "Platformer Camera",
 	"author": "Team VUEngine",
 	"description": "Implements a common platformer camera that follows an entity.",
-	"icon": "",
-	"readme": "",
-	"repository": "https://github.com/VUEngine/VUEngine-Plugins",
+	"icon": "./icon.png",
+	"readme": "./readme.md",
+	"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/cameras/PlatformerCamera",
 	"license": "MIT",
-	"categories": [
+	"tags": [
 		"Camera"
 	],
 	"dependencies": []

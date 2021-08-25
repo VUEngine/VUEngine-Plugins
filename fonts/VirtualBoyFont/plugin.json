@@ -4,9 +4,9 @@
 	"description": "Large font based on the \"Virtual Boy\" writing on the official IPD/Focus adjustment screen.",
 	"icon": "./icon.png",
 	"readme": "./readme.md",
-	"repository": "https://github.com/VUEngine/VUEngine-Plugins",
+	"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/fonts/VirtualBoyFont",
 	"license": "MIT",
-	"categories": [
+	"tags": [
 		"Font"
 	],
 	"dependencies": []

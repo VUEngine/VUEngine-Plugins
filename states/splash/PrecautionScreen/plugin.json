@@ -1,0 +1,19 @@
+{
+	"displayName": "Precaution Screen",
+	"author": "Team VUEngine",
+	"description": "A recreation of Nintendo's official precaution screen.",
+	"icon": "./icon.png",
+	"readme": "./readme.md",
+	"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/states/splash/PrecautionScreen",
+	"license": "MIT",
+	"tags": [
+		"Splash",
+		"State",
+		"Essentials"
+	],
+	"dependencies": [
+		"vuengine//entities/LowPowerEntity",
+		"vuengine//other/I18n",
+		"vuengine//states/splash/SplashScreen"
+	]
+}

@@ -4,9 +4,11 @@
 	"description": "Manages persistence of user data in SRAM.",
 	"icon": "./icon.png",
 	"readme": "./readme.md",
-	"repository": "https://github.com/VUEngine/VUEngine-Plugins",
+	"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/other/SaveDataManager",
 	"license": "MIT",
-	"categories": [],
+	"tags": [
+		"Essentials"
+	],
 	"dependencies": [
 		"vuengine//other/AutomaticPause",
 		"vuengine//other/I18n"

@@ -1,0 +1,20 @@
+{
+	"displayName": "Language Selection Screen",
+	"author": "Team VUEngine",
+	"description": "Splash screen that allows the user to select a language.",
+	"icon": "./icon.png",
+	"readme": "./readme.md",
+	"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/states/splash/LanguageSelectionScreen",
+	"license": "MIT",
+	"tags": [
+		"I18n",
+		"Splash",
+		"State"
+	],
+	"dependencies": [
+		"vuengine//entities/LowPowerEntity",
+		"vuengine//other/I18n",
+		"vuengine//other/SaveDataManager",
+		"vuengine//states/splash/SplashScreen"
+	]
+}

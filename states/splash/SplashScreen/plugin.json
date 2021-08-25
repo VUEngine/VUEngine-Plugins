@@ -1,0 +1,14 @@
+{
+	"displayName": "Splash Screen",
+	"author": "Team VUEngine",
+	"description": "A simple generic base class for splash screens.",
+	"icon": "",
+	"readme": "./readme.md",
+	"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/states/splash/splash/SplashScreen",
+	"license": "MIT",
+	"tags": [
+		"Splash",
+		"State"
+	],
+	"dependencies": []
+}

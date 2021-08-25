@@ -1,22 +1,10 @@
-/* VUEngine - Virtual Utopia Engine <https://www.vuengine.dev>
- * A universal game engine for the Nintendo Virtual Boy
+/**
+ * VUEngine Plugins Library
  *
- * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>, 2007-2020
+ * (c) Christian Radke and Jorge Eremiev
  *
- * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
- * associated documentation files (the "Software"), to deal in the Software without restriction, including
- * without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to
- * the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in all copies or substantial
- * portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
- * LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
- * NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
- * WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
- * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ * For the full copyright and license information, please view the LICENSE file
+ * that was distributed with this source code.
  */
 
 
@@ -187,22 +175,22 @@ static u32 ReflectiveEntity::getNoise(s16 passes)
 	return noise;
 }
 
-static void ReflectiveEntity::shiftPixels(int pixelShift, POINTER_TYPE* sourceValue, u32 nextSourceValue, POINTER_TYPE* remainderValue, u32 reflectionMask, u32 noise)
+static void ReflectiveEntity::shiftPixels(int pixelShift, REFLECTIVE_ENTITY_POINTER_TYPE* sourceValue, u32 nextSourceValue, REFLECTIVE_ENTITY_POINTER_TYPE* remainderValue, u32 reflectionMask, u32 noise)
 {
 	*sourceValue &= reflectionMask;
 	*remainderValue &= reflectionMask;
 
 	if(0 < pixelShift)
 	{
-		POINTER_TYPE remainderValueTemp = *remainderValue;
-		*remainderValue = (*sourceValue >> (BITS_PER_STEP - (pixelShift)));
+		REFLECTIVE_ENTITY_POINTER_TYPE remainderValueTemp = *remainderValue;
+		*remainderValue = (*sourceValue >> (REFLECTIVE_ENTITY_BITS_PER_STEP - (pixelShift)));
 		*sourceValue <<= (pixelShift);
 		*sourceValue |= remainderValueTemp | noise;
 	}
 	else if(0 > pixelShift)
 	{
 		*sourceValue >>= (-pixelShift );
-		*sourceValue |= (nextSourceValue << (BITS_PER_STEP + pixelShift)) | noise;
+		*sourceValue |= (nextSourceValue << (REFLECTIVE_ENTITY_BITS_PER_STEP + pixelShift)) | noise;
 		*remainderValue = nextSourceValue >> (-pixelShift);
 	}
 }
@@ -321,7 +309,7 @@ void ReflectiveEntity::drawReflection(u32 currentDrawingFrameBufferSet,
 	{
 		if(__Y_AXIS & axisForReversing)
 		{
-			ySourceEnd -= ((_cameraFrustum->y0 - yOutputStart) - Y_STEP_SIZE);
+			ySourceEnd -= ((_cameraFrustum->y0 - yOutputStart) - REFLECTIVE_ENTITY_Y_STEP_SIZE);
 		}
 		else
 		{
@@ -382,13 +370,13 @@ void ReflectiveEntity::drawReflection(u32 currentDrawingFrameBufferSet,
 
 	if(__Y_AXIS & axisForReversing)
 	{
-		s16 temp = ySourceEnd - Y_STEP_SIZE;
+		s16 temp = ySourceEnd - REFLECTIVE_ENTITY_Y_STEP_SIZE;
 		ySourceEnd = ySourceStart;
 		ySourceStart = temp;
 		ySourceIncrement = -1;
 	}
 
-    int ySourceStartHelper = ySourceStart >> Y_STEP_SIZE_2_EXP;
+    int ySourceStartHelper = ySourceStart >> REFLECTIVE_ENTITY_Y_STEP_SIZE_2_EXP;
 
 	int xSourceDistance = __ABS(xSourceEnd - xSourceStart);
 	int xOutputDistance = __ABS(xOutput - xOutputLimit);
@@ -469,9 +457,9 @@ void ReflectiveEntity::drawReflection(u32 currentDrawingFrameBufferSet,
 			int waveLutPixelDisplacement = waveLut[xIndex];
 
 			int ySource = ySourceStartHelper;
-			int yOutput = (yOutputStart + waveLutPixelDisplacement) >> Y_STEP_SIZE_2_EXP;
+			int yOutput = (yOutputStart + waveLutPixelDisplacement) >> REFLECTIVE_ENTITY_Y_STEP_SIZE_2_EXP;
 
-			int pixelShift = (__MODULO((yOutputStart + waveLutPixelDisplacement), Y_STEP_SIZE) - __MODULO(ySourceStart, Y_STEP_SIZE)) << 1;
+			int pixelShift = (__MODULO((yOutputStart + waveLutPixelDisplacement), REFLECTIVE_ENTITY_Y_STEP_SIZE) - __MODULO(ySourceStart, REFLECTIVE_ENTITY_Y_STEP_SIZE)) << 1;
 
 			reflectionMask = reflectionMaskSave;
 
@@ -487,46 +475,46 @@ void ReflectiveEntity::drawReflection(u32 currentDrawingFrameBufferSet,
 				}
 			}
 
-			u32 effectiveContentMaskDisplacement = (__MODULO((yOutputStart + (flattenTop? 0 : waveLutPixelDisplacement)), Y_STEP_SIZE) << 1);
+			u32 effectiveContentMaskDisplacement = (__MODULO((yOutputStart + (flattenTop? 0 : waveLutPixelDisplacement)), REFLECTIVE_ENTITY_Y_STEP_SIZE) << 1);
 			u32 effectiveContentMask = 0xFFFFFFFF << effectiveContentMaskDisplacement;
 			u32 effectiveBackgroundMask = ~effectiveContentMask;
 			effectiveContentMask &= ~(topBorderMask << effectiveContentMaskDisplacement);
 
-			POINTER_TYPE* columnSourcePointerLeft = (POINTER_TYPE*) (currentDrawingFrameBufferSet) + (xSource << Y_SHIFT) + ySource;
-			POINTER_TYPE* columnSourcePointerRight = (POINTER_TYPE*) (currentDrawingFrameBufferSet | 0x00010000) + (xSource << Y_SHIFT) + ySource;
-			POINTER_TYPE* columnOutputPointerLeft = (POINTER_TYPE*) (currentDrawingFrameBufferSet) + (leftColumn << Y_SHIFT) + yOutput;
-			POINTER_TYPE* columnOutputPointerRight = (POINTER_TYPE*) (currentDrawingFrameBufferSet | 0x00010000) + (rightColumn << Y_SHIFT) + yOutput;
+			REFLECTIVE_ENTITY_POINTER_TYPE* columnSourcePointerLeft = (REFLECTIVE_ENTITY_POINTER_TYPE*) (currentDrawingFrameBufferSet) + (xSource << REFLECTIVE_ENTITY_Y_SHIFT) + ySource;
+			REFLECTIVE_ENTITY_POINTER_TYPE* columnSourcePointerRight = (REFLECTIVE_ENTITY_POINTER_TYPE*) (currentDrawingFrameBufferSet | 0x00010000) + (xSource << REFLECTIVE_ENTITY_Y_SHIFT) + ySource;
+			REFLECTIVE_ENTITY_POINTER_TYPE* columnOutputPointerLeft = (REFLECTIVE_ENTITY_POINTER_TYPE*) (currentDrawingFrameBufferSet) + (leftColumn << REFLECTIVE_ENTITY_Y_SHIFT) + yOutput;
+			REFLECTIVE_ENTITY_POINTER_TYPE* columnOutputPointerRight = (REFLECTIVE_ENTITY_POINTER_TYPE*) (currentDrawingFrameBufferSet | 0x00010000) + (rightColumn << REFLECTIVE_ENTITY_Y_SHIFT) + yOutput;
 
 			int columnSourcePointerLeftIncrement = ySourceIncrement;
 			int columnSourcePointerRightIncrement = ySourceIncrement;
 
-			POINTER_TYPE sourceCurrentValueLeft = *columnSourcePointerLeft;
+			REFLECTIVE_ENTITY_POINTER_TYPE sourceCurrentValueLeft = *columnSourcePointerLeft;
 			columnSourcePointerLeft += columnSourcePointerLeftIncrement;
-			POINTER_TYPE sourceNextValueLeft = *columnSourcePointerLeft;
+			REFLECTIVE_ENTITY_POINTER_TYPE sourceNextValueLeft = *columnSourcePointerLeft;
 
-			POINTER_TYPE sourceCurrentValueRight = *columnSourcePointerRight;
+			REFLECTIVE_ENTITY_POINTER_TYPE sourceCurrentValueRight = *columnSourcePointerRight;
 			columnSourcePointerRight += columnSourcePointerRightIncrement;
 
-			POINTER_TYPE sourceNextValueRight = *columnSourcePointerRight;
+			REFLECTIVE_ENTITY_POINTER_TYPE sourceNextValueRight = *columnSourcePointerRight;
 
-			POINTER_TYPE outputValueLeft = *columnOutputPointerLeft;
-			POINTER_TYPE outputValueRight = *columnOutputPointerRight;
+			REFLECTIVE_ENTITY_POINTER_TYPE outputValueLeft = *columnOutputPointerLeft;
+			REFLECTIVE_ENTITY_POINTER_TYPE outputValueRight = *columnOutputPointerRight;
 
 			if(__Y_AXIS & axisForReversing)
 			{
-				sourceCurrentValueLeft = Utilities::reverse(sourceCurrentValueLeft, BITS_PER_STEP);
-				sourceCurrentValueRight = Utilities::reverse(sourceCurrentValueRight, BITS_PER_STEP);
-				sourceNextValueLeft = Utilities::reverse(sourceNextValueLeft, BITS_PER_STEP);
-				sourceNextValueRight = Utilities::reverse(sourceNextValueRight, BITS_PER_STEP);
+				sourceCurrentValueLeft = Utilities::reverse(sourceCurrentValueLeft, REFLECTIVE_ENTITY_BITS_PER_STEP);
+				sourceCurrentValueRight = Utilities::reverse(sourceCurrentValueRight, REFLECTIVE_ENTITY_BITS_PER_STEP);
+				sourceNextValueLeft = Utilities::reverse(sourceNextValueLeft, REFLECTIVE_ENTITY_BITS_PER_STEP);
+				sourceNextValueRight = Utilities::reverse(sourceNextValueRight, REFLECTIVE_ENTITY_BITS_PER_STEP);
 			}
 
 			waveLutPixelDisplacement =  flattenBottom ? 0 : waveLutPixelDisplacement;
 
-			int yOutputRemainder = __MODULO((yOutputEnd + waveLutPixelDisplacement), Y_STEP_SIZE) << 1;
-			int yOutputLimit = (yOutputEnd + waveLutPixelDisplacement) >> Y_STEP_SIZE_2_EXP;
+			int yOutputRemainder = __MODULO((yOutputEnd + waveLutPixelDisplacement), REFLECTIVE_ENTITY_Y_STEP_SIZE) << 1;
+			int yOutputLimit = (yOutputEnd + waveLutPixelDisplacement) >> REFLECTIVE_ENTITY_Y_STEP_SIZE_2_EXP;
 
-			POINTER_TYPE remainderLeftValue = yOutput >= yOutputLimit ? sourceCurrentValueLeft : 0;
-			POINTER_TYPE remainderRightValue = yOutput >= yOutputLimit ? sourceCurrentValueRight : 0;
+			REFLECTIVE_ENTITY_POINTER_TYPE remainderLeftValue = yOutput >= yOutputLimit ? sourceCurrentValueLeft : 0;
+			REFLECTIVE_ENTITY_POINTER_TYPE remainderRightValue = yOutput >= yOutputLimit ? sourceCurrentValueRight : 0;
 
 			u32 noise = ReflectiveEntity::getNoise(noisePasses);
 
@@ -570,14 +558,14 @@ void ReflectiveEntity::drawReflection(u32 currentDrawingFrameBufferSet,
 
 				if(__Y_AXIS & axisForReversing)
 				{
-					sourceNextValueLeft = Utilities::reverse(sourceNextValueLeft, BITS_PER_STEP);
-					sourceNextValueRight = Utilities::reverse(sourceNextValueRight, BITS_PER_STEP);
+					sourceNextValueLeft = Utilities::reverse(sourceNextValueLeft, REFLECTIVE_ENTITY_BITS_PER_STEP);
+					sourceNextValueRight = Utilities::reverse(sourceNextValueRight, REFLECTIVE_ENTITY_BITS_PER_STEP);
 				}
 			}
 
 			if(yOutputRemainder)
 			{
-				u32 maskDisplacement = (BITS_PER_STEP - yOutputRemainder);
+				u32 maskDisplacement = (REFLECTIVE_ENTITY_BITS_PER_STEP - yOutputRemainder);
 				effectiveContentMask = 0xFFFFFFFF >> maskDisplacement;
 				u32 remainderContentMask = effectiveContentMask & ~(bottomBorderMask >> maskDisplacement);
 
@@ -594,8 +582,8 @@ void ReflectiveEntity::drawReflection(u32 currentDrawingFrameBufferSet,
 				}
 				else
 				{
-					remainderLeftValue |= (sourceNextValueLeft << (BITS_PER_STEP + pixelShift));
-					remainderRightValue |= (sourceNextValueRight << (BITS_PER_STEP + pixelShift));
+					remainderLeftValue |= (sourceNextValueLeft << (REFLECTIVE_ENTITY_BITS_PER_STEP + pixelShift));
+					remainderRightValue |= (sourceNextValueRight << (REFLECTIVE_ENTITY_BITS_PER_STEP + pixelShift));
 				}
 
 				remainderLeftValue &= reflectionMask;
@@ -663,9 +651,9 @@ void ReflectiveEntity::drawReflection(u32 currentDrawingFrameBufferSet,
 			int waveLutPixelDisplacement = waveLut[xIndex];
 
 			int ySource = ySourceStartHelper;
-			int yOutput = (yOutputStart + waveLutPixelDisplacement) >> Y_STEP_SIZE_2_EXP;
+			int yOutput = (yOutputStart + waveLutPixelDisplacement) >> REFLECTIVE_ENTITY_Y_STEP_SIZE_2_EXP;
 
-			int pixelShift = (__MODULO((yOutputStart + waveLutPixelDisplacement), Y_STEP_SIZE) - __MODULO(ySourceStart, Y_STEP_SIZE)) << 1;
+			int pixelShift = (__MODULO((yOutputStart + waveLutPixelDisplacement), REFLECTIVE_ENTITY_Y_STEP_SIZE) - __MODULO(ySourceStart, REFLECTIVE_ENTITY_Y_STEP_SIZE)) << 1;
 
 			reflectionMask = reflectionMaskSave;
 
@@ -681,39 +669,39 @@ void ReflectiveEntity::drawReflection(u32 currentDrawingFrameBufferSet,
 				}
 			}
 
-			u32 effectiveContentMaskDisplacement = (__MODULO((yOutputStart + (flattenTop? 0 : waveLutPixelDisplacement)), Y_STEP_SIZE) << 1);
+			u32 effectiveContentMaskDisplacement = (__MODULO((yOutputStart + (flattenTop? 0 : waveLutPixelDisplacement)), REFLECTIVE_ENTITY_Y_STEP_SIZE) << 1);
 			u32 effectiveContentMask = 0xFFFFFFFF << effectiveContentMaskDisplacement;
 			u32 effectiveBackgroundMask = ~effectiveContentMask;
 			effectiveContentMask &= ~(topBorderMask << effectiveContentMaskDisplacement);
 
-			POINTER_TYPE* columnSourcePointerLeft = (POINTER_TYPE*) (currentDrawingFrameBufferSet) + (xSource << Y_SHIFT) + ySource;
-			POINTER_TYPE* columnSourcePointerRight = (POINTER_TYPE*) (currentDrawingFrameBufferSet | 0x00010000) + (xSource << Y_SHIFT) + ySource;
-			POINTER_TYPE* columnOutputPointerLeft = (POINTER_TYPE*) (currentDrawingFrameBufferSet) + (leftColumn << Y_SHIFT) + yOutput;
-			POINTER_TYPE* columnOutputPointerRight = (POINTER_TYPE*) (currentDrawingFrameBufferSet | 0x00010000) + (rightColumn << Y_SHIFT) + yOutput;
+			REFLECTIVE_ENTITY_POINTER_TYPE* columnSourcePointerLeft = (REFLECTIVE_ENTITY_POINTER_TYPE*) (currentDrawingFrameBufferSet) + (xSource << REFLECTIVE_ENTITY_Y_SHIFT) + ySource;
+			REFLECTIVE_ENTITY_POINTER_TYPE* columnSourcePointerRight = (REFLECTIVE_ENTITY_POINTER_TYPE*) (currentDrawingFrameBufferSet | 0x00010000) + (xSource << REFLECTIVE_ENTITY_Y_SHIFT) + ySource;
+			REFLECTIVE_ENTITY_POINTER_TYPE* columnOutputPointerLeft = (REFLECTIVE_ENTITY_POINTER_TYPE*) (currentDrawingFrameBufferSet) + (leftColumn << REFLECTIVE_ENTITY_Y_SHIFT) + yOutput;
+			REFLECTIVE_ENTITY_POINTER_TYPE* columnOutputPointerRight = (REFLECTIVE_ENTITY_POINTER_TYPE*) (currentDrawingFrameBufferSet | 0x00010000) + (rightColumn << REFLECTIVE_ENTITY_Y_SHIFT) + yOutput;
 
 			int columnSourcePointerLeftIncrement = ySourceIncrement;
 
-			POINTER_TYPE sourceCurrentValueLeft = *columnSourcePointerLeft;
-			POINTER_TYPE sourceCurrentValueRight = *columnSourcePointerRight;
+			REFLECTIVE_ENTITY_POINTER_TYPE sourceCurrentValueLeft = *columnSourcePointerLeft;
+			REFLECTIVE_ENTITY_POINTER_TYPE sourceCurrentValueRight = *columnSourcePointerRight;
 			columnSourcePointerLeft += columnSourcePointerLeftIncrement;
-			POINTER_TYPE sourceNextValueLeft = *columnSourcePointerLeft;
+			REFLECTIVE_ENTITY_POINTER_TYPE sourceNextValueLeft = *columnSourcePointerLeft;
 
-			POINTER_TYPE outputValueLeft = *columnOutputPointerLeft;
-			POINTER_TYPE outputValueRight = *columnOutputPointerRight;
+			REFLECTIVE_ENTITY_POINTER_TYPE outputValueLeft = *columnOutputPointerLeft;
+			REFLECTIVE_ENTITY_POINTER_TYPE outputValueRight = *columnOutputPointerRight;
 
 			if(__Y_AXIS & axisForReversing)
 			{
-				sourceCurrentValueLeft = Utilities::reverse(sourceCurrentValueLeft, BITS_PER_STEP);
-				sourceNextValueLeft = Utilities::reverse(sourceNextValueLeft, BITS_PER_STEP);
+				sourceCurrentValueLeft = Utilities::reverse(sourceCurrentValueLeft, REFLECTIVE_ENTITY_BITS_PER_STEP);
+				sourceNextValueLeft = Utilities::reverse(sourceNextValueLeft, REFLECTIVE_ENTITY_BITS_PER_STEP);
 			}
 
 			waveLutPixelDisplacement =  flattenBottom ? 0 : waveLutPixelDisplacement;
 
-			int yOutputRemainder = __MODULO((yOutputEnd + waveLutPixelDisplacement), Y_STEP_SIZE) << 1;
+			int yOutputRemainder = __MODULO((yOutputEnd + waveLutPixelDisplacement), REFLECTIVE_ENTITY_Y_STEP_SIZE) << 1;
 
-			int yOutputLimit = (yOutputEnd + waveLutPixelDisplacement) >> Y_STEP_SIZE_2_EXP;
+			int yOutputLimit = (yOutputEnd + waveLutPixelDisplacement) >> REFLECTIVE_ENTITY_Y_STEP_SIZE_2_EXP;
 
-			POINTER_TYPE remainderLeftValue = yOutput < yOutputLimit ? 0 : sourceCurrentValueLeft;
+			REFLECTIVE_ENTITY_POINTER_TYPE remainderLeftValue = yOutput < yOutputLimit ? 0 : sourceCurrentValueLeft;
 
 			u32 noise = ReflectiveEntity::getNoise(noisePasses);
 
@@ -750,13 +738,13 @@ void ReflectiveEntity::drawReflection(u32 currentDrawingFrameBufferSet,
 
 				if(__Y_AXIS & axisForReversing)
 				{
-					sourceNextValueLeft = Utilities::reverse(sourceNextValueLeft, BITS_PER_STEP);
+					sourceNextValueLeft = Utilities::reverse(sourceNextValueLeft, REFLECTIVE_ENTITY_BITS_PER_STEP);
 				}
 			}
 
 			if(yOutputRemainder)
 			{
-				u32 maskDisplacement = (BITS_PER_STEP - yOutputRemainder);
+				u32 maskDisplacement = (REFLECTIVE_ENTITY_BITS_PER_STEP - yOutputRemainder);
 				effectiveContentMask = 0xFFFFFFFF >> maskDisplacement;
 				u32 remainderContentMask = effectiveContentMask & ~(bottomBorderMask >> maskDisplacement);
 
@@ -771,7 +759,7 @@ void ReflectiveEntity::drawReflection(u32 currentDrawingFrameBufferSet,
 				}
 				else
 				{
-					remainderLeftValue |= (sourceNextValueLeft << (BITS_PER_STEP + pixelShift));
+					remainderLeftValue |= (sourceNextValueLeft << (REFLECTIVE_ENTITY_BITS_PER_STEP + pixelShift));
 				}
 
 				remainderLeftValue &= reflectionMask;
@@ -798,29 +786,29 @@ void ReflectiveEntity::drawReflection(u32 currentDrawingFrameBufferSet,
 /*
 	DirectDraw::drawLine(
 		DirectDraw::getInstance(),
-		(PixelVector) {(xOutputStartTemp),((yOutputStartTemp / Y_STEP_SIZE) * Y_STEP_SIZE),0,0},
-		(PixelVector) {(xOutputEndTemp),((yOutputStartTemp / Y_STEP_SIZE) * Y_STEP_SIZE),0,0},
+		(PixelVector) {(xOutputStartTemp),((yOutputStartTemp / REFLECTIVE_ENTITY_Y_STEP_SIZE) * REFLECTIVE_ENTITY_Y_STEP_SIZE),0,0},
+		(PixelVector) {(xOutputEndTemp),((yOutputStartTemp / REFLECTIVE_ENTITY_Y_STEP_SIZE) * REFLECTIVE_ENTITY_Y_STEP_SIZE),0,0},
 		__COLOR_BRIGHT_RED
 	);
 
 	DirectDraw::drawLine(
 		DirectDraw::getInstance(),
-		(PixelVector) {(xOutputStartTemp),((yOutputEndTemp / Y_STEP_SIZE) * Y_STEP_SIZE),0,0},
-		(PixelVector) {(xOutputEndTemp),((yOutputEndTemp / Y_STEP_SIZE) * Y_STEP_SIZE),0,0},
+		(PixelVector) {(xOutputStartTemp),((yOutputEndTemp / REFLECTIVE_ENTITY_Y_STEP_SIZE) * REFLECTIVE_ENTITY_Y_STEP_SIZE),0,0},
+		(PixelVector) {(xOutputEndTemp),((yOutputEndTemp / REFLECTIVE_ENTITY_Y_STEP_SIZE) * REFLECTIVE_ENTITY_Y_STEP_SIZE),0,0},
 		__COLOR_BRIGHT_RED
 	);
 
 	DirectDraw::drawLine(
 		DirectDraw::getInstance(),
-		(PixelVector) {(xSourceStartTemp),((ySourceStartTemp / Y_STEP_SIZE) * Y_STEP_SIZE),0,0},
-		(PixelVector) {(xSourceEndTemp),((ySourceStartTemp / Y_STEP_SIZE) * Y_STEP_SIZE),0,0},
+		(PixelVector) {(xSourceStartTemp),((ySourceStartTemp / REFLECTIVE_ENTITY_Y_STEP_SIZE) * REFLECTIVE_ENTITY_Y_STEP_SIZE),0,0},
+		(PixelVector) {(xSourceEndTemp),((ySourceStartTemp / REFLECTIVE_ENTITY_Y_STEP_SIZE) * REFLECTIVE_ENTITY_Y_STEP_SIZE),0,0},
 		__COLOR_DARK_RED
 	);
 
 	DirectDraw::drawLine(
 		DirectDraw::getInstance(),
-		(PixelVector) {(xSourceStartTemp),((ySourceEndTemp / Y_STEP_SIZE) * Y_STEP_SIZE),0,0},
-		(PixelVector) {(xSourceEndTemp),((ySourceEndTemp / Y_STEP_SIZE) * Y_STEP_SIZE),0,0},
+		(PixelVector) {(xSourceStartTemp),((ySourceEndTemp / REFLECTIVE_ENTITY_Y_STEP_SIZE) * REFLECTIVE_ENTITY_Y_STEP_SIZE),0,0},
+		(PixelVector) {(xSourceEndTemp),((ySourceEndTemp / REFLECTIVE_ENTITY_Y_STEP_SIZE) * REFLECTIVE_ENTITY_Y_STEP_SIZE),0,0},
 		__COLOR_DARK_RED
 	);
 */

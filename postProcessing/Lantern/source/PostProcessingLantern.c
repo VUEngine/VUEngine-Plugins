@@ -1,22 +1,10 @@
-/* VUEngine - Virtual Utopia Engine <https://www.vuengine.dev>
- * A universal game engine for the Nintendo Virtual Boy
+/**
+ * VUEngine Plugins Library
  *
- * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>, 2007-2020
+ * (c) Christian Radke and Jorge Eremiev
  *
- * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
- * associated documentation files (the "Software"), to deal in the Software without restriction, including
- * without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to
- * the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in all copies or substantial
- * portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
- * LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
- * NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
- * WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
- * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ * For the full copyright and license information, please view the LICENSE file
+ * that was distributed with this source code.
  */
 
 
@@ -33,9 +21,9 @@
 //												MACROS
 //---------------------------------------------------------------------------------------------------------
 
-#define SIZE_OF_S16_POWER		1
-#define Y_STEP_SIZE				16
-#define Y_STEP_SIZE_2_EXP		4
+#define POST_PROCESSING_LANTERN_SIZE_OF_S16_POWER		1
+#define POST_PROCESSING_LANTERN_Y_STEP_SIZE				16
+#define POST_PROCESSING_LANTERN_Y_STEP_SIZE_2_EXP		4
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -92,8 +80,8 @@ static void PostProcessingLantern::ellipticalWindow(u32 currentDrawingFrameBuffe
  	int xPosition = position.x;
  	int yPosition = position.y;
 	// move y position to the closest 16 multiple
-	int tempYPosition = yPosition + (Y_STEP_SIZE >> 1);
-	yPosition = tempYPosition - __MODULO(tempYPosition, Y_STEP_SIZE);
+	int tempYPosition = yPosition + (POST_PROCESSING_LANTERN_Y_STEP_SIZE >> 1);
+	yPosition = tempYPosition - __MODULO(tempYPosition, POST_PROCESSING_LANTERN_Y_STEP_SIZE);
 
 	int ellipsisArcIndex = 0 > xPosition - ellipsisHorizontalAxisSize ? (ellipsisHorizontalAxisSize - xPosition) : 0;
 	int ellipsisArcIndexDelta = 1;
@@ -105,17 +93,17 @@ static void PostProcessingLantern::ellipticalWindow(u32 currentDrawingFrameBuffe
 		u32* columnSourcePointerLeft = (u32*) (currentDrawingFrameBufferSet) + (x << 4);
 		u32* columnSourcePointerRight = (u32*) (currentDrawingFrameBufferSet | 0x00010000) + (x << 4);
 
-		int yStart = _cameraFrustum->y0 >> Y_STEP_SIZE_2_EXP;
-		int yEnd = (_cameraFrustum->y1 - 16) >> Y_STEP_SIZE_2_EXP; // do not write over GUI
+		int yStart = _cameraFrustum->y0 >> POST_PROCESSING_LANTERN_Y_STEP_SIZE_2_EXP;
+		int yEnd = (_cameraFrustum->y1 - 16) >> POST_PROCESSING_LANTERN_Y_STEP_SIZE_2_EXP; // do not write over GUI
 		int y = yStart;
 
 		int ellipsisY = ellipsisArc[ellipsisArcIndex];
-		int maskDisplacement = __MODULO(ellipsisY, Y_STEP_SIZE) << 1;
+		int maskDisplacement = __MODULO(ellipsisY, POST_PROCESSING_LANTERN_Y_STEP_SIZE) << 1;
 		u32 upperMask = roundBorder ? ~(0xFFFFFFFF >> maskDisplacement) : 0xFFFFFFFF;
 		u32 lowerMask = roundBorder ? ~(0xFFFFFFFF << maskDisplacement) : 0xFFFFFFFF;
 
-		int yLowerLimit =  (yPosition + ellipsisY) >> Y_STEP_SIZE_2_EXP;
-		int yUpperLimit = (yPosition >> Y_STEP_SIZE_2_EXP) - (yLowerLimit - (yPosition >> Y_STEP_SIZE_2_EXP));
+		int yLowerLimit =  (yPosition + ellipsisY) >> POST_PROCESSING_LANTERN_Y_STEP_SIZE_2_EXP;
+		int yUpperLimit = (yPosition >> POST_PROCESSING_LANTERN_Y_STEP_SIZE_2_EXP) - (yLowerLimit - (yPosition >> POST_PROCESSING_LANTERN_Y_STEP_SIZE_2_EXP));
 
 		if(yUpperLimit > yEnd)
 		{
@@ -245,7 +233,7 @@ static void PostProcessingLantern::lantern(u32 currentDrawingFrameBufferSet, Spa
 		u16 i = 0;
 		float x = 0;
 
-		for(i = sizeof(ellipsisArc) >> SIZE_OF_S16_POWER; --i; x++)
+		for(i = sizeof(ellipsisArc) >> POST_PROCESSING_LANTERN_SIZE_OF_S16_POWER; --i; x++)
 		{
 			ellipsisArc[i] = ELLIPSIS_Y_AXIS_LENGTH * Math::squareRoot(((ELLIPSIS_X_AXIS_LENGTH * ELLIPSIS_X_AXIS_LENGTH) - (x * x)) / (ELLIPSIS_X_AXIS_LENGTH * ELLIPSIS_X_AXIS_LENGTH));
 		}

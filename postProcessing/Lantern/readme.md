@@ -1,12 +1,8 @@
-VUEngine Plugin: PostProcessingLantern
-======================================
-
 Adds a lantern like effect to any SpatialObject, where everything outside of a certain radius around the SpatialObject is rendered black. 
 
-![Preview Image](preview.png)
+![](https://raw.githubusercontent.com/VUEngine/VUEngine-Plugins/master/postProcessing/Lantern/preview.png)
 
-
-USAGE
+Usage
 -----
 
 Add to any SpatialObject using either `Game::pushFrontProcessingEffect` or `Game::pushBackProcessingEffect`. 

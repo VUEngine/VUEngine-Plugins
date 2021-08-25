@@ -1,5 +1,0 @@
-{
-	"displayName": "GuiBgmapAnimatedSprite",
-	"category": "Graphics",
-	"description": "An animated BGMap sprite that is not affected by the camera frustum. Optimal for GUIs."
-}

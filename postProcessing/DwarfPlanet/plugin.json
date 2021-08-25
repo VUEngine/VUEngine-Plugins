@@ -1,13 +1,13 @@
 {
 	"displayName": "Dwarf Planet Effect",
 	"author": "Team VUEngine",
-	"description": "\"Bends down\" the left and right edges of the screen to make the world look like a very small planet.",
+	"description": "\"Bends down\" the left and right edges of the screen to make the game world look like a very small planet.",
 	"icon": "./icon.png",
 	"readme": "./readme.md",
-	"repository": "https://github.com/VUEngine/VUEngine-Plugins",
+	"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/postProcessing/DwarfPlanet",
 	"license": "MIT",
-	"categories": [
-		"Post Processing Effect"
+	"tags": [
+		"Post Processing"
 	],
 	"dependencies": []
 }

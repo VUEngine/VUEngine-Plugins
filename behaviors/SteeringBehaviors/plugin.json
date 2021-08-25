@@ -1,12 +1,12 @@
 {
 	"displayName": "Steering Behaviors",
 	"author": "Team VUEngine",
-	"description": "",
-	"icon": "",
-	"readme": "",
-	"repository": "https://github.com/VUEngine/VUEngine-Plugins",
+	"description": "Various physics based behaviors to steer AI entities.",
+	"icon": "./icon.png",
+	"readme": "./readme.md",
+	"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/behaviors/SteeringBehaviors",
 	"license": "MIT",
-	"categories": [
+	"tags": [
 		"Behavior"
 	],
 	"dependencies": []

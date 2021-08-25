@@ -1,22 +1,10 @@
-/* VUEngine - Virtual Utopia Engine <https://www.vuengine.dev>
- * A universal game engine for the Nintendo Virtual Boy
+/**
+ * VUEngine Plugins Library
  *
- * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>, 2007-2020
+ * (c) Christian Radke and Jorge Eremiev
  *
- * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
- * associated documentation files (the "Software"), to deal in the Software without restriction, including
- * without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to
- * the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in all copies or substantial
- * portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
- * LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
- * NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
- * WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
- * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ * For the full copyright and license information, please view the LICENSE file
+ * that was distributed with this source code.
  */
 
 #ifndef REFLECTIVE_ENTITY_H_
@@ -34,24 +22,24 @@
 //												MACROS
 //---------------------------------------------------------------------------------------------------------
 
-#ifndef POINTER_TYPE
-#define POINTER_TYPE			u32 // sizeof(u32) + (sizeof(u32) / sizeof(POINTER_TYPE) / 2)
+#ifndef REFLECTIVE_ENTITY_POINTER_TYPE
+#define REFLECTIVE_ENTITY_POINTER_TYPE			u32 // sizeof(u32) + (sizeof(u32) / sizeof(REFLECTIVE_ENTITY_POINTER_TYPE) / 2)
 #endif
 
-#ifndef Y_SHIFT
-#define Y_SHIFT					4 // sizeof(POINTER_TYPE) << 2
+#ifndef REFLECTIVE_ENTITY_Y_SHIFT
+#define REFLECTIVE_ENTITY_Y_SHIFT				4 // sizeof(REFLECTIVE_ENTITY_POINTER_TYPE) << 2
 #endif
 
-#ifndef Y_STEP_SIZE
-#define Y_STEP_SIZE				16
+#ifndef REFLECTIVE_ENTITY_Y_STEP_SIZE
+#define REFLECTIVE_ENTITY_Y_STEP_SIZE			16
 #endif
 
-#ifndef Y_STEP_SIZE_2_EXP
-#define Y_STEP_SIZE_2_EXP		4 // sizeof(POINTER_TYPE) << 3
+#ifndef REFLECTIVE_ENTITY_Y_STEP_SIZE_2_EXP
+#define REFLECTIVE_ENTITY_Y_STEP_SIZE_2_EXP		4 // sizeof(REFLECTIVE_ENTITY_POINTER_TYPE) << 3
 #endif
 
-#ifndef BITS_PER_STEP
-#define BITS_PER_STEP 			32
+#ifndef REFLECTIVE_ENTITY_BITS_PER_STEP
+#define REFLECTIVE_ENTITY_BITS_PER_STEP 		32
 #endif
 
 
@@ -225,7 +213,7 @@ class ReflectiveEntity : Entity
      * @param overallMask
      * @param reflectionMask
      */
-	static void shiftPixels(int pixelShift, POINTER_TYPE* sourceValue, u32 nextSourceValue, POINTER_TYPE* remainderValue, u32 reflectionMask, u32 noise);
+	static void shiftPixels(int pixelShift, REFLECTIVE_ENTITY_POINTER_TYPE* sourceValue, u32 nextSourceValue, REFLECTIVE_ENTITY_POINTER_TYPE* remainderValue, u32 reflectionMask, u32 noise);
 
 	/**
 	 * Suspend for pause

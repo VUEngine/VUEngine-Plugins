@@ -1,12 +1,8 @@
-VUEngine Plugin: IndustrialFont
-===============================
-
 A bold, angular 8x8 pixel font that resembles industrial lettering.
 
-![Preview Image](preview.png)
+![](https://raw.githubusercontent.com/VUEngine/VUEngine-Plugins/master/fonts/IndustrialFont/preview.png)
 
-
-USAGE
+Usage
 -----
 
 Included are two versions of the font:
