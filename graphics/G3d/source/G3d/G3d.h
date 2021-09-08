@@ -51,52 +51,52 @@
 typedef struct g3dVector3D
 {
 	// fixed point
-	s32 x; 
+	int32 x; 
 	// fixed point
-	s32 y; 
+	int32 y; 
 	// fixed point
-	s32 z; 
+	int32 z; 
 	// screen x
-	s32 sx; 
+	int32 sx; 
 	// screen y
-	s32 sy; 
+	int32 sy; 
 
 } g3dVector3D;
 
 typedef struct g3dObjectData
 {
 	// Size of vertex array portion
-	s32 vertexSize; 
+	int32 vertexSize; 
 	// Size of line data portion
-	s32 lineSize; 
+	int32 lineSize; 
 	// Number of points per "face". Since we use only lines for wireframe this should always be 2
-	s32 faceSize; 
+	int32 faceSize; 
 	// Distinct vertices and line point index data
-	const s32 data[]; 
+	const int32 data[]; 
 
 } g3dObjectData;
 
 // This can be used for collision detection 12 bytes size
 typedef struct g3dCollisionCube
 {
-	s32 width;
-	s32 height;
-	s32 depth;
+	int32 width;
+	int32 height;
+	int32 depth;
 
 } g3dCollisionCube; 
 
 typedef struct g3dObjectProperties
 {
 	// Is this g3dObject visible
-	u32 visible; 
+	uint32 visible; 
 	// This is whether the g3dObject is clipped or not
-	u32 clip;
+	uint32 clip;
 	// Do we perform collision detection
-	u32 detectCollision; 
+	uint32 detectCollision; 
 	// Color of the line
-	u32 lineColor;
+	uint32 lineColor;
 	// State byte to be used for anything
-	u32 state;
+	uint32 state;
 	// Cube data for collision detection
 	g3dCollisionCube hitCube; 
 
@@ -146,7 +146,7 @@ typedef struct g3dCamera
 	// Not Fixed Point (20 bytes)
 	g3dVector3D rotation; 
 	// (4 bytes)
-	s32 d; 
+	int32 d; 
 
 } g3dCamera;
 
@@ -162,26 +162,26 @@ singleton class G3d : Object
 	// 3D Calculations/Functions
 	void copyVector3d(g3dVector3D* from, g3dVector3D* to);
 	void scale(g3dVector3D* factor, g3dVector3D* v, g3dVector3D* o);
-	void rotateXAxis(s32 degrees, g3dVector3D* v, g3dVector3D* o);
-	void rotateYAxis(s32 degrees, g3dVector3D* v, g3dVector3D* o);
-	void rotateZAxis(s32 degrees, g3dVector3D* v, g3dVector3D* o);
-	void rotateAllAxis(s32 rx, s32 ry, s32 rz, g3dVector3D* v, g3dVector3D* o);
-	void translate(s32 x, s32 y, s32 z, g3dVector3D* v, g3dVector3D* o);
-	void cameraRotateAllAxis(s32 rx, s32 ry, s32 rz, g3dVector3D* v, g3dVector3D* o);
-	void cameraTranslate(s32 x, s32 y, s32 z, g3dVector3D* v, g3dVector3D* o);
+	void rotateXAxis(int32 degrees, g3dVector3D* v, g3dVector3D* o);
+	void rotateYAxis(int32 degrees, g3dVector3D* v, g3dVector3D* o);
+	void rotateZAxis(int32 degrees, g3dVector3D* v, g3dVector3D* o);
+	void rotateAllAxis(int32 rx, int32 ry, int32 rz, g3dVector3D* v, g3dVector3D* o);
+	void translate(int32 x, int32 y, int32 z, g3dVector3D* v, g3dVector3D* o);
+	void cameraRotateAllAxis(int32 rx, int32 ry, int32 rz, g3dVector3D* v, g3dVector3D* o);
+	void cameraTranslate(int32 x, int32 y, int32 z, g3dVector3D* v, g3dVector3D* o);
 	void initObject(g3dObject* o, g3dObjectData* objData);
 	void moveObject(g3dObject* o);
 	void moveCamera(g3dCamera* c);
 	void calculateProjection(g3dVector3D* o);
 	void clipZAxis(g3dVector3D* v1, g3dVector3D* v2);
 	void clipObject(g3dObject* o);
-	void detectCollision(g3dVector3D* position1, g3dCollisionCube* c1, g3dVector3D* position2, g3dCollisionCube* c2, u32* flag);
+	void detectCollision(g3dVector3D* position1, g3dCollisionCube* c1, g3dVector3D* position2, g3dCollisionCube* c2, uint32* flag);
 
 	// Core Drawing Functions
-	void drawPoint(s32 x, s32 y, u8 color, s32 p);
-	void drawLine(g3dVector3D* v1, g3dVector3D* v2, u8 color);
+	void drawPoint(int32 x, int32 y, uint8 color, int32 p);
+	void drawLine(g3dVector3D* v1, g3dVector3D* v2, uint8 color);
 	void drawObject(g3dObject* o);
-	void renderVector3d(g3dObject* obj, g3dVector3D* v, g3dVector3D* o, u8 initHitCube);
+	void renderVector3d(g3dObject* obj, g3dVector3D* v, g3dVector3D* o, uint8 initHitCube);
 	void renderObject(g3dObject* o);
 }
 

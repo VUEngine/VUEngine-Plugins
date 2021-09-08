@@ -32,13 +32,13 @@ class PlatformerCameraTriggerEntity : Entity
 	Direction direction;
 	Vector3D previousGlobalPosition;
 
-	void constructor(PlatformerCameraTriggerEntitySpec* cameraEntitySpec, s16 internalId, const char* const name);
+	void constructor(PlatformerCameraTriggerEntitySpec* cameraEntitySpec, int16 internalId, const char* const name);
 	void setOverridePositionFlag(Vector3DFlag overridePositionFlag);
 	Vector3DFlag getOverridePositionFlag();
-	void lockMovement(u8 axisToLockUp, bool locked);
+	void lockMovement(uint8 axisToLockUp, bool locked);
 	override void ready(bool recursive);
-	override void transform(const Transformation* environmentTransform, u8 invalidateTransformationFlag);
-	override void update(u32 elapsedTime);
+	override void transform(const Transformation* environmentTransform, uint8 invalidateTransformationFlag);
+	override void update(uint32 elapsedTime);
 	override void resume();
 	override bool enterCollision(const CollisionInformation* collisionInformation);
 }

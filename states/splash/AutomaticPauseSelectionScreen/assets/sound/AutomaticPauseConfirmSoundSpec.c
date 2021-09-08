@@ -27,7 +27,7 @@
 //---------------------------------------------------------------------------------------------------------
 
 
-const u16 AutomaticPauseConfirmTrack[] =
+const uint16 AutomaticPauseConfirmTrack[] =
 {
   A_4, B_4, E_5, HOLD, ENDSOUND,
   80, 80, 80, 1, 1,
@@ -83,7 +83,7 @@ SoundChannelROM AUTOMATIC_PAUSE_CONFIRM_SND_CHANNEL_1 =
 
 	/// Sound track
 	{
-		(const u8*)AutomaticPauseConfirmTrack
+		(const uint8*)AutomaticPauseConfirmTrack
 	}
 };
 

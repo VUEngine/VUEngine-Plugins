@@ -24,7 +24,7 @@
 
 static class PostProcessingWobble : Object
 {
-	static void wobble(u32 currentDrawingFrameBufferSet, SpatialObject spatialObject);
+	static void wobble(uint32 currentDrawingFrameBufferSet, SpatialObject spatialObject);
 }
 
 

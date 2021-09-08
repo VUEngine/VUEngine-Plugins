@@ -33,11 +33,11 @@
  *
  * @param currentDrawingFrameBufferSet	The framebuffer set that's currently being accessed
  */
-static void PostProcessingTilt::tiltScreen(u32 currentDrawingFrameBufferSet, SpatialObject spatialObject __attribute__ ((unused)))
+static void PostProcessingTilt::tiltScreen(uint32 currentDrawingFrameBufferSet, SpatialObject spatialObject __attribute__ ((unused)))
 {
-	u8 buffer = 0, currentShift = 0;
-	u16 x = 0, y = 0;
-	u32 previousSourcePointerValue = 0;
+	uint8 buffer = 0, currentShift = 0;
+	uint16 x = 0, y = 0;
+	uint32 previousSourcePointerValue = 0;
 
 	// write to framebuffers for both screens
 	for(; buffer < 2; buffer++)
@@ -46,7 +46,7 @@ static void PostProcessingTilt::tiltScreen(u32 currentDrawingFrameBufferSet, Spa
 		for(x = 0; x < 360; x++)
 		{
 			// get pointer to currently manipulated 32 bits of framebuffer
-			u32* columnSourcePointer = (u32*) (currentDrawingFrameBufferSet | (buffer ? 0x00010000 : 0)) + (x << 4);
+			uint32* columnSourcePointer = (uint32*) (currentDrawingFrameBufferSet | (buffer ? 0x00010000 : 0)) + (x << 4);
 
 			// the shifted out pixels on top should be black
 			previousSourcePointerValue = 0;
@@ -73,15 +73,15 @@ static void PostProcessingTilt::tiltScreen(u32 currentDrawingFrameBufferSet, Spa
  * @param columnSourcePointer			Framebuffer address of the current column (x value)
  * @param previousSourcePointerValue	Value from the loop's previous cycle (effectively where y - 1)
  */
-static u32 PostProcessingTilt::writeToFrameBuffer(u16 y, u16 shift, u32* columnSourcePointer, u32 previousSourcePointerValue)
+static uint32 PostProcessingTilt::writeToFrameBuffer(uint16 y, uint16 shift, uint32* columnSourcePointer, uint32 previousSourcePointerValue)
 {
 	// pointer to currently manipulated 32 bits of framebuffer
-	u32* sourcePointer = columnSourcePointer + y;
+	uint32* sourcePointer = columnSourcePointer + y;
 
 	// save current pointer value to temp var and shift highest x bits of it, according to lut,
 	// to the lowest bits, since we want to insert these
-	u32 sourcePointerCurrentValue = *sourcePointer;
-	u32 previousSourcePointerLeftValueTemp = sourcePointerCurrentValue >> (32 - shift);
+	uint32 sourcePointerCurrentValue = *sourcePointer;
+	uint32 previousSourcePointerLeftValueTemp = sourcePointerCurrentValue >> (32 - shift);
 
 	// manipulate current 32 bits in frame buffer
 	*sourcePointer =

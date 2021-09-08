@@ -27,7 +27,7 @@
 //---------------------------------------------------------------------------------------------------------
 
 
-const u16 LangConfirmTrack[] =
+const uint16 LangConfirmTrack[] =
 {
   A_4, B_4, E_5, HOLD, ENDSOUND,
   80, 80, 80, 1, 1,
@@ -83,7 +83,7 @@ SoundChannelROM LANG_CONFIRM_SND_CHANNEL_1 =
 
 	/// Sound track
 	{
-		(const u8*)LangConfirmTrack
+		(const uint8*)LangConfirmTrack
 	}
 };
 

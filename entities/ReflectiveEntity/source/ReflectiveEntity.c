@@ -24,9 +24,9 @@
 //												CLASS'S METHODS
 //---------------------------------------------------------------------------------------------------------
 
-static u32 ReflectiveEntity::randomSeed()
+static uint32 ReflectiveEntity::randomSeed()
 {
-	static u32 seed = 7;
+	static uint32 seed = 7;
 
 	if(!seed)
 	{
@@ -40,7 +40,7 @@ static u32 ReflectiveEntity::randomSeed()
 	return seed;
 }
 
-void ReflectiveEntity::constructor(ReflectiveEntitySpec* reflectiveEntitySpec, s16 internalId, const char* const name)
+void ReflectiveEntity::constructor(ReflectiveEntitySpec* reflectiveEntitySpec, int16 internalId, const char* const name)
 {
 	// construct base
 	Base::constructor(&reflectiveEntitySpec->entitySpec, internalId, name);
@@ -98,7 +98,7 @@ void ReflectiveEntity::synchronizeGraphics()
 	this->nextFramePosition2D.y = position2D.y;
 }
 
-static void ReflectiveEntity::reflect(u32 currentDrawingFrameBufferSet, SpatialObject spatialObject)
+static void ReflectiveEntity::reflect(uint32 currentDrawingFrameBufferSet, SpatialObject spatialObject)
 {
 	ASSERT(spatialObject, "ReflectiveEntity::reflect: null this");
 
@@ -112,14 +112,14 @@ static void ReflectiveEntity::reflect(u32 currentDrawingFrameBufferSet, SpatialO
 	ReflectiveEntity::applyReflection(this, currentDrawingFrameBufferSet);
 }
 
-void ReflectiveEntity::applyReflection(u32 currentDrawingFrameBufferSet)
+void ReflectiveEntity::applyReflection(uint32 currentDrawingFrameBufferSet)
 {
 	ReflectiveEntitySpec* reflectiveEntitySpec = (ReflectiveEntitySpec*)this->entitySpec;
 
 /*
 	static fix10_6 index = 0;
 
-	const s16 displ[] =
+	const int16 displ[] =
 	{
 		0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
 		9, 8, 7, 6, 5, 4, 3, 2, 1, 0, -1,
@@ -129,7 +129,7 @@ void ReflectiveEntity::applyReflection(u32 currentDrawingFrameBufferSet)
 
 	index += this->waveLutIndexIncrement;
 
-	if(__FIX10_6_TO_I(index) >= sizeof(displ) / sizeof(s16))
+	if(__FIX10_6_TO_I(index) >= sizeof(displ) / sizeof(int16))
 	{
 		index = 0;
 	}
@@ -158,14 +158,14 @@ void ReflectiveEntity::applyReflection(u32 currentDrawingFrameBufferSet)
 	);
 }
 
-static u32 ReflectiveEntity::getNoise(s16 passes)
+static uint32 ReflectiveEntity::getNoise(int16 passes)
 {
 	if(0 >= passes)
 	{
 		return 0;
 	}
 
-	u32 noise = ReflectiveEntity::randomSeed();
+	uint32 noise = ReflectiveEntity::randomSeed();
 
 	for(; 0 < --passes;)
 	{
@@ -175,7 +175,7 @@ static u32 ReflectiveEntity::getNoise(s16 passes)
 	return noise;
 }
 
-static void ReflectiveEntity::shiftPixels(int pixelShift, REFLECTIVE_ENTITY_POINTER_TYPE* sourceValue, u32 nextSourceValue, REFLECTIVE_ENTITY_POINTER_TYPE* remainderValue, u32 reflectionMask, u32 noise)
+static void ReflectiveEntity::shiftPixels(int pixelShift, REFLECTIVE_ENTITY_POINTER_TYPE* sourceValue, uint32 nextSourceValue, REFLECTIVE_ENTITY_POINTER_TYPE* remainderValue, uint32 reflectionMask, uint32 noise)
 {
 	*sourceValue &= reflectionMask;
 	*remainderValue &= reflectionMask;
@@ -195,36 +195,36 @@ static void ReflectiveEntity::shiftPixels(int pixelShift, REFLECTIVE_ENTITY_POIN
 	}
 }
 
-void ReflectiveEntity::drawReflection(u32 currentDrawingFrameBufferSet,
-	s16 xSourceStart, s16 ySourceStart,
-	s16 xOutputStart, s16 yOutputStart,
-	s16 width, s16 height,
-	u32 reflectionMask,
-	u16 axisForReversing, bool transparent, bool reflectParallax,
-	s16 parallaxDisplacement,
-	const u8 waveLut[], int numberOfWaveLutEntries, fix10_6 waveLutThrottleFactor,
+void ReflectiveEntity::drawReflection(uint32 currentDrawingFrameBufferSet,
+	int16 xSourceStart, int16 ySourceStart,
+	int16 xOutputStart, int16 yOutputStart,
+	int16 width, int16 height,
+	uint32 reflectionMask,
+	uint16 axisForReversing, bool transparent, bool reflectParallax,
+	int16 parallaxDisplacement,
+	const uint8 waveLut[], int numberOfWaveLutEntries, fix10_6 waveLutThrottleFactor,
 	bool flattenTop __attribute__ ((unused)), bool flattenBottom,
-	u32 topBorderMask,
-	u32 bottomBorderMask,
-	u32 leftBorderMask,
-	u32 rightBorderMask,
-	s16 noisePasses)
+	uint32 topBorderMask,
+	uint32 bottomBorderMask,
+	uint32 leftBorderMask,
+	uint32 rightBorderMask,
+	int16 noisePasses)
 {
-    s16 xSourceEnd = xSourceStart + width;
-    s16 ySourceEnd = ySourceStart + height;
-	s16 xOutputEnd = xOutputStart + width;
-	s16 yOutputEnd = yOutputStart + height;
+    int16 xSourceEnd = xSourceStart + width;
+    int16 ySourceEnd = ySourceStart + height;
+	int16 xOutputEnd = xOutputStart + width;
+	int16 yOutputEnd = yOutputStart + height;
 
 /*
-    s16 xSourceStartTemp = xSourceStart;
-    s16 ySourceStartTemp = ySourceStart;
-	s16 xOutputStartTemp = xOutputStart;
-	s16 yOutputStartTemp = yOutputStart;
+    int16 xSourceStartTemp = xSourceStart;
+    int16 ySourceStartTemp = ySourceStart;
+	int16 xOutputStartTemp = xOutputStart;
+	int16 yOutputStartTemp = yOutputStart;
 
-    s16 xSourceEndTemp = xSourceEnd;
-    s16 ySourceEndTemp = ySourceEnd;
-	s16 xOutputEndTemp = xOutputEnd;
-	s16 yOutputEndTemp = yOutputEnd;
+    int16 xSourceEndTemp = xSourceEnd;
+    int16 ySourceEndTemp = ySourceEnd;
+	int16 xOutputEndTemp = xOutputEnd;
+	int16 yOutputEndTemp = yOutputEnd;
 */
 	// check if source and destination are not out of bounds
 	if((xSourceStart > _cameraFrustum->x1) | (ySourceStart > _cameraFrustum->y1)
@@ -240,7 +240,7 @@ void ReflectiveEntity::drawReflection(u32 currentDrawingFrameBufferSet,
 
 	fix10_6 fixedNumberOfWaveLutEntries = __FIX10_6_MULT(waveLutThrottleFactor, __I_TO_FIX10_6(numberOfWaveLutEntries));
 
-	u32 transparentMask = transparent ? 0xFFFFFFFF : 0;
+	uint32 transparentMask = transparent ? 0xFFFFFFFF : 0;
 
 	int xClamping = 0;
 	int xOutputStartSave = xOutputStart;
@@ -349,9 +349,9 @@ void ReflectiveEntity::drawReflection(u32 currentDrawingFrameBufferSet,
 		xOutputIncrement = -1;
 	}
 
-	u32 reflectionMaskSave = reflectionMask;
+	uint32 reflectionMaskSave = reflectionMask;
 
-	u8 dummyWaveLut[] =
+	uint8 dummyWaveLut[] =
 	{
 		0
 	};
@@ -370,7 +370,7 @@ void ReflectiveEntity::drawReflection(u32 currentDrawingFrameBufferSet,
 
 	if(__Y_AXIS & axisForReversing)
 	{
-		s16 temp = ySourceEnd - REFLECTIVE_ENTITY_Y_STEP_SIZE;
+		int16 temp = ySourceEnd - REFLECTIVE_ENTITY_Y_STEP_SIZE;
 		ySourceEnd = ySourceStart;
 		ySourceStart = temp;
 		ySourceIncrement = -1;
@@ -394,7 +394,7 @@ void ReflectiveEntity::drawReflection(u32 currentDrawingFrameBufferSet,
 	}
 
 	int rightBorderSize = 0;
-	u32 temp = rightBorderMask;
+	uint32 temp = rightBorderMask;
 
 	while(temp)
 	{
@@ -412,7 +412,7 @@ void ReflectiveEntity::drawReflection(u32 currentDrawingFrameBufferSet,
 
 		for(; xTotal--; xOutput += xOutputIncrement, xSource++, xCounter++)
 		{
-			u32 border = leftBorderMask ? 0xFFFFFFFF : 0;
+			uint32 border = leftBorderMask ? 0xFFFFFFFF : 0;
 			leftBorderMask <<= 2;
 
 			if(!border && xTotal < rightBorderSize)
@@ -475,9 +475,9 @@ void ReflectiveEntity::drawReflection(u32 currentDrawingFrameBufferSet,
 				}
 			}
 
-			u32 effectiveContentMaskDisplacement = (__MODULO((yOutputStart + (flattenTop? 0 : waveLutPixelDisplacement)), REFLECTIVE_ENTITY_Y_STEP_SIZE) << 1);
-			u32 effectiveContentMask = 0xFFFFFFFF << effectiveContentMaskDisplacement;
-			u32 effectiveBackgroundMask = ~effectiveContentMask;
+			uint32 effectiveContentMaskDisplacement = (__MODULO((yOutputStart + (flattenTop? 0 : waveLutPixelDisplacement)), REFLECTIVE_ENTITY_Y_STEP_SIZE) << 1);
+			uint32 effectiveContentMask = 0xFFFFFFFF << effectiveContentMaskDisplacement;
+			uint32 effectiveBackgroundMask = ~effectiveContentMask;
 			effectiveContentMask &= ~(topBorderMask << effectiveContentMaskDisplacement);
 
 			REFLECTIVE_ENTITY_POINTER_TYPE* columnSourcePointerLeft = (REFLECTIVE_ENTITY_POINTER_TYPE*) (currentDrawingFrameBufferSet) + (xSource << REFLECTIVE_ENTITY_Y_SHIFT) + ySource;
@@ -516,7 +516,7 @@ void ReflectiveEntity::drawReflection(u32 currentDrawingFrameBufferSet,
 			REFLECTIVE_ENTITY_POINTER_TYPE remainderLeftValue = yOutput >= yOutputLimit ? sourceCurrentValueLeft : 0;
 			REFLECTIVE_ENTITY_POINTER_TYPE remainderRightValue = yOutput >= yOutputLimit ? sourceCurrentValueRight : 0;
 
-			u32 noise = ReflectiveEntity::getNoise(noisePasses);
+			uint32 noise = ReflectiveEntity::getNoise(noisePasses);
 
 			for(; yOutput < yOutputLimit; yOutput++, ySource += ySourceIncrement)
 			{
@@ -565,9 +565,9 @@ void ReflectiveEntity::drawReflection(u32 currentDrawingFrameBufferSet,
 
 			if(yOutputRemainder)
 			{
-				u32 maskDisplacement = (REFLECTIVE_ENTITY_BITS_PER_STEP - yOutputRemainder);
+				uint32 maskDisplacement = (REFLECTIVE_ENTITY_BITS_PER_STEP - yOutputRemainder);
 				effectiveContentMask = 0xFFFFFFFF >> maskDisplacement;
-				u32 remainderContentMask = effectiveContentMask & ~(bottomBorderMask >> maskDisplacement);
+				uint32 remainderContentMask = effectiveContentMask & ~(bottomBorderMask >> maskDisplacement);
 
 				if(!transparent)
 				{
@@ -592,8 +592,8 @@ void ReflectiveEntity::drawReflection(u32 currentDrawingFrameBufferSet,
 				remainderLeftValue |= transparentMask & outputValueLeft;
 				remainderRightValue |= transparentMask & outputValueRight;
 
-				u32 finalLeftValue = (outputValueLeft & ~effectiveContentMask) | (((remainderLeftValue | noise) & remainderContentMask) & ~border);
-				u32 finalRightValue = (outputValueRight & ~effectiveContentMask) | (((remainderRightValue | noise) & remainderContentMask) & ~border);
+				uint32 finalLeftValue = (outputValueLeft & ~effectiveContentMask) | (((remainderLeftValue | noise) & remainderContentMask) & ~border);
+				uint32 finalRightValue = (outputValueRight & ~effectiveContentMask) | (((remainderRightValue | noise) & remainderContentMask) & ~border);
 
 				*columnOutputPointerLeft = finalLeftValue;
 				*columnOutputPointerRight = finalRightValue;
@@ -613,7 +613,7 @@ void ReflectiveEntity::drawReflection(u32 currentDrawingFrameBufferSet,
 
 		for(; xTotal--; xOutput += xOutputIncrement, xSource++, xCounter++)
 		{
-			u32 border = leftBorderMask ? 0xFFFFFFFF : 0;
+			uint32 border = leftBorderMask ? 0xFFFFFFFF : 0;
 			leftBorderMask <<= 2;
 
 			if(!border && xTotal < rightBorderSize)
@@ -669,9 +669,9 @@ void ReflectiveEntity::drawReflection(u32 currentDrawingFrameBufferSet,
 				}
 			}
 
-			u32 effectiveContentMaskDisplacement = (__MODULO((yOutputStart + (flattenTop? 0 : waveLutPixelDisplacement)), REFLECTIVE_ENTITY_Y_STEP_SIZE) << 1);
-			u32 effectiveContentMask = 0xFFFFFFFF << effectiveContentMaskDisplacement;
-			u32 effectiveBackgroundMask = ~effectiveContentMask;
+			uint32 effectiveContentMaskDisplacement = (__MODULO((yOutputStart + (flattenTop? 0 : waveLutPixelDisplacement)), REFLECTIVE_ENTITY_Y_STEP_SIZE) << 1);
+			uint32 effectiveContentMask = 0xFFFFFFFF << effectiveContentMaskDisplacement;
+			uint32 effectiveBackgroundMask = ~effectiveContentMask;
 			effectiveContentMask &= ~(topBorderMask << effectiveContentMaskDisplacement);
 
 			REFLECTIVE_ENTITY_POINTER_TYPE* columnSourcePointerLeft = (REFLECTIVE_ENTITY_POINTER_TYPE*) (currentDrawingFrameBufferSet) + (xSource << REFLECTIVE_ENTITY_Y_SHIFT) + ySource;
@@ -703,7 +703,7 @@ void ReflectiveEntity::drawReflection(u32 currentDrawingFrameBufferSet,
 
 			REFLECTIVE_ENTITY_POINTER_TYPE remainderLeftValue = yOutput < yOutputLimit ? 0 : sourceCurrentValueLeft;
 
-			u32 noise = ReflectiveEntity::getNoise(noisePasses);
+			uint32 noise = ReflectiveEntity::getNoise(noisePasses);
 
 			for(; yOutput < yOutputLimit; yOutput++, ySource += ySourceIncrement)
 			{
@@ -744,9 +744,9 @@ void ReflectiveEntity::drawReflection(u32 currentDrawingFrameBufferSet,
 
 			if(yOutputRemainder)
 			{
-				u32 maskDisplacement = (REFLECTIVE_ENTITY_BITS_PER_STEP - yOutputRemainder);
+				uint32 maskDisplacement = (REFLECTIVE_ENTITY_BITS_PER_STEP - yOutputRemainder);
 				effectiveContentMask = 0xFFFFFFFF >> maskDisplacement;
-				u32 remainderContentMask = effectiveContentMask & ~(bottomBorderMask >> maskDisplacement);
+				uint32 remainderContentMask = effectiveContentMask & ~(bottomBorderMask >> maskDisplacement);
 
 				if(!transparent)
 				{
@@ -765,8 +765,8 @@ void ReflectiveEntity::drawReflection(u32 currentDrawingFrameBufferSet,
 				remainderLeftValue &= reflectionMask;
 				remainderLeftValue |= transparentMask & outputValueLeft;
 
-				u32 finalLeftValue = (outputValueLeft & ~effectiveContentMask) | (((remainderLeftValue | noise) & remainderContentMask) & ~border);
-				u32 finalRightValue = (*columnOutputPointerRight & ~effectiveContentMask) | (((remainderLeftValue | noise) & remainderContentMask) & ~border);
+				uint32 finalLeftValue = (outputValueLeft & ~effectiveContentMask) | (((remainderLeftValue | noise) & remainderContentMask) & ~border);
+				uint32 finalRightValue = (*columnOutputPointerRight & ~effectiveContentMask) | (((remainderLeftValue | noise) & remainderContentMask) & ~border);
 
 				*columnOutputPointerLeft = finalLeftValue;
 				*columnOutputPointerRight = finalRightValue;

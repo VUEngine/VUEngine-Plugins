@@ -24,7 +24,7 @@
 
 static class PostProcessingTilt : Object
 {
-	static void tiltScreen(u32 currentDrawingFrameBufferSet, SpatialObject spatialObject);
+	static void tiltScreen(uint32 currentDrawingFrameBufferSet, SpatialObject spatialObject);
 }
 
 

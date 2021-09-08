@@ -16,12 +16,12 @@ g3dCamera g3dCam;
 g3dVector3D g3dVertexBuffer[200];
 
 // Frame Buffers
-u32* g3dCurrentFrameBuffer=(u32*)0x00008000;
-u32* g3dNextFrameBuffer=(u32*)0x00000000;
+uint32* g3dCurrentFrameBuffer=(uint32*)0x00008000;
+uint32* g3dNextFrameBuffer=(uint32*)0x00000000;
 
 // Cosine table in degrees multiplied by a factor of 8
 // Example to multiply 25 by cos(8) (degrees): (25*g3dCos[8])>>3
-const s32 g3dCos[360]=
+const int32 g3dCos[360]=
 {
 	8,8,8,8,8,8,8,8,
 	8,8,8,8,8,8,8,8,
@@ -72,7 +72,7 @@ const s32 g3dCos[360]=
 
 // Sine table in degrees multiplied by a factor of 8
 // Example to multiply 25 by sin(8) (degrees): (25*g3dSin[8])>>3
-const s32 g3dSin[360]=
+const int32 g3dSin[360]=
 {
 	0,0,0,0,1,1,1,1,
 	1,1,1,2,2,2,2,2,
@@ -218,7 +218,7 @@ void G3d::scale(g3dVector3D* factor, g3dVector3D* v, g3dVector3D* o)
 }
 
 // Rotates a point around the X axis
-void G3d::rotateXAxis(s32 degrees, g3dVector3D* v, g3dVector3D* o)
+void G3d::rotateXAxis(int32 degrees, g3dVector3D* v, g3dVector3D* o)
 {
 	o->x = v->x;
 #ifndef __G3D_ASM_CODE
@@ -261,7 +261,7 @@ void G3d::rotateXAxis(s32 degrees, g3dVector3D* v, g3dVector3D* o)
 }
 
 // Rotates a point around the Y axis
-void G3d::rotateYAxis(s32 degrees, g3dVector3D* v, g3dVector3D* o)
+void G3d::rotateYAxis(int32 degrees, g3dVector3D* v, g3dVector3D* o)
 {
 	o->y = v->y;
 #ifndef __G3D_ASM_CODE
@@ -304,7 +304,7 @@ void G3d::rotateYAxis(s32 degrees, g3dVector3D* v, g3dVector3D* o)
 }
 
 // Rotates a point around the Z axis
-void G3d::rotateZAxis(s32 degrees, g3dVector3D* v, g3dVector3D* o)
+void G3d::rotateZAxis(int32 degrees, g3dVector3D* v, g3dVector3D* o)
 {
 	o->z = v->z;
 #ifndef __G3D_ASM_CODE
@@ -350,7 +350,7 @@ void G3d::rotateZAxis(s32 degrees, g3dVector3D* v, g3dVector3D* o)
 // It performs checks on the rotation values to make sure the values are not zero before performing the rotation calculations.
 // rx,ry,and rz are degrees and are NOT fixed point
 // Make sure the rotation values are between -360 and 360
-void G3d::rotateAllAxis(s32 rx, s32 ry, s32 rz, g3dVector3D* v, g3dVector3D* o)
+void G3d::rotateAllAxis(int32 rx, int32 ry, int32 rz, g3dVector3D* v, g3dVector3D* o)
 {
 	g3dVector3D t;
 
@@ -384,7 +384,7 @@ void G3d::rotateAllAxis(s32 rx, s32 ry, s32 rz, g3dVector3D* v, g3dVector3D* o)
 }
 
 // This translates or moves a point
-void G3d::translate(s32 x, s32 y, s32 z, g3dVector3D* v, g3dVector3D* o)
+void G3d::translate(int32 x, int32 y, int32 z, g3dVector3D* v, g3dVector3D* o)
 {
 #ifndef __G3D_ASM_CODE
 	o->x = v->x + x;
@@ -410,7 +410,7 @@ void G3d::translate(s32 x, s32 y, s32 z, g3dVector3D* v, g3dVector3D* o)
 
 // This performs the rotations for the g3dCamera.
 // It just rotates a point in the opposite direction of the g3dCameras rotation angles.
-void G3d::cameraRotateAllAxis(s32 rx, s32 ry, s32 rz, g3dVector3D* v, g3dVector3D* o)
+void G3d::cameraRotateAllAxis(int32 rx, int32 ry, int32 rz, g3dVector3D* v, g3dVector3D* o)
 {
 #ifndef __G3D_ASM_CODE
 	rx = (~rx)+1;
@@ -439,7 +439,7 @@ void G3d::cameraRotateAllAxis(s32 rx, s32 ry, s32 rz, g3dVector3D* v, g3dVector3
 }
 
 // This performs the g3dCamera translate or move by calculating the difference between the g3dCamera's position and the points position.
-void G3d::cameraTranslate(s32 x, s32 y, s32 z, g3dVector3D* v, g3dVector3D* o)
+void G3d::cameraTranslate(int32 x, int32 y, int32 z, g3dVector3D* v, g3dVector3D* o)
 {
 #ifndef __G3D_ASM_CODE
 	o->x = v->x - x;
@@ -464,7 +464,7 @@ void G3d::cameraTranslate(s32 x, s32 y, s32 z, g3dVector3D* v, g3dVector3D* o)
 }
 
 // This performs all affine transformation functions against a g3dVector3D g3dObject
-void G3d::renderVector3d(g3dObject* obj, g3dVector3D* v, g3dVector3D* o, u8 initHitCube __attribute__ ((unused)))
+void G3d::renderVector3d(g3dObject* obj, g3dVector3D* v, g3dVector3D* o, uint8 initHitCube __attribute__ ((unused)))
 {
 	g3dVector3D t;
 	//Transformations
@@ -544,7 +544,7 @@ void G3d::calculateProjection(g3dVector3D* o)
 // This procedure actually draws an g3dObject
 void G3d::drawObject(g3dObject* o)
 {
-	s32 vertices,lines,v,verts,i;
+	int32 vertices,lines,v,verts,i;
 	g3dVector3D v1;
 	g3dVector3D v2;
 	g3dVector3D* v1p;
@@ -620,9 +620,9 @@ void G3d::drawObject(g3dObject* o)
 
 void G3d::renderObject(g3dObject* o)
 {
-	u8 resetCube;
+	uint8 resetCube;
 #ifndef __G3D_ASM_CODE
-	s32 vertices, lines, verts, v, i;
+	int32 vertices, lines, verts, v, i;
 	g3dVector3D v1;
 	g3dVector3D v2;
 
@@ -1126,8 +1126,8 @@ void G3d::renderObject(g3dObject* o)
 	:
 	:[obj]         "r" (o),
 	 [g3dCam]      "r" (&g3dCam),
-	 [g3dCos]      "r" ((s32*)g3dCos),
-	 [g3dSin]      "r" ((s32*)g3dSin),
+	 [g3dCos]      "r" ((int32*)g3dCos),
+	 [g3dSin]      "r" ((int32*)g3dSin),
 	 [vertices]    "r" (o->objData->vertexSize),
 	 [objData]     "r" (&o->objData->data),
 	 [idx]         "r" (0),
@@ -1143,9 +1143,9 @@ void G3d::renderObject(g3dObject* o)
 }
 
 // Quick and dirty cube based collision detection.
-void G3d::detectCollision(g3dVector3D* position1, g3dCollisionCube* c1, g3dVector3D* position2, g3dCollisionCube* c2, u32* flag)
+void G3d::detectCollision(g3dVector3D* position1, g3dCollisionCube* c1, g3dVector3D* position2, g3dCollisionCube* c2, uint32* flag)
 {
-	s32 c1minX, c1maxX,
+	int32 c1minX, c1maxX,
 		c1minY, c1maxY,
 		c1minZ, c1maxZ,
 		c2minX, c2maxX,
@@ -1236,7 +1236,7 @@ void G3d::clipObject(g3dObject* o)
 // to the closest piece. Not an exact science but should be ok for general purposes. This function needs performed before the projection calculation occurs.
 void G3d::clipZAxis(g3dVector3D* v1, g3dVector3D* v2)
 {
-	s32 fracz,fracx,fracy,diff,mult;
+	int32 fracz,fracx,fracy,diff,mult;
 	g3dVector3D* minV;
 	g3dVector3D* maxV;
 
@@ -1285,13 +1285,13 @@ void G3d::clipZAxis(g3dVector3D* v1, g3dVector3D* v2)
 }
 
 // Draws a pixel onto the screen
-void drawPoint(s32 x, s32 y, u8 color, s32 p)
+void drawPoint(int32 x, int32 y, uint8 color, int32 p)
 {
 	if(y<0 || y>__G3D_SCREEN_HEIGHT) return;
 	if(x<0 || x>__G3D_SCREEN_WIDTH) return;
 
-	s32 loffset,roffset;
-	u8 yleft;
+	int32 loffset,roffset;
+	uint8 yleft;
 
 	//Put a cap on parallax
 	if(p>__G3D_PARALLAX_MAX) p=__G3D_PARALLAX_MAX;
@@ -1309,21 +1309,21 @@ void drawPoint(s32 x, s32 y, u8 color, s32 p)
 	yleft = (y&0x0F)<<1;
 
 	g3dCurrentFrameBuffer[loffset] |= (color<<yleft);
-	((u32*)(g3dCurrentFrameBuffer+0x4000))[roffset] |= (color<<yleft);
+	((uint32*)(g3dCurrentFrameBuffer+0x4000))[roffset] |= (color<<yleft);
 }
 
 // My Line Algorithm (Brezenham based)
-void G3d::drawLine(g3dVector3D* v1, g3dVector3D* v2, u8 color)
-/* void __attribute__((section(".data"))) G3d::drawLine(g3dVector3D* v1, g3dVector3D* v2, u8 color) */
+void G3d::drawLine(g3dVector3D* v1, g3dVector3D* v2, uint8 color)
+/* void __attribute__((section(".data"))) G3d::drawLine(g3dVector3D* v1, g3dVector3D* v2, uint8 color) */
 {
-	s32 vx, vy, vz, vx2, vy2;
-	s32 dx, dy, dz;
-	s32 sx,sy,sz,pixels,err;
+	int32 vx, vy, vz, vx2, vy2;
+	int32 dx, dy, dz;
+	int32 sx,sy,sz,pixels,err;
 	#ifdef __G3D_ASM_CODE
-	s32 loffset,roffset;
-	u8 yleft;
+	int32 loffset,roffset;
+	uint8 yleft;
 	#else
-	s32 p;
+	int32 p;
 	#endif
 
 	vx = v1->sx;
@@ -1487,7 +1487,7 @@ void G3d::drawLine(g3dVector3D* v1, g3dVector3D* v2, u8 color)
 	"shl r19,                   r27\n"
 	"or r27,                    r29\n"
 	"st.w r29,                  0x0[r28]\n"
-	//((u32*)(g3dCurrentFrameBuffer+0x4000))[roffset] |= (color<<yleft);
+	//((uint32*)(g3dCurrentFrameBuffer+0x4000))[roffset] |= (color<<yleft);
 		//"movhi 0x01,r28,r28\n"
 		//"add r18,r28\n"
 		//"st.w r29,0x0[r28]\n"
@@ -1598,7 +1598,7 @@ void G3d::drawLine(g3dVector3D* v1, g3dVector3D* v2, u8 color)
 	"shl r19,                   r27\n"
 	"or r27,                    r29\n"
 	"st.w r29,                  0x0[r28]\n"
-	//((u32*)(g3dCurrentFrameBuffer+0x4000))[roffset] |= (color<<yleft);
+	//((uint32*)(g3dCurrentFrameBuffer+0x4000))[roffset] |= (color<<yleft);
 		//"movhi 0x01,r28,r28\n"
 		//"add r18,r28\n"
 		//"st.w r29,0x0[r28]\n"

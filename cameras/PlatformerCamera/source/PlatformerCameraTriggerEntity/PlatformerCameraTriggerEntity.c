@@ -28,7 +28,7 @@
 //---------------------------------------------------------------------------------------------------------
 
 // class's constructor
-void PlatformerCameraTriggerEntity::constructor(PlatformerCameraTriggerEntitySpec* cameraEntitySpec, s16 internalId, const char* const name)
+void PlatformerCameraTriggerEntity::constructor(PlatformerCameraTriggerEntitySpec* cameraEntitySpec, int16 internalId, const char* const name)
 {
 	ASSERT(cameraEntitySpec, "PlatformerCameraTriggerEntity::constructor: null spec");
 
@@ -63,7 +63,7 @@ void PlatformerCameraTriggerEntity::ready(bool recursive)
 	Entity::activeCollisionChecks(this, true);
 }
 
-void PlatformerCameraTriggerEntity::transform(const Transformation* environmentTransform, u8 invalidateTransformationFlag)
+void PlatformerCameraTriggerEntity::transform(const Transformation* environmentTransform, uint8 invalidateTransformationFlag)
 {
 	Vector3D currentGlobalPosition = this->transformation.globalPosition;
 
@@ -84,12 +84,12 @@ void PlatformerCameraTriggerEntity::transform(const Transformation* environmentT
 //	Entity::showShapes(this);
 }
 
-void PlatformerCameraTriggerEntity::update(u32 elapsedTime)
+void PlatformerCameraTriggerEntity::update(uint32 elapsedTime)
 {
 	Base::update(this, elapsedTime);
 
 	// If there is a change in direction over the X axis
-	s8 currentXDirection = this->transformation.globalPosition.x > this->previousGlobalPosition.x ? __RIGHT : this->transformation.globalPosition.x < this->previousGlobalPosition.x ? __LEFT : 0;
+	int8 currentXDirection = this->transformation.globalPosition.x > this->previousGlobalPosition.x ? __RIGHT : this->transformation.globalPosition.x < this->previousGlobalPosition.x ? __LEFT : 0;
 
 	if(currentXDirection)
 	{
@@ -115,7 +115,7 @@ void PlatformerCameraTriggerEntity::resume()
 	PlatformerCameraTriggerEntity::lockMovement(this, __X_AXIS | __Y_AXIS, true);
 }
 
-void PlatformerCameraTriggerEntity::lockMovement(u8 axisToLockUp, bool locked)
+void PlatformerCameraTriggerEntity::lockMovement(uint8 axisToLockUp, bool locked)
 {
 	Vector3DFlag overridePositionFlag = PlatformerCameraTriggerEntity::getOverridePositionFlag(this);
 

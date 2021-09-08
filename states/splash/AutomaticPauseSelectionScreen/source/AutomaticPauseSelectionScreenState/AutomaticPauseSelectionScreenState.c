@@ -70,7 +70,7 @@ void AutomaticPauseSelectionScreenState::print()
 	const char* strAutomaticPauseExplanation = __AUTOMATIC_PAUSE_SELECTION_SCREEN_BODY_TEXT;
 	FontSize strAutomaticPauseExplanationSize = Printing::getTextSize(Printing::getInstance(), strAutomaticPauseExplanation, __AUTOMATIC_PAUSE_SELECTION_SCREEN_BODY_TEXT_FONT);
 
-	u8 strHeaderXPos = (__HALF_SCREEN_WIDTH_IN_CHARS) - (strAutomaticPauseSize.x >> 1);
+	uint8 strHeaderXPos = (__HALF_SCREEN_WIDTH_IN_CHARS) - (strAutomaticPauseSize.x >> 1);
 	Printing::text(
 		Printing::getInstance(),
 		strAutomaticPauseTitle,
@@ -79,7 +79,7 @@ void AutomaticPauseSelectionScreenState::print()
 		__AUTOMATIC_PAUSE_SELECTION_SCREEN_TITLE_TEXT_FONT
 	);
 
-	u8 strExplanationXPos = (__HALF_SCREEN_WIDTH_IN_CHARS) - (strAutomaticPauseExplanationSize.x >> 1);
+	uint8 strExplanationXPos = (__HALF_SCREEN_WIDTH_IN_CHARS) - (strAutomaticPauseExplanationSize.x >> 1);
 	Printing::text(Printing::getInstance(), strAutomaticPauseExplanation, strExplanationXPos, 9 + strAutomaticPauseSize.y, __AUTOMATIC_PAUSE_SELECTION_SCREEN_BODY_TEXT_FONT);
 
 	AutomaticPauseSelectionScreenState::renderSelection(this);
@@ -90,7 +90,7 @@ void AutomaticPauseSelectionScreenState::renderSelection()
 	// get strings and determine sizes
 	FontSize strOnSize = Printing::getTextSize(Printing::getInstance(), __AUTOMATIC_PAUSE_SELECTION_SCREEN_ON_TEXT, __AUTOMATIC_PAUSE_SELECTION_SCREEN_OPTIONS_TEXT_FONT);
 	FontSize strOffSize = Printing::getTextSize(Printing::getInstance(), __AUTOMATIC_PAUSE_SELECTION_SCREEN_OFF_TEXT, __AUTOMATIC_PAUSE_SELECTION_SCREEN_OPTIONS_TEXT_FONT);
-	u8 selectionStart = (48 - (strOnSize.x + __AUTOMATIC_PAUSE_SELECTION_SCREEN_OPTIONS_GAP + strOffSize.x)) >> 1;
+	uint8 selectionStart = (48 - (strOnSize.x + __AUTOMATIC_PAUSE_SELECTION_SCREEN_OPTIONS_GAP + strOffSize.x)) >> 1;
 
 	// clear options area
 	Printing::text(Printing::getInstance(), "                                                ", 0, __AUTOMATIC_PAUSE_SELECTION_SCREEN_OPTIONS_Y_POS, NULL);
@@ -111,8 +111,8 @@ void AutomaticPauseSelectionScreenState::renderSelection()
 	Printing::text(Printing::getInstance(), __AUTOMATIC_PAUSE_SELECTION_SCREEN_OFF_TEXT, selectionStart + 3 + strOnSize.x, __AUTOMATIC_PAUSE_SELECTION_SCREEN_OPTIONS_Y_POS + 1, __AUTOMATIC_PAUSE_SELECTION_SCREEN_OPTIONS_TEXT_FONT);
 
 	// print selector
-	u8 optionStart = this->selection ? selectionStart : selectionStart + __AUTOMATIC_PAUSE_SELECTION_SCREEN_OPTIONS_GAP + strOnSize.x;
-	u8 optionEnd = this->selection ? optionStart + strOnSize.x : optionStart + strOffSize.x;
+	uint8 optionStart = this->selection ? selectionStart : selectionStart + __AUTOMATIC_PAUSE_SELECTION_SCREEN_OPTIONS_GAP + strOnSize.x;
+	uint8 optionEnd = this->selection ? optionStart + strOnSize.x : optionStart + strOffSize.x;
 	optionStart--;
 	Printing::text(Printing::getInstance(), "\x03\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08", optionStart, __AUTOMATIC_PAUSE_SELECTION_SCREEN_OPTIONS_Y_POS, NULL);
 	Printing::text(Printing::getInstance(), "\x04               ", optionEnd, __AUTOMATIC_PAUSE_SELECTION_SCREEN_OPTIONS_Y_POS, NULL);

@@ -89,7 +89,7 @@ void LanguageSelectionScreenState::enter(void* owner)
 	Object saveDataManager = Game::getSaveDataManager(Game::getInstance());
 
 	// get active language from sram
-	u8 activeLanguage = I18n::getActiveLanguage(I18n::getInstance());
+	uint8 activeLanguage = I18n::getActiveLanguage(I18n::getInstance());
 	if(saveDataManager)
 	{
 		activeLanguage = SaveDataManager::getLanguage(saveDataManager);
@@ -102,7 +102,7 @@ void LanguageSelectionScreenState::enter(void* owner)
 		// create options selector and populate with language names
 		this->languageSelector = new OptionsSelector(1, 8, __LANGUAGE_SELECTION_SCREEN_LANGUAGE_NAME_FONT);
 		VirtualList languageNames = new VirtualList();
-		u8 optionsWidth = 0;
+		uint8 optionsWidth = 0;
 		int i = 0;
 		for(; __LANGUAGES[i]; i++)
 		{
@@ -128,7 +128,7 @@ void LanguageSelectionScreenState::enter(void* owner)
 
 		// add flags to stage
 		this->flagsTotalHalfWidth = LanguageSelectionScreenState::getFlagsTotalHalfWidth(this);
-		u8 i = 0;
+		uint8 i = 0;
 		this->flagCursorEntity = LanguageSelectionScreenState::addFlagToStage(this, &FLAG_CURSOR_EN, 0);
 		for(i = 0; __LANGUAGES[i]; i++)
 		{
@@ -150,8 +150,8 @@ void LanguageSelectionScreenState::print()
 
 		// print header
 		FontSize strHeaderSize = Printing::getTextSize(Printing::getInstance(), __LANGUAGE_SELECTION_SCREEN_TITLE_TEXT, __LANGUAGE_SELECTION_SCREEN_TITLE_TEXT_FONT);
-		u8 strHeaderXPos = (__HALF_SCREEN_WIDTH_IN_CHARS) - (strHeaderSize.x >> 1);
-		u8 strHeaderYPos = 9 - strHeaderSize.y;
+		uint8 strHeaderXPos = (__HALF_SCREEN_WIDTH_IN_CHARS) - (strHeaderSize.x >> 1);
+		uint8 strHeaderYPos = 9 - strHeaderSize.y;
 		Printing::text(Printing::getInstance(), "                                                ", 0, strHeaderYPos, __LANGUAGE_SELECTION_SCREEN_TITLE_TEXT_FONT);
 		Printing::text(Printing::getInstance(), __LANGUAGE_SELECTION_SCREEN_TITLE_TEXT, strHeaderXPos, strHeaderYPos, __LANGUAGE_SELECTION_SCREEN_TITLE_TEXT_FONT);
 
@@ -160,8 +160,8 @@ void LanguageSelectionScreenState::print()
 
 		// print header
 		FontSize strHeaderSize = Printing::getTextSize(Printing::getInstance(), __LANGUAGE_SELECTION_SCREEN_TITLE_TEXT, __LANGUAGE_SELECTION_SCREEN_TITLE_TEXT_FONT);
-		u8 strHeaderXPos = (__HALF_SCREEN_WIDTH_IN_CHARS) - (strHeaderSize.x >> 1);
-		u8 strHeaderYPos = 11 - strHeaderSize.y;
+		uint8 strHeaderXPos = (__HALF_SCREEN_WIDTH_IN_CHARS) - (strHeaderSize.x >> 1);
+		uint8 strHeaderYPos = 11 - strHeaderSize.y;
 		Printing::text(Printing::getInstance(), "                                                ", 0, strHeaderYPos, __LANGUAGE_SELECTION_SCREEN_TITLE_TEXT_FONT);
 		Printing::text(Printing::getInstance(), __LANGUAGE_SELECTION_SCREEN_TITLE_TEXT, strHeaderXPos, strHeaderYPos, __LANGUAGE_SELECTION_SCREEN_TITLE_TEXT_FONT);
 
@@ -208,7 +208,7 @@ void LanguageSelectionScreenState::select(bool next)
 		this->selection = OptionsSelector::getSelectedOption(this->languageSelector);
 	#endif
 	#if(__LANGUAGE_SELECTION_SCREEN_VARIANT == 1)
-		u8 numLangs = LanguageSelectionScreenState::getNumLangs(this);
+		uint8 numLangs = LanguageSelectionScreenState::getNumLangs(this);
 		if(next)
 		{
 			this->selection = (this->selection < (numLangs - 1)) ? this->selection + 1 : 0;
@@ -237,9 +237,9 @@ void LanguageSelectionScreenState::persistChoice()
 	}
 }
 
-u8 LanguageSelectionScreenState::getNumLangs()
+uint8 LanguageSelectionScreenState::getNumLangs()
 {
-	u8 i, numLangs = 0;
+	uint8 i, numLangs = 0;
 	for(i = 0; __LANGUAGES[i]; i++)
 	{
 		numLangs++;
@@ -248,12 +248,12 @@ u8 LanguageSelectionScreenState::getNumLangs()
 	return numLangs;
 }
 
-u8 LanguageSelectionScreenState::getFlagsTotalHalfWidth()
+uint8 LanguageSelectionScreenState::getFlagsTotalHalfWidth()
 {
 	return ((LanguageSelectionScreenState::getNumLangs(this) - 1) * (__LANGUAGE_SELECTION_SCREEN_IMAGE_WIDTH)) >> 1;
 }
 
-Entity LanguageSelectionScreenState::addFlagToStage(EntitySpec* entitySpec, u8 position)
+Entity LanguageSelectionScreenState::addFlagToStage(EntitySpec* entitySpec, uint8 position)
 {
 	PositionedEntity flagPositionedEntity = {
 		entitySpec,
@@ -269,7 +269,7 @@ Entity LanguageSelectionScreenState::addFlagToStage(EntitySpec* entitySpec, u8 p
 	return Stage::addChildEntity(Game::getStage(Game::getInstance()), &flagPositionedEntity, true);
 }
 
-int LanguageSelectionScreenState::getFlagXPosition(u8 position)
+int LanguageSelectionScreenState::getFlagXPosition(uint8 position)
 {
 	return 192 - this->flagsTotalHalfWidth + (position * (__LANGUAGE_SELECTION_SCREEN_IMAGE_WIDTH));
 }

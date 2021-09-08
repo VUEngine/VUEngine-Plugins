@@ -26,7 +26,7 @@
 
 #include <MIDI.h>
 
-const u16 PrecautionScreenIntroTrack[] =
+const uint16 PrecautionScreenIntroTrack[] =
 {
   CS4, PAU, ENDSOUND,
   100, 50, 1,
@@ -82,7 +82,7 @@ SoundChannelROM PRECAUTION_SCREEN_INTRO_SND_CHANNEL_1 =
 
 	/// Sound track
 	{
-		(const u8*)PrecautionScreenIntroTrack
+		(const uint8*)PrecautionScreenIntroTrack
 	}
 };
 

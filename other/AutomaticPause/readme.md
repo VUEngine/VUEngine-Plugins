@@ -9,4 +9,4 @@ For the automatic pause to work, you need to first activate it. The recommended 
 
 See `source/config.h` for numerous available macros that allow you to modify the auto pause screen appearance. Define the desired macro in your game's `config.h` file to override.
 
-You can set the desired delay before automatic pause (in minutes) with `setAutomaticPauseDelay(u8 automaticPauseDelay)`. You can set another state to use as the automatic pause state with `setAutomaticPauseState(GameState automaticPauseState)`.
+You can set the desired delay before automatic pause (in minutes) with `setAutomaticPauseDelay(uint8 automaticPauseDelay)`. You can set another state to use as the automatic pause state with `setAutomaticPauseState(GameState automaticPauseState)`.

@@ -32,13 +32,13 @@ void GuiBgmapAnimatedSprite::destructor()
 	Base::destructor();
 }
 
-u16 GuiBgmapAnimatedSprite::doRender(s16 index, bool evenFrame)
+uint16 GuiBgmapAnimatedSprite::doRender(int16 index, bool evenFrame)
 {
 	NM_ASSERT(!isDeleted(this->texture), "GuiBgmapAnimatedSprite::doRender: null texture");
 
-	u16 result = Base::doRender(this, index, evenFrame);
+	uint16 result = Base::doRender(this, index, evenFrame);
 
-	if((u16)__NO_RENDER_INDEX == result)
+	if((uint16)__NO_RENDER_INDEX == result)
 	{
 		return __NO_RENDER_INDEX;
 	}

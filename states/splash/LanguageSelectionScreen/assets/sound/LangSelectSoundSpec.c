@@ -26,7 +26,7 @@
 
 #include <MIDI.h>
 
-const u16 LangSelectTrack[] =
+const uint16 LangSelectTrack[] =
 {
   CS4, PAU, ENDSOUND,
   100, 50, 1,
@@ -82,7 +82,7 @@ SoundChannelROM LANG_SELECT_SND_CHANNEL_1 =
 
 	/// Sound track
 	{
-		(const u8*)LangSelectTrack
+		(const uint8*)LangSelectTrack
 	}
 };
 

@@ -26,7 +26,7 @@
 
 #include <MIDI.h>
 
-const u16 AutomaticPauseSelectTrack[] =
+const uint16 AutomaticPauseSelectTrack[] =
 {
   CS4, PAU, ENDSOUND,
   100, 50, 1,
@@ -82,7 +82,7 @@ SoundChannelROM AUTOMATIC_PAUSE_SELECT_SND_CHANNEL_1 =
 
 	/// Sound track
 	{
-		(const u8*)AutomaticPauseSelectTrack
+		(const uint8*)AutomaticPauseSelectTrack
 	}
 };
 

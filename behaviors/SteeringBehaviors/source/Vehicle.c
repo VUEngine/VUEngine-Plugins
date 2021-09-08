@@ -30,7 +30,7 @@ friend class VirtualList;
 //---------------------------------------------------------------------------------------------------------
 
 // class's constructor
-void Vehicle::constructor(VehicleSpec* vehicleSpec, s16 internalId, const char* const name)
+void Vehicle::constructor(VehicleSpec* vehicleSpec, int16 internalId, const char* const name)
 {
 	// construct base
 	Base::constructor((ActorSpec*)&vehicleSpec->actorSpec, internalId, name);
@@ -162,7 +162,7 @@ bool Vehicle::updateForce()
 
 	if(!computeForce)
 	{
-		u16 modulo = __MODULO(this->evenCycle, 2);
+		uint16 modulo = __MODULO(this->evenCycle, 2);
 		computeForce = 1 == modulo;
 		this->evenCycle = !modulo;
 	}
@@ -182,7 +182,7 @@ bool Vehicle::updateForce()
 	return computeForce;
 }
 
-void Vehicle::update(u32 elapsedTime __attribute__((unused)))
+void Vehicle::update(uint32 elapsedTime __attribute__((unused)))
 {
 	Base::update(this, elapsedTime);
 

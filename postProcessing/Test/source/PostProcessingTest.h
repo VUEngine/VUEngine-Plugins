@@ -24,8 +24,8 @@
 
 static class PostProcessingTest : Object
 {
-	static void lighting(u32 currentDrawingFrameBufferSet, SpatialObject spatialObject);
-	static void dummy(u32 currentDrawingFrameBufferSet, SpatialObject spatialObject);
+	static void lighting(uint32 currentDrawingFrameBufferSet, SpatialObject spatialObject);
+	static void dummy(uint32 currentDrawingFrameBufferSet, SpatialObject spatialObject);
 }
 
 

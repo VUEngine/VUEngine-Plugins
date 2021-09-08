@@ -72,7 +72,7 @@ const char* I18n::getText(int string)
  * Set the active language
  * @param languageId	ID of the language to make active
  */
-void I18n::setActiveLanguage(u8 languageId)
+void I18n::setActiveLanguage(uint8 languageId)
 {
 	this->activeLanguage = languageId;
 
@@ -99,7 +99,7 @@ LangSpec * I18n::getLanguages()
  *
  * @return		ID of currently active language
  */
-u8 I18n::getActiveLanguage()
+uint8 I18n::getActiveLanguage()
 {
 	return this->activeLanguage;
 }

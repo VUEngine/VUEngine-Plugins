@@ -45,12 +45,12 @@ class Vehicle : Actor
 	fix10_6 radius;
 	//fix10_6 frictionMassRatio;
 	bool checkIfCanMove;
-	s8 evenCycle;
+	int8 evenCycle;
 
 	VirtualList steeringBehaviors;
 
 	/// @publicsection
-	void constructor(VehicleSpec* vehicleSpec, s16 internalId, const char* const name);
+	void constructor(VehicleSpec* vehicleSpec, int16 internalId, const char* const name);
 
 	int getSummingMethod();
 	bool updateForce();
@@ -62,7 +62,7 @@ class Vehicle : Actor
 	virtual const Direction3D* getDirection3D();
 
 	override void ready(bool recursive);
-	override void update(u32 elapsedTime);
+	override void update(uint32 elapsedTime);
 	override fix10_6 getRadius();
 	override void addForce(const Force* force, bool checkIfCanMove);
 }

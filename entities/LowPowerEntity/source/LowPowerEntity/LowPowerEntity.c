@@ -22,7 +22,7 @@
 //---------------------------------------------------------------------------------------------------------
 
 // class's constructor
-void LowPowerEntity::constructor(const LowPowerEntitySpec* LowPowerEntitySpec, s16 internalId, const char* const name)
+void LowPowerEntity::constructor(const LowPowerEntitySpec* LowPowerEntitySpec, int16 internalId, const char* const name)
 {
 	// construct base object
 	Base::constructor((AnimatedEntitySpec*)LowPowerEntitySpec, internalId, name);

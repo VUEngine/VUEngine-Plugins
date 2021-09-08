@@ -55,7 +55,7 @@ GameState AutomaticPauseManager::getAutomaticPauseState()
 }
 
 // set auto pause delay
-void AutomaticPauseManager::setAutomaticPauseDelay(u8 automaticPauseDelay)
+void AutomaticPauseManager::setAutomaticPauseDelay(uint8 automaticPauseDelay)
 {
 	this->autoPauseDelay = automaticPauseDelay;
 }

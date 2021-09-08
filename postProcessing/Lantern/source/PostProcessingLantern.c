@@ -30,7 +30,7 @@
 //												FUNCTIONS
 //---------------------------------------------------------------------------------------------------------
 
-static void PostProcessingLantern::applyMask(u32 currentDrawingFrameBufferSet, int xStart, int xEnd, int yStart, int yEnd, u32 mask)
+static void PostProcessingLantern::applyMask(uint32 currentDrawingFrameBufferSet, int xStart, int xEnd, int yStart, int yEnd, uint32 mask)
 {
 	if(xEnd < xStart || yEnd < yStart)
 	{
@@ -60,22 +60,22 @@ static void PostProcessingLantern::applyMask(u32 currentDrawingFrameBufferSet, i
 	for(; xStart <= xEnd; xStart++)
 	{
 		// get pointer to currently manipulated 32 bits of framebuffer
-		u32* columnSourcePointerLeft = (u32*) (currentDrawingFrameBufferSet) + (xStart << 4);
-		u32* columnSourcePointerRight = (u32*) (currentDrawingFrameBufferSet | 0x00010000) + (xStart << 4);
+		uint32* columnSourcePointerLeft = (uint32*) (currentDrawingFrameBufferSet) + (xStart << 4);
+		uint32* columnSourcePointerRight = (uint32*) (currentDrawingFrameBufferSet | 0x00010000) + (xStart << 4);
 
 		int y = yStart;
 
 		for(; y < yEnd; y++)
 		{
-			u32* sourcePointerLeft = columnSourcePointerLeft + y;
-			u32* sourcePointerRight = columnSourcePointerRight + y;
+			uint32* sourcePointerLeft = columnSourcePointerLeft + y;
+			uint32* sourcePointerRight = columnSourcePointerRight + y;
 			*sourcePointerLeft &= mask;
 			*sourcePointerRight &= mask;
 		}
 	}
 }
 
-static void PostProcessingLantern::ellipticalWindow(u32 currentDrawingFrameBufferSet, PixelVector position, s16 ellipsisArc[], u16 ellipsisHorizontalAxisSize, u32 penumbraMask, bool roundBorder)
+static void PostProcessingLantern::ellipticalWindow(uint32 currentDrawingFrameBufferSet, PixelVector position, int16 ellipsisArc[], uint16 ellipsisHorizontalAxisSize, uint32 penumbraMask, bool roundBorder)
 {
  	int xPosition = position.x;
  	int yPosition = position.y;
@@ -90,8 +90,8 @@ static void PostProcessingLantern::ellipticalWindow(u32 currentDrawingFrameBuffe
 	for(x = _cameraFrustum->x0; x < _cameraFrustum->x1; x++)
 	{
 		// get pointer to currently manipulated 32 bits of framebuffer
-		u32* columnSourcePointerLeft = (u32*) (currentDrawingFrameBufferSet) + (x << 4);
-		u32* columnSourcePointerRight = (u32*) (currentDrawingFrameBufferSet | 0x00010000) + (x << 4);
+		uint32* columnSourcePointerLeft = (uint32*) (currentDrawingFrameBufferSet) + (x << 4);
+		uint32* columnSourcePointerRight = (uint32*) (currentDrawingFrameBufferSet | 0x00010000) + (x << 4);
 
 		int yStart = _cameraFrustum->y0 >> POST_PROCESSING_LANTERN_Y_STEP_SIZE_2_EXP;
 		int yEnd = (_cameraFrustum->y1 - 16) >> POST_PROCESSING_LANTERN_Y_STEP_SIZE_2_EXP; // do not write over GUI
@@ -99,8 +99,8 @@ static void PostProcessingLantern::ellipticalWindow(u32 currentDrawingFrameBuffe
 
 		int ellipsisY = ellipsisArc[ellipsisArcIndex];
 		int maskDisplacement = __MODULO(ellipsisY, POST_PROCESSING_LANTERN_Y_STEP_SIZE) << 1;
-		u32 upperMask = roundBorder ? ~(0xFFFFFFFF >> maskDisplacement) : 0xFFFFFFFF;
-		u32 lowerMask = roundBorder ? ~(0xFFFFFFFF << maskDisplacement) : 0xFFFFFFFF;
+		uint32 upperMask = roundBorder ? ~(0xFFFFFFFF >> maskDisplacement) : 0xFFFFFFFF;
+		uint32 lowerMask = roundBorder ? ~(0xFFFFFFFF << maskDisplacement) : 0xFFFFFFFF;
 
 		int yLowerLimit =  (yPosition + ellipsisY) >> POST_PROCESSING_LANTERN_Y_STEP_SIZE_2_EXP;
 		int yUpperLimit = (yPosition >> POST_PROCESSING_LANTERN_Y_STEP_SIZE_2_EXP) - (yLowerLimit - (yPosition >> POST_PROCESSING_LANTERN_Y_STEP_SIZE_2_EXP));
@@ -115,8 +115,8 @@ static void PostProcessingLantern::ellipticalWindow(u32 currentDrawingFrameBuffe
 			yLowerLimit = yStart;
 		}
 
-		u32* sourcePointerLeft = columnSourcePointerLeft + y;
-		u32* sourcePointerRight = columnSourcePointerRight + y;
+		uint32* sourcePointerLeft = columnSourcePointerLeft + y;
+		uint32* sourcePointerRight = columnSourcePointerRight + y;
 
 		if((unsigned)(x - (xPosition - ellipsisHorizontalAxisSize)) < (unsigned)(ellipsisHorizontalAxisSize << 1))
 		{
@@ -142,8 +142,8 @@ static void PostProcessingLantern::ellipticalWindow(u32 currentDrawingFrameBuffe
 
 				if(y >= yStart && y < yEnd)
 				{
-					u32* sourcePointerLeft = columnSourcePointerLeft + y;
-					u32* sourcePointerRight = columnSourcePointerRight + y;
+					uint32* sourcePointerLeft = columnSourcePointerLeft + y;
+					uint32* sourcePointerRight = columnSourcePointerRight + y;
 					*sourcePointerLeft &= penumbraMask | upperMask;
 					*sourcePointerRight &= penumbraMask | upperMask;
 				}
@@ -152,8 +152,8 @@ static void PostProcessingLantern::ellipticalWindow(u32 currentDrawingFrameBuffe
 
 				if(y >= yStart && y < yEnd)
 				{
-					u32* sourcePointerLeft = columnSourcePointerLeft + y;
-					u32* sourcePointerRight = columnSourcePointerRight + y;
+					uint32* sourcePointerLeft = columnSourcePointerLeft + y;
+					uint32* sourcePointerRight = columnSourcePointerRight + y;
 					*sourcePointerLeft &= penumbraMask | lowerMask;
 					*sourcePointerRight &= penumbraMask | lowerMask;
 				}
@@ -171,8 +171,8 @@ static void PostProcessingLantern::ellipticalWindow(u32 currentDrawingFrameBuffe
 
 			for(; ++y < yEnd;)
 			{
-				u32* sourcePointerLeft = columnSourcePointerLeft + y;
-				u32* sourcePointerRight = columnSourcePointerRight + y;
+				uint32* sourcePointerLeft = columnSourcePointerLeft + y;
+				uint32* sourcePointerRight = columnSourcePointerRight + y;
 				*sourcePointerLeft = 0;
 				*sourcePointerRight = 0;
 			}
@@ -203,7 +203,7 @@ static void PostProcessingLantern::ellipticalWindow(u32 currentDrawingFrameBuffe
 	}
 }
 
-static void PostProcessingLantern::lantern(u32 currentDrawingFrameBufferSet, SpatialObject spatialObject __attribute__ ((unused)))
+static void PostProcessingLantern::lantern(uint32 currentDrawingFrameBufferSet, SpatialObject spatialObject __attribute__ ((unused)))
 {
  	static bool ellipsisArcCalculated = false;
 
@@ -224,13 +224,13 @@ static void PostProcessingLantern::lantern(u32 currentDrawingFrameBufferSet, Spa
  	#define ELLIPSIS_Y_AXIS_LENGTH		70
 	#define PENUMBRA_MASK				0x55555555
 
- 	static s16 ellipsisArc[ELLIPSIS_X_AXIS_LENGTH];
+ 	static int16 ellipsisArc[ELLIPSIS_X_AXIS_LENGTH];
 
  	if(!ellipsisArcCalculated)
 	{
 		ellipsisArcCalculated = true;
 
-		u16 i = 0;
+		uint16 i = 0;
 		float x = 0;
 
 		for(i = sizeof(ellipsisArc) >> POST_PROCESSING_LANTERN_SIZE_OF_S16_POWER; --i; x++)

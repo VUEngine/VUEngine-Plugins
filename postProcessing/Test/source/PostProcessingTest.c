@@ -26,7 +26,7 @@
  *
  * @param currentDrawingFrameBufferSet	The framebuffer set that's currently being accessed
  */
-static void PostProcessingTest::lighting(u32 currentDrawingFrameBufferSet, SpatialObject spatialObject)
+static void PostProcessingTest::lighting(uint32 currentDrawingFrameBufferSet, SpatialObject spatialObject)
 {
 	// the currentDrawingFrameBufferSet dictates which frame buffer set (remember that there are 4 frame
 	// buffers, 2 per eye) has been written by the VPU and you can work on.
@@ -53,7 +53,7 @@ static void PostProcessingTest::lighting(u32 currentDrawingFrameBufferSet, Spati
 */
 
 	// write to framebuffers for both screens
-	u32 buffer = 0;
+	uint32 buffer = 0;
 	for(; buffer < 2; buffer++)
 	{
 		for(xCounter = 64, x = screenPixelPosition.x - (xCounter >> 1); xCounter--; x++)
@@ -101,19 +101,19 @@ static void PostProcessingTest::lighting(u32 currentDrawingFrameBufferSet, Spati
 */
 }
 
-static void PostProcessingTest::dummy(u32 currentDrawingFrameBufferSet, SpatialObject spatialObject __attribute__ ((unused)))
+static void PostProcessingTest::dummy(uint32 currentDrawingFrameBufferSet, SpatialObject spatialObject __attribute__ ((unused)))
 {
-	u16 x = 0, y = 0;
-	u32 previousSourcePointerValueLeft = 0;
-	u32 previousSourcePointerValueRight = 0;
+	uint16 x = 0, y = 0;
+	uint32 previousSourcePointerValueLeft = 0;
+	uint32 previousSourcePointerValueRight = 0;
 
 	// write to framebuffers for both screens
 	// loop columns
 	for(x = 0; x < 384; x++)
 	{
 		// get pointer to currently manipulated 32 bits of framebuffer
-		u32* columnSourcePointerLeft = (u32*) (currentDrawingFrameBufferSet) + (x << 4);
-		u32* columnSourcePointerRight = (u32*) (currentDrawingFrameBufferSet | 0x00010000) + (x << 4);
+		uint32* columnSourcePointerLeft = (uint32*) (currentDrawingFrameBufferSet) + (x << 4);
+		uint32* columnSourcePointerRight = (uint32*) (currentDrawingFrameBufferSet | 0x00010000) + (x << 4);
 
 		// the shifted out pixels on top should be black
 		previousSourcePointerValueLeft = 0;
@@ -138,15 +138,15 @@ static void PostProcessingTest::dummy(u32 currentDrawingFrameBufferSet, SpatialO
  * @param columnSourcePointer			Framebuffer address of the current column (x value)
  * @param previousSourcePointerValue	Value from the loop's previous cycle (effectively where y - 1)
  */
-static u32 PostProcessingTest::writeToFrameBuffer(u16 y, u16 shift, u32* columnSourcePointer, u32 previousSourcePointerValue)
+static uint32 PostProcessingTest::writeToFrameBuffer(uint16 y, uint16 shift, uint32* columnSourcePointer, uint32 previousSourcePointerValue)
 {
 	// pointer to currently manipulated 32 bits of framebuffer
-	u32* sourcePointer = columnSourcePointer + y;
+	uint32* sourcePointer = columnSourcePointer + y;
 
 	// save current pointer value to temp var and shift highest x bits of it, according to lut,
 	// to the lowest bits, since we want to insert these
-	u32 sourcePointerCurrentValue = *sourcePointer;
-	u32 previousSourcePointerLeftValueTemp = sourcePointerCurrentValue >> (32 - shift);
+	uint32 sourcePointerCurrentValue = *sourcePointer;
+	uint32 previousSourcePointerLeftValueTemp = sourcePointerCurrentValue >> (32 - shift);
 
 	// manipulate current 32 bits in frame buffer
 	*sourcePointer =

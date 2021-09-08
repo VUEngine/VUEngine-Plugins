@@ -33,18 +33,18 @@
  *
  * @param currentDrawingFrameBufferSet	The framebuffer set that's currently being accessed
  */
-static void PostProcessingWobble::wobble(u32 currentDrawingFrameBufferSet, SpatialObject spatialObject __attribute__ ((unused)))
+static void PostProcessingWobble::wobble(uint32 currentDrawingFrameBufferSet, SpatialObject spatialObject __attribute__ ((unused)))
 {
-	u16 x = 0, y = 0;
-	u32 previousSourcePointerValueLeft = 0;
-	u32 previousSourcePointerValueRight = 0;
+	uint16 x = 0, y = 0;
+	uint32 previousSourcePointerValueLeft = 0;
+	uint32 previousSourcePointerValueRight = 0;
 
 	// runtime working variables
 	static int waveLutIndex = 0;
 
 	// look up table of bitshifts performed on rows
 	// values must be multiples of 2
-	const u32 waveLut[128] =
+	const uint32 waveLut[128] =
 	{
 		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 		2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
@@ -63,8 +63,8 @@ static void PostProcessingWobble::wobble(u32 currentDrawingFrameBufferSet, Spati
 	for(x = 0; x < 384; x++)
 	{
 		// get pointer to currently manipulated 32 bits of framebuffer
-		u32* columnSourcePointerLeft = (u32*) (currentDrawingFrameBufferSet) + (x << 4);
-		u32* columnSourcePointerRight = (u32*) (currentDrawingFrameBufferSet | 0x00010000) + (x << 4);
+		uint32* columnSourcePointerLeft = (uint32*) (currentDrawingFrameBufferSet) + (x << 4);
+		uint32* columnSourcePointerRight = (uint32*) (currentDrawingFrameBufferSet | 0x00010000) + (x << 4);
 
 		// the shifted out pixels on top should be black
 		previousSourcePointerValueLeft = 0;
@@ -101,15 +101,15 @@ static void PostProcessingWobble::wobble(u32 currentDrawingFrameBufferSet, Spati
  * @param columnSourcePointer			Framebuffer address of the current column (x value)
  * @param previousSourcePointerValue	Value from the loop's previous cycle (effectively where y - 1)
  */
-static u32 PostProcessingWobble::writeToFrameBuffer(u16 y, u16 shift, u32* columnSourcePointer, u32 previousSourcePointerValue)
+static uint32 PostProcessingWobble::writeToFrameBuffer(uint16 y, uint16 shift, uint32* columnSourcePointer, uint32 previousSourcePointerValue)
 {
 	// pointer to currently manipulated 32 bits of framebuffer
-	u32* sourcePointer = columnSourcePointer + y;
+	uint32* sourcePointer = columnSourcePointer + y;
 
 	// save current pointer value to temp var and shift highest x bits of it, according to lut,
 	// to the lowest bits, since we want to insert these
-	u32 sourcePointerCurrentValue = *sourcePointer;
-	u32 previousSourcePointerLeftValueTemp = sourcePointerCurrentValue >> (32 - shift);
+	uint32 sourcePointerCurrentValue = *sourcePointer;
+	uint32 previousSourcePointerLeftValueTemp = sourcePointerCurrentValue >> (32 - shift);
 
 	// manipulate current 32 bits in frame buffer
 	*sourcePointer =

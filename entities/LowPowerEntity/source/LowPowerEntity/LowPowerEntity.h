@@ -35,9 +35,9 @@ typedef const LowPowerEntitySpec LowPowerEntityROMSpec;
 class LowPowerEntity : AnimatedEntity
 {
 	// number of seconds of receiving the low power signal
-	u8 lowPowerDuration;
+	uint8 lowPowerDuration;
 
-	void constructor(const LowPowerEntitySpec* LowPowerEntitySpec, s16 internalId, const char* const name);
+	void constructor(const LowPowerEntitySpec* LowPowerEntitySpec, int16 internalId, const char* const name);
 }
 
 

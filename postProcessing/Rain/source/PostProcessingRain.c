@@ -38,26 +38,26 @@
 //---------------------------------------------------------------------------------------------------------
 
 static void PostProcessingRain::waterStream(
-	u32 currentDrawingFrameBufferSet,
-	s16 xStart,
-	s16 xEnd,
-	s16 xDisplacement,
-	u16 xStep,
-	s16 yStart,
-	s16 yEnd,
-	s16 yDisplacement,
-	const u16 yStep[],
-	u16 numberOfYSpeeds,
-	u16* yStepIndex,
-	s16 yStepThrottle,
-	s16 y[],
-	u16 numberOfYs,
-	const u16 dropletLength[],
-	u16 numberOfDropletSize,
-	u16* dropletLengthIndex,
+	uint32 currentDrawingFrameBufferSet,
+	int16 xStart,
+	int16 xEnd,
+	int16 xDisplacement,
+	uint16 xStep,
+	int16 yStart,
+	int16 yEnd,
+	int16 yDisplacement,
+	const uint16 yStep[],
+	uint16 numberOfYSpeeds,
+	uint16* yStepIndex,
+	int16 yStepThrottle,
+	int16 y[],
+	uint16 numberOfYs,
+	const uint16 dropletLength[],
+	uint16 numberOfDropletSize,
+	uint16* dropletLengthIndex,
 	int minimumDropletLength,
-	const s16 dropletParallax[],
-	u16 numberOfDropletParallax
+	const int16 dropletParallax[],
+	uint16 numberOfDropletParallax
 )
 {
 	int yIndex = 0;
@@ -115,7 +115,7 @@ static void PostProcessingRain::waterStream(
 		int leftColumn = x;
 		int rightColumn = x;
 
-		s16 dropletParallaxValue = dropletParallax[counter % numberOfDropletParallax];
+		int16 dropletParallaxValue = dropletParallax[counter % numberOfDropletParallax];
 
 		leftColumn -= dropletParallaxValue;
 		rightColumn += dropletParallaxValue;
@@ -130,8 +130,8 @@ static void PostProcessingRain::waterStream(
 		}
 
 		// get pointer to currently manipulated 32 bits of framebuffer
-		u32* columnSourcePointerLeft = (u32*) (currentDrawingFrameBufferSet) + (leftColumn << 4);
-		u32* columnSourcePointerRight = (u32*) (currentDrawingFrameBufferSet | 0x00010000) + (rightColumn << 4);
+		uint32* columnSourcePointerLeft = (uint32*) (currentDrawingFrameBufferSet) + (leftColumn << 4);
+		uint32* columnSourcePointerRight = (uint32*) (currentDrawingFrameBufferSet | 0x00010000) + (rightColumn << 4);
 
 		if(_cameraFrustum->y0 > y[yIndex] + yStart)
 		{
@@ -140,9 +140,9 @@ static void PostProcessingRain::waterStream(
 
 		// loop current column in steps of 16 pixels (32 bits)
 		// ignore the bottom 16 pixels of the screen (gui)
-		u32 yStep = (y[yIndex] + yStart) >> POST_PROCESSING_RAIN_Y_STEP_SIZE_2_EXP;
-		u32 subY = __MODULO((y[yIndex] + yStart), POST_PROCESSING_RAIN_Y_STEP_SIZE);
-		u32 dropletMask = 0xFFFFFFFF << (subY << 1);
+		uint32 yStep = (y[yIndex] + yStart) >> POST_PROCESSING_RAIN_Y_STEP_SIZE_2_EXP;
+		uint32 subY = __MODULO((y[yIndex] + yStart), POST_PROCESSING_RAIN_Y_STEP_SIZE);
+		uint32 dropletMask = 0xFFFFFFFF << (subY << 1);
 
 		if(++*dropletLengthIndex >= numberOfDropletSize)
 		{
@@ -168,9 +168,9 @@ static void PostProcessingRain::waterStream(
 			dropletMask &= (0xFFFFFFFF >> dropletLengthDifference);
 		}
 
-		u32* sourcePointerLeft = columnSourcePointerLeft + yStep;
-		u32* sourcePointerRight = columnSourcePointerRight + yStep;
-		u32 sourceValue = *sourcePointerLeft;
+		uint32* sourcePointerLeft = columnSourcePointerLeft + yStep;
+		uint32* sourcePointerRight = columnSourcePointerRight + yStep;
+		uint32 sourceValue = *sourcePointerLeft;
 
 		if(!sourceValue)
 		{
@@ -179,13 +179,13 @@ static void PostProcessingRain::waterStream(
 				continue;
 			}
 
-			u32 content = 0x55555555 & ((dropletMask & ~sourceValue) | (sourceValue & ~dropletMask));
+			uint32 content = 0x55555555 & ((dropletMask & ~sourceValue) | (sourceValue & ~dropletMask));
 			*sourcePointerLeft = content;
 			*sourcePointerRight = content;
 		}
 		else
 		{
-			u32 content = (dropletMask & ~sourceValue) | (sourceValue & ~dropletMask);
+			uint32 content = (dropletMask & ~sourceValue) | (sourceValue & ~dropletMask);
 			*sourcePointerLeft = content;
 			*sourcePointerRight = content;
 
@@ -200,7 +200,7 @@ static void PostProcessingRain::waterStream(
 		}
 	}
 
-	u16 i = 0;
+	uint16 i = 0;
 
 	for(; i < numberOfYs; i++)
 	{
@@ -222,17 +222,17 @@ static void PostProcessingRain::waterStream(
 
 static void PostProcessingRain::calculateRainPrecipitation(fix19_13* yStepThrottle, fix19_13* xStep, fix19_13 maximumYThrottle, fix19_13 minimumYThrottle, fix19_13 maximumXStep, fix19_13 minimumXStep)
 {
-	static u32 previousTime = 0;
-	static u8 timePeriodIndex = 0;
-	static u8 rainAccelerationIndex = 0;
+	static uint32 previousTime = 0;
+	static uint8 timePeriodIndex = 0;
+	static uint8 rainAccelerationIndex = 0;
 
-	const u8 timePeriod[] =
+	const uint8 timePeriod[] =
 	{
 		30, 25, 40, 35, 50, 50, 40, 45,
 		30, 30, 35, 40, 50, 60, 20, 45,
 	};
 
-	const s8 rainAcceleration[] =
+	const int8 rainAcceleration[] =
 	{
 		1, 0, -1, 0,
 	};
@@ -242,18 +242,18 @@ static void PostProcessingRain::calculateRainPrecipitation(fix19_13* yStepThrott
 		return;
 	}
 
-	u32 currentTime = Clock::getTime(GameState::getClock(Game::getCurrentState(Game::getInstance())));
+	uint32 currentTime = Clock::getTime(GameState::getClock(Game::getCurrentState(Game::getInstance())));
 
 	if((currentTime - previousTime) / 1000 > timePeriod[timePeriodIndex])
 	{
 		previousTime = currentTime;
 
-		if(++timePeriodIndex >= sizeof(timePeriod) / sizeof(u8))
+		if(++timePeriodIndex >= sizeof(timePeriod) / sizeof(uint8))
 		{
 			timePeriodIndex = 0;
 		}
 
-		if(++rainAccelerationIndex >= sizeof(rainAcceleration) / sizeof(s8))
+		if(++rainAccelerationIndex >= sizeof(rainAcceleration) / sizeof(int8))
 		{
 			rainAccelerationIndex = 0;
 		}
@@ -284,7 +284,7 @@ static void PostProcessingRain::calculateRainPrecipitation(fix19_13* yStepThrott
 	}
 }
 
-static void PostProcessingRain::rain(u32 currentDrawingFrameBufferSet __attribute__ ((unused)), SpatialObject spatialObject __attribute__ ((unused)))
+static void PostProcessingRain::rain(uint32 currentDrawingFrameBufferSet __attribute__ ((unused)), SpatialObject spatialObject __attribute__ ((unused)))
 {
  	#define POST_PROCESSING_RAIN_X_RANGE_1					383
  	#define POST_PROCESSING_RAIN_MINIMUM_DROPLET_LENGTH		3
@@ -292,8 +292,8 @@ static void PostProcessingRain::rain(u32 currentDrawingFrameBufferSet __attribut
  	#define POST_PROCESSING_RAIN_MAXIMUM_Y_THROTTLE_1		__I_TO_FIX19_13(2)
  	#define POST_PROCESSING_RAIN_MINIMUM_X_STEP_1			__I_TO_FIX19_13(15)
  	#define POST_PROCESSING_RAIN_MAXIMUM_X_STEP_1			__I_TO_FIX19_13(90)
-	static u16 yStepIndex = 0;
-	static u16 dropletLengthIndex = 0;
+	static uint16 yStepIndex = 0;
+	static uint16 dropletLengthIndex = 0;
 	static fix19_13 yStepThrottle = POST_PROCESSING_RAIN_MINIMUM_Y_THROTTLE_1;
 	static fix19_13 xStep = POST_PROCESSING_RAIN_MAXIMUM_X_STEP_1;
  	static Vector3D cameraPreviousPosition = {0, 0, 0};
@@ -304,7 +304,7 @@ static void PostProcessingRain::rain(u32 currentDrawingFrameBufferSet __attribut
 	PostProcessingRain::calculateRainPrecipitation(&yStepThrottle, &xStep, POST_PROCESSING_RAIN_MAXIMUM_Y_THROTTLE_1, POST_PROCESSING_RAIN_MINIMUM_Y_THROTTLE_1, POST_PROCESSING_RAIN_MAXIMUM_X_STEP_1, POST_PROCESSING_RAIN_MINIMUM_X_STEP_1);
 	cameraPreviousPosition = *_cameraPosition;
 
- 	const s16 dropletParallax[] =
+ 	const int16 dropletParallax[] =
  	{
  		0, 5, -2, 3, -3, 6, 9, -4, 0, 0, 8,
 		7, -3, 2, -2, 0, 5, -3, 4, -4, 6, -7,
@@ -312,12 +312,12 @@ static void PostProcessingRain::rain(u32 currentDrawingFrameBufferSet __attribut
 		,
  	};
 
- 	const u16 dropletLength[] =
+ 	const uint16 dropletLength[] =
  	{
  		3, 4, 5, 5, 4, 3, 6, 6, 5, 6, 8, 5, 5,
  	};
 
-	static s16 y[] =
+	static int16 y[] =
 	{
 		12, 30, 85, 21, 74, 59, 14, 97, 62, 92, 44, 2,
 		14, 97, 62, 92, 44, 2, 12, 30, 85, 21, 74, 59,
@@ -325,7 +325,7 @@ static void PostProcessingRain::rain(u32 currentDrawingFrameBufferSet __attribut
 		12, 30, 85, 21, 21, 74, 59, 14, 97, 62, 44, 2,
 	};
 
-	const u16 yStep[] =
+	const uint16 yStep[] =
 	{
 		4, 5, 6, 6, 7, 8, 8, 6, 5, 4, 4, 5,
 		6, 7, 8, 4, 5, 5, 5, 6, 7, 5, 4, 8,
@@ -374,24 +374,24 @@ static void PostProcessingRain::rain(u32 currentDrawingFrameBufferSet __attribut
 	yStepThrottle += yScreenDisplacement;
 }
 
-static void PostProcessingRain::waterFall(u32 currentDrawingFrameBufferSet, Vector3D position, int width, int height, int yStepThrottle)
+static void PostProcessingRain::waterFall(uint32 currentDrawingFrameBufferSet, Vector3D position, int width, int height, int yStepThrottle)
 {
-	static u16 yStepIndex = 0;
-	static u16 dropletLengthIndex = 0;
+	static uint16 yStepIndex = 0;
+	static uint16 dropletLengthIndex = 0;
 
- 	const s16 dropletParallax[] =
+ 	const int16 dropletParallax[] =
  	{
  		-2
 		,
  	};
 
- 	const u16 dropletLength[] =
+ 	const uint16 dropletLength[] =
  	{
  		5, 6, 9, 11, 4, 13, 11, 4, 7, 9, 5, 12, 9,
  		11, 10, 4, 7, 12, 12, 10, 8, 5, 4, 8, 10
  	};
 
-	static s16 y[] =
+	static int16 y[] =
 	{
 		12, 30, 85, 21, 74, 59, 14, 97, 62, 92, 44, 2,
 		14, 97, 62, 92, 44, 2, 12, 30, 85, 21, 74, 59,
@@ -404,7 +404,7 @@ static void PostProcessingRain::waterFall(u32 currentDrawingFrameBufferSet, Vect
 
 	};
 
-	const u16 yStep[] =
+	const uint16 yStep[] =
 	{
 		4, 5, 6, 6, 7, 8, 8, 6, 5, 4, 4, 5,
 		6, 7, 8, 4, 5, 5, 5, 6, 7, 5, 4, 8,
@@ -438,7 +438,7 @@ static void PostProcessingRain::waterFall(u32 currentDrawingFrameBufferSet, Vect
 	);
 }
 
-static void PostProcessingRain::waterFall20x100(u32 currentDrawingFrameBufferSet __attribute__ ((unused)), SpatialObject spatialObject __attribute__ ((unused)))
+static void PostProcessingRain::waterFall20x100(uint32 currentDrawingFrameBufferSet __attribute__ ((unused)), SpatialObject spatialObject __attribute__ ((unused)))
 {
 	if(isDeleted(spatialObject))
 	{

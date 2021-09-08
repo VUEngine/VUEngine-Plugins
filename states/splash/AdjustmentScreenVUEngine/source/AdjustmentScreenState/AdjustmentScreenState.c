@@ -123,7 +123,7 @@ void AdjustmentScreenState::resetLowPowerIndicatorPosition()
 	LowPowerManager::setPosition(LowPowerManager::getInstance(), __LOW_POWER_INDICATOR_X_POSITION, __LOW_POWER_INDICATOR_Y_POSITION);
 }
 
-static void AdjustmentScreenState::rhombusEmitterPostProcessingEffect(u32 currentDrawingFrameBufferSet __attribute__ ((unused)), SpatialObject spatialObject __attribute__ ((unused)))
+static void AdjustmentScreenState::rhombusEmitterPostProcessingEffect(uint32 currentDrawingFrameBufferSet __attribute__ ((unused)), SpatialObject spatialObject __attribute__ ((unused)))
 {
 	// runtime working variables
 	// negative value to achieve an initial delay

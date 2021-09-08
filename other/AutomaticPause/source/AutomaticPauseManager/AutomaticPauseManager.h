@@ -37,9 +37,9 @@ singleton class AutomaticPauseManager : Object
 	// auto pause active flag
 	bool isActive;
 	// after this many minutes the auto pause kicks in
-	u8 autoPauseDelay;
+	uint8 autoPauseDelay;
 	// minutes elapsed since last automatic pause
-	u8 elapsedTime;
+	uint8 elapsedTime;
 
 
 	/// @publicsection
@@ -53,7 +53,7 @@ singleton class AutomaticPauseManager : Object
 
 	GameState getAutomaticPauseState();
 	void setAutomaticPauseState(GameState automaticPauseState);
-	void setAutomaticPauseDelay(u8 automaticPauseDelay);
+	void setAutomaticPauseDelay(uint8 automaticPauseDelay);
 	bool isActive();
 
 	/**

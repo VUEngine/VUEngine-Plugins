@@ -37,11 +37,11 @@ singleton class LowPowerManager : Object
 	// low power indicator showing flag
 	bool isShowingIndicator;
 	// x position of the low power indicator
-	u8 indicatorXPos;
+	uint8 indicatorXPos;
 	// y position of the low power indicator
-	u8 indicatorYPos;
+	uint8 indicatorYPos;
 	// number of seconds of receiving the low power signal
-	u8 lowPowerDuration;
+	uint8 lowPowerDuration;
 
 
 	/// @publicsection
@@ -66,7 +66,7 @@ singleton class LowPowerManager : Object
      * @param x		X position (in tiles)
      * @param y		Y position (in tiles)
      */
-    void setPosition(u8 x, u8 y);
+    void setPosition(uint8 x, uint8 y);
 
 
 	/// @privatesection

@@ -79,15 +79,15 @@ typedef const LangSpec LangROMSpec;
 singleton class I18n : Object
 {
 	// Currently active language
-	u8 activeLanguage;
+	uint8 activeLanguage;
 
 	/// @publicsection
 	static I18n getInstance();
-	u8 getActiveLanguage();
+	uint8 getActiveLanguage();
 	char* getActiveLanguageName();
 	LangSpec * getLanguages();
 	const char* getText(int string);
-	void setActiveLanguage(u8 languageId);
+	void setActiveLanguage(uint8 languageId);
 }
 
 

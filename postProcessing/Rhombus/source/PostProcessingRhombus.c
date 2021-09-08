@@ -34,7 +34,7 @@
  *
  * @param currentDrawingFrameBufferSet	The framebuffer set that's currently being accessed
  */
-static void PostProcessingRhombus::rhombus(u32 currentDrawingFrameBufferSet __attribute__ ((unused)), SpatialObject spatialObject)
+static void PostProcessingRhombus::rhombus(uint32 currentDrawingFrameBufferSet __attribute__ ((unused)), SpatialObject spatialObject)
 {
 	// runtime working variable
 	static int radius = 4;
@@ -72,7 +72,7 @@ static void PostProcessingRhombus::rhombus(u32 currentDrawingFrameBufferSet __at
  * @param color
  * @param screenPixelPosition
  */
-static void PostProcessingRhombus::drawRhombus(int radius, u32 color, PixelVector screenPixelPosition, int parallax)
+static void PostProcessingRhombus::drawRhombus(int radius, uint32 color, PixelVector screenPixelPosition, int parallax)
 {
 	DirectDraw directDraw = DirectDraw::getInstance();
 

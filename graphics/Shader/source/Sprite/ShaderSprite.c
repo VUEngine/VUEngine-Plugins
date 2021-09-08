@@ -56,7 +56,7 @@ bool ShaderSprite::hasSpecialEffects()
 	return true;
 }
 
-u16 ShaderSprite::doRender(s16 index, bool evenFrame __attribute__((unused)))
+uint16 ShaderSprite::doRender(int16 index, bool evenFrame __attribute__((unused)))
 {
 	if(Base::doRender(this, index, evenFrame) == index)
 	{
@@ -75,7 +75,7 @@ void ShaderSprite::processEffects()
 		return;
 	}
 
-	ShaderSprite::renderToTexture(this, (WORD*)(__CHAR_SPACE_BASE_ADDRESS + (((u32)this->charSet->offset) << 4)));
+	ShaderSprite::renderToTexture(this, (WORD*)(__CHAR_SPACE_BASE_ADDRESS + (((uint32)this->charSet->offset) << 4)));
 }
 
 void ShaderSprite::copyBufferTo(WORD* bufferAddress, WORD* destinationAddress)
@@ -88,7 +88,7 @@ void ShaderSprite::copyBufferTo(WORD* bufferAddress, WORD* destinationAddress)
 }
 
 // TODO: Should use the Mem::copyWORD, but this is way faster on hardware somehow
-static void ShaderSprite::addWORD(WORD* destination, const WORD* source, u32 numberOfWORDS, u32 increment)
+static void ShaderSprite::addWORD(WORD* destination, const WORD* source, uint32 numberOfWORDS, uint32 increment)
 {
 	for(; 0 < numberOfWORDS; numberOfWORDS--)
 	{
@@ -150,7 +150,7 @@ void ShaderSprite::renderClock(WORD* bufferAddress)
 		0
 	};
 
-	static s16 angle = 0;
+	static int16 angle = 0;
 	angle = angle > 512 ? 0 : angle;
 	angle += 4;
 
@@ -170,14 +170,14 @@ void ShaderSprite::renderClock(WORD* bufferAddress)
 	ShaderSprite::drawLine(this, bufferAddress, fromVertex2D, toVertex2D, __COLOR_BRIGHT_RED);
 }
 
-void ShaderSprite::drawPixel(WORD* bufferAddress, u16 x, u16 y, int color)
+void ShaderSprite::drawPixel(WORD* bufferAddress, uint16 x, uint16 y, int color)
 {
 	int cols = Texture::getCols(this->texture);
 
-	u16 col = x >> 3;
-	u16 row = y >> 3;
+	uint16 col = x >> 3;
+	uint16 row = y >> 3;
 
-	u16 tile = cols * row + col;  
+	uint16 tile = cols * row + col;  
 
 //	tile = 0;
 
@@ -186,9 +186,9 @@ void ShaderSprite::drawPixel(WORD* bufferAddress, u16 x, u16 y, int color)
 	static HWORD newTile[__BYTES_PER_CHARS(1) / sizeof(HWORD)] = {0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF};
 
 	// TODO: actually render 3D pixels
-//	for(u16 tileRow = 0; tileRow < __BYTES_PER_CHARS(1) / sizeof(HWORD); tileRow++)
+//	for(uint16 tileRow = 0; tileRow < __BYTES_PER_CHARS(1) / sizeof(HWORD); tileRow++)
 	{
-	//	newTile[tileRow] = *(HWORD*)(__CHAR_SPACE_BASE_ADDRESS + ((((u32)charSet->offset) << 4) + ((tile << 4) + tileRow)));
+	//	newTile[tileRow] = *(HWORD*)(__CHAR_SPACE_BASE_ADDRESS + ((((uint32)charSet->offset) << 4) + ((tile << 4) + tileRow)));
 	//	newTile[tileRow] = 0x0F0F;
 	}
 
@@ -284,7 +284,7 @@ void ShaderSprite::drawLine(WORD* bufferAddress, PixelVector fromPoint, PixelVec
 	{
 		parallax = auxParallax;
 
-		ShaderSprite::drawPixel(this, bufferAddress, (u16)__FIX19_13_TO_I(fromPointX - parallax), (u16)__FIX19_13_TO_I(fromPointY), color);
+		ShaderSprite::drawPixel(this, bufferAddress, (uint16)__FIX19_13_TO_I(fromPointX - parallax), (uint16)__FIX19_13_TO_I(fromPointY), color);
 
 		fromPointX += stepX;
 		fromPointY += stepY;

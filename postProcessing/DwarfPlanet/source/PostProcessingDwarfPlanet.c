@@ -26,10 +26,10 @@
  *
  * @param currentDrawingFrameBufferSet	The framebuffer set that's currently being accessed
  */
-static void PostProcessingDwarfPlanet::dwarfPlanet(u32 currentDrawingFrameBufferSet, SpatialObject spatialObject __attribute__ ((unused)))
+static void PostProcessingDwarfPlanet::dwarfPlanet(uint32 currentDrawingFrameBufferSet, SpatialObject spatialObject __attribute__ ((unused)))
 {
 	// look up table of bitshifts performed on rows
-	const u32 lut[96] =
+	const uint32 lut[96] =
 	{
 		2,
 		4,
@@ -48,7 +48,7 @@ static void PostProcessingDwarfPlanet::dwarfPlanet(u32 currentDrawingFrameBuffer
 		30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30,
 	};
 
-	int lutEntries = sizeof(lut) / sizeof(u32);
+	int lutEntries = sizeof(lut) / sizeof(uint32);
 	// runtime working variables
 
 	int counter = lutEntries;
@@ -60,18 +60,18 @@ static void PostProcessingDwarfPlanet::dwarfPlanet(u32 currentDrawingFrameBuffer
 		int x2 = __SCREEN_WIDTH - counter;
 
 		// get pointer to currently manipulated 32 bits of framebuffer
-		u32* columnSourcePointerLeft1 = (u32*) (currentDrawingFrameBufferSet) + (x1 << 4);
-		u32* columnSourcePointerRight1 = (u32*) (currentDrawingFrameBufferSet | 0x00010000) + (x1 << 4);
-		u32* columnSourcePointerLeft2 = (u32*) (currentDrawingFrameBufferSet) + (x2 << 4);
-		u32* columnSourcePointerRight2 = (u32*) (currentDrawingFrameBufferSet | 0x00010000) + (x2 << 4);
+		uint32* columnSourcePointerLeft1 = (uint32*) (currentDrawingFrameBufferSet) + (x1 << 4);
+		uint32* columnSourcePointerRight1 = (uint32*) (currentDrawingFrameBufferSet | 0x00010000) + (x1 << 4);
+		uint32* columnSourcePointerLeft2 = (uint32*) (currentDrawingFrameBufferSet) + (x2 << 4);
+		uint32* columnSourcePointerRight2 = (uint32*) (currentDrawingFrameBufferSet | 0x00010000) + (x2 << 4);
 
 		// the shifted out pixels on top should be black
-		u32 previousSourcePointerValueLeft1 = 0;
-		u32 previousSourcePointerValueRight1 = 0;
-		u32 previousSourcePointerValueLeft2 = 0;
-		u32 previousSourcePointerValueRight2 = 0;
+		uint32 previousSourcePointerValueLeft1 = 0;
+		uint32 previousSourcePointerValueRight1 = 0;
+		uint32 previousSourcePointerValueLeft2 = 0;
+		uint32 previousSourcePointerValueRight2 = 0;
 
-		u16 y = 0;
+		uint16 y = 0;
 
 		// loop current column in steps of 16 pixels (32 bits)
 		// ignore the bottom 16 pixels of the screen (gui)
@@ -94,15 +94,15 @@ static void PostProcessingDwarfPlanet::dwarfPlanet(u32 currentDrawingFrameBuffer
  * @param columnSourcePointer			Framebuffer address of the current column (x value)
  * @param previousSourcePointerValue	Value from the loop's previous cycle (effectively where y - 1)
  */
-static u32 PostProcessingDwarfPlanet::writeToFrameBuffer(u16 y, u16 shift, u32* columnSourcePointer, u32 previousSourcePointerValue)
+static uint32 PostProcessingDwarfPlanet::writeToFrameBuffer(uint16 y, uint16 shift, uint32* columnSourcePointer, uint32 previousSourcePointerValue)
 {
 	// pointer to currently manipulated 32 bits of framebuffer
-	u32* sourcePointer = columnSourcePointer + y;
+	uint32* sourcePointer = columnSourcePointer + y;
 
 	// save current pointer value to temp var and shift highest x bits of it, according to lut,
 	// to the lowest bits, since we want to insert these
-	u32 sourcePointerCurrentValue = *sourcePointer;
-	u32 previousSourcePointerLeftValueTemp = sourcePointerCurrentValue >> (32 - shift);
+	uint32 sourcePointerCurrentValue = *sourcePointer;
+	uint32 previousSourcePointerLeftValueTemp = sourcePointerCurrentValue >> (32 - shift);
 
 	// manipulate current 32 bits in frame buffer
 	*sourcePointer =

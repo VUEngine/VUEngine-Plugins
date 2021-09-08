@@ -28,16 +28,16 @@
 typedef struct SaveData
 {
 	/// flag to know if there is data from this game saved
-	u8 saveStamp[__SAVE_DATA_MANAGER_SAVE_STAMP_LENGTH];
+	uint8 saveStamp[__SAVE_DATA_MANAGER_SAVE_STAMP_LENGTH];
 
 	/// checksum over sram content to prevent save data manipulation
-	u32 checksum;
+	uint32 checksum;
 
 	/// active language id
-	u8 languageId;
+	uint8 languageId;
 
 	/// auto pause status (0: on, 1: off)
-	u8 autoPauseStatus;
+	uint8 autoPauseStatus;
 
 } SaveData;
 
@@ -86,7 +86,7 @@ singleton class SaveDataManager : Object
 	 *
 	 * @return	Language ID
 	 */
-	u8 getLanguage();
+	uint8 getLanguage();
 
 	/**
 	 *
@@ -98,14 +98,14 @@ singleton class SaveDataManager : Object
 	 *
 	 * @param	autoPauseStatus		Automatic pause status flag
 	 */
-	void setAutomaticPauseStatus(u8 autoPauseStatus);
+	void setAutomaticPauseStatus(uint8 autoPauseStatus);
 
 	/**
 	 * Write ID of currently active language to SRAM.
 	 *
 	 * @param	languageId	Language ID
 	 */
-	void setLanguage(u8 languageId);
+	void setLanguage(uint8 languageId);
 
 	/**
 	 * Write given checksum to SRAM.
@@ -147,7 +147,7 @@ singleton class SaveDataManager : Object
 	 * Computes a CRC32 checksum over whole SRAM content, starting right after the previously saved
 	 * checksum's address.
 	 *
-	 * @fn			u32 computeChecksum()
+	 * @fn			uint32 computeChecksum()
      * @memberof 	SaveDataManager
      * @return 	  	CRC32 checksum
 	 */

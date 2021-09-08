@@ -23,7 +23,7 @@
 //---------------------------------------------------------------------------------------------------------
 
 #ifndef REFLECTIVE_ENTITY_POINTER_TYPE
-#define REFLECTIVE_ENTITY_POINTER_TYPE			u32 // sizeof(u32) + (sizeof(u32) / sizeof(REFLECTIVE_ENTITY_POINTER_TYPE) / 2)
+#define REFLECTIVE_ENTITY_POINTER_TYPE			uint32 // sizeof(uint32) + (sizeof(uint32) / sizeof(REFLECTIVE_ENTITY_POINTER_TYPE) / 2)
 #endif
 
 #ifndef REFLECTIVE_ENTITY_Y_SHIFT
@@ -66,13 +66,13 @@ typedef struct ReflectiveEntitySpec
 	Point outputDisplacement;
 
 	/// width of the reflection
-	u16 width;
+	uint16 width;
 
 	/// height of the reflection
-	u16 height;
+	uint16 height;
 
 	/// mask to apply to the mirrored image
-	u32 reflectionMask;
+	uint32 reflectionMask;
 
 	/// transparent
 	bool transparent;
@@ -81,20 +81,20 @@ typedef struct ReflectiveEntitySpec
 	bool reflectParallax;
 
 	/// axis for image reversing
-	u8 axisForReversing;
+	uint8 axisForReversing;
 
 	/// pointer to table of vertical displacements
 	/// if no displacement, leave as NULL
-	const u8* waveLut;
+	const uint8* waveLut;
 
 	/// number of wave lut entries
-	u16 numberOfWaveLutEntries;
+	uint16 numberOfWaveLutEntries;
 
 	/// fix10_6 throttle for the waving
 	fix10_6 waveLutThrottleFactor;
 
 	/// parallax displacement applied to the reflection
-	s16 parallaxDisplacement;
+	int16 parallaxDisplacement;
 
 	/// flatten top?
 	bool flattenTop;
@@ -103,19 +103,19 @@ typedef struct ReflectiveEntitySpec
 	bool flattenBottom;
 
 	/// top border mask
-	u32 topBorder;
+	uint32 topBorder;
 
 	/// bottom border mask
-	u32 bottomBorder;
+	uint32 bottomBorder;
 
 	/// left border mask
-	u32 leftBorder;
+	uint32 leftBorder;
 
 	/// right border mask
-	u32 rightBorder;
+	uint32 rightBorder;
 
 	/// Noise passes: higher values means less noise
-	s16 noisePasses;
+	int16 noisePasses;
 
 } ReflectiveEntitySpec;
 
@@ -158,14 +158,14 @@ class ReflectiveEntity : Entity
 	 * @param internalId
 	 * @param name
 	 */
-	void constructor(ReflectiveEntitySpec* mirrorSpec, s16 internalId, const char* const name);
+	void constructor(ReflectiveEntitySpec* mirrorSpec, int16 internalId, const char* const name);
 
 	/**
 	 * Reflection algorithm that is called by the postprocessing effect
 	 *
 	 * @param currentDrawingFrameBufferSet	The framebuffer set that's currently being accessed
 	 */
-	virtual void applyReflection(u32 currentDrawingFrameBufferSet);
+	virtual void applyReflection(uint32 currentDrawingFrameBufferSet);
 
 	/**
 	 * @param currentDrawingFrameBufferSet	The framebuffer set that's currently being accessed
@@ -191,7 +191,7 @@ class ReflectiveEntity : Entity
      * @param rightBorderMask
      * @param noisePasses
      */
-	virtual void drawReflection(u32 currentDrawingFrameBufferSet, s16 xSourceStart, s16 ySourceStart, s16 xOutputStart, s16 yOutputStart, s16 width, s16 height, u32 reflectionMask, u16 axisForReversing, bool transparent, bool reflectParallax, s16 parallaxDisplacement, const u8 waveLut[], int numberOfWaveLutEntries, fix10_6 waveLutThrottleFactor, bool flattenTop, bool flattenBottom, u32 topBorderMask, u32 bottomBorderMask, u32 leftBorderMask, u32 rightBorderMask, s16 noisePasses);
+	virtual void drawReflection(uint32 currentDrawingFrameBufferSet, int16 xSourceStart, int16 ySourceStart, int16 xOutputStart, int16 yOutputStart, int16 width, int16 height, uint32 reflectionMask, uint16 axisForReversing, bool transparent, bool reflectParallax, int16 parallaxDisplacement, const uint8 waveLut[], int numberOfWaveLutEntries, fix10_6 waveLutThrottleFactor, bool flattenTop, bool flattenBottom, uint32 topBorderMask, uint32 bottomBorderMask, uint32 leftBorderMask, uint32 rightBorderMask, int16 noisePasses);
 
 	/**
 	 * Entity is ready
@@ -213,7 +213,7 @@ class ReflectiveEntity : Entity
      * @param overallMask
      * @param reflectionMask
      */
-	static void shiftPixels(int pixelShift, REFLECTIVE_ENTITY_POINTER_TYPE* sourceValue, u32 nextSourceValue, REFLECTIVE_ENTITY_POINTER_TYPE* remainderValue, u32 reflectionMask, u32 noise);
+	static void shiftPixels(int pixelShift, REFLECTIVE_ENTITY_POINTER_TYPE* sourceValue, uint32 nextSourceValue, REFLECTIVE_ENTITY_POINTER_TYPE* remainderValue, uint32 reflectionMask, uint32 noise);
 
 	/**
 	 * Suspend for pause

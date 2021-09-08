@@ -50,7 +50,7 @@ void LowPowerManager::setActive(bool active)
 	this->isActive = active;
 }
 
-void LowPowerManager::setPosition(u8 x, u8 y)
+void LowPowerManager::setPosition(uint8 x, uint8 y)
 {
 	this->indicatorXPos = x;
 	this->indicatorYPos = y;
