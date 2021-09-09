@@ -231,12 +231,12 @@ static bool SteeringBehavior::accumulateForce(fix10_6 maximumForce, Vector3D *to
 	return true;
 }
 
-int SteeringBehavior::getPriority()
+int32 SteeringBehavior::getPriority()
 {
 	return this->priority;
 }
 
-void SteeringBehavior::setPriority(int value)
+void SteeringBehavior::setPriority(int32 value)
 {
 	this->priority = value;
 }

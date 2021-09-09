@@ -14,7 +14,7 @@
 //
 //======================================================================
 
-const unsigned int FlagItalyTiles[44] __attribute__((aligned(4)))=
+const uint32 FlagItalyTiles[44] __attribute__((aligned(4)))=
 {
 	0x00000000,0x55540000,0xAAA4AAA4,0xAAA4AAA4,
 	0x00000000,0x55550000,0xFAAAFAAA,0xFAAAFAAA,0x00000000,0x55550000,0xFFFFFFFF,0xFFFFFFFF,

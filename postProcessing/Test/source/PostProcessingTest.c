@@ -39,17 +39,17 @@ static void PostProcessingTest::lighting(uint32 currentDrawingFrameBufferSet, Sp
 	PixelVector screenPixelPosition = Vector3D::projectToPixelVector(Vector3D::getRelativeToCamera(*SpatialObject::getPosition(spatialObject)), 0);
 
 	// the pixel in screen coordinates (x: 0 - 383, y: 0 - 223)
-	int x = 0;
-	int y = 0;
+	int32 x = 0;
+	int32 y = 0;
 
 	// these will be used to dictate the size of the screen portion to be affected
-	int xCounter = 0;
-	int yCounter = 0;
+	int32 xCounter = 0;
+	int32 yCounter = 0;
 
 /*
 	// this is just a test, so that's why these are static
 	static bool vibrate = false;
-	static int wait = 0;
+	static int32 wait = 0;
 */
 
 	// write to framebuffers for both screens

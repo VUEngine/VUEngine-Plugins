@@ -191,7 +191,7 @@ class ReflectiveEntity : Entity
      * @param rightBorderMask
      * @param noisePasses
      */
-	virtual void drawReflection(uint32 currentDrawingFrameBufferSet, int16 xSourceStart, int16 ySourceStart, int16 xOutputStart, int16 yOutputStart, int16 width, int16 height, uint32 reflectionMask, uint16 axisForReversing, bool transparent, bool reflectParallax, int16 parallaxDisplacement, const uint8 waveLut[], int numberOfWaveLutEntries, fix10_6 waveLutThrottleFactor, bool flattenTop, bool flattenBottom, uint32 topBorderMask, uint32 bottomBorderMask, uint32 leftBorderMask, uint32 rightBorderMask, int16 noisePasses);
+	virtual void drawReflection(uint32 currentDrawingFrameBufferSet, int16 xSourceStart, int16 ySourceStart, int16 xOutputStart, int16 yOutputStart, int16 width, int16 height, uint32 reflectionMask, uint16 axisForReversing, bool transparent, bool reflectParallax, int16 parallaxDisplacement, const uint8 waveLut[], int32 numberOfWaveLutEntries, fix10_6 waveLutThrottleFactor, bool flattenTop, bool flattenBottom, uint32 topBorderMask, uint32 bottomBorderMask, uint32 leftBorderMask, uint32 rightBorderMask, int16 noisePasses);
 
 	/**
 	 * Entity is ready
@@ -213,7 +213,7 @@ class ReflectiveEntity : Entity
      * @param overallMask
      * @param reflectionMask
      */
-	static void shiftPixels(int pixelShift, REFLECTIVE_ENTITY_POINTER_TYPE* sourceValue, uint32 nextSourceValue, REFLECTIVE_ENTITY_POINTER_TYPE* remainderValue, uint32 reflectionMask, uint32 noise);
+	static void shiftPixels(int32 pixelShift, REFLECTIVE_ENTITY_POINTER_TYPE* sourceValue, uint32 nextSourceValue, REFLECTIVE_ENTITY_POINTER_TYPE* remainderValue, uint32 reflectionMask, uint32 noise);
 
 	/**
 	 * Suspend for pause

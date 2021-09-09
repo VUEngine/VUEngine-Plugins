@@ -103,7 +103,7 @@ void LanguageSelectionScreenState::enter(void* owner)
 		this->languageSelector = new OptionsSelector(1, 8, __LANGUAGE_SELECTION_SCREEN_LANGUAGE_NAME_FONT);
 		VirtualList languageNames = new VirtualList();
 		uint8 optionsWidth = 0;
-		int i = 0;
+		int32 i = 0;
 		for(; __LANGUAGES[i]; i++)
 		{
 			Option* option = new Option;
@@ -168,8 +168,8 @@ void LanguageSelectionScreenState::print()
 		// print language
 		char* strLanguageName = I18n::getActiveLanguageName(I18n::getInstance());
 		FontSize strLanguageNameSize = Printing::getTextSize(Printing::getInstance(), strLanguageName, __LANGUAGE_SELECTION_SCREEN_LANGUAGE_NAME_FONT);
-		int strLanguageNameXPos = (__HALF_SCREEN_WIDTH_IN_CHARS) - (strLanguageNameSize.x >> 1);
-		int strLanguageNameYPos = ((LanguageSelectionScreenState::getFlagYPosition(this) + __LANGUAGE_SELECTION_SCREEN_IMAGE_HEIGHT) >> 3) - 1;
+		int32 strLanguageNameXPos = (__HALF_SCREEN_WIDTH_IN_CHARS) - (strLanguageNameSize.x >> 1);
+		int32 strLanguageNameYPos = ((LanguageSelectionScreenState::getFlagYPosition(this) + __LANGUAGE_SELECTION_SCREEN_IMAGE_HEIGHT) >> 3) - 1;
 		Printing::text(Printing::getInstance(), "                                                ", 0, strLanguageNameYPos, __LANGUAGE_SELECTION_SCREEN_LANGUAGE_NAME_FONT);
 		Printing::text(Printing::getInstance(), strLanguageName, strLanguageNameXPos, strLanguageNameYPos, __LANGUAGE_SELECTION_SCREEN_LANGUAGE_NAME_FONT);
 
@@ -269,12 +269,12 @@ Entity LanguageSelectionScreenState::addFlagToStage(EntitySpec* entitySpec, uint
 	return Stage::addChildEntity(Game::getStage(Game::getInstance()), &flagPositionedEntity, true);
 }
 
-int LanguageSelectionScreenState::getFlagXPosition(uint8 position)
+int32 LanguageSelectionScreenState::getFlagXPosition(uint8 position)
 {
 	return 192 - this->flagsTotalHalfWidth + (position * (__LANGUAGE_SELECTION_SCREEN_IMAGE_WIDTH));
 }
 
-int LanguageSelectionScreenState::getFlagYPosition()
+int32 LanguageSelectionScreenState::getFlagYPosition()
 {
 	return 96 + ((__LANGUAGE_SELECTION_SCREEN_IMAGE_HEIGHT) >> 1);
 }

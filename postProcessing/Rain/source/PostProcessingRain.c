@@ -55,12 +55,12 @@ static void PostProcessingRain::waterStream(
 	const uint16 dropletLength[],
 	uint16 numberOfDropletSize,
 	uint16* dropletLengthIndex,
-	int minimumDropletLength,
+	int32 minimumDropletLength,
 	const int16 dropletParallax[],
 	uint16 numberOfDropletParallax
 )
 {
-	int yIndex = 0;
+	int32 yIndex = 0;
 
 	if(xStart < _cameraFrustum->x0)
 	{
@@ -82,7 +82,7 @@ static void PostProcessingRain::waterStream(
 		yEnd = _cameraFrustum->y1 - 1;
 	}
 
-	int x = xDisplacement + xStart;
+	int32 x = xDisplacement + xStart;
 
 	if(x < _cameraFrustum->x0)
 	{
@@ -95,7 +95,7 @@ static void PostProcessingRain::waterStream(
 	}
 
 	// write to framebuffers for both screens
-	int counter = 1;
+	int32 counter = 1;
 
 	for(; counter <= xEnd; counter += xStep)
 	{
@@ -112,8 +112,8 @@ static void PostProcessingRain::waterStream(
 			x += xStart;
 		}
 
-		int leftColumn = x;
-		int rightColumn = x;
+		int32 leftColumn = x;
+		int32 rightColumn = x;
 
 		int16 dropletParallaxValue = dropletParallax[counter % numberOfDropletParallax];
 
@@ -149,7 +149,7 @@ static void PostProcessingRain::waterStream(
 			*dropletLengthIndex = 0;
 		}
 
-		int effectiveDropletLength = (signed)dropletLength[*dropletLengthIndex] + yStepThrottle;
+		int32 effectiveDropletLength = (signed)dropletLength[*dropletLengthIndex] + yStepThrottle;
 
 		if(minimumDropletLength > effectiveDropletLength)
 		{
@@ -161,7 +161,7 @@ static void PostProcessingRain::waterStream(
 			effectiveDropletLength = POST_PROCESSING_RAIN_Y_STEP_SIZE - 1;
 		}
 
-		int dropletLengthDifference = (POST_PROCESSING_RAIN_Y_STEP_SIZE - (subY + effectiveDropletLength)) << 1;
+		int32 dropletLengthDifference = (POST_PROCESSING_RAIN_Y_STEP_SIZE - (subY + effectiveDropletLength)) << 1;
 
 		if(0 < dropletLengthDifference)
 		{
@@ -174,7 +174,7 @@ static void PostProcessingRain::waterStream(
 
 		if(!sourceValue)
 		{
-			if(__MODULO((int)dropletLengthDifference, POST_PROCESSING_RAIN_Y_STEP_SIZE_2_EXP))
+			if(__MODULO((int32)dropletLengthDifference, POST_PROCESSING_RAIN_Y_STEP_SIZE_2_EXP))
 			{
 				continue;
 			}
@@ -211,7 +211,7 @@ static void PostProcessingRain::waterStream(
 
 		y[i] += yStep[*yStepIndex] + yStepThrottle;
 
-		int cumulativeY = y[i] + yStart + yDisplacement;
+		int32 cumulativeY = y[i] + yStart + yDisplacement;
 
 		if(yEnd - (POST_PROCESSING_RAIN_Y_STEP_SIZE >> 1) < cumulativeY)
 		{
@@ -260,7 +260,7 @@ static void PostProcessingRain::calculateRainPrecipitation(fix19_13* yStepThrott
 	}
 
 	// multiply by the game cycle per second
-	int rainPeriod =  __I_TO_FIX19_13(((int)timePeriod[timePeriodIndex] + previousTime % timePeriod[timePeriodIndex]) * 50);
+	int32 rainPeriod =  __I_TO_FIX19_13(((int32)timePeriod[timePeriodIndex] + previousTime % timePeriod[timePeriodIndex]) * 50);
 
 	*yStepThrottle += __FIX10_6_TO_FIX19_13(__FIX10_6_DIV(__FIX19_13_TO_FIX10_6(rainAcceleration[rainAccelerationIndex] * (maximumYThrottle - minimumYThrottle)), __FIX19_13_TO_FIX10_6(rainPeriod)));
 	*xStep -= __FIX10_6_TO_FIX19_13(__FIX10_6_DIV(__FIX19_13_TO_FIX10_6(rainAcceleration[rainAccelerationIndex] * (maximumXStep - minimumXStep)), __FIX19_13_TO_FIX10_6(rainPeriod)));
@@ -297,7 +297,7 @@ static void PostProcessingRain::rain(uint32 currentDrawingFrameBufferSet __attri
 	static fix19_13 yStepThrottle = POST_PROCESSING_RAIN_MINIMUM_Y_THROTTLE_1;
 	static fix19_13 xStep = POST_PROCESSING_RAIN_MAXIMUM_X_STEP_1;
  	static Vector3D cameraPreviousPosition = {0, 0, 0};
- 	static int cumulativeX = 0;
+ 	static int32 cumulativeX = 0;
  	fix19_13 yScreenDisplacement = __I_TO_FIX19_13(__METERS_TO_PIXELS(_cameraPosition->y - cameraPreviousPosition.y));
 
  	cumulativeX += __METERS_TO_PIXELS(_cameraPosition->x - cameraPreviousPosition.x);
@@ -374,7 +374,7 @@ static void PostProcessingRain::rain(uint32 currentDrawingFrameBufferSet __attri
 	yStepThrottle += yScreenDisplacement;
 }
 
-static void PostProcessingRain::waterFall(uint32 currentDrawingFrameBufferSet, Vector3D position, int width, int height, int yStepThrottle)
+static void PostProcessingRain::waterFall(uint32 currentDrawingFrameBufferSet, Vector3D position, int32 width, int32 height, int32 yStepThrottle)
 {
 	static uint16 yStepIndex = 0;
 	static uint16 dropletLengthIndex = 0;

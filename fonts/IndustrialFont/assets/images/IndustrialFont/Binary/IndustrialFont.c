@@ -12,7 +12,7 @@
 //
 //======================================================================
 
-const unsigned int IndustrialFontTiles[1024] __attribute__((aligned(4)))=
+const uint32 IndustrialFontTiles[1024] __attribute__((aligned(4)))=
 {
 	0x04450441,0x04510445,0x04410451,0x00001441,0x000CC3FC,0x3F0C0F0C,0xFF0CFF0C,0xFFFC000C,
 	0x0C000FFF,0xFC00FC00,0xFC03FC00,0x0F0F0C00,0x00000000,0xFFC00000,0x03C0FFC0,0x03C003C0,

@@ -48,16 +48,16 @@ static void PostProcessingDwarfPlanet::dwarfPlanet(uint32 currentDrawingFrameBuf
 		30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30,
 	};
 
-	int lutEntries = sizeof(lut) / sizeof(uint32);
+	int32 lutEntries = sizeof(lut) / sizeof(uint32);
 	// runtime working variables
 
-	int counter = lutEntries;
+	int32 counter = lutEntries;
 
 	// loop columns of left fourth of screen
 	for(; --counter;)
 	{
-		int x1 = (lutEntries - counter);
-		int x2 = __SCREEN_WIDTH - counter;
+		int32 x1 = (lutEntries - counter);
+		int32 x2 = __SCREEN_WIDTH - counter;
 
 		// get pointer to currently manipulated 32 bits of framebuffer
 		uint32* columnSourcePointerLeft1 = (uint32*) (currentDrawingFrameBufferSet) + (x1 << 4);

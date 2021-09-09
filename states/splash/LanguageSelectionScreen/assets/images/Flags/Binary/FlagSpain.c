@@ -14,7 +14,7 @@
 //
 //======================================================================
 
-const unsigned int FlagSpainTiles[20] __attribute__((aligned(4)))=
+const uint32 FlagSpainTiles[20] __attribute__((aligned(4)))=
 {
 	0x00000000,0x55540000,0xAAA4AAA4,0xAAA4AAA4,
 	0x00000000,0x55550000,0xAAAAAAAA,0xAAAAAAAA,0xAAA4AAA4,0xFFF4FFF4,0xFFF4FFF4,0xFFF4FFF4,

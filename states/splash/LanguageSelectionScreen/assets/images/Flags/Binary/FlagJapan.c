@@ -14,7 +14,7 @@
 //
 //======================================================================
 
-const unsigned int FlagJapanTiles[24] __attribute__((aligned(4)))=
+const uint32 FlagJapanTiles[24] __attribute__((aligned(4)))=
 {
 	0x00000000,0x55540000,0xFFF4FFF4,0xFFF4FFF4,
 	0x00000000,0x55550000,0xFFFFFFFF,0xFFFFFFFF,0xFFF4FFF4,0xFFF4FFF4,0xFFF4FFF4,0xFFF4FFF4,

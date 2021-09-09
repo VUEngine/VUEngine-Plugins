@@ -13,7 +13,7 @@
 //
 //======================================================================
 
-const unsigned int AutomaticPauseLogoTiles[304] __attribute__((aligned(4)))=
+const uint32 AutomaticPauseLogoTiles[304] __attribute__((aligned(4)))=
 {
 	0x00000000,0x00000000,0x00000000,0x00000000,0x00000000,0x00000000,0x0FC00000,0xFFFC3FF0,
 	0x00000000,0x00000000,0x00000000,0x00030000,0xFFFCFFFC,0xFC00FFC0,0x0000C000,0x00000000,

@@ -126,7 +126,7 @@ void Vehicle::addForce(const Force* force, bool checkIfCanMove __attribute__((un
 	this->accumulatedForce = Vector3D::sum(this->accumulatedForce, *force);
 }
 
-int Vehicle::getSummingMethod()
+int32 Vehicle::getSummingMethod()
 {
 	return this->vehicleSpec->summingMethod;
 }

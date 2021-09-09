@@ -44,7 +44,7 @@ typedef struct ShaderSpriteSpec
 	BgmapSpriteSpec bgmapSpriteSpec;
 
 	/// display side
-	int shaderDisplaySide;
+	int32 shaderDisplaySide;
 
 } ShaderSpriteSpec;
 
@@ -64,7 +64,7 @@ typedef const ShaderSpriteSpec ShaderSpriteROMSpec;
 class ShaderSprite : BgmapSprite
 {
 	CharSet charSet;
-	int buffer;
+	int32 buffer;
 
 	/// @publicsection
 	void constructor(const ShaderSpriteSpec* shaderSpriteSpec, Object owner);

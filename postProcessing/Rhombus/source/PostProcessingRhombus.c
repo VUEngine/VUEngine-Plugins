@@ -37,7 +37,7 @@
 static void PostProcessingRhombus::rhombus(uint32 currentDrawingFrameBufferSet __attribute__ ((unused)), SpatialObject spatialObject)
 {
 	// runtime working variable
-	static int radius = 4;
+	static int32 radius = 4;
 
 	if(isDeleted(spatialObject))
 	{
@@ -72,7 +72,7 @@ static void PostProcessingRhombus::rhombus(uint32 currentDrawingFrameBufferSet _
  * @param color
  * @param screenPixelPosition
  */
-static void PostProcessingRhombus::drawRhombus(int radius, uint32 color, PixelVector screenPixelPosition, int parallax)
+static void PostProcessingRhombus::drawRhombus(int32 radius, uint32 color, PixelVector screenPixelPosition, int32 parallax)
 {
 	DirectDraw directDraw = DirectDraw::getInstance();
 

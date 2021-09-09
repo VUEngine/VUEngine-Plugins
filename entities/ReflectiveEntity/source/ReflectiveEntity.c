@@ -175,7 +175,7 @@ static uint32 ReflectiveEntity::getNoise(int16 passes)
 	return noise;
 }
 
-static void ReflectiveEntity::shiftPixels(int pixelShift, REFLECTIVE_ENTITY_POINTER_TYPE* sourceValue, uint32 nextSourceValue, REFLECTIVE_ENTITY_POINTER_TYPE* remainderValue, uint32 reflectionMask, uint32 noise)
+static void ReflectiveEntity::shiftPixels(int32 pixelShift, REFLECTIVE_ENTITY_POINTER_TYPE* sourceValue, uint32 nextSourceValue, REFLECTIVE_ENTITY_POINTER_TYPE* remainderValue, uint32 reflectionMask, uint32 noise)
 {
 	*sourceValue &= reflectionMask;
 	*remainderValue &= reflectionMask;
@@ -202,7 +202,7 @@ void ReflectiveEntity::drawReflection(uint32 currentDrawingFrameBufferSet,
 	uint32 reflectionMask,
 	uint16 axisForReversing, bool transparent, bool reflectParallax,
 	int16 parallaxDisplacement,
-	const uint8 waveLut[], int numberOfWaveLutEntries, fix10_6 waveLutThrottleFactor,
+	const uint8 waveLut[], int32 numberOfWaveLutEntries, fix10_6 waveLutThrottleFactor,
 	bool flattenTop __attribute__ ((unused)), bool flattenBottom,
 	uint32 topBorderMask,
 	uint32 bottomBorderMask,
@@ -242,8 +242,8 @@ void ReflectiveEntity::drawReflection(uint32 currentDrawingFrameBufferSet,
 
 	uint32 transparentMask = transparent ? 0xFFFFFFFF : 0;
 
-	int xClamping = 0;
-	int xOutputStartSave = xOutputStart;
+	int32 xClamping = 0;
+	int32 xOutputStartSave = xOutputStart;
 
 	// clamp values to not write out of the camera
 	if(xSourceStart < _cameraFrustum->x0)
@@ -337,10 +337,10 @@ void ReflectiveEntity::drawReflection(uint32 currentDrawingFrameBufferSet,
 		return;
 	}
 
-	int xSource = xSourceStart;
-	int xOutput = xOutputStart;
-	int xOutputLimit = xOutputEnd;
-	int xOutputIncrement = 1;
+	int32 xSource = xSourceStart;
+	int32 xOutput = xOutputStart;
+	int32 xOutputLimit = xOutputEnd;
+	int32 xOutputIncrement = 1;
 
 	if(__X_AXIS & axisForReversing)
 	{
@@ -366,7 +366,7 @@ void ReflectiveEntity::drawReflection(uint32 currentDrawingFrameBufferSet,
 		numberOfWaveLutEntries = 1;
 	}
 
-	int ySourceIncrement = 1;
+	int32 ySourceIncrement = 1;
 
 	if(__Y_AXIS & axisForReversing)
 	{
@@ -376,11 +376,11 @@ void ReflectiveEntity::drawReflection(uint32 currentDrawingFrameBufferSet,
 		ySourceIncrement = -1;
 	}
 
-    int ySourceStartHelper = ySourceStart >> REFLECTIVE_ENTITY_Y_STEP_SIZE_2_EXP;
+    int32 ySourceStartHelper = ySourceStart >> REFLECTIVE_ENTITY_Y_STEP_SIZE_2_EXP;
 
-	int xSourceDistance = __ABS(xSourceEnd - xSourceStart);
-	int xOutputDistance = __ABS(xOutput - xOutputLimit);
-	int xTotal = xOutputDistance > xSourceDistance ? xSourceDistance : xOutputDistance;
+	int32 xSourceDistance = __ABS(xSourceEnd - xSourceStart);
+	int32 xOutputDistance = __ABS(xOutput - xOutputLimit);
+	int32 xTotal = xOutputDistance > xSourceDistance ? xSourceDistance : xOutputDistance;
 
 	this->waveLutIndex += waveLutIndexIncrement;
 
@@ -393,7 +393,7 @@ void ReflectiveEntity::drawReflection(uint32 currentDrawingFrameBufferSet,
 		this->waveLutIndex = 0;
 	}
 
-	int rightBorderSize = 0;
+	int32 rightBorderSize = 0;
 	uint32 temp = rightBorderMask;
 
 	while(temp)
@@ -402,7 +402,7 @@ void ReflectiveEntity::drawReflection(uint32 currentDrawingFrameBufferSet,
 		temp >>= 2;
 	}
 
-	int xCounter = xOutputStart - xOutputStartSave;
+	int32 xCounter = xOutputStart - xOutputStartSave;
 
 	if(reflectParallax)
 	{
@@ -427,8 +427,8 @@ void ReflectiveEntity::drawReflection(uint32 currentDrawingFrameBufferSet,
 				this->waveLutIndex = 0;
 			}
 
-			int leftColumn = xOutput;
-			int rightColumn = xOutput;
+			int32 leftColumn = xOutput;
+			int32 rightColumn = xOutput;
 
 			if(parallaxDisplacement)
 			{
@@ -446,20 +446,20 @@ void ReflectiveEntity::drawReflection(uint32 currentDrawingFrameBufferSet,
 				}
 			}
 
-			int xRelativeCoordinate = (xCounter % width) + __FIX10_6_TO_I(this->waveLutIndex);
-			int xIndex = (numberOfWaveLutEntries * xRelativeCoordinate) / width;
+			int32 xRelativeCoordinate = (xCounter % width) + __FIX10_6_TO_I(this->waveLutIndex);
+			int32 xIndex = (numberOfWaveLutEntries * xRelativeCoordinate) / width;
 
 			if(xIndex >= numberOfWaveLutEntries)
 			{
 				xIndex = xIndex % numberOfWaveLutEntries;
 			}
 
-			int waveLutPixelDisplacement = waveLut[xIndex];
+			int32 waveLutPixelDisplacement = waveLut[xIndex];
 
-			int ySource = ySourceStartHelper;
-			int yOutput = (yOutputStart + waveLutPixelDisplacement) >> REFLECTIVE_ENTITY_Y_STEP_SIZE_2_EXP;
+			int32 ySource = ySourceStartHelper;
+			int32 yOutput = (yOutputStart + waveLutPixelDisplacement) >> REFLECTIVE_ENTITY_Y_STEP_SIZE_2_EXP;
 
-			int pixelShift = (__MODULO((yOutputStart + waveLutPixelDisplacement), REFLECTIVE_ENTITY_Y_STEP_SIZE) - __MODULO(ySourceStart, REFLECTIVE_ENTITY_Y_STEP_SIZE)) << 1;
+			int32 pixelShift = (__MODULO((yOutputStart + waveLutPixelDisplacement), REFLECTIVE_ENTITY_Y_STEP_SIZE) - __MODULO(ySourceStart, REFLECTIVE_ENTITY_Y_STEP_SIZE)) << 1;
 
 			reflectionMask = reflectionMaskSave;
 
@@ -485,8 +485,8 @@ void ReflectiveEntity::drawReflection(uint32 currentDrawingFrameBufferSet,
 			REFLECTIVE_ENTITY_POINTER_TYPE* columnOutputPointerLeft = (REFLECTIVE_ENTITY_POINTER_TYPE*) (currentDrawingFrameBufferSet) + (leftColumn << REFLECTIVE_ENTITY_Y_SHIFT) + yOutput;
 			REFLECTIVE_ENTITY_POINTER_TYPE* columnOutputPointerRight = (REFLECTIVE_ENTITY_POINTER_TYPE*) (currentDrawingFrameBufferSet | 0x00010000) + (rightColumn << REFLECTIVE_ENTITY_Y_SHIFT) + yOutput;
 
-			int columnSourcePointerLeftIncrement = ySourceIncrement;
-			int columnSourcePointerRightIncrement = ySourceIncrement;
+			int32 columnSourcePointerLeftIncrement = ySourceIncrement;
+			int32 columnSourcePointerRightIncrement = ySourceIncrement;
 
 			REFLECTIVE_ENTITY_POINTER_TYPE sourceCurrentValueLeft = *columnSourcePointerLeft;
 			columnSourcePointerLeft += columnSourcePointerLeftIncrement;
@@ -510,8 +510,8 @@ void ReflectiveEntity::drawReflection(uint32 currentDrawingFrameBufferSet,
 
 			waveLutPixelDisplacement =  flattenBottom ? 0 : waveLutPixelDisplacement;
 
-			int yOutputRemainder = __MODULO((yOutputEnd + waveLutPixelDisplacement), REFLECTIVE_ENTITY_Y_STEP_SIZE) << 1;
-			int yOutputLimit = (yOutputEnd + waveLutPixelDisplacement) >> REFLECTIVE_ENTITY_Y_STEP_SIZE_2_EXP;
+			int32 yOutputRemainder = __MODULO((yOutputEnd + waveLutPixelDisplacement), REFLECTIVE_ENTITY_Y_STEP_SIZE) << 1;
+			int32 yOutputLimit = (yOutputEnd + waveLutPixelDisplacement) >> REFLECTIVE_ENTITY_Y_STEP_SIZE_2_EXP;
 
 			REFLECTIVE_ENTITY_POINTER_TYPE remainderLeftValue = yOutput >= yOutputLimit ? sourceCurrentValueLeft : 0;
 			REFLECTIVE_ENTITY_POINTER_TYPE remainderRightValue = yOutput >= yOutputLimit ? sourceCurrentValueRight : 0;
@@ -621,8 +621,8 @@ void ReflectiveEntity::drawReflection(uint32 currentDrawingFrameBufferSet,
 				border = rightBorderMask ? 0xFFFFFFFF : 0;
 			}
 
-			int leftColumn = xOutput;
-			int rightColumn = xOutput;
+			int32 leftColumn = xOutput;
+			int32 rightColumn = xOutput;
 
 			if(parallaxDisplacement)
 			{
@@ -640,20 +640,20 @@ void ReflectiveEntity::drawReflection(uint32 currentDrawingFrameBufferSet,
 				}
 			}
 
-			int xRelativeCoordinate = (xCounter % width) + __FIX10_6_TO_I(this->waveLutIndex);
-			int xIndex = (numberOfWaveLutEntries * xRelativeCoordinate) / width;
+			int32 xRelativeCoordinate = (xCounter % width) + __FIX10_6_TO_I(this->waveLutIndex);
+			int32 xIndex = (numberOfWaveLutEntries * xRelativeCoordinate) / width;
 
 			if(xIndex >= numberOfWaveLutEntries)
 			{
 				xIndex = xIndex % numberOfWaveLutEntries;
 			}
 
-			int waveLutPixelDisplacement = waveLut[xIndex];
+			int32 waveLutPixelDisplacement = waveLut[xIndex];
 
-			int ySource = ySourceStartHelper;
-			int yOutput = (yOutputStart + waveLutPixelDisplacement) >> REFLECTIVE_ENTITY_Y_STEP_SIZE_2_EXP;
+			int32 ySource = ySourceStartHelper;
+			int32 yOutput = (yOutputStart + waveLutPixelDisplacement) >> REFLECTIVE_ENTITY_Y_STEP_SIZE_2_EXP;
 
-			int pixelShift = (__MODULO((yOutputStart + waveLutPixelDisplacement), REFLECTIVE_ENTITY_Y_STEP_SIZE) - __MODULO(ySourceStart, REFLECTIVE_ENTITY_Y_STEP_SIZE)) << 1;
+			int32 pixelShift = (__MODULO((yOutputStart + waveLutPixelDisplacement), REFLECTIVE_ENTITY_Y_STEP_SIZE) - __MODULO(ySourceStart, REFLECTIVE_ENTITY_Y_STEP_SIZE)) << 1;
 
 			reflectionMask = reflectionMaskSave;
 
@@ -679,7 +679,7 @@ void ReflectiveEntity::drawReflection(uint32 currentDrawingFrameBufferSet,
 			REFLECTIVE_ENTITY_POINTER_TYPE* columnOutputPointerLeft = (REFLECTIVE_ENTITY_POINTER_TYPE*) (currentDrawingFrameBufferSet) + (leftColumn << REFLECTIVE_ENTITY_Y_SHIFT) + yOutput;
 			REFLECTIVE_ENTITY_POINTER_TYPE* columnOutputPointerRight = (REFLECTIVE_ENTITY_POINTER_TYPE*) (currentDrawingFrameBufferSet | 0x00010000) + (rightColumn << REFLECTIVE_ENTITY_Y_SHIFT) + yOutput;
 
-			int columnSourcePointerLeftIncrement = ySourceIncrement;
+			int32 columnSourcePointerLeftIncrement = ySourceIncrement;
 
 			REFLECTIVE_ENTITY_POINTER_TYPE sourceCurrentValueLeft = *columnSourcePointerLeft;
 			REFLECTIVE_ENTITY_POINTER_TYPE sourceCurrentValueRight = *columnSourcePointerRight;
@@ -697,9 +697,9 @@ void ReflectiveEntity::drawReflection(uint32 currentDrawingFrameBufferSet,
 
 			waveLutPixelDisplacement =  flattenBottom ? 0 : waveLutPixelDisplacement;
 
-			int yOutputRemainder = __MODULO((yOutputEnd + waveLutPixelDisplacement), REFLECTIVE_ENTITY_Y_STEP_SIZE) << 1;
+			int32 yOutputRemainder = __MODULO((yOutputEnd + waveLutPixelDisplacement), REFLECTIVE_ENTITY_Y_STEP_SIZE) << 1;
 
-			int yOutputLimit = (yOutputEnd + waveLutPixelDisplacement) >> REFLECTIVE_ENTITY_Y_STEP_SIZE_2_EXP;
+			int32 yOutputLimit = (yOutputEnd + waveLutPixelDisplacement) >> REFLECTIVE_ENTITY_Y_STEP_SIZE_2_EXP;
 
 			REFLECTIVE_ENTITY_POINTER_TYPE remainderLeftValue = yOutput < yOutputLimit ? 0 : sourceCurrentValueLeft;
 

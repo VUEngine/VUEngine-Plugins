@@ -12,7 +12,7 @@
 //
 //======================================================================
 
-const unsigned int AstonishFontTiles[2048] __attribute__((aligned(4)))=
+const uint32 AstonishFontTiles[2048] __attribute__((aligned(4)))=
 {
 	0x00000000,0x00000000,0x04450441,0x04510445,0x00000000,0x00000000,0x0003C3FF,0x2AA30AA3,
 	0x00000000,0x00000000,0x0C000FFF,0xFC00FC00,0x00000000,0x00000000,0x00000000,0xFFC00000,

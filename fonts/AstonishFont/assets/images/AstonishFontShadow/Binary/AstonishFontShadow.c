@@ -12,7 +12,7 @@
 //
 //======================================================================
 
-const unsigned int AstonishFontShadowTiles[2048] __attribute__((aligned(4)))=
+const uint32 AstonishFontShadowTiles[2048] __attribute__((aligned(4)))=
 {
 	0x00000000,0x00000000,0x04450441,0x04510445,0x00000000,0x00000000,0x000EE3FE,0x3F8E0F8E,
 	0x00000000,0x00000000,0x0E000FFF,0xFE00FE00,0x00000000,0x00000000,0x00000000,0xFFE00000,

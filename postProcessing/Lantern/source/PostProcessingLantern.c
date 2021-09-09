@@ -30,7 +30,7 @@
 //												FUNCTIONS
 //---------------------------------------------------------------------------------------------------------
 
-static void PostProcessingLantern::applyMask(uint32 currentDrawingFrameBufferSet, int xStart, int xEnd, int yStart, int yEnd, uint32 mask)
+static void PostProcessingLantern::applyMask(uint32 currentDrawingFrameBufferSet, int32 xStart, int32 xEnd, int32 yStart, int32 yEnd, uint32 mask)
 {
 	if(xEnd < xStart || yEnd < yStart)
 	{
@@ -63,7 +63,7 @@ static void PostProcessingLantern::applyMask(uint32 currentDrawingFrameBufferSet
 		uint32* columnSourcePointerLeft = (uint32*) (currentDrawingFrameBufferSet) + (xStart << 4);
 		uint32* columnSourcePointerRight = (uint32*) (currentDrawingFrameBufferSet | 0x00010000) + (xStart << 4);
 
-		int y = yStart;
+		int32 y = yStart;
 
 		for(; y < yEnd; y++)
 		{
@@ -77,15 +77,15 @@ static void PostProcessingLantern::applyMask(uint32 currentDrawingFrameBufferSet
 
 static void PostProcessingLantern::ellipticalWindow(uint32 currentDrawingFrameBufferSet, PixelVector position, int16 ellipsisArc[], uint16 ellipsisHorizontalAxisSize, uint32 penumbraMask, bool roundBorder)
 {
- 	int xPosition = position.x;
- 	int yPosition = position.y;
+ 	int32 xPosition = position.x;
+ 	int32 yPosition = position.y;
 	// move y position to the closest 16 multiple
-	int tempYPosition = yPosition + (POST_PROCESSING_LANTERN_Y_STEP_SIZE >> 1);
+	int32 tempYPosition = yPosition + (POST_PROCESSING_LANTERN_Y_STEP_SIZE >> 1);
 	yPosition = tempYPosition - __MODULO(tempYPosition, POST_PROCESSING_LANTERN_Y_STEP_SIZE);
 
-	int ellipsisArcIndex = 0 > xPosition - ellipsisHorizontalAxisSize ? (ellipsisHorizontalAxisSize - xPosition) : 0;
-	int ellipsisArcIndexDelta = 1;
-	int x = 0;
+	int32 ellipsisArcIndex = 0 > xPosition - ellipsisHorizontalAxisSize ? (ellipsisHorizontalAxisSize - xPosition) : 0;
+	int32 ellipsisArcIndexDelta = 1;
+	int32 x = 0;
 
 	for(x = _cameraFrustum->x0; x < _cameraFrustum->x1; x++)
 	{
@@ -93,17 +93,17 @@ static void PostProcessingLantern::ellipticalWindow(uint32 currentDrawingFrameBu
 		uint32* columnSourcePointerLeft = (uint32*) (currentDrawingFrameBufferSet) + (x << 4);
 		uint32* columnSourcePointerRight = (uint32*) (currentDrawingFrameBufferSet | 0x00010000) + (x << 4);
 
-		int yStart = _cameraFrustum->y0 >> POST_PROCESSING_LANTERN_Y_STEP_SIZE_2_EXP;
-		int yEnd = (_cameraFrustum->y1 - 16) >> POST_PROCESSING_LANTERN_Y_STEP_SIZE_2_EXP; // do not write over GUI
-		int y = yStart;
+		int32 yStart = _cameraFrustum->y0 >> POST_PROCESSING_LANTERN_Y_STEP_SIZE_2_EXP;
+		int32 yEnd = (_cameraFrustum->y1 - 16) >> POST_PROCESSING_LANTERN_Y_STEP_SIZE_2_EXP; // do not write over GUI
+		int32 y = yStart;
 
-		int ellipsisY = ellipsisArc[ellipsisArcIndex];
-		int maskDisplacement = __MODULO(ellipsisY, POST_PROCESSING_LANTERN_Y_STEP_SIZE) << 1;
+		int32 ellipsisY = ellipsisArc[ellipsisArcIndex];
+		int32 maskDisplacement = __MODULO(ellipsisY, POST_PROCESSING_LANTERN_Y_STEP_SIZE) << 1;
 		uint32 upperMask = roundBorder ? ~(0xFFFFFFFF >> maskDisplacement) : 0xFFFFFFFF;
 		uint32 lowerMask = roundBorder ? ~(0xFFFFFFFF << maskDisplacement) : 0xFFFFFFFF;
 
-		int yLowerLimit =  (yPosition + ellipsisY) >> POST_PROCESSING_LANTERN_Y_STEP_SIZE_2_EXP;
-		int yUpperLimit = (yPosition >> POST_PROCESSING_LANTERN_Y_STEP_SIZE_2_EXP) - (yLowerLimit - (yPosition >> POST_PROCESSING_LANTERN_Y_STEP_SIZE_2_EXP));
+		int32 yLowerLimit =  (yPosition + ellipsisY) >> POST_PROCESSING_LANTERN_Y_STEP_SIZE_2_EXP;
+		int32 yUpperLimit = (yPosition >> POST_PROCESSING_LANTERN_Y_STEP_SIZE_2_EXP) - (yLowerLimit - (yPosition >> POST_PROCESSING_LANTERN_Y_STEP_SIZE_2_EXP));
 
 		if(yUpperLimit > yEnd)
 		{

@@ -29,7 +29,7 @@ typedef struct VehicleSpec
 	ActorSpec actorSpec;
 
 	// Force accumulation method: kPrioritized, kWeightedAverage
-	int summingMethod;
+	int32 summingMethod;
 
 	/// Run steering behaviors at half speed
 	bool runSteeringBehaviorsAtHalfSpeed;
@@ -52,7 +52,7 @@ class Vehicle : Actor
 	/// @publicsection
 	void constructor(VehicleSpec* vehicleSpec, int16 internalId, const char* const name);
 
-	int getSummingMethod();
+	int32 getSummingMethod();
 	bool updateForce();
 	VirtualList getSteeringBehaviors();
 	Velocity getVelocity();

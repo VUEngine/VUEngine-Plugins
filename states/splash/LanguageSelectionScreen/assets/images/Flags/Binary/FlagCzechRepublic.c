@@ -14,7 +14,7 @@
 //
 //======================================================================
 
-const unsigned int FlagCzechRepublicTiles[64] __attribute__((aligned(4)))=
+const uint32 FlagCzechRepublicTiles[64] __attribute__((aligned(4)))=
 {
 	0x00000000,0x55540000,0xFEA4FFE4,0xAAA4FAA4,
 	0x00000000,0x55550000,0xFFFFFFFF,0xFFFFFFFF,0x00000000,0x15550000,0x1FFF1FFF,0x1FFF1FFF,

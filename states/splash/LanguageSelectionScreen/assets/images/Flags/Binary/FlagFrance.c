@@ -14,7 +14,7 @@
 //
 //======================================================================
 
-const unsigned int FlagFranceTiles[44] __attribute__((aligned(4)))=
+const uint32 FlagFranceTiles[44] __attribute__((aligned(4)))=
 {
 	0x00000000,0x55540000,0x55545554,0x55545554,
 	0x00000000,0x55550000,0xF555F555,0xF555F555,0x00000000,0x55550000,0xFFFFFFFF,0xFFFFFFFF,

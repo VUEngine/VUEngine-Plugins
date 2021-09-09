@@ -62,7 +62,7 @@ void I18n::destructor()
  * @param string	The identifier of the string to localize
  * @return 			localized string or NULL if no translation could be found
  */
-const char* I18n::getText(int string)
+const char* I18n::getText(int32 string)
 {
 	// TODO: check if __LANGUAGES is empty
 	return 0 <= string ? __LANGUAGES[this->activeLanguage]->language[string] : NULL;

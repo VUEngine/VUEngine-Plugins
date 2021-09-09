@@ -13,7 +13,7 @@
 //
 //======================================================================
 
-const unsigned int AdjustmentScreenBGTiles[12] __attribute__((aligned(4)))=
+const uint32 AdjustmentScreenBGTiles[12] __attribute__((aligned(4)))=
 {
 	0x00003333,0x00003333,0x00003333,0x00003333,
 	0x00002222,0x00002222,0x00002222,0x00002222,

@@ -112,7 +112,7 @@ void ShaderSprite::drawRandom(WORD* destinationAddress)
 {
 	extern BYTE ShaderTiles[];
 
-	static int increment = 0;
+	static int32 increment = 0;
 	increment++;
 
 	ShaderSprite::addWORD(
@@ -133,13 +133,13 @@ void ShaderSprite::renderToTexture(WORD* bufferAddress)
 	ShaderSprite::clear(this, bufferAddress);
 	ShaderSprite::drawRandom(this, bufferAddress);
 
-	for(int i = 0; i < 12; i++)
+	for(int32 i = 0; i < 12; i++)
 	{
 		ShaderSprite::renderClock(this, bufferAddress);
 	}
 }
 
-const int pad[8192*8*4] = {0};
+const int32 pad[8192*8*4] = {0};
 
 void ShaderSprite::renderClock(WORD* bufferAddress)
 {
@@ -170,9 +170,9 @@ void ShaderSprite::renderClock(WORD* bufferAddress)
 	ShaderSprite::drawLine(this, bufferAddress, fromVertex2D, toVertex2D, __COLOR_BRIGHT_RED);
 }
 
-void ShaderSprite::drawPixel(WORD* bufferAddress, uint16 x, uint16 y, int color)
+void ShaderSprite::drawPixel(WORD* bufferAddress, uint16 x, uint16 y, int32 color)
 {
-	int cols = Texture::getCols(this->texture);
+	int32 cols = Texture::getCols(this->texture);
 
 	uint16 col = x >> 3;
 	uint16 row = y >> 3;
@@ -199,7 +199,7 @@ void ShaderSprite::drawPixel(WORD* bufferAddress, uint16 x, uint16 y, int color)
 	);
 }
 
-void ShaderSprite::drawLine(WORD* bufferAddress, PixelVector fromPoint, PixelVector toPoint, int color)
+void ShaderSprite::drawLine(WORD* bufferAddress, PixelVector fromPoint, PixelVector toPoint, int32 color)
 {
 	fix19_13 fromPointX = __I_TO_FIX19_13(fromPoint.x);
 	fix19_13 fromPointY = __I_TO_FIX19_13(fromPoint.y);

@@ -40,7 +40,7 @@ static void PostProcessingWobble::wobble(uint32 currentDrawingFrameBufferSet, Sp
 	uint32 previousSourcePointerValueRight = 0;
 
 	// runtime working variables
-	static int waveLutIndex = 0;
+	static int32 waveLutIndex = 0;
 
 	// look up table of bitshifts performed on rows
 	// values must be multiples of 2

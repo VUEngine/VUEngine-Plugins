@@ -86,7 +86,7 @@ singleton class I18n : Object
 	uint8 getActiveLanguage();
 	char* getActiveLanguageName();
 	LangSpec * getLanguages();
-	const char* getText(int string);
+	const char* getText(int32 string);
 	void setActiveLanguage(uint8 languageId);
 }
 

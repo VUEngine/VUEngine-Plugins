@@ -42,7 +42,7 @@ typedef struct SteeringBehaviorSpec
 	BehaviorSpec behaviorSpec;
 
 	/// Priority: higher values have more priority
-	int priority;
+	int32 priority;
 
 	/// Weight to this behavior on the overal effect (range: 0-1)
 	fix10_6 weight;
@@ -70,7 +70,7 @@ class SteeringBehavior : Behavior
 	Vector3D force;
 
 	// higher value has more priority
-	int priority;
+	int32 priority;
 	fix10_6 weight;
 	fix10_6 maximumForce;
 	fix10_6 deviation;
@@ -78,8 +78,8 @@ class SteeringBehavior : Behavior
 	void constructor(const SteeringBehaviorSpec* steeringBehaviorSpec);
 
 	static Vector3D calculateForce(Vehicle vehicle);
-	int getPriority();
-	void setPriority(int value);
+	int32 getPriority();
+	void setPriority(int32 value);
 	fix10_6 getWeight();
 	void setWeight(fix10_6 value);
 	fix10_6 getMaximumForce();

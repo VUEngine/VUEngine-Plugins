@@ -115,7 +115,7 @@ singleton class SaveDataManager : Object
 	/**
 	 * Return size of SaveData
 	 */
-	virtual int getSaveDataSize();
+	virtual int32 getSaveDataSize();
 
 
 	/// @privatesection

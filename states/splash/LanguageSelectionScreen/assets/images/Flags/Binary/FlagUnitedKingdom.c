@@ -14,7 +14,7 @@
 //
 //======================================================================
 
-const unsigned int FlagUnitedKingdomTiles[44] __attribute__((aligned(4)))=
+const uint32 FlagUnitedKingdomTiles[44] __attribute__((aligned(4)))=
 {
 	0x00000000,0x55540000,0x7FB45FF4,0xEF54FAD4,
 	0x00000000,0x55550000,0x55555555,0x555F5557,0x00000000,0x55550000,0x7AAD7AAD,0x7AAD7AAD,

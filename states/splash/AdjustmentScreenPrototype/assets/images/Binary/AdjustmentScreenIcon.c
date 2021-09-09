@@ -12,7 +12,7 @@
 //
 //======================================================================
 
-const unsigned int AdjustmentScreenIconTiles[20] __attribute__((aligned(4)))=
+const uint32 AdjustmentScreenIconTiles[20] __attribute__((aligned(4)))=
 {
 	0xC3C3FFFC,0xC3C3C3C3,0xC303C3C3,0xC30FC30F,
 	0xF0003FFF,0xC000C000,0xC3C3C3C3,0xF003C003,0xC00FC30F,0xC03FC03F,0xC0FFC03F,0xFFFCC0FF,

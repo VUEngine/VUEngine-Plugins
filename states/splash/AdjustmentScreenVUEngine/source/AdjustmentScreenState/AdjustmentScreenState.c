@@ -127,7 +127,7 @@ static void AdjustmentScreenState::rhombusEmitterPostProcessingEffect(uint32 cur
 {
 	// runtime working variables
 	// negative value to achieve an initial delay
-	static int radius = __ADJUSTMENT_SCREEN_RHOMBUS_INITIAL_VALUE;
+	static int32 radius = __ADJUSTMENT_SCREEN_RHOMBUS_INITIAL_VALUE;
 
 	// increase radius in each cycle
 	radius += 2;

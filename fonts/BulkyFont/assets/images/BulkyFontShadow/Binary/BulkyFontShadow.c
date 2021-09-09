@@ -12,7 +12,7 @@
 //
 //======================================================================
 
-const unsigned int BulkyFontShadowTiles[1024] __attribute__((aligned(4)))=
+const uint32 BulkyFontShadowTiles[1024] __attribute__((aligned(4)))=
 {
 	0x00000000,0x00000000,0x00000000,0x00000000,0x00000000,0x00000000,0x00000000,0x00000000,
 	0xE0000000,0xFE00F800,0xFE00FE00,0xF800FE00,0x003F0000,0x03FF00FF,0x03FF03FF,0x00FF03FF,

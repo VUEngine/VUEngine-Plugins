@@ -72,7 +72,7 @@ uint32 SaveDataManager::computeChecksum()
 	uint32 crc32 = ~0;
 
 	// iterate over whole save data, starting right after the previously saved checksum
-	int i = (offsetof(struct SaveData, checksum) + sizeof(crc32));
+	int32 i = (offsetof(struct SaveData, checksum) + sizeof(crc32));
 	for(; i < SaveDataManager::getSaveDataSize(this); i++)
 	{
 		// get the current byte
@@ -205,7 +205,7 @@ void SaveDataManager::setAutomaticPauseStatus(uint8 autoPauseStatus)
 	}
 }
 
-int SaveDataManager::getSaveDataSize()
+int32 SaveDataManager::getSaveDataSize()
 {
-	return (int)sizeof(SaveData);
+	return (int32)sizeof(SaveData);
 }
