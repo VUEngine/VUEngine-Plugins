@@ -56,7 +56,7 @@ bool ShaderSprite::hasSpecialEffects()
 	return true;
 }
 
-uint16 ShaderSprite::doRender(int16 index, bool evenFrame __attribute__((unused)))
+int16 ShaderSprite::doRender(int16 index, bool evenFrame __attribute__((unused)))
 {
 	if(Base::doRender(this, index, evenFrame) == index)
 	{

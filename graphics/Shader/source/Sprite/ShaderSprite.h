@@ -69,7 +69,7 @@ class ShaderSprite : BgmapSprite
 	/// @publicsection
 	void constructor(const ShaderSpriteSpec* shaderSpriteSpec, Object owner);
 
-	override uint16 doRender(int16 index, bool evenFrame);
+	override int16 doRender(int16 index, bool evenFrame);
 	override void processEffects();
 	override bool hasSpecialEffects();
 }
