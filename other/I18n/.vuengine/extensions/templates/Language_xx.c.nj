@@ -1,27 +1,29 @@
-{% include('./base/header.c.nj') %}
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                              THIS FILE WAS AUTO-GENERATED - DO NOT EDIT                               //
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 //---------------------------------------------------------------------------------------------------------
-// IMPORTANT: Ensure that this file is encoded in Windows-1252 to make use of the full
-//            character set including special characters of European languages.
+//           IMPORTANT: Ensure that this file is encoded in Windows-1252 to make use of the full
+//                    character set including special characters of European languages.
 //---------------------------------------------------------------------------------------------------------
 
 //---------------------------------------------------------------------------------------------------------
-//												INCLUDES
+//                                                INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
 #include <I18n.h>
 {% if currentItem.flag %}
 
 //---------------------------------------------------------------------------------------------------------
-//												DECLARATIONS
+//                                              DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
 extern EntitySpec {{ currentItem.flag }};
 {% endif %}
 
 //---------------------------------------------------------------------------------------------------------
-//												DEFINITIONS
+//                                               DEFINITIONS
 //---------------------------------------------------------------------------------------------------------
 
 const char* const LANGUAGE_{{ currentItem.id }}_STRINGS[] =
@@ -34,7 +36,6 @@ const char* const LANGUAGE_{{ currentItem.id }}_STRINGS[] =
 			{% set trans = translation.translation -%}
 		{% endif -%}
 	{% endfor -%}
-	{# TODO: the filters below are ugly -#}
 	"{{ trans | replace('\n', '\\n') | replace('\"', '\\"') | safe }}",
 	{% endfor %}
 };
