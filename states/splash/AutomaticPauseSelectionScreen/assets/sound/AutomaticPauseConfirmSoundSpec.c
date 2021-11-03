@@ -13,7 +13,7 @@
 //---------------------------------------------------------------------------------------------------------
 
 #include <SoundManager.h>
-#include <MIDI.h>
+#include <WaveForms.h>
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -64,7 +64,7 @@ SoundChannelConfigurationROM AUTOMATIC_PAUSE_CONFIRM_SND_CHANNEL_1_CONFIGURATION
 	0x00,
 
 	/// Waveform data pointer
-	sawtoothWaveForm,
+	SawtoothWaveForm,
 
 	/// kChannelNormal, kChannelModulation, kChannelNoise
 	kChannelNormal,

@@ -1,0 +1,11 @@
+{
+	"name": "Industrial",
+	"tiles": "IndustrialFontTiles",
+	"offset": 0,
+	"characterCount": 128,
+	"charactersPerLine": 32,
+	"size": {
+		"x": 1,
+		"y": 1
+	}
+}

@@ -24,7 +24,7 @@
 //												DEFINITIONS
 //---------------------------------------------------------------------------------------------------------
 
-#include <MIDI.h>
+#include <WaveForms.h>
 
 const uint16 AutomaticPauseSelectTrack[] =
 {
@@ -63,7 +63,7 @@ SoundChannelConfigurationROM AUTOMATIC_PAUSE_SELECT_SND_CHANNEL_1_CONFIGURATION 
 	0x00,
 
 	/// Waveform data pointer
-	sawtoothWaveForm,
+	SawtoothWaveForm,
 
 	/// kChannelNormal, kChannelModulation, kChannelNoise
 	kChannelNormal,

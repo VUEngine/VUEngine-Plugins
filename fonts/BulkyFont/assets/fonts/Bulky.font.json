@@ -1,0 +1,11 @@
+{
+	"name": "Bulky",
+	"tiles": "BulkyFontTiles",
+	"offset": 32,
+	"characterCount": 64,
+	"charactersPerLine": 16,
+	"size": {
+		"x": 2,
+		"y": 2
+	}
+}
