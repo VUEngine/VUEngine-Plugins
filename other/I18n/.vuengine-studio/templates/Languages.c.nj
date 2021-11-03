@@ -16,7 +16,7 @@
 //                                              DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-{% for lang in langs -%}
+{% for lang in langs|sort(attribute='order') -%}
 extern LangROMSpec {{ lang.id }}Language;
 {% endfor %}
 
@@ -27,7 +27,7 @@ extern LangROMSpec {{ lang.id }}Language;
 
 LangROMSpec* const __LANGUAGES[] =
 {
-	{% for lang in langs -%}
+	{% for lang in langs|sort(attribute='order') -%}
 	&{{ lang.id }}Language,
 	{% endfor %}
 	NULL
