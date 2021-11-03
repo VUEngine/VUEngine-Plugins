@@ -9,6 +9,17 @@
 //                                               DEFINITIONS
 //---------------------------------------------------------------------------------------------------------
 
+{% if langs | length -%}
+enum LanguageIdentifiers
+{
+	{% for lang in langs|sort(attribute='order') -%}
+	kLanguage{{ lang.id }},
+	{%- if not loop.last -%}{{ '\n	' }}{%- endif -%}
+	{%- endfor %}
+};
+
+{% endif -%}
+{% if langs[0].strings | length -%}
 enum LanguageStrings
 {
 	{% for key, string in langs[0].strings -%}
@@ -17,5 +28,5 @@ enum LanguageStrings
 	{%- endfor %}
 };
 
-
+{% endif %}
 #endif
