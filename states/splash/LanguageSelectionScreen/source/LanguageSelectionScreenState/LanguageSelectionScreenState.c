@@ -146,24 +146,25 @@ void LanguageSelectionScreenState::enter(void* owner)
 
 void LanguageSelectionScreenState::print()
 {
+	const char* strTitle = I18n::getText(I18n::getInstance(), kStringLanguageSelectTitle);
 	#if(__LANGUAGE_SELECTION_SCREEN_VARIANT == 0)
 
 		// print header
-		FontSize strHeaderSize = Printing::getTextSize(Printing::getInstance(), __LANGUAGE_SELECTION_SCREEN_TITLE_TEXT, __LANGUAGE_SELECTION_SCREEN_TITLE_TEXT_FONT);
+		FontSize strHeaderSize = Printing::getTextSize(Printing::getInstance(), strTitle, __LANGUAGE_SELECTION_SCREEN_TITLE_TEXT_FONT);
 		uint8 strHeaderXPos = (__HALF_SCREEN_WIDTH_IN_CHARS) - (strHeaderSize.x >> 1);
 		uint8 strHeaderYPos = 9 - strHeaderSize.y;
 		Printing::text(Printing::getInstance(), "                                                ", 0, strHeaderYPos, __LANGUAGE_SELECTION_SCREEN_TITLE_TEXT_FONT);
-		Printing::text(Printing::getInstance(), __LANGUAGE_SELECTION_SCREEN_TITLE_TEXT, strHeaderXPos, strHeaderYPos, __LANGUAGE_SELECTION_SCREEN_TITLE_TEXT_FONT);
+		Printing::text(Printing::getInstance(), strTitle, strHeaderXPos, strHeaderYPos, __LANGUAGE_SELECTION_SCREEN_TITLE_TEXT_FONT);
 
 	#endif
 	#if(__LANGUAGE_SELECTION_SCREEN_VARIANT == 1)
 
 		// print header
-		FontSize strHeaderSize = Printing::getTextSize(Printing::getInstance(), __LANGUAGE_SELECTION_SCREEN_TITLE_TEXT, __LANGUAGE_SELECTION_SCREEN_TITLE_TEXT_FONT);
+		FontSize strHeaderSize = Printing::getTextSize(Printing::getInstance(), strTitle, __LANGUAGE_SELECTION_SCREEN_TITLE_TEXT_FONT);
 		uint8 strHeaderXPos = (__HALF_SCREEN_WIDTH_IN_CHARS) - (strHeaderSize.x >> 1);
 		uint8 strHeaderYPos = 11 - strHeaderSize.y;
 		Printing::text(Printing::getInstance(), "                                                ", 0, strHeaderYPos, __LANGUAGE_SELECTION_SCREEN_TITLE_TEXT_FONT);
-		Printing::text(Printing::getInstance(), __LANGUAGE_SELECTION_SCREEN_TITLE_TEXT, strHeaderXPos, strHeaderYPos, __LANGUAGE_SELECTION_SCREEN_TITLE_TEXT_FONT);
+		Printing::text(Printing::getInstance(), strTitle, strHeaderXPos, strHeaderYPos, __LANGUAGE_SELECTION_SCREEN_TITLE_TEXT_FONT);
 
 		// print language
 		char* strLanguageName = I18n::getActiveLanguageName(I18n::getInstance());

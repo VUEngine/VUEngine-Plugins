@@ -21,12 +21,32 @@ extern EntitySpec {{ lang.flag }};
 //                                               DEFINITIONS
 //---------------------------------------------------------------------------------------------------------
 
+{% set strings = [] -%}
+{%- for list in [pluginLangs, langs] -%}
+	{%- for item in list -%}
+		{%- for key, string in item.strings -%}
+			{%- set strings = (strings.push(key), strings) %}
+		{%- endfor -%}
+	{%- endfor -%}
+{%- endfor -%}
+{%- set strings = strings | unique | sort -%}
+
 const char* const {{ lang.id }}LanguageStrings[] =
 {
-	{% for key, string in lang.strings -%}
-	/* kString{{ key }}: */
-	"{{ string | replace('\n', '\\n') | replace('\"', '\\"') | safe }}",
-	{%- if not loop.last -%}{{ '\n	' }}{%- endif -%}
+	{% for string in strings -%}
+		/* kString{{ string }}: */
+		{%- if lang.strings[string] -%}
+			{%- set value = lang.strings[string] -%}
+		{%- else -%}
+			{%- set value = '' -%}
+			{%- for pluginLang in pluginLangs -%}
+				{%- if pluginLang.code == lang.code and pluginLang.strings[string] -%}
+					{%- set value = pluginLang.strings[string] -%}
+				{%- endif -%}
+			{%- endfor -%}
+		{%- endif -%}
+		{{- '\n	' -}}"{{- value | replace('\n', '\\n') | replace('\"', '\\"') | safe -}}",
+		{%- if not loop.last -%}{{ '\n	' }}{%- endif -%}
 	{%- endfor %}
 };
 

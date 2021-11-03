@@ -57,21 +57,24 @@ void AutomaticPauseScreenState::enter(void* owner __attribute__ ((unused)))
 	GameState::loadStage(this, (StageSpec*)&AUTOMATIC_PAUSE_SCREEN_STAGE, NULL, true, false);
 
 	// print text
+	const char* strTitle = I18n::getText(I18n::getInstance(), kStringAutomaticPauseTitle);
+	const char* strBody = I18n::getText(I18n::getInstance(), kStringAutomaticPauseBody);
+
 	FontSize strAutomaticPauseSize = Printing::getTextSize(
 		Printing::getInstance(),
-		__AUTOMATIC_PAUSE_SCREEN_TITLE_TEXT,
+		strTitle,
 		__AUTOMATIC_PAUSE_SCREEN_TITLE_TEXT_FONT
 	);
 	FontSize strAutomaticPauseTextSize = Printing::getTextSize(
 		Printing::getInstance(),
-		__AUTOMATIC_PAUSE_SCREEN_BODY_TEXT,
+		strBody,
 		__AUTOMATIC_PAUSE_SCREEN_BODY_TEXT_FONT
 	);
 
 	uint8 strHeaderXPos = ((__HALF_SCREEN_WIDTH_IN_CHARS) - (strAutomaticPauseSize.x >> 1));
 	Printing::text(
 		Printing::getInstance(),
-		__AUTOMATIC_PAUSE_SCREEN_TITLE_TEXT,
+		strTitle,
 		strHeaderXPos,
 		18,
 		__AUTOMATIC_PAUSE_SCREEN_TITLE_TEXT_FONT
@@ -80,7 +83,7 @@ void AutomaticPauseScreenState::enter(void* owner __attribute__ ((unused)))
 	uint8 strTextXPos = (__HALF_SCREEN_WIDTH_IN_CHARS) - (strAutomaticPauseTextSize.x >> 1);
 	Printing::text(
 		Printing::getInstance(),
-		__AUTOMATIC_PAUSE_SCREEN_BODY_TEXT,
+		strBody,
 		strTextXPos,
 		19 + strAutomaticPauseSize.y,
 		__AUTOMATIC_PAUSE_SCREEN_BODY_TEXT_FONT

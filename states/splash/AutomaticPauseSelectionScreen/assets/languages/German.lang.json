@@ -1,0 +1,13 @@
+{
+    "id": "German",
+    "code": "de",
+    "flag": "",
+    "name": "Deutsch",
+    "order": 1,
+    "strings": {
+        "AutomaticPauseSelectionTitle": "AUTOMATISCHE PAUSE",
+        "AutomaticPauseSelectionBody": " Die Automatische Pause Funktion\nerinnert dich daran, das Spiel ca.\n  alle 30 Minuten zu pausieren",
+        "AutomaticPauseSelectionOff": "Aus",
+        "AutomaticPauseSelectionOn": "An"
+    }
+}

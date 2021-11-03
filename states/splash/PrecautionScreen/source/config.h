@@ -15,10 +15,6 @@
 //											CONFIGURATION MACROS
 //---------------------------------------------------------------------------------------------------------
 
-#ifndef __PRECAUTION_SCREEN_TEXT
-#define __PRECAUTION_SCREEN_TEXT					"     IMPORTANT\n\nREAD INSTRUCTION AND\n\nPRECAUTION BOOKLETS\n\n  BEFORE OPERATING"
-#endif
-
 #ifndef __PRECAUTION_SCREEN_TEXT_FONT
 #define __PRECAUTION_SCREEN_TEXT_FONT				"AstonishExt"
 #endif

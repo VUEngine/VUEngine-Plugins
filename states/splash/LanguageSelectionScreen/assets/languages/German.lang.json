@@ -1,0 +1,10 @@
+{
+    "id": "German",
+    "code": "de",
+    "flag": "",
+    "name": "Deutsch",
+    "order": 1,
+    "strings": {
+        "LanguageSelectTitle": "SPRACHAUSWAHL"
+    }
+}

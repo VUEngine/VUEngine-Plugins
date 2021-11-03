@@ -1,0 +1,13 @@
+{
+    "id": "French",
+    "code": "fr",
+    "flag": "",
+    "name": "Français",
+    "order": 1,
+    "strings": {
+        "AutomaticPauseSelectionTitle": "PAUSE AUTOMATIQUE",
+        "AutomaticPauseSelectionBody": "  La fonction Pause automatique va\nvous rappelerez de prendre une pause\n  de jeu chaque 30 minutes environ",
+        "AutomaticPauseSelectionOff": "Desactivé",
+        "AutomaticPauseSelectionOn": "Activé"
+    }
+}

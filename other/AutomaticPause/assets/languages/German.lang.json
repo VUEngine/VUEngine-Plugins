@@ -1,0 +1,11 @@
+{
+    "id": "German",
+    "code": "de",
+    "flag": "",
+    "name": "Deutsch",
+    "order": 1,
+    "strings": {
+        "AutomaticPauseTitle": "AUTOMATISCHE PAUSE",
+        "AutomaticPauseBody": "Bitte mache eine Pause!"
+    }
+}

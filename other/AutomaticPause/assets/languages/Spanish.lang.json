@@ -1,0 +1,11 @@
+{
+    "id": "Spanish",
+    "code": "es",
+    "flag": "",
+    "name": "Español",
+    "order": 1,
+    "strings": {
+        "AutomaticPauseTitle": "PAUSA AUTOMÁTICA",
+        "AutomaticPauseBody": "¡Por favor, tómese un descanso!"
+    }
+}

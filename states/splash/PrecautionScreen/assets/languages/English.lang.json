@@ -1,0 +1,10 @@
+{
+    "id": "English",
+    "code": "en",
+    "flag": "",
+    "name": "English",
+    "order": 1,
+    "strings": {
+        "PrecautionScreenBody": "     IMPORTANT\nREAD INSTRUCTION AND\nPRECAUTION BOOKLETS\n  BEFORE OPERATING"
+    }
+}

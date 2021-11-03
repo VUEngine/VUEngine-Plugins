@@ -7,6 +7,12 @@
         "key": "lang",
         "extra": [
             {
+                "key": "pluginLangs",
+                "type": "filetype",
+                "root": "activePlugins",
+                "value": ".lang.json"
+            },
+            {
                 "key": "langs",
                 "type": "filetype",
                 "root": "workspace",
