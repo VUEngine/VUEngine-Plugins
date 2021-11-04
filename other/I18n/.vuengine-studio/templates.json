@@ -23,18 +23,18 @@
             {
                 "root": "relative",
                 "value": "Spec/${id}LanguageSpec.c",
-                "template": "templates/Language.c.nj",
+                "template": "Language.c.nj",
                 "encoding": "win1252"
             },
             {
                 "root": "workspace",
                 "value": "assets/languages/Languages.c",
-                "template": "templates/Languages.c.nj"
+                "template": "Languages.c.nj"
             },
             {
                 "root": "workspace",
                 "value": "source/assets/Languages.h",
-                "template": "templates/Languages.h.nj"
+                "template": "Languages.h.nj"
             }
         ]
     }
