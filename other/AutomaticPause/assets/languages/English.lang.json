@@ -1,11 +1,11 @@
 {
-    "id": "English",
-    "code": "en",
-    "flag": "",
-    "name": "English",
-    "order": 1,
-    "strings": {
-        "AutomaticPauseTitle": "AUTOMATIC PAUSE",
-        "AutomaticPauseBody": "Please take a rest!"
-    }
+	"id": "English",
+	"code": "en",
+	"flag": "",
+	"name": "English",
+	"order": 1,
+	"strings": {
+		"AutomaticPauseTitle": "AUTOMATIC PAUSE",
+		"AutomaticPauseBody": "Please take a rest!"
+	}
 }

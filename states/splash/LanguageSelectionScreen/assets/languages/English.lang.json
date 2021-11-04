@@ -1,10 +1,10 @@
 {
-    "id": "English",
-    "code": "en",
-    "flag": "",
-    "name": "English",
-    "order": 1,
-    "strings": {
-        "LanguageSelectTitle": "LANGUAGE SELECT"
-    }
+	"id": "English",
+	"code": "en",
+	"flag": "",
+	"name": "English",
+	"order": 1,
+	"strings": {
+		"LanguageSelectTitle": "LANGUAGE SELECT"
+	}
 }

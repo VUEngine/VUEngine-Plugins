@@ -1,10 +1,10 @@
 {
-    "id": "Spanish",
-    "code": "es",
-    "flag": "",
-    "name": "Español",
-    "order": 1,
-    "strings": {
-        "LanguageSelectTitle": "SELECCIONAR IDIOMA"
-    }
+	"id": "Spanish",
+	"code": "es",
+	"flag": "",
+	"name": "Español",
+	"order": 1,
+	"strings": {
+		"LanguageSelectTitle": "SELECCIONAR IDIOMA"
+	}
 }

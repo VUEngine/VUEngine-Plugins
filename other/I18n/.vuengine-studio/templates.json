@@ -1,41 +1,41 @@
 [
-    {
-        "source": {
-            "type": "filetype",
-            "value": ".lang.json"
-        },
-        "key": "lang",
-        "extra": [
-            {
-                "key": "pluginLangs",
-                "type": "filetype",
-                "root": "activePlugins",
-                "value": ".lang.json"
-            },
-            {
-                "key": "langs",
-                "type": "filetype",
-                "root": "workspace",
-                "value": ".lang.json"
-            }
-        ],
-        "targets": [
-            {
-                "root": "relative",
-                "value": "Spec/${id}LanguageSpec.c",
-                "template": "Language.c.nj",
-                "encoding": "win1252"
-            },
-            {
-                "root": "workspace",
-                "value": "assets/languages/Languages.c",
-                "template": "Languages.c.nj"
-            },
-            {
-                "root": "workspace",
-                "value": "source/assets/Languages.h",
-                "template": "Languages.h.nj"
-            }
-        ]
-    }
+	{
+		"source": {
+			"type": "filetype",
+			"value": ".lang.json"
+		},
+		"key": "lang",
+		"extra": [
+			{
+				"key": "pluginLangs",
+				"type": "filetype",
+				"root": "activePlugins",
+				"value": ".lang.json"
+			},
+			{
+				"key": "langs",
+				"type": "filetype",
+				"root": "workspace",
+				"value": ".lang.json"
+			}
+		],
+		"targets": [
+			{
+				"root": "relative",
+				"value": "Spec/${id}LanguageSpec.c",
+				"template": "Language.c.nj",
+				"encoding": "win1252"
+			},
+			{
+				"root": "workspace",
+				"value": "assets/languages/Languages.c",
+				"template": "Languages.c.nj"
+			},
+			{
+				"root": "workspace",
+				"value": "source/assets/Languages.h",
+				"template": "Languages.h.nj"
+			}
+		]
+	}
 ]

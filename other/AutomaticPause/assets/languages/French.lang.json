@@ -1,11 +1,11 @@
 {
-    "id": "French",
-    "code": "fr",
-    "flag": "",
-    "name": "Français",
-    "order": 1,
-    "strings": {
-        "AutomaticPauseTitle": "PAUSE AUTOMATIQUE",
-        "AutomaticPauseBody": "Se il vous plaît, prendre un repos!"
-    }
+	"id": "French",
+	"code": "fr",
+	"flag": "",
+	"name": "Français",
+	"order": 1,
+	"strings": {
+		"AutomaticPauseTitle": "PAUSE AUTOMATIQUE",
+		"AutomaticPauseBody": "Se il vous plaît, prendre un repos!"
+	}
 }

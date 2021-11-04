@@ -1,13 +1,13 @@
 {
-    "id": "Spanish",
-    "code": "es",
-    "flag": "",
-    "name": "Español",
-    "order": 1,
-    "strings": {
-        "AutomaticPauseSelectionTitle": "PAUSA AUTOMÁTICA",
-        "AutomaticPauseSelectionBody": " La función automática de pausa te\nrecordará que debes tomar un descanso\n  approximadamente cada 30 minutos",
-        "AutomaticPauseSelectionOff": "Apagado",
-        "AutomaticPauseSelectionOn": "Encendido"
-    }
+	"id": "Spanish",
+	"code": "es",
+	"flag": "",
+	"name": "Español",
+	"order": 1,
+	"strings": {
+		"AutomaticPauseSelectionTitle": "PAUSA AUTOMÁTICA",
+		"AutomaticPauseSelectionBody": " La función automática de pausa te\nrecordará que debes tomar un descanso\n  approximadamente cada 30 minutos",
+		"AutomaticPauseSelectionOff": "Apagado",
+		"AutomaticPauseSelectionOn": "Encendido"
+	}
 }
