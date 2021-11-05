@@ -1,0 +1,13 @@
+{
+	"displayName": "Pompous Font",
+	"author": "Team VUEngine",
+	"description": "A wide 8x16 pixel font for medium size text.",
+	"icon": "./icon.png",
+	"readme": "./readme.md",
+	"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/fonts/PompousFont",
+	"license": "MIT",
+	"tags": [
+		"Font"
+	],
+	"dependencies": []
+}

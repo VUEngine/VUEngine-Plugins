@@ -1,0 +1,11 @@
+A wide 8x16 pixel font for medium size text.
+
+![](https://raw.githubusercontent.com/VUEngine/VUEngine-Plugins/master/fonts/PompousFont/preview.png)
+
+Usage
+-----
+
+Included are two versions of the font:
+
+- `PompousFont` contains the most important 96 characters (punctuation character, numbers and letters) plus control characters
+- `PompousExtFont` additionally contains European characters
