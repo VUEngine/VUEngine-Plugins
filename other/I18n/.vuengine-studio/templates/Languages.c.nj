@@ -17,7 +17,7 @@ extern LangROMSpec {{ lang.id }}Language;
 {% endif -%}
 {{ macros.sectionHeader('Definitions') }}
 
-LangROMSpec* const __LANGUAGES[] =
+LangROMSpec* const _languages[] =
 {
 	{% for lang in langs|sort(attribute='order') -%}
 	&{{ lang.id }}Language,

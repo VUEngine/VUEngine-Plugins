@@ -28,7 +28,7 @@ extern BYTE FlagUnknownMap[];
 //												DEFINITIONS
 //---------------------------------------------------------------------------------------------------------
 
-CharSetROMSpec FLAG_UNKNOWN_CH =
+CharSetROMSpec FlagUnknownCharset =
 {
 	// number of chars, depending on allocation type:
 	// __ANIMATED_SINGLE*, __ANIMATED_SHARED*: number of chars of a single animation frame (cols * rows)
@@ -43,10 +43,10 @@ CharSetROMSpec FLAG_UNKNOWN_CH =
 	FlagUnknownTiles,
 };
 
-TextureROMSpec FLAG_UNKNOWN_TX =
+TextureROMSpec FlagUnknownTexture =
 {
 	// charset spec
-	(CharSetSpec*)&FLAG_UNKNOWN_CH,
+	(CharSetSpec*)&FlagUnknownCharset,
 
 	// bgmap spec
 	FlagUnknownMap,
@@ -78,14 +78,14 @@ TextureROMSpec FLAG_UNKNOWN_TX =
 	false,
 };
 
-BgmapSpriteROMSpec FLAG_UNKNOWN_SPRITE =
+BgmapSpriteROMSpec FlagUnknownSprite =
 {
 	{
 		// sprite's type
 		__TYPE(BgmapSprite),
 
 		// texture spec
-		(TextureSpec*)&FLAG_UNKNOWN_TX,
+		(TextureSpec*)&FlagUnknownTexture,
 
 		// transparent (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
@@ -105,13 +105,13 @@ BgmapSpriteROMSpec FLAG_UNKNOWN_SPRITE =
 	__WORLD_ON,
 };
 
-BgmapSpriteROMSpec* const FLAG_UNKNOWN_SPRITES[] =
+BgmapSpriteROMSpec* const FlagUnknownSprites[] =
 {
-	&FLAG_UNKNOWN_SPRITE,
+	&FlagUnknownSprite,
 	NULL
 };
 
-EntityROMSpec FLAG_UNKNOWN_EN =
+EntityROMSpec FlagUnknownEntity =
 {
 	// class allocator
 	__TYPE(Entity),
@@ -126,7 +126,7 @@ EntityROMSpec FLAG_UNKNOWN_EN =
 	NULL,
 
 	// sprites
-	(SpriteSpec**)FLAG_UNKNOWN_SPRITES,
+	(SpriteSpec**)FlagUnknownSprites,
 
 	// use z displacement in projection
 	false,

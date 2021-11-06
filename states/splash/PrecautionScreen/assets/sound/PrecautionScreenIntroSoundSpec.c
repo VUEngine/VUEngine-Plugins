@@ -33,7 +33,7 @@ const uint16 PrecautionScreenIntroTrack[] =
   15, 15, 15, 
 };
 
-SoundChannelConfigurationROM PRECAUTION_SCREEN_INTRO_SND_CHANNEL_1_CONFIGURATION =
+SoundChannelConfigurationROM PrecautionScreenIntroSoundChannel1Configuration =
 {
 	/// kMIDI, kPCM
 	kMIDI,
@@ -72,10 +72,10 @@ SoundChannelConfigurationROM PRECAUTION_SCREEN_INTRO_SND_CHANNEL_1_CONFIGURATION
 	__SOUND_LR
 };
 
-SoundChannelROM PRECAUTION_SCREEN_INTRO_SND_CHANNEL_1 =
+SoundChannelROM PrecautionScreenIntroSoundChannel1 =
 {
 	/// Configuration
-	(SoundChannelConfiguration*)&PRECAUTION_SCREEN_INTRO_SND_CHANNEL_1_CONFIGURATION,
+	(SoundChannelConfiguration*)&PrecautionScreenIntroSoundChannel1Configuration,
 
 	/// Length (PCM)
 	0,
@@ -87,13 +87,13 @@ SoundChannelROM PRECAUTION_SCREEN_INTRO_SND_CHANNEL_1 =
 };
 
 
-SoundChannelROM* const PRECAUTION_SCREEN_INTRO_SND_CHANNELS[] =
+SoundChannelROM* const PrecautionScreenIntroSoundChannels[] =
 {
-	&PRECAUTION_SCREEN_INTRO_SND_CHANNEL_1,
+	&PrecautionScreenIntroSoundChannel1,
 	NULL
 };
 
-SoundROM PRECAUTION_SCREEN_INTRO_SND =
+SoundROM PrecautionScreenIntroSound =
 {
 	/// Name
 	"Boot",
@@ -105,5 +105,5 @@ SoundROM PRECAUTION_SCREEN_INTRO_SND =
 	1000,
 
 	/// Tracks
-	(SoundChannel**)PRECAUTION_SCREEN_INTRO_SND_CHANNELS
+	(SoundChannel**)PrecautionScreenIntroSoundChannels
 };

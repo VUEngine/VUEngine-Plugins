@@ -34,7 +34,7 @@ const uint16 AutomaticPauseConfirmTrack[] =
   15, 15, 15, 15 , 0
 };
 
-SoundChannelConfigurationROM AUTOMATIC_PAUSE_CONFIRM_SND_CHANNEL_1_CONFIGURATION =
+SoundChannelConfigurationROM AutomaticPauseConfirmSoundChannel1Configuration =
 {
 	/// kMIDI, kPCM
 	kMIDI,
@@ -73,10 +73,10 @@ SoundChannelConfigurationROM AUTOMATIC_PAUSE_CONFIRM_SND_CHANNEL_1_CONFIGURATION
 	__SOUND_LR
 };
 
-SoundChannelROM AUTOMATIC_PAUSE_CONFIRM_SND_CHANNEL_1 =
+SoundChannelROM AutomaticPauseConfirmSoundChannel1 =
 {
 	/// Configuration
-	(SoundChannelConfiguration*)&AUTOMATIC_PAUSE_CONFIRM_SND_CHANNEL_1_CONFIGURATION,
+	(SoundChannelConfiguration*)&AutomaticPauseConfirmSoundChannel1Configuration,
 
 	/// Length (PCM)
 	0,
@@ -88,13 +88,13 @@ SoundChannelROM AUTOMATIC_PAUSE_CONFIRM_SND_CHANNEL_1 =
 };
 
 
-SoundChannelROM* const AUTOMATIC_PAUSE_CONFIRM_SND_CHANNELS[] =
+SoundChannelROM* const AutomaticPauseConfirmSoundChannels[] =
 {
-	&AUTOMATIC_PAUSE_CONFIRM_SND_CHANNEL_1,
+	&AutomaticPauseConfirmSoundChannel1,
 	NULL
 };
 
-SoundROM AUTOMATIC_PAUSE_CONFIRM_SND =
+SoundROM AutomaticPauseConfirmSound =
 {
 	/// Name
 	"Automatic Pause confirm",
@@ -106,5 +106,5 @@ SoundROM AUTOMATIC_PAUSE_CONFIRM_SND =
 	500,
 
 	/// Tracks
-	(SoundChannel**)AUTOMATIC_PAUSE_CONFIRM_SND_CHANNELS
+	(SoundChannel**)AutomaticPauseConfirmSoundChannels
 };

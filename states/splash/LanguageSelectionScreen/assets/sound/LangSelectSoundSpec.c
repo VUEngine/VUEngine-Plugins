@@ -33,7 +33,7 @@ const uint16 LangSelectTrack[] =
   15, 15, 15, 
 };
 
-SoundChannelConfigurationROM LANG_SELECT_SND_CHANNEL_1_CONFIGURATION =
+SoundChannelConfigurationROM LangSelectSoundChannel1Configuration =
 {
 	/// kMIDI, kPCM
 	kMIDI,
@@ -72,10 +72,10 @@ SoundChannelConfigurationROM LANG_SELECT_SND_CHANNEL_1_CONFIGURATION =
 	__SOUND_LR
 };
 
-SoundChannelROM LANG_SELECT_SND_CHANNEL_1 =
+SoundChannelROM LangSelectSoundChannel1 =
 {
 	/// Configuration
-	(SoundChannelConfiguration*)&LANG_SELECT_SND_CHANNEL_1_CONFIGURATION,
+	(SoundChannelConfiguration*)&LangSelectSoundChannel1Configuration,
 
 	/// Length (PCM)
 	0,
@@ -87,13 +87,13 @@ SoundChannelROM LANG_SELECT_SND_CHANNEL_1 =
 };
 
 
-SoundChannelROM* LANG_SELECT_SND_CHANNELS[] =
+SoundChannelROM* LangSelectSoundChannels[] =
 {
-	&LANG_SELECT_SND_CHANNEL_1,
+	&LangSelectSoundChannel1,
 	NULL
 };
 
-SoundROM LANG_SELECT_SND =
+SoundROM LangSelectSound =
 {
 	/// Name
 	"Language select",
@@ -105,5 +105,5 @@ SoundROM LANG_SELECT_SND =
 	1000,
 
 	/// Tracks
-	(SoundChannel**)LANG_SELECT_SND_CHANNELS
+	(SoundChannel**)LangSelectSoundChannels
 };

@@ -33,7 +33,7 @@ const uint16 AutomaticPauseSelectTrack[] =
   15, 15, 15, 
 };
 
-SoundChannelConfigurationROM AUTOMATIC_PAUSE_SELECT_SND_CHANNEL_1_CONFIGURATION =
+SoundChannelConfigurationROM AutomaticPauseSelectSoundChannel1Configuration =
 {
 	/// kMIDI, kPCM
 	kMIDI,
@@ -72,10 +72,10 @@ SoundChannelConfigurationROM AUTOMATIC_PAUSE_SELECT_SND_CHANNEL_1_CONFIGURATION 
 	__SOUND_LR
 };
 
-SoundChannelROM AUTOMATIC_PAUSE_SELECT_SND_CHANNEL_1 =
+SoundChannelROM AutomaticPauseSelectSoundChannel1 =
 {
 	/// Configuration
-	(SoundChannelConfiguration*)&AUTOMATIC_PAUSE_SELECT_SND_CHANNEL_1_CONFIGURATION,
+	(SoundChannelConfiguration*)&AutomaticPauseSelectSoundChannel1Configuration,
 
 	/// Length (PCM)
 	0,
@@ -87,13 +87,13 @@ SoundChannelROM AUTOMATIC_PAUSE_SELECT_SND_CHANNEL_1 =
 };
 
 
-SoundChannelROM* AUTOMATIC_PAUSE_SELECT_SND_CHANNELS[] =
+SoundChannelROM* AutomaticPauseSelectSoundChannels[] =
 {
-	&AUTOMATIC_PAUSE_SELECT_SND_CHANNEL_1,
+	&AutomaticPauseSelectSoundChannel1,
 	NULL
 };
 
-SoundROM AUTOMATIC_PAUSE_SELECT_SND =
+SoundROM AutomaticPauseSelectSound =
 {
 	/// Name
 	"Automatic Pause select",
@@ -105,5 +105,5 @@ SoundROM AUTOMATIC_PAUSE_SELECT_SND =
 	1000,
 
 	/// Tracks
-	(SoundChannel**)AUTOMATIC_PAUSE_SELECT_SND_CHANNELS
+	(SoundChannel**)AutomaticPauseSelectSoundChannels
 };

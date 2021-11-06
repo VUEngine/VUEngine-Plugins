@@ -34,7 +34,7 @@ const uint16 LangConfirmTrack[] =
   15, 15, 15, 15 , 0
 };
 
-SoundChannelConfigurationROM LANG_CONFIRM_SND_CHANNEL_1_CONFIGURATION =
+SoundChannelConfigurationROM LangConfirmSoundChannel1Configuration =
 {
 	/// kMIDI, kPCM
 	kMIDI,
@@ -73,10 +73,10 @@ SoundChannelConfigurationROM LANG_CONFIRM_SND_CHANNEL_1_CONFIGURATION =
 	__SOUND_LR
 };
 
-SoundChannelROM LANG_CONFIRM_SND_CHANNEL_1 =
+SoundChannelROM LangConfirmSoundChannel1 =
 {
 	/// Configuration
-	(SoundChannelConfiguration*)&LANG_CONFIRM_SND_CHANNEL_1_CONFIGURATION,
+	(SoundChannelConfiguration*)&LangConfirmSoundChannel1Configuration,
 
 	/// Length (PCM)
 	0,
@@ -88,13 +88,13 @@ SoundChannelROM LANG_CONFIRM_SND_CHANNEL_1 =
 };
 
 
-SoundChannelROM* const LANG_CONFIRM_SND_CHANNELS[] =
+SoundChannelROM* const LangConfirmSoundChannels[] =
 {
-	&LANG_CONFIRM_SND_CHANNEL_1,
+	&LangConfirmSoundChannel1,
 	NULL
 };
 
-SoundROM LANG_CONFIRM_SND =
+SoundROM LangConfirmSound =
 {
 	/// Name
 	"Language confirm",
@@ -106,5 +106,5 @@ SoundROM LANG_CONFIRM_SND =
 	500,
 
 	/// Tracks
-	(SoundChannel**)LANG_CONFIRM_SND_CHANNELS
+	(SoundChannel**)LangConfirmSoundChannels
 };

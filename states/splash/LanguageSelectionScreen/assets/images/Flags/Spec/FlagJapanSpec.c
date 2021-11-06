@@ -28,7 +28,7 @@ extern BYTE FlagJapanMap[];
 //												DEFINITIONS
 //---------------------------------------------------------------------------------------------------------
 
-CharSetROMSpec FLAG_JAPAN_CH =
+CharSetROMSpec FlagJapanCharset =
 {
 	// number of chars, depending on allocation type:
 	// __ANIMATED_SINGLE*, __ANIMATED_SHARED*: number of chars of a single animation frame (cols * rows)
@@ -43,10 +43,10 @@ CharSetROMSpec FLAG_JAPAN_CH =
 	FlagJapanTiles,
 };
 
-TextureROMSpec FLAG_JAPAN_TX =
+TextureROMSpec FlagJapanTexture =
 {
 	// charset spec
-	(CharSetSpec*)&FLAG_JAPAN_CH,
+	(CharSetSpec*)&FlagJapanCharset,
 
 	// bgmap spec
 	FlagJapanMap,
@@ -78,14 +78,14 @@ TextureROMSpec FLAG_JAPAN_TX =
 	false,
 };
 
-BgmapSpriteROMSpec FLAG_JAPAN_SPRITE =
+BgmapSpriteROMSpec FlagJapanSprite =
 {
 	{
 		// sprite's type
 		__TYPE(BgmapSprite),
 
 		// texture spec
-		(TextureSpec*)&FLAG_JAPAN_TX,
+		(TextureSpec*)&FlagJapanTexture,
 
 		// transparent (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
@@ -105,13 +105,13 @@ BgmapSpriteROMSpec FLAG_JAPAN_SPRITE =
 	__WORLD_ON,
 };
 
-BgmapSpriteROMSpec* const FLAG_JAPAN_SPRITES[] =
+BgmapSpriteROMSpec* const FlagJapanSprites[] =
 {
-	&FLAG_JAPAN_SPRITE,
+	&FlagJapanSprite,
 	NULL
 };
 
-EntityROMSpec FLAG_JAPAN_EN =
+EntityROMSpec FlagJapanEntity =
 {
 	// class allocator
 	__TYPE(Entity),
@@ -126,7 +126,7 @@ EntityROMSpec FLAG_JAPAN_EN =
 	NULL,
 
 	// sprites
-	(SpriteSpec**)FLAG_JAPAN_SPRITES,
+	(SpriteSpec**)FlagJapanSprites,
 
 	// use z displacement in projection
 	false,

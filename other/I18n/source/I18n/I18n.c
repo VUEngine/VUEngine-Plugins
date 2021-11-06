@@ -21,7 +21,7 @@
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern LangROMSpec* __LANGUAGES[];
+extern LangROMSpec* _languages[];
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -64,8 +64,8 @@ void I18n::destructor()
  */
 const char* I18n::getText(int32 string)
 {
-	// TODO: check if __LANGUAGES is empty
-	return 0 <= string ? __LANGUAGES[this->activeLanguage]->language[string] : NULL;
+	// TODO: check if _languages is empty
+	return 0 <= string ? _languages[this->activeLanguage]->language[string] : NULL;
 }
 
 /**
@@ -91,7 +91,7 @@ void I18n::setActiveLanguage(uint8 languageId)
  */
 LangSpec * I18n::getLanguages()
 {
-	return (LangSpec *)__LANGUAGES;
+	return (LangSpec *)_languages;
 }
 
 /**
@@ -111,6 +111,6 @@ uint8 I18n::getActiveLanguage()
  */
 char* I18n::getActiveLanguageName()
 {
-	// TODO: check if __LANGUAGES is empty, return "none" if so
-	return (char*)__LANGUAGES[this->activeLanguage]->name;
+	// TODO: check if _languages is empty, return "none" if so
+	return (char*)_languages[this->activeLanguage]->name;
 }

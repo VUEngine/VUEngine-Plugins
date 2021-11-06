@@ -28,7 +28,7 @@ extern BYTE FlagUnitedKingdomMap[];
 //												DEFINITIONS
 //---------------------------------------------------------------------------------------------------------
 
-CharSetROMSpec FLAG_UNITED_KINGDOM_CH =
+CharSetROMSpec FlagUnitedKingdomCharset =
 {
 	// number of chars, depending on allocation type:
 	// __ANIMATED_SINGLE*, __ANIMATED_SHARED*: number of chars of a single animation frame (cols * rows)
@@ -43,10 +43,10 @@ CharSetROMSpec FLAG_UNITED_KINGDOM_CH =
 	FlagUnitedKingdomTiles,
 };
 
-TextureROMSpec FLAG_UNITED_KINGDOM_TX =
+TextureROMSpec FlagUnitedKingdomTexture =
 {
 	// charset spec
-	(CharSetSpec*)&FLAG_UNITED_KINGDOM_CH,
+	(CharSetSpec*)&FlagUnitedKingdomCharset,
 
 	// bgmap spec
 	FlagUnitedKingdomMap,
@@ -78,14 +78,14 @@ TextureROMSpec FLAG_UNITED_KINGDOM_TX =
 	false,
 };
 
-BgmapSpriteROMSpec FLAG_UNITED_KINGDOM_SPRITE =
+BgmapSpriteROMSpec FlagUnitedKingdomSprite =
 {
 	{
 		// sprite's type
 		__TYPE(BgmapSprite),
 
 		// texture spec
-		(TextureSpec*)&FLAG_UNITED_KINGDOM_TX,
+		(TextureSpec*)&FlagUnitedKingdomTexture,
 
 		// transparent (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
@@ -105,13 +105,13 @@ BgmapSpriteROMSpec FLAG_UNITED_KINGDOM_SPRITE =
 	__WORLD_ON,
 };
 
-BgmapSpriteROMSpec* const FLAG_UNITED_KINGDOM_SPRITES[] =
+BgmapSpriteROMSpec* const FlagUnitedKingdomSprites[] =
 {
-	&FLAG_UNITED_KINGDOM_SPRITE,
+	&FlagUnitedKingdomSprite,
 	NULL
 };
 
-EntityROMSpec FLAG_UNITED_KINGDOM_EN =
+EntityROMSpec FlagUnitedKingdomEntity =
 {
 	// class allocator
 	__TYPE(Entity),
@@ -126,7 +126,7 @@ EntityROMSpec FLAG_UNITED_KINGDOM_EN =
 	NULL,
 
 	// sprites
-	(SpriteSpec**)FLAG_UNITED_KINGDOM_SPRITES,
+	(SpriteSpec**)FlagUnitedKingdomSprites,
 
 	// use z displacement in projection
 	false,

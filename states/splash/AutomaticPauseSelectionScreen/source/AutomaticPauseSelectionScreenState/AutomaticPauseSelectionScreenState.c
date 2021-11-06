@@ -31,9 +31,9 @@
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern StageROMSpec AUTOMATIC_PAUSE_SELECTION_SCREEN_STAGE;
-extern Sound AUTOMATIC_PAUSE_SELECT_SND;
-extern Sound AUTOMATIC_PAUSE_CONFIRM_SND;
+extern StageROMSpec AutomaticPauseSelectionScreenStage;
+extern Sound AutomaticPauseSelectSound;
+extern Sound AutomaticPauseConfirmSound;
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -45,7 +45,7 @@ void AutomaticPauseSelectionScreenState::constructor()
 {
 	Base::constructor();
 
-	this->stageSpec = (StageSpec*)&AUTOMATIC_PAUSE_SELECTION_SCREEN_STAGE;
+	this->stageSpec = (StageSpec*)&AutomaticPauseSelectionScreenStage;
 	this->selection = true;
 }
 
@@ -144,7 +144,7 @@ void AutomaticPauseSelectionScreenState::processUserInput(UserInput userInput)
 		AutomaticPauseSelectionScreenState::renderSelection(this);
 
 		Vector3D position = Vector3D::getFromPixelVector((PixelVector){192, 112, 0, 0});
-		SoundManager::playSound(SoundManager::getInstance(), &AUTOMATIC_PAUSE_SELECT_SND, kPlayAll, (const Vector3D*)&position, kSoundWrapperPlaybackNormal, NULL, NULL);
+		SoundManager::playSound(SoundManager::getInstance(), &AutomaticPauseSelectSound, kPlayAll, (const Vector3D*)&position, kSoundWrapperPlaybackNormal, NULL, NULL);
 	}
 	else if(userInput.pressedKey & (K_A | K_STA))
 	{
@@ -158,7 +158,7 @@ void AutomaticPauseSelectionScreenState::processUserInput(UserInput userInput)
 		}
 
 		Vector3D position = Vector3D::getFromPixelVector((PixelVector){192, 112, 0, 0});
-		SoundManager::playSound(SoundManager::getInstance(), &AUTOMATIC_PAUSE_CONFIRM_SND, kPlayAll, (const Vector3D*)&position, kSoundWrapperPlaybackNormal, NULL, NULL);
+		SoundManager::playSound(SoundManager::getInstance(), &AutomaticPauseConfirmSound, kPlayAll, (const Vector3D*)&position, kSoundWrapperPlaybackNormal, NULL, NULL);
 
 		SplashScreenState::loadNextState(SplashScreenState::safeCast(this));
 	}

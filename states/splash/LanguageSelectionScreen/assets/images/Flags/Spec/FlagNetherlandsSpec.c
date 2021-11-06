@@ -28,7 +28,7 @@ extern BYTE FlagNetherlandsMap[];
 //												DEFINITIONS
 //---------------------------------------------------------------------------------------------------------
 
-CharSetROMSpec FLAG_NETHERLANDS_CH =
+CharSetROMSpec FlagNetherlandsCharset =
 {
 	// number of chars, depending on allocation type:
 	// __ANIMATED_SINGLE*, __ANIMATED_SHARED*: number of chars of a single animation frame (cols * rows)
@@ -43,10 +43,10 @@ CharSetROMSpec FLAG_NETHERLANDS_CH =
 	FlagNetherlandsTiles,
 };
 
-TextureROMSpec FLAG_NETHERLANDS_TX =
+TextureROMSpec FlagNetherlandsTexture =
 {
 	// charset spec
-	(CharSetSpec*)&FLAG_NETHERLANDS_CH,
+	(CharSetSpec*)&FlagNetherlandsCharset,
 
 	// bgmap spec
 	FlagNetherlandsMap,
@@ -78,14 +78,14 @@ TextureROMSpec FLAG_NETHERLANDS_TX =
 	false,
 };
 
-BgmapSpriteROMSpec FLAG_NETHERLANDS_SPRITE =
+BgmapSpriteROMSpec FlagNetherlandsSprite =
 {
 	{
 		// sprite's type
 		__TYPE(BgmapSprite),
 
 		// texture spec
-		(TextureSpec*)&FLAG_NETHERLANDS_TX,
+		(TextureSpec*)&FlagNetherlandsTexture,
 
 		// transparent (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
@@ -105,13 +105,13 @@ BgmapSpriteROMSpec FLAG_NETHERLANDS_SPRITE =
 	__WORLD_ON,
 };
 
-BgmapSpriteROMSpec* const FLAG_NETHERLANDS_SPRITES[] =
+BgmapSpriteROMSpec* const FlagNetherlandsSprites[] =
 {
-	&FLAG_NETHERLANDS_SPRITE,
+	&FlagNetherlandsSprite,
 	NULL
 };
 
-EntityROMSpec FLAG_NETHERLANDS_EN =
+EntityROMSpec FlagNetherlandsEntity =
 {
 	// class allocator
 	__TYPE(Entity),
@@ -126,7 +126,7 @@ EntityROMSpec FLAG_NETHERLANDS_EN =
 	NULL,
 
 	// sprites
-	(SpriteSpec**)FLAG_NETHERLANDS_SPRITES,
+	(SpriteSpec**)FlagNetherlandsSprites,
 
 	// use z displacement in projection
 	false,

@@ -20,8 +20,8 @@
 // 												DEFINITIONS
 //---------------------------------------------------------------------------------------------------------
 
-#ifndef __LANGUAGES
-const LangROMSpec* __LANGUAGES[] =
+#ifndef _languages
+const LangROMSpec* _languages[] =
 {
 	NULL
 };

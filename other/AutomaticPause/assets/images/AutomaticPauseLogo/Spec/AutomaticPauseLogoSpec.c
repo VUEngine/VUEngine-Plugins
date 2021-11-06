@@ -27,7 +27,7 @@ extern BYTE AutomaticPauseLogoMap[];
 //												DEFINITIONS
 //---------------------------------------------------------------------------------------------------------
 
-CharSetROMSpec AUTOMATIC_PAUSE_LOGO_CH =
+CharSetROMSpec AutomaticPauseLogoCharset =
 {
 	// number of chars, depending on allocation type:
 	// __ANIMATED_SINGLE*, __ANIMATED_SHARED*: number of chars of a single animation frame (cols * rows)
@@ -42,10 +42,10 @@ CharSetROMSpec AUTOMATIC_PAUSE_LOGO_CH =
 	AutomaticPauseLogoTiles,
 };
 
-TextureROMSpec AUTOMATIC_PAUSE_LOGO_TX =
+TextureROMSpec AutomaticPauseLogoTexture =
 {
 	// charset spec
-	(CharSetSpec*)&AUTOMATIC_PAUSE_LOGO_CH,
+	(CharSetSpec*)&AutomaticPauseLogoCharset,
 
 	// bgmap spec
 	AutomaticPauseLogoMap,
@@ -77,14 +77,14 @@ TextureROMSpec AUTOMATIC_PAUSE_LOGO_TX =
 	false,
 };
 
-BgmapSpriteROMSpec AUTOMATIC_PAUSE_LOGO_SPRITE =
+BgmapSpriteROMSpec AutomaticPauseLogoSprite =
 {
 	{
 		// sprite's type
 		__TYPE(BgmapSprite),
 
 		// texture spec
-		(TextureSpec*)&AUTOMATIC_PAUSE_LOGO_TX,
+		(TextureSpec*)&AutomaticPauseLogoTexture,
 
 		// transparent (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
@@ -104,13 +104,13 @@ BgmapSpriteROMSpec AUTOMATIC_PAUSE_LOGO_SPRITE =
 	__WORLD_ON,
 };
 
-BgmapSpriteROMSpec* const AUTOMATIC_PAUSE_LOGO_SPRITES[] =
+BgmapSpriteROMSpec* const AutomaticPauseLogoSprites[] =
 {
-	&AUTOMATIC_PAUSE_LOGO_SPRITE,
+	&AutomaticPauseLogoSprite,
 	NULL
 };
 
-EntityROMSpec AUTOMATIC_PAUSE_LOGO_EN =
+EntityROMSpec AutomaticPauseLogoEntity =
 {
 	// class allocator
 	__TYPE(Entity),
@@ -125,7 +125,7 @@ EntityROMSpec AUTOMATIC_PAUSE_LOGO_EN =
 	NULL,
 
 	// sprites
-	(SpriteSpec**)AUTOMATIC_PAUSE_LOGO_SPRITES,
+	(SpriteSpec**)AutomaticPauseLogoSprites,
 
 	// use z displacement in projection
 	false,

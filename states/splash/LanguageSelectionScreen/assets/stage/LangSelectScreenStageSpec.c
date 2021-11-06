@@ -20,7 +20,7 @@
 //---------------------------------------------------------------------------------------------------------
 
 #ifdef __LANGUAGE_SELECTION_SCREEN_USE_LOW_POWER_ENTITY
-extern EntitySpec LOW_POWER_INDICATOR_LB;
+extern EntitySpec LowPowerIndicatorEntity;
 #endif
 
 
@@ -28,16 +28,16 @@ extern EntitySpec LOW_POWER_INDICATOR_LB;
 // 											ENTITY LISTS
 //---------------------------------------------------------------------------------------------------------
 
-PositionedEntityROMSpec LANGUAGE_SELECTION_SCREEN_STAGE_ENTITIES[] =
+PositionedEntityROMSpec LanguageSelectionScreenStageEntities[] =
 {
 #ifdef __LANGUAGE_SELECTION_SCREEN_USE_LOW_POWER_ENTITY
-	{&LOW_POWER_INDICATOR_LB, 	{__LOW_POWER_ENTITY_X_POSITION, __LOW_POWER_ENTITY_Y_POSITION, __LOW_POWER_ENTITY_Z_POSITION, __LOW_POWER_ENTITY_Z_DISPLACEMENT}, 0, NULL, NULL, NULL, false},
+	{&LowPowerIndicatorEntity, 	{__LOW_POWER_ENTITY_X_POSITION, __LOW_POWER_ENTITY_Y_POSITION, __LOW_POWER_ENTITY_Z_POSITION, __LOW_POWER_ENTITY_Z_DISPLACEMENT}, 0, NULL, NULL, NULL, false},
 #endif
 
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
 };
 
-PositionedEntityROMSpec LANGUAGE_SELECTION_SCREEN_STAGE_UI_ENTITIES[] =
+PositionedEntityROMSpec LanguageSelectionScreenStageUiEntities[] =
 {
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
 };
@@ -47,7 +47,7 @@ PositionedEntityROMSpec LANGUAGE_SELECTION_SCREEN_STAGE_UI_ENTITIES[] =
 //											STAGE DEFINITION
 //---------------------------------------------------------------------------------------------------------
 
-StageROMSpec LANGUAGE_SELECTION_SCREEN_STAGE =
+StageROMSpec LanguageSelectionScreenStage =
 {
 	// allocator
 	__TYPE(Stage),
@@ -253,12 +253,12 @@ StageROMSpec LANGUAGE_SELECTION_SCREEN_STAGE =
 	{
 		// ui
 		{
-			(PositionedEntity*)LANGUAGE_SELECTION_SCREEN_STAGE_UI_ENTITIES,
+			(PositionedEntity*)LanguageSelectionScreenStageUiEntities,
 			__TYPE(UIContainer),
 		},
 
 		// children
-		(PositionedEntity*)LANGUAGE_SELECTION_SCREEN_STAGE_ENTITIES,
+		(PositionedEntity*)LanguageSelectionScreenStageEntities,
 	},
 
 	// post processing effects

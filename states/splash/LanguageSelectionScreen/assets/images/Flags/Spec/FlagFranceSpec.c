@@ -28,7 +28,7 @@ extern BYTE FlagFranceMap[];
 //												DEFINITIONS
 //---------------------------------------------------------------------------------------------------------
 
-CharSetROMSpec FLAG_FRANCE_CH =
+CharSetROMSpec FlagFranceCharset =
 {
 	// number of chars, depending on allocation type:
 	// __ANIMATED_SINGLE*, __ANIMATED_SHARED*: number of chars of a single animation frame (cols * rows)
@@ -43,10 +43,10 @@ CharSetROMSpec FLAG_FRANCE_CH =
 	FlagFranceTiles,
 };
 
-TextureROMSpec FLAG_FRANCE_TX =
+TextureROMSpec FlagFranceTexture =
 {
 	// charset spec
-	(CharSetSpec*)&FLAG_FRANCE_CH,
+	(CharSetSpec*)&FlagFranceCharset,
 
 	// bgmap spec
 	FlagFranceMap,
@@ -78,14 +78,14 @@ TextureROMSpec FLAG_FRANCE_TX =
 	false,
 };
 
-BgmapSpriteROMSpec FLAG_FRANCE_SPRITE =
+BgmapSpriteROMSpec FlagFranceSprite =
 {
 	{
 		// sprite's type
 		__TYPE(BgmapSprite),
 
 		// texture spec
-		(TextureSpec*)&FLAG_FRANCE_TX,
+		(TextureSpec*)&FlagFranceTexture,
 
 		// transparent (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
@@ -105,13 +105,13 @@ BgmapSpriteROMSpec FLAG_FRANCE_SPRITE =
 	__WORLD_ON,
 };
 
-BgmapSpriteROMSpec* const FLAG_FRANCE_SPRITES[] =
+BgmapSpriteROMSpec* const FlagFranceSprites[] =
 {
-	&FLAG_FRANCE_SPRITE,
+	&FlagFranceSprite,
 	NULL
 };
 
-EntityROMSpec FLAG_FRANCE_EN =
+EntityROMSpec FlagFranceEntity =
 {
 	// class allocator
 	__TYPE(Entity),
@@ -126,7 +126,7 @@ EntityROMSpec FLAG_FRANCE_EN =
 	NULL,
 
 	// sprites
-	(SpriteSpec**)FLAG_FRANCE_SPRITES,
+	(SpriteSpec**)FlagFranceSprites,
 
 	// use z displacement in projection
 	false,

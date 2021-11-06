@@ -28,12 +28,12 @@
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern StageROMSpec LANGUAGE_SELECTION_SCREEN_STAGE;
-extern LangROMSpec* __LANGUAGES[];
-extern EntitySpec FLAG_CURSOR_EN;
-extern EntitySpec FLAG_UNKNOWN_EN;
-extern Sound LANG_CONFIRM_SND;
-extern Sound LANG_SELECT_SND;
+extern StageROMSpec LanguageSelectionScreenStage;
+extern LangROMSpec* _languages[];
+extern EntitySpec FlagCursorEntity;
+extern EntitySpec FlagUnknownEntity;
+extern Sound LangConfirmSound;
+extern Sound LangSelectSound;
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -45,7 +45,7 @@ void LanguageSelectionScreenState::constructor()
 	Base::constructor();
 
 	// init members
-	this->stageSpec = (StageSpec*)&LANGUAGE_SELECTION_SCREEN_STAGE;
+	this->stageSpec = (StageSpec*)&LanguageSelectionScreenStage;
 	this->flagCursorEntity = NULL;
 	this->languageSelector = NULL;
 	this->selection = 0;
@@ -76,7 +76,7 @@ void LanguageSelectionScreenState::processUserInput(UserInput userInput)
 	else if(userInput.pressedKey & (K_A | K_STA))
 	{
 		Vector3D position = Vector3D::getFromPixelVector((PixelVector){192, 112, 0, 0});
-		SoundManager::playSound(SoundManager::getInstance(), &LANG_CONFIRM_SND, kPlayAll, (const Vector3D*)&position, kSoundWrapperPlaybackNormal, NULL, NULL);
+		SoundManager::playSound(SoundManager::getInstance(), &LangConfirmSound, kPlayAll, (const Vector3D*)&position, kSoundWrapperPlaybackNormal, NULL, NULL);
 
 		SplashScreenState::loadNextState(SplashScreenState::safeCast(this));
 	}
@@ -104,10 +104,10 @@ void LanguageSelectionScreenState::enter(void* owner)
 		VirtualList languageNames = new VirtualList();
 		uint8 optionsWidth = 0;
 		int32 i = 0;
-		for(; __LANGUAGES[i]; i++)
+		for(; _languages[i]; i++)
 		{
 			Option* option = new Option;
-			option->value = (char*)__LANGUAGES[i]->name;
+			option->value = (char*)_languages[i]->name;
 			option->type = kString;
 			VirtualList::pushBack(languageNames, option);
 
@@ -129,13 +129,13 @@ void LanguageSelectionScreenState::enter(void* owner)
 		// add flags to stage
 		this->flagsTotalHalfWidth = LanguageSelectionScreenState::getFlagsTotalHalfWidth(this);
 		uint8 i = 0;
-		this->flagCursorEntity = LanguageSelectionScreenState::addFlagToStage(this, &FLAG_CURSOR_EN, 0);
-		for(i = 0; __LANGUAGES[i]; i++)
+		this->flagCursorEntity = LanguageSelectionScreenState::addFlagToStage(this, &FlagCursorEntity, 0);
+		for(i = 0; _languages[i]; i++)
 		{
 			// add flag
-			EntitySpec* entitySpec = (__LANGUAGES[i]->entitySpec != NULL)
-				? __LANGUAGES[i]->entitySpec
-				: &FLAG_UNKNOWN_EN;
+			EntitySpec* entitySpec = (_languages[i]->entitySpec != NULL)
+				? _languages[i]->entitySpec
+				: &FlagUnknownEntity;
 			LanguageSelectionScreenState::addFlagToStage(this, entitySpec, i);
 		}
 
@@ -224,7 +224,7 @@ void LanguageSelectionScreenState::select(bool next)
 	LanguageSelectionScreenState::printSelection(this);
 
 	Vector3D position = Vector3D::getFromPixelVector((PixelVector){192, 112, 0, 0});
-	SoundManager::playSound(SoundManager::getInstance(), &LANG_SELECT_SND, kPlayAll, (const Vector3D*)&position, kSoundWrapperPlaybackNormal, NULL, NULL);
+	SoundManager::playSound(SoundManager::getInstance(), &LangSelectSound, kPlayAll, (const Vector3D*)&position, kSoundWrapperPlaybackNormal, NULL, NULL);
 }
 
 void LanguageSelectionScreenState::persistChoice()
@@ -241,7 +241,7 @@ void LanguageSelectionScreenState::persistChoice()
 uint8 LanguageSelectionScreenState::getNumLangs()
 {
 	uint8 i, numLangs = 0;
-	for(i = 0; __LANGUAGES[i]; i++)
+	for(i = 0; _languages[i]; i++)
 	{
 		numLangs++;
 	}

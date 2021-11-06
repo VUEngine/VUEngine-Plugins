@@ -32,7 +32,7 @@ extern BYTE LowPowerIndicatorMap[];
 //												DEFINITIONS
 //---------------------------------------------------------------------------------------------------------
 
-AnimationFunctionROMSpec LOW_POWER_INDICATOR_HIDE_ANIM =
+AnimationFunctionROMSpec LowPowerIndicatorHideAnimation =
 {
 	// number of frames of this animation function
 	1,
@@ -55,7 +55,7 @@ AnimationFunctionROMSpec LOW_POWER_INDICATOR_HIDE_ANIM =
 	"Hide",
 };
 
-AnimationFunctionROMSpec LOW_POWER_INDICATOR_FLASH_ANIM =
+AnimationFunctionROMSpec LowPowerIndicatorFlashAnimation =
 {
 	// number of frames of this animation function
 	12,
@@ -78,17 +78,17 @@ AnimationFunctionROMSpec LOW_POWER_INDICATOR_FLASH_ANIM =
 	"Flash",
 };
 
-AnimationDescriptionROMSpec LOW_POWER_INDICATOR_ANIM =
+AnimationDescriptionROMSpec LowPowerIndicatorAnimation =
 {
 	// animation functions
 	{
-		(AnimationFunction*)&LOW_POWER_INDICATOR_HIDE_ANIM,
-		(AnimationFunction*)&LOW_POWER_INDICATOR_FLASH_ANIM,
+		(AnimationFunction*)&LowPowerIndicatorHideAnimation,
+		(AnimationFunction*)&LowPowerIndicatorFlashAnimation,
 		NULL,
 	}
 };
 
-CharSetROMSpec LOW_POWER_INDICATOR_CH =
+CharSetROMSpec LowPowerIndicatorCharset =
 {
 	// number of chars, depending on allocation type:
 	// __ANIMATED_SINGLE*, __ANIMATED_SHARED*: number of chars of a single animation frame (cols * rows)
@@ -103,10 +103,10 @@ CharSetROMSpec LOW_POWER_INDICATOR_CH =
 	LowPowerIndicatorTiles,
 };
 
-TextureROMSpec LOW_POWER_INDICATOR_TX =
+TextureROMSpec LowPowerIndicatorTexture =
 {
 	// charset spec
-	(CharSetSpec*)&LOW_POWER_INDICATOR_CH,
+	(CharSetSpec*)&LowPowerIndicatorCharset,
 
 	// bgmap spec
 	LowPowerIndicatorMap,
@@ -138,7 +138,7 @@ TextureROMSpec LOW_POWER_INDICATOR_TX =
 	false,
 };
 
-BgmapSpriteROMSpec LOW_POWER_INDICATOR_SPRITE =
+BgmapSpriteROMSpec LowPowerIndicatorSprite =
 {
 	{
 		// sprite's type
@@ -149,7 +149,7 @@ BgmapSpriteROMSpec LOW_POWER_INDICATOR_SPRITE =
 #endif
 
 		// texture spec
-		(TextureSpec*)&LOW_POWER_INDICATOR_TX,
+		(TextureSpec*)&LowPowerIndicatorTexture,
 
 		// transparent (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
@@ -169,13 +169,13 @@ BgmapSpriteROMSpec LOW_POWER_INDICATOR_SPRITE =
 	__WORLD_ON,
 };
 
-BgmapSpriteROMSpec* const LOW_POWER_INDICATOR_SPRITES[] =
+BgmapSpriteROMSpec* const LowPowerIndicatorSprites[] =
 {
-	&LOW_POWER_INDICATOR_SPRITE,
+	&LowPowerIndicatorSprite,
 	NULL
 };
 
-LowPowerEntityROMSpec LOW_POWER_INDICATOR_LB =
+LowPowerEntityROMSpec LowPowerIndicatorEntity =
 {
 	{
 		// class allocator
@@ -191,7 +191,7 @@ LowPowerEntityROMSpec LOW_POWER_INDICATOR_LB =
 		NULL,
 
 		// sprites
-		(SpriteSpec**)LOW_POWER_INDICATOR_SPRITES,
+		(SpriteSpec**)LowPowerIndicatorSprites,
 
 		// use z displacement in projection
 		false,
@@ -211,7 +211,7 @@ LowPowerEntityROMSpec LOW_POWER_INDICATOR_LB =
 	},
 
 	// pointer to the animation spec for the item
-	(AnimationDescription*)&LOW_POWER_INDICATOR_ANIM,
+	(AnimationDescription*)&LowPowerIndicatorAnimation,
 
 	// initial animation
 	"Hide",

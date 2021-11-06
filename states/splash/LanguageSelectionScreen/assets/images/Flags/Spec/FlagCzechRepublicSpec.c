@@ -28,7 +28,7 @@ extern BYTE FlagCzechRepublicMap[];
 //												DEFINITIONS
 //---------------------------------------------------------------------------------------------------------
 
-CharSetROMSpec FLAG_CZECH_REPUBLIC_CH =
+CharSetROMSpec FlagCzechRepublicCharset =
 {
 	// number of chars, depending on allocation type:
 	// __ANIMATED_SINGLE*, __ANIMATED_SHARED*: number of chars of a single animation frame (cols * rows)
@@ -43,10 +43,10 @@ CharSetROMSpec FLAG_CZECH_REPUBLIC_CH =
 	FlagCzechRepublicTiles,
 };
 
-TextureROMSpec FLAG_CZECH_REPUBLIC_TX =
+TextureROMSpec FlagCzechRepublicTexture =
 {
 	// charset spec
-	(CharSetSpec*)&FLAG_CZECH_REPUBLIC_CH,
+	(CharSetSpec*)&FlagCzechRepublicCharset,
 
 	// bgmap spec
 	FlagCzechRepublicMap,
@@ -78,14 +78,14 @@ TextureROMSpec FLAG_CZECH_REPUBLIC_TX =
 	false,
 };
 
-BgmapSpriteROMSpec FLAG_CZECH_REPUBLIC_SPRITE =
+BgmapSpriteROMSpec FlagCzechRepublicSprite =
 {
 	{
 		// sprite's type
 		__TYPE(BgmapSprite),
 
 		// texture spec
-		(TextureSpec*)&FLAG_CZECH_REPUBLIC_TX,
+		(TextureSpec*)&FlagCzechRepublicTexture,
 
 		// transparent (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
@@ -105,13 +105,13 @@ BgmapSpriteROMSpec FLAG_CZECH_REPUBLIC_SPRITE =
 	__WORLD_ON,
 };
 
-BgmapSpriteROMSpec* const FLAG_CZECH_REPUBLIC_SPRITES[] =
+BgmapSpriteROMSpec* const FlagCzechRepublicSprites[] =
 {
-	&FLAG_CZECH_REPUBLIC_SPRITE,
+	&FlagCzechRepublicSprite,
 	NULL
 };
 
-EntityROMSpec FLAG_CZECH_REPUBLIC_EN =
+EntityROMSpec FlagCzechRepublicEntity =
 {
 	// class allocator
 	__TYPE(Entity),
@@ -126,7 +126,7 @@ EntityROMSpec FLAG_CZECH_REPUBLIC_EN =
 	NULL,
 
 	// sprites
-	(SpriteSpec**)FLAG_CZECH_REPUBLIC_SPRITES,
+	(SpriteSpec**)FlagCzechRepublicSprites,
 
 	// use z displacement in projection
 	false,

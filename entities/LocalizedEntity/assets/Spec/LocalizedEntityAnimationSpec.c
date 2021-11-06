@@ -19,7 +19,7 @@
 //												DEFINITIONS
 //---------------------------------------------------------------------------------------------------------
 
-AnimationFunctionROMSpec LOCALIZED_ENTITY_0_ANIM =
+AnimationFunctionROMSpec LocalizedEntity0Animation =
 {
 	// number of frames of this animation function
 	1,
@@ -43,7 +43,7 @@ AnimationFunctionROMSpec LOCALIZED_ENTITY_0_ANIM =
 };
 
 #if(__MAX_ANIMATION_FUNCTIONS > 2)
-AnimationFunctionROMSpec LOCALIZED_ENTITY_1_ANIM =
+AnimationFunctionROMSpec LocalizedEntity1Animation =
 {
 	// number of frames of this animation function
 	1,
@@ -68,7 +68,7 @@ AnimationFunctionROMSpec LOCALIZED_ENTITY_1_ANIM =
 #endif
 
 #if(__MAX_ANIMATION_FUNCTIONS > 3)
-AnimationFunctionROMSpec LOCALIZED_ENTITY_2_ANIM =
+AnimationFunctionROMSpec LocalizedEntity2Animation =
 {
 	// number of frames of this animation function
 	1,
@@ -93,7 +93,7 @@ AnimationFunctionROMSpec LOCALIZED_ENTITY_2_ANIM =
 #endif
 
 #if(__MAX_ANIMATION_FUNCTIONS > 4)
-AnimationFunctionROMSpec LOCALIZED_ENTITY_3_ANIM =
+AnimationFunctionROMSpec LocalizedEntity3Animation =
 {
 	// number of frames of this animation function
 	1,
@@ -118,7 +118,7 @@ AnimationFunctionROMSpec LOCALIZED_ENTITY_3_ANIM =
 #endif
 
 #if(__MAX_ANIMATION_FUNCTIONS > 5)
-AnimationFunctionROMSpec LOCALIZED_ENTITY_4_ANIM =
+AnimationFunctionROMSpec LocalizedEntity4Animation =
 {
 	// number of frames of this animation function
 	1,
@@ -143,7 +143,7 @@ AnimationFunctionROMSpec LOCALIZED_ENTITY_4_ANIM =
 #endif
 
 #if(__MAX_ANIMATION_FUNCTIONS > 6)
-AnimationFunctionROMSpec LOCALIZED_ENTITY_5_ANIM =
+AnimationFunctionROMSpec LocalizedEntity5Animation =
 {
 	// number of frames of this animation function
 	1,
@@ -168,7 +168,7 @@ AnimationFunctionROMSpec LOCALIZED_ENTITY_5_ANIM =
 #endif
 
 #if(__MAX_ANIMATION_FUNCTIONS > 7)
-AnimationFunctionROMSpec LOCALIZED_ENTITY_6_ANIM =
+AnimationFunctionROMSpec LocalizedEntity6Animation =
 {
 	// number of frames of this animation function
 	1,
@@ -193,7 +193,7 @@ AnimationFunctionROMSpec LOCALIZED_ENTITY_6_ANIM =
 #endif
 
 #if(__MAX_ANIMATION_FUNCTIONS > 8)
-AnimationFunctionROMSpec LOCALIZED_ENTITY_7_ANIM =
+AnimationFunctionROMSpec LocalizedEntity7Animation =
 {
 	// number of frames of this animation function
 	1,
@@ -218,7 +218,7 @@ AnimationFunctionROMSpec LOCALIZED_ENTITY_7_ANIM =
 #endif
 
 #if(__MAX_ANIMATION_FUNCTIONS > 9)
-AnimationFunctionROMSpec LOCALIZED_ENTITY_8_ANIM =
+AnimationFunctionROMSpec LocalizedEntity8Animation =
 {
 	// number of frames of this animation function
 	1,
@@ -243,7 +243,7 @@ AnimationFunctionROMSpec LOCALIZED_ENTITY_8_ANIM =
 #endif
 
 #if(__MAX_ANIMATION_FUNCTIONS > 10)
-AnimationFunctionROMSpec LOCALIZED_ENTITY_9_ANIM =
+AnimationFunctionROMSpec LocalizedEntity9Animation =
 {
 	// number of frames of this animation function
 	1,
@@ -268,7 +268,7 @@ AnimationFunctionROMSpec LOCALIZED_ENTITY_9_ANIM =
 #endif
 
 #if(__MAX_ANIMATION_FUNCTIONS > 11)
-AnimationFunctionROMSpec LOCALIZED_ENTITY_10_ANIM =
+AnimationFunctionROMSpec LocalizedEntity10Animation =
 {
 	// number of frames of this animation function
 	1,
@@ -293,7 +293,7 @@ AnimationFunctionROMSpec LOCALIZED_ENTITY_10_ANIM =
 #endif
 
 #if(__MAX_ANIMATION_FUNCTIONS > 12)
-AnimationFunctionROMSpec LOCALIZED_ENTITY_11_ANIM =
+AnimationFunctionROMSpec LocalizedEntity11Animation =
 {
 	// number of frames of this animation function
 	1,
@@ -318,7 +318,7 @@ AnimationFunctionROMSpec LOCALIZED_ENTITY_11_ANIM =
 #endif
 
 #if(__MAX_ANIMATION_FUNCTIONS > 13)
-AnimationFunctionROMSpec LOCALIZED_ENTITY_12_ANIM =
+AnimationFunctionROMSpec LocalizedEntity12Animation =
 {
 	// number of frames of this animation function
 	1,
@@ -343,7 +343,7 @@ AnimationFunctionROMSpec LOCALIZED_ENTITY_12_ANIM =
 #endif
 
 #if(__MAX_ANIMATION_FUNCTIONS > 14)
-AnimationFunctionROMSpec LOCALIZED_ENTITY_13_ANIM =
+AnimationFunctionROMSpec LocalizedEntity13Animation =
 {
 	// number of frames of this animation function
 	1,
@@ -368,7 +368,7 @@ AnimationFunctionROMSpec LOCALIZED_ENTITY_13_ANIM =
 #endif
 
 #if(__MAX_ANIMATION_FUNCTIONS > 15)
-AnimationFunctionROMSpec LOCALIZED_ENTITY_14_ANIM =
+AnimationFunctionROMSpec LocalizedEntity14Animation =
 {
 	// number of frames of this animation function
 	1,
@@ -393,7 +393,7 @@ AnimationFunctionROMSpec LOCALIZED_ENTITY_14_ANIM =
 #endif
 
 #if(__MAX_ANIMATION_FUNCTIONS > 16)
-AnimationFunctionROMSpec LOCALIZED_ENTITY_15_ANIM =
+AnimationFunctionROMSpec LocalizedEntity15Animation =
 {
 	// number of frames of this animation function
 	1,
@@ -418,55 +418,55 @@ AnimationFunctionROMSpec LOCALIZED_ENTITY_15_ANIM =
 #endif
 
 // an animation spec
-AnimationDescriptionROMSpec LOCALIZED_ENTITY_ANIM =
+AnimationDescriptionROMSpec LocalizedEntityAnimation =
 {
 	// animation functions
 	{
-		(AnimationFunction*)&LOCALIZED_ENTITY_0_ANIM,
+		(AnimationFunction*)&LocalizedEntity0Animation,
 		#if(__MAX_ANIMATION_FUNCTIONS > 2)
-		(AnimationFunction*)&LOCALIZED_ENTITY_1_ANIM,
+		(AnimationFunction*)&LocalizedEntity1Animation,
 		#endif
 		#if(__MAX_ANIMATION_FUNCTIONS > 3)
-		(AnimationFunction*)&LOCALIZED_ENTITY_2_ANIM,
+		(AnimationFunction*)&LocalizedEntity2Animation,
 		#endif
 		#if(__MAX_ANIMATION_FUNCTIONS > 4)
-		(AnimationFunction*)&LOCALIZED_ENTITY_3_ANIM,
+		(AnimationFunction*)&LocalizedEntity3Animation,
 		#endif
 		#if(__MAX_ANIMATION_FUNCTIONS > 5)
-		(AnimationFunction*)&LOCALIZED_ENTITY_4_ANIM,
+		(AnimationFunction*)&LocalizedEntity4Animation,
 		#endif
 		#if(__MAX_ANIMATION_FUNCTIONS > 6)
-		(AnimationFunction*)&LOCALIZED_ENTITY_5_ANIM,
+		(AnimationFunction*)&LocalizedEntity5Animation,
 		#endif
 		#if(__MAX_ANIMATION_FUNCTIONS > 7)
-		(AnimationFunction*)&LOCALIZED_ENTITY_6_ANIM,
+		(AnimationFunction*)&LocalizedEntity6Animation,
 		#endif
 		#if(__MAX_ANIMATION_FUNCTIONS > 8)
-		(AnimationFunction*)&LOCALIZED_ENTITY_7_ANIM,
+		(AnimationFunction*)&LocalizedEntity7Animation,
 		#endif
 		#if(__MAX_ANIMATION_FUNCTIONS > 9)
-		(AnimationFunction*)&LOCALIZED_ENTITY_8_ANIM,
+		(AnimationFunction*)&LocalizedEntity8Animation,
 		#endif
 		#if(__MAX_ANIMATION_FUNCTIONS > 10)
-		(AnimationFunction*)&LOCALIZED_ENTITY_9_ANIM,
+		(AnimationFunction*)&LocalizedEntity9Animation,
 		#endif
 		#if(__MAX_ANIMATION_FUNCTIONS > 11)
-		(AnimationFunction*)&LOCALIZED_ENTITY_10_ANIM,
+		(AnimationFunction*)&LocalizedEntity10Animation,
 		#endif
 		#if(__MAX_ANIMATION_FUNCTIONS > 12)
-		(AnimationFunction*)&LOCALIZED_ENTITY_11_ANIM,
+		(AnimationFunction*)&LocalizedEntity11Animation,
 		#endif
 		#if(__MAX_ANIMATION_FUNCTIONS > 13)
-		(AnimationFunction*)&LOCALIZED_ENTITY_12_ANIM,
+		(AnimationFunction*)&LocalizedEntity12Animation,
 		#endif
 		#if(__MAX_ANIMATION_FUNCTIONS > 14)
-		(AnimationFunction*)&LOCALIZED_ENTITY_13_ANIM,
+		(AnimationFunction*)&LocalizedEntity13Animation,
 		#endif
 		#if(__MAX_ANIMATION_FUNCTIONS > 15)
-		(AnimationFunction*)&LOCALIZED_ENTITY_14_ANIM,
+		(AnimationFunction*)&LocalizedEntity14Animation,
 		#endif
 		#if(__MAX_ANIMATION_FUNCTIONS > 16)
-		(AnimationFunction*)&LOCALIZED_ENTITY_15_ANIM,
+		(AnimationFunction*)&LocalizedEntity15Animation,
 		#endif
 		NULL,
 	}

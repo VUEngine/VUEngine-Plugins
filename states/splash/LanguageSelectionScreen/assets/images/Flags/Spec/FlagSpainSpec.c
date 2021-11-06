@@ -28,7 +28,7 @@ extern BYTE FlagSpainMap[];
 //												DEFINITIONS
 //---------------------------------------------------------------------------------------------------------
 
-CharSetROMSpec FLAG_SPAIN_CH =
+CharSetROMSpec FlagSpainCharset =
 {
 	// number of chars, depending on allocation type:
 	// __ANIMATED_SINGLE*, __ANIMATED_SHARED*: number of chars of a single animation frame (cols * rows)
@@ -43,10 +43,10 @@ CharSetROMSpec FLAG_SPAIN_CH =
 	FlagSpainTiles,
 };
 
-TextureROMSpec FLAG_SPAIN_TX =
+TextureROMSpec FlagSpainTexture =
 {
 	// charset spec
-	(CharSetSpec*)&FLAG_SPAIN_CH,
+	(CharSetSpec*)&FlagSpainCharset,
 
 	// bgmap spec
 	FlagSpainMap,
@@ -78,14 +78,14 @@ TextureROMSpec FLAG_SPAIN_TX =
 	false,
 };
 
-BgmapSpriteROMSpec FLAG_SPAIN_SPRITE =
+BgmapSpriteROMSpec FlagSpainSprite =
 {
 	{
 		// sprite's type
 		__TYPE(BgmapSprite),
 
 		// texture spec
-		(TextureSpec*)&FLAG_SPAIN_TX,
+		(TextureSpec*)&FlagSpainTexture,
 
 		// transparent (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
@@ -105,13 +105,13 @@ BgmapSpriteROMSpec FLAG_SPAIN_SPRITE =
 	__WORLD_ON,
 };
 
-BgmapSpriteROMSpec* const FLAG_SPAIN_SPRITES[] =
+BgmapSpriteROMSpec* const FlagSpainSprites[] =
 {
-	&FLAG_SPAIN_SPRITE,
+	&FlagSpainSprite,
 	NULL
 };
 
-EntityROMSpec FLAG_SPAIN_EN =
+EntityROMSpec FlagSpainEntity =
 {
 	// class allocator
 	__TYPE(Entity),
@@ -126,7 +126,7 @@ EntityROMSpec FLAG_SPAIN_EN =
 	NULL,
 
 	// sprites
-	(SpriteSpec**)FLAG_SPAIN_SPRITES,
+	(SpriteSpec**)FlagSpainSprites,
 
 	// use z displacement in projection
 	false,

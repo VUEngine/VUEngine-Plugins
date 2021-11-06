@@ -28,7 +28,7 @@ extern BYTE FlagCursorMap[];
 //												DEFINITIONS
 //---------------------------------------------------------------------------------------------------------
 
-CharSetROMSpec FLAG_CURSOR_CH =
+CharSetROMSpec FlagCursorCharset =
 {
 	// number of chars, depending on allocation type:
 	// __ANIMATED_SINGLE*, __ANIMATED_SHARED*: number of chars of a single animation frame (cols * rows)
@@ -43,10 +43,10 @@ CharSetROMSpec FLAG_CURSOR_CH =
 	FlagCursorTiles,
 };
 
-TextureROMSpec FLAG_CURSOR_TX =
+TextureROMSpec FlagCursorTexture =
 {
 	// charset spec
-	(CharSetSpec*)&FLAG_CURSOR_CH,
+	(CharSetSpec*)&FlagCursorCharset,
 
 	// bgmap spec
 	FlagCursorMap,
@@ -78,14 +78,14 @@ TextureROMSpec FLAG_CURSOR_TX =
 	false,
 };
 
-BgmapSpriteROMSpec FLAG_CURSOR_SPRITE =
+BgmapSpriteROMSpec FlagCursorSprite =
 {
 	{
 		// sprite's type
 		__TYPE(BgmapSprite),
 
 		// texture spec
-		(TextureSpec*)&FLAG_CURSOR_TX,
+		(TextureSpec*)&FlagCursorTexture,
 
 		// transparent (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
@@ -105,13 +105,13 @@ BgmapSpriteROMSpec FLAG_CURSOR_SPRITE =
 	__WORLD_ON,
 };
 
-BgmapSpriteROMSpec* const FLAG_CURSOR_SPRITES[] =
+BgmapSpriteROMSpec* const FlagCursorSprites[] =
 {
-	&FLAG_CURSOR_SPRITE,
+	&FlagCursorSprite,
 	NULL
 };
 
-EntityROMSpec FLAG_CURSOR_EN =
+EntityROMSpec FlagCursorEntity =
 {
 	// class allocator
 	__TYPE(Entity),
@@ -126,7 +126,7 @@ EntityROMSpec FLAG_CURSOR_EN =
 	NULL,
 
 	// sprites
-	(SpriteSpec**)FLAG_CURSOR_SPRITES,
+	(SpriteSpec**)FlagCursorSprites,
 
 	// use z displacement in projection
 	false,

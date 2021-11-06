@@ -28,7 +28,7 @@ extern BYTE FlagGermanyMap[];
 //												DEFINITIONS
 //---------------------------------------------------------------------------------------------------------
 
-CharSetROMSpec FLAG_GERMANY_CH =
+CharSetROMSpec FlagGermanyCharset =
 {
 	// number of chars, depending on allocation type:
 	// __ANIMATED_SINGLE*, __ANIMATED_SHARED*: number of chars of a single animation frame (cols * rows)
@@ -43,10 +43,10 @@ CharSetROMSpec FLAG_GERMANY_CH =
 	FlagGermanyTiles,
 };
 
-TextureROMSpec FLAG_GERMANY_TX =
+TextureROMSpec FlagGermanyTexture =
 {
 	// charset spec
-	(CharSetSpec*)&FLAG_GERMANY_CH,
+	(CharSetSpec*)&FlagGermanyCharset,
 
 	// bgmap spec
 	FlagGermanyMap,
@@ -78,14 +78,14 @@ TextureROMSpec FLAG_GERMANY_TX =
 	false,
 };
 
-BgmapSpriteROMSpec FLAG_GERMANY_SPRITE =
+BgmapSpriteROMSpec FlagGermanySprite =
 {
 	{
 		// sprite's type
 		__TYPE(BgmapSprite),
 
 		// texture spec
-		(TextureSpec*)&FLAG_GERMANY_TX,
+		(TextureSpec*)&FlagGermanyTexture,
 
 		// transparent (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
@@ -105,13 +105,13 @@ BgmapSpriteROMSpec FLAG_GERMANY_SPRITE =
 	__WORLD_ON,
 };
 
-BgmapSpriteROMSpec* const FLAG_GERMANY_SPRITES[] =
+BgmapSpriteROMSpec* const FlagGermanySprites[] =
 {
-	&FLAG_GERMANY_SPRITE,
+	&FlagGermanySprite,
 	NULL
 };
 
-EntityROMSpec FLAG_GERMANY_EN =
+EntityROMSpec FlagGermanyEntity =
 {
 	// class allocator
 	__TYPE(Entity),
@@ -126,7 +126,7 @@ EntityROMSpec FLAG_GERMANY_EN =
 	NULL,
 
 	// sprites
-	(SpriteSpec**)FLAG_GERMANY_SPRITES,
+	(SpriteSpec**)FlagGermanySprites,
 
 	// use z displacement in projection
 	false,

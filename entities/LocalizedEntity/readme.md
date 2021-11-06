@@ -5,4 +5,4 @@ Uses an AninmatedEntity to implement localized visual elements, where each anima
 Usage
 -----
 
-Set up your Entity of type `LocalizedEntity`. This plugin comes with a pre-defined AnimationDescription `LOCALIZED_ENTITY_ANIM`, which you can use.
+Set up your Entity of type `LocalizedEntity`. This plugin comes with a pre-defined AnimationDescription `LocalizedEntityAnimation`, which you can use.

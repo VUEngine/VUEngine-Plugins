@@ -28,7 +28,7 @@ extern BYTE FlagUnitedStatesMap[];
 //												DEFINITIONS
 //---------------------------------------------------------------------------------------------------------
 
-CharSetROMSpec FLAG_UNITED_STATES_CH =
+CharSetROMSpec FlagUnitedStatesCharset =
 {
 	// number of chars, depending on allocation type:
 	// __ANIMATED_SINGLE*, __ANIMATED_SHARED*: number of chars of a single animation frame (cols * rows)
@@ -43,10 +43,10 @@ CharSetROMSpec FLAG_UNITED_STATES_CH =
 	FlagUnitedStatesTiles,
 };
 
-TextureROMSpec FLAG_UNITED_STATES_TX =
+TextureROMSpec FlagUnitedStatesTexture =
 {
 	// charset spec
-	(CharSetSpec*)&FLAG_UNITED_STATES_CH,
+	(CharSetSpec*)&FlagUnitedStatesCharset,
 
 	// bgmap spec
 	FlagUnitedStatesMap,
@@ -78,14 +78,14 @@ TextureROMSpec FLAG_UNITED_STATES_TX =
 	false,
 };
 
-BgmapSpriteROMSpec FLAG_UNITED_STATES_SPRITE =
+BgmapSpriteROMSpec FlagUnitedStatesSprite =
 {
 	{
 		// sprite's type
 		__TYPE(BgmapSprite),
 
 		// texture spec
-		(TextureSpec*)&FLAG_UNITED_STATES_TX,
+		(TextureSpec*)&FlagUnitedStatesTexture,
 
 		// transparent (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
@@ -105,13 +105,13 @@ BgmapSpriteROMSpec FLAG_UNITED_STATES_SPRITE =
 	__WORLD_ON,
 };
 
-BgmapSpriteROMSpec* const FLAG_UNITED_STATES_SPRITES[] =
+BgmapSpriteROMSpec* const FlagUnitedStatesSprites[] =
 {
-	&FLAG_UNITED_STATES_SPRITE,
+	&FlagUnitedStatesSprite,
 	NULL
 };
 
-EntityROMSpec FLAG_UNITED_STATES_EN =
+EntityROMSpec FlagUnitedStatesEntity =
 {
 	// class allocator
 	__TYPE(Entity),
@@ -126,7 +126,7 @@ EntityROMSpec FLAG_UNITED_STATES_EN =
 	NULL,
 
 	// sprites
-	(SpriteSpec**)FLAG_UNITED_STATES_SPRITES,
+	(SpriteSpec**)FlagUnitedStatesSprites,
 
 	// use z displacement in projection
 	false,

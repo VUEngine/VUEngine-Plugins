@@ -28,7 +28,7 @@ extern BYTE FlagFinlandMap[];
 //												DEFINITIONS
 //---------------------------------------------------------------------------------------------------------
 
-CharSetROMSpec FLAG_FINLAND_CH =
+CharSetROMSpec FlagFinlandCharset =
 {
 	// number of chars, depending on allocation type:
 	// __ANIMATED_SINGLE*, __ANIMATED_SHARED*: number of chars of a single animation frame (cols * rows)
@@ -43,10 +43,10 @@ CharSetROMSpec FLAG_FINLAND_CH =
 	FlagFinlandTiles,
 };
 
-TextureROMSpec FLAG_FINLAND_TX =
+TextureROMSpec FlagFinlandTexture =
 {
 	// charset spec
-	(CharSetSpec*)&FLAG_FINLAND_CH,
+	(CharSetSpec*)&FlagFinlandCharset,
 
 	// bgmap spec
 	FlagFinlandMap,
@@ -78,14 +78,14 @@ TextureROMSpec FLAG_FINLAND_TX =
 	false,
 };
 
-BgmapSpriteROMSpec FLAG_FINLAND_SPRITE =
+BgmapSpriteROMSpec FlagFinlandSprite =
 {
 	{
 		// sprite's type
 		__TYPE(BgmapSprite),
 
 		// texture spec
-		(TextureSpec*)&FLAG_FINLAND_TX,
+		(TextureSpec*)&FlagFinlandTexture,
 
 		// transparent (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
@@ -105,13 +105,13 @@ BgmapSpriteROMSpec FLAG_FINLAND_SPRITE =
 	__WORLD_ON,
 };
 
-BgmapSpriteROMSpec* const FLAG_FINLAND_SPRITES[] =
+BgmapSpriteROMSpec* const FlagFinlandSprites[] =
 {
-	&FLAG_FINLAND_SPRITE,
+	&FlagFinlandSprite,
 	NULL
 };
 
-EntityROMSpec FLAG_FINLAND_EN =
+EntityROMSpec FlagFinlandEntity =
 {
 	// class allocator
 	__TYPE(Entity),
@@ -126,7 +126,7 @@ EntityROMSpec FLAG_FINLAND_EN =
 	NULL,
 
 	// sprites
-	(SpriteSpec**)FLAG_FINLAND_SPRITES,
+	(SpriteSpec**)FlagFinlandSprites,
 
 	// use z displacement in projection
 	false,

@@ -28,7 +28,7 @@ extern BYTE FlagItalyMap[];
 //												DEFINITIONS
 //---------------------------------------------------------------------------------------------------------
 
-CharSetROMSpec FLAG_ITALY_CH =
+CharSetROMSpec FlagItalyCharset =
 {
 	// number of chars, depending on allocation type:
 	// __ANIMATED_SINGLE*, __ANIMATED_SHARED*: number of chars of a single animation frame (cols * rows)
@@ -43,10 +43,10 @@ CharSetROMSpec FLAG_ITALY_CH =
 	FlagItalyTiles,
 };
 
-TextureROMSpec FLAG_ITALY_TX =
+TextureROMSpec FlagItalyTexture =
 {
 	// charset spec
-	(CharSetSpec*)&FLAG_ITALY_CH,
+	(CharSetSpec*)&FlagItalyCharset,
 
 	// bgmap spec
 	FlagItalyMap,
@@ -78,14 +78,14 @@ TextureROMSpec FLAG_ITALY_TX =
 	false,
 };
 
-BgmapSpriteROMSpec FLAG_ITALY_SPRITE =
+BgmapSpriteROMSpec FlagItalySprite =
 {
 	{
 		// sprite's type
 		__TYPE(BgmapSprite),
 
 		// texture spec
-		(TextureSpec*)&FLAG_ITALY_TX,
+		(TextureSpec*)&FlagItalyTexture,
 
 		// transparent (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
@@ -105,13 +105,13 @@ BgmapSpriteROMSpec FLAG_ITALY_SPRITE =
 	__WORLD_ON,
 };
 
-BgmapSpriteROMSpec* const FLAG_ITALY_SPRITES[] =
+BgmapSpriteROMSpec* const FlagItalySprites[] =
 {
-	&FLAG_ITALY_SPRITE,
+	&FlagItalySprite,
 	NULL
 };
 
-EntityROMSpec FLAG_ITALY_EN =
+EntityROMSpec FlagItalyEntity =
 {
 	// class allocator
 	__TYPE(Entity),
@@ -126,7 +126,7 @@ EntityROMSpec FLAG_ITALY_EN =
 	NULL,
 
 	// sprites
-	(SpriteSpec**)FLAG_ITALY_SPRITES,
+	(SpriteSpec**)FlagItalySprites,
 
 	// use z displacement in projection
 	false,

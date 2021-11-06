@@ -28,7 +28,7 @@ extern BYTE FlagSwedenMap[];
 //												DEFINITIONS
 //---------------------------------------------------------------------------------------------------------
 
-CharSetROMSpec FLAG_SWEDEN_CH =
+CharSetROMSpec FlagSwedenCharset =
 {
 	// number of chars, depending on allocation type:
 	// __ANIMATED_SINGLE*, __ANIMATED_SHARED*: number of chars of a single animation frame (cols * rows)
@@ -43,10 +43,10 @@ CharSetROMSpec FLAG_SWEDEN_CH =
 	FlagSwedenTiles,
 };
 
-TextureROMSpec FLAG_SWEDEN_TX =
+TextureROMSpec FlagSwedenTexture =
 {
 	// charset spec
-	(CharSetSpec*)&FLAG_SWEDEN_CH,
+	(CharSetSpec*)&FlagSwedenCharset,
 
 	// bgmap spec
 	FlagSwedenMap,
@@ -78,14 +78,14 @@ TextureROMSpec FLAG_SWEDEN_TX =
 	false,
 };
 
-BgmapSpriteROMSpec FLAG_SWEDEN_SPRITE =
+BgmapSpriteROMSpec FlagSwedenSprite =
 {
 	{
 		// sprite's type
 		__TYPE(BgmapSprite),
 
 		// texture spec
-		(TextureSpec*)&FLAG_SWEDEN_TX,
+		(TextureSpec*)&FlagSwedenTexture,
 
 		// transparent (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
@@ -105,13 +105,13 @@ BgmapSpriteROMSpec FLAG_SWEDEN_SPRITE =
 	__WORLD_ON,
 };
 
-BgmapSpriteROMSpec* const FLAG_SWEDEN_SPRITES[] =
+BgmapSpriteROMSpec* const FlagSwedenSprites[] =
 {
-	&FLAG_SWEDEN_SPRITE,
+	&FlagSwedenSprite,
 	NULL
 };
 
-EntityROMSpec FLAG_SWEDEN_EN =
+EntityROMSpec FlagSwedenEntity =
 {
 	// class allocator
 	__TYPE(Entity),
@@ -126,7 +126,7 @@ EntityROMSpec FLAG_SWEDEN_EN =
 	NULL,
 
 	// sprites
-	(SpriteSpec**)FLAG_SWEDEN_SPRITES,
+	(SpriteSpec**)FlagSwedenSprites,
 
 	// use z displacement in projection
 	false,

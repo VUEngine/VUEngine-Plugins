@@ -19,10 +19,10 @@
 //											DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern EntitySpec AUTOMATIC_PAUSE_LOGO_EN;
+extern EntitySpec AutomaticPauseLogoEntity;
 
 #ifdef __AUTOMATIC_PAUSE_SCREEN_USE_LOW_POWER_ENTITY
-extern EntitySpec LOW_POWER_INDICATOR_LB;
+extern EntitySpec LowPowerIndicatorEntity;
 #endif
 
 
@@ -30,18 +30,18 @@ extern EntitySpec LOW_POWER_INDICATOR_LB;
 // 											ENTITY LISTS
 //---------------------------------------------------------------------------------------------------------
 
-PositionedEntityROMSpec AUTOMATIC_PAUSE_SCREEN_STAGE_ENTITIES[] =
+PositionedEntityROMSpec AutomaticPauseScreenStageEntities[] =
 {
-	{&AUTOMATIC_PAUSE_LOGO_EN, 	{200, 72, 0, 0}, 0, NULL, NULL, NULL, false},
+	{&AutomaticPauseLogoEntity, 	{200, 72, 0, 0}, 0, NULL, NULL, NULL, false},
 
 #ifdef __AUTOMATIC_PAUSE_SCREEN_USE_LOW_POWER_ENTITY
-	{&LOW_POWER_INDICATOR_LB, 	{__LOW_POWER_ENTITY_X_POSITION, __LOW_POWER_ENTITY_Y_POSITION, __LOW_POWER_ENTITY_Z_POSITION, __LOW_POWER_ENTITY_Z_DISPLACEMENT}, 0, NULL, NULL, NULL, false},
+	{&LowPowerIndicatorEntity, 	{__LOW_POWER_ENTITY_X_POSITION, __LOW_POWER_ENTITY_Y_POSITION, __LOW_POWER_ENTITY_Z_POSITION, __LOW_POWER_ENTITY_Z_DISPLACEMENT}, 0, NULL, NULL, NULL, false},
 #endif
 
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
 };
 
-PositionedEntityROMSpec AUTOMATIC_PAUSE_SCREEN_STAGE_UI_ENTITIES[] =
+PositionedEntityROMSpec AutomaticPauseScreenStageUiEntities[] =
 {
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
 };
@@ -51,7 +51,7 @@ PositionedEntityROMSpec AUTOMATIC_PAUSE_SCREEN_STAGE_UI_ENTITIES[] =
 //											STAGE DEFINITION
 //---------------------------------------------------------------------------------------------------------
 
-StageROMSpec AUTOMATIC_PAUSE_SCREEN_STAGE =
+StageROMSpec AutomaticPauseScreenStage =
 {
 	// allocator
 	__TYPE(Stage),
@@ -257,12 +257,12 @@ StageROMSpec AUTOMATIC_PAUSE_SCREEN_STAGE =
 	{
 		// ui
 		{
-			(PositionedEntity*)AUTOMATIC_PAUSE_SCREEN_STAGE_UI_ENTITIES,
+			(PositionedEntity*)AutomaticPauseScreenStageUiEntities,
 			__TYPE(UIContainer),
 		},
 
 		// children
-		(PositionedEntity*)AUTOMATIC_PAUSE_SCREEN_STAGE_ENTITIES,
+		(PositionedEntity*)AutomaticPauseScreenStageEntities,
 	},
 
 	// post processing effects
