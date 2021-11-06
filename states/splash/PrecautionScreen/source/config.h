@@ -16,7 +16,7 @@
 //---------------------------------------------------------------------------------------------------------
 
 #ifndef __PRECAUTION_SCREEN_TEXT_FONT
-#define __PRECAUTION_SCREEN_TEXT_FONT				"AstonishExt"
+#define __PRECAUTION_SCREEN_TEXT_FONT				NULL
 #endif
 
 #ifndef __PRECAUTION_SCREEN_USE_LOW_POWER_ENTITY
