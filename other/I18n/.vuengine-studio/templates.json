@@ -1,20 +1,19 @@
 [
 	{
-		"source": {
-			"type": "filetype",
+		"event": {
+			"type": "fileWithEndingChanged",
 			"value": ".lang.json"
 		},
-		"key": "lang",
-		"extra": [
+		"data": [
 			{
 				"key": "pluginLangs",
-				"type": "filetype",
-				"root": "activePlugins",
+				"type": "filesWithEnding",
+				"root": "installedPlugins",
 				"value": ".lang.json"
 			},
 			{
 				"key": "langs",
-				"type": "filetype",
+				"type": "filesWithEnding",
 				"root": "workspace",
 				"value": ".lang.json"
 			}
