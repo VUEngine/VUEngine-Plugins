@@ -37,7 +37,7 @@
 				}
 			],
 			"root": "relative",
-			"target": "Spec/${lang.name}LanguageSpec.c",
+			"target": "Spec/${lang.id}LanguageSpec.c",
 			"template": "Language.c.nj",
 			"encoding": "win1252"
 		},
