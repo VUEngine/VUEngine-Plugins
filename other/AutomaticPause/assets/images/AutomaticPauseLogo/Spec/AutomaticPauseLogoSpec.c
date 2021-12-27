@@ -19,8 +19,8 @@
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern BYTE AutomaticPauseLogoTiles[];
-extern BYTE AutomaticPauseLogoMap[];
+extern uint32 AutomaticPauseLogoTiles[];
+extern uint16 AutomaticPauseLogoMap[];
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -40,6 +40,9 @@ CharSetROMSpec AutomaticPauseLogoCharset =
 
 	// char spec
 	AutomaticPauseLogoTiles,
+
+	// pointer to the frames offsets
+	NULL
 };
 
 TextureROMSpec AutomaticPauseLogoTexture =
