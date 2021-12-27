@@ -1,40 +1,85 @@
-[
-	{
-		"event": {
-			"type": "fileWithEndingChanged",
-			"value": ".lang.json"
+{
+	"events": {
+		"fileChanged": {},
+		"fileWithEndingChanged": {
+			".lang.json": [
+				"LanguageSpecs",
+				"Languages.c",
+				"Languages.h"
+			]
 		},
-		"data": [
-			{
-				"key": "pluginLangs",
-				"type": "filesWithEnding",
-				"root": "installedPlugins",
-				"value": ".lang.json"
-			},
-			{
-				"key": "langs",
-				"type": "filesWithEnding",
-				"root": "workspace",
-				"value": ".lang.json"
-			}
-		],
-		"targets": [
-			{
-				"root": "relative",
-				"value": "Spec/${id}LanguageSpec.c",
-				"template": "Language.c.nj",
-				"encoding": "win1252"
-			},
-			{
-				"root": "workspace",
-				"value": "assets/languages/Languages.c",
-				"template": "Languages.c.nj"
-			},
-			{
-				"root": "workspace",
-				"value": "source/assets/Languages.h",
-				"template": "Languages.h.nj"
-			}
+		"installedPluginsChanged": [
+			"LanguageSpecs",
+			"Languages.c",
+			"Languages.h"
 		]
+	},
+	"templates": {
+		"LanguageSpecs": {
+			"mode": "withEnding",
+			"ending": ".lang.json",
+			"data": [
+				{
+					"key": "lang",
+					"type": "changedFile"
+				},
+				{
+					"key": "pluginLangs",
+					"type": "filesWithEnding",
+					"root": "installedPlugins",
+					"value": ".lang.json"
+				},
+				{
+					"key": "langs",
+					"type": "filesWithEnding",
+					"root": "workspace",
+					"value": ".lang.json"
+				}
+			],
+			"root": "relative",
+			"target": "Spec/${lang.id}LanguageSpec.c",
+			"template": "Language.c.nj",
+			"encoding": "win1252"
+		},
+		"Languages.c": {
+			"mode": "single",
+			"data": [
+				{
+					"key": "pluginLangs",
+					"type": "filesWithEnding",
+					"root": "installedPlugins",
+					"value": ".lang.json"
+				},
+				{
+					"key": "langs",
+					"type": "filesWithEnding",
+					"root": "workspace",
+					"value": ".lang.json"
+				}
+			],
+			"root": "workspace",
+			"target": "assets/languages/Languages.c",
+			"template": "Languages.c.nj"
+		},
+		"Languages.h": {
+			"mode": "single",
+			"data": [
+				{
+					"key": "pluginLangs",
+					"type": "filesWithEnding",
+					"root": "installedPlugins",
+					"value": ".lang.json"
+				},
+				{
+					"key": "langs",
+					"type": "filesWithEnding",
+					"root": "workspace",
+					"value": ".lang.json"
+				}
+			],
+			"root": "workspace",
+			"target": "source/assets/Languages.h",
+			"template": "Languages.h.nj"
+		}
 	}
-]
+}

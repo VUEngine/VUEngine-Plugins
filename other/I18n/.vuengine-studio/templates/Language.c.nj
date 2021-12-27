@@ -4,11 +4,11 @@
 {{ macros.sectionHeader('Includes') }}
 
 #include <I18n.h>
-{% if v.flag %}
+{% if lang.flag %}
 
 {{ macros.sectionHeader('Declarations') }}
 
-extern EntitySpec {{ v.flag }};
+extern EntitySpec {{ lang.flag }};
 {% endif %}
 
 {{ macros.sectionHeader('Definitions') }}
@@ -23,16 +23,16 @@ extern EntitySpec {{ v.flag }};
 {%- endfor -%}
 {%- set strings = strings | unique | sort -%}
 
-const char* const {{ v.id }}LanguageStrings[] =
+const char* const {{ lang.id }}LanguageStrings[] =
 {
 	{% for string in strings -%}
 		/* kString{{ string }}: */
-		{%- if v.strings[string] -%}
-			{%- set value = v.strings[string] -%}
+		{%- if lang.strings[string] -%}
+			{%- set value = lang.strings[string] -%}
 		{%- else -%}
 			{%- set value = '' -%}
 			{%- for pluginLang in pluginLangs -%}
-				{%- if pluginLang.code == v.code and pluginLang.strings[string] -%}
+				{%- if pluginLang.code == lang.code and pluginLang.strings[string] -%}
 					{%- set value = pluginLang.strings[string] -%}
 				{%- endif -%}
 			{%- endfor -%}
@@ -42,17 +42,17 @@ const char* const {{ v.id }}LanguageStrings[] =
 	{%- endfor %}
 };
 
-const LangROMSpec {{ v.id }}Language =
+const LangROMSpec {{ lang.id }}Language =
 {
 	// language name
-	"{{ v.name }}",
+	"{{ lang.name }}",
 
 	// flag entity
-	{% if v.flag -%}
-	&{{ v.flag }},
+	{% if lang.flag -%}
+	&{{ lang.flag }},
 	{% else -%}
 	NULL,
 	{% endif %}
 	// strings
-	(const char**){{ v.id }}LanguageStrings
+	(const char**){{ lang.id }}LanguageStrings
 };
