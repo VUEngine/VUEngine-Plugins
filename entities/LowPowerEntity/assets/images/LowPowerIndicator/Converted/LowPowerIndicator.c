@@ -10,7 +10,7 @@
 //
 //======================================================================
 
-const uint32 LowPowerIndicatorTiles[32] __attribute__((aligned(4)))=
+const uint32 LowPowerIndicatorTiles[] __attribute__((aligned(4)))=
 {
 	0x00000000,
 	0x00000000,0x00000000,0x00000000,0x00000000,
