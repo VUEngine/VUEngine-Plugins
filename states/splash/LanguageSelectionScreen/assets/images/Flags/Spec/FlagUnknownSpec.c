@@ -41,6 +41,9 @@ CharSetROMSpec FlagUnknownCharset =
 
 	// char spec
 	FlagUnknownTiles,
+
+	// pointer to the frames offsets
+	NULL,
 };
 
 TextureROMSpec FlagUnknownTexture =

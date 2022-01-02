@@ -41,6 +41,9 @@ CharSetROMSpec FlagGermanyCharset =
 
 	// char spec
 	FlagGermanyTiles,
+
+	// pointer to the frames offsets
+	NULL,
 };
 
 TextureROMSpec FlagGermanyTexture =

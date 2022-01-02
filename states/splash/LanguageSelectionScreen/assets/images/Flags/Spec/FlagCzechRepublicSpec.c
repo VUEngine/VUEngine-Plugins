@@ -41,6 +41,9 @@ CharSetROMSpec FlagCzechRepublicCharset =
 
 	// char spec
 	FlagCzechRepublicTiles,
+
+	// pointer to the frames offsets
+	NULL,
 };
 
 TextureROMSpec FlagCzechRepublicTexture =

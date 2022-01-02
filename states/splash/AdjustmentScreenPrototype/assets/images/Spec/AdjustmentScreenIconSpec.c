@@ -40,6 +40,9 @@ CharSetROMSpec AdjustmentScreenIconCharset =
 
 	// char spec
 	AdjustmentScreenIconTiles,
+
+	// pointer to the frames offsets
+	NULL,
 };
 
 TextureROMSpec AdjustmentScreenIconTexture =

@@ -41,6 +41,9 @@ CharSetROMSpec FlagJapanCharset =
 
 	// char spec
 	FlagJapanTiles,
+
+	// pointer to the frames offsets
+	NULL,
 };
 
 TextureROMSpec FlagJapanTexture =

@@ -103,7 +103,7 @@ CharSetROMSpec LowPowerIndicatorCharset =
 	LowPowerIndicatorTiles,
 
 	// pointer to the frames offsets
-	NULL
+	NULL,
 };
 
 TextureROMSpec LowPowerIndicatorTexture =

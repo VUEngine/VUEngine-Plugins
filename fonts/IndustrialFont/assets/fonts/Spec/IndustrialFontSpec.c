@@ -31,6 +31,9 @@ CharSetROMSpec IndustrialFontCharSet =
 
 	// char spec
 	IndustrialFontTiles,
+
+	// pointer to the frames offsets
+	NULL,
 };
 
 FontROMSpec IndustrialFont =

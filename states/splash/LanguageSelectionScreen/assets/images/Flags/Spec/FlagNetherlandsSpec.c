@@ -41,6 +41,9 @@ CharSetROMSpec FlagNetherlandsCharset =
 
 	// char spec
 	FlagNetherlandsTiles,
+
+	// pointer to the frames offsets
+	NULL,
 };
 
 TextureROMSpec FlagNetherlandsTexture =

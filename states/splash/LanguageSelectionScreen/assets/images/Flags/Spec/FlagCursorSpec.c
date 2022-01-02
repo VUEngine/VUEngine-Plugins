@@ -41,6 +41,9 @@ CharSetROMSpec FlagCursorCharset =
 
 	// char spec
 	FlagCursorTiles,
+
+	// pointer to the frames offsets
+	NULL,
 };
 
 TextureROMSpec FlagCursorTexture =

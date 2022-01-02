@@ -41,6 +41,9 @@ CharSetROMSpec FlagItalyCharset =
 
 	// char spec
 	FlagItalyTiles,
+
+	// pointer to the frames offsets
+	NULL,
 };
 
 TextureROMSpec FlagItalyTexture =

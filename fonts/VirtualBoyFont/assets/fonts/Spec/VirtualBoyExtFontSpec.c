@@ -31,6 +31,9 @@ CharSetROMSpec VirtualBoyExtFontCharSet =
 
 	// char spec
 	VirtualBoyFontTiles,
+
+	// pointer to the frames offsets
+	NULL,
 };
 
 FontROMSpec VirtualBoyExtFont =

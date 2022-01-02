@@ -41,6 +41,9 @@ CharSetROMSpec FlagSwedenCharset =
 
 	// char spec
 	FlagSwedenTiles,
+
+	// pointer to the frames offsets
+	NULL,
 };
 
 TextureROMSpec FlagSwedenTexture =

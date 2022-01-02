@@ -41,6 +41,9 @@ CharSetROMSpec FlagFinlandCharset =
 
 	// char spec
 	FlagFinlandTiles,
+
+	// pointer to the frames offsets
+	NULL,
 };
 
 TextureROMSpec FlagFinlandTexture =

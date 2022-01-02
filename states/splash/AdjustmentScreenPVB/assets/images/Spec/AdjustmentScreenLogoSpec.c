@@ -40,6 +40,9 @@ CharSetROMSpec AdjustmentScreenLogoCharset =
 
 	// char spec
 	AdjustmentScreenLogoTiles,
+
+	// pointer to the frames offsets
+	NULL,
 };
 
 TextureROMSpec AdjustmentScreenLogoTexture =

@@ -42,7 +42,7 @@ CharSetROMSpec AutomaticPauseLogoCharset =
 	AutomaticPauseLogoTiles,
 
 	// pointer to the frames offsets
-	NULL
+	NULL,
 };
 
 TextureROMSpec AutomaticPauseLogoTexture =

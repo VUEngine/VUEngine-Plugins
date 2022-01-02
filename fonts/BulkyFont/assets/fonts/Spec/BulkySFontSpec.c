@@ -31,6 +31,9 @@ CharSetROMSpec BulkySFontCharSet =
 
 	// char spec
 	BulkyFontShadowTiles,
+
+	// pointer to the frames offsets
+	NULL,
 };
 
 FontROMSpec BulkySFont =

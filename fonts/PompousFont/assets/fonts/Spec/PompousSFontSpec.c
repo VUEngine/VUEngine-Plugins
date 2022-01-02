@@ -30,6 +30,9 @@ CharSetROMSpec PompousSFontCharSet =
 
 	// char spec
 	PompousFontShadowTiles,
+
+	// pointer to the frames offsets
+	NULL,
 };
 
 FontROMSpec PompousSFont =

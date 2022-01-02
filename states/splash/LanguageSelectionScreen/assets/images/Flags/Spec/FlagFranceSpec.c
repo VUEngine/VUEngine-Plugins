@@ -41,6 +41,9 @@ CharSetROMSpec FlagFranceCharset =
 
 	// char spec
 	FlagFranceTiles,
+
+	// pointer to the frames offsets
+	NULL,
 };
 
 TextureROMSpec FlagFranceTexture =

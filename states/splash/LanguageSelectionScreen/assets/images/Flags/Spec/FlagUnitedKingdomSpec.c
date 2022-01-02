@@ -41,6 +41,9 @@ CharSetROMSpec FlagUnitedKingdomCharset =
 
 	// char spec
 	FlagUnitedKingdomTiles,
+
+	// pointer to the frames offsets
+	NULL,
 };
 
 TextureROMSpec FlagUnitedKingdomTexture =

@@ -40,6 +40,9 @@ CharSetROMSpec AdjustmentScreenBgCharset =
 
 	// char spec
 	AdjustmentScreenBGTiles,
+
+	// pointer to the frames offsets
+	NULL,
 };
 
 TextureROMSpec AdjustmentScreenBgTexture =

@@ -31,6 +31,9 @@ CharSetROMSpec AstonishFontCharSet =
 
 	// char spec
 	AstonishFontTiles,
+
+	// pointer to the frames offsets
+	NULL,
 };
 
 FontROMSpec AstonishFont =
