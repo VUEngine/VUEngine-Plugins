@@ -20,8 +20,8 @@
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern BYTE FlagUnknownTiles[];
-extern BYTE FlagUnknownMap[];
+extern uint32 FlagUnknownTiles[];
+extern uint16 FlagUnknownMap[];
 
 
 //---------------------------------------------------------------------------------------------------------

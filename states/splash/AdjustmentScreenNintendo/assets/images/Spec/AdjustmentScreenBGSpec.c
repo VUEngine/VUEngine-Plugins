@@ -19,8 +19,8 @@
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern BYTE AdjustmentScreenBGTiles[];
-extern BYTE AdjustmentScreenBGMap[];
+extern uint32 AdjustmentScreenBGTiles[];
+extern uint16 AdjustmentScreenBGMap[];
 
 
 //---------------------------------------------------------------------------------------------------------

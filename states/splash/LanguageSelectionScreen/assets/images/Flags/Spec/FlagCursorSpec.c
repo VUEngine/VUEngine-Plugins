@@ -20,8 +20,8 @@
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern BYTE FlagCursorTiles[];
-extern BYTE FlagCursorMap[];
+extern uint32 FlagCursorTiles[];
+extern uint16 FlagCursorMap[];
 
 
 //---------------------------------------------------------------------------------------------------------

@@ -20,8 +20,8 @@
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern BYTE FlagFinlandTiles[];
-extern BYTE FlagFinlandMap[];
+extern uint32 FlagFinlandTiles[];
+extern uint16 FlagFinlandMap[];
 
 
 //---------------------------------------------------------------------------------------------------------

@@ -20,8 +20,8 @@
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern BYTE FlagNetherlandsTiles[];
-extern BYTE FlagNetherlandsMap[];
+extern uint32 FlagNetherlandsTiles[];
+extern uint16 FlagNetherlandsMap[];
 
 
 //---------------------------------------------------------------------------------------------------------

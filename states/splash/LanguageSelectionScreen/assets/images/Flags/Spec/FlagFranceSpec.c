@@ -20,8 +20,8 @@
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern BYTE FlagFranceTiles[];
-extern BYTE FlagFranceMap[];
+extern uint32 FlagFranceTiles[];
+extern uint16 FlagFranceMap[];
 
 
 //---------------------------------------------------------------------------------------------------------

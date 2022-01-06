@@ -20,8 +20,8 @@
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern BYTE FlagCzechRepublicTiles[];
-extern BYTE FlagCzechRepublicMap[];
+extern uint32 FlagCzechRepublicTiles[];
+extern uint16 FlagCzechRepublicMap[];
 
 
 //---------------------------------------------------------------------------------------------------------

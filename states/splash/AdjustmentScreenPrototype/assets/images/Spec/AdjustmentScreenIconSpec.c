@@ -19,8 +19,8 @@
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern BYTE AdjustmentScreenIconTiles[];
-extern BYTE AdjustmentScreenIconMap[];
+extern uint32 AdjustmentScreenIconTiles[];
+extern uint16 AdjustmentScreenIconMap[];
 
 
 //---------------------------------------------------------------------------------------------------------
