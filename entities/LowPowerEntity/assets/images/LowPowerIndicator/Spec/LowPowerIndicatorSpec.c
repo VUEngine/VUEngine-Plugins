@@ -25,6 +25,7 @@
 //---------------------------------------------------------------------------------------------------------
 
 extern uint32 LowPowerIndicatorTiles[];
+extern uint32 LowPowerIndicatorTilesFrameOffsets[];
 extern uint16 LowPowerIndicatorMap[];
 
 
@@ -103,7 +104,7 @@ CharSetROMSpec LowPowerIndicatorCharset =
 	LowPowerIndicatorTiles,
 
 	// pointer to the frames offsets
-	NULL
+	LowPowerIndicatorTilesFrameOffsets
 };
 
 TextureROMSpec LowPowerIndicatorTexture =
