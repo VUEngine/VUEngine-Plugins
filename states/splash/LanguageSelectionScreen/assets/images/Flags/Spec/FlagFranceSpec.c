@@ -20,8 +20,8 @@
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern BYTE FlagFranceTiles[];
-extern BYTE FlagFranceMap[];
+extern uint32 FlagFranceTiles[];
+extern uint16 FlagFranceMap[];
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -41,6 +41,9 @@ CharSetROMSpec FlagFranceCharset =
 
 	// char spec
 	FlagFranceTiles,
+
+	// pointer to the frames offsets
+	NULL,
 };
 
 TextureROMSpec FlagFranceTexture =

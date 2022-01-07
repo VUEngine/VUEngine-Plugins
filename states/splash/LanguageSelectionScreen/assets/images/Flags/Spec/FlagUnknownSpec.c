@@ -20,8 +20,8 @@
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern BYTE FlagUnknownTiles[];
-extern BYTE FlagUnknownMap[];
+extern uint32 FlagUnknownTiles[];
+extern uint16 FlagUnknownMap[];
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -41,6 +41,9 @@ CharSetROMSpec FlagUnknownCharset =
 
 	// char spec
 	FlagUnknownTiles,
+
+	// pointer to the frames offsets
+	NULL,
 };
 
 TextureROMSpec FlagUnknownTexture =

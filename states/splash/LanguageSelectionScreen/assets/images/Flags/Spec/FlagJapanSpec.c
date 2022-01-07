@@ -20,8 +20,8 @@
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern BYTE FlagJapanTiles[];
-extern BYTE FlagJapanMap[];
+extern uint32 FlagJapanTiles[];
+extern uint16 FlagJapanMap[];
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -41,6 +41,9 @@ CharSetROMSpec FlagJapanCharset =
 
 	// char spec
 	FlagJapanTiles,
+
+	// pointer to the frames offsets
+	NULL,
 };
 
 TextureROMSpec FlagJapanTexture =

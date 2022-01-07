@@ -20,8 +20,8 @@
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern BYTE FlagFinlandTiles[];
-extern BYTE FlagFinlandMap[];
+extern uint32 FlagFinlandTiles[];
+extern uint16 FlagFinlandMap[];
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -41,6 +41,9 @@ CharSetROMSpec FlagFinlandCharset =
 
 	// char spec
 	FlagFinlandTiles,
+
+	// pointer to the frames offsets
+	NULL,
 };
 
 TextureROMSpec FlagFinlandTexture =

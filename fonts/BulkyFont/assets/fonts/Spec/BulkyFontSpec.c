@@ -14,7 +14,7 @@
 //                                              DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern BYTE BulkyFontTiles[];
+extern uint32 BulkyFontTiles[];
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -31,6 +31,9 @@ CharSetROMSpec BulkyFontCharSet =
 
 	// char spec
 	BulkyFontTiles,
+
+	// pointer to the frames offsets
+	NULL,
 };
 
 FontROMSpec BulkyFont =

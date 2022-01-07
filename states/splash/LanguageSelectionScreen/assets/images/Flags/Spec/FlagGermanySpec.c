@@ -20,8 +20,8 @@
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern BYTE FlagGermanyTiles[];
-extern BYTE FlagGermanyMap[];
+extern uint32 FlagGermanyTiles[];
+extern uint16 FlagGermanyMap[];
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -41,6 +41,9 @@ CharSetROMSpec FlagGermanyCharset =
 
 	// char spec
 	FlagGermanyTiles,
+
+	// pointer to the frames offsets
+	NULL,
 };
 
 TextureROMSpec FlagGermanyTexture =

@@ -20,8 +20,8 @@
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern BYTE FlagUnitedKingdomTiles[];
-extern BYTE FlagUnitedKingdomMap[];
+extern uint32 FlagUnitedKingdomTiles[];
+extern uint16 FlagUnitedKingdomMap[];
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -41,6 +41,9 @@ CharSetROMSpec FlagUnitedKingdomCharset =
 
 	// char spec
 	FlagUnitedKingdomTiles,
+
+	// pointer to the frames offsets
+	NULL,
 };
 
 TextureROMSpec FlagUnitedKingdomTexture =

@@ -20,8 +20,8 @@
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern BYTE FlagItalyTiles[];
-extern BYTE FlagItalyMap[];
+extern uint32 FlagItalyTiles[];
+extern uint16 FlagItalyMap[];
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -41,6 +41,9 @@ CharSetROMSpec FlagItalyCharset =
 
 	// char spec
 	FlagItalyTiles,
+
+	// pointer to the frames offsets
+	NULL,
 };
 
 TextureROMSpec FlagItalyTexture =

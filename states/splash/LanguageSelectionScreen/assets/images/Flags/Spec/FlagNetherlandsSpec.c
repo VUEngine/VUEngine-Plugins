@@ -20,8 +20,8 @@
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern BYTE FlagNetherlandsTiles[];
-extern BYTE FlagNetherlandsMap[];
+extern uint32 FlagNetherlandsTiles[];
+extern uint16 FlagNetherlandsMap[];
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -41,6 +41,9 @@ CharSetROMSpec FlagNetherlandsCharset =
 
 	// char spec
 	FlagNetherlandsTiles,
+
+	// pointer to the frames offsets
+	NULL,
 };
 
 TextureROMSpec FlagNetherlandsTexture =

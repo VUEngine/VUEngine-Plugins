@@ -20,8 +20,8 @@
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern BYTE FlagSwedenTiles[];
-extern BYTE FlagSwedenMap[];
+extern uint32 FlagSwedenTiles[];
+extern uint16 FlagSwedenMap[];
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -41,6 +41,9 @@ CharSetROMSpec FlagSwedenCharset =
 
 	// char spec
 	FlagSwedenTiles,
+
+	// pointer to the frames offsets
+	NULL,
 };
 
 TextureROMSpec FlagSwedenTexture =

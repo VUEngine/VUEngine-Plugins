@@ -98,7 +98,7 @@ static void ShaderSprite::addWORD(WORD* destination, const WORD* source, uint32 
 
 void ShaderSprite::clear(WORD* destinationAddress)
 {
-	extern BYTE ShaderTiles[];
+	extern uint32 ShaderTiles[];
 
 	ShaderSprite::addWORD(
 		destinationAddress,
@@ -110,7 +110,7 @@ void ShaderSprite::clear(WORD* destinationAddress)
 
 void ShaderSprite::drawRandom(WORD* destinationAddress)
 {
-	extern BYTE ShaderTiles[];
+	extern uint32 ShaderTiles[];
 
 	static int32 increment = 0;
 	increment++;

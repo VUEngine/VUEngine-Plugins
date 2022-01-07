@@ -14,7 +14,7 @@
 //                                              DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern BYTE VirtualBoyFontTiles[];
+extern uint32 VirtualBoyFontTiles[];
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -31,6 +31,9 @@ CharSetROMSpec VirtualBoyFontCharSet =
 
 	// char spec
 	VirtualBoyFontTiles,
+
+	// pointer to the frames offsets
+	NULL,
 };
 
 FontROMSpec VirtualBoyFont =

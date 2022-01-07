@@ -14,7 +14,7 @@
 //                                              DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern BYTE AstonishFontTiles[];
+extern uint32 AstonishFontTiles[];
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -31,6 +31,9 @@ CharSetROMSpec AstonishFontCharSet =
 
 	// char spec
 	AstonishFontTiles,
+
+	// pointer to the frames offsets
+	NULL,
 };
 
 FontROMSpec AstonishFont =

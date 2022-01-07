@@ -14,7 +14,7 @@
 //                                              DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern BYTE IndustrialFontTiles[];
+extern uint32 IndustrialFontTiles[];
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -31,6 +31,9 @@ CharSetROMSpec IndustrialFontCharSet =
 
 	// char spec
 	IndustrialFontTiles,
+
+	// pointer to the frames offsets
+	NULL,
 };
 
 FontROMSpec IndustrialFont =

@@ -20,8 +20,8 @@
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern BYTE FlagCursorTiles[];
-extern BYTE FlagCursorMap[];
+extern uint32 FlagCursorTiles[];
+extern uint16 FlagCursorMap[];
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -41,6 +41,9 @@ CharSetROMSpec FlagCursorCharset =
 
 	// char spec
 	FlagCursorTiles,
+
+	// pointer to the frames offsets
+	NULL,
 };
 
 TextureROMSpec FlagCursorTexture =

@@ -19,8 +19,8 @@
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern BYTE AdjustmentScreenBGTiles[];
-extern BYTE AdjustmentScreenBGMap[];
+extern uint32 AdjustmentScreenBGTiles[];
+extern uint16 AdjustmentScreenBGMap[];
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -40,6 +40,9 @@ CharSetROMSpec AdjustmentScreenBgCharset =
 
 	// char spec
 	AdjustmentScreenBGTiles,
+
+	// pointer to the frames offsets
+	NULL,
 };
 
 TextureROMSpec AdjustmentScreenBgTexture =

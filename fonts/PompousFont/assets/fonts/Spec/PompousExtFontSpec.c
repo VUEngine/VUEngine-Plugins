@@ -13,7 +13,7 @@
 //                                              DECLARATIONS                                               
 //---------------------------------------------------------------------------------------------------------
 
-extern BYTE PompousFontTiles[];
+extern uint32 PompousFontTiles[];
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -30,6 +30,9 @@ CharSetROMSpec PompousExtFontCharSet =
 
 	// char spec
 	PompousFontTiles,
+
+	// pointer to the frames offsets
+	NULL,
 };
 
 FontROMSpec PompousExtFont =

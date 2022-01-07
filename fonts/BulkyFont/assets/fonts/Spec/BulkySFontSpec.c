@@ -14,7 +14,7 @@
 //                                              DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern BYTE BulkyFontShadowTiles[];
+extern uint32 BulkyFontShadowTiles[];
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -31,6 +31,9 @@ CharSetROMSpec BulkySFontCharSet =
 
 	// char spec
 	BulkyFontShadowTiles,
+
+	// pointer to the frames offsets
+	NULL,
 };
 
 FontROMSpec BulkySFont =
