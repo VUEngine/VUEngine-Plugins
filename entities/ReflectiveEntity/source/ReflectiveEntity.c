@@ -406,10 +406,6 @@ void ReflectiveEntity::drawReflection(uint32 currentDrawingFrameBufferSet,
 
 	if(reflectParallax)
 	{
-		CACHE_DISABLE;
-		CACHE_CLEAR;
-		CACHE_ENABLE;
-
 		for(; xTotal--; xOutput += xOutputIncrement, xSource++, xCounter++)
 		{
 			uint32 border = leftBorderMask ? 0xFFFFFFFF : 0;
@@ -607,10 +603,6 @@ void ReflectiveEntity::drawReflection(uint32 currentDrawingFrameBufferSet,
 	}
 	else
 	{
-		CACHE_DISABLE;
-		CACHE_CLEAR;
-		CACHE_ENABLE;
-
 		for(; xTotal--; xOutput += xOutputIncrement, xSource++, xCounter++)
 		{
 			uint32 border = leftBorderMask ? 0xFFFFFFFF : 0;
@@ -778,10 +770,6 @@ void ReflectiveEntity::drawReflection(uint32 currentDrawingFrameBufferSet,
 			}
 		}
 	}
-
-	CACHE_DISABLE;
-	CACHE_CLEAR;
-	CACHE_ENABLE;
 
 /*
 	DirectDraw::drawLine(

@@ -113,6 +113,11 @@ singleton class SaveDataManager : Object
 	void writeChecksum();
 
 	/**
+	 * Recompute checksum and compare to that stored in SRAM.
+	 */
+	bool verifyChecksum();
+
+	/**
 	 * Return size of SaveData
 	 */
 	virtual int32 getSaveDataSize();
@@ -159,13 +164,6 @@ singleton class SaveDataManager : Object
      * @memberof 	SaveDataManager
 	 */
 
-	/**
-	 * Recompute checksum and compare to that stored in SRAM.
-	 *
-	 * @fn			bool SaveDataManager::verifyChecksum()
-     * @memberof	SaveDataManager
-     * @return 	  	Valid checksum found?
-	 */
 }
 
 
