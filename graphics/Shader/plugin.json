@@ -1,0 +1,13 @@
+{
+	"displayName": "Shader",
+	"author": "Team VUEngine",
+	"description": "Sprite that renders to a texture.",
+	"icon": "",
+	"readme": "",
+	"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/graphics/Shader",
+	"license": "MIT",
+	"tags": [
+		"Entity"
+	],
+	"dependencies": []
+}
