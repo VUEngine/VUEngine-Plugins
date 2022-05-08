@@ -64,7 +64,7 @@ class Vehicle : Actor
 	override void ready(bool recursive);
 	override void update(uint32 elapsedTime);
 	override fix10_6 getRadius();
-	override void addForce(const Force* force, bool checkIfCanMove);
+	override void applyForce(const Force* force, bool checkIfCanMove);
 }
 
 
