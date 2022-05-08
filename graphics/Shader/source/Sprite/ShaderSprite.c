@@ -39,6 +39,8 @@ void ShaderSprite::constructor(const ShaderSpriteSpec* shaderSpriteSpec, Object 
 	{
 		this->charSet = Texture::getCharSet(this->texture, true);
 	}
+
+	this->positioned = true;
 }
 
 void ShaderSprite::destructor()
@@ -138,8 +140,6 @@ void ShaderSprite::renderToTexture(WORD* bufferAddress)
 		ShaderSprite::renderClock(this, bufferAddress);
 	}
 }
-
-const int32 pad[8192*8*4] = {0};
 
 void ShaderSprite::renderClock(WORD* bufferAddress)
 {
