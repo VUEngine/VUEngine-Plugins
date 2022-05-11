@@ -92,7 +92,7 @@ void Vehicle::ready(bool recursive)
 		VirtualNode node = this->steeringBehaviors->head;
 
 		// just an easy bubble sort
-		for(; node; node = node->next)
+		for(; NULL != node; node = node->next)
 		{
 			SteeringBehavior steeringBehavior = SteeringBehavior::safeCast(node->data);
 

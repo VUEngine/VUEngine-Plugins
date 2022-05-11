@@ -62,7 +62,7 @@ void AvoidSteeringBehavior::removeAllObstacles()
 {
 	VirtualNode node = this->obstacles->head;
 
-	for(; node; node = node->next)
+	for(; NULL != node; node = node->next)
 	{
 		delete node->data;
 	}
@@ -130,7 +130,7 @@ Vector3D AvoidSteeringBehavior::awayFromObstacles(Vehicle vehicle)
 	fix10_6 squareAvoidanceDetectionDistance = __FIX10_6_MULT(this->avoidSteeringBehaviorSpec->avoidanceDetectionDistance, this->avoidSteeringBehaviorSpec->avoidanceDetectionDistance);
 	fix10_6_ext squareMaximumForce = __FIX10_6_EXT_MULT(this->maximumForce, this->maximumForce);
 
-	for(; node; node = node->next)
+	for(; NULL != node; node = node->next)
 	{
 		Obstacle* obstacle = (Obstacle*)node->data;
 

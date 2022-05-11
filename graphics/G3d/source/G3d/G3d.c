@@ -559,7 +559,7 @@ void G3d::drawObject(g3dObject* o)
 	if(o->properties.visible == 0 || o->properties.clip == 1) return;
 
 	vertices=o->objData->vertexSize;//total elements in array
-	lines=o->objData->lineSize;//Total line endpoints
+	lines=o->objData->lineSize;//Total line toVertexs
 	verts=o->objData->faceSize;//total vertices per section
 
 	v=0;
@@ -568,7 +568,7 @@ void G3d::drawObject(g3dObject* o)
 	//Put g3dObject through the render pipeline
 	G3d::renderObject(this, o);
 	/*vertices=o->objData->vertexSize;//total elements in array
-	lines=o->objData->lineSize;//Total line endpoints
+	lines=o->objData->lineSize;//Total line toVertexs
 	verts=o->objData->faceSize;//total vertices per section
 
 	v=0;

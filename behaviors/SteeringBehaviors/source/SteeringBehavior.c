@@ -116,7 +116,7 @@ static Vector3D SteeringBehavior::calculatePrioritized(Vehicle vehicle)
 		fix10_6 maximumForce = 0;
 		VirtualNode node = steeringBehaviors->head;
 
-		for(; node; node = node->next)
+		for(; NULL != node; node = node->next)
 		{
 			SteeringBehavior steeringBehavior = SteeringBehavior::safeCast(node->data);
 
@@ -128,7 +128,7 @@ static Vector3D SteeringBehavior::calculatePrioritized(Vehicle vehicle)
 
 		node = steeringBehaviors->head;
 
-		for(; node; node = node->next)
+		for(; NULL != node; node = node->next)
 		{
 			SteeringBehavior steeringBehavior = SteeringBehavior::safeCast(node->data);
 
@@ -164,7 +164,7 @@ static Vector3D SteeringBehavior::calculateWeightedSum(Vehicle vehicle)
 	{
 		VirtualNode node = steeringBehaviors->head;
 
-		for(; node; node = node->next)
+		for(; NULL != node; node = node->next)
 		{
 			SteeringBehavior steeringBehavior = SteeringBehavior::safeCast(node->data);
 

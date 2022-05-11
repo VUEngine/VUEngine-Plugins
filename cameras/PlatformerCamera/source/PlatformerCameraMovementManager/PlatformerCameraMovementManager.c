@@ -349,7 +349,10 @@ void PlatformerCameraMovementManager::configure(Entity focusEntity, uint32 focus
 
 		// use z displacement in projection
 		false,
-			
+
+		// meshes
+		(MeshSpec*)NULL,
+
 		// collision shapes
 		(ShapeSpec*)this->platformerCameraTriggerEntityShapesSpec,
 
