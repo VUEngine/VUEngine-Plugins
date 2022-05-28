@@ -4,8 +4,7 @@ Uses an entity to do so. If you want to save the extra World needed, you can ins
 
 ![](https://raw.githubusercontent.com/VUEngine/VUEngine-Plugins/master/entities/LowPowerEntity/preview.png)
 
-Usage
------
+## Usage
 
 Add `LowPowerIndicatorEntity` to your game's stages.
 

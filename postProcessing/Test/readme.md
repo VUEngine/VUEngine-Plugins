@@ -6,7 +6,6 @@ This effect is meant for learning purposes.
 
 ![](https://raw.githubusercontent.com/VUEngine/VUEngine-Plugins/master/postProcessing/Test/preview.png)
 
-Usage
------
+## Usage
 
 Add to any SpatialObject using either `Game::pushFrontProcessingEffect` or `Game::pushBackProcessingEffect`. 

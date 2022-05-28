@@ -1,0 +1,20 @@
+{
+	"folders": [{
+		"path": "."
+	}],
+	"plugin": {
+		"displayName": "I18n",
+		"author": "Team VUEngine",
+		"description": {
+			"en": "Allows you to add multiple selectable languages to your project.",
+			"de": "Ermöglicht es Ihnen, Ihrem Projekt mehrere auswählbare Sprachen hinzuzufügen.",
+			"es": "Le permite añadir varios idiomas seleccionables a su proyecto."
+		},
+		"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/other/I18n",
+		"license": "MIT",
+		"tags": [
+			"I18n"
+		],
+		"dependencies": []
+	}
+}

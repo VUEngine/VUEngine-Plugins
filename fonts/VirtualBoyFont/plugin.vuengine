@@ -1,0 +1,58 @@
+{
+	"folders": [{
+		"path": "."
+	}],
+	"plugin": {
+		"displayName": {
+			"en": "Virtual Boy Font",
+			"de": "Virtual Boy Schriftart",
+			"es": "Virtual Boy Fuente"
+		},
+		"author": "Team VUEngine",
+		"description": {
+			"en": "Large font based on the \"Virtual Boy\" writing on the official IPD/Focus adjustment screen.",
+			"de": "Große Schrift in Anlehnung an den \"Virtual Boy\" Schriftzug auf dem offiziellen IPD/Fokus-Einstellbildschirm.",
+			"es": "Letra grande basada en la escritura \"Virtual Boy\" en la pantalla oficial de ajuste de IPD/Enfoque."
+		},
+		"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/fonts/VirtualBoyFont",
+		"license": "MIT",
+		"tags": [
+			{
+				"en": "Font",
+				"de": "Schriftart",
+				"es": "Fuente"
+			}
+		],
+		"dependencies": []
+	},
+	"types": {
+		"Font": {
+            "c06cfd96-0f77-435b-8752-03390890f82b": {
+                "typeId": "Font",
+				"name": "VirtualBoy",
+				"tiles": "VirtualBoyFontTiles",
+				"type": "bgmap",
+				"offset": 32,
+				"characterCount": 96,
+				"charactersPerLine": 16,
+				"size": {
+					"x": 2,
+					"y": 3
+				}
+            },
+            "0e74c972-39f6-48ba-beaf-15802f91ba55": {
+                "typeId": "Font",
+				"name": "VirtualBoyExt",
+				"tiles": "VirtualBoyFontTiles",
+				"type": "bgmap",
+				"offset": 32,
+				"characterCount": 224,
+				"charactersPerLine": 16,
+				"size": {
+					"x": 2,
+					"y": 3
+				}
+            }
+        }
+	}
+}

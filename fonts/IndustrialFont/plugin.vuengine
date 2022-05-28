@@ -1,0 +1,58 @@
+{
+	"folders": [{
+		"path": "."
+	}],
+	"plugin": {
+		"displayName": {
+			"en": "Industrial Font",
+			"de": "Industrial Schriftart",
+			"es": "Industrial Fuente"
+		},
+		"author": "Team VUEngine",
+		"description": {
+			"en": "A bold, angular 8x8 pixel font that resembles industrial lettering.",
+			"de": "Eine fette, kantige 8x8-Pixel-Schriftart, die an industrielle Schriftzüge erinnert.",
+			"es": "Una fuente audaz y angular de 8x8 píxeles que se asemeja a las letras industriales."
+		},
+		"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/fonts/IndustrialFont",
+		"license": "MIT",
+		"tags": [
+			{
+				"en": "Font",
+				"de": "Schriftart",
+				"es": "Fuente"
+			}
+		],
+		"dependencies": []
+	},
+	"types": {
+		"Font": {
+            "2b04af73-beb8-4a6b-b187-9c6d09ba0f31": {
+                "typeId": "Font",
+				"name": "Industrial",
+				"tiles": "IndustrialFontTiles",
+				"type": "bgmap",
+				"offset": 0,
+				"characterCount": 128,
+				"charactersPerLine": 32,
+				"size": {
+					"x": 1,
+					"y": 1
+				}
+            },
+            "530df354-0aad-4e7e-9e7a-2479085577f5": {
+                "typeId": "Font",
+				"name": "IndustrialExt",
+				"tiles": "IndustrialFontTiles",
+				"type": "bgmap",
+				"offset": 0,
+				"characterCount": 256,
+				"charactersPerLine": 32,
+				"size": {
+					"x": 1,
+					"y": 1
+				}
+            }
+        }
+	}
+}

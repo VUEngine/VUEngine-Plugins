@@ -1,0 +1,84 @@
+{
+	"folders": [{
+		"path": "."
+	}],
+	"plugin": {
+		"displayName": {
+			"en": "Pompous Font",
+			"de": "Pompous Schriftart",
+			"es": "Pompous Fuente"
+		},
+		"author": "Team VUEngine",
+		"description": {
+			"en": "A wide 8x16 pixel font for medium size text.",
+			"de": "Eine breite 8x16-Pixel-Schriftart für mittelgroßen Text.",
+			"es": "Una fuente ancha de 8x16 píxeles para textos de tamaño medio."
+		},
+		"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/fonts/PompousFont",
+		"license": "MIT",
+		"tags": [
+			{
+				"en": "Font",
+				"de": "Schriftart",
+				"es": "Fuente"
+			}
+		],
+		"dependencies": []
+	},
+	"types": {
+		"Font": {
+            "9f7156c3-c4b1-4a22-9abb-cddb058d0cad": {
+                "typeId": "Font",
+				"name": "Pompous",
+				"tiles": "PompousFontTiles",
+				"type": "bgmap",
+				"offset": 0,
+				"characterCount": 128,
+				"charactersPerLine": 32,
+				"size": {
+					"x": 1,
+					"y": 2
+				}
+            },
+            "dc870a23-b608-4172-8a21-1f61b6e58566": {
+                "typeId": "Font",
+				"name": "PompousExt",
+				"tiles": "PompousFontTiles",
+				"type": "bgmap",
+				"offset": 0,
+				"characterCount": 256,
+				"charactersPerLine": 32,
+				"size": {
+					"x": 1,
+					"y": 2
+				}
+            },
+            "3a0d4f7f-f7c2-4612-a99d-f643abc2454f": {
+                "typeId": "Font",
+				"name": "PompousS",
+				"tiles": "PompousFontShadowTiles",
+				"type": "bgmap",
+				"offset": 0,
+				"characterCount": 128,
+				"charactersPerLine": 32,
+				"size": {
+					"x": 1,
+					"y": 2
+				}
+            },
+            "112103af-f3ba-4ac4-b7c2-19d0bbe41b74": {
+                "typeId": "Font",
+				"name": "PompousSExt",
+				"tiles": "PompousFontShadowTiles",
+				"type": "bgmap",
+				"offset": 0,
+				"characterCount": 256,
+				"charactersPerLine": 32,
+				"size": {
+					"x": 1,
+					"y": 2
+				}
+            }
+        }
+	}
+}

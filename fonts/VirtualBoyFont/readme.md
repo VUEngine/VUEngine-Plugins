@@ -2,8 +2,7 @@ Large font based on the "Virtual Boy" writing from the official IPD/Focus adjust
 
 ![](https://raw.githubusercontent.com/VUEngine/VUEngine-Plugins/master/fonts/VirtualBoyFont/preview.png)
 
-Usage
------
+## Usage
 
 Included are two versions of the font:
 

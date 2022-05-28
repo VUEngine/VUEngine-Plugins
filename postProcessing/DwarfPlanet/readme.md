@@ -4,7 +4,6 @@ This effect reads and writes a fourth of the screen and is therefore quite heavy
 
 ![](https://raw.githubusercontent.com/VUEngine/VUEngine-Plugins/master/postProcessing/DwarfPlanet/preview.png)
 
-Usage
------
+## Usage
 	
 Add to list of post processing effects of any stage or start manually using either `Game::pushFrontProcessingEffect` or `Game::pushBackProcessingEffect`. 

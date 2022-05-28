@@ -1,0 +1,36 @@
+{
+	"folders": [{
+		"path": "."
+	}],
+	"plugin": {
+		"displayName": {
+			"en": "Automatic Pause",
+			"de": "Automatische Pause",
+			"es": "Pausa Automática"
+		},
+		"author": "Team VUEngine",
+		"description": {
+			"en": "Automatically pauses the game after a definable amount of time.",
+			"de": "Pausiert das Spiel automatisch nach einer einstellbaren Zeitspanne.",
+			"es": "Pone el juego en pausa automáticamente después de una cantidad de tiempo definible."
+		},
+		"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/other/AutomaticPause",
+		"license": "MIT",
+		"tags": [
+			{
+				"en": "Essentials",
+				"de": "Essentiell",
+				"es": "Esenciales"
+			},
+			{
+				"en": "State",
+				"de": "Zustand",
+				"es": "Estado"
+			}
+		],
+		"dependencies": [
+			"vuengine//entities/LowPowerEntity",
+			"vuengine//other/I18n"
+		]
+	}
+}

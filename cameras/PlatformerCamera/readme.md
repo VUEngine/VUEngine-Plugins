@@ -1,7 +1,6 @@
 Implements a common platformer camera that follows an entity.
 
-Usage
------
+## Usage
 
 To setup to your needs, call:
 

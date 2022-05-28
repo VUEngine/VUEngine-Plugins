@@ -4,8 +4,7 @@ Uses the printing layer to do so. If you can spare the extra World, you can inst
 
 ![](https://raw.githubusercontent.com/VUEngine/VUEngine-Plugins/master/other/LowPowerIndicator/preview.png)
 
-Usage
------
+## Usage
 
 For the low power indicator to work, you need to first activate it. The recommended way is to call the function `LowPowerManager::setActive(LowPowerManager::getInstance(), true);` from your game's main function before calling `Game::start(…);`.
 
