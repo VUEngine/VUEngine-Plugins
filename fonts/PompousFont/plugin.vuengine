@@ -25,9 +25,9 @@
 		],
 		"dependencies": []
 	},
-	"types": {
+	"items": {
 		"Font": {
-            "9f7156c3-c4b1-4a22-9abb-cddb058d0cad": {
+            "iT6lsZjJmfPvvyul": {
                 "typeId": "Font",
 				"name": "Pompous",
 				"tiles": "PompousFontTiles",
@@ -40,7 +40,7 @@
 					"y": 2
 				}
             },
-            "dc870a23-b608-4172-8a21-1f61b6e58566": {
+            "6e5PbhtDScX2MQav": {
                 "typeId": "Font",
 				"name": "PompousExt",
 				"tiles": "PompousFontTiles",
@@ -53,7 +53,7 @@
 					"y": 2
 				}
             },
-            "3a0d4f7f-f7c2-4612-a99d-f643abc2454f": {
+            "a2kyMAkAJeT7YBwt": {
                 "typeId": "Font",
 				"name": "PompousS",
 				"tiles": "PompousFontShadowTiles",
@@ -66,7 +66,7 @@
 					"y": 2
 				}
             },
-            "112103af-f3ba-4ac4-b7c2-19d0bbe41b74": {
+            "dD5RyKFTXr5315QS": {
                 "typeId": "Font",
 				"name": "PompousSExt",
 				"tiles": "PompousFontShadowTiles",

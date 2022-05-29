@@ -1,5 +1,5 @@
-{%- import 'partials/macros.nj' as macros -%}
-{% include('partials/fileHeader.h.nj') %}
+{%- import 'templates/partials/macros.nj' as macros -%}
+{% include('templates/partials/fileHeader.h.nj') %}
 
 #ifndef LANGUAGES_H_
 #define LANGUAGES_H_

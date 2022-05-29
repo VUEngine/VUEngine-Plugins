@@ -25,9 +25,9 @@
 		],
 		"dependencies": []
 	},
-	"types": {
+	"items": {
 		"Font": {
-            "2b04af73-beb8-4a6b-b187-9c6d09ba0f31": {
+            "LgyD7l7HfwVhGvDW": {
                 "typeId": "Font",
 				"name": "Industrial",
 				"tiles": "IndustrialFontTiles",
@@ -40,7 +40,7 @@
 					"y": 1
 				}
             },
-            "530df354-0aad-4e7e-9e7a-2479085577f5": {
+            "3LMrPSiEjKIleTRz": {
                 "typeId": "Font",
 				"name": "IndustrialExt",
 				"tiles": "IndustrialFontTiles",

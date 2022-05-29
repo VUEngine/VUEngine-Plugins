@@ -25,9 +25,9 @@
 		],
 		"dependencies": []
 	},
-	"types": {
+	"items": {
 		"Font": {
-            "c06cfd96-0f77-435b-8752-03390890f82b": {
+            "0aBBDNoWWtsrP77d": {
                 "typeId": "Font",
 				"name": "VirtualBoy",
 				"tiles": "VirtualBoyFontTiles",
@@ -40,7 +40,7 @@
 					"y": 3
 				}
             },
-            "0e74c972-39f6-48ba-beaf-15802f91ba55": {
+            "Kkd9VO32CKm9bohV": {
                 "typeId": "Font",
 				"name": "VirtualBoyExt",
 				"tiles": "VirtualBoyFontTiles",

@@ -25,9 +25,9 @@
 		],
 		"dependencies": []
 	},
-	"types": {
+	"items": {
 		"Font": {
-            "804872c4-d4ee-435e-bdb2-fcd4ed086257": {
+            "SDrpAajYWN9971YL": {
                 "typeId": "Font",
 				"name": "Bulky",
 				"tiles": "BulkyFontTiles",
@@ -40,7 +40,7 @@
 					"y": 2
 				}
             },
-            "ddae2050-0804-4973-9d9d-9b007055a9e6": {
+            "jVJi4if5VaTr0c4J": {
                 "typeId": "Font",
 				"name": "BulkyS",
 				"tiles": "BulkyFontShadowTiles",

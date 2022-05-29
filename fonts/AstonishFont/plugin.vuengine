@@ -25,9 +25,9 @@
 		],
 		"dependencies": []
 	},
-	"types": {
+	"items": {
 		"Font": {
-            "3117d2ef-5ba4-4820-b87b-9699ffbc28d5": {
+            "vTjHBFoSIHDIFmth": {
                 "typeId": "Font",
 				"name": "Astonish",
 				"tiles": "AstonishFontTiles",
@@ -40,7 +40,7 @@
 					"y": 2
 				}
             },
-            "69df6d15-280d-4c5b-94ac-2ac3d8f2821e": {
+            "uD51jMt1T4oJvSF0": {
                 "typeId": "Font",
 				"name": "AstonishExt",
 				"tiles": "AstonishFontTiles",
@@ -53,7 +53,7 @@
 					"y": 2
 				}
             },
-            "8b5f6a47-0201-46e7-8bac-0d125b7e360f": {
+            "bQUVMbOkRlZowwkc": {
                 "typeId": "Font",
 				"name": "AstonishS",
 				"tiles": "AstonishFontShadowTiles",
@@ -66,7 +66,7 @@
 					"y": 2
 				}
             },
-            "912277b3-a43f-4d77-9377-05ad7af4bdde": {
+            "f7UxZrBP7IPmQgjh": {
                 "typeId": "Font",
 				"name": "AstonishSExt",
 				"tiles": "AstonishFontShadowTiles",
