@@ -16,5 +16,99 @@
 			"I18n"
 		],
 		"dependencies": []
+	},
+	"templates": {
+		"LanguageSpec.c": {
+			"target": "assets/Language/${name}LanguageSpec.c",
+			"template": "templates/LanguageSpec.c.nj",
+			"encoding": "win1252",
+			"itemSpecific": "Language"
+		},
+		"Languages.c": {
+			"target": "assets/Language/Languages.c",
+			"template": "templates/Languages.c.nj",
+			"events": [
+				{
+					"type": "installedPluginsChanged"
+				}
+			]
+		},
+		"Languages.h": {
+			"target": "source/assets/Languages.h",
+			"template": "templates/Languages.h.nj",
+			"events": [
+				{
+					"type": "installedPluginsChanged"
+				}
+			]
+		}
+	},
+	"types": {
+		"Languages": {
+			"schema": {
+				"title": "Languages",
+				"properties": {
+					"typeId": {
+						"const": "Languages"
+					}
+				}
+			},
+			"icon": "fa fa-language"
+		},
+		"Language": {
+			"schema": {
+				"title": "Language",
+				"properties": {
+					"typeId": {
+						"const": "Language"
+					},
+					"name": {
+						"type": "string"
+					},
+					"localizedName": {
+						"type": "string"
+					},
+					"code": {
+						"type": "string",
+						"default": "en",
+						"maxLength": 2,
+						"minLength": 2
+					},
+					"flag": {
+						"type": "string"
+					},
+					"order": {
+						"type": "integer",
+						"minimum": 0
+					},
+					"translations": {
+						"type": "array",
+						"items": {
+							"type": "object",
+							"properties": {
+								"id": {
+									"type": "string"
+								},
+								"translation": {
+									"type": "string"
+								}
+							}
+						}
+					}
+				},
+				"required": [],
+				"additionalProperties": false
+			},
+			"parent": {
+				"typeId": "Languages",
+				"multiple": true
+			},
+			"icon": "fa fa-language",
+			"templates": [
+				"LanguageSpec.c",
+				"Languages.c",
+				"Languages.h"
+			]
+		}
 	}
 }

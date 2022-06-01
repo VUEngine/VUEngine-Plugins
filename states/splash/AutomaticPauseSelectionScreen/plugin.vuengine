@@ -36,5 +36,113 @@
 			"vuengine//other/SaveDataManager",
 			"vuengine//states/splash/SplashScreen"
 		]
+	},
+	"items": {
+        "Language": {
+            "kNY1WhaXROCmBPUY": {
+                "typeId": "Language",
+				"name": "English",
+				"localizedName": "English",
+				"code": "en",
+				"flag": "",
+				"order": 1,
+				"translations": [
+					{
+						"id": "AutomaticPauseSelectionTitle",
+						"translation": "AUTOMATIC PAUSE"
+					},
+					{
+						"id": "AutomaticPauseSelectionBody",
+						"translation": "The Automatic Pause feature will\nremind you to take a break from\nplaying approx. every 30 minutes"
+					},
+					{
+						"id": "AutomaticPauseSelectionOff",
+						"translation": "Off"
+					},
+					{
+						"id": "AutomaticPauseSelectionOn",
+						"translation": "On"
+					}
+				]
+            },
+            "4NgpnK5na2T0mVIO": {
+                "typeId": "Language",
+				"name": "German",
+				"localizedName": "Deutsch",
+				"code": "de",
+				"flag": "",
+				"order": 1,
+				"translations": [
+					{
+						"id": "AutomaticPauseSelectionTitle",
+						"translation": "AUTOMATISCHE PAUSE"
+					},
+					{
+						"id": "AutomaticPauseSelectionBody",
+						"translation": " Die Automatische Pause Funktion\nerinnert dich daran, das Spiel ca.\n  alle 30 Minuten zu pausieren"
+					},
+					{
+						"id": "AutomaticPauseSelectionOff",
+						"translation": "Aus"
+					},
+					{
+						"id": "AutomaticPauseSelectionOn",
+						"translation": "An"
+					}
+				]
+            },
+            "O73AEK72TEvKZ9B1": {
+                "typeId": "Language",
+				"name": "Spanish",
+				"localizedName": "Español",
+				"code": "es",
+				"flag": "",
+				"order": 1,
+				"translations": [
+					{
+						"id": "AutomaticPauseSelectionTitle",
+						"translation": "PAUSA AUTOMÁTICA"
+					},
+					{
+						"id": "AutomaticPauseSelectionBody",
+						"translation": " La función automática de pausa te\nrecordará que debes tomar un descanso\n  approximadamente cada 30 minutos"
+					},
+					{
+						"id": "AutomaticPauseSelectionOff",
+						"translation": "Apagado"
+					},
+					{
+						"id": "AutomaticPauseSelectionOn",
+						"translation": "Encendido"
+					}
+				]
+            },
+            "FCo2i5W04FDAyzso": {
+                "typeId": "Language",
+				"name": "French",
+				"localizedName": "Français",
+				"code": "fr",
+				"flag": "",
+				"order": 1,
+				"translations": [
+					{
+						"id": "AutomaticPauseSelectionTitle",
+						"translation": "PAUSE AUTOMATIQUE"
+					},
+					{
+						"id": "AutomaticPauseSelectionBody",
+						"translation": "  La fonction Pause automatique va\nvous rappelerez de prendre une pause\n  de jeu chaque 30 minutes environ"
+					},
+					{
+						"id": "AutomaticPauseSelectionOff",
+						"translation": "Desactivé"
+					},
+					{
+						"id": "AutomaticPauseSelectionOn",
+						"translation": "Activé"
+					}
+				]
+            }
+		}
 	}
 }
