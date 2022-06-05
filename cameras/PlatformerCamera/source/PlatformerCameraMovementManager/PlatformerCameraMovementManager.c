@@ -75,7 +75,7 @@ bool PlatformerCameraMovementManager::doFocusWithNoEasing(uint32 checkIfFocusEnt
 		0
 	};
 
-	Camera::setPosition(this->camera, cameraPosition);
+	Camera::setPosition(this->camera, cameraPosition, true);
 
 	return true;
 }
@@ -107,7 +107,7 @@ bool PlatformerCameraMovementManager::doFocus(uint32 checkIfFocusEntityIsMoving 
 	Vector3D focusEntityPositionDisplacement = Camera::getFocusEntityPositionDisplacement(this->camera);
 
 	Vector3D position3D = Vector3D::getRelativeToCamera(focusEntityPosition);
-	PixelVector position2D = Vector3D::projectToPixelVector(position3D, 0);
+	PixelVector position2D = PixelVector::project(position3D, 0);
 
 	Size stageSize = Camera::getStageSize(this->camera);
 
@@ -214,7 +214,7 @@ bool PlatformerCameraMovementManager::doFocus(uint32 checkIfFocusEntityIsMoving 
 		}
 	}
 
-	Camera::setPosition(this->camera, cameraNewPosition);
+	Camera::setPosition(this->camera, cameraNewPosition, true);
 
 	if(reachedTargetFlag.x && reachedTargetFlag.y)
 	{

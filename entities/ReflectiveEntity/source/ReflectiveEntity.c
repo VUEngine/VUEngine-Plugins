@@ -91,7 +91,7 @@ void ReflectiveEntity::synchronizeGraphics()
 	
 	Vector3D position3D = Vector3D::getRelativeToCamera(this->transformation.globalPosition);
 
-	PixelVector position2D = Vector3D::projectToPixelVector(position3D, 0);
+	PixelVector position2D = PixelVector::project(position3D, 0);
 
 	this->position2D = this->nextFramePosition2D;
 	this->nextFramePosition2D.x = position2D.x;
@@ -770,63 +770,4 @@ void ReflectiveEntity::drawReflection(uint32 currentDrawingFrameBufferSet,
 			}
 		}
 	}
-
-/*
-	DirectDraw::drawLine(
-		DirectDraw::getInstance(),
-		(PixelVector) {(xOutputStartTemp),((yOutputStartTemp / REFLECTIVE_ENTITY_Y_STEP_SIZE) * REFLECTIVE_ENTITY_Y_STEP_SIZE),0,0},
-		(PixelVector) {(xOutputEndTemp),((yOutputStartTemp / REFLECTIVE_ENTITY_Y_STEP_SIZE) * REFLECTIVE_ENTITY_Y_STEP_SIZE),0,0},
-		__COLOR_BRIGHT_RED
-	);
-
-	DirectDraw::drawLine(
-		DirectDraw::getInstance(),
-		(PixelVector) {(xOutputStartTemp),((yOutputEndTemp / REFLECTIVE_ENTITY_Y_STEP_SIZE) * REFLECTIVE_ENTITY_Y_STEP_SIZE),0,0},
-		(PixelVector) {(xOutputEndTemp),((yOutputEndTemp / REFLECTIVE_ENTITY_Y_STEP_SIZE) * REFLECTIVE_ENTITY_Y_STEP_SIZE),0,0},
-		__COLOR_BRIGHT_RED
-	);
-
-	DirectDraw::drawLine(
-		DirectDraw::getInstance(),
-		(PixelVector) {(xSourceStartTemp),((ySourceStartTemp / REFLECTIVE_ENTITY_Y_STEP_SIZE) * REFLECTIVE_ENTITY_Y_STEP_SIZE),0,0},
-		(PixelVector) {(xSourceEndTemp),((ySourceStartTemp / REFLECTIVE_ENTITY_Y_STEP_SIZE) * REFLECTIVE_ENTITY_Y_STEP_SIZE),0,0},
-		__COLOR_DARK_RED
-	);
-
-	DirectDraw::drawLine(
-		DirectDraw::getInstance(),
-		(PixelVector) {(xSourceStartTemp),((ySourceEndTemp / REFLECTIVE_ENTITY_Y_STEP_SIZE) * REFLECTIVE_ENTITY_Y_STEP_SIZE),0,0},
-		(PixelVector) {(xSourceEndTemp),((ySourceEndTemp / REFLECTIVE_ENTITY_Y_STEP_SIZE) * REFLECTIVE_ENTITY_Y_STEP_SIZE),0,0},
-		__COLOR_DARK_RED
-	);
-*/
-/*
-	DirectDraw::drawLine(
-		DirectDraw::getInstance(),
-		(PixelVector) {(xOutputStartTemp),(yOutputStartTemp),0,0},
-		(PixelVector) {(xOutputEndTemp),(yOutputStartTemp),0,0},
-		__COLOR_BRIGHT_RED
-	);
-
-	DirectDraw::drawLine(
-		DirectDraw::getInstance(),
-		(PixelVector) {(xOutputStartTemp),(yOutputEndTemp),0,0},
-		(PixelVector) {(xOutputEndTemp),(yOutputEndTemp),0,0},
-		__COLOR_BRIGHT_RED
-	);
-
-	DirectDraw::drawLine(
-		DirectDraw::getInstance(),
-		(PixelVector) {(xSourceStartTemp),(ySourceStartTemp),0,0},
-		(PixelVector) {(xSourceEndTemp),(ySourceStartTemp),0,0},
-		__COLOR_DARK_RED
-	);
-
-	DirectDraw::drawLine(
-		DirectDraw::getInstance(),
-		(PixelVector) {(xSourceStartTemp),(ySourceEndTemp),0,0},
-		(PixelVector) {(xSourceEndTemp),(ySourceEndTemp),0,0},
-		__COLOR_DARK_RED
-	);
-*/
 }

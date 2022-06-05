@@ -144,37 +144,36 @@ static void AdjustmentScreenState::rhombusEmitterPostProcessingEffect(uint32 cur
 	}
 
 	// draw rhombus around object with given radius
-	DirectDraw directDraw = DirectDraw::getInstance();
 
 	// top left line
-	DirectDraw::drawLine(
-		directDraw,
+	DirectDraw::drawColorLine(
 		(PixelVector) {(192 - radius),	(112),			0, -((radius + __ADJUSTMENT_SCREEN_RHOMBUS_INITIAL_VALUE)>>5)},
 		(PixelVector) {(192),			(112 - radius),	0, -((radius + __ADJUSTMENT_SCREEN_RHOMBUS_INITIAL_VALUE)>>5)},
-		__COLOR_BRIGHT_RED
+		__COLOR_BRIGHT_RED,
+		0
 	);
 
 	// top right line
-	DirectDraw::drawLine(
-		directDraw,
+	DirectDraw::drawColorLine(
 		(PixelVector) {(192 + radius),	(112),			0, -((radius + __ADJUSTMENT_SCREEN_RHOMBUS_INITIAL_VALUE)>>5)},
 		(PixelVector) {(192),			(112 - radius),	0, -((radius + __ADJUSTMENT_SCREEN_RHOMBUS_INITIAL_VALUE)>>5)},
-		__COLOR_BRIGHT_RED
+		__COLOR_BRIGHT_RED,
+		0
 	);
 
 	// bottom right line
-	DirectDraw::drawLine(
-		directDraw,
+	DirectDraw::drawColorLine(
 		(PixelVector) {(192 + radius),	(112),			0, -((radius + __ADJUSTMENT_SCREEN_RHOMBUS_INITIAL_VALUE)>>5)},
 		(PixelVector) {(192),			(112 + radius),	0, -((radius + __ADJUSTMENT_SCREEN_RHOMBUS_INITIAL_VALUE)>>5)},
-		__COLOR_BRIGHT_RED
+		__COLOR_BRIGHT_RED,
+		0
 	);
 
 	// bottom left line
-	DirectDraw::drawLine(
-		directDraw,
+	DirectDraw::drawColorLine(
 		(PixelVector) {(192 - radius),	(112),			0, -((radius + __ADJUSTMENT_SCREEN_RHOMBUS_INITIAL_VALUE)>>5)},
 		(PixelVector) {(192),			(112 + radius),	0, -((radius + __ADJUSTMENT_SCREEN_RHOMBUS_INITIAL_VALUE)>>5)},
-		__COLOR_BRIGHT_RED
+		__COLOR_BRIGHT_RED,
+		0
 	);
 }

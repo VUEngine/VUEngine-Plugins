@@ -36,34 +36,32 @@
  */
 static void PostProcessingRhombus::drawRhombus(int32 radius, uint32 color, PixelVector screenPixelPosition, int32 parallax)
 {
-	DirectDraw directDraw = DirectDraw::getInstance();
-
-	DirectDraw::drawLine(
-		directDraw,
+	DirectDraw::drawColorLine(
 		(PixelVector) {screenPixelPosition.x - radius,	screenPixelPosition.y,			0, parallax},
 		(PixelVector) {screenPixelPosition.x,			screenPixelPosition.y - radius,	0, parallax},
-		color
+		color,
+		0
 	);
 
-	DirectDraw::drawLine(
-		directDraw,
+	DirectDraw::drawColorLine(
 		(PixelVector) {screenPixelPosition.x + radius,	screenPixelPosition.y,			0, parallax},
 		(PixelVector) {screenPixelPosition.x,			screenPixelPosition.y - radius,	0, parallax},
-		color
+		color,
+		0
 	);
 
-	DirectDraw::drawLine(
-		directDraw,
+	DirectDraw::drawColorLine(
 		(PixelVector) {screenPixelPosition.x + radius,	screenPixelPosition.y,			0, parallax},
 		(PixelVector) {screenPixelPosition.x,			screenPixelPosition.y + radius,	0, parallax},
-		color
+		color,
+		0
 	);
 
-	DirectDraw::drawLine(
-		directDraw,
+	DirectDraw::drawColorLine(
 		(PixelVector) {screenPixelPosition.x - radius,	screenPixelPosition.y,			0, parallax},
 		(PixelVector) {screenPixelPosition.x,			screenPixelPosition.y + radius,	0, parallax},
-		color
+		color,
+		0
 	);
 }
 
@@ -84,7 +82,7 @@ static void PostProcessingRhombus::rhombus(uint32 currentDrawingFrameBufferSet _
 		return;
 	}
 
-	PixelVector screenPixelPosition = Vector3D::projectToPixelVector(Vector3D::getRelativeToCamera(*SpatialObject::getPosition(spatialObject)), 0);
+	PixelVector screenPixelPosition = PixelVector::project(Vector3D::getRelativeToCamera(*SpatialObject::getPosition(spatialObject)), 0);
 
 	// increase radius by 1 in each cycle
 	radius++;
