@@ -150,7 +150,8 @@ static void AdjustmentScreenState::rhombusEmitterPostProcessingEffect(uint32 cur
 		(PixelVector) {(192 - radius),	(112),			0, -((radius + __ADJUSTMENT_SCREEN_RHOMBUS_INITIAL_VALUE)>>5)},
 		(PixelVector) {(192),			(112 - radius),	0, -((radius + __ADJUSTMENT_SCREEN_RHOMBUS_INITIAL_VALUE)>>5)},
 		__COLOR_BRIGHT_RED,
-		0
+		0,
+		false
 	);
 
 	// top right line
@@ -158,7 +159,8 @@ static void AdjustmentScreenState::rhombusEmitterPostProcessingEffect(uint32 cur
 		(PixelVector) {(192 + radius),	(112),			0, -((radius + __ADJUSTMENT_SCREEN_RHOMBUS_INITIAL_VALUE)>>5)},
 		(PixelVector) {(192),			(112 - radius),	0, -((radius + __ADJUSTMENT_SCREEN_RHOMBUS_INITIAL_VALUE)>>5)},
 		__COLOR_BRIGHT_RED,
-		0
+		0,
+		false
 	);
 
 	// bottom right line
@@ -166,7 +168,8 @@ static void AdjustmentScreenState::rhombusEmitterPostProcessingEffect(uint32 cur
 		(PixelVector) {(192 + radius),	(112),			0, -((radius + __ADJUSTMENT_SCREEN_RHOMBUS_INITIAL_VALUE)>>5)},
 		(PixelVector) {(192),			(112 + radius),	0, -((radius + __ADJUSTMENT_SCREEN_RHOMBUS_INITIAL_VALUE)>>5)},
 		__COLOR_BRIGHT_RED,
-		0
+		0,
+		false
 	);
 
 	// bottom left line
@@ -174,6 +177,7 @@ static void AdjustmentScreenState::rhombusEmitterPostProcessingEffect(uint32 cur
 		(PixelVector) {(192 - radius),	(112),			0, -((radius + __ADJUSTMENT_SCREEN_RHOMBUS_INITIAL_VALUE)>>5)},
 		(PixelVector) {(192),			(112 + radius),	0, -((radius + __ADJUSTMENT_SCREEN_RHOMBUS_INITIAL_VALUE)>>5)},
 		__COLOR_BRIGHT_RED,
-		0
+		0,
+		false
 	);
 }
