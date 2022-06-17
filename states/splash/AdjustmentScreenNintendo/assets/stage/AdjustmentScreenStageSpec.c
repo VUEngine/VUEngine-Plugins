@@ -55,7 +55,7 @@ PositionedEntityROMSpec AdjustmentScreenStageUiEntities[] =
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
 };
 
-SoundROM* const AdjustmentScreenStage_SOUNDS[] =
+SoundROM* const AdjustmentScreenStageSounds[] =
 {
 	NULL
 };
@@ -264,7 +264,7 @@ StageROMSpec AdjustmentScreenStage =
 		(TextureSpec**)NULL,
 
 		// background sounds
-		(Sound**)AdjustmentScreenStage_SOUNDS,
+		(Sound**)AdjustmentScreenStageSounds,
 	},
 
 	// entities
