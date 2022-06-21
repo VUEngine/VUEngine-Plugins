@@ -15,7 +15,7 @@
 //												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
-#include <Object.h>
+#include <ListenerObject.h>
 #include "../config.h"
 
 
@@ -28,7 +28,7 @@
  *
  * @ingroup vuengine-plugins-other
  */
-singleton class LowPowerManager : Object
+singleton class LowPowerManager : ListenerObject
 {
 	/// @protectedsection
 
@@ -95,9 +95,9 @@ singleton class LowPowerManager : Object
 	/**
 	 *
 	 *
-	 * @fn					void LowPowerManager::onSecondChange(Object eventFirer)
+	 * @fn					void LowPowerManager::onSecondChange(ListenerObject eventFirer)
      * @memberof 			LowPowerManager
-     * @param eventFirer	Object that has fired the event
+     * @param eventFirer	ListenerObject that has fired the event
 	 */
 }
 

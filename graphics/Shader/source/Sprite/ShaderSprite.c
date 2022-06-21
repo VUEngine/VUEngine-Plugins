@@ -27,7 +27,7 @@ friend class CharSet;
 //---------------------------------------------------------------------------------------------------------
 
 
-void ShaderSprite::constructor(const ShaderSpriteSpec* shaderSpriteSpec, Object owner)
+void ShaderSprite::constructor(const ShaderSpriteSpec* shaderSpriteSpec, ListenerObject owner)
 {
 	// construct base
 	Base::constructor((BgmapSpriteSpec*)&shaderSpriteSpec->bgmapSpriteSpec, owner);

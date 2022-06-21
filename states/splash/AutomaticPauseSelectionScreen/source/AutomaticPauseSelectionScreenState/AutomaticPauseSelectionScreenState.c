@@ -58,7 +58,7 @@ void AutomaticPauseSelectionScreenState::destructor()
 
 void AutomaticPauseSelectionScreenState::print()
 {
-	Object saveDataManager = Game::getSaveDataManager(Game::getInstance());
+	ListenerObject saveDataManager = Game::getSaveDataManager(Game::getInstance());
 
 	this->selection = saveDataManager
 		? SaveDataManager::getAutomaticPauseStatus(saveDataManager)
@@ -148,7 +148,7 @@ void AutomaticPauseSelectionScreenState::processUserInput(UserInput userInput)
 	}
 	else if(userInput.pressedKey & (K_A | K_STA))
 	{
-		Object saveDataManager = Game::getSaveDataManager(Game::getInstance());
+		ListenerObject saveDataManager = Game::getSaveDataManager(Game::getInstance());
 
 		AutomaticPauseManager::setActive(AutomaticPauseManager::getInstance(), this->selection);
 		

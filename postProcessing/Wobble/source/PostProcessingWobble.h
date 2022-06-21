@@ -22,7 +22,7 @@
 //										FUNCTIONS
 //---------------------------------------------------------------------------------------------------------
 
-static class PostProcessingWobble : Object
+static class PostProcessingWobble : ListenerObject
 {
 	static void wobble(uint32 currentDrawingFrameBufferSet, SpatialObject spatialObject);
 }

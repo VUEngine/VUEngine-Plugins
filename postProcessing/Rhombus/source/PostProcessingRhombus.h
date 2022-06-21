@@ -22,7 +22,7 @@
 //										FUNCTIONS
 //---------------------------------------------------------------------------------------------------------
 
-static class PostProcessingRhombus : Object
+static class PostProcessingRhombus : ListenerObject
 {
 	static void rhombus(uint32 currentDrawingFrameBufferSet, SpatialObject spatialObject);
 }

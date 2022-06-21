@@ -102,8 +102,8 @@ void AutomaticPauseScreenState::enter(void* owner __attribute__ ((unused)))
 		0, // initial delay (in ms)
 		NULL, // target brightness
 		__FADE_DELAY, // delay between fading steps (in ms)
-		(void (*)(Object, Object))AutomaticPauseScreenState::onFadeInComplete, // callback function
-		Object::safeCast(this) // callback scope
+		(void (*)(ListenerObject, ListenerObject))AutomaticPauseScreenState::onFadeInComplete, // callback function
+		ListenerObject::safeCast(this) // callback scope
 	);
 }
 
@@ -128,21 +128,21 @@ void AutomaticPauseScreenState::processUserInput(UserInput userInput)
 			0, // initial delay (in ms)
 			&brightness, // target brightness
 			__FADE_DELAY, // delay between fading steps (in ms)
-			(void (*)(Object, Object))AutomaticPauseScreenState::onFadeOutComplete, // callback function
-			Object::safeCast(this) // callback scope
+			(void (*)(ListenerObject, ListenerObject))AutomaticPauseScreenState::onFadeOutComplete, // callback function
+			ListenerObject::safeCast(this) // callback scope
 		);
 	}
 }
 
 // handle event
-void AutomaticPauseScreenState::onFadeInComplete(Object eventFirer __attribute__ ((unused)))
+void AutomaticPauseScreenState::onFadeInComplete(ListenerObject eventFirer __attribute__ ((unused)))
 {
 	// re-enable user input
 	Game::enableKeypad(Game::getInstance());
 }
 
 // handle event
-void AutomaticPauseScreenState::onFadeOutComplete(Object eventFirer __attribute__ ((unused)))
+void AutomaticPauseScreenState::onFadeOutComplete(ListenerObject eventFirer __attribute__ ((unused)))
 {
 	// re-enable user input
 	Game::enableKeypad(Game::getInstance());

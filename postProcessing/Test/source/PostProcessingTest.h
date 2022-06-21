@@ -22,7 +22,7 @@
 //										FUNCTIONS
 //---------------------------------------------------------------------------------------------------------
 
-static class PostProcessingTest : Object
+static class PostProcessingTest : ListenerObject
 {
 	static void lighting(uint32 currentDrawingFrameBufferSet, SpatialObject spatialObject);
 	static void dummy(uint32 currentDrawingFrameBufferSet, SpatialObject spatialObject);

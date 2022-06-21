@@ -22,7 +22,7 @@
 //										FUNCTIONS
 //---------------------------------------------------------------------------------------------------------
 
-static class PostProcessingDwarfPlanet : Object
+static class PostProcessingDwarfPlanet : ListenerObject
 {
 	static void dwarfPlanet(uint32 currentDrawingFrameBufferSet, SpatialObject spatialObject);
 }

@@ -35,7 +35,7 @@ void SaveDataManager::constructor()
 	this->sramAvailable = false;
 
 	// register with game
-	Game::registerSaveDataManager(Game::getInstance(), Object::safeCast(this));
+	Game::registerSaveDataManager(Game::getInstance(), ListenerObject::safeCast(this));
 
 	// initialize
 	SaveDataManager::initialize(this);

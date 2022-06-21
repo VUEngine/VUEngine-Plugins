@@ -15,7 +15,7 @@
 //												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
-#include <Object.h>
+#include <ListenerObject.h>
 #include <GameState.h>
 
 
@@ -28,7 +28,7 @@
  *
  * @ingroup vuengine-plugins-other
  */
-singleton class AutomaticPauseManager : Object
+singleton class AutomaticPauseManager : ListenerObject
 {
 	/// @protectedsection
 

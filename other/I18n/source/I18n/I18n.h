@@ -15,7 +15,7 @@
 //												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
-#include <Object.h>
+#include <ListenerObject.h>
 #include <Entity.h>
 
 
@@ -76,7 +76,7 @@ typedef const LangSpec LangROMSpec;
  * Handles internationalization of text output and thus allows for multiple selectable languages.
  * @ingroup base
  */
-singleton class I18n : Object
+singleton class I18n : ListenerObject
 {
 	// Currently active language
 	uint8 activeLanguage;

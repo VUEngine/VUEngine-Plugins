@@ -36,7 +36,7 @@ void AutomaticPauseManager::constructor()
 void AutomaticPauseManager::destructor()
 {
 	// remove event listeners
-	Clock::removeEventListener(Game::getClock(Game::getInstance()), Object::safeCast(this), (EventListener)AutomaticPauseManager::onMinuteChange, kEventMinuteChanged);
+	Clock::removeEventListener(Game::getClock(Game::getInstance()), ListenerObject::safeCast(this), (EventListener)AutomaticPauseManager::onMinuteChange, kEventMinuteChanged);
 
 	// destroy base
 	Base::destructor();
@@ -79,16 +79,16 @@ void AutomaticPauseManager::setActive(bool active)
 	if(this->isActive)
 	{
 		// add event listeners
-		Clock::addEventListener(Game::getClock(Game::getInstance()), Object::safeCast(this), (EventListener)AutomaticPauseManager::onMinuteChange, kEventMinuteChanged);
+		Clock::addEventListener(Game::getClock(Game::getInstance()), ListenerObject::safeCast(this), (EventListener)AutomaticPauseManager::onMinuteChange, kEventMinuteChanged);
 	}
 	else
 	{
 		// remove event listeners
-		Clock::removeEventListener(Game::getClock(Game::getInstance()), Object::safeCast(this), (EventListener)AutomaticPauseManager::onMinuteChange, kEventMinuteChanged);
+		Clock::removeEventListener(Game::getClock(Game::getInstance()), ListenerObject::safeCast(this), (EventListener)AutomaticPauseManager::onMinuteChange, kEventMinuteChanged);
 	}
 }
 
-void AutomaticPauseManager::onMinuteChange(Object eventFirer __attribute__ ((unused)))
+void AutomaticPauseManager::onMinuteChange(ListenerObject eventFirer __attribute__ ((unused)))
 {
 	if(this->automaticPauseState && this->isActive && !Game::isPaused(Game::getInstance()))
 	{
