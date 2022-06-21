@@ -81,7 +81,7 @@ SoundChannelROM AutomaticPauseSelectSoundChannel1 =
 };
 
 
-SoundChannelROM* AutomaticPauseSelectSoundChannels[] =
+SoundChannelROM* const AutomaticPauseSelectSoundChannels[] =
 {
 	&AutomaticPauseSelectSoundChannel1,
 	NULL

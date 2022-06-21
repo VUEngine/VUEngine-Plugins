@@ -22,7 +22,7 @@
 
 #ifndef _languages
 /*
-const LangROMSpec* _languages[] =
+LangROMSpec* const _languages[] =
 {
 	NULL
 };

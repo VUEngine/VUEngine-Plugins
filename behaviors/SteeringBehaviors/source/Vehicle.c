@@ -167,12 +167,12 @@ bool Vehicle::updateForce()
 		this->evenCycle = !modulo;
 	}
 
+	Force totalForce = this->accumulatedForce;
+
 	if(computeForce && this->behaviors)
 	{
-		this->steeringForce = SteeringBehavior::calculateForce(this);
+		totalForce = Vector3D::sum(totalForce, SteeringBehavior::calculateForce(this));
 	}
-
-	Force totalForce = Vector3D::sum(this->accumulatedForce, this->steeringForce);
 
 	Base::applyForce(this, &totalForce, this->checkIfCanMove);
 
