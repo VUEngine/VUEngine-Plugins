@@ -135,7 +135,7 @@ EntityROMSpec FlagFinlandEntity =
 	false,
 			
 	// meshes
-	(MeshSpec*)NULL,
+	(WireframeSpec**)NULL,
 
 	// collision shapes
 	NULL,

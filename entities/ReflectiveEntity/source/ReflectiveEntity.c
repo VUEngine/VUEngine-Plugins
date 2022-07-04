@@ -46,7 +46,7 @@ void ReflectiveEntity::constructor(ReflectiveEntitySpec* reflectiveEntitySpec, i
 	Base::constructor(&reflectiveEntitySpec->entitySpec, internalId, name);
 
 	this->waveLutIndex = 0;
-	this->waveLutIndexIncrement = __FIX10_6_MULT(reflectiveEntitySpec->waveLutThrottleFactor, __FIX10_6_DIV(__I_TO_FIX10_6(reflectiveEntitySpec->numberOfWaveLutEntries), __I_TO_FIX10_6(reflectiveEntitySpec->width)));
+	this->waveLutIndexIncrement = __FIXED_MULT(reflectiveEntitySpec->waveLutThrottleFactor, __FIXED_DIV(__I_TO_FIXED(reflectiveEntitySpec->numberOfWaveLutEntries), __I_TO_FIXED(reflectiveEntitySpec->width)));
 	this->nextFramePosition2D = this->position2D = (Point){_cameraFrustum->x1 + 1, _cameraFrustum->y1 + 1};
 }
 
@@ -117,7 +117,7 @@ void ReflectiveEntity::applyReflection(uint32 currentDrawingFrameBufferSet)
 	ReflectiveEntitySpec* reflectiveEntitySpec = (ReflectiveEntitySpec*)this->entitySpec;
 
 /*
-	static fix10_6 index = 0;
+	static fixed_t index = 0;
 
 	const int16 displ[] =
 	{
@@ -129,7 +129,7 @@ void ReflectiveEntity::applyReflection(uint32 currentDrawingFrameBufferSet)
 
 	index += this->waveLutIndexIncrement;
 
-	if(__FIX10_6_TO_I(index) >= sizeof(displ) / sizeof(int16))
+	if(__FIXED_TO_I(index) >= sizeof(displ) / sizeof(int16))
 	{
 		index = 0;
 	}
@@ -202,7 +202,7 @@ void ReflectiveEntity::drawReflection(uint32 currentDrawingFrameBufferSet,
 	uint32 reflectionMask,
 	uint16 axisForReversing, bool transparent, bool reflectParallax,
 	int16 parallaxDisplacement,
-	const uint8 waveLut[], int32 numberOfWaveLutEntries, fix10_6 waveLutThrottleFactor,
+	const uint8 waveLut[], int32 numberOfWaveLutEntries, fixed_t waveLutThrottleFactor,
 	bool flattenTop __attribute__ ((unused)), bool flattenBottom,
 	uint32 topBorderMask,
 	uint32 bottomBorderMask,
@@ -238,7 +238,7 @@ void ReflectiveEntity::drawReflection(uint32 currentDrawingFrameBufferSet,
 		return;
 	}
 
-	fix10_6 fixedNumberOfWaveLutEntries = __FIX10_6_MULT(waveLutThrottleFactor, __I_TO_FIX10_6(numberOfWaveLutEntries));
+	fixed_t fixedNumberOfWaveLutEntries = __FIXED_MULT(waveLutThrottleFactor, __I_TO_FIXED(numberOfWaveLutEntries));
 
 	uint32 transparentMask = transparent ? 0xFFFFFFFF : 0;
 
@@ -356,7 +356,7 @@ void ReflectiveEntity::drawReflection(uint32 currentDrawingFrameBufferSet,
 		0
 	};
 
-	fix10_6 waveLutIndexIncrement = this->waveLutIndexIncrement;
+	fixed_t waveLutIndexIncrement = this->waveLutIndexIncrement;
 
 	if(!waveLut)
 	{
@@ -442,7 +442,7 @@ void ReflectiveEntity::drawReflection(uint32 currentDrawingFrameBufferSet,
 				}
 			}
 
-			int32 xRelativeCoordinate = (xCounter % width) + __FIX10_6_TO_I(this->waveLutIndex);
+			int32 xRelativeCoordinate = (xCounter % width) + __FIXED_TO_I(this->waveLutIndex);
 			int32 xIndex = (numberOfWaveLutEntries * xRelativeCoordinate) / width;
 
 			if(xIndex >= numberOfWaveLutEntries)
@@ -632,7 +632,7 @@ void ReflectiveEntity::drawReflection(uint32 currentDrawingFrameBufferSet,
 				}
 			}
 
-			int32 xRelativeCoordinate = (xCounter % width) + __FIX10_6_TO_I(this->waveLutIndex);
+			int32 xRelativeCoordinate = (xCounter % width) + __FIXED_TO_I(this->waveLutIndex);
 			int32 xIndex = (numberOfWaveLutEntries * xRelativeCoordinate) / width;
 
 			if(xIndex >= numberOfWaveLutEntries)

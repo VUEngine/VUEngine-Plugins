@@ -146,7 +146,7 @@ const Direction3D* Vehicle::getDirection3D()
 	return Body::getDirection3D(this->body);
 }
 
-fix10_6 Vehicle::getFrictionMassRatio()
+fixed_t Vehicle::getFrictionMassRatio()
 {
 	return 0;//this->frictionMassRatio;
 }
@@ -189,7 +189,7 @@ void Vehicle::update(uint32 elapsedTime __attribute__((unused)))
 	Vehicle::updateForce(this);
 }
 
-fix10_6 Vehicle::getRadius()
+fixed_t Vehicle::getRadius()
 {
 	if(0 == this->radius)
 	{

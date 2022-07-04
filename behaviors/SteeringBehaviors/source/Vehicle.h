@@ -42,8 +42,8 @@ class Vehicle : Actor
 	Vector3D steeringForce;
 	Vector3D accumulatedForce;
 	VehicleSpec* vehicleSpec;
-	fix10_6 radius;
-	//fix10_6 frictionMassRatio;
+	fixed_t radius;
+	//fixed_t frictionMassRatio;
 	bool checkIfCanMove;
 	int8 evenCycle;
 
@@ -56,14 +56,14 @@ class Vehicle : Actor
 	bool updateForce();
 	VirtualList getSteeringBehaviors();
 	Velocity getVelocity();
-	fix10_6 getFrictionMassRatio();
+	fixed_t getFrictionMassRatio();
 
 	virtual const Vector3D* getReferencePosition();
 	virtual const Direction3D* getDirection3D();
 
 	override void ready(bool recursive);
 	override void update(uint32 elapsedTime);
-	override fix10_6 getRadius();
+	override fixed_t getRadius();
 	override void applyForce(const Force* force, bool checkIfCanMove);
 }
 

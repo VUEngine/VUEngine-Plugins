@@ -75,7 +75,7 @@ static Vector3D SteeringBehavior::calculateForce(Vehicle vehicle)
 	return steeringForce;
 }
 
-static Vector3D SteeringBehavior::applyDeviation(Vector3D force, fix10_6 deviation)
+static Vector3D SteeringBehavior::applyDeviation(Vector3D force, fixed_t deviation)
 {
 	long seed = _gameRandomSeed;
 	force.x -= force.x ? Utilities::random(seed, deviation << 1) - deviation : 0;
@@ -85,19 +85,19 @@ static Vector3D SteeringBehavior::applyDeviation(Vector3D force, fix10_6 deviati
 	return force;
 }
 
-static Vector3D SteeringBehavior::clampForce(Vector3D force, fix10_6 maximumForce)
+static Vector3D SteeringBehavior::clampForce(Vector3D force, fixed_t maximumForce)
 {
 	if(maximumForce)
 	{
-		fix10_6_ext squaredForceMagnitude = Vector3D::squareLength(force);
+		fixed_ext_t squaredForceMagnitude = Vector3D::squareLength(force);
 
-		if(squaredForceMagnitude > __FIX10_6_EXT_MULT(maximumForce, maximumForce))
+		if(squaredForceMagnitude > __FIXED_EXT_MULT(maximumForce, maximumForce))
 		{
-			fix10_6 forceMagnitude = __F_TO_FIX10_6(Math::squareRoot(__FIX10_6_EXT_TO_F(squaredForceMagnitude)));
+			fixed_t forceMagnitude = __F_TO_FIXED(Math::squareRoot(__FIXED_EXT_TO_F(squaredForceMagnitude)));
 
 			if(forceMagnitude)
 			{
-				force = Vector3D::scalarProduct(force, __FIX10_6_DIV(maximumForce, forceMagnitude));
+				force = Vector3D::scalarProduct(force, __FIXED_DIV(maximumForce, forceMagnitude));
 			}
 		}
 	}
@@ -113,7 +113,7 @@ static Vector3D SteeringBehavior::calculatePrioritized(Vehicle vehicle)
 
 	if(!isDeleted(steeringBehaviors))
 	{
-		fix10_6 maximumForce = 0;
+		fixed_t maximumForce = 0;
 		VirtualNode node = steeringBehaviors->head;
 
 		for(; NULL != node; node = node->next)
@@ -188,13 +188,13 @@ static Vector3D SteeringBehavior::calculateWeightedSum(Vehicle vehicle)
 //  This function calculates how much of its max steering force the
 //  vehicle has left to apply and then applies that amount of the
 //  force to add.
-static bool SteeringBehavior::accumulateForce(fix10_6 maximumForce, Vector3D *totalForce, Vector3D forceToAdd)
+static bool SteeringBehavior::accumulateForce(fixed_t maximumForce, Vector3D *totalForce, Vector3D forceToAdd)
 {
 	//calculate how much steering force the vehicle has used so far
-	fix10_6 squareMagnitudeSoFar = Vector3D::squareLength(*totalForce);
+	fixed_t squareMagnitudeSoFar = Vector3D::squareLength(*totalForce);
 
 	//calculate how much steering force remains to be used by this vehicle
-	fix10_6 squareMagnitudeRemaining = __FIX10_6_EXT_MULT(maximumForce, maximumForce) - squareMagnitudeSoFar;
+	fixed_t squareMagnitudeRemaining = __FIXED_EXT_MULT(maximumForce, maximumForce) - squareMagnitudeSoFar;
 
 	//return false if there is no more force left to use
 	if (squareMagnitudeRemaining < 0)
@@ -203,7 +203,7 @@ static bool SteeringBehavior::accumulateForce(fix10_6 maximumForce, Vector3D *to
 	}
 
 	//calculate the magnitude of the force we want to add
-	fix10_6 squareMagnitudeToAdd = Vector3D::squareLength(forceToAdd);
+	fixed_t squareMagnitudeToAdd = Vector3D::squareLength(forceToAdd);
 
 	//if the magnitude of the sum of forceToAdd and the running total
 	//does not exceed the maximum force available to this vehicle, just
@@ -215,16 +215,16 @@ static bool SteeringBehavior::accumulateForce(fix10_6 maximumForce, Vector3D *to
 	}
 	else if(squareMagnitudeToAdd)
 	{
-		fix10_6 magnitudeToAdd = __F_TO_FIX10_6(Math::squareRoot(__FIX10_6_EXT_TO_F(squareMagnitudeToAdd)));
-		fix10_6 magnitudeSoFar = __F_TO_FIX10_6(Math::squareRoot(__FIX10_6_EXT_TO_F(squareMagnitudeSoFar)));
+		fixed_t magnitudeToAdd = __F_TO_FIXED(Math::squareRoot(__FIXED_EXT_TO_F(squareMagnitudeToAdd)));
+		fixed_t magnitudeSoFar = __F_TO_FIXED(Math::squareRoot(__FIXED_EXT_TO_F(squareMagnitudeSoFar)));
 
 		//calculate how much steering force remains to be used by this vehicle
-		fix10_6 magnitudeRemaining = maximumForce - magnitudeSoFar;
+		fixed_t magnitudeRemaining = maximumForce - magnitudeSoFar;
 
 		//add it to the steering force
 		if(magnitudeToAdd)
 		{
-			*totalForce = Vector3D::sum(*totalForce, Vector3D::scalarProduct(forceToAdd, __FIX10_6_DIV(magnitudeRemaining, magnitudeToAdd)));
+			*totalForce = Vector3D::sum(*totalForce, Vector3D::scalarProduct(forceToAdd, __FIXED_DIV(magnitudeRemaining, magnitudeToAdd)));
 		}
 	}
 
@@ -241,22 +241,22 @@ void SteeringBehavior::setPriority(int32 value)
 	this->priority = value;
 }
 
-fix10_6 SteeringBehavior::getWeight()
+fixed_t SteeringBehavior::getWeight()
 {
 	return this->weight;
 }
 
-void SteeringBehavior::setWeight(fix10_6 value)
+void SteeringBehavior::setWeight(fixed_t value)
 {
 	this->weight = value;
 }
 
-fix10_6 SteeringBehavior::getMaximumForce()
+fixed_t SteeringBehavior::getMaximumForce()
 {
 	return this->maximumForce;
 }
 
-void SteeringBehavior::setMaximumForce(fix10_6 value)
+void SteeringBehavior::setMaximumForce(fixed_t value)
 {
 	this->maximumForce = value;
 }

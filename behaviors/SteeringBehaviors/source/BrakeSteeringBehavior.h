@@ -42,12 +42,12 @@ typedef const BrakeSteeringBehaviorSpec BrakeSteeringBehaviorROMSpec;
 /// @ingroup base
 class BrakeSteeringBehavior : SteeringBehavior
 {
-	fix10_6 strength;
+	fixed_t strength;
 
 	void constructor(const BrakeSteeringBehaviorSpec* brakeSteeringBehaviorSpec);
 
-	fix10_6 getStrength();
-	void setStrength(fix10_6 value);
+	fixed_t getStrength();
+	void setStrength(fixed_t value);
 
 	override Vector3D calculate(Vehicle owner);
 }

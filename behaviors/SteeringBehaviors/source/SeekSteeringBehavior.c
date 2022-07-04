@@ -97,10 +97,10 @@ Vector3D SeekSteeringBehavior::calculate(Vehicle owner)
 	return this->force;
 }
 
-static Vector3D SeekSteeringBehavior::toTarget(SeekSteeringBehavior seekSteeringBehavior, Vehicle vehicle, Vector3D target, bool proportionalToDistance, fix10_6 reachedDistanceThreshold, fix10_6 easingDistanceThreshold, bool allowEasing)
+static Vector3D SeekSteeringBehavior::toTarget(SeekSteeringBehavior seekSteeringBehavior, Vehicle vehicle, Vector3D target, bool proportionalToDistance, fixed_t reachedDistanceThreshold, fixed_t easingDistanceThreshold, bool allowEasing)
 {
 	Vector3D trajectory = Vector3D::get(*Vehicle::getReferencePosition(vehicle), target);
-	fix10_6 length = Vector3D::length(trajectory);
+	fixed_t length = Vector3D::length(trajectory);
 
 	if(!length || length < reachedDistanceThreshold)
 	{
@@ -110,8 +110,8 @@ static Vector3D SeekSteeringBehavior::toTarget(SeekSteeringBehavior seekSteering
 		return Vector3D::zero();
 	}
 
-	fix10_6 magnitude = Vehicle::getMaximumSpeed(vehicle);
-	fix10_6 desiredVelocityLength = __FIX10_6_DIV(magnitude, length);
+	fixed_t magnitude = Vehicle::getMaximumSpeed(vehicle);
+	fixed_t desiredVelocityLength = __FIXED_DIV(magnitude, length);
 
 	Vector3D desiredVelocity = Vector3D::scalarProduct(trajectory, desiredVelocityLength);
 
@@ -121,7 +121,7 @@ static Vector3D SeekSteeringBehavior::toTarget(SeekSteeringBehavior seekSteering
 
 		if(allowEasing && easingDistanceThreshold > length)
 		{
-			fix10_6 scaleFactor = __FIX10_6_EXT_TO_FIX10_6(__FIX10_6_EXT_MULT(magnitude, __FIX10_6_EXT_DIV(length, easingDistanceThreshold)));
+			fixed_t scaleFactor = __FIXED_EXT_TO_FIXED(__FIXED_EXT_MULT(magnitude, __FIXED_EXT_DIV(length, easingDistanceThreshold)));
 			desiredVelocity = Vector3D::scalarProduct(desiredVelocity, scaleFactor);
 		}
 	}
@@ -129,22 +129,22 @@ static Vector3D SeekSteeringBehavior::toTarget(SeekSteeringBehavior seekSteering
 	return desiredVelocity;
 }
 
-fix10_6 SeekSteeringBehavior::getEasingDistanceThreshold()
+fixed_t SeekSteeringBehavior::getEasingDistanceThreshold()
 {
 	return this->easingDistanceThreshold;
 }
 
-void SeekSteeringBehavior::setEasingDistanceThreshold(fix10_6 value)
+void SeekSteeringBehavior::setEasingDistanceThreshold(fixed_t value)
 {
 	this->easingDistanceThreshold = value;
 }
 
-fix10_6 SeekSteeringBehavior::getReachedDistanceThreshold()
+fixed_t SeekSteeringBehavior::getReachedDistanceThreshold()
 {
 	return this->reachedDistanceThreshold;
 }
 
-void SeekSteeringBehavior::setReachedDistanceThreshold(fix10_6 value)
+void SeekSteeringBehavior::setReachedDistanceThreshold(fixed_t value)
 {
 	this->reachedDistanceThreshold = value;
 }

@@ -42,12 +42,12 @@ void BrakeSteeringBehavior::destructor()
 	Base::destructor();
 }
 
-fix10_6 BrakeSteeringBehavior::getStrength()
+fixed_t BrakeSteeringBehavior::getStrength()
 {
 	return this->strength;
 }
 
-void BrakeSteeringBehavior::setStrength(fix10_6 value)
+void BrakeSteeringBehavior::setStrength(fixed_t value)
 {
 	this->strength = __ABS(value);
 }
@@ -69,11 +69,11 @@ Vector3D BrakeSteeringBehavior::calculate(Vehicle owner)
 
 static Vector3D BrakeSteeringBehavior::toTarget(BrakeSteeringBehavior seekSteeringBehavior, Vehicle vehicle)
 {
-	fix10_6 magnitude = __FIX10_6_DIV(Vehicle::getSpeed(vehicle), Vehicle::getFrictionMassRatio(vehicle));
+	fixed_t magnitude = __FIXED_DIV(Vehicle::getSpeed(vehicle), Vehicle::getFrictionMassRatio(vehicle));
 
 	if(seekSteeringBehavior->strength)
 	{
-		magnitude = __FIX10_6_MULT(magnitude, seekSteeringBehavior->strength);
+		magnitude = __FIXED_MULT(magnitude, seekSteeringBehavior->strength);
 	}
 
 	return Vector3D::scalarProduct(*Vehicle::getDirection3D(vehicle), -magnitude);

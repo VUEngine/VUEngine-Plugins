@@ -28,10 +28,10 @@ typedef struct SeekSteeringBehaviorSpec
 	SteeringBehaviorSpec steeringBehaviorSpec;
 
 	/// Distance when it is considered that the target has been reached
-	fix10_6 reachedDistanceThreshold;
+	fixed_t reachedDistanceThreshold;
 
 	/// Distance when easing starts to apply to the computed force
-	fix10_6 easingDistanceThreshold;
+	fixed_t easingDistanceThreshold;
 
 } SeekSteeringBehaviorSpec;
 
@@ -49,8 +49,8 @@ typedef const SeekSteeringBehaviorSpec SeekSteeringBehaviorROMSpec;
 class SeekSteeringBehavior : SteeringBehavior
 {
 	Vector3D target;
-	fix10_6 reachedDistanceThreshold;
-	fix10_6 easingDistanceThreshold;
+	fixed_t reachedDistanceThreshold;
+	fixed_t easingDistanceThreshold;
 	bool slowDownWhenReachingTarget;
 	bool reachedTarget;
 	bool allowEasing;
@@ -63,8 +63,8 @@ class SeekSteeringBehavior : SteeringBehavior
 	void setAllowEasing(bool value);
 	bool getSlowDownWhenReachingTarget();
 	void setSlowDownWhenReachingTarget(bool value);
-	fix10_6 getReachedDistanceThreshold();
-	void setReachedDistanceThreshold(fix10_6 value);
+	fixed_t getReachedDistanceThreshold();
+	void setReachedDistanceThreshold(fixed_t value);
 	override Vector3D calculate(Vehicle owner);
 }
 
