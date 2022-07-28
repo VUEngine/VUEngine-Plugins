@@ -117,10 +117,10 @@ bool PlatformerCameraMovementManager::doFocus(uint32 checkIfFocusEntityIsMoving 
 		if(this->positionFlag.x | focusEntityOutOfBounds)
 		{
 			// calculate the target position
-			fix10_6 horizontalPosition = cameraNewPosition.x;
-			fix10_6 horizontalTarget = focusEntityPosition.x + direction.x * focusEntityPositionDisplacement.x - __PIXELS_TO_METERS(__SCREEN_WIDTH / 2);
+			fixed_t horizontalPosition = cameraNewPosition.x;
+			fixed_t horizontalTarget = focusEntityPosition.x + direction.x * focusEntityPositionDisplacement.x - __PIXELS_TO_METERS(__SCREEN_WIDTH / 2);
 
-			fix10_6 easingDisplacement = __PIXELS_TO_METERS(7);
+			fixed_t easingDisplacement = __PIXELS_TO_METERS(7);
 
 			if(introFocusing)
 			{
@@ -160,11 +160,11 @@ bool PlatformerCameraMovementManager::doFocus(uint32 checkIfFocusEntityIsMoving 
 		if(this->positionFlag.y | focusEntityOutOfBounds)
 		{
 			// calculate the target position
-			fix10_6 verticalPosition = cameraNewPosition.y;
-			fix10_6 verticalTarget = focusEntityPosition.y + focusEntityPositionDisplacement.y - __PIXELS_TO_METERS(__SCREEN_HEIGHT / 2);
+			fixed_t verticalPosition = cameraNewPosition.y;
+			fixed_t verticalTarget = focusEntityPosition.y + focusEntityPositionDisplacement.y - __PIXELS_TO_METERS(__SCREEN_HEIGHT / 2);
 
-			fix10_6 downEasingDisplacement = __PIXELS_TO_METERS(3);
-			fix10_6 upEasingDisplacement = __PIXELS_TO_METERS(3);
+			fixed_t downEasingDisplacement = __PIXELS_TO_METERS(3);
+			fixed_t upEasingDisplacement = __PIXELS_TO_METERS(3);
 
 			if(introFocusing)
 			{
@@ -351,7 +351,7 @@ void PlatformerCameraMovementManager::configure(Entity focusEntity, uint32 focus
 		false,
 
 		// wireframes
-		(WireframeSpec*)NULL,
+		(WireframeSpec**)NULL,
 
 		// collision shapes
 		(ShapeSpec*)this->platformerCameraTriggerEntityShapesSpec,

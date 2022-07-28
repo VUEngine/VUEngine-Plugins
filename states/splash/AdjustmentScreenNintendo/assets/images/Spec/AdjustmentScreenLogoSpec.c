@@ -134,7 +134,7 @@ EntityROMSpec AdjustmentScreenLogoEntity =
 	false,
 			
 	// wireframes
-	(WireframeSpec*)NULL)NULL,
+	(WireframeSpec**)NULL,
 
 	// collision shapes
 	(ShapeSpec*)NULL,

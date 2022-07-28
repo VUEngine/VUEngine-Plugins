@@ -262,8 +262,8 @@ static void PostProcessingRain::calculateRainPrecipitation(fix19_13* yStepThrott
 	// multiply by the game cycle per second
 	int32 rainPeriod =  __I_TO_FIX19_13(((int32)timePeriod[timePeriodIndex] + previousTime % timePeriod[timePeriodIndex]) * 50);
 
-	*yStepThrottle += __FIX10_6_TO_FIX19_13(__FIX10_6_DIV(__FIX19_13_TO_FIX10_6(rainAcceleration[rainAccelerationIndex] * (maximumYThrottle - minimumYThrottle)), __FIX19_13_TO_FIX10_6(rainPeriod)));
-	*xStep -= __FIX10_6_TO_FIX19_13(__FIX10_6_DIV(__FIX19_13_TO_FIX10_6(rainAcceleration[rainAccelerationIndex] * (maximumXStep - minimumXStep)), __FIX19_13_TO_FIX10_6(rainPeriod)));
+	*yStepThrottle += __FIXED_TO_FIX19_13(__FIXED_DIV(__FIX19_13_TO_FIXED(rainAcceleration[rainAccelerationIndex] * (maximumYThrottle - minimumYThrottle)), __FIX19_13_TO_FIXED(rainPeriod)));
+	*xStep -= __FIXED_TO_FIX19_13(__FIXED_DIV(__FIX19_13_TO_FIXED(rainAcceleration[rainAccelerationIndex] * (maximumXStep - minimumXStep)), __FIX19_13_TO_FIXED(rainPeriod)));
 
 	if(*yStepThrottle < minimumYThrottle)
 	{
@@ -416,12 +416,12 @@ static void PostProcessingRain::waterFall(uint32 currentDrawingFrameBufferSet, V
 
 	PostProcessingRain::waterStream(
 		currentDrawingFrameBufferSet,
-		__FIX10_6_TO_I(position.x) - (width >> 1),
-		__FIX10_6_TO_I(position.x) + (width >> 1),
+		__FIXED_TO_I(position.x) - (width >> 1),
+		__FIXED_TO_I(position.x) + (width >> 1),
 		0,
 		1,
-		__FIX10_6_TO_I(position.y) - (height >> 1),
-		__FIX10_6_TO_I(position.y) + (height >> 1),
+		__FIXED_TO_I(position.y) - (height >> 1),
+		__FIXED_TO_I(position.y) + (height >> 1),
 		0,
 		yStep,
 		sizeof(yStep) >> POST_PROCESSING_RAIN_SIZE_OF_uint16_POWER,

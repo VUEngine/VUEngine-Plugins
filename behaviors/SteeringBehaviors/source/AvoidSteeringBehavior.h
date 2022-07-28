@@ -29,13 +29,13 @@ typedef struct AvoidSteeringBehaviorSpec
 	SteeringBehaviorSpec steeringBehaviorSpec;
 
 	/// Maximum angle betwen vehicle and obstacle to account for
-	fix10_6 maximumAngle;
+	fixed_t maximumAngle;
 
 	/// Avoidance check distance modification percentage
-	fix10_6 avoidanceDetectionDistance;
+	fixed_t avoidanceDetectionDistance;
 
 	/// Minimum angle's cos to start braking
-	fix10_6 brakingMinimumAngleCos;
+	fixed_t brakingMinimumAngleCos;
 
 } AvoidSteeringBehaviorSpec;
 
@@ -46,7 +46,7 @@ typedef struct Obstacle
 {
 	SpatialObject spatialObject;
 	const Vector3D* position;
-	fix10_6 radius;
+	fixed_t radius;
 
 }Obstacle;
 
@@ -71,7 +71,7 @@ class AvoidSteeringBehavior : SteeringBehavior
 	void removeAllObstacles();
 	bool isBraking();
 	VirtualList getObstacles();
-	fix10_6 getAvoidanceDetectionDistance();
+	fixed_t getAvoidanceDetectionDistance();
 	Vector3D getForce();
 	override Vector3D calculate(Vehicle owner);
 }

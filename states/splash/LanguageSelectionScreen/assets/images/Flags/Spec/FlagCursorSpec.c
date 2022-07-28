@@ -135,7 +135,7 @@ EntityROMSpec FlagCursorEntity =
 	false,
 			
 	// wireframes
-	(WireframeSpec*)NULL,
+	(WireframeSpec**)NULL,
 
 	// collision shapes
 	NULL,

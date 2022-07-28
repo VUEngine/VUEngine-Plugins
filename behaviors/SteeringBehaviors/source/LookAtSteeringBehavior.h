@@ -7,8 +7,8 @@
  * that was distributed with this source code.
  */
 
-#ifndef SEEK_STEERING_BEHAVIOR_H_
-#define SEEK_STEERING_BEHAVIOR_H_
+#ifndef LOOK_AT_STEERING_BEHAVIOR_H_
+#define LOOK_AT_STEERING_BEHAVIOR_H_
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -23,7 +23,7 @@
 //---------------------------------------------------------------------------------------------------------
 
 // defines an entity in ROM memory
-typedef struct SeekSteeringBehaviorSpec
+typedef struct LookAtSteeringBehaviorSpec
 {
 	SteeringBehaviorSpec steeringBehaviorSpec;
 
@@ -33,9 +33,9 @@ typedef struct SeekSteeringBehaviorSpec
 	/// Distance when easing starts to apply to the computed force
 	fixed_t easingDistanceThreshold;
 
-} SeekSteeringBehaviorSpec;
+} LookAtSteeringBehaviorSpec;
 
-typedef const SeekSteeringBehaviorSpec SeekSteeringBehaviorROMSpec;
+typedef const LookAtSteeringBehaviorSpec LookAtSteeringBehaviorROMSpec;
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -46,7 +46,7 @@ typedef const SeekSteeringBehaviorSpec SeekSteeringBehaviorROMSpec;
 //  direct the agent towards the target
 
 /// @ingroup base
-class SeekSteeringBehavior : SteeringBehavior
+class LookAtSteeringBehavior : SteeringBehavior
 {
 	Vector3D target;
 	fixed_t reachedDistanceThreshold;
@@ -55,7 +55,7 @@ class SeekSteeringBehavior : SteeringBehavior
 	bool reachedTarget;
 	bool allowEasing;
 
-	void constructor(const SeekSteeringBehaviorSpec* seekSteeringBehaviorSpec);
+	void constructor(const LookAtSteeringBehaviorSpec* LookAtSteeringBehaviorSpec);
 
 	Vector3D getTarget();
 	void setTarget(Vector3D value);

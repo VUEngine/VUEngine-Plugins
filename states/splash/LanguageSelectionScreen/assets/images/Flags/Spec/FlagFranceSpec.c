@@ -135,7 +135,11 @@ EntityROMSpec FlagFranceEntity =
 	false,
 			
 	// wireframes
+
 	(WireframeSpec*)NULL)NULL,
+
+	(WireframeSpec**)NULL,
+
 
 	// collision shapes
 	NULL,

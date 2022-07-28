@@ -132,10 +132,10 @@ EntityROMSpec FlagNetherlandsEntity =
 	(SpriteSpec**)FlagNetherlandsSprites,
 
 	// use z displacement in projection
-	false,
-			
+	false,	
+
 	// wireframes
-	(WireframeSpec*)NULL,
+	(WireframeSpec**)NULL,
 
 	// collision shapes
 	NULL,

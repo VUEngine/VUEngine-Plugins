@@ -12,7 +12,7 @@
 //												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
-#include <SeekSteeringBehavior.h>
+#include <LookAtSteeringBehavior.h>
 #include <Vehicle.h>
 #include <VirtualList.h>
 
@@ -24,60 +24,60 @@
 /**
  * Class constructor
  */
-void SeekSteeringBehavior::constructor(const SeekSteeringBehaviorSpec* seekSteeringBehaviorSpec)
+void LookAtSteeringBehavior::constructor(const LookAtSteeringBehaviorSpec* LookAtSteeringBehaviorSpec)
 {
-	Base::constructor(&seekSteeringBehaviorSpec->steeringBehaviorSpec);
+	Base::constructor(&LookAtSteeringBehaviorSpec->steeringBehaviorSpec);
 
 	this->target = Vector3D::zero();
 	this->slowDownWhenReachingTarget = false;
 	this->reachedTarget = false;
 	this->allowEasing = false;
-	this->reachedDistanceThreshold = seekSteeringBehaviorSpec->reachedDistanceThreshold;
-	this->easingDistanceThreshold = seekSteeringBehaviorSpec->easingDistanceThreshold;
+	this->reachedDistanceThreshold = LookAtSteeringBehaviorSpec->reachedDistanceThreshold;
+	this->easingDistanceThreshold = LookAtSteeringBehaviorSpec->easingDistanceThreshold;
 }
 
 /**
  * Class destructor
  */
-void SeekSteeringBehavior::destructor()
+void LookAtSteeringBehavior::destructor()
 {
 	// destroy the super object
 	// must always be called at the end of the destructor
 	Base::destructor();
 }
 
-bool SeekSteeringBehavior::getAllowEasing()
+bool LookAtSteeringBehavior::getAllowEasing()
 {
 	return this->allowEasing;
 }
 
-void SeekSteeringBehavior::setAllowEasing(bool value)
+void LookAtSteeringBehavior::setAllowEasing(bool value)
 {
 	this->allowEasing = value;
 }
 
-Vector3D SeekSteeringBehavior::getTarget()
+Vector3D LookAtSteeringBehavior::getTarget()
 {
 	return this->target;
 }
 
-void SeekSteeringBehavior::setTarget(Vector3D value)
+void LookAtSteeringBehavior::setTarget(Vector3D value)
 {
 	this->target = value;
 	this->reachedTarget = false;
 }
 
-bool SeekSteeringBehavior::getSlowDownWhenReachingTarget()
+bool LookAtSteeringBehavior::getSlowDownWhenReachingTarget()
 {
 	return this->slowDownWhenReachingTarget;
 }
 
-void SeekSteeringBehavior::setSlowDownWhenReachingTarget(bool value)
+void LookAtSteeringBehavior::setSlowDownWhenReachingTarget(bool value)
 {
 	this->slowDownWhenReachingTarget = value;
 }
 
-Vector3D SeekSteeringBehavior::calculate(Vehicle owner)
+Vector3D LookAtSteeringBehavior::calculate(Vehicle owner)
 {
 	this->force = Vector3D::zero();
 
@@ -92,21 +92,21 @@ Vector3D SeekSteeringBehavior::calculate(Vehicle owner)
 		return this->force;
 	}
 
-	this->force = SeekSteeringBehavior::toTarget(this, owner, this->target, this->slowDownWhenReachingTarget, this->reachedDistanceThreshold, this->easingDistanceThreshold, this->allowEasing);
+	this->force = LookAtSteeringBehavior::toTarget(this, owner, this->target, this->slowDownWhenReachingTarget, this->reachedDistanceThreshold, this->easingDistanceThreshold, this->allowEasing);
 
 	return this->force;
 }
 
-static Vector3D SeekSteeringBehavior::toTarget(SeekSteeringBehavior seekSteeringBehavior, Vehicle vehicle, Vector3D target, bool proportionalToDistance, fixed_t reachedDistanceThreshold, fixed_t easingDistanceThreshold, bool allowEasing)
+static Vector3D LookAtSteeringBehavior::toTarget(LookAtSteeringBehavior LookAtSteeringBehavior, Vehicle vehicle, Vector3D target, bool proportionalToDistance, fixed_t reachedDistanceThreshold, fixed_t easingDistanceThreshold, bool allowEasing)
 {
 	Vector3D trajectory = Vector3D::get(*Vehicle::getReferencePosition(vehicle), target);
 	fixed_t length = Vector3D::length(trajectory);
 
 	if(!length || length < reachedDistanceThreshold)
 	{
-		seekSteeringBehavior->reachedTarget = true;
-		SeekSteeringBehavior::fireEvent(seekSteeringBehavior, kTargetReached);
-		NM_ASSERT(!isDeleted(seekSteeringBehavior), "SeekSteeringBehavior::toTarget: deleted seekSteeringBehavior during kTargetReached");
+		LookAtSteeringBehavior->reachedTarget = true;
+		LookAtSteeringBehavior::fireEvent(LookAtSteeringBehavior, kTargetReached);
+		NM_ASSERT(!isDeleted(LookAtSteeringBehavior), "LookAtSteeringBehavior::toTarget: deleted LookAtSteeringBehavior during kTargetReached");
 		return Vector3D::zero();
 	}
 
@@ -129,22 +129,22 @@ static Vector3D SeekSteeringBehavior::toTarget(SeekSteeringBehavior seekSteering
 	return desiredVelocity;
 }
 
-fixed_t SeekSteeringBehavior::getEasingDistanceThreshold()
+fixed_t LookAtSteeringBehavior::getEasingDistanceThreshold()
 {
 	return this->easingDistanceThreshold;
 }
 
-void SeekSteeringBehavior::setEasingDistanceThreshold(fixed_t value)
+void LookAtSteeringBehavior::setEasingDistanceThreshold(fixed_t value)
 {
 	this->easingDistanceThreshold = value;
 }
 
-fixed_t SeekSteeringBehavior::getReachedDistanceThreshold()
+fixed_t LookAtSteeringBehavior::getReachedDistanceThreshold()
 {
 	return this->reachedDistanceThreshold;
 }
 
-void SeekSteeringBehavior::setReachedDistanceThreshold(fixed_t value)
+void LookAtSteeringBehavior::setReachedDistanceThreshold(fixed_t value)
 {
 	this->reachedDistanceThreshold = value;
 }

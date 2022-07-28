@@ -90,8 +90,8 @@ typedef struct ReflectiveEntitySpec
 	/// number of wave lut entries
 	uint16 numberOfWaveLutEntries;
 
-	/// fix10_6 throttle for the waving
-	fix10_6 waveLutThrottleFactor;
+	/// fixed_t throttle for the waving
+	fixed_t waveLutThrottleFactor;
 
 	/// parallax displacement applied to the reflection
 	int16 parallaxDisplacement;
@@ -139,9 +139,9 @@ typedef const ReflectiveEntitySpec ReflectiveEntityROMSpec;
 class ReflectiveEntity : Entity
 {
 	//
-	fix10_6 waveLutIndex;
+	fixed_t waveLutIndex;
 	//
-	fix10_6 waveLutIndexIncrement;
+	fixed_t waveLutIndexIncrement;
 	//
 	Point position2D;
 	//
@@ -191,7 +191,7 @@ class ReflectiveEntity : Entity
      * @param rightBorderMask
      * @param noisePasses
      */
-	virtual void drawReflection(uint32 currentDrawingFrameBufferSet, int16 xSourceStart, int16 ySourceStart, int16 xOutputStart, int16 yOutputStart, int16 width, int16 height, uint32 reflectionMask, uint16 axisForReversing, bool transparent, bool reflectParallax, int16 parallaxDisplacement, const uint8 waveLut[], int32 numberOfWaveLutEntries, fix10_6 waveLutThrottleFactor, bool flattenTop, bool flattenBottom, uint32 topBorderMask, uint32 bottomBorderMask, uint32 leftBorderMask, uint32 rightBorderMask, int16 noisePasses);
+	virtual void drawReflection(uint32 currentDrawingFrameBufferSet, int16 xSourceStart, int16 ySourceStart, int16 xOutputStart, int16 yOutputStart, int16 width, int16 height, uint32 reflectionMask, uint16 axisForReversing, bool transparent, bool reflectParallax, int16 parallaxDisplacement, const uint8 waveLut[], int32 numberOfWaveLutEntries, fixed_t waveLutThrottleFactor, bool flattenTop, bool flattenBottom, uint32 topBorderMask, uint32 bottomBorderMask, uint32 leftBorderMask, uint32 rightBorderMask, int16 noisePasses);
 
 	/**
 	 * Entity is ready

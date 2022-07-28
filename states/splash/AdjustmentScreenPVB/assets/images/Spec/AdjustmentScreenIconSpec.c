@@ -167,7 +167,7 @@ EntityROMSpec AdjustmentScreenIconLEntity =
 	false,
 			
 	// wireframes
-	(WireframeSpec*)NULL,
+	(WireframeSpec**)NULL,
 
 	// collision shapes
 	(ShapeSpec*)NULL,
@@ -204,7 +204,7 @@ EntityROMSpec AdjustmentScreenIconREntity =
 	false,
 			
 	// wireframes
-	(WireframeSpec*)NULL,
+	(WireframeSpec**)NULL,
 
 	// collision shapes
 	(ShapeSpec*)NULL,
