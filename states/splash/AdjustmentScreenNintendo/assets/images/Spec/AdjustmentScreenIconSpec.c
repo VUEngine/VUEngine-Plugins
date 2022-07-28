@@ -167,7 +167,7 @@ EntityROMSpec AdjustmentScreenIconLEntity =
 	// use z displacement in projection
 	false,
 			
-	// meshes
+	// wireframes
 	(WireframeSpec**)NULL,
 
 	// collision shapes
@@ -204,7 +204,7 @@ EntityROMSpec AdjustmentScreenIconREntity =
 	// use z displacement in projection
 	false,
 			
-	// meshes
+	// wireframes
 	(WireframeSpec**)NULL,
 
 	// collision shapes
