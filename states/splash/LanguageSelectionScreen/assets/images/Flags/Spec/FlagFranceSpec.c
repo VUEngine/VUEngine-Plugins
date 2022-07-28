@@ -134,7 +134,7 @@ EntityROMSpec FlagFranceEntity =
 	// use z displacement in projection
 	false,
 			
-	// meshes
+	// wireframes
 	(WireframeSpec*)NULL)NULL,
 
 	// collision shapes
