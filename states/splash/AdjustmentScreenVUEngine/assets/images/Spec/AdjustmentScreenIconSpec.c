@@ -168,7 +168,7 @@ EntityROMSpec AdjustmentScreenIconLEntity =
 	false,
 			
 	// meshes
-	(MeshSpec*)NULL,
+	(WireframeSpec*)NULL,
 
 	// collision shapes
 	(ShapeSpec*)NULL,
@@ -205,7 +205,7 @@ EntityROMSpec AdjustmentScreenIconREntity =
 	false,
 			
 	// meshes
-	(MeshSpec*)NULL,
+	(WireframeSpec*)NULL,
 
 	// collision shapes
 	(ShapeSpec*)NULL,
