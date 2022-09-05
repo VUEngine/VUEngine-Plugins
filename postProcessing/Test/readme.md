@@ -9,4 +9,4 @@ This effect is meant for learning purposes.
 Usage
 -----
 
-Add to any SpatialObject using either `Game::pushFrontProcessingEffect` or `Game::pushBackProcessingEffect`. 
+Add to any SpatialObject using either `VUEngine::pushFrontProcessingEffect` or `VUEngine::pushBackProcessingEffect`. 

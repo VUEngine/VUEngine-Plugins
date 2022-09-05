@@ -15,7 +15,7 @@
 #include <AvoidSteeringBehavior.h>
 #include <Vehicle.h>
 #include <VirtualList.h>
-#include <Game.h>
+#include <VUEngine.h>
 
 
 //---------------------------------------------------------------------------------------------------------

@@ -18,7 +18,7 @@
 #include <Camera.h>
 #include <MessageDispatcher.h>
 #include <Actor.h>
-#include <Game.h>
+#include <VUEngine.h>
 #include <PhysicalWorld.h>
 #include <InverseBox.h>
 #include <EventManager.h>

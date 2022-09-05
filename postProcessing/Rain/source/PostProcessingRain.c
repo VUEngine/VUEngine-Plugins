@@ -16,7 +16,7 @@
 #include <Optics.h>
 #include <Utilities.h>
 #include <DirectDraw.h>
-#include <Game.h>
+#include <VUEngine.h>
 #include <Container.h>
 #include <Entity.h>
 #include <VIPManager.h>
@@ -237,12 +237,12 @@ static void PostProcessingRain::calculateRainPrecipitation(fix19_13* yStepThrott
 		1, 0, -1, 0,
 	};
 
-	if(isDeleted(Game::getCurrentState(Game::getInstance())))
+	if(isDeleted(VUEngine::getCurrentState(VUEngine::getInstance())))
 	{
 		return;
 	}
 
-	uint32 currentTime = Clock::getTime(GameState::getClock(Game::getCurrentState(Game::getInstance())));
+	uint32 currentTime = Clock::getTime(GameState::getClock(VUEngine::getCurrentState(VUEngine::getInstance())));
 
 	if((currentTime - previousTime) / 1000 > timePeriod[timePeriodIndex])
 	{

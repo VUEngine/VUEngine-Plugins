@@ -14,7 +14,7 @@
 
 #include <SteeringBehavior.h>
 #include <Vehicle.h>
-#include <Game.h>
+#include <VUEngine.h>
 #include <Utilities.h>
 
 

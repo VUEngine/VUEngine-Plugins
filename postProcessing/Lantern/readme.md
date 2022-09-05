@@ -5,4 +5,4 @@ Adds a lantern like effect to any SpatialObject, where everything outside of a c
 Usage
 -----
 
-Add to any SpatialObject using either `Game::pushFrontProcessingEffect` or `Game::pushBackProcessingEffect`. 
+Add to any SpatialObject using either `VUEngine::pushFrontProcessingEffect` or `VUEngine::pushBackProcessingEffect`. 

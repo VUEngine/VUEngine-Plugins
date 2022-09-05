@@ -12,7 +12,7 @@
 //												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
-#include <Game.h>
+#include <VUEngine.h>
 #include <Events.h>
 #include "LowPowerEntity.h"
 
@@ -31,14 +31,14 @@ void LowPowerEntity::constructor(const LowPowerEntitySpec* LowPowerEntitySpec, i
 	this->lowPowerDuration = 0;
 
 	// add event listeners
-	Clock::addEventListener(Game::getClock(Game::getInstance()), ListenerObject::safeCast(this), (EventListener)LowPowerEntity::onSecondChange, kEventSecondChanged);
+	Clock::addEventListener(VUEngine::getClock(VUEngine::getInstance()), ListenerObject::safeCast(this), (EventListener)LowPowerEntity::onSecondChange, kEventSecondChanged);
 }
 
 // class's destructor
 void LowPowerEntity::destructor()
 {
 	// remove event listeners
-	Clock::removeEventListener(Game::getClock(Game::getInstance()), ListenerObject::safeCast(this), (EventListener)LowPowerEntity::onSecondChange, kEventSecondChanged);
+	Clock::removeEventListener(VUEngine::getClock(VUEngine::getInstance()), ListenerObject::safeCast(this), (EventListener)LowPowerEntity::onSecondChange, kEventSecondChanged);
 
 	// destroy the super object
 	// must always be called at the end of the destructor

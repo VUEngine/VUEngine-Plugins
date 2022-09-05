@@ -12,7 +12,7 @@
 //												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
-#include <Game.h>
+#include <VUEngine.h>
 #include <Camera.h>
 #include <SplashScreenState.h>
 
@@ -44,15 +44,15 @@ void SplashScreenState::enter(void* owner)
 
 	if(this->stageSpec)
 	{
-		GameState::loadStage(this, this->stageSpec, NULL, true, false);
+		SplashScreenState::loadStage(this, this->stageSpec, NULL, true, false);
 	}
 
 	SplashScreenState::print(this);
 
 	// start clocks to start animations
-	GameState::startClocks(this);
+	SplashScreenState::startClocks(this);
 
-	Game::disableKeypad(Game::getInstance());
+	VUEngine::disableKeypad(VUEngine::getInstance());
 
 	// start fade in effect
 	Camera::startEffect(Camera::getInstance(), kHide);
@@ -78,7 +78,7 @@ void SplashScreenState::exit(void* owner)
 // state's suspend
 void SplashScreenState::suspend(void* owner)
 {
-	if(!Game::isEnteringSpecialMode(Game::getInstance()))
+	if(!VUEngine::isEnteringSpecialMode(VUEngine::getInstance()))
 	{
 		// do a fade out effect
 		Camera::startEffect(Camera::getInstance(), kFadeOut, __FADE_DELAY);
@@ -95,9 +95,9 @@ void SplashScreenState::resume(void* owner)
 
 	SplashScreenState::print(this);
 
-	if(!Game::isExitingSpecialMode(Game::getInstance()))
+	if(!VUEngine::isExitingSpecialMode(VUEngine::getInstance()))
 	{
-		Game::disableKeypad(Game::getInstance());
+		VUEngine::disableKeypad(VUEngine::getInstance());
 
 		// start fade in effect
 		Camera::startEffect(Camera::getInstance(), kHide);
@@ -141,7 +141,7 @@ void SplashScreenState::setNextState(GameState nextState)
 void SplashScreenState::loadNextState()
 {
 	// disable user input
-	Game::disableKeypad(Game::getInstance());
+	VUEngine::disableKeypad(VUEngine::getInstance());
 
 	// start fade out effect
 	Brightness brightness = (Brightness){0, 0, 0};
@@ -159,7 +159,7 @@ void SplashScreenState::loadNextState()
 void SplashScreenState::onFadeInComplete(ListenerObject eventFirer __attribute__ ((unused)))
 {
 	// enable user input
-	Game::enableKeypad(Game::getInstance());
+	VUEngine::enableKeypad(VUEngine::getInstance());
 }
 
 // handle event
@@ -171,5 +171,5 @@ void SplashScreenState::onFadeOutComplete(ListenerObject eventFirer __attribute_
 	}
 
 	// switch to next stage
-	Game::changeState(Game::getInstance(), this->nextState);
+	VUEngine::changeState(VUEngine::getInstance(), this->nextState);
 }

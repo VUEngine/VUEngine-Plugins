@@ -7,4 +7,4 @@ This effect reads and writes a fourth of the screen and is therefore quite heavy
 Usage
 -----
 	
-Add to list of post processing effects of any stage or start manually using either `Game::pushFrontProcessingEffect` or `Game::pushBackProcessingEffect`. 
+Add to list of post processing effects of any stage or start manually using either `VUEngine::pushFrontProcessingEffect` or `VUEngine::pushBackProcessingEffect`. 

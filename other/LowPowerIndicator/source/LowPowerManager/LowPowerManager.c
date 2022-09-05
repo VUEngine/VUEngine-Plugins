@@ -12,7 +12,7 @@
 //												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
-#include <Game.h>
+#include <VUEngine.h>
 #include <LowPowerManager.h>
 
 
@@ -33,13 +33,13 @@ void LowPowerManager::constructor()
 	this->indicatorYPos = __LOW_POWER_INDICATOR_Y_POSITION;
 
 	// add event listeners
-	Clock::addEventListener(Game::getClock(Game::getInstance()), ListenerObject::safeCast(this), (EventListener)LowPowerManager::onSecondChange, kEventSecondChanged);
+	Clock::addEventListener(VUEngine::getClock(VUEngine::getInstance()), ListenerObject::safeCast(this), (EventListener)LowPowerManager::onSecondChange, kEventSecondChanged);
 }
 
 void LowPowerManager::destructor()
 {
 	// remove event listeners
-	Clock::removeEventListener(Game::getClock(Game::getInstance()), ListenerObject::safeCast(this), (EventListener)LowPowerManager::onSecondChange, kEventSecondChanged);
+	Clock::removeEventListener(VUEngine::getClock(VUEngine::getInstance()), ListenerObject::safeCast(this), (EventListener)LowPowerManager::onSecondChange, kEventSecondChanged);
 
 	// destroy base
 	Base::destructor();

@@ -13,7 +13,7 @@
 //---------------------------------------------------------------------------------------------------------
 
 #include <ReflectiveEntity.h>
-#include <Game.h>
+#include <VUEngine.h>
 #include <Optics.h>
 #include <Camera.h>
 #include <Utilities.h>
@@ -53,7 +53,7 @@ void ReflectiveEntity::constructor(ReflectiveEntitySpec* reflectiveEntitySpec, i
 void ReflectiveEntity::destructor()
 {
 	// remove post processing effect
-	Game::removePostProcessingEffect(Game::getInstance(), ReflectiveEntity::reflect, SpatialObject::safeCast(this));
+	VUEngine::removePostProcessingEffect(VUEngine::getInstance(), ReflectiveEntity::reflect, SpatialObject::safeCast(this));
 
 	// delete the super object
 	// must always be called at the end of the destructor
@@ -66,7 +66,7 @@ void ReflectiveEntity::ready(bool recursive)
 	Base::ready(this, recursive);
 
 	// add post processing effect
-	Game::pushFrontProcessingEffect(Game::getInstance(), ReflectiveEntity::reflect, SpatialObject::safeCast(this));
+	VUEngine::pushFrontProcessingEffect(VUEngine::getInstance(), ReflectiveEntity::reflect, SpatialObject::safeCast(this));
 }
 
 void ReflectiveEntity::suspend()
@@ -74,7 +74,7 @@ void ReflectiveEntity::suspend()
 	Base::suspend(this);
 
 	// remove post processing effect
-	Game::removePostProcessingEffect(Game::getInstance(), ReflectiveEntity::reflect, SpatialObject::safeCast(this));
+	VUEngine::removePostProcessingEffect(VUEngine::getInstance(), ReflectiveEntity::reflect, SpatialObject::safeCast(this));
 }
 
 void ReflectiveEntity::resume()
@@ -82,7 +82,7 @@ void ReflectiveEntity::resume()
 	Base::resume(this);
 
 	// add post processing effect
-	Game::pushFrontProcessingEffect(Game::getInstance(), ReflectiveEntity::reflect, SpatialObject::safeCast(this));
+	VUEngine::pushFrontProcessingEffect(VUEngine::getInstance(), ReflectiveEntity::reflect, SpatialObject::safeCast(this));
 }
 
 void ReflectiveEntity::synchronizeGraphics()
