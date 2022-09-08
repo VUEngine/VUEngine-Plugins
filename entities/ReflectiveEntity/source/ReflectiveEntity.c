@@ -66,7 +66,7 @@ void ReflectiveEntity::ready(bool recursive)
 	Base::ready(this, recursive);
 
 	// add post processing effect
-	VUEngine::pushFrontProcessingEffect(VUEngine::getInstance(), ReflectiveEntity::reflect, SpatialObject::safeCast(this));
+	VUEngine::pushFrontPostProcessingEffect(VUEngine::getInstance(), ReflectiveEntity::reflect, SpatialObject::safeCast(this));
 }
 
 void ReflectiveEntity::suspend()
@@ -82,7 +82,7 @@ void ReflectiveEntity::resume()
 	Base::resume(this);
 
 	// add post processing effect
-	VUEngine::pushFrontProcessingEffect(VUEngine::getInstance(), ReflectiveEntity::reflect, SpatialObject::safeCast(this));
+	VUEngine::pushFrontPostProcessingEffect(VUEngine::getInstance(), ReflectiveEntity::reflect, SpatialObject::safeCast(this));
 }
 
 void ReflectiveEntity::synchronizeGraphics()
