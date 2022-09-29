@@ -79,14 +79,11 @@ AnimationFunctionROMSpec LowPowerIndicatorFlashAnimation =
 	"Flash",
 };
 
-AnimationDescriptionROMSpec LowPowerIndicatorAnimation =
+AnimationFunctionROMSpec* const LowPowerIndicatorAnimations[] =
 {
-	// animation functions
-	{
-		(AnimationFunction*)&LowPowerIndicatorHideAnimation,
-		(AnimationFunction*)&LowPowerIndicatorFlashAnimation,
-		NULL,
-	}
+	&LowPowerIndicatorHideAnimation,
+	&LowPowerIndicatorFlashAnimation,
+	NULL,
 };
 
 CharSetROMSpec LowPowerIndicatorCharset =
@@ -218,7 +215,7 @@ LowPowerEntityROMSpec LowPowerIndicatorEntity =
 	},
 
 	// pointer to the animation spec for the item
-	(AnimationDescription*)&LowPowerIndicatorAnimation,
+	(const AnimationFunction**)LowPowerIndicatorAnimations,
 
 	// initial animation
 	"Hide",
