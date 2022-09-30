@@ -53,7 +53,8 @@
 					}
 				}
 			},
-			"icon": "fa fa-language medium-blue"
+			"icon": "fa fa-language",
+			"category": "Assets"
 		},
 		"Language": {
 			"schema": {
