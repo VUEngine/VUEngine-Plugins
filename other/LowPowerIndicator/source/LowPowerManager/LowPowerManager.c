@@ -12,7 +12,7 @@
 //												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
-#include <Game.h>
+#include <VUEngine.h>
 #include <LowPowerManager.h>
 
 
@@ -33,13 +33,13 @@ void LowPowerManager::constructor()
 	this->indicatorYPos = __LOW_POWER_INDICATOR_Y_POSITION;
 
 	// add event listeners
-	Clock::addEventListener(Game::getClock(Game::getInstance()), Object::safeCast(this), (EventListener)LowPowerManager::onSecondChange, kEventSecondChanged);
+	Clock::addEventListener(VUEngine::getClock(VUEngine::getInstance()), ListenerObject::safeCast(this), (EventListener)LowPowerManager::onSecondChange, kEventSecondChanged);
 }
 
 void LowPowerManager::destructor()
 {
 	// remove event listeners
-	Clock::removeEventListener(Game::getClock(Game::getInstance()), Object::safeCast(this), (EventListener)LowPowerManager::onSecondChange, kEventSecondChanged);
+	Clock::removeEventListener(VUEngine::getClock(VUEngine::getInstance()), ListenerObject::safeCast(this), (EventListener)LowPowerManager::onSecondChange, kEventSecondChanged);
 
 	// destroy base
 	Base::destructor();
@@ -56,7 +56,7 @@ void LowPowerManager::setPosition(uint8 x, uint8 y)
 	this->indicatorYPos = y;
 }
 
-void LowPowerManager::onSecondChange(Object eventFirer __attribute__ ((unused)))
+void LowPowerManager::onSecondChange(ListenerObject eventFirer __attribute__ ((unused)))
 {
 	// poll the user's input
 	UserInput userInput = KeypadManager::getUserInput(KeypadManager::getInstance());

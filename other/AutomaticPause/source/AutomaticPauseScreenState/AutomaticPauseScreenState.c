@@ -13,7 +13,7 @@
 //---------------------------------------------------------------------------------------------------------
 
 #include <string.h>
-#include <Game.h>
+#include <VUEngine.h>
 #include <Camera.h>
 #include <Printing.h>
 #include <MessageDispatcher.h>
@@ -90,7 +90,7 @@ void AutomaticPauseScreenState::enter(void* owner __attribute__ ((unused)))
 	);
 
 	// disable user input
-	Game::disableKeypad(Game::getInstance());
+	VUEngine::disableKeypad(VUEngine::getInstance());
 
 	// start clocks to start animations
 	GameState::startClocks(this);
@@ -102,8 +102,8 @@ void AutomaticPauseScreenState::enter(void* owner __attribute__ ((unused)))
 		0, // initial delay (in ms)
 		NULL, // target brightness
 		__FADE_DELAY, // delay between fading steps (in ms)
-		(void (*)(Object, Object))AutomaticPauseScreenState::onFadeInComplete, // callback function
-		Object::safeCast(this) // callback scope
+		(void (*)(ListenerObject, ListenerObject))AutomaticPauseScreenState::onFadeInComplete, // callback function
+		ListenerObject::safeCast(this) // callback scope
 	);
 }
 
@@ -119,7 +119,7 @@ void AutomaticPauseScreenState::processUserInput(UserInput userInput)
 	if(K_STA & userInput.pressedKey)
 	{
 		// disable user input
-		Game::disableKeypad(Game::getInstance());
+		VUEngine::disableKeypad(VUEngine::getInstance());
 
 		// fade out screen
 		Brightness brightness = (Brightness){0, 0, 0};
@@ -128,25 +128,25 @@ void AutomaticPauseScreenState::processUserInput(UserInput userInput)
 			0, // initial delay (in ms)
 			&brightness, // target brightness
 			__FADE_DELAY, // delay between fading steps (in ms)
-			(void (*)(Object, Object))AutomaticPauseScreenState::onFadeOutComplete, // callback function
-			Object::safeCast(this) // callback scope
+			(void (*)(ListenerObject, ListenerObject))AutomaticPauseScreenState::onFadeOutComplete, // callback function
+			ListenerObject::safeCast(this) // callback scope
 		);
 	}
 }
 
 // handle event
-void AutomaticPauseScreenState::onFadeInComplete(Object eventFirer __attribute__ ((unused)))
+void AutomaticPauseScreenState::onFadeInComplete(ListenerObject eventFirer __attribute__ ((unused)))
 {
 	// re-enable user input
-	Game::enableKeypad(Game::getInstance());
+	VUEngine::enableKeypad(VUEngine::getInstance());
 }
 
 // handle event
-void AutomaticPauseScreenState::onFadeOutComplete(Object eventFirer __attribute__ ((unused)))
+void AutomaticPauseScreenState::onFadeOutComplete(ListenerObject eventFirer __attribute__ ((unused)))
 {
 	// re-enable user input
-	Game::enableKeypad(Game::getInstance());
+	VUEngine::enableKeypad(VUEngine::getInstance());
 
 	// resume game
-	Game::unpause(Game::getInstance(), GameState::safeCast(this));
+	VUEngine::unpause(VUEngine::getInstance(), GameState::safeCast(this));
 }

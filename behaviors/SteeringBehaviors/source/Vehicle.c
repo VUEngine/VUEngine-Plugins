@@ -12,7 +12,7 @@
 //												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
-#include <Game.h>
+#include <VUEngine.h>
 #include <SteeringBehavior.h>
 #include "Vehicle.h"
 
@@ -146,7 +146,7 @@ const Direction3D* Vehicle::getDirection3D()
 	return Body::getDirection3D(this->body);
 }
 
-fix10_6 Vehicle::getFrictionMassRatio()
+fixed_t Vehicle::getFrictionMassRatio()
 {
 	return 0;//this->frictionMassRatio;
 }
@@ -167,12 +167,12 @@ bool Vehicle::updateForce()
 		this->evenCycle = !modulo;
 	}
 
+	Force totalForce = this->accumulatedForce;
+
 	if(computeForce && this->behaviors)
 	{
-		this->steeringForce = SteeringBehavior::calculateForce(this);
+		totalForce = Vector3D::sum(totalForce, SteeringBehavior::calculateForce(this));
 	}
-
-	Force totalForce = Vector3D::sum(this->accumulatedForce, this->steeringForce);
 
 	Base::applyForce(this, &totalForce, this->checkIfCanMove);
 
@@ -189,7 +189,7 @@ void Vehicle::update(uint32 elapsedTime __attribute__((unused)))
 	Vehicle::updateForce(this);
 }
 
-fix10_6 Vehicle::getRadius()
+fixed_t Vehicle::getRadius()
 {
 	if(0 == this->radius)
 	{

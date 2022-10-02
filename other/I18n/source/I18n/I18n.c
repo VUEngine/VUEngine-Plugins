@@ -14,7 +14,7 @@
 
 #include <string.h>
 #include <I18n.h>
-#include <Game.h>
+#include <VUEngine.h>
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -76,9 +76,9 @@ void I18n::setActiveLanguage(uint8 languageId)
 {
 	this->activeLanguage = languageId;
 
-	if(Game::getCurrentState(Game::getInstance()))
+	if(VUEngine::getCurrentState(VUEngine::getInstance()))
 	{
-		GameState currentGameState = Game::getCurrentState(Game::getInstance());
+		GameState currentGameState = VUEngine::getCurrentState(VUEngine::getInstance());
 		GameState::fireEvent(currentGameState, kEventLanguageChanged);
 		NM_ASSERT(!isDeleted(currentGameState), "I18n::setActiveLanguage: deleted game state during kEventLanguageChanged");
 	}

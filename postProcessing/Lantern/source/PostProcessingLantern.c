@@ -216,7 +216,7 @@ static void PostProcessingLantern::lantern(uint32 currentDrawingFrameBufferSet, 
  		return;
 	}
 
-	PixelVector screenPixelPosition = Vector3D::projectToPixelVector(Vector3D::getRelativeToCamera(*SpatialObject::getPosition(spatialObject)), 0);
+	PixelVector screenPixelPosition = PixelVector::project(Vector3D::getRelativeToCamera(*SpatialObject::getPosition(spatialObject)), 0);
 
  	screenPixelPosition.y -= 10;
 

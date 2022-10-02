@@ -18,7 +18,7 @@
 #include <Camera.h>
 #include <MessageDispatcher.h>
 #include <Actor.h>
-#include <Game.h>
+#include <VUEngine.h>
 #include <PhysicalWorld.h>
 #include <InverseBox.h>
 #include <EventManager.h>
@@ -75,7 +75,7 @@ bool PlatformerCameraMovementManager::doFocusWithNoEasing(uint32 checkIfFocusEnt
 		0
 	};
 
-	Camera::setPosition(this->camera, cameraPosition);
+	Camera::setPosition(this->camera, cameraPosition, true);
 
 	return true;
 }
@@ -107,7 +107,7 @@ bool PlatformerCameraMovementManager::doFocus(uint32 checkIfFocusEntityIsMoving 
 	Vector3D focusEntityPositionDisplacement = Camera::getFocusEntityPositionDisplacement(this->camera);
 
 	Vector3D position3D = Vector3D::getRelativeToCamera(focusEntityPosition);
-	PixelVector position2D = Vector3D::projectToPixelVector(position3D, 0);
+	PixelVector position2D = PixelVector::project(position3D, 0);
 
 	Size stageSize = Camera::getStageSize(this->camera);
 
@@ -117,10 +117,10 @@ bool PlatformerCameraMovementManager::doFocus(uint32 checkIfFocusEntityIsMoving 
 		if(this->positionFlag.x | focusEntityOutOfBounds)
 		{
 			// calculate the target position
-			fix10_6 horizontalPosition = cameraNewPosition.x;
-			fix10_6 horizontalTarget = focusEntityPosition.x + direction.x * focusEntityPositionDisplacement.x - __PIXELS_TO_METERS(__SCREEN_WIDTH / 2);
+			fixed_t horizontalPosition = cameraNewPosition.x;
+			fixed_t horizontalTarget = focusEntityPosition.x + direction.x * focusEntityPositionDisplacement.x - __PIXELS_TO_METERS(__SCREEN_WIDTH / 2);
 
-			fix10_6 easingDisplacement = __PIXELS_TO_METERS(7);
+			fixed_t easingDisplacement = __PIXELS_TO_METERS(7);
 
 			if(introFocusing)
 			{
@@ -160,11 +160,11 @@ bool PlatformerCameraMovementManager::doFocus(uint32 checkIfFocusEntityIsMoving 
 		if(this->positionFlag.y | focusEntityOutOfBounds)
 		{
 			// calculate the target position
-			fix10_6 verticalPosition = cameraNewPosition.y;
-			fix10_6 verticalTarget = focusEntityPosition.y + focusEntityPositionDisplacement.y - __PIXELS_TO_METERS(__SCREEN_HEIGHT / 2);
+			fixed_t verticalPosition = cameraNewPosition.y;
+			fixed_t verticalTarget = focusEntityPosition.y + focusEntityPositionDisplacement.y - __PIXELS_TO_METERS(__SCREEN_HEIGHT / 2);
 
-			fix10_6 downEasingDisplacement = __PIXELS_TO_METERS(3);
-			fix10_6 upEasingDisplacement = __PIXELS_TO_METERS(3);
+			fixed_t downEasingDisplacement = __PIXELS_TO_METERS(3);
+			fixed_t upEasingDisplacement = __PIXELS_TO_METERS(3);
 
 			if(introFocusing)
 			{
@@ -214,7 +214,7 @@ bool PlatformerCameraMovementManager::doFocus(uint32 checkIfFocusEntityIsMoving 
 		}
 	}
 
-	Camera::setPosition(this->camera, cameraNewPosition);
+	Camera::setPosition(this->camera, cameraNewPosition, true);
 
 	if(reachedTargetFlag.x && reachedTargetFlag.y)
 	{
@@ -350,8 +350,8 @@ void PlatformerCameraMovementManager::configure(Entity focusEntity, uint32 focus
 		// use z displacement in projection
 		false,
 
-		// meshes
-		(MeshSpec*)NULL,
+		// wireframes
+		(WireframeSpec**)NULL,
 
 		// collision shapes
 		(ShapeSpec*)this->platformerCameraTriggerEntityShapesSpec,

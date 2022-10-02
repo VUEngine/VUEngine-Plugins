@@ -79,14 +79,11 @@ AnimationFunctionROMSpec LowPowerIndicatorFlashAnimation =
 	"Flash",
 };
 
-AnimationDescriptionROMSpec LowPowerIndicatorAnimation =
+AnimationFunctionROMSpec* const LowPowerIndicatorAnimations[] =
 {
-	// animation functions
-	{
-		(AnimationFunction*)&LowPowerIndicatorHideAnimation,
-		(AnimationFunction*)&LowPowerIndicatorFlashAnimation,
-		NULL,
-	}
+	&LowPowerIndicatorHideAnimation,
+	&LowPowerIndicatorFlashAnimation,
+	NULL,
 };
 
 CharSetROMSpec LowPowerIndicatorCharset =
@@ -200,8 +197,8 @@ LowPowerEntityROMSpec LowPowerIndicatorEntity =
 		// use z displacement in projection
 		false,
 			
-		// meshes
-		(MeshSpec*)NULL,
+		// wireframes
+		(WireframeSpec**)NULL,
 
 		// collision shapes
 		(ShapeSpec*)NULL,
@@ -218,7 +215,7 @@ LowPowerEntityROMSpec LowPowerIndicatorEntity =
 	},
 
 	// pointer to the animation spec for the item
-	(AnimationDescription*)&LowPowerIndicatorAnimation,
+	(const AnimationFunction**)LowPowerIndicatorAnimations,
 
 	// initial animation
 	"Hide",

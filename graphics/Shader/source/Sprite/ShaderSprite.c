@@ -27,7 +27,7 @@ friend class CharSet;
 //---------------------------------------------------------------------------------------------------------
 
 
-void ShaderSprite::constructor(const ShaderSpriteSpec* shaderSpriteSpec, Object owner)
+void ShaderSprite::constructor(const ShaderSpriteSpec* shaderSpriteSpec, ListenerObject owner)
 {
 	// construct base
 	Base::constructor((BgmapSpriteSpec*)&shaderSpriteSpec->bgmapSpriteSpec, owner);
@@ -154,18 +154,18 @@ void ShaderSprite::renderClock(WORD* bufferAddress)
 	angle = angle > 512 ? 0 : angle;
 	angle += 4;
 
-	fix10_6 sinAngle = __FIX7_9_TO_FIX10_6(__SIN(angle));
-	fix10_6 cosAngle = __FIX7_9_TO_FIX10_6(__COS(angle));
+	fixed_t sinAngle = __FIX7_9_TO_FIXED(__SIN(angle));
+	fixed_t cosAngle = __FIX7_9_TO_FIXED(__COS(angle));
 
 	Vector3D toVector = 
 	{
-		fromVector.x + __FIX10_6_MULT(__PIXELS_TO_METERS(64), cosAngle),
-		fromVector.y + __FIX10_6_MULT(__PIXELS_TO_METERS(64), sinAngle),
+		fromVector.x + __FIXED_MULT(__PIXELS_TO_METERS(64), cosAngle),
+		fromVector.y + __FIXED_MULT(__PIXELS_TO_METERS(64), sinAngle),
 		0
 	};
 
-	PixelVector fromVertex2D = Vector3D::projectToPixelVector(fromVector, 0);
-	PixelVector toVertex2D = Vector3D::projectToPixelVector(toVector, 0);
+	PixelVector fromVertex2D = PixelVector::project(fromVector, 0);
+	PixelVector toVertex2D = PixelVector::project(toVector, 0);
 
 	ShaderSprite::drawLine(this, bufferAddress, fromVertex2D, toVertex2D, __COLOR_BRIGHT_RED);
 }
@@ -230,7 +230,7 @@ void ShaderSprite::drawLine(WORD* bufferAddress, PixelVector fromPoint, PixelVec
 		toCoordinate = &toPointX;
 
 		stepX = __I_TO_FIX19_13(1);
-		stepY = __FIX10_6_TO_FIX19_13(__FIX10_6_DIV(__FIX19_13_TO_FIX10_6(dy), __FIX19_13_TO_FIX10_6(dx)));
+		stepY = __FIXED_TO_FIX19_13(__FIXED_DIV(__FIX19_13_TO_FIXED(dy), __FIX19_13_TO_FIXED(dx)));
 
 		if(toPointX < fromPointX)
 		{
@@ -248,7 +248,7 @@ void ShaderSprite::drawLine(WORD* bufferAddress, PixelVector fromPoint, PixelVec
 			stepY = -stepY;
 		}
 
-		parallaxStep = __FIX10_6_TO_FIX19_13(__FIX10_6_DIV(__FIX19_13_TO_FIX10_6(parallaxDelta), __FIX19_13_TO_FIX10_6(dx)));
+		parallaxStep = __FIXED_TO_FIX19_13(__FIXED_DIV(__FIX19_13_TO_FIXED(parallaxDelta), __FIX19_13_TO_FIXED(dx)));
 	}
 	else if(dx < dy || 0 == dx)
 	{
@@ -256,7 +256,7 @@ void ShaderSprite::drawLine(WORD* bufferAddress, PixelVector fromPoint, PixelVec
 		toCoordinate = &toPointY;
 
 		// make sure that no software based divisions is introduced
-		stepX = __FIX10_6_TO_FIX19_13(__FIX10_6_DIV(__FIX19_13_TO_FIX10_6(dx), __FIX19_13_TO_FIX10_6(dy)));
+		stepX = __FIXED_TO_FIX19_13(__FIXED_DIV(__FIX19_13_TO_FIXED(dx), __FIX19_13_TO_FIXED(dy)));
 		stepY = __I_TO_FIX19_13(1);
 
 		if(toPointY < fromPointY)
@@ -275,7 +275,7 @@ void ShaderSprite::drawLine(WORD* bufferAddress, PixelVector fromPoint, PixelVec
 			stepX = -stepX;
 		}
 
-		parallaxStep = __FIX10_6_TO_FIX19_13(__FIX10_6_DIV(__FIX19_13_TO_FIX10_6(parallaxDelta), __FIX19_13_TO_FIX10_6(dy)));
+		parallaxStep = __FIXED_TO_FIX19_13(__FIXED_DIV(__FIX19_13_TO_FIXED(parallaxDelta), __FIX19_13_TO_FIXED(dy)));
 	}
 
 	fix19_13 auxParallax = parallax;

@@ -42,7 +42,7 @@ AnimationFunctionROMSpec LocalizedEntity0Animation =
 	"0",
 };
 
-#if(__MAX_ANIMATION_FUNCTIONS > 2)
+
 AnimationFunctionROMSpec LocalizedEntity1Animation =
 {
 	// number of frames of this animation function
@@ -65,9 +65,8 @@ AnimationFunctionROMSpec LocalizedEntity1Animation =
 	// function's name
 	"1",
 };
-#endif
 
-#if(__MAX_ANIMATION_FUNCTIONS > 3)
+
 AnimationFunctionROMSpec LocalizedEntity2Animation =
 {
 	// number of frames of this animation function
@@ -90,9 +89,8 @@ AnimationFunctionROMSpec LocalizedEntity2Animation =
 	// function's name
 	"2",
 };
-#endif
 
-#if(__MAX_ANIMATION_FUNCTIONS > 4)
+
 AnimationFunctionROMSpec LocalizedEntity3Animation =
 {
 	// number of frames of this animation function
@@ -115,9 +113,8 @@ AnimationFunctionROMSpec LocalizedEntity3Animation =
 	// function's name
 	"3",
 };
-#endif
 
-#if(__MAX_ANIMATION_FUNCTIONS > 5)
+
 AnimationFunctionROMSpec LocalizedEntity4Animation =
 {
 	// number of frames of this animation function
@@ -140,9 +137,8 @@ AnimationFunctionROMSpec LocalizedEntity4Animation =
 	// function's name
 	"4",
 };
-#endif
 
-#if(__MAX_ANIMATION_FUNCTIONS > 6)
+
 AnimationFunctionROMSpec LocalizedEntity5Animation =
 {
 	// number of frames of this animation function
@@ -165,9 +161,8 @@ AnimationFunctionROMSpec LocalizedEntity5Animation =
 	// function's name
 	"5",
 };
-#endif
 
-#if(__MAX_ANIMATION_FUNCTIONS > 7)
+
 AnimationFunctionROMSpec LocalizedEntity6Animation =
 {
 	// number of frames of this animation function
@@ -190,9 +185,8 @@ AnimationFunctionROMSpec LocalizedEntity6Animation =
 	// function's name
 	"6",
 };
-#endif
 
-#if(__MAX_ANIMATION_FUNCTIONS > 8)
+
 AnimationFunctionROMSpec LocalizedEntity7Animation =
 {
 	// number of frames of this animation function
@@ -215,9 +209,8 @@ AnimationFunctionROMSpec LocalizedEntity7Animation =
 	// function's name
 	"7",
 };
-#endif
 
-#if(__MAX_ANIMATION_FUNCTIONS > 9)
+
 AnimationFunctionROMSpec LocalizedEntity8Animation =
 {
 	// number of frames of this animation function
@@ -240,9 +233,8 @@ AnimationFunctionROMSpec LocalizedEntity8Animation =
 	// function's name
 	"8",
 };
-#endif
 
-#if(__MAX_ANIMATION_FUNCTIONS > 10)
+
 AnimationFunctionROMSpec LocalizedEntity9Animation =
 {
 	// number of frames of this animation function
@@ -265,9 +257,8 @@ AnimationFunctionROMSpec LocalizedEntity9Animation =
 	// function's name
 	"9",
 };
-#endif
 
-#if(__MAX_ANIMATION_FUNCTIONS > 11)
+
 AnimationFunctionROMSpec LocalizedEntity10Animation =
 {
 	// number of frames of this animation function
@@ -290,9 +281,8 @@ AnimationFunctionROMSpec LocalizedEntity10Animation =
 	// function's name
 	"10",
 };
-#endif
 
-#if(__MAX_ANIMATION_FUNCTIONS > 12)
+
 AnimationFunctionROMSpec LocalizedEntity11Animation =
 {
 	// number of frames of this animation function
@@ -315,9 +305,8 @@ AnimationFunctionROMSpec LocalizedEntity11Animation =
 	// function's name
 	"11",
 };
-#endif
 
-#if(__MAX_ANIMATION_FUNCTIONS > 13)
+
 AnimationFunctionROMSpec LocalizedEntity12Animation =
 {
 	// number of frames of this animation function
@@ -340,9 +329,8 @@ AnimationFunctionROMSpec LocalizedEntity12Animation =
 	// function's name
 	"12",
 };
-#endif
 
-#if(__MAX_ANIMATION_FUNCTIONS > 14)
+
 AnimationFunctionROMSpec LocalizedEntity13Animation =
 {
 	// number of frames of this animation function
@@ -365,9 +353,8 @@ AnimationFunctionROMSpec LocalizedEntity13Animation =
 	// function's name
 	"13",
 };
-#endif
 
-#if(__MAX_ANIMATION_FUNCTIONS > 15)
+
 AnimationFunctionROMSpec LocalizedEntity14Animation =
 {
 	// number of frames of this animation function
@@ -390,9 +377,8 @@ AnimationFunctionROMSpec LocalizedEntity14Animation =
 	// function's name
 	"14",
 };
-#endif
 
-#if(__MAX_ANIMATION_FUNCTIONS > 16)
+
 AnimationFunctionROMSpec LocalizedEntity15Animation =
 {
 	// number of frames of this animation function
@@ -415,59 +401,40 @@ AnimationFunctionROMSpec LocalizedEntity15Animation =
 	// function's name
 	"15",
 };
-#endif
 
 // an animation spec
-AnimationDescriptionROMSpec LocalizedEntityAnimation =
+AnimationFunctionROMSpec* const LocalizedEntityAnimations[] =
 {
-	// animation functions
-	{
-		(AnimationFunction*)&LocalizedEntity0Animation,
-		#if(__MAX_ANIMATION_FUNCTIONS > 2)
-		(AnimationFunction*)&LocalizedEntity1Animation,
-		#endif
-		#if(__MAX_ANIMATION_FUNCTIONS > 3)
-		(AnimationFunction*)&LocalizedEntity2Animation,
-		#endif
-		#if(__MAX_ANIMATION_FUNCTIONS > 4)
-		(AnimationFunction*)&LocalizedEntity3Animation,
-		#endif
-		#if(__MAX_ANIMATION_FUNCTIONS > 5)
-		(AnimationFunction*)&LocalizedEntity4Animation,
-		#endif
-		#if(__MAX_ANIMATION_FUNCTIONS > 6)
-		(AnimationFunction*)&LocalizedEntity5Animation,
-		#endif
-		#if(__MAX_ANIMATION_FUNCTIONS > 7)
-		(AnimationFunction*)&LocalizedEntity6Animation,
-		#endif
-		#if(__MAX_ANIMATION_FUNCTIONS > 8)
-		(AnimationFunction*)&LocalizedEntity7Animation,
-		#endif
-		#if(__MAX_ANIMATION_FUNCTIONS > 9)
-		(AnimationFunction*)&LocalizedEntity8Animation,
-		#endif
-		#if(__MAX_ANIMATION_FUNCTIONS > 10)
-		(AnimationFunction*)&LocalizedEntity9Animation,
-		#endif
-		#if(__MAX_ANIMATION_FUNCTIONS > 11)
-		(AnimationFunction*)&LocalizedEntity10Animation,
-		#endif
-		#if(__MAX_ANIMATION_FUNCTIONS > 12)
-		(AnimationFunction*)&LocalizedEntity11Animation,
-		#endif
-		#if(__MAX_ANIMATION_FUNCTIONS > 13)
-		(AnimationFunction*)&LocalizedEntity12Animation,
-		#endif
-		#if(__MAX_ANIMATION_FUNCTIONS > 14)
-		(AnimationFunction*)&LocalizedEntity13Animation,
-		#endif
-		#if(__MAX_ANIMATION_FUNCTIONS > 15)
-		(AnimationFunction*)&LocalizedEntity14Animation,
-		#endif
-		#if(__MAX_ANIMATION_FUNCTIONS > 16)
-		(AnimationFunction*)&LocalizedEntity15Animation,
-		#endif
+	&LocalizedEntity0Animation,
+	
+	&LocalizedEntity1Animation,
+		
+	&LocalizedEntity2Animation,
+		
+	&LocalizedEntity3Animation,
+		
+	&LocalizedEntity4Animation,
+		
+	&LocalizedEntity5Animation,
+		
+	&LocalizedEntity6Animation,
+		
+	&LocalizedEntity7Animation,
+		
+	&LocalizedEntity8Animation,
+		
+	&LocalizedEntity9Animation,
+		
+	&LocalizedEntity10Animation,
+		
+	&LocalizedEntity11Animation,
+		
+	&LocalizedEntity12Animation,
+		
+	&LocalizedEntity13Animation,
+		
+	&LocalizedEntity14Animation,
+		
+	&LocalizedEntity15Animation,
 		NULL,
-	}
 };

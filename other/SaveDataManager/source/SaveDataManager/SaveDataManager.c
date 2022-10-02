@@ -14,7 +14,7 @@
 
 #include <string.h>
 #include <stddef.h>
-#include <Game.h>
+#include <VUEngine.h>
 #include <I18n.h>
 #include <SRAMManager.h>
 #include <Utilities.h>
@@ -35,7 +35,7 @@ void SaveDataManager::constructor()
 	this->sramAvailable = false;
 
 	// register with game
-	Game::registerSaveDataManager(Game::getInstance(), Object::safeCast(this));
+	VUEngine::registerSaveDataManager(VUEngine::getInstance(), ListenerObject::safeCast(this));
 
 	// initialize
 	SaveDataManager::initialize(this);

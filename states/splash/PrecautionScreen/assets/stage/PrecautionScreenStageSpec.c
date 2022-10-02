@@ -209,7 +209,7 @@ StageROMSpec PrecautionScreenStage =
 			// maximum view distance's power into the horizon
 			__MAXIMUM_X_VIEW_DISTANCE, __MAXIMUM_Y_VIEW_DISTANCE,
 			// distance of the eyes to the screen
-			__DISTANCE_EYE_SCREEN,
+			__CAMERA_NEAR_PLANE,
 			// distance from left to right eye (depth sensation)
 			__BASE_FACTOR,
 			// horizontal view point center
@@ -225,13 +225,13 @@ StageROMSpec PrecautionScreenStage =
 	{
 		// gravity
 		{
-			__I_TO_FIX10_6(0),
-			__F_TO_FIX10_6(0),
-			__I_TO_FIX10_6(0),
+			__I_TO_FIXED(0),
+			__F_TO_FIXED(0),
+			__I_TO_FIXED(0),
 		},
 
 		// friction
-		__F_TO_FIX10_6(0.1f),
+		__F_TO_FIXED(0.1f),
 	},
 
 	// assets

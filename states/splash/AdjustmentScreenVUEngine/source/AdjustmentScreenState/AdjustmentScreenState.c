@@ -12,7 +12,7 @@
 //												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
-#include <Game.h>
+#include <VUEngine.h>
 #include <Camera.h>
 #include <MessageDispatcher.h>
 #include <AdjustmentScreenState.h>
@@ -101,10 +101,10 @@ void AdjustmentScreenState::processUserInput(UserInput userInput __attribute__ (
 {
 	if(userInput.pressedKey & (K_STA | K_SEL | K_A | K_B))
 	{
-		if(Game::isPaused(Game::getInstance()))
+		if(VUEngine::isPaused(VUEngine::getInstance()))
 		{
 			Camera::startEffect(Camera::getInstance(), kFadeOut, __FADE_DELAY);
-			Game::unpause(Game::getInstance(), GameState::safeCast(this));
+			VUEngine::unpause(VUEngine::getInstance(), GameState::safeCast(this));
 		}
 		else
 		{
@@ -144,37 +144,40 @@ static void AdjustmentScreenState::rhombusEmitterPostProcessingEffect(uint32 cur
 	}
 
 	// draw rhombus around object with given radius
-	DirectDraw directDraw = DirectDraw::getInstance();
 
 	// top left line
-	DirectDraw::drawLine(
-		directDraw,
+	DirectDraw::drawColorLine(
 		(PixelVector) {(192 - radius),	(112),			0, -((radius + __ADJUSTMENT_SCREEN_RHOMBUS_INITIAL_VALUE)>>5)},
 		(PixelVector) {(192),			(112 - radius),	0, -((radius + __ADJUSTMENT_SCREEN_RHOMBUS_INITIAL_VALUE)>>5)},
-		__COLOR_BRIGHT_RED
+		__COLOR_BRIGHT_RED,
+		0,
+		false
 	);
 
 	// top right line
-	DirectDraw::drawLine(
-		directDraw,
+	DirectDraw::drawColorLine(
 		(PixelVector) {(192 + radius),	(112),			0, -((radius + __ADJUSTMENT_SCREEN_RHOMBUS_INITIAL_VALUE)>>5)},
 		(PixelVector) {(192),			(112 - radius),	0, -((radius + __ADJUSTMENT_SCREEN_RHOMBUS_INITIAL_VALUE)>>5)},
-		__COLOR_BRIGHT_RED
+		__COLOR_BRIGHT_RED,
+		0,
+		false
 	);
 
 	// bottom right line
-	DirectDraw::drawLine(
-		directDraw,
+	DirectDraw::drawColorLine(
 		(PixelVector) {(192 + radius),	(112),			0, -((radius + __ADJUSTMENT_SCREEN_RHOMBUS_INITIAL_VALUE)>>5)},
 		(PixelVector) {(192),			(112 + radius),	0, -((radius + __ADJUSTMENT_SCREEN_RHOMBUS_INITIAL_VALUE)>>5)},
-		__COLOR_BRIGHT_RED
+		__COLOR_BRIGHT_RED,
+		0,
+		false
 	);
 
 	// bottom left line
-	DirectDraw::drawLine(
-		directDraw,
+	DirectDraw::drawColorLine(
 		(PixelVector) {(192 - radius),	(112),			0, -((radius + __ADJUSTMENT_SCREEN_RHOMBUS_INITIAL_VALUE)>>5)},
 		(PixelVector) {(192),			(112 + radius),	0, -((radius + __ADJUSTMENT_SCREEN_RHOMBUS_INITIAL_VALUE)>>5)},
-		__COLOR_BRIGHT_RED
+		__COLOR_BRIGHT_RED,
+		0,
+		false
 	);
 }

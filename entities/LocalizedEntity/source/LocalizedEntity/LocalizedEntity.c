@@ -12,7 +12,7 @@
 //												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
-#include <Game.h>
+#include <VUEngine.h>
 #include <I18n.h>
 #include <Utilities.h>
 #include <GameEvents.h>
@@ -29,13 +29,13 @@ void LocalizedEntity::constructor(const LocalizedEntitySpec* localizedEntitySpec
 	Base::constructor((AnimatedEntitySpec*)localizedEntitySpec, internalId, name);
 
 	// add event listeners
-	GameState::addEventListener(Game::getCurrentState(Game::getInstance()), Object::safeCast(this), (EventListener)LocalizedEntity::onLanguageChanged, kEventLanguageChanged);
+	GameState::addEventListener(VUEngine::getCurrentState(VUEngine::getInstance()), ListenerObject::safeCast(this), (EventListener)LocalizedEntity::onLanguageChanged, kEventLanguageChanged);
 }
 
 void LocalizedEntity::destructor()
 {
 	// remove event listeners
-	GameState::removeEventListener(Game::getCurrentState(Game::getInstance()), Object::safeCast(this), (EventListener)LocalizedEntity::onLanguageChanged, kEventLanguageChanged);
+	GameState::removeEventListener(VUEngine::getCurrentState(VUEngine::getInstance()), ListenerObject::safeCast(this), (EventListener)LocalizedEntity::onLanguageChanged, kEventLanguageChanged);
 
 	// destroy the super object
 	// must always be called at the end of the destructor
@@ -58,7 +58,7 @@ void LocalizedEntity::localize()
 }
 
 // handle event
-void LocalizedEntity::onLanguageChanged(Object eventFirer __attribute__ ((unused)))
+void LocalizedEntity::onLanguageChanged(ListenerObject eventFirer __attribute__ ((unused)))
 {
 	// translate entity
 	LocalizedEntity::localize(this);

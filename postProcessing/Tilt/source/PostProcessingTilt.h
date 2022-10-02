@@ -22,7 +22,7 @@
 //										FUNCTIONS
 //---------------------------------------------------------------------------------------------------------
 
-static class PostProcessingTilt : Object
+static class PostProcessingTilt : ListenerObject
 {
 	static void tiltScreen(uint32 currentDrawingFrameBufferSet, SpatialObject spatialObject);
 }

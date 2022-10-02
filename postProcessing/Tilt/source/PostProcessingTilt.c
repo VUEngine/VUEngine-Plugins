@@ -16,7 +16,7 @@
 #include <Optics.h>
 #include <Utilities.h>
 #include <DirectDraw.h>
-#include <Game.h>
+#include <VUEngine.h>
 #include <Container.h>
 #include <Entity.h>
 #include <VIPManager.h>

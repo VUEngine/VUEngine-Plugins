@@ -133,8 +133,8 @@ EntityROMSpec AdjustmentScreenLogoEntity =
 	// use z displacement in projection
 	false,
 			
-	// meshes
-	(MeshSpec*)NULL,
+	// wireframes
+	(WireframeSpec**)NULL,
 
 	// collision shapes
 	(ShapeSpec*)NULL,

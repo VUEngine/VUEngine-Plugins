@@ -6,4 +6,4 @@ This effect only writes to the framebuffers, but does not read them. Since write
 
 ## Usage
 
-Add to any SpatialObject using either `Game::pushFrontProcessingEffect` or `Game::pushBackProcessingEffect`. 
+Add to any SpatialObject using either `VUEngine::pushFrontPostProcessingEffect` or `VUEngine::pushBackPostProcessingEffect`. 

@@ -133,9 +133,9 @@ EntityROMSpec FlagUnknownEntity =
 
 	// use z displacement in projection
 	false,
-			
-	// meshes
-	(MeshSpec*)NULL,
+
+	// wireframes
+	(WireframeSpec**)NULL,
 
 	// collision shapes
 	NULL,

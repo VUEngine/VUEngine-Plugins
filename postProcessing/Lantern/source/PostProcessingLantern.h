@@ -22,7 +22,7 @@
 //										FUNCTIONS
 //---------------------------------------------------------------------------------------------------------
 
-static class PostProcessingLantern : Object
+static class PostProcessingLantern : ListenerObject
 {
 	static void lantern(uint32 currentDrawingFrameBufferSet, SpatialObject spatialObject);
 }

@@ -4,4 +4,4 @@ Dynamic full screen rain effect.
 
 ## Usage
 
-Add to list of post processing effects of any stage or start manually using either `Game::pushFrontProcessingEffect` or `Game::pushBackProcessingEffect`. 
+Add to list of post processing effects of any stage or start manually using either `VUEngine::pushFrontPostProcessingEffect` or `VUEngine::pushBackPostProcessingEffect`. 

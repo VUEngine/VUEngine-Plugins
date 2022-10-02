@@ -12,7 +12,7 @@
 //												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
-#include <Game.h>
+#include <VUEngine.h>
 #include <Camera.h>
 #include <Printing.h>
 #include <MessageDispatcher.h>
@@ -86,7 +86,7 @@ void LanguageSelectionScreenState::enter(void* owner)
 {
 	Base::enter(this, owner);
 
-	Object saveDataManager = Game::getSaveDataManager(Game::getInstance());
+	ListenerObject saveDataManager = VUEngine::getSaveDataManager(VUEngine::getInstance());
 
 	// get active language from sram
 	uint8 activeLanguage = I18n::getActiveLanguage(I18n::getInstance());
@@ -229,7 +229,7 @@ void LanguageSelectionScreenState::select(bool next)
 
 void LanguageSelectionScreenState::persistChoice()
 {
-	Object saveDataManager = Game::getSaveDataManager(Game::getInstance());
+	ListenerObject saveDataManager = VUEngine::getSaveDataManager(VUEngine::getInstance());
 
 	I18n::setActiveLanguage(I18n::getInstance(), this->selection);
 	if(saveDataManager)
@@ -267,7 +267,7 @@ Entity LanguageSelectionScreenState::addFlagToStage(EntitySpec* entitySpec, uint
 		0, NULL, NULL, NULL, false
 	};
 
-	return Stage::addChildEntity(Game::getStage(Game::getInstance()), &flagPositionedEntity, true);
+	return Stage::addChildEntity(VUEngine::getStage(VUEngine::getInstance()), &flagPositionedEntity, true);
 }
 
 int32 LanguageSelectionScreenState::getFlagXPosition(uint8 position)

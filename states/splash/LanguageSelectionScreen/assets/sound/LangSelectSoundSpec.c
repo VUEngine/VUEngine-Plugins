@@ -81,7 +81,7 @@ SoundChannelROM LangSelectSoundChannel1 =
 };
 
 
-SoundChannelROM* LangSelectSoundChannels[] =
+SoundChannelROM* const LangSelectSoundChannels[] =
 {
 	&LangSelectSoundChannel1,
 	NULL

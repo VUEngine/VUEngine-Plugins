@@ -12,7 +12,7 @@
 //												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
-#include <Game.h>
+#include <VUEngine.h>
 #include <AutomaticPauseScreenState.h>
 #include <AutomaticPauseManager.h>
 
@@ -36,7 +36,7 @@ void AutomaticPauseManager::constructor()
 void AutomaticPauseManager::destructor()
 {
 	// remove event listeners
-	Clock::removeEventListener(Game::getClock(Game::getInstance()), Object::safeCast(this), (EventListener)AutomaticPauseManager::onMinuteChange, kEventMinuteChanged);
+	Clock::removeEventListener(VUEngine::getClock(VUEngine::getInstance()), ListenerObject::safeCast(this), (EventListener)AutomaticPauseManager::onMinuteChange, kEventMinuteChanged);
 
 	// destroy base
 	Base::destructor();
@@ -79,26 +79,26 @@ void AutomaticPauseManager::setActive(bool active)
 	if(this->isActive)
 	{
 		// add event listeners
-		Clock::addEventListener(Game::getClock(Game::getInstance()), Object::safeCast(this), (EventListener)AutomaticPauseManager::onMinuteChange, kEventMinuteChanged);
+		Clock::addEventListener(VUEngine::getClock(VUEngine::getInstance()), ListenerObject::safeCast(this), (EventListener)AutomaticPauseManager::onMinuteChange, kEventMinuteChanged);
 	}
 	else
 	{
 		// remove event listeners
-		Clock::removeEventListener(Game::getClock(Game::getInstance()), Object::safeCast(this), (EventListener)AutomaticPauseManager::onMinuteChange, kEventMinuteChanged);
+		Clock::removeEventListener(VUEngine::getClock(VUEngine::getInstance()), ListenerObject::safeCast(this), (EventListener)AutomaticPauseManager::onMinuteChange, kEventMinuteChanged);
 	}
 }
 
-void AutomaticPauseManager::onMinuteChange(Object eventFirer __attribute__ ((unused)))
+void AutomaticPauseManager::onMinuteChange(ListenerObject eventFirer __attribute__ ((unused)))
 {
-	if(this->automaticPauseState && this->isActive && !Game::isPaused(Game::getInstance()))
+	if(this->automaticPauseState && this->isActive && !VUEngine::isPaused(VUEngine::getInstance()))
 	{
 		this->elapsedTime++;
 
 		// only pause if no more than one state is active
 		if((this->elapsedTime >= this->autoPauseDelay) &&
-			(1 == StateMachine::getStackSize(Game::getStateMachine(Game::getInstance()))))
+			(1 == StateMachine::getStackSize(VUEngine::getStateMachine(VUEngine::getInstance()))))
 		{
-			Game::pause(Game::getInstance(), this->automaticPauseState);
+			VUEngine::pause(VUEngine::getInstance(), this->automaticPauseState);
 			this->elapsedTime = 0;
 		}
 	}

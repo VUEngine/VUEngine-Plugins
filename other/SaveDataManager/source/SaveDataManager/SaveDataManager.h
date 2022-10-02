@@ -15,7 +15,7 @@
 //												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
-#include <Object.h>
+#include <ListenerObject.h>
 #include "../config.h"
 
 
@@ -52,7 +52,7 @@ typedef struct SaveData
  *
  * @ingroup vuengine-plugins-other
  */
-singleton class SaveDataManager : Object
+singleton class SaveDataManager : ListenerObject
 {
 	/// @protectedsection
 
