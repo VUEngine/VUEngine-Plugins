@@ -60,14 +60,7 @@ void AvoidSteeringBehavior::destructor()
 
 void AvoidSteeringBehavior::removeAllObstacles()
 {
-	VirtualNode node = this->obstacles->head;
-
-	for(; NULL != node; node = node->next)
-	{
-		delete node->data;
-	}
-
-	VirtualList::clear(this->obstacles);
+	VirtualList::deleteData(this->obstacles);
 }
 
 fixed_t AvoidSteeringBehavior::getAvoidanceDetectionDistance()
