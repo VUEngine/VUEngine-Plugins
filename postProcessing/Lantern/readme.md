@@ -2,7 +2,6 @@ Adds a lantern like effect to any SpatialObject, where everything outside of a c
 
 ![](https://raw.githubusercontent.com/VUEngine/VUEngine-Plugins/master/postProcessing/Lantern/preview.png)
 
-Usage
------
+## Usage
 
 Add to any SpatialObject using either `VUEngine::pushFrontPostProcessingEffect` or `VUEngine::pushBackPostProcessingEffect`. 

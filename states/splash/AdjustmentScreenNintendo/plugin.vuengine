@@ -1,0 +1,38 @@
+{
+	"folders": [{
+		"path": "."
+	}],
+	"plugin": {
+		"displayName": {
+			"en": "Adjustment Screen (Nintendo)",
+			"de": "Anpassungsbildschirm (Nintendo)",
+			"es": "Pantalla de ajuste (Nintendo)"
+		},
+		"author": "Team VUEngine",
+		"description": {
+			"en": "A recreation of Nintendo's official IPD/focus adjustment screen.",
+			"de": "Eine Nachbildung von Nintendos offiziellem IPD/Fokus-Anpassungsbildschirm.",
+			"es": "Una recreación de la pantalla oficial de ajuste de IPD/enfoque de Nintendo."
+		},
+		"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/states/splash/AdjustmentScreenNintendo",
+		"license": "MIT",
+		"tags": [
+			{
+				"en": "Essentials",
+				"de": "Essentiell",
+				"es": "Esenciales"
+			},
+			"Splash",
+			{
+				"en": "State",
+				"de": "Zustand",
+				"es": "Estado"
+			}
+		],
+		"dependencies": [
+			"vuengine//entities/LowPowerEntity",
+			"vuengine//other/LowPowerIndicator",
+			"vuengine//states/splash/SplashScreen"
+		]
+	}
+}

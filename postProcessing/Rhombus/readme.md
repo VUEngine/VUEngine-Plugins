@@ -4,7 +4,6 @@ This effect only writes to the framebuffers, but does not read them. Since write
 
 ![](https://raw.githubusercontent.com/VUEngine/VUEngine-Plugins/master/postProcessing/Rhombus/preview.png)
 
-Usage
------
+## Usage
 
 Add to any SpatialObject using either `VUEngine::pushFrontPostProcessingEffect` or `VUEngine::pushBackPostProcessingEffect`. 

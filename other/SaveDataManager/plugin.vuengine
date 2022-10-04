@@ -1,0 +1,31 @@
+{
+	"folders": [{
+		"path": "."
+	}],
+	"plugin": {
+		"displayName": {
+			"en": "Save Data Manager",
+			"de": "Speicherdaten-Manager",
+			"es": "Guardar el gestor de datos"
+		},
+		"author": "Team VUEngine",
+		"description": {
+			"en": "Manages persistence of user data in SRAM.",
+			"de": "Verwaltet die Persistenz der Benutzerdaten im SRAM.",
+			"es": "Gestiona la persistencia de los datos del usuario en la SRAM."
+		},
+		"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/other/SaveDataManager",
+		"license": "MIT",
+		"tags": [
+			{
+				"en": "Essentials",
+				"de": "Essentiell",
+				"es": "Esenciales"
+			}
+		],
+		"dependencies": [
+			"vuengine//other/AutomaticPause",
+			"vuengine//other/I18n"
+		]
+	}
+}

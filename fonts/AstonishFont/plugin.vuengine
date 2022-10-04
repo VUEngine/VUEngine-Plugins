@@ -1,0 +1,84 @@
+{
+	"folders": [{
+		"path": "."
+	}],
+	"plugin": {
+		"displayName": {
+			"en": "Astonish Font",
+			"de": "Astonish Schriftart",
+			"es": "Astonish Fuente"
+		},
+		"author": "Team VUEngine",
+		"description": {
+			"en": "A beautiful 8x16 pixel font for medium size text.",
+			"de": "Eine schöne 8x16 Pixel große Schriftart für mittelgroßen Text.",
+			"es": "Una hermosa fuente de 8x16 píxeles para textos de tamaño medio."
+		},
+		"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/fonts/AstonishFont",
+		"license": "MIT",
+		"tags": [
+			{
+				"en": "Font",
+				"de": "Schriftart",
+				"es": "Fuente"
+			}
+		],
+		"dependencies": []
+	},
+	"items": {
+		"Font": {
+            "vTjHBFoSIHDIFmth": {
+                "typeId": "Font",
+				"name": "Astonish",
+				"tiles": "AstonishFontTiles",
+				"type": "bgmap",
+				"offset": 0,
+				"characterCount": 128,
+				"charactersPerLine": 32,
+				"size": {
+					"x": 1,
+					"y": 2
+				}
+            },
+            "uD51jMt1T4oJvSF0": {
+                "typeId": "Font",
+				"name": "AstonishExt",
+				"tiles": "AstonishFontTiles",
+				"type": "bgmap",
+				"offset": 0,
+				"characterCount": 256,
+				"charactersPerLine": 32,
+				"size": {
+					"x": 1,
+					"y": 2
+				}
+            },
+            "bQUVMbOkRlZowwkc": {
+                "typeId": "Font",
+				"name": "AstonishS",
+				"tiles": "AstonishFontShadowTiles",
+				"type": "bgmap",
+				"offset": 0,
+				"characterCount": 128,
+				"charactersPerLine": 32,
+				"size": {
+					"x": 1,
+					"y": 2
+				}
+            },
+            "f7UxZrBP7IPmQgjh": {
+                "typeId": "Font",
+				"name": "AstonishSExt",
+				"tiles": "AstonishFontShadowTiles",
+				"type": "bgmap",
+				"offset": 0,
+				"characterCount": 256,
+				"charactersPerLine": 32,
+				"size": {
+					"x": 1,
+					"y": 2
+				}
+            }
+        }
+	}
+}

@@ -4,7 +4,6 @@ This effect reads and write almost the whole screen and is therefore not feasibl
 
 ![](https://raw.githubusercontent.com/VUEngine/VUEngine-Plugins/master/postProcessing/Tilt/preview.png)
 
-Usage
------
+## Usage
 
 Add to list of post processing effects of any stage or start manually using either `VUEngine::pushFrontPostProcessingEffect` or `VUEngine::pushBackPostProcessingEffect`. 

@@ -1,0 +1,98 @@
+{
+	"folders": [{
+		"path": "."
+	}],
+	"plugin": {
+		"displayName": {
+			"en": "Precaution Screen",
+			"de": "Vorsichtsbildschirm",
+			"es": "Pantalla de precaución"
+		},
+		"author": "Team VUEngine",
+		"description": {
+			"en": "A recreation of Nintendo's official precaution screen.",
+			"de": "Eine Nachbildung von Nintendos offiziellem Vorsichtsbildschirm.",
+			"es": "Una recreación de la pantalla de precaución oficial de Nintendo."
+		},
+		"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/states/splash/PrecautionScreen",
+		"license": "MIT",
+		"tags": [
+			{
+				"en": "Essentials",
+				"de": "Essentiell",
+				"es": "Esenciales"
+			},
+			"Splash",
+			{
+				"en": "State",
+				"de": "Zustand",
+				"es": "Estado"
+			}
+		],
+		"dependencies": [
+			"vuengine//entities/LowPowerEntity",
+			"vuengine//other/I18n",
+			"vuengine//states/splash/SplashScreen"
+		]
+	},
+	"items": {
+        "Language": {
+            "9Gz5SO9qNUiJG8DQ": {
+                "typeId": "Language",
+				"name": "English",
+				"localizedName": "English",
+				"code": "en",
+				"flag": "",
+				"order": 1,
+				"translations": [
+					{
+					"id": "PrecautionScreenBody",
+					"translation" : "     IMPORTANT\nREAD INSTRUCTION AND\nPRECAUTION BOOKLETS\n  BEFORE OPERATING"
+					}
+				]
+            },
+            "vgVbxeqiWJXjYTiA": {
+                "typeId": "Language",
+				"name": "German",
+				"localizedName": "Deutsch",
+				"code": "de",
+				"flag": "",
+				"order": 1,
+				"translations": [
+					{
+					"id": "PrecautionScreenBody",
+					"translation" : "        WICHTIG\nBITTE LESEN SIE VOR DEM\n SPIELEN DIE ANLEITUNG\nUND SICHERHEITSHINWEISE"
+					}
+				]
+            },
+            "MR6r6COn3vHGkawm": {
+                "typeId": "Language",
+				"name": "Spanish",
+				"localizedName": "Español",
+				"code": "es",
+				"flag": "",
+				"order": 1,
+				"translations": [
+					{
+					"id": "PrecautionScreenBody",
+					"translation" : "         IMPORTANTE\n     LEE LOS LIBROS DE\nINSTRUCCIONES Y PRECAUCIONES\n       ANTES DE JUGAR"
+					}
+				]
+            },
+            "bFgZncf25A60bovW": {
+                "typeId": "Language",
+				"name": "French",
+				"localizedName": "Français",
+				"code": "fr",
+				"flag": "",
+				"order": 1,
+				"translations": [
+					{
+					"id": "PrecautionScreenBody",
+					"translation" : "        IMPORTANT\nPRENEZ CONAISSANCE DE LA\nNOTICE ET DES PRÉCAUTIONS\n    A AVANT DE JOUER"
+					}
+				]
+            }
+		}
+	}
+}

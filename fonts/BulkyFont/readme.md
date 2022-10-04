@@ -2,8 +2,7 @@ A bulky 16x16 pixel font.
 
 ![](https://raw.githubusercontent.com/VUEngine/VUEngine-Plugins/master/fonts/BulkyFont/preview.png)
 
-Usage
------
+## Usage
 
 Included are two versions of the font:
 

@@ -1,0 +1,28 @@
+{
+	"folders": [{
+		"path": "."
+	}],
+	"plugin": {
+		"displayName": {
+			"en": "Dwarf Planet Effect",
+			"de": "Zwergplaneten-Effekt",
+			"es": "Efecto Planeta Enano"
+		},
+		"author": "Team VUEngine",
+		"description": {
+			"en": "\"Bends down\" the left and right edges of the screen to make the game world look like a very small planet.",
+			"de": "\"Biegt\" den linken und rechten Rand des Bildschirms nach unten, wodurch die Spielwelt wie ein sehr kleiner Planet aussieht.",
+			"es": "Dobla los bordes izquierdo y derecho de la pantalla para que el mundo del juego parezca un planeta muy pequeño."
+		},
+		"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/postProcessing/DwarfPlanet",
+		"license": "MIT",
+		"tags": [
+			{
+				"en": "Post Processing",
+				"de": "Nachbearbeitung",
+				"es": "Postproceso"
+			}
+		],
+		"dependencies": []
+	}
+}

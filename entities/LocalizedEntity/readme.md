@@ -2,7 +2,6 @@ Uses an AninmatedEntity to implement localized visual elements, where each anima
 
 ![](https://raw.githubusercontent.com/VUEngine/VUEngine-Plugins/master/entities/LocalizedEntity/preview.png)
 
-Usage
------
+## Usage
 
 Set up your Entity of type `LocalizedEntity`. This plugin comes with a pre-defined AnimationFunction `LocalizedEntityAnimation`, which you can use.

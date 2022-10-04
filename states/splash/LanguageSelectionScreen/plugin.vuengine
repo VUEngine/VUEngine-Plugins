@@ -1,0 +1,100 @@
+{
+	"folders": [{
+		"path": "."
+	}],
+	"plugin": {
+		"displayName": {
+			"en": "Language Selection Screen",
+			"de": "Sprach-Auswahlbildschirm",
+			"es": "Pantalla de selección de idioma"
+		},
+		"author": "Team VUEngine",
+		"description": {
+			"en": "Splash screen that allows the user to select a language.",
+			"de": "Splashsbildschirm, auf dem der Benutzer eine Sprache auswählen kann.",
+			"es": "Pantalla de bienvenida que permite al usuario seleccionar un idioma."
+		},
+		"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/states/splash/LanguageSelectionScreen",
+		"license": "MIT",
+		"tags": [
+			{
+				"en": "Essentials",
+				"de": "Essentiell",
+				"es": "Esenciales"
+			},
+			"I18n",
+			"Splash",
+			{
+				"en": "State",
+				"de": "Zustand",
+				"es": "Estado"
+			}
+		],
+		"dependencies": [
+			"vuengine//entities/LowPowerEntity",
+			"vuengine//other/I18n",
+			"vuengine//other/SaveDataManager",
+			"vuengine//states/splash/SplashScreen"
+		]
+	},
+	"items": {
+        "Language": {
+            "rGa0RT7DJtRKv6Ic": {
+                "typeId": "Language",
+				"name": "English",
+				"localizedName": "English",
+				"code": "en",
+				"flag": "",
+				"order": 1,
+				"translations": [
+					{
+						"id": "LanguageSelectTitle",
+						"translation": "LANGUAGE SELECT"
+					}
+				]
+            },
+            "8JFcz7zcfipJEEfr": {
+                "typeId": "Language",
+				"name": "German",
+				"localizedName": "Deutsch",
+				"code": "de",
+				"flag": "",
+				"order": 1,
+				"translations": [
+					{
+						"id": "LanguageSelectTitle",
+						"translation": "SPRACHAUSWAHL"
+					}
+				]
+            },
+            "f0vkssd8avNfcYIF": {
+                "typeId": "Language",
+				"name": "Spanish",
+				"localizedName": "Español",
+				"code": "es",
+				"flag": "",
+				"order": 1,
+				"translations": [
+					{
+						"id": "LanguageSelectTitle",
+						"translation": "SELECCIONAR IDIOMA"
+					}
+				]
+            },
+            "dEiVhooB868ORGVL": {
+                "typeId": "Language",
+				"name": "French",
+				"localizedName": "Français",
+				"code": "fr",
+				"flag": "",
+				"order": 1,
+				"translations": [
+					{
+						"id": "LanguageSelectTitle",
+						"translation": "CHOIX DE LA LANGUE"
+					}
+				]
+            }
+		}
+	}
+}

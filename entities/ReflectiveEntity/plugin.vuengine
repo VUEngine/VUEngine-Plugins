@@ -1,0 +1,28 @@
+{
+ 	"folders": [{
+		"path": "."
+	}],
+	"plugin": {
+		"displayName": {
+			"en": "Reflective Entity",
+			"de": "Reflektierende Entität",
+			"es": "Entidad reflexiva"
+		},
+		"author": "Team VUEngine",
+		"description": {
+			"en": "An Entity that can mirror other parts of the virtual screen.",
+			"de": "Eine Entität, die andere Teile des virtuellen Bildschirms spiegeln kann.",
+			"es": "Una entidad que puede reflejar otras partes de la pantalla virtual."
+		},
+		"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/entities/ReflectiveEntity",
+		"license": "MIT",
+		"tags": [
+			{
+				"en": "Entity",
+				"de": "Entität",
+				"es": "Entidad"
+			}
+		],
+		"dependencies": []
+	}
+}

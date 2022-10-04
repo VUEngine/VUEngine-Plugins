@@ -1,0 +1,148 @@
+{
+	"folders": [{
+		"path": "."
+	}],
+	"plugin": {
+		"displayName": {
+			"en": "Automatic Pause Selection Screen",
+			"de": "Automatische Pause Auswahlbildschirm",
+			"es": "Pantalla de selección de pausa automática"
+		},
+		"author": "Team VUEngine",
+		"description": {
+			"en": "Splash screen that allows the user to turn Automatic Pause on or off.",
+			"de": "Splashbildschirm, auf dem der Benutzer die automatische Pause ein- oder ausschalten kann.",
+			"es": "Pantalla de bienvenida que permite al usuario activar o desactivar la Pausa Automática."
+		},
+		"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/states/splash/AutomaticPauseSelectionScreen",
+		"license": "MIT",
+		"tags": [
+			{
+				"en": "Essentials",
+				"de": "Essentiell",
+				"es": "Esenciales"
+			},
+			"Splash",
+			{
+				"en": "State",
+				"de": "Zustand",
+				"es": "Estado"
+			}
+		],
+		"dependencies": [
+			"vuengine//entities/LowPowerEntity",
+			"vuengine//other/AutomaticPause",
+			"vuengine//other/I18n",
+			"vuengine//other/SaveDataManager",
+			"vuengine//states/splash/SplashScreen"
+		]
+	},
+	"items": {
+        "Language": {
+            "kNY1WhaXROCmBPUY": {
+                "typeId": "Language",
+				"name": "English",
+				"localizedName": "English",
+				"code": "en",
+				"flag": "",
+				"order": 1,
+				"translations": [
+					{
+						"id": "AutomaticPauseSelectionTitle",
+						"translation": "AUTOMATIC PAUSE"
+					},
+					{
+						"id": "AutomaticPauseSelectionBody",
+						"translation": "The Automatic Pause feature will\nremind you to take a break from\nplaying approx. every 30 minutes"
+					},
+					{
+						"id": "AutomaticPauseSelectionOff",
+						"translation": "Off"
+					},
+					{
+						"id": "AutomaticPauseSelectionOn",
+						"translation": "On"
+					}
+				]
+            },
+            "4NgpnK5na2T0mVIO": {
+                "typeId": "Language",
+				"name": "German",
+				"localizedName": "Deutsch",
+				"code": "de",
+				"flag": "",
+				"order": 1,
+				"translations": [
+					{
+						"id": "AutomaticPauseSelectionTitle",
+						"translation": "AUTOMATISCHE PAUSE"
+					},
+					{
+						"id": "AutomaticPauseSelectionBody",
+						"translation": " Die Automatische Pause Funktion\nerinnert dich daran, das Spiel ca.\n  alle 30 Minuten zu pausieren"
+					},
+					{
+						"id": "AutomaticPauseSelectionOff",
+						"translation": "Aus"
+					},
+					{
+						"id": "AutomaticPauseSelectionOn",
+						"translation": "An"
+					}
+				]
+            },
+            "O73AEK72TEvKZ9B1": {
+                "typeId": "Language",
+				"name": "Spanish",
+				"localizedName": "Español",
+				"code": "es",
+				"flag": "",
+				"order": 1,
+				"translations": [
+					{
+						"id": "AutomaticPauseSelectionTitle",
+						"translation": "PAUSA AUTOMÁTICA"
+					},
+					{
+						"id": "AutomaticPauseSelectionBody",
+						"translation": " La función automática de pausa te\nrecordará que debes tomar un descanso\n  approximadamente cada 30 minutos"
+					},
+					{
+						"id": "AutomaticPauseSelectionOff",
+						"translation": "Apagado"
+					},
+					{
+						"id": "AutomaticPauseSelectionOn",
+						"translation": "Encendido"
+					}
+				]
+            },
+            "FCo2i5W04FDAyzso": {
+                "typeId": "Language",
+				"name": "French",
+				"localizedName": "Français",
+				"code": "fr",
+				"flag": "",
+				"order": 1,
+				"translations": [
+					{
+						"id": "AutomaticPauseSelectionTitle",
+						"translation": "PAUSE AUTOMATIQUE"
+					},
+					{
+						"id": "AutomaticPauseSelectionBody",
+						"translation": "  La fonction Pause automatique va\nvous rappelerez de prendre une pause\n  de jeu chaque 30 minutes environ"
+					},
+					{
+						"id": "AutomaticPauseSelectionOff",
+						"translation": "Desactivé"
+					},
+					{
+						"id": "AutomaticPauseSelectionOn",
+						"translation": "Activé"
+					}
+				]
+            }
+		}
+	}
+}
