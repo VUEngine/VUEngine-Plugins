@@ -19,10 +19,10 @@
 //												CLASS'S METHODS
 //---------------------------------------------------------------------------------------------------------
 
-void GuiBgmapAnimatedSprite::constructor(const GuiBgmapAnimatedSpriteSpec* guiBgmapAnimatedSpriteSpec, ListenerObject owner)
+void GuiBgmapAnimatedSprite::constructor(const GuiBgmapAnimatedSpriteSpec* guiBgmapAnimatedSpriteSpec, ListenerObject owner, const Vector3D* position, const Rotation* rotation, const Scale* scale)
 {
 	// construct base object
-	Base::constructor(&guiBgmapAnimatedSpriteSpec->bgmapAnimatedSpriteSpec, owner);
+	Base::constructor(&guiBgmapAnimatedSpriteSpec->bgmapAnimatedSpriteSpec, owner, position, rotation, scale);
 }
 
 void GuiBgmapAnimatedSprite::destructor()
