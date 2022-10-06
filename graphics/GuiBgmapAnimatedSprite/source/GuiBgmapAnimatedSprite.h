@@ -55,7 +55,7 @@ class GuiBgmapAnimatedSprite : BgmapAnimatedSprite
 	 * @param guiBgmapAnimatedSpriteSpec		Sprite spec
 	 * @param owner						Owner
 	 */
-	void constructor(const GuiBgmapAnimatedSpriteSpec* guiBgmapAnimatedSpriteSpec, ListenerObject owner, const Vector3D* position, const Rotation* rotation, const Scale* scale);
+	void constructor(const GuiBgmapAnimatedSpriteSpec* guiBgmapAnimatedSpriteSpec, ListenerObject owner);
 
 	/**
      * Class destructor
