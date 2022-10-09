@@ -28,7 +28,6 @@
 	"items": {
 		"Font": {
             "0aBBDNoWWtsrP77d": {
-                "typeId": "Font",
 				"name": "VirtualBoy",
 				"tiles": "VirtualBoyFontTiles",
 				"type": "bgmap",
@@ -41,7 +40,6 @@
 				}
             },
             "Kkd9VO32CKm9bohV": {
-                "typeId": "Font",
 				"name": "VirtualBoyExt",
 				"tiles": "VirtualBoyFontTiles",
 				"type": "bgmap",

@@ -40,7 +40,6 @@
 	"items": {
         "Language": {
             "kNY1WhaXROCmBPUY": {
-                "typeId": "Language",
 				"name": "English",
 				"localizedName": "English",
 				"code": "en",
@@ -66,7 +65,6 @@
 				]
             },
             "4NgpnK5na2T0mVIO": {
-                "typeId": "Language",
 				"name": "German",
 				"localizedName": "Deutsch",
 				"code": "de",
@@ -92,7 +90,6 @@
 				]
             },
             "O73AEK72TEvKZ9B1": {
-                "typeId": "Language",
 				"name": "Spanish",
 				"localizedName": "Español",
 				"code": "es",
@@ -118,7 +115,6 @@
 				]
             },
             "FCo2i5W04FDAyzso": {
-                "typeId": "Language",
 				"name": "French",
 				"localizedName": "Français",
 				"code": "fr",

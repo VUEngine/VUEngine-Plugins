@@ -44,30 +44,17 @@
 		}
 	},
 	"types": {
-		"Languages": {
-			"schema": {
-				"title": "Languages",
-				"properties": {
-					"typeId": {
-						"const": "Languages"
-					}
-				}
-			},
-			"icon": "fa fa-language",
-			"category": "Assets"
-		},
 		"Language": {
 			"schema": {
 				"title": "Language",
 				"properties": {
-					"typeId": {
-						"const": "Language"
-					},
 					"name": {
-						"type": "string"
+						"type": "string",
+                        "default": ""
 					},
 					"localizedName": {
-						"type": "string"
+						"type": "string",
+                        "default": ""
 					},
 					"code": {
 						"type": "string",
@@ -76,7 +63,8 @@
 						"minLength": 2
 					},
 					"flag": {
-						"type": "string"
+						"type": "string",
+                        "default": ""
 					},
 					"order": {
 						"type": "integer",
@@ -88,10 +76,12 @@
 							"type": "object",
 							"properties": {
 								"id": {
-									"type": "string"
+									"type": "string",
+                                    "default": ""
 								},
 								"translation": {
-									"type": "string"
+									"type": "string",
+                                    "default": ""
 								}
 							}
 						}
@@ -100,10 +90,8 @@
 				"required": [],
 				"additionalProperties": false
 			},
-			"parent": {
-				"typeId": "Languages",
-				"multiple": true
-			},
+			"multiple": true,
+			"category": "Assets",
 			"icon": "fa fa-language",
 			"templates": [
 				"LanguageSpec.c",

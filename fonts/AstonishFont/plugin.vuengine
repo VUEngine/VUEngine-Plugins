@@ -28,7 +28,6 @@
 	"items": {
 		"Font": {
             "vTjHBFoSIHDIFmth": {
-                "typeId": "Font",
 				"name": "Astonish",
 				"tiles": "AstonishFontTiles",
 				"type": "bgmap",
@@ -41,7 +40,6 @@
 				}
             },
             "uD51jMt1T4oJvSF0": {
-                "typeId": "Font",
 				"name": "AstonishExt",
 				"tiles": "AstonishFontTiles",
 				"type": "bgmap",
@@ -54,7 +52,6 @@
 				}
             },
             "bQUVMbOkRlZowwkc": {
-                "typeId": "Font",
 				"name": "AstonishS",
 				"tiles": "AstonishFontShadowTiles",
 				"type": "bgmap",
@@ -67,7 +64,6 @@
 				}
             },
             "f7UxZrBP7IPmQgjh": {
-                "typeId": "Font",
 				"name": "AstonishSExt",
 				"tiles": "AstonishFontShadowTiles",
 				"type": "bgmap",

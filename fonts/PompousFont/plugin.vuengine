@@ -28,7 +28,6 @@
 	"items": {
 		"Font": {
             "iT6lsZjJmfPvvyul": {
-                "typeId": "Font",
 				"name": "Pompous",
 				"tiles": "PompousFontTiles",
 				"type": "bgmap",
@@ -41,7 +40,6 @@
 				}
             },
             "6e5PbhtDScX2MQav": {
-                "typeId": "Font",
 				"name": "PompousExt",
 				"tiles": "PompousFontTiles",
 				"type": "bgmap",
@@ -54,7 +52,6 @@
 				}
             },
             "a2kyMAkAJeT7YBwt": {
-                "typeId": "Font",
 				"name": "PompousS",
 				"tiles": "PompousFontShadowTiles",
 				"type": "bgmap",
@@ -67,7 +64,6 @@
 				}
             },
             "dD5RyKFTXr5315QS": {
-                "typeId": "Font",
 				"name": "PompousSExt",
 				"tiles": "PompousFontShadowTiles",
 				"type": "bgmap",

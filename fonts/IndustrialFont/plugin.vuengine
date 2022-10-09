@@ -28,7 +28,6 @@
 	"items": {
 		"Font": {
             "LgyD7l7HfwVhGvDW": {
-                "typeId": "Font",
 				"name": "Industrial",
 				"tiles": "IndustrialFontTiles",
 				"type": "bgmap",
@@ -41,7 +40,6 @@
 				}
             },
             "3LMrPSiEjKIleTRz": {
-                "typeId": "Font",
 				"name": "IndustrialExt",
 				"tiles": "IndustrialFontTiles",
 				"type": "bgmap",

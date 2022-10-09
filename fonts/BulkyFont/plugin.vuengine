@@ -28,7 +28,6 @@
 	"items": {
 		"Font": {
             "SDrpAajYWN9971YL": {
-                "typeId": "Font",
 				"name": "Bulky",
 				"tiles": "BulkyFontTiles",
 				"type": "bgmap",
@@ -41,7 +40,6 @@
 				}
             },
             "jVJi4if5VaTr0c4J": {
-                "typeId": "Font",
 				"name": "BulkyS",
 				"tiles": "BulkyFontShadowTiles",
 				"type": "bgmap",
