@@ -1,3 +1,13 @@
+{%- set combinedTranslations = project.combined.items.Translations | values -%}
+{%- set translationIds = [] -%}
+{%- set allTranslations = {} -%}
+{%- for translation in combinedTranslations -%}
+    {%- for translationId, translations in translation.translations %}
+        {%- set translationIds = (translationIds.push(translationId), translationIds) -%}
+		{%- set allTranslations = allTranslations | setAttribute(translationId, translations) -%}
+    {%- endfor -%}
+{%- endfor %}
+{%- set translationIds = translationIds | unique | sort -%}
 {%- import 'templates/partials/macros.nj' as macros -%}
 {% include('templates/partials/fileHeader.c.nj') %}
 
@@ -20,27 +30,11 @@ extern EntitySpec {{ language.flag }};
 
 const char* const {{ language.name | sanitizeSpecName }}LanguageStrings[] =
 {
-	{% for string in strings -%}
-		/* kString{{ string }}: */
-		{%- if item.translations[string] -%}
-			{%- set value = item.translations[string] -%}
-		{%- else -%}
-			{%- set value = '' -%}
-			{%- for language in item.languages -%}
-				{%- if language.code == item.code -%}
-					{%- for translation in language.translations -%}
-						{%- if translation.id == string -%}
-							{%- set value = translation.translation -%}
-						{%- endif -%}
-					{%- endfor -%}
-				{%- endif -%}
-			{%- endfor -%}
-		{%- endif -%}
-		{{- '\n	' -}}"{{- value | replace('\n', '\\n') | replace('\"', '\\"') | safe -}}",
-		{%- if not loop.last -%}{{ '\n	' }}{%- endif -%}
-	{%- endfor %}
+    {%- for translationId in translationIds %}
+    /* kString{{ translationId | sanitizeSpecName }}: */
+    "{{ allTranslations[translationId][language.code] | replace('\n', '\\n') | replace('\"', '\\"') | safe }}"
+    {%- endfor %}
 };
-
 
 const LangROMSpec {{ language.name | sanitizeSpecName }}Language =
 {

@@ -24,7 +24,7 @@
 			"encoding": "win1252"
 		},
 		"Languages.c": {
-			"target": "assets/Language/Languages.c",
+			"target": "assets/Translations/Languages.c",
 			"template": "templates/Languages.c.nj",
 			"events": [
 				{
