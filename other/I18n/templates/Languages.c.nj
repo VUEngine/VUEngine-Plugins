@@ -1,4 +1,3 @@
-{%- set languages = project.items.Language | values -%}
 {%- import 'templates/partials/macros.nj' as macros -%}
 {% include('templates/partials/fileHeader.c.nj') %}
 
@@ -8,11 +7,11 @@
 #include <Languages.h>
 
 
-{% if languages | length -%}
+{% if item.languages | length -%}
 {{ macros.sectionHeader('Declarations') }}
 
-{% for lang in languages|sort(attribute='order') -%}
-extern LangROMSpec {{ lang.name }}Language;
+{% for language in item.languages|sort(attribute='order') -%}
+extern LangROMSpec {{ language.name | sanitizeSpecName }}Language;
 {% endfor %}
 
 {% endif -%}
@@ -20,8 +19,8 @@ extern LangROMSpec {{ lang.name }}Language;
 
 LangROMSpec* const _languages[] =
 {
-	{% for lang in languages|sort(attribute='order') -%}
-	&{{ lang.name }}Language,
+	{% for language in item.languages|sort(attribute='order') -%}
+	&{{ language.name | sanitizeSpecName }}Language,
 	{% endfor %}
 	NULL
 };

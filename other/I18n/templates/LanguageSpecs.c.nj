@@ -1,28 +1,24 @@
-{%- set allLanguages = project.combined.items.Language | values -%}
 {%- import 'templates/partials/macros.nj' as macros -%}
 {% include('templates/partials/fileHeader.c.nj') %}
 
 {{ macros.sectionHeader('Includes') }}
 
 #include <I18n.h>
-{% if item.flag %}
+
 
 {{ macros.sectionHeader('Declarations') }}
 
-extern EntitySpec {{ item.flag }};
-{% endif %}
+{% for language in item.languages -%}
+{%- if language.flag -%}
+extern EntitySpec {{ language.flag }};
+{% endif -%}
+{%- endfor %}
 
 {{ macros.sectionHeader('Definitions') }}
 
-{% set strings = [] -%}
-{%- for language in allLanguages -%}
-	{%- for translation in language.translations -%}
-		{%- set strings = (strings.push(translation.id), strings) %}
-	{%- endfor -%}
-{%- endfor -%}
-{%- set strings = strings | unique | sort -%}
+{% for language in item.languages -%}
 
-const char* const {{ item.name }}LanguageStrings[] =
+const char* const {{ language.name | sanitizeSpecName }}LanguageStrings[] =
 {
 	{% for string in strings -%}
 		/* kString{{ string }}: */
@@ -30,7 +26,7 @@ const char* const {{ item.name }}LanguageStrings[] =
 			{%- set value = item.translations[string] -%}
 		{%- else -%}
 			{%- set value = '' -%}
-			{%- for language in allLanguages -%}
+			{%- for language in item.languages -%}
 				{%- if language.code == item.code -%}
 					{%- for translation in language.translations -%}
 						{%- if translation.id == string -%}
@@ -45,17 +41,20 @@ const char* const {{ item.name }}LanguageStrings[] =
 	{%- endfor %}
 };
 
-const LangROMSpec {{ item.name }}Language =
+
+const LangROMSpec {{ language.name | sanitizeSpecName }}Language =
 {
 	// language name
-	"{{ item.localizedName }}",
+	"{{ language.localizedName }}",
 
 	// flag entity
-	{% if item.flag -%}
-	&{{ item.flag }},
+	{% if language.flag -%}
+	&{{ language.flag }},
 	{% else -%}
 	NULL,
 	{% endif %}
 	// strings
-	(const char**){{ item.name }}LanguageStrings
+	(const char**){{ language.name | sanitizeSpecName }}LanguageStrings
 };
+
+{% endfor -%}

@@ -18,11 +18,10 @@
 		"dependencies": []
 	},
 	"templates": {
-		"LanguageSpec.c": {
-			"target": "assets/Language/${name}LanguageSpec.c",
-			"template": "templates/LanguageSpec.c.nj",
-			"encoding": "win1252",
-			"itemSpecific": "Language"
+		"LanguageSpecs.c": {
+			"target": "assets/Translations/LanguageSpecs.c",
+			"template": "templates/LanguageSpecs.c.nj",
+			"encoding": "win1252"
 		},
 		"Languages.c": {
 			"target": "assets/Language/Languages.c",
@@ -44,57 +43,54 @@
 		}
 	},
 	"types": {
-		"Language": {
+		"Translations": {
 			"schema": {
-				"title": "Language",
+				"title": "Translations",
 				"properties": {
-					"name": {
-						"type": "string",
-                        "default": ""
-					},
-					"localizedName": {
-						"type": "string",
-                        "default": ""
-					},
-					"code": {
-						"type": "string",
-						"default": "en",
-						"maxLength": 2,
-						"minLength": 2
-					},
-					"flag": {
-						"type": "string",
-                        "default": ""
-					},
-					"order": {
-						"type": "integer",
-						"minimum": 0
-					},
-					"translations": {
+					"languages": {
 						"type": "array",
 						"items": {
-							"type": "object",
-							"properties": {
-								"id": {
-									"type": "string",
-                                    "default": ""
-								},
-								"translation": {
-									"type": "string",
-                                    "default": ""
-								}
-							}
-						}
+                            "name": {
+                                "type": "string",
+                                "default": ""
+                            },
+                            "localizedName": {
+                                "type": "string",
+                                "default": ""
+                            },
+                            "code": {
+                                "type": "string",
+                                "default": "",
+                                "maxLength": 2,
+                                "minLength": 2
+                            },
+                            "flag": {
+                                "type": "string",
+                                "default": ""
+                            }
+                        }
+                    },
+					"translations": {
+						"type": "object",
+                        "additionalProperties": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string"
+                            }
+                        }
 					}
 				},
-				"required": [],
-				"additionalProperties": false
+				"required": []
 			},
-			"multiple": true,
-			"category": "Assets",
+            "uiSchema": {
+                "type": "TranslationsEditor",
+                "scope": "#"
+            },
+			"multiple": false,
+			"category": "Configuration",
 			"icon": "fa fa-language",
 			"templates": [
-				"LanguageSpec.c",
+				"LanguageSpecs.c",
 				"Languages.c",
 				"Languages.h"
 			]

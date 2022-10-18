@@ -1,18 +1,18 @@
-{%- set languages = project.items.Language | values -%}
-{%- set allLanguages = project.combined.items.Language | values -%}
+{%- set allLanguages = project.combined.items.Translations | values -%}
 {%- import 'templates/partials/macros.nj' as macros -%}
 {% include('templates/partials/fileHeader.h.nj') %}
 
 #ifndef LANGUAGES_H_
 #define LANGUAGES_H_
 
+
 {{ macros.sectionHeader('Definitions') }}
 
-{% if languages | length -%}
+{% if item.languages | length -%}
 enum LanguageIdentifiers
 {
-	{% for lang in languages|sort(attribute='order') -%}
-	kLanguage{{ lang.name }},
+	{% for language in item.languages|sort(attribute='order') -%}
+	kLanguage{{ language.name | sanitizeSpecName }},
 	{%- if not loop.last -%}{{ '\n	' }}{%- endif -%}
 	{%- endfor %}
 };
@@ -21,18 +21,17 @@ enum LanguageIdentifiers
 
 {%- set strings = [] -%}
 {%- for language in allLanguages -%}
-	{%- for translation in language.translations -%}
-		{%- set strings = (strings.push(translation.id), strings) %}
-	{%- endfor -%}
-{%- endfor -%}
+    {%- for translationId, translation in language.translations %}
+        {%- set strings = (strings.push(translationId), strings) %}
+    {%- endfor -%}
+{%- endfor %}
 {%- set strings = strings | unique | sort -%}
 
 {% if strings | length -%}
 enum LanguageStrings
 {
-	{% for string in strings -%}
-		kString{{- string -}},
-		{%- if not loop.last -%}{{- '\n	' -}}{%- endif -%}
+    {%- for string in strings %}
+    kString{{- string -}},
 	{%- endfor %}
 };
 
