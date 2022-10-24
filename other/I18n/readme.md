@@ -14,7 +14,6 @@ Alternatively, you can also use the `I18n::setActiveLanguageByName` method to se
 
     I18n::setActiveLanguageByName(I18n::getInstance(), "English");
 
-
 ### Getting a translated string
 
 The `I18n::getText` method retrieves a string by a given identifier in the currently active language.

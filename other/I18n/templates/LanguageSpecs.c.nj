@@ -1,0 +1,54 @@
+{%- set combinedTranslations = project.combined.items.Translations | values -%}
+{%- set translationIds = [] -%}
+{%- set allTranslations = {} -%}
+{%- for translation in combinedTranslations -%}
+    {%- for translationId, translations in translation.translations %}
+        {%- set translationIds = (translationIds.push(translationId), translationIds) -%}
+		{%- set allTranslations = allTranslations | setAttribute(translationId, translations) -%}
+    {%- endfor -%}
+{%- endfor %}
+{%- set translationIds = translationIds | unique | sort -%}
+{%- import 'templates/partials/macros.nj' as macros -%}
+{% include('templates/partials/fileHeader.c.nj') %}
+
+{{ macros.sectionHeader('Includes') }}
+
+#include <I18n.h>
+
+
+{{ macros.sectionHeader('Declarations') }}
+
+{% for language in item.languages -%}
+{%- if language.flag -%}
+extern EntitySpec {{ language.flag }};
+{% endif -%}
+{%- endfor %}
+
+{{ macros.sectionHeader('Definitions') }}
+
+{% for language in item.languages -%}
+
+const char* const {{ language.name | sanitizeSpecName }}LanguageStrings[] =
+{
+    {%- for translationId in translationIds %}
+    /* kString{{ translationId | sanitizeSpecName }}: */
+    "{{ allTranslations[translationId][language.code] | replace('\n', '\\n') | replace('\"', '\\"') | safe }}"
+    {%- endfor %}
+};
+
+const LangROMSpec {{ language.name | sanitizeSpecName }}Language =
+{
+	// language name
+	"{{ language.localizedName }}",
+
+	// flag entity
+	{% if language.flag -%}
+	&{{ language.flag }},
+	{% else -%}
+	NULL,
+	{% endif %}
+	// strings
+	(const char**){{ language.name | sanitizeSpecName }}LanguageStrings
+};
+
+{% endfor -%}

@@ -34,74 +34,48 @@
 		]
 	},
 	"items": {
-        "Language": {
+        "Translations": {
             "yAh3AT9wuf70wXpn": {
-				"name": "English",
-				"localizedName": "English",
-				"code": "en",
-				"flag": "",
-				"order": 1,
-				"translations": [
-					{
-						"id": "AutomaticPauseTitle",
-						"translation": "AUTOMATIC PAUSE"
+                "languages": [
+                    {
+                        "code": "en",
+                        "flag": "",
+                        "localizedName": "English",
+                        "name": "English"
+                    },
+                    {
+                        "code": "de",
+                        "flag": "",
+                        "localizedName": "Deutsch",
+                        "name": "German"
+                    },
+                    {
+                        "code": "es",
+                        "flag": "",
+                        "localizedName": "Español",
+                        "name": "Spanish"
+                    },
+                    {
+                        "code": "fr",
+                        "flag": "",
+                        "localizedName": "Français",
+                        "name": "French"
+                    }
+                ],
+				"translations": {
+					"AutomaticPauseTitle": {
+						"en": "AUTOMATIC PAUSE",
+                        "de": "AUTOMATISCHE PAUSE",
+						"es": "PAUSA AUTOMÁTICA",
+						"fr": "PAUSE AUTOMATIQUE"
 					},
-					{
-						"id": "AutomaticPauseBody",
-						"translation": "Please take a rest!"
+					"AutomaticPauseBody": {
+						"en": "Please take a rest!",
+                        "de": "Bitte mache eine Pause!",
+						"es": "¡Por favor, tómese un descanso!",
+						"fr": "Se il vous plaît, prendre un repos!"
 					}
-				]
-            },
-            "LAyUISaxlUWdy1yC": {
-				"name": "German",
-				"localizedName": "Deutsch",
-				"code": "de",
-				"flag": "",
-				"order": 1,
-				"translations": [
-					{
-						"id": "AutomaticPauseTitle",
-						"translation": "AUTOMATISCHE PAUSE"
-					},
-					{
-						"id": "AutomaticPauseBody",
-						"translation": "Bitte mache eine Pause!"
-					}
-				]
-            },
-            "X96QiulzcIaPv8FK": {
-				"name": "Spanish",
-				"localizedName": "Español",
-				"code": "es",
-				"flag": "",
-				"order": 1,
-				"translations": [
-					{
-						"id": "AutomaticPauseTitle",
-						"translation": "PAUSA AUTOMÁTICA"
-					},
-					{
-						"id": "AutomaticPauseBody",
-						"translation": "¡Por favor, tómese un descanso!"
-					}
-				]
-            },
-            "vRMasIA20205LVEX": {
-				"name": "French",
-				"localizedName": "Français",
-				"code": "fr",
-				"flag": "",
-				"order": 1,
-				"translations": [
-					{
-						"id": "AutomaticPauseTitle",
-						"translation": "PAUSE AUTOMATIQUE"
-					},
-					{
-						"id": "AutomaticPauseBody",
-						"translation": "Se il vous plaît, prendre un repos!"
-					}
-				]
+				}
             }
 		}
 	}

@@ -38,58 +38,42 @@
 		]
 	},
 	"items": {
-        "Language": {
+        "Translations": {
             "rGa0RT7DJtRKv6Ic": {
-				"name": "English",
-				"localizedName": "English",
-				"code": "en",
-				"flag": "",
-				"order": 1,
-				"translations": [
-					{
-						"id": "LanguageSelectTitle",
-						"translation": "LANGUAGE SELECT"
+                "languages": [
+                    {
+                        "code": "en",
+                        "flag": "",
+                        "localizedName": "English",
+                        "name": "English"
+                    },
+                    {
+                        "code": "de",
+                        "flag": "",
+                        "localizedName": "Deutsch",
+                        "name": "German"
+                    },
+                    {
+                        "code": "es",
+                        "flag": "",
+                        "localizedName": "Español",
+                        "name": "Spanish"
+                    },
+                    {
+                        "code": "fr",
+                        "flag": "",
+                        "localizedName": "Français",
+                        "name": "French"
+                    }
+                ],
+                "translations": {
+					"LanguageSelectTitle": {
+						"en": "LANGUAGE SELECT",
+						"de": "SPRACHAUSWAHL",
+						"es": "SELECCIONAR IDIOMA",
+						"fr": "CHOIX DE LA LANGUE"
 					}
-				]
-            },
-            "8JFcz7zcfipJEEfr": {
-				"name": "German",
-				"localizedName": "Deutsch",
-				"code": "de",
-				"flag": "",
-				"order": 1,
-				"translations": [
-					{
-						"id": "LanguageSelectTitle",
-						"translation": "SPRACHAUSWAHL"
-					}
-				]
-            },
-            "f0vkssd8avNfcYIF": {
-				"name": "Spanish",
-				"localizedName": "Español",
-				"code": "es",
-				"flag": "",
-				"order": 1,
-				"translations": [
-					{
-						"id": "LanguageSelectTitle",
-						"translation": "SELECCIONAR IDIOMA"
-					}
-				]
-            },
-            "dEiVhooB868ORGVL": {
-				"name": "French",
-				"localizedName": "Français",
-				"code": "fr",
-				"flag": "",
-				"order": 1,
-				"translations": [
-					{
-						"id": "LanguageSelectTitle",
-						"translation": "CHOIX DE LA LANGUE"
-					}
-				]
+                }
             }
 		}
 	}

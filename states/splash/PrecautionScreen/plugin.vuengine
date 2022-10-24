@@ -36,58 +36,42 @@
 		]
 	},
 	"items": {
-        "Language": {
+        "Translations": {
             "9Gz5SO9qNUiJG8DQ": {
-				"name": "English",
-				"localizedName": "English",
-				"code": "en",
-				"flag": "",
-				"order": 1,
-				"translations": [
-					{
-					"id": "PrecautionScreenBody",
-					"translation" : "     IMPORTANT\nREAD INSTRUCTION AND\nPRECAUTION BOOKLETS\n  BEFORE OPERATING"
-					}
-				]
-            },
-            "vgVbxeqiWJXjYTiA": {
-				"name": "German",
-				"localizedName": "Deutsch",
-				"code": "de",
-				"flag": "",
-				"order": 1,
-				"translations": [
-					{
-					"id": "PrecautionScreenBody",
-					"translation" : "        WICHTIG\nBITTE LESEN SIE VOR DEM\n SPIELEN DIE ANLEITUNG\nUND SICHERHEITSHINWEISE"
-					}
-				]
-            },
-            "MR6r6COn3vHGkawm": {
-				"name": "Spanish",
-				"localizedName": "Español",
-				"code": "es",
-				"flag": "",
-				"order": 1,
-				"translations": [
-					{
-					"id": "PrecautionScreenBody",
-					"translation" : "         IMPORTANTE\n     LEE LOS LIBROS DE\nINSTRUCCIONES Y PRECAUCIONES\n       ANTES DE JUGAR"
-					}
-				]
-            },
-            "bFgZncf25A60bovW": {
-				"name": "French",
-				"localizedName": "Français",
-				"code": "fr",
-				"flag": "",
-				"order": 1,
-				"translations": [
-					{
-					"id": "PrecautionScreenBody",
-					"translation" : "        IMPORTANT\nPRENEZ CONAISSANCE DE LA\nNOTICE ET DES PRÉCAUTIONS\n    A AVANT DE JOUER"
-					}
-				]
+                "languages": [
+                    {
+                        "code": "en",
+                        "flag": "",
+                        "localizedName": "English",
+                        "name": "English"
+                    },
+                    {
+                        "code": "de",
+                        "flag": "",
+                        "localizedName": "Deutsch",
+                        "name": "German"
+                    },
+                    {
+                        "code": "es",
+                        "flag": "",
+                        "localizedName": "Español",
+                        "name": "Spanish"
+                    },
+                    {
+                        "code": "fr",
+                        "flag": "",
+                        "localizedName": "Français",
+                        "name": "French"
+                    }
+                ],
+                "translations": {
+                    "PrecautionScreenBody": {
+                        "de": "     IMPORTANT\nREAD INSTRUCTION AND\nPRECAUTION BOOKLETS\n  BEFORE OPERATING",
+                        "en": "        WICHTIG\nBITTE LESEN SIE VOR DEM\n SPIELEN DIE ANLEITUNG\nUND SICHERHEITSHINWEISE",
+                        "es": "         IMPORTANTE\n     LEE LOS LIBROS DE\nINSTRUCCIONES Y PRECAUCIONES\n       ANTES DE JUGAR",
+                        "fr": "        IMPORTANT\nPRENEZ CONAISSANCE DE LA\nNOTICE ET DES PRÉCAUTIONS\n    A AVANT DE JOUER"
+                    }
+                }
             }
 		}
 	}
