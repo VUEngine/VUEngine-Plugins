@@ -39,11 +39,8 @@ typedef struct VehicleSpec
 /// @ingroup base
 class Vehicle : Actor
 {
-	Vector3D steeringForce;
 	Vector3D accumulatedForce;
-	VehicleSpec* vehicleSpec;
 	fixed_t radius;
-	//fixed_t frictionMassRatio;
 	bool checkIfCanMove;
 	int8 evenCycle;
 

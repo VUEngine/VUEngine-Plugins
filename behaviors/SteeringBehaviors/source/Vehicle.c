@@ -36,10 +36,8 @@ void Vehicle::constructor(VehicleSpec* vehicleSpec, int16 internalId, const char
 	Base::constructor((ActorSpec*)&vehicleSpec->actorSpec, internalId, name);
 
 	// save vehicle spec
-	this->vehicleSpec = vehicleSpec;
 	this->steeringBehaviors = NULL;
 	this->evenCycle = vehicleSpec->runSteeringBehaviorsAtHalfSpeed ? 0 : -1;
-	this->steeringForce = Vector3D::zero();
 	this->accumulatedForce = Vector3D::zero();
 	this->radius = 0;
 	this->checkIfCanMove = false;
@@ -128,7 +126,7 @@ void Vehicle::applyForce(const Force* force, bool checkIfCanMove __attribute__((
 
 int32 Vehicle::getSummingMethod()
 {
-	return this->vehicleSpec->summingMethod;
+	return ((VehicleSpec*)this->entitySpec)->summingMethod;
 }
 
 VirtualList Vehicle::getSteeringBehaviors()
