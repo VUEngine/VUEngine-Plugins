@@ -27,7 +27,7 @@
 //												MACROS
 //---------------------------------------------------------------------------------------------------------
 
-#define POST_PROCESSING_RAIN_SIZE_OF_uint16_POWER		1
+#define POST_PROCESSING_RAIN_SIZE_OF_UINT16_POWER	1
 #define POST_PROCESSING_RAIN_SIZE_OF_S16_POWER		1
 #define POST_PROCESSING_RAIN_Y_STEP_SIZE			16
 #define POST_PROCESSING_RAIN_Y_STEP_SIZE_2_EXP		4
@@ -358,13 +358,13 @@ static void PostProcessingRain::rain(uint32 currentDrawingFrameBufferSet __attri
 		_cameraFrustum->y1,
 		0,
 		yStep,
-		sizeof(yStep) >> POST_PROCESSING_RAIN_SIZE_OF_uint16_POWER,
+		sizeof(yStep) >> POST_PROCESSING_RAIN_SIZE_OF_UINT16_POWER,
 		&yStepIndex,
 		__FIX19_13_TO_I(yStepThrottle),
 		y,
 		sizeof(y) >> POST_PROCESSING_RAIN_SIZE_OF_S16_POWER,
 		dropletLength,
-		sizeof(dropletLength) >> POST_PROCESSING_RAIN_SIZE_OF_uint16_POWER,
+		sizeof(dropletLength) >> POST_PROCESSING_RAIN_SIZE_OF_UINT16_POWER,
 		&dropletLengthIndex,
 		POST_PROCESSING_RAIN_MINIMUM_DROPLET_LENGTH,
 		dropletParallax,
@@ -424,13 +424,13 @@ static void PostProcessingRain::waterFall(uint32 currentDrawingFrameBufferSet, V
 		__FIXED_TO_I(position.y) + (height >> 1),
 		0,
 		yStep,
-		sizeof(yStep) >> POST_PROCESSING_RAIN_SIZE_OF_uint16_POWER,
+		sizeof(yStep) >> POST_PROCESSING_RAIN_SIZE_OF_UINT16_POWER,
 		&yStepIndex,
 		yStepThrottle,
 		y,
 		sizeof(y) >> POST_PROCESSING_RAIN_SIZE_OF_S16_POWER,
 		dropletLength,
-		sizeof(dropletLength) >> POST_PROCESSING_RAIN_SIZE_OF_uint16_POWER,
+		sizeof(dropletLength) >> POST_PROCESSING_RAIN_SIZE_OF_UINT16_POWER,
 		&dropletLengthIndex,
 		1,
 		dropletParallax,
