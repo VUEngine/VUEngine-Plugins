@@ -118,10 +118,12 @@ void Vehicle::ready(bool recursive)
 	}
 }
 
-void Vehicle::applyForce(const Force* force, bool checkIfCanMove __attribute__((unused)))
+bool Vehicle::applyForce(const Force* force, bool checkIfCanMove __attribute__((unused)))
 {
 	this->checkIfCanMove |= checkIfCanMove;
 	this->accumulatedForce = Vector3D::sum(this->accumulatedForce, *force);
+
+	return true;
 }
 
 int32 Vehicle::getSummingMethod()
@@ -172,7 +174,13 @@ bool Vehicle::updateForce()
 		totalForce = Vector3D::sum(totalForce, SteeringBehavior::calculateForce(this));
 	}
 
-	Base::applyForce(this, &totalForce, this->checkIfCanMove);
+	if(!Base::applyForce(this, &totalForce, this->checkIfCanMove) && this->checkIfCanMove)
+	{
+		if(NULL != this->events)
+		{
+			Vehicle::fireEvent(this, kEventActorCannotMove);
+		}
+	}
 
 	this->accumulatedForce = Vector3D::zero();
 	this->checkIfCanMove = false;
