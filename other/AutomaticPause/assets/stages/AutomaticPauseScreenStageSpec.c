@@ -21,7 +21,7 @@
 
 extern EntitySpec AutomaticPauseLogoEntity;
 
-#ifdef __AUTOMATIC_PAUSE_SCREEN_USE_LOW_POWER_ENTITY
+#if __AUTOMATIC_PAUSE_SCREEN_USE_LOW_POWER_ENTITY
 extern EntitySpec LowPowerIndicatorEntity;
 #endif
 
@@ -34,7 +34,7 @@ PositionedEntityROMSpec AutomaticPauseScreenStageEntities[] =
 {
 	{&AutomaticPauseLogoEntity, 	{200, 72, 0, 0}, 0, NULL, NULL, NULL, false},
 
-#ifdef __AUTOMATIC_PAUSE_SCREEN_USE_LOW_POWER_ENTITY
+#if __AUTOMATIC_PAUSE_SCREEN_USE_LOW_POWER_ENTITY
 	{&LowPowerIndicatorEntity, 	{__LOW_POWER_ENTITY_X_POSITION, __LOW_POWER_ENTITY_Y_POSITION, __LOW_POWER_ENTITY_Z_POSITION, __LOW_POWER_ENTITY_Z_DISPLACEMENT}, 0, NULL, NULL, NULL, false},
 #endif
 
