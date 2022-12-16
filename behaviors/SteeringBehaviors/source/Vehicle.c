@@ -174,13 +174,7 @@ bool Vehicle::updateForce()
 		totalForce = Vector3D::sum(totalForce, SteeringBehavior::calculateForce(this));
 	}
 
-	if(!Base::applyForce(this, &totalForce, this->checkIfCanMove) && this->checkIfCanMove)
-	{
-		if(NULL != this->events)
-		{
-			Vehicle::fireEvent(this, kEventActorCannotMove);
-		}
-	}
+	Base::applyForce(this, &totalForce, this->checkIfCanMove);
 
 	this->accumulatedForce = Vector3D::zero();
 	this->checkIfCanMove = false;

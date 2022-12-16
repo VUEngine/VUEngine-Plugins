@@ -143,8 +143,7 @@ void AutomaticPauseSelectionScreenState::processUserInput(UserInput userInput)
 		this->selection = !this->selection;
 		AutomaticPauseSelectionScreenState::renderSelection(this);
 
-		Vector3D position = Vector3D::getFromPixelVector((PixelVector){192, 112, 0, 0});
-		SoundManager::playSound(SoundManager::getInstance(), &AutomaticPauseSelectSound, kPlayAll, (const Vector3D*)&position, kSoundWrapperPlaybackNormal, NULL, NULL);
+		SoundManager::playSound(SoundManager::getInstance(), &AutomaticPauseSelectSound, kPlayAll, NULL, kSoundWrapperPlaybackNormal, NULL, NULL);
 	}
 	else if(userInput.pressedKey & (K_A | K_STA))
 	{
@@ -157,8 +156,7 @@ void AutomaticPauseSelectionScreenState::processUserInput(UserInput userInput)
 			SaveDataManager::setAutomaticPauseStatus(saveDataManager, this->selection);
 		}
 
-		Vector3D position = Vector3D::getFromPixelVector((PixelVector){192, 112, 0, 0});
-		SoundManager::playSound(SoundManager::getInstance(), &AutomaticPauseConfirmSound, kPlayAll, (const Vector3D*)&position, kSoundWrapperPlaybackNormal, NULL, NULL);
+		SoundManager::playSound(SoundManager::getInstance(), &AutomaticPauseConfirmSound, kPlayAll, NULL, kSoundWrapperPlaybackNormal, NULL, NULL);
 
 		SplashScreenState::loadNextState(SplashScreenState::safeCast(this));
 	}

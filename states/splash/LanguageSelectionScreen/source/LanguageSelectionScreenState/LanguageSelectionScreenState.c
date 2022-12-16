@@ -75,8 +75,7 @@ void LanguageSelectionScreenState::processUserInput(UserInput userInput)
 	}
 	else if(userInput.pressedKey & (K_A | K_STA))
 	{
-		Vector3D position = Vector3D::getFromPixelVector((PixelVector){192, 112, 0, 0});
-		SoundManager::playSound(SoundManager::getInstance(), &LangConfirmSound, kPlayAll, (const Vector3D*)&position, kSoundWrapperPlaybackNormal, NULL, NULL);
+		SoundManager::playSound(SoundManager::getInstance(), &LangConfirmSound, kPlayAll, NULL, kSoundWrapperPlaybackNormal, NULL, NULL);
 
 		SplashScreenState::loadNextState(SplashScreenState::safeCast(this));
 	}
@@ -223,8 +222,7 @@ void LanguageSelectionScreenState::select(bool next)
 	LanguageSelectionScreenState::persistChoice(this);
 	LanguageSelectionScreenState::printSelection(this);
 
-	Vector3D position = Vector3D::getFromPixelVector((PixelVector){192, 112, 0, 0});
-	SoundManager::playSound(SoundManager::getInstance(), &LangSelectSound, kPlayAll, (const Vector3D*)&position, kSoundWrapperPlaybackNormal, NULL, NULL);
+	SoundManager::playSound(SoundManager::getInstance(), &LangSelectSound, kPlayAll, NULL, kSoundWrapperPlaybackNormal, NULL, NULL);
 }
 
 void LanguageSelectionScreenState::persistChoice()

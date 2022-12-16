@@ -57,7 +57,7 @@ SoundChannelConfigurationROM PrecautionScreenIntroSoundChannel1Configuration =
 	0x00,
 
 	/// Waveform data pointer
-	SawtoothWaveForm,
+	NULL,
 
 	/// kChannelNormal, kChannelModulation, kChannelNoise
 	kChannelNormal,
