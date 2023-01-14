@@ -83,9 +83,9 @@ void PlatformerCameraTriggerEntity::transform(const Transformation* environmentT
 //	Entity::showShapes(this);
 }
 
-void PlatformerCameraTriggerEntity::update(uint32 elapsedTime)
+void PlatformerCameraTriggerEntity::update()
 {
-	Base::update(this, elapsedTime);
+	Base::update(this);
 
 	// If there is a change in direction over the X axis
 	int8 currentXDirection = this->transformation.globalPosition.x > this->previousGlobalPosition.x ? __RIGHT : this->transformation.globalPosition.x < this->previousGlobalPosition.x ? __LEFT : 0;

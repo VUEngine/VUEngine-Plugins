@@ -117,7 +117,7 @@ static Vector3D SeekSteeringBehavior::toTarget(SeekSteeringBehavior seekSteering
 
 	if(proportionalToDistance)
 	{
-		desiredVelocity = Vector3D::get(Vehicle::getVelocity(vehicle), desiredVelocity);
+		desiredVelocity = Vector3D::get(*Vehicle::getVelocity(vehicle), desiredVelocity);
 
 		if(allowEasing && easingDistanceThreshold > length)
 		{

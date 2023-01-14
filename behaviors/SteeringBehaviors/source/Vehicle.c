@@ -118,7 +118,7 @@ void Vehicle::ready(bool recursive)
 	}
 }
 
-bool Vehicle::applyForce(const Force* force, bool checkIfCanMove __attribute__((unused)))
+bool Vehicle::applyForce(const Vector3D* force, bool checkIfCanMove __attribute__((unused)))
 {
 	this->checkIfCanMove |= checkIfCanMove;
 	this->accumulatedForce = Vector3D::sum(this->accumulatedForce, *force);
@@ -136,12 +136,12 @@ VirtualList Vehicle::getSteeringBehaviors()
 	return this->steeringBehaviors;
 }
 
-Velocity Vehicle::getVelocity()
+const Vector3D* Vehicle::getVelocity()
 {
 	return Body::getVelocity(this->body);
 }
 
-const Direction3D* Vehicle::getDirection3D()
+const Vector3D* Vehicle::getDirection3D()
 {
 	return Body::getDirection3D(this->body);
 }
@@ -167,7 +167,7 @@ bool Vehicle::updateForce()
 		this->evenCycle = !modulo;
 	}
 
-	Force totalForce = this->accumulatedForce;
+	Vector3D totalForce = this->accumulatedForce;
 
 	if(computeForce && this->behaviors)
 	{
@@ -184,7 +184,7 @@ bool Vehicle::updateForce()
 
 void Vehicle::update(uint32 elapsedTime __attribute__((unused)))
 {
-	Base::update(this, elapsedTime);
+	Base::update(this);
 
 	Vehicle::updateForce(this);
 }

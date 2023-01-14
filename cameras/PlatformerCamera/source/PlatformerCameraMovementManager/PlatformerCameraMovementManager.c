@@ -173,7 +173,7 @@ bool PlatformerCameraMovementManager::doFocus(uint32 checkIfFocusEntityIsMoving 
 			}
 			else
 			{
-				Velocity velocity = Actor::getVelocity(focusActor);
+				Vector3D velocity = Actor::getVelocity(focusActor);
 
 				if(0 < velocity.y)
 				{

@@ -28,7 +28,7 @@ typedef struct VehicleSpec
 	// animated entity
 	ActorSpec actorSpec;
 
-	// Force accumulation method: kPrioritized, kWeightedAverage
+	// Vector3D accumulation method: kPrioritized, kWeightedAverage
 	int32 summingMethod;
 
 	/// Run steering behaviors at half speed
@@ -52,16 +52,16 @@ class Vehicle : Actor
 	int32 getSummingMethod();
 	bool updateForce();
 	VirtualList getSteeringBehaviors();
-	Velocity getVelocity();
+	const Vector3D* getVelocity();
 	fixed_t getFrictionMassRatio();
 
 	virtual const Vector3D* getReferencePosition();
-	virtual const Direction3D* getDirection3D();
+	virtual const Vector3D* getDirection3D();
 
 	override void ready(bool recursive);
-	override void update(uint32 elapsedTime);
+	override void update();
 	override fixed_t getRadius();
-	override bool applyForce(const Force* force, bool checkIfCanMove);
+	override bool applyForce(const Vector3D* force, bool checkIfCanMove);
 }
 
 

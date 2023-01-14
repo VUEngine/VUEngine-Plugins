@@ -38,7 +38,7 @@ class PlatformerCameraTriggerEntity : Entity
 	void lockMovement(uint8 axisToLockUp, bool locked);
 	override void ready(bool recursive);
 	override void transform(const Transformation* environmentTransform, uint8 invalidateTransformationFlag);
-	override void update(uint32 elapsedTime);
+	override void update();
 	override void resume();
 	override bool enterCollision(const CollisionInformation* collisionInformation);
 }
