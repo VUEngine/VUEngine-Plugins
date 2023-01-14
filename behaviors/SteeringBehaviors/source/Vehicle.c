@@ -182,7 +182,7 @@ bool Vehicle::updateForce()
 	return computeForce;
 }
 
-void Vehicle::update(uint32 elapsedTime __attribute__((unused)))
+void Vehicle::update()
 {
 	Base::update(this);
 
