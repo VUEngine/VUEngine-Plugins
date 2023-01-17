@@ -15,11 +15,6 @@
 //											CONFIGURATION MACROS
 //---------------------------------------------------------------------------------------------------------
 
-// show low power indicator after this many seconds of receiving the low power signal
-#ifndef __LOW_POWER_ENTITY_FLASH_DELAY
-#define __LOW_POWER_ENTITY_FLASH_DELAY						2
-#endif
-
 #ifndef __LOW_POWER_ENTITY_USE_GUI_BGMAP_ANIMATED_SPRITE
 #define __LOW_POWER_ENTITY_USE_GUI_BGMAP_ANIMATED_SPRITE	0
 #endif
