@@ -33,12 +33,12 @@ void LowPowerManager::constructor()
 	this->indicatorYPos = __LOW_POWER_INDICATOR_Y_POSITION;
 
 	// add event listeners
-	Clock::addEventListener(VUEngine::getClock(VUEngine::getInstance()), ListenerObject::safeCast(this), (EventListener)LowPowerManager::onSecondChange, kEventSecondChanged);
 }
 
 void LowPowerManager::destructor()
 {
 	// remove event listeners
+	KeypadManager::removeEventListener(KeypadManager::getInstance(), ListenerObject::safeCast(this), (EventListener)LowPowerManager::onKeypadManagerRaisedPowerFlag, kEventKeypadManagerRaisedPowerFlag);
 	Clock::removeEventListener(VUEngine::getClock(VUEngine::getInstance()), ListenerObject::safeCast(this), (EventListener)LowPowerManager::onSecondChange, kEventSecondChanged);
 
 	// destroy base
@@ -48,6 +48,22 @@ void LowPowerManager::destructor()
 void LowPowerManager::setActive(bool active)
 {
 	this->isActive = active;
+
+	if(this->isActive)
+	{
+		KeypadManager::addEventListener(KeypadManager::getInstance(), ListenerObject::safeCast(this), (EventListener)LowPowerManager::onKeypadManagerRaisedPowerFlag, kEventKeypadManagerRaisedPowerFlag);
+	}
+	else
+	{
+		KeypadManager::removeEventListener(KeypadManager::getInstance(), ListenerObject::safeCast(this), (EventListener)LowPowerManager::onKeypadManagerRaisedPowerFlag, kEventKeypadManagerRaisedPowerFlag);
+		Clock::removeEventListener(VUEngine::getClock(VUEngine::getInstance()), ListenerObject::safeCast(this), (EventListener)LowPowerManager::onSecondChange, kEventSecondChanged);
+	}
+}
+
+void LowPowerManager::onKeypadManagerRaisedPowerFlag(ListenerObject eventFirer __attribute__ ((unused)))
+{
+	KeypadManager::removeEventListener(KeypadManager::getInstance(), ListenerObject::safeCast(this), (EventListener)LowPowerManager::onKeypadManagerRaisedPowerFlag, kEventKeypadManagerRaisedPowerFlag);
+	Clock::addEventListener(VUEngine::getClock(VUEngine::getInstance()), ListenerObject::safeCast(this), (EventListener)LowPowerManager::onSecondChange, kEventSecondChanged);
 }
 
 void LowPowerManager::setPosition(uint8 x, uint8 y)
@@ -58,11 +74,8 @@ void LowPowerManager::setPosition(uint8 x, uint8 y)
 
 void LowPowerManager::onSecondChange(ListenerObject eventFirer __attribute__ ((unused)))
 {
-	// poll the user's input
-	UserInput userInput = KeypadManager::getUserInput(KeypadManager::getInstance());
-
 	// check low power flag
-	if(userInput.powerFlag & this->isActive)
+	if(this->isActive)
 	{
 		if(this->lowPowerDuration >= __LOW_POWER_INDICATOR_FLASH_DELAY - 1)
 		{

@@ -28,32 +28,23 @@ void LowPowerEntity::constructor(const LowPowerEntitySpec* LowPowerEntitySpec, i
 	Base::constructor((AnimatedEntitySpec*)LowPowerEntitySpec, internalId, name);
 
 	// add event listeners
-	Clock::addEventListener(VUEngine::getClock(VUEngine::getInstance()), ListenerObject::safeCast(this), (EventListener)LowPowerEntity::onSecondChange, kEventSecondChanged);
+	KeypadManager::addEventListener(KeypadManager::getInstance(), ListenerObject::safeCast(this), (EventListener)LowPowerEntity::onKeypadManagerRaisedPowerFlag, kEventKeypadManagerRaisedPowerFlag);
 }
 
 // class's destructor
 void LowPowerEntity::destructor()
 {
 	// remove event listeners
-	Clock::removeEventListener(VUEngine::getClock(VUEngine::getInstance()), ListenerObject::safeCast(this), (EventListener)LowPowerEntity::onSecondChange, kEventSecondChanged);
+	KeypadManager::removeEventListener(KeypadManager::getInstance(), ListenerObject::safeCast(this), (EventListener)LowPowerEntity::onKeypadManagerRaisedPowerFlag, kEventKeypadManagerRaisedPowerFlag);
 
 	// destroy the super object
 	// must always be called at the end of the destructor
 	Base::destructor();
 }
 
-void LowPowerEntity::onSecondChange(ListenerObject eventFirer __attribute__ ((unused)))
+void LowPowerEntity::onKeypadManagerRaisedPowerFlag(ListenerObject eventFirer __attribute__ ((unused)))
 {
-	// poll the user's input
-	UserInput userInput = KeypadManager::getUserInput(KeypadManager::getInstance());
-
-	// check low power flag
-	if(userInput.powerFlag)
-	{
-		AnimatedEntity::playAnimation(this, "Flash");
-
-		// There is no real need to do anything else once the power flag has been raise since
-		// the batteries can not be recharged during usage
-		Clock::removeEventListener(VUEngine::getClock(VUEngine::getInstance()), ListenerObject::safeCast(this), (EventListener)LowPowerEntity::onSecondChange, kEventSecondChanged);
-	}
+	AnimatedEntity::playAnimation(this, "Flash");
+	KeypadManager::removeEventListener(KeypadManager::getInstance(), ListenerObject::safeCast(this), (EventListener)LowPowerEntity::onKeypadManagerRaisedPowerFlag, kEventKeypadManagerRaisedPowerFlag);
 }
+
