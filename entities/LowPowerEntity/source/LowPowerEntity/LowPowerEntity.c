@@ -56,16 +56,15 @@ void LowPowerEntity::onSecondChange(ListenerObject eventFirer __attribute__ ((un
 		if(this->lowPowerDuration >= __LOW_POWER_ENTITY_FLASH_DELAY - 1)
 		{
 			AnimatedEntity::playAnimation(this, "Flash");
+
+			// There is no real need to keep listening for this once the power flag has been raise since
+			// the batteries can not be recharged during usage
+			Clock::removeEventListener(VUEngine::getClock(VUEngine::getInstance()), ListenerObject::safeCast(this), (EventListener)LowPowerEntity::onSecondChange, kEventSecondChanged);
 		}
 		else
 		{
 			this->lowPowerDuration++;
 			AnimatedEntity::playAnimation(this, "Hide");
 		}
-	}
-	else
-	{
-		this->lowPowerDuration = 0;
-		AnimatedEntity::playAnimation(this, "Hide");
 	}
 }
