@@ -80,8 +80,7 @@ uint32 SaveDataManager::computeChecksum()
 		SRAMManager::read(SRAMManager::getInstance(), (BYTE*)&currentByte, i, sizeof(currentByte));
 
 		// loop over all bits of the current byte and add to checksum
-		uint8 bit = 0;
-		for(; bit < sizeof(currentByte); bit++)
+		for(uint8 bit = 0; bit < sizeof(currentByte) * 8; bit++)
 		{
 			if((crc32 & 1) != GET_BIT(currentByte, bit))
 			{
