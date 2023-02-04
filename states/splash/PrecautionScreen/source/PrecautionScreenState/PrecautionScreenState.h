@@ -22,7 +22,7 @@
 //											CLASS'S DECLARATION
 //---------------------------------------------------------------------------------------------------------
 
-dynamic_singleton class PrecautionScreenState: SplashScreenState
+dynamic_singleton class PrecautionScreenState : SplashScreenState
 {
 	static PrecautionScreenState getInstance();
 	override void print();
