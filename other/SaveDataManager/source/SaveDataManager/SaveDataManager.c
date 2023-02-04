@@ -116,7 +116,7 @@ void SaveDataManager::initialize()
 	// first check if save data is from this game
 	// (we have to do this before even checking for SRAM's existence because save stamp serves two
 	// purposes: marking a save as being from a certain game as well as checking for SRAM existence.
-	// checkSRAM() overwrites previous the save stamp, though.)
+	// checkSRAM() overwrites the previous save stamp, though.)
 	bool saveIsFromThisGame = SaveDataManager::verifySaveStamp(this);
 
 	// verify sram validity
