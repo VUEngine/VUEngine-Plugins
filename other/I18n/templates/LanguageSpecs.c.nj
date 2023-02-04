@@ -32,7 +32,7 @@ const char* const {{ language.name | sanitizeSpecName }}LanguageStrings[] =
 {
     {%- for translationId in translationIds %}
     /* kString{{ translationId | sanitizeSpecName }}: */
-    "{{ allTranslations[translationId][language.code] | replace('\n', '\\n') | replace('\"', '\\"') | safe }}"
+    "{{ allTranslations[translationId][language.code] | replace('\n', '\\n') | replace('\"', '\\"') | safe }}",
     {%- endfor %}
 };
 
