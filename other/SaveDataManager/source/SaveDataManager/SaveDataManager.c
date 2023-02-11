@@ -23,6 +23,24 @@
 
 
 //---------------------------------------------------------------------------------------------------------
+//												DEFINITIONS
+//---------------------------------------------------------------------------------------------------------
+
+// The save data default values 
+const SaveData SaveDataDefaults =
+{
+	// save stamp
+	__SAVE_DATA_MANAGER_SAVE_STAMP,
+	// checksum
+	0,
+	// active language id
+	0,
+	// auto pause status (0: on, 1: off)
+	0
+};
+
+
+//---------------------------------------------------------------------------------------------------------
 //												CLASS'S METHODS
 //---------------------------------------------------------------------------------------------------------
 
@@ -34,7 +52,7 @@ void SaveDataManager::constructor()
 	// init class variables
 	this->sramAvailable = false;
 
-	// register with game
+	// register with engine
 	VUEngine::registerSaveDataManager(VUEngine::getInstance(), ListenerObject::safeCast(this));
 
 	// initialize
@@ -80,7 +98,7 @@ uint32 SaveDataManager::computeChecksum()
 		SRAMManager::read(SRAMManager::getInstance(), (BYTE*)&currentByte, i, sizeof(currentByte));
 
 		// loop over all bits of the current byte and add to checksum
-		for(uint8 bit = 0; bit < sizeof(currentByte) * 8; bit++)
+		for(uint8 bit = 0; bit < 8; bit++)
 		{
 			if((crc32 & 1) != GET_BIT(currentByte, bit))
 			{
@@ -96,12 +114,18 @@ uint32 SaveDataManager::computeChecksum()
 	return ~crc32;
 }
 
+/**
+ * Write given checksum to SRAM.
+ */
 void SaveDataManager::writeChecksum()
 {
 	uint32 checksum = SaveDataManager::computeChecksum(this);
 	SRAMManager::save(SRAMManager::getInstance(), (BYTE*)&checksum, offsetof(struct SaveData, checksum), sizeof(checksum));
 }
 
+/**
+ * Recompute checksum and compare to that stored in SRAM.
+ */
 bool SaveDataManager::verifyChecksum()
 {
 	uint32 computedChecksum = SaveDataManager::computeChecksum(this);
@@ -119,7 +143,7 @@ void SaveDataManager::initialize()
 	// checkSRAM() overwrites the previous save stamp, though.)
 	bool saveIsFromThisGame = SaveDataManager::verifySaveStamp(this);
 
-	// verify sram validity
+	// if existing save is from current game or sram is available
 	if(saveIsFromThisGame || SaveDataManager::checkSRAM(this))
 	{
 		// set sram available flag
@@ -128,13 +152,45 @@ void SaveDataManager::initialize()
 		// verify saved progress presence and integrity
 		if(!saveIsFromThisGame || !SaveDataManager::verifyChecksum(this))
 		{
-			// if no previous save could be verified, completely erase sram to start clean
-			SRAMManager::clear(SRAMManager::getInstance(), offsetof(struct SaveData, checksum), SaveDataManager::getSaveDataSize(this));
+			// if no previous save could be verified, write default save values
+			SaveDataManager::writeDefaults(this);
 
 			// write checksum
 			SaveDataManager::writeChecksum(this);
 		}
 	}
+}
+
+void SaveDataManager::writeDefaults()
+{
+	SRAMManager::save(SRAMManager::getInstance(), (BYTE*)&SaveDataDefaults, 0, sizeof(SaveDataDefaults));
+}
+
+void SaveDataManager::getValue(BYTE* destination, int32 memberOffset, int32 dataSize)
+{
+	if(this->sramAvailable)
+	{
+		SRAMManager::read(SRAMManager::getInstance(), destination, memberOffset, dataSize);
+	}
+}
+
+void SaveDataManager::setValue(const BYTE* const source, int32 memberOffset, int32 dataSize)
+{
+	if(this->sramAvailable)
+	{
+		SRAMManager::save(SRAMManager::getInstance(), source, memberOffset, dataSize);
+		SaveDataManager::writeChecksum(this);
+	}
+}
+
+/**
+ * Return overall size of save data
+ *
+ * Any game extending SaveData MUST override this method to return the correct value!
+ */
+int32 SaveDataManager::getSaveDataSize()
+{
+	return (int32)sizeof(SaveData);
 }
 
 void SaveDataManager::restoreSettings()
@@ -156,55 +212,30 @@ void SaveDataManager::restoreSettings()
 uint8 SaveDataManager::getLanguage()
 {
 	uint8 languageId = 0;
-	if(this->sramAvailable)
-	{
-		SRAMManager::read(SRAMManager::getInstance(), (BYTE*)&languageId, offsetof(struct SaveData, languageId), sizeof(languageId));
-	}
+	SaveDataManager::getValue(this, (BYTE*)&languageId, offsetof(struct SaveData, languageId), sizeof(languageId));
 
 	return languageId;
 }
 
 void SaveDataManager::setLanguage(uint8 languageId)
 {
-	if(this->sramAvailable)
-	{
-		// write language
-		SRAMManager::save(SRAMManager::getInstance(), (BYTE*)&languageId, offsetof(struct SaveData, languageId), sizeof(languageId));
-
-		// write checksum
-		SaveDataManager::writeChecksum(this);
-	}
+	SaveDataManager::setValue(this, (BYTE*)&languageId, offsetof(struct SaveData, languageId), sizeof(languageId));
 }
 
 bool SaveDataManager::getAutomaticPauseStatus()
 {
 
 	uint8 autoPauseStatus = 0;
-	if(this->sramAvailable)
-	{
-		SRAMManager::read(SRAMManager::getInstance(), (BYTE*)&autoPauseStatus, offsetof(struct SaveData, autoPauseStatus), sizeof(autoPauseStatus));
-	}
+	SaveDataManager::getValue(this, (BYTE*)&autoPauseStatus, offsetof(struct SaveData, autoPauseStatus), sizeof(autoPauseStatus));
 
-	return !autoPauseStatus;
+	return autoPauseStatus;
 }
 
 void SaveDataManager::setAutomaticPauseStatus(uint8 autoPauseStatus)
 {
-	if(this->sramAvailable)
-	{
-		// we save the inverted status, so that 0 = enabled, 1 = disabled.
-		// that way, a blank value means enabled, which is the standard setting.
-		autoPauseStatus = !autoPauseStatus;
+	// we save the inverted status, so that 0 = enabled, 1 = disabled.
+	// that way, a blank value means enabled, which is the standard setting.
+	autoPauseStatus = !autoPauseStatus;
 
-		// write auto pause status
-		SRAMManager::save(SRAMManager::getInstance(), (BYTE*)&autoPauseStatus, offsetof(struct SaveData, autoPauseStatus), sizeof(autoPauseStatus));
-
-		// write checksum
-		SaveDataManager::writeChecksum(this);
-	}
-}
-
-int32 SaveDataManager::getSaveDataSize()
-{
-	return (int32)sizeof(SaveData);
+	SaveDataManager::setValue(this, (BYTE*)&autoPauseStatus, offsetof(struct SaveData, autoPauseStatus), sizeof(autoPauseStatus));
 }
