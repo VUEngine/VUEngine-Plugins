@@ -91,25 +91,27 @@ uint32 SaveDataManager::computeChecksum()
 
 	// iterate over whole save data, starting right after the previously saved checksum
 	int32 i = (offsetof(struct SaveData, checksum) + sizeof(crc32));
-	for(; i < SaveDataManager::getSaveDataSize(this); i++)
+	int16 saveDataSize = SaveDataManager::getSaveDataSize(this) / sizeof(uint32);
+
+	if(64 < saveDataSize)
+	{
+		saveDataSize = 64;
+	}
+
+	SRAMManager sramManager = SRAMManager::getInstance();
+
+	HardwareManager::suspendInterrupts();
+
+	for(; i < saveDataSize; i++)
 	{
 		// get the current byte
-		uint8 currentByte;
-		SRAMManager::read(SRAMManager::getInstance(), (BYTE*)&currentByte, i, sizeof(currentByte));
+		uint32 currentValue = 0;
+		SRAMManager::read(sramManager, (BYTE*)&currentValue, i, sizeof(currentValue));
 
-		// loop over all bits of the current byte and add to checksum
-		for(uint8 bit = 0; bit < 8; bit++)
-		{
-			if((crc32 & 1) != GET_BIT(currentByte, bit))
-			{
-				crc32 = (crc32 >> 1) ^ 0xEDB88320;
-			}
-			else
-			{
-				crc32 = (crc32 >> 1);
-			}
-		}
+		crc32 += currentValue ^ 0xEDB88320;
 	}
+
+	HardwareManager::resumeInterrupts();
 
 	return ~crc32;
 }

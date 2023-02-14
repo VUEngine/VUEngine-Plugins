@@ -63,6 +63,8 @@ singleton class SaveDataManager : ListenerObject
 	void setValue(const BYTE* const source, int32 memberOffset, int32 dataSize);
 	bool verifyChecksum();
 	void writeChecksum();
+	uint32 computeChecksum();
+
 	virtual void writeDefaults();
 	virtual int32 getSaveDataSize();
 
