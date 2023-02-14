@@ -15,12 +15,21 @@
 //											CONFIGURATION MACROS
 //---------------------------------------------------------------------------------------------------------
 
+
+#ifndef	__SAVE_DATA_MANAGER_CRC_MASK
+#define __SAVE_DATA_MANAGER_CRC_MASK				0xEDB88320
+#endif
+
 #ifndef	__SAVE_DATA_MANAGER_SAVE_STAMP
-#define __SAVE_DATA_MANAGER_SAVE_STAMP			"VUEngine"
+#define __SAVE_DATA_MANAGER_SAVE_STAMP				"VUEngine"
+#endif
+
+#ifndef __SAVE_DATA_MANAGER_CRC_CHECK_RANGE
+#define __SAVE_DATA_MANAGER_CRC_CHECK_RANGE			256
 #endif
 
 #ifndef __SAVE_DATA_MANAGER_SAVE_STAMP_LENGTH
-#define __SAVE_DATA_MANAGER_SAVE_STAMP_LENGTH	8
+#define __SAVE_DATA_MANAGER_SAVE_STAMP_LENGTH		8
 #endif
 
 
