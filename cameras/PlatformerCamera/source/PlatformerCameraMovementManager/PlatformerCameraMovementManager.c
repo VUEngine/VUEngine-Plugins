@@ -66,11 +66,11 @@ void PlatformerCameraMovementManager::focus(uint32 checkIfFocusEntityIsMoving __
 bool PlatformerCameraMovementManager::doFocusWithNoEasing(uint32 checkIfFocusEntityIsMoving __attribute__ ((unused)), uint32 introFocusing __attribute__ ((unused)))
 {
 	Vector3D focusEntityPosition = Camera::getFocusEntityPosition(this->camera);
-	Direction direction = Entity::getDirection(Entity::safeCast(Camera::getFocusEntity(this->camera)));
+	NormalizedDirection normalizedDirection = Entity::getNormalizedDirection(Entity::safeCast(Camera::getFocusEntity(this->camera)));
 
 	Vector3D cameraPosition =
 	{
-		focusEntityPosition.x + direction.x * Camera::getFocusEntityPositionDisplacement(this->camera).x - __PIXELS_TO_METERS(__SCREEN_WIDTH / 2),
+		focusEntityPosition.x + normalizedDirection.x * Camera::getFocusEntityPositionDisplacement(this->camera).x - __PIXELS_TO_METERS(__SCREEN_WIDTH / 2),
 		focusEntityPosition.y + Camera::getFocusEntityPositionDisplacement(this->camera).y - __PIXELS_TO_METERS(__SCREEN_HEIGHT / 2),
 		0
 	};
@@ -97,7 +97,7 @@ bool PlatformerCameraMovementManager::doFocus(uint32 checkIfFocusEntityIsMoving 
 
 	Actor focusActor = Actor::safeCast(Camera::getFocusEntity(this->camera));
 
-	Direction direction = Entity::getDirection(focusActor);
+	NormalizedDirection normalizedDirection = Entity::getNormalizedDirection(focusActor);
 
 	Vector3D cameraNewPosition = Camera::getPosition(this->camera);
 
@@ -118,7 +118,7 @@ bool PlatformerCameraMovementManager::doFocus(uint32 checkIfFocusEntityIsMoving 
 		{
 			// calculate the target position
 			fixed_t horizontalPosition = cameraNewPosition.x;
-			fixed_t horizontalTarget = focusEntityPosition.x + direction.x * focusEntityPositionDisplacement.x - __PIXELS_TO_METERS(__SCREEN_WIDTH / 2);
+			fixed_t horizontalTarget = focusEntityPosition.x + normalizedDirection.x * focusEntityPositionDisplacement.x - __PIXELS_TO_METERS(__SCREEN_WIDTH / 2);
 
 			fixed_t easingDisplacement = __PIXELS_TO_METERS(7);
 

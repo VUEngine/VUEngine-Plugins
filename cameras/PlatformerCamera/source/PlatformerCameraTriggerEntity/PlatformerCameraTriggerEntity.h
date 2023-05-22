@@ -29,7 +29,7 @@ class PlatformerCameraTriggerEntity : Entity
 {
 	/* update axis flag */
 	Vector3DFlag overridePositionFlag;
-	Direction direction;
+	NormalizedDirection normalizedDirection;
 	Vector3D previousGlobalPosition;
 
 	void constructor(PlatformerCameraTriggerEntitySpec* cameraEntitySpec, int16 internalId, const char* const name);

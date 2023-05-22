@@ -143,7 +143,7 @@ const Vector3D* Vehicle::getVelocity()
 
 const Vector3D* Vehicle::getDirection3D()
 {
-	return Body::getDirection3D(this->body);
+	return Body::getDirection(this->body);
 }
 
 fixed_t Vehicle::getFrictionMassRatio()
