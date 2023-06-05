@@ -114,3 +114,17 @@ char* I18n::getActiveLanguageName()
 	// TODO: check if _languages is empty, return "none" if so
 	return (char*)_languages[this->activeLanguage]->name;
 }
+
+/**
+ * Retrieves the number of registered languages
+ *
+ * @return		ID of currently active language
+ */
+uint8 I18n::getActiveLanguagesCount()
+{
+	uint8 count = 0;
+
+	for(; NULL != _languages[count]; count++);
+
+	return count;
+}

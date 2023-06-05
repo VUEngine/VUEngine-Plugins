@@ -85,6 +85,7 @@ singleton class I18n : ListenerObject
 	static I18n getInstance();
 	uint8 getActiveLanguage();
 	char* getActiveLanguageName();
+	uint8 getActiveLanguagesCount();
 	LangSpec * getLanguages();
 	const char* getText(int32 string);
 	void setActiveLanguage(uint8 languageId);
