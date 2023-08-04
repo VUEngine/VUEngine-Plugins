@@ -43,11 +43,7 @@ void PlatformerCameraMovementManager::constructor()
 	this->focusFunction = &PlatformerCameraMovementManager::doFocus;
 	this->previousFocusFunction = this->focusFunction;
 
-	this->camera = Camera::getInstance();
-
 	PlatformerCameraMovementManager::configure(this, NULL, kLayerNone, kLayerNone, (PixelSize){8 * 8, 8 * 8, 8 * 8}, Vector3D::zero(), Vector3D::zero());
-
-	NM_ASSERT(this->camera, "PlatformerCameraMovementManager::constructor: null this->camera");
 }
 
 // class's destructor
@@ -57,59 +53,64 @@ void PlatformerCameraMovementManager::destructor()
 	Base::destructor();
 }
 
-// center world's this->camera in function of focus actor's position
-void PlatformerCameraMovementManager::focus(uint32 checkIfFocusEntityIsMoving __attribute__ ((unused)))
+// center world's camera in function of focus actor's position
+void PlatformerCameraMovementManager::focus(Camera camera, uint32 checkIfFocusEntityIsMoving __attribute__ ((unused)))
 {
-	this->focusFunction(this, checkIfFocusEntityIsMoving, false);
+	if(isDeleted(camera))
+	{
+		return;
+	}
+
+	this->focusFunction(this, camera, checkIfFocusEntityIsMoving, false);
 }
 
-bool PlatformerCameraMovementManager::doFocusWithNoEasing(uint32 checkIfFocusEntityIsMoving __attribute__ ((unused)), uint32 introFocusing __attribute__ ((unused)))
+bool PlatformerCameraMovementManager::doFocusWithNoEasing(Camera camera, uint32 checkIfFocusEntityIsMoving __attribute__ ((unused)), uint32 introFocusing __attribute__ ((unused)))
 {
-	Vector3D focusEntityPosition = Camera::getFocusEntityPosition(this->camera);
-	NormalizedDirection normalizedDirection = Entity::getNormalizedDirection(Entity::safeCast(Camera::getFocusEntity(this->camera)));
+	Vector3D focusEntityPosition = Camera::getFocusEntityPosition(camera);
+	NormalizedDirection normalizedDirection = Entity::getNormalizedDirection(Entity::safeCast(Camera::getFocusEntity(camera)));
 
 	Vector3D cameraPosition =
 	{
-		focusEntityPosition.x + normalizedDirection.x * Camera::getFocusEntityPositionDisplacement(this->camera).x - __PIXELS_TO_METERS(__SCREEN_WIDTH / 2),
-		focusEntityPosition.y + Camera::getFocusEntityPositionDisplacement(this->camera).y - __PIXELS_TO_METERS(__SCREEN_HEIGHT / 2),
+		focusEntityPosition.x + normalizedDirection.x * Camera::getFocusEntityPositionDisplacement(camera).x - __PIXELS_TO_METERS(__SCREEN_WIDTH / 2),
+		focusEntityPosition.y + Camera::getFocusEntityPositionDisplacement(camera).y - __PIXELS_TO_METERS(__SCREEN_HEIGHT / 2),
 		0
 	};
 
-	Camera::setPosition(this->camera, cameraPosition, true);
+	Camera::setPosition(camera, cameraPosition, true);
 
 	return true;
 }
 
-// center world's this->camera in function of focus actor's position
-bool PlatformerCameraMovementManager::dontFocus(uint32 checkIfFocusEntityIsMoving __attribute__ ((unused)), uint32 introFocusing __attribute__ ((unused)))
+// center world's camera in function of focus actor's position
+bool PlatformerCameraMovementManager::dontFocus(Camera camera, uint32 checkIfFocusEntityIsMoving __attribute__ ((unused)), uint32 introFocusing __attribute__ ((unused)))
 {
 	return false;
 }
 
-// center world's this->camera in function of focus actor's position
-bool PlatformerCameraMovementManager::doFocus(uint32 checkIfFocusEntityIsMoving __attribute__ ((unused)), uint32 introFocusing __attribute__ ((unused)))
+// center world's camera in function of focus actor's position
+bool PlatformerCameraMovementManager::doFocus(Camera camera, uint32 checkIfFocusEntityIsMoving __attribute__ ((unused)), uint32 introFocusing __attribute__ ((unused)))
 {
 	// if focusEntity is defined
-	if(!Camera::getFocusEntity(this->camera))
+	if(!Camera::getFocusEntity(camera))
 	{
 		return false;
 	}
 
-	Actor focusActor = Actor::safeCast(Camera::getFocusEntity(this->camera));
+	Actor focusActor = Actor::safeCast(Camera::getFocusEntity(camera));
 
 	NormalizedDirection normalizedDirection = Entity::getNormalizedDirection(focusActor);
 
-	Vector3D cameraNewPosition = Camera::getPosition(this->camera);
+	Vector3D cameraNewPosition = Camera::getPosition(camera);
 
 	Vector3DFlag reachedTargetFlag = {true, true, true};
 
-	Vector3D focusEntityPosition = Camera::getFocusEntityPosition(this->camera);
-	Vector3D focusEntityPositionDisplacement = Camera::getFocusEntityPositionDisplacement(this->camera);
+	Vector3D focusEntityPosition = Camera::getFocusEntityPosition(camera);
+	Vector3D focusEntityPositionDisplacement = Camera::getFocusEntityPositionDisplacement(camera);
 
 	Vector3D position3D = Vector3D::getRelativeToCamera(focusEntityPosition);
 	PixelVector position2D = PixelVector::project(position3D, 0);
 
-	Size stageSize = Camera::getStageSize(this->camera);
+	Size stageSize = Camera::getStageSize(camera);
 
 	{
 		bool focusEntityOutOfBounds = (unsigned)(position2D.x - _cameraFrustum->x0 - SCREEN_WIDTH_REDUCTION) > (unsigned)(_cameraFrustum->x1 - _cameraFrustum->x0 - SCREEN_WIDTH_REDUCTION);
@@ -214,7 +215,7 @@ bool PlatformerCameraMovementManager::doFocus(uint32 checkIfFocusEntityIsMoving 
 		}
 	}
 
-	Camera::setPosition(this->camera, cameraNewPosition, true);
+	Camera::setPosition(camera, cameraNewPosition, true);
 
 	if(reachedTargetFlag.x && reachedTargetFlag.y)
 	{
@@ -224,8 +225,8 @@ bool PlatformerCameraMovementManager::doFocus(uint32 checkIfFocusEntityIsMoving 
 	return false;
 }
 
-// center world's this->camera in function of focus actor's position
-bool PlatformerCameraMovementManager::doFocusAndAlertWhenTargetReached(uint32 checkIfFocusEntityIsMoving __attribute__ ((unused)), uint32 introFocusing __attribute__ ((unused)))
+// center world's camera in function of focus actor's position
+bool PlatformerCameraMovementManager::doFocusAndAlertWhenTargetReached(Camera camera, uint32 checkIfFocusEntityIsMoving __attribute__ ((unused)), uint32 introFocusing __attribute__ ((unused)))
 {
 	if(PlatformerCameraMovementManager::doFocus(this, checkIfFocusEntityIsMoving, true))
 	{

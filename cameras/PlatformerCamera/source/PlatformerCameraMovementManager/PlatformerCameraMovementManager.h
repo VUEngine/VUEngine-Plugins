@@ -65,7 +65,7 @@ singleton class PlatformerCameraMovementManager : CameraMovementManager
 	void dontAlertWhenTargetFocused();
 	void lockMovement(uint8 axisToLockUp, bool locked);
 	void configure(Entity focusEntity, uint32 focusEntityLayer, uint32 cameraTriggerLayer, PixelSize boundingBoxSize, Vector3D boundingBoxDisplacement, Vector3D screenDisplacement);
-	override void focus(uint32 checkIfFocusEntityIsMoving);
+	override void focus(Camera camera, uint32 checkIfFocusEntityIsMoving);
 }
 
 
