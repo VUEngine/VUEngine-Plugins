@@ -87,7 +87,7 @@
                 "scope": "#"
             },
 			"multiple": false,
-			"category": "Configuration",
+			"category": "Assets",
 			"icon": "fa fa-language",
 			"templates": [
 				"LanguageSpecs.c",

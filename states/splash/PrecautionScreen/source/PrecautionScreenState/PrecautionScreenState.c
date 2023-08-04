@@ -60,6 +60,7 @@ void PrecautionScreenState::enter(void* owner)
 
 	// show this screen for at least 2 seconds
 	// as defined by Nintendo in the official development manual (Appendix 1)
+	VUEngine::disableKeypad(VUEngine::getInstance());
 	MessageDispatcher::dispatchMessage(2000, ListenerObject::safeCast(this), ListenerObject::safeCast(VUEngine::getInstance()), kMessageAllowUserInput, NULL);
 }
 
