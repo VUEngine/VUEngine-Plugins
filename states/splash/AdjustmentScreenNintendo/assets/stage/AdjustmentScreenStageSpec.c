@@ -42,7 +42,7 @@ PositionedEntityROMSpec AdjustmentScreenStageEntities[] =
 
 	{&AdjustmentScreenIconLEntity, 	{  8,   8,  0, 0}, 0, NULL, NULL, NULL, false},
 	{&AdjustmentScreenIconREntity, 	{  8, 216,  0, 0}, 0, NULL, NULL, NULL, false},
-	{&AdjustmentScreenBgEntity, 		{192, 112,  1, 0}, 0, NULL, NULL, NULL, false},
+	{&AdjustmentScreenBgEntity, 	{192, 112,  1, 0}, 0, NULL, NULL, NULL, false},
 	{&AdjustmentScreenLogoEntity, 	{192, 100,  0, 0}, 0, NULL, NULL, NULL, false},
 	{&AdjustmentScreenIconLEntity, 	{376, 216,  0, 0}, 0, NULL, NULL, NULL, false},
 	{&AdjustmentScreenIconREntity, 	{376,   8,  0, 0}, 0, NULL, NULL, NULL, false},

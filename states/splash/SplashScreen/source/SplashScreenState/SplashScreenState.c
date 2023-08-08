@@ -14,6 +14,7 @@
 
 #include <VUEngine.h>
 #include <Camera.h>
+#include <CameraEffectManager.h>
 #include <SplashScreenState.h>
 
 
