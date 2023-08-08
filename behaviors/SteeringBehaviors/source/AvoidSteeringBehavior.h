@@ -16,12 +16,14 @@
 //---------------------------------------------------------------------------------------------------------
 
 #include <SteeringBehavior.h>
-#include <SpatialObject.h>
 
 
 //---------------------------------------------------------------------------------------------------------
 //											 DEFINITIONS
 //---------------------------------------------------------------------------------------------------------
+
+class SpatialObject;
+class VirtualList;
 
 // defines an entity in ROM memory
 typedef struct AvoidSteeringBehaviorSpec

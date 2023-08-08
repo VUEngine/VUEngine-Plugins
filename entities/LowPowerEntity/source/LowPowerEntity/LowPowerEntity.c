@@ -12,9 +12,10 @@
 //												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
-#include <VUEngine.h>
+#include <LowPowerEntity.h>
 #include <Events.h>
-#include "LowPowerEntity.h"
+#include <KeypadManager.h>
+#include <VUEngine.h>
 
 
 //---------------------------------------------------------------------------------------------------------

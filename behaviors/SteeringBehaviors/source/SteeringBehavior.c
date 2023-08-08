@@ -13,17 +13,19 @@
 //---------------------------------------------------------------------------------------------------------
 
 #include <SteeringBehavior.h>
-#include <Vehicle.h>
-#include <VUEngine.h>
 #include <Utilities.h>
+#include <Vehicle.h>
+#include <VirtualNode.h>
+#include <VirtualList.h>
+#include <VUEngine.h>
 
 
 //---------------------------------------------------------------------------------------------------------
 //												CLASS'S DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-friend class VirtualNode;
 friend class VirtualList;
+friend class VirtualNode;
 
 
 //---------------------------------------------------------------------------------------------------------

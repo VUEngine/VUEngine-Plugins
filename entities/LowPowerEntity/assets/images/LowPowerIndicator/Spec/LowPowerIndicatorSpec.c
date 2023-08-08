@@ -12,12 +12,14 @@
 //												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
+
 #ifdef __LOW_POWER_ENTITY_USE_GUI_BGMAP_ANIMATED_SPRITE
 #include <GuiBgmapAnimatedSprite.h>
 #else
 #include <BgmapAnimatedSprite.h>
 #endif
 #include <LowPowerEntity.h>
+#include <VIPManager.h>
 
 
 //---------------------------------------------------------------------------------------------------------

@@ -12,15 +12,16 @@
 //												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
-#include <string.h>
-#include <VUEngine.h>
+#include <AutomaticPauseScreenState.h>
 #include <Camera.h>
-#include <Printing.h>
-#include <MessageDispatcher.h>
-#include <PhysicalWorld.h>
+#include <CameraEffectManager.h>
 #include <I18n.h>
 #include <Languages.h>
-#include <AutomaticPauseScreenState.h>
+#include <MessageDispatcher.h>
+#include <Printing.h>
+#include <PhysicalWorld.h>
+#include <VUEngine.h>
+#include <string.h>
 
 
 //---------------------------------------------------------------------------------------------------------

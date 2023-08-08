@@ -12,9 +12,11 @@
 //												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
-#include <VUEngine.h>
+#include <Vehicle.h>
 #include <SteeringBehavior.h>
-#include "Vehicle.h"
+#include <VirtualList.h>
+#include <VirtualNode.h>
+#include <VUEngine.h>
 
 
 //---------------------------------------------------------------------------------------------------------

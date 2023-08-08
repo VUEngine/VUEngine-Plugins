@@ -15,6 +15,7 @@
 #include <AvoidSteeringBehavior.h>
 #include <Vehicle.h>
 #include <VirtualList.h>
+#include <VirtualNode.h>
 #include <VUEngine.h>
 
 
@@ -22,8 +23,8 @@
 //												CLASS'S DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-friend class VirtualNode;
 friend class VirtualList;
+friend class VirtualNode;
 
 
 #undef DRAW_FORCE
