@@ -78,7 +78,7 @@ class SteeringBehavior : Behavior
 
 	void constructor(const SteeringBehaviorSpec* steeringBehaviorSpec);
 
-	static Vector3D calculateForce(Vehicle vehicle);
+	static Vector3D calculateForce(Vehicle vehicle, uint16 summingMethod);
 	int32 getPriority();
 	void setPriority(int32 value);
 	fixed_t getWeight();

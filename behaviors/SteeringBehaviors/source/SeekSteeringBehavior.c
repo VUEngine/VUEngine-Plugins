@@ -32,7 +32,7 @@ void SeekSteeringBehavior::constructor(const SeekSteeringBehaviorSpec* seekSteer
 	this->slowDownWhenReachingTarget = false;
 	this->reachedTarget = false;
 	this->allowEasing = false;
-	this->reachedDistanceThreshold = seekSteeringBehaviorSpec->reachedDistanceThreshold;
+	this->squaredReachedDistanceThreshold = __FIXED_SQUARE(seekSteeringBehaviorSpec->reachedDistanceThreshold);
 	this->easingDistanceThreshold = seekSteeringBehaviorSpec->easingDistanceThreshold;
 }
 
@@ -92,26 +92,32 @@ Vector3D SeekSteeringBehavior::calculate(Vehicle owner)
 		return this->force;
 	}
 
-	this->force = SeekSteeringBehavior::toTarget(this, owner, this->target, this->slowDownWhenReachingTarget, this->reachedDistanceThreshold, this->easingDistanceThreshold, this->allowEasing);
+	this->force = SeekSteeringBehavior::toTarget(this, owner, this->target, this->slowDownWhenReachingTarget, this->squaredReachedDistanceThreshold, this->easingDistanceThreshold, this->allowEasing);
 
 	return this->force;
 }
 
-static Vector3D SeekSteeringBehavior::toTarget(SeekSteeringBehavior seekSteeringBehavior, Vehicle vehicle, Vector3D target, bool proportionalToDistance, fixed_t reachedDistanceThreshold, fixed_t easingDistanceThreshold, bool allowEasing)
+static Vector3D SeekSteeringBehavior::toTarget(SeekSteeringBehavior seekSteeringBehavior, Vehicle vehicle, Vector3D target, bool proportionalToDistance, fixed_ext_t squaredReachedDistanceThreshold, fixed_t easingDistanceThreshold, bool allowEasing)
 {
 	Vector3D trajectory = Vector3D::get(*Vehicle::getReferencePosition(vehicle), target);
-	fixed_t length = Vector3D::length(trajectory);
+	fixed_ext_t squaredLength = Vector3D::squareLength(trajectory);
 
-	if(!length || length < reachedDistanceThreshold)
+	if(0 == squaredLength || squaredLength < squaredReachedDistanceThreshold)
 	{
 		seekSteeringBehavior->reachedTarget = true;
-		SeekSteeringBehavior::fireEvent(seekSteeringBehavior, kTargetReached);
-		NM_ASSERT(!isDeleted(seekSteeringBehavior), "SeekSteeringBehavior::toTarget: deleted seekSteeringBehavior during kTargetReached");
+
+		if(!isDeleted(seekSteeringBehavior->events))
+		{
+			SeekSteeringBehavior::fireEvent(seekSteeringBehavior, kTargetReached);
+		}
+
 		return Vector3D::zero();
 	}
 
+	fixed_t length = Math::squareRootFixed(squaredLength);
+
 	fixed_t magnitude = Vehicle::getMaximumSpeed(vehicle);
-	fixed_t desiredVelocityLength = __FIXED_DIV(magnitude, length)<< 1;
+	fixed_t desiredVelocityLength = __FIXED_DIV(magnitude, length) << 1;
 
 	Vector3D desiredVelocity = Vector3D::scalarProduct(trajectory, desiredVelocityLength);
 
@@ -141,10 +147,10 @@ void SeekSteeringBehavior::setEasingDistanceThreshold(fixed_t value)
 
 fixed_t SeekSteeringBehavior::getReachedDistanceThreshold()
 {
-	return this->reachedDistanceThreshold;
+	return Math::squareRootFixed(this->squaredReachedDistanceThreshold);
 }
 
 void SeekSteeringBehavior::setReachedDistanceThreshold(fixed_t value)
 {
-	this->reachedDistanceThreshold = value;
+	this->squaredReachedDistanceThreshold = __FIXED_SQUARE(value);
 }

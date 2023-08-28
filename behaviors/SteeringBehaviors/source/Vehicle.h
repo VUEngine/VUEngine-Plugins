@@ -30,7 +30,7 @@ typedef struct VehicleSpec
 	ActorSpec actorSpec;
 
 	// Vector3D accumulation method: kPrioritized, kWeightedAverage
-	int32 summingMethod;
+	uint16 summingMethod;
 
 	/// Run steering behaviors at half speed
 	bool runSteeringBehaviorsAtHalfSpeed;
@@ -50,7 +50,7 @@ class Vehicle : Actor
 	/// @publicsection
 	void constructor(VehicleSpec* vehicleSpec, int16 internalId, const char* const name);
 
-	int32 getSummingMethod();
+	uint16 getSummingMethod();
 	bool updateForce();
 	VirtualList getSteeringBehaviors();
 	const Vector3D* getVelocity();

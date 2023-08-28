@@ -72,7 +72,7 @@ void Vehicle::ready(bool recursive)
 	}
 
 	// get steering behaviors to sort them based on their priority
-	Container::getBehaviors(this, typeofclass(SteeringBehavior), this->steeringBehaviors);
+	Vehicle::getBehaviors(this, typeofclass(SteeringBehavior), this->steeringBehaviors);
 
 	if(NULL == this->steeringBehaviors->head)
 	{
@@ -128,7 +128,7 @@ bool Vehicle::applyForce(const Vector3D* force, bool checkIfCanMove __attribute_
 	return true;
 }
 
-int32 Vehicle::getSummingMethod()
+uint16 Vehicle::getSummingMethod()
 {
 	return ((VehicleSpec*)this->entitySpec)->summingMethod;
 }
@@ -171,9 +171,9 @@ bool Vehicle::updateForce()
 
 	Vector3D totalForce = this->accumulatedForce;
 
-	if(computeForce && this->behaviors)
+	if(computeForce && NULL != this->behaviors)
 	{
-		totalForce = Vector3D::sum(totalForce, SteeringBehavior::calculateForce(this));
+		totalForce = Vector3D::sum(totalForce, SteeringBehavior::calculateForce(this, ((VehicleSpec*)this->entitySpec)->summingMethod));
 	}
 
 	Base::applyForce(this, &totalForce, this->checkIfCanMove);

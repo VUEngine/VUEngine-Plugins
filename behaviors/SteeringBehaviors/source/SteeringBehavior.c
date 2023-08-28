@@ -56,12 +56,12 @@ void SteeringBehavior::destructor()
 	Base::destructor();
 }
 
-static Vector3D SteeringBehavior::calculateForce(Vehicle vehicle)
+static Vector3D SteeringBehavior::calculateForce(Vehicle vehicle, uint16 summingMethod)
 {
 	Vector3D steeringForce = {0, 0, 0};
 
 	// otherwise it's just a velocity and add it
-	switch(Vehicle::getSummingMethod(vehicle))
+	switch(summingMethod)
 	{
 		case kPrioritized:
 
@@ -138,7 +138,7 @@ static Vector3D SteeringBehavior::calculatePrioritized(Vehicle vehicle)
 			{
 				Vector3D force = Vector3D::scalarProduct(SteeringBehavior::calculate(steeringBehavior, vehicle), steeringBehavior->weight);
 
-				if(steeringBehavior->deviation)
+				if(0 != steeringBehavior->deviation)
 				{
 					force = SteeringBehavior::applyDeviation(force, steeringBehavior->deviation);
 				}

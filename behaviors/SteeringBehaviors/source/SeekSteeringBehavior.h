@@ -49,7 +49,7 @@ typedef const SeekSteeringBehaviorSpec SeekSteeringBehaviorROMSpec;
 class SeekSteeringBehavior : SteeringBehavior
 {
 	Vector3D target;
-	fixed_t reachedDistanceThreshold;
+	fixed_ext_t squaredReachedDistanceThreshold;
 	fixed_t easingDistanceThreshold;
 	bool slowDownWhenReachingTarget;
 	bool reachedTarget;
