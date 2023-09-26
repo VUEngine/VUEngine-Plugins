@@ -54,7 +54,7 @@ void PlatformerCameraMovementManager::destructor()
 }
 
 // center world's camera in function of focus actor's position
-void PlatformerCameraMovementManager::focus(Camera camera, uint32 checkIfFocusEntityIsMoving __attribute__ ((unused)))
+void PlatformerCameraMovementManager::focus(Camera camera, bool checkIfFocusEntityIsMoving __attribute__ ((unused)))
 {
 	if(isDeleted(camera))
 	{
@@ -64,15 +64,14 @@ void PlatformerCameraMovementManager::focus(Camera camera, uint32 checkIfFocusEn
 	this->focusFunction(this, camera, checkIfFocusEntityIsMoving, false);
 }
 
-bool PlatformerCameraMovementManager::doFocusWithNoEasing(Camera camera, uint32 checkIfFocusEntityIsMoving __attribute__ ((unused)), uint32 introFocusing __attribute__ ((unused)))
+bool PlatformerCameraMovementManager::doFocusWithNoEasing(Camera camera, bool checkIfFocusEntityIsMoving __attribute__ ((unused)), uint32 introFocusing __attribute__ ((unused)))
 {
-	Vector3D focusEntityPosition = Camera::getFocusEntityPosition(camera);
 	NormalizedDirection normalizedDirection = Entity::getNormalizedDirection(Entity::safeCast(Camera::getFocusEntity(camera)));
 
 	Vector3D cameraPosition =
 	{
-		focusEntityPosition.x + normalizedDirection.x * Camera::getFocusEntityPositionDisplacement(camera).x - __PIXELS_TO_METERS(__SCREEN_WIDTH / 2),
-		focusEntityPosition.y + Camera::getFocusEntityPositionDisplacement(camera).y - __PIXELS_TO_METERS(__SCREEN_HEIGHT / 2),
+		this->focusEntityPosition->x + normalizedDirection.x * Camera::getFocusEntityPositionDisplacement(camera).x - __PIXELS_TO_METERS(__SCREEN_WIDTH / 2),
+		this->focusEntityPosition->y + Camera::getFocusEntityPositionDisplacement(camera).y - __PIXELS_TO_METERS(__SCREEN_HEIGHT / 2),
 		0
 	};
 
@@ -82,13 +81,13 @@ bool PlatformerCameraMovementManager::doFocusWithNoEasing(Camera camera, uint32 
 }
 
 // center world's camera in function of focus actor's position
-bool PlatformerCameraMovementManager::dontFocus(Camera camera, uint32 checkIfFocusEntityIsMoving __attribute__ ((unused)), uint32 introFocusing __attribute__ ((unused)))
+bool PlatformerCameraMovementManager::dontFocus(Camera camera, bool checkIfFocusEntityIsMoving __attribute__ ((unused)), uint32 introFocusing __attribute__ ((unused)))
 {
 	return false;
 }
 
 // center world's camera in function of focus actor's position
-bool PlatformerCameraMovementManager::doFocus(Camera camera, uint32 checkIfFocusEntityIsMoving __attribute__ ((unused)), uint32 introFocusing __attribute__ ((unused)))
+bool PlatformerCameraMovementManager::doFocus(Camera camera, bool checkIfFocusEntityIsMoving __attribute__ ((unused)), uint32 introFocusing __attribute__ ((unused)))
 {
 	// if focusEntity is defined
 	if(!Camera::getFocusEntity(camera))
@@ -104,10 +103,7 @@ bool PlatformerCameraMovementManager::doFocus(Camera camera, uint32 checkIfFocus
 
 	Vector3DFlag reachedTargetFlag = {true, true, true};
 
-	Vector3D focusEntityPosition = Camera::getFocusEntityPosition(camera);
-	Vector3D focusEntityPositionDisplacement = Camera::getFocusEntityPositionDisplacement(camera);
-
-	Vector3D position3D = Vector3D::getRelativeToCamera(focusEntityPosition);
+	Vector3D position3D = Vector3D::getRelativeToCamera(this->focusEntityPosition);
 	PixelVector position2D = PixelVector::project(position3D, 0);
 
 	Size stageSize = Camera::getStageSize(camera);
@@ -119,7 +115,7 @@ bool PlatformerCameraMovementManager::doFocus(Camera camera, uint32 checkIfFocus
 		{
 			// calculate the target position
 			fixed_t horizontalPosition = cameraNewPosition.x;
-			fixed_t horizontalTarget = focusEntityPosition.x + normalizedDirection.x * focusEntityPositionDisplacement.x - __PIXELS_TO_METERS(__SCREEN_WIDTH / 2);
+			fixed_t horizontalTarget = this->focusEntityPosition->x + normalizedDirection.x * this->focusEntityPositionDisplacement.x - __PIXELS_TO_METERS(__SCREEN_WIDTH / 2);
 
 			fixed_t easingDisplacement = __PIXELS_TO_METERS(7);
 
@@ -162,7 +158,7 @@ bool PlatformerCameraMovementManager::doFocus(Camera camera, uint32 checkIfFocus
 		{
 			// calculate the target position
 			fixed_t verticalPosition = cameraNewPosition.y;
-			fixed_t verticalTarget = focusEntityPosition.y + focusEntityPositionDisplacement.y - __PIXELS_TO_METERS(__SCREEN_HEIGHT / 2);
+			fixed_t verticalTarget = this->focusEntityPosition->y + this->focusEntityPositionDisplacement.y - __PIXELS_TO_METERS(__SCREEN_HEIGHT / 2);
 
 			fixed_t downEasingDisplacement = __PIXELS_TO_METERS(3);
 			fixed_t upEasingDisplacement = __PIXELS_TO_METERS(3);
@@ -226,7 +222,7 @@ bool PlatformerCameraMovementManager::doFocus(Camera camera, uint32 checkIfFocus
 }
 
 // center world's camera in function of focus actor's position
-bool PlatformerCameraMovementManager::doFocusAndAlertWhenTargetReached(Camera camera, uint32 checkIfFocusEntityIsMoving __attribute__ ((unused)), uint32 introFocusing __attribute__ ((unused)))
+bool PlatformerCameraMovementManager::doFocusAndAlertWhenTargetReached(Camera camera, bool checkIfFocusEntityIsMoving __attribute__ ((unused)), uint32 introFocusing __attribute__ ((unused)))
 {
 	if(PlatformerCameraMovementManager::doFocus(this, checkIfFocusEntityIsMoving, true))
 	{
@@ -371,7 +367,7 @@ void PlatformerCameraMovementManager::configure(Entity focusEntity, uint32 focus
 	if(!isDeleted(focusEntity))
 	{
 		// Configure the camera
-		Camera::setFocusGameEntity(Camera::getInstance(), focusEntity);
+		Camera::setFocusEntity(Camera::getInstance(), focusEntity);
 		Camera::setFocusEntityPositionDisplacement(Camera::getInstance(), screenDisplacement);
 
 		// Configure the camera trigger

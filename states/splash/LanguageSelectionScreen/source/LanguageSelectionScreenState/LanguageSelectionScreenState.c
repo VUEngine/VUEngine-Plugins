@@ -63,17 +63,17 @@ void LanguageSelectionScreenState::destructor()
 	Base::destructor();
 }
 
-void LanguageSelectionScreenState::processUserInput(UserInput userInput)
+void LanguageSelectionScreenState::processUserInput(const UserInput* userInput)
 {
-	if(userInput.pressedKey & (K_LU | K_RU | K_LL | K_RL))
+	if(userInput->pressedKey & (K_LU | K_RU | K_LL | K_RL))
 	{
 		LanguageSelectionScreenState::select(this, false);
 	}
-	else if(userInput.pressedKey & (K_LD | K_RD | K_LR | K_RR))
+	else if(userInput->pressedKey & (K_LD | K_RD | K_LR | K_RR))
 	{
 		LanguageSelectionScreenState::select(this, true);
 	}
-	else if(userInput.pressedKey & (K_A | K_STA))
+	else if(userInput->pressedKey & (K_A | K_STA))
 	{
 		SoundManager::playSound(SoundManager::getInstance(), &LangConfirmSound, kPlayAll, NULL, kSoundWrapperPlaybackNormal, NULL, NULL);
 

@@ -32,7 +32,7 @@ dynamic_singleton class LanguageSelectionScreenState: SplashScreenState
 
 	static LanguageSelectionScreenState getInstance();
 	override void enter(void* owner);
-	override void processUserInput(UserInput userInput);
+	override void processUserInput(const UserInput* userInput);
 	override void print();
 }
 

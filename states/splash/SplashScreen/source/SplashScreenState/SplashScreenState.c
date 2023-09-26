@@ -118,9 +118,9 @@ bool SplashScreenState::processMessage(void* owner __attribute__ ((unused)), Tel
 	return false;
 }
 
-void SplashScreenState::processUserInput(UserInput userInput)
+void SplashScreenState::processUserInput(const UserInput* userInput)
 {
-	if(userInput.pressedKey & (K_STA | K_SEL | K_A | K_B))
+	if(userInput->pressedKey & (K_STA | K_SEL | K_A | K_B))
 	{
 		SplashScreenState::loadNextState(this);
 	}

@@ -136,16 +136,16 @@ void AutomaticPauseSelectionScreenState::renderSelection()
 	Printing::text(Printing::getInstance(), "\x06               ", optionEnd, __AUTOMATIC_PAUSE_SELECTION_SCREEN_OPTIONS_Y_POS + 1 + strOnSize.y, NULL);
 }
 
-void AutomaticPauseSelectionScreenState::processUserInput(UserInput userInput)
+void AutomaticPauseSelectionScreenState::processUserInput(const UserInput* userInput)
 {
-	if(userInput.pressedKey & (K_LL | K_LR))
+	if(userInput->pressedKey & (K_LL | K_LR))
 	{
 		this->selection = !this->selection;
 		AutomaticPauseSelectionScreenState::renderSelection(this);
 
 		SoundManager::playSound(SoundManager::getInstance(), &AutomaticPauseSelectSound, kPlayAll, NULL, kSoundWrapperPlaybackNormal, NULL, NULL);
 	}
-	else if(userInput.pressedKey & (K_A | K_STA))
+	else if(userInput->pressedKey & (K_A | K_STA))
 	{
 		ListenerObject saveDataManager = VUEngine::getSaveDataManager(VUEngine::getInstance());
 

@@ -26,7 +26,7 @@
 singleton class AutomaticPauseScreenState : GameState
 {
 	static AutomaticPauseScreenState getInstance();
-	override void processUserInput(UserInput userInput);
+	override void processUserInput(const UserInput*  userInput);
 	override void exit(void* owner);
 	override void enter(void* owner);
 }

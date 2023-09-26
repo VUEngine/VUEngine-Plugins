@@ -96,9 +96,9 @@ void AdjustmentScreenState::resume(void* owner)
 	AdjustmentScreenState::init(this);
 }
 
-void AdjustmentScreenState::processUserInput(UserInput userInput __attribute__ ((unused)))
+void AdjustmentScreenState::processUserInput(const UserInput* userInput)
 {
-	if(userInput.pressedKey & (K_STA | K_SEL | K_A | K_B))
+	if(userInput->pressedKey & (K_STA | K_SEL | K_A | K_B))
 	{
 		if(VUEngine::isPaused(VUEngine::getInstance()))
 		{

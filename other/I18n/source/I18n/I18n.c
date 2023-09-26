@@ -80,7 +80,6 @@ void I18n::setActiveLanguage(uint8 languageId)
 	{
 		GameState currentGameState = VUEngine::getCurrentState(VUEngine::getInstance());
 		GameState::fireEvent(currentGameState, kEventLanguageChanged);
-		NM_ASSERT(!isDeleted(currentGameState), "I18n::setActiveLanguage: deleted game state during kEventLanguageChanged");
 	}
 }
 

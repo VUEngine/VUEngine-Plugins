@@ -48,7 +48,7 @@ void PlatformerCameraTriggerEntity::constructor(PlatformerCameraTriggerEntitySpe
 // class's destructor
 void PlatformerCameraTriggerEntity::destructor()
 {
-	Camera::setFocusGameEntity(Camera::getInstance(), NULL);
+	Camera::setFocusEntity(Camera::getInstance(), NULL);
 
 	// destroy the super object
 	// must always be called at the end of the destructor

@@ -28,7 +28,7 @@ dynamic_singleton class AutomaticPauseSelectionScreenState: SplashScreenState
 
 	static AutomaticPauseSelectionScreenState getInstance();
 	override void print();
-	override void processUserInput(UserInput userInput);
+	override void processUserInput(const UserInput* userInput);
 }
 
 

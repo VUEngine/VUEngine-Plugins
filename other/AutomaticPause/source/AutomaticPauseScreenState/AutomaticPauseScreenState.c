@@ -115,9 +115,9 @@ void AutomaticPauseScreenState::exit(void* owner __attribute__ ((unused)))
 	Base::exit(this, owner);
 }
 
-void AutomaticPauseScreenState::processUserInput(UserInput userInput)
+void AutomaticPauseScreenState::processUserInput(const UserInput*  userInput)
 {
-	if(K_STA & userInput.pressedKey)
+	if(K_STA & userInput->pressedKey)
 	{
 		// disable user input
 		VUEngine::disableKeypad(VUEngine::getInstance());
