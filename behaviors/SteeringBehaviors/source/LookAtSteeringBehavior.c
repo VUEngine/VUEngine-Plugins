@@ -99,7 +99,7 @@ Vector3D LookAtSteeringBehavior::calculate(Vehicle owner)
 
 static Vector3D LookAtSteeringBehavior::toTarget(LookAtSteeringBehavior LookAtSteeringBehavior, Vehicle vehicle, Vector3D target, bool proportionalToDistance, fixed_t reachedDistanceThreshold, fixed_t easingDistanceThreshold, bool allowEasing)
 {
-	Vector3D trajectory = Vector3D::get(*Vehicle::getReferencePosition(vehicle), target);
+	Vector3D trajectory = Vector3D::get(*Vehicle::getPosition(vehicle), target);
 	fixed_t length = Vector3D::length(trajectory);
 
 	if(!length || length < reachedDistanceThreshold)

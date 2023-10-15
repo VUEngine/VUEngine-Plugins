@@ -56,9 +56,6 @@ class Vehicle : Actor
 	const Vector3D* getVelocity();
 	fixed_t getFrictionMassRatio();
 
-	virtual const Vector3D* getReferencePosition();
-	virtual const Vector3D* getDirection3D();
-
 	override void ready(bool recursive);
 	override void update();
 	override fixed_t getRadius();

@@ -143,19 +143,9 @@ const Vector3D* Vehicle::getVelocity()
 	return Body::getVelocity(this->body);
 }
 
-const Vector3D* Vehicle::getDirection3D()
-{
-	return Body::getDirection(this->body);
-}
-
 fixed_t Vehicle::getFrictionMassRatio()
 {
 	return 0;//this->frictionMassRatio;
-}
-
-const Vector3D* Vehicle::getReferencePosition()
-{
-	return Vehicle::getPosition(this);
 }
 
 bool Vehicle::updateForce()

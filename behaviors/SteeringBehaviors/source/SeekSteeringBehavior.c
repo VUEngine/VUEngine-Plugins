@@ -99,7 +99,7 @@ Vector3D SeekSteeringBehavior::calculate(Vehicle owner)
 
 static Vector3D SeekSteeringBehavior::toTarget(SeekSteeringBehavior seekSteeringBehavior, Vehicle vehicle, Vector3D target, bool proportionalToDistance, fixed_ext_t squaredReachedDistanceThreshold, fixed_t easingDistanceThreshold, bool allowEasing)
 {
-	Vector3D trajectory = Vector3D::get(*Vehicle::getReferencePosition(vehicle), target);
+	Vector3D trajectory = Vector3D::get(*Vehicle::getPosition(vehicle), target);
 	fixed_ext_t squaredLength = Vector3D::squareLength(trajectory);
 
 	if(0 == squaredLength || squaredLength < squaredReachedDistanceThreshold)
