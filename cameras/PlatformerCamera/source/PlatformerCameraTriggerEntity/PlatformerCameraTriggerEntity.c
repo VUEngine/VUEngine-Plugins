@@ -38,9 +38,9 @@ void PlatformerCameraTriggerEntity::constructor(PlatformerCameraTriggerEntitySpe
 	this->overridePositionFlag.y = false;
 	this->overridePositionFlag.z = false;
 
-	this->direction.x = __RIGHT;
-	this->direction.y = __DOWN;
-	this->direction.z = __FAR;
+	this->normalizedDirection.x = __RIGHT;
+	this->normalizedDirection.y = __DOWN;
+	this->normalizedDirection.z = __FAR;
 
 	this->previousGlobalPosition = (Vector3D) {0, 0, 0};
 }
@@ -92,10 +92,10 @@ void PlatformerCameraTriggerEntity::update()
 
 	if(currentXDirection)
 	{
-		if(currentXDirection != this->direction.x)
+		if(currentXDirection != this->normalizedDirection.x)
 		{
 			PlatformerCameraTriggerEntity::lockMovement(this, __X_AXIS, true);
-			this->direction.x = currentXDirection;
+			this->normalizedDirection.x = currentXDirection;
 		}
 
 		this->previousGlobalPosition = this->transformation.globalPosition;
@@ -159,38 +159,25 @@ bool PlatformerCameraTriggerEntity::enterCollision(const CollisionInformation* c
 {
 	ASSERT(collisionInformation->collidingShape, "PlatformerCameraTriggerEntity::enterCollision: null collidingObjects");
 
-	Shape collidingShape = collisionInformation->collidingShape;
-	SpatialObject collidingObject = Shape::getOwner(collidingShape);
-
 #define CAMERA_BOUNDING_BOX_DISPLACEMENT	{__PIXELS_TO_METERS(0), __PIXELS_TO_METERS(-24/16), __PIXELS_TO_METERS(0)}
 
-	switch(SpatialObject::getInGameType(collidingObject))
+	if(collisionInformation->solutionVector.direction.y)
 	{
-		// TODO: pass in type from outside
-		case kTypeHero:
-			{
-				if(collisionInformation->solutionVector.direction.y)
-				{
-					PlatformerCameraTriggerEntity::lockMovement(this, __Y_AXIS, false);
-				}
-
-				if(collisionInformation->solutionVector.direction.x)
-				{
-					PlatformerCameraTriggerEntity::lockMovement(this, __X_AXIS, false);
-				}
-				else
-				{
-					PlatformerCameraTriggerEntity::lockMovement(this, __Y_AXIS, false);
-				}
-
-				Vector3D position = CAMERA_BOUNDING_BOX_DISPLACEMENT;
-
-				Container::setLocalPosition(this, &position);
-			}
-			return false;
-			break;
-
+		PlatformerCameraTriggerEntity::lockMovement(this, __Y_AXIS, false);
 	}
+
+	if(collisionInformation->solutionVector.direction.x)
+	{
+		PlatformerCameraTriggerEntity::lockMovement(this, __X_AXIS, false);
+	}
+	else
+	{
+		PlatformerCameraTriggerEntity::lockMovement(this, __Y_AXIS, false);
+	}
+
+	Vector3D position = CAMERA_BOUNDING_BOX_DISPLACEMENT;
+
+	Container::setLocalPosition(this, &position);
 
 	return false;
 }

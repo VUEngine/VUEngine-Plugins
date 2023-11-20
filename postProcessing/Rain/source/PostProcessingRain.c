@@ -14,6 +14,8 @@
 
 #include <PostProcessingRain.h>
 #include <Optics.h>
+#include <Clock.h>
+#include <GameState.h>
 #include <Utilities.h>
 #include <DirectDraw.h>
 #include <VUEngine.h>
@@ -242,7 +244,7 @@ static void PostProcessingRain::calculateRainPrecipitation(fix19_13* yStepThrott
 		return;
 	}
 
-	uint32 currentTime = Clock::getTime(GameState::getClock(VUEngine::getCurrentState(VUEngine::getInstance())));
+	uint32 currentTime = Clock::getTime(GameState::getUpdateClock(VUEngine::getCurrentState(VUEngine::getInstance())));
 
 	if((currentTime - previousTime) / 1000 > timePeriod[timePeriodIndex])
 	{

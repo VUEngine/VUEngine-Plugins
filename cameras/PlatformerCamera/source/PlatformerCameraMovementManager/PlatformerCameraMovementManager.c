@@ -81,7 +81,7 @@ bool PlatformerCameraMovementManager::doFocusWithNoEasing(Camera camera, bool ch
 }
 
 // center world's camera in function of focus actor's position
-bool PlatformerCameraMovementManager::dontFocus(Camera camera, bool checkIfFocusEntityIsMoving __attribute__ ((unused)), uint32 introFocusing __attribute__ ((unused)))
+bool PlatformerCameraMovementManager::dontFocus(Camera camera __attribute__ ((unused)), bool checkIfFocusEntityIsMoving __attribute__ ((unused)), uint32 introFocusing __attribute__ ((unused)))
 {
 	return false;
 }
@@ -103,7 +103,7 @@ bool PlatformerCameraMovementManager::doFocus(Camera camera, bool checkIfFocusEn
 
 	Vector3DFlag reachedTargetFlag = {true, true, true};
 
-	Vector3D position3D = Vector3D::getRelativeToCamera(this->focusEntityPosition);
+	Vector3D position3D = Vector3D::getRelativeToCamera(*this->focusEntityPosition);
 	PixelVector position2D = PixelVector::project(position3D, 0);
 
 	Size stageSize = Camera::getStageSize(camera);
@@ -170,7 +170,7 @@ bool PlatformerCameraMovementManager::doFocus(Camera camera, bool checkIfFocusEn
 			}
 			else
 			{
-				Vector3D velocity = Actor::getVelocity(focusActor);
+				Vector3D velocity = *Actor::getVelocity(focusActor);
 
 				if(0 < velocity.y)
 				{
@@ -224,7 +224,7 @@ bool PlatformerCameraMovementManager::doFocus(Camera camera, bool checkIfFocusEn
 // center world's camera in function of focus actor's position
 bool PlatformerCameraMovementManager::doFocusAndAlertWhenTargetReached(Camera camera, bool checkIfFocusEntityIsMoving __attribute__ ((unused)), uint32 introFocusing __attribute__ ((unused)))
 {
-	if(PlatformerCameraMovementManager::doFocus(this, checkIfFocusEntityIsMoving, true))
+	if(PlatformerCameraMovementManager::doFocus(this, camera, checkIfFocusEntityIsMoving, true))
 	{
 		EventManager::fireEvent(EventManager::getInstance(), kEventScreenFocused);
 		NM_ASSERT(!isDeleted(EventManager::getInstance()), "PlatformerCameraMovementManager::doFocusAndAlertWhenTargetReached: deleted entity manager during kEventScreenFocused");

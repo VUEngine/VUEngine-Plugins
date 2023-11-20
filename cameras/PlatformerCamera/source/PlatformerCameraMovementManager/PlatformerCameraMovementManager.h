@@ -46,8 +46,8 @@ singleton class PlatformerCameraMovementManager : CameraMovementManager
 	/* update axis flag */
 	Vector3DFlag positionFlag;
 	/* pointer to function that implements the required focusing */
-	bool (*focusFunction)(void*, uint32, uint32);
-	bool (*previousFocusFunction)(void*, uint32, uint32);
+	bool (*focusFunction)(void*, Camera, bool, uint32);
+	bool (*previousFocusFunction)(void*, Camera, bool, uint32);
 	PlatformerCameraTriggerEntitySpec platformerCameraTriggerEntitySpec;
 	Vector3D boundingBoxDisplacement;
 	ShapeSpec platformerCameraTriggerEntityShapesSpec[2];

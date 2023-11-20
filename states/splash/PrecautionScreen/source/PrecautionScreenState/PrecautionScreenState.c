@@ -21,6 +21,7 @@
 #include <I18n.h>
 #include <Languages.h>
 #include <PrecautionScreenState.h>
+#include <Telegram.h>
 
 
 //---------------------------------------------------------------------------------------------------------

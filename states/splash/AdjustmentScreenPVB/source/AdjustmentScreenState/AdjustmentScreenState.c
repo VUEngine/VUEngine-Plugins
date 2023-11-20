@@ -15,6 +15,7 @@
 #include <AdjustmentScreenState.h>
 
 #include <Camera.h>
+#include <CameraEffectManager.h>
 #include <DirectDraw.h>
 #include <I18n.h>
 #include <LowPowerManager.h>

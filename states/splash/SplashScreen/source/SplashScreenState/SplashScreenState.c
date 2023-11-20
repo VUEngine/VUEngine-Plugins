@@ -43,7 +43,7 @@ void SplashScreenState::enter(void* owner)
 	// call base
 	Base::enter(this, owner);
 
-	if(this->stageSpec)
+	if(NULL != this->stageSpec)
 	{
 		SplashScreenState::loadStage(this, this->stageSpec, NULL, true, false);
 	}

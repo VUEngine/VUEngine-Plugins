@@ -32,6 +32,7 @@ class PlatformerCameraTriggerEntity : Entity
 	NormalizedDirection normalizedDirection;
 	Vector3D previousGlobalPosition;
 
+
 	void constructor(PlatformerCameraTriggerEntitySpec* cameraEntitySpec, int16 internalId, const char* const name);
 	void setOverridePositionFlag(Vector3DFlag overridePositionFlag);
 	Vector3DFlag getOverridePositionFlag();
