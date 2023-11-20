@@ -81,6 +81,7 @@ singleton class I18n : ListenerObject
 {
 	// Currently active language
 	uint8 activeLanguage;
+	uint8 totalLanguages;
 
 	/// @publicsection
 	static I18n getInstance();

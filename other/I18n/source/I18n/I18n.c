@@ -12,9 +12,11 @@
 //												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
-#include <string.h>
 #include <I18n.h>
+#include <Utilities.h>
 #include <VUEngine.h>
+
+#include <string.h>
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -45,6 +47,13 @@ void I18n::constructor()
 	Base::constructor();
 
 	this->activeLanguage = 0;
+
+	for(this->totalLanguages = 0; NULL != _languages[this->totalLanguages]; this->totalLanguages++);
+
+	if(10 < this->totalLanguages)
+	{
+		this->totalLanguages = 0;
+	}
 }
 
 /**
@@ -64,8 +73,23 @@ void I18n::destructor()
  */
 const char* I18n::getText(int32 string)
 {
+	if(0 == this->totalLanguages)
+	{
+		return "No available languages";
+	}
+
+	if(NULL == _languages[this->activeLanguage])
+	{
+		return "Corrupted language";
+	}
+
+	if(NULL == _languages[this->activeLanguage]->language)
+	{
+		return "Empty language";
+	}
+
 	// TODO: check if _languages is empty
-	return 0 <= string ? _languages[this->activeLanguage]->language[string] : NULL;
+	return 0 <= string ? _languages[this->activeLanguage]->language[string] : "String not found";
 }
 
 /**
@@ -74,6 +98,11 @@ const char* I18n::getText(int32 string)
  */
 void I18n::setActiveLanguage(uint8 languageId)
 {
+	if(this->totalLanguages < languageId)
+	{
+		return;
+	}
+
 	this->activeLanguage = languageId;
 
 	if(VUEngine::getCurrentState(VUEngine::getInstance()))
