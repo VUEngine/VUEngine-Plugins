@@ -53,7 +53,7 @@ void SaveDataManager::constructor()
 	this->sramAvailable = false;
 
 	// register with engine
-	VUEngine::registerSaveDataManager(VUEngine::getInstance(), ListenerObject::safeCast(this));
+	VUEngine::setSaveDataManager(VUEngine::getInstance(), ListenerObject::safeCast(this));
 
 	// initialize
 	SaveDataManager::initialize(this);
