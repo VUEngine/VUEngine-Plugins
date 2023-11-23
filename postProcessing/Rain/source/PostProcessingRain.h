@@ -25,7 +25,7 @@
 static class PostProcessingRain : ListenerObject
 {
 	static void rain(uint32 currentDrawingFrameBufferSet, SpatialObject spatialObject);
-	static void waterFall20x100(uint32 currentDrawingFrameBufferSet, SpatialObject spatialObject);
+	static void waterFall(uint32 currentDrawingFrameBufferSet, SpatialObject spatialObject);
 }
 
 

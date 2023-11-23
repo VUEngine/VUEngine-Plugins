@@ -376,8 +376,19 @@ static void PostProcessingRain::rain(uint32 currentDrawingFrameBufferSet __attri
 	yStepThrottle += yScreenDisplacement;
 }
 
-static void PostProcessingRain::waterFall(uint32 currentDrawingFrameBufferSet, Vector3D position, int32 width, int32 height, int32 yStepThrottle)
+static void PostProcessingRain::waterFall(uint32 currentDrawingFrameBufferSet __attribute__ ((unused)), SpatialObject spatialObject __attribute__ ((unused)))
 {
+	int32 width = __WATERFALL_WIDTH;
+	int32 height = __WATERFALL_HEIGHT;
+	int32 yStepThrottle = __WATERFALL_Y_STEP_THROTTLE;
+
+	Vector3D position = {__WATERFALL_X_POSITION, __WATERFALL_Y_POSITION, 0};
+
+	if(!isDeleted(spatialObject))
+	{
+		position = Vector3D::getRelativeToCamera(*SpatialObject::getPosition(spatialObject));
+	}
+
 	static uint16 yStepIndex = 0;
 	static uint16 dropletLengthIndex = 0;
 
@@ -418,12 +429,12 @@ static void PostProcessingRain::waterFall(uint32 currentDrawingFrameBufferSet, V
 
 	PostProcessingRain::waterStream(
 		currentDrawingFrameBufferSet,
-		__FIXED_TO_I(position.x) - (width >> 1),
-		__FIXED_TO_I(position.x) + (width >> 1),
+		__METERS_TO_PIXELS(position.x) - (width >> 1),
+		__METERS_TO_PIXELS(position.x) + (width >> 1),
 		0,
 		1,
-		__FIXED_TO_I(position.y) - (height >> 1),
-		__FIXED_TO_I(position.y) + (height >> 1),
+		__METERS_TO_PIXELS(position.y) - (height >> 1),
+		__METERS_TO_PIXELS(position.y) + (height >> 1),
 		0,
 		yStep,
 		sizeof(yStep) >> POST_PROCESSING_RAIN_SIZE_OF_UINT16_POWER,
@@ -438,16 +449,4 @@ static void PostProcessingRain::waterFall(uint32 currentDrawingFrameBufferSet, V
 		dropletParallax,
 		sizeof(dropletParallax) >> POST_PROCESSING_RAIN_SIZE_OF_S16_POWER
 	);
-}
-
-static void PostProcessingRain::waterFall20x100(uint32 currentDrawingFrameBufferSet __attribute__ ((unused)), SpatialObject spatialObject __attribute__ ((unused)))
-{
-	if(isDeleted(spatialObject))
-	{
-		return;
-	}
-
-	Vector3D spatialObjectPosition = Vector3D::getRelativeToCamera(*SpatialObject::getPosition(spatialObject));
-
-	PostProcessingRain::waterFall(currentDrawingFrameBufferSet, spatialObjectPosition, 20, 100, 0);
 }
