@@ -28,6 +28,40 @@
 //---------------------------------------------------------------------------------------------------------
 
 /**
+ * Helper function to write a 32 bit value to the framebuffer
+ * (16 pixels)
+ *
+ * @param y								Y coordinate (true y value = y * 16)
+ * @param shift							Number of bits to shift the pixels by
+ * @param columnSourcePointer			Framebuffer address of the current column (x value)
+ * @param previousSourcePointerValue	Value from the loop's previous cycle (effectively where y - 1)
+ */
+static uint32 PostProcessingWobble::writeToFrameBuffer(uint16 y, uint16 shift, uint32* columnSourcePointer, uint32 previousSourcePointerValue)
+{
+	// pointer to currently manipulated 32 bits of framebuffer
+	uint32* sourcePointer = columnSourcePointer + y;
+
+	// save current pointer value to temp var and shift highest x bits of it, according to lut,
+	// to the lowest bits, since we want to insert these
+	uint32 sourcePointerCurrentValue = *sourcePointer;
+	uint32 previousSourcePointerLeftValueTemp = sourcePointerCurrentValue >> (32 - shift);
+
+	// manipulate current 32 bits in frame buffer
+	*sourcePointer =
+		// shift bits according to wave lut
+		// it's two bits per pixel, so 2 bits shifted left = 1 pixel shifted down on screen
+		(sourcePointerCurrentValue << shift)
+
+		// since the above shifting creates black pixels, we need to carry over these pixels
+		// from the previous loop
+		| previousSourcePointerValue;
+
+	// we need the current source pointer value from _before_ we modified it, therefore we save it
+	// it to a temp variable while modifying
+	return previousSourcePointerLeftValueTemp;
+}
+
+/**
  * Applies a full screen wobble distortion that is reminiscent of water waves. This effect reads and write
  * almost the whole screen and is therefore not feasible on hardware.
  *
@@ -81,7 +115,7 @@ static void PostProcessingWobble::wobble(uint32 currentDrawingFrameBufferSet, Sp
 
 		// loop current column in steps of 16 pixels (32 bits)
 		// ignore the bottom 16 pixels of the screen (gui)
-		for(y = 0; y < 13; y++)
+		for(y = ((__WOBBLE_STARTING_ROW * 2) / 8) / sizeof(uint32); y < ((__WOBBLE_ENDING_ROW * 2) / 8) / sizeof(uint32); y++)
 		{
 			previousSourcePointerValueLeft = PostProcessingWobble::writeToFrameBuffer(y, waveLut[waveLutIndex], columnSourcePointerLeft, previousSourcePointerValueLeft);
 			previousSourcePointerValueRight = PostProcessingWobble::writeToFrameBuffer(y, waveLut[waveLutIndex], columnSourcePointerRight, previousSourcePointerValueRight);
@@ -90,38 +124,4 @@ static void PostProcessingWobble::wobble(uint32 currentDrawingFrameBufferSet, Sp
 
 	// move the wave one pixel in the next frame
 	waveLutIndex++;
-}
-
-/**
- * Helper function to write a 32 bit value to the framebuffer
- * (16 pixels)
- *
- * @param y								Y coordinate (true y value = y * 16)
- * @param shift							Number of bits to shift the pixels by
- * @param columnSourcePointer			Framebuffer address of the current column (x value)
- * @param previousSourcePointerValue	Value from the loop's previous cycle (effectively where y - 1)
- */
-static uint32 PostProcessingWobble::writeToFrameBuffer(uint16 y, uint16 shift, uint32* columnSourcePointer, uint32 previousSourcePointerValue)
-{
-	// pointer to currently manipulated 32 bits of framebuffer
-	uint32* sourcePointer = columnSourcePointer + y;
-
-	// save current pointer value to temp var and shift highest x bits of it, according to lut,
-	// to the lowest bits, since we want to insert these
-	uint32 sourcePointerCurrentValue = *sourcePointer;
-	uint32 previousSourcePointerLeftValueTemp = sourcePointerCurrentValue >> (32 - shift);
-
-	// manipulate current 32 bits in frame buffer
-	*sourcePointer =
-		// shift bits according to wave lut
-		// it's two bits per pixel, so 2 bits shifted left = 1 pixel shifted down on screen
-		(sourcePointerCurrentValue << shift)
-
-		// since the above shifting creates black pixels, we need to carry over these pixels
-		// from the previous loop
-		| previousSourcePointerValue;
-
-	// we need the current source pointer value from _before_ we modified it, therefore we save it
-	// it to a temp variable while modifying
-	return previousSourcePointerLeftValueTemp;
 }

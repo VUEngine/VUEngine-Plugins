@@ -22,47 +22,13 @@
 #include <VIPManager.h>
 #include <Camera.h>
 
+//#include "config.h"
 
 //---------------------------------------------------------------------------------------------------------
 //												FUNCTIONS
 //---------------------------------------------------------------------------------------------------------
 
-/**
- * "Tilts" the game image by a few percent by gradually shifting columns. This effect reads and write
- * almost the whole screen and is therefore not feasible on hardware.
- *
- * @param currentDrawingFrameBufferSet	The framebuffer set that's currently being accessed
- */
-static void PostProcessingTilt::tiltScreen(uint32 currentDrawingFrameBufferSet, SpatialObject spatialObject __attribute__ ((unused)))
-{
-	uint8 buffer = 0, currentShift = 0;
-	uint16 x = 0, y = 0;
-	uint32 previousSourcePointerValue = 0;
 
-	// write to framebuffers for both screens
-	for(; buffer < 2; buffer++)
-	{
-		// loop columns that shall be shifted
-		for(x = 0; x < 360; x++)
-		{
-			// get pointer to currently manipulated 32 bits of framebuffer
-			uint32* columnSourcePointer = (uint32*) (currentDrawingFrameBufferSet | (buffer ? 0x00010000 : 0)) + (x << 4);
-
-			// the shifted out pixels on top should be black
-			previousSourcePointerValue = 0;
-
-			// get shift for current column
-			currentShift = 30 - ((x / 24) << 1);
-
-			// loop current column in steps of 16 pixels (32 bits)
-			// ignore the bottom 16 pixels of the screen (gui)
-			for(y = 0; y < 13; y++)
-			{
-				previousSourcePointerValue = PostProcessingTilt::writeToFrameBuffer(y, currentShift, columnSourcePointer, previousSourcePointerValue);
-			}
-		}
-	}
-}
 
 /**
  * Helper function to write a 32 bit value to the framebuffer
@@ -97,3 +63,41 @@ static uint32 PostProcessingTilt::writeToFrameBuffer(uint16 y, uint16 shift, uin
 	// it to a temp variable while modifying
 	return previousSourcePointerLeftValueTemp;
 }
+
+/**
+ * "Tilts" the game image by a few percent by gradually shifting columns. This effect reads and write
+ * almost the whole screen and is therefore not feasible on hardware.
+ *
+ * @param currentDrawingFrameBufferSet	The framebuffer set that's currently being accessed
+ */
+static void PostProcessingTilt::tiltScreen(uint32 currentDrawingFrameBufferSet, SpatialObject spatialObject __attribute__ ((unused)))
+{
+	uint8 buffer = 0, currentShift = 0;
+	uint16 x = 0, y = 0;
+	uint32 previousSourcePointerValue = 0;
+
+	// write to framebuffers for both screens
+	for(; buffer < 2; buffer++)
+	{
+		// loop columns that shall be shifted
+		for(x = 0; x < 360; x++)
+		{
+			// get pointer to currently manipulated 32 bits of framebuffer
+			uint32* columnSourcePointer = (uint32*) (currentDrawingFrameBufferSet | (buffer ? 0x00010000 : 0)) + (x << 4);
+
+			// the shifted out pixels on top should be black
+			previousSourcePointerValue = 0;
+
+			// get shift for current column
+			currentShift = 30 - ((x / 24) << 1);
+
+			// loop current column in steps of 16 pixels (32 bits)
+			// ignore the bottom 16 pixels of the screen (gui)
+			for(y = ((__TILT_STARTING_ROW * 2) / 8) / sizeof(uint32); y < ((__TILT_ENDING_ROW * 2) / 8) / sizeof(uint32); y++)
+			{
+				previousSourcePointerValue = PostProcessingTilt::writeToFrameBuffer(y, currentShift, columnSourcePointer, previousSourcePointerValue);
+			}
+		}
+	}
+}
+
