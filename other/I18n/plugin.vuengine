@@ -20,11 +20,13 @@
 	"templates": {
 		"LanguageSpecs.c": {
 			"target": "assets/Translations/LanguageSpecs.c",
+			"targetRoot": "project",
 			"template": "templates/LanguageSpecs.c.nj",
 			"encoding": "win1252"
 		},
 		"Languages.c": {
 			"target": "assets/Translations/Languages.c",
+			"targetRoot": "project",
 			"template": "templates/Languages.c.nj",
 			"events": [
 				{
@@ -34,6 +36,7 @@
 		},
 		"Languages.h": {
 			"target": "source/assets/Languages.h",
+			"targetRoot": "project",
 			"template": "templates/Languages.h.nj",
 			"events": [
 				{
@@ -44,6 +47,7 @@
 	},
 	"types": {
 		"Translations": {
+			"file": "Translations",
 			"schema": {
 				"title": "Translations",
 				"properties": {
@@ -86,8 +90,6 @@
                 "type": "TranslationsEditor",
                 "scope": "#"
             },
-			"multiple": false,
-			"category": "Assets",
 			"icon": "fa fa-language",
 			"templates": [
 				"LanguageSpecs.c",
