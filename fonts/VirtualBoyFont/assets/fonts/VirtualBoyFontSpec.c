@@ -26,8 +26,11 @@ CharSetROMSpec VirtualBoyFontCharSet =
 	// number of chars
 	576,
 
-	// sharing scheme
-	kCharSetShared,
+	// whether it is shared or not
+	true,
+	
+	// whether the tiles are optimized or not
+	false,
 
 	// char spec
 	VirtualBoyFontTiles,

@@ -26,8 +26,11 @@ CharSetROMSpec IndustrialFontCharSet =
 	// number of chars
 	128,
 
-	// sharing scheme
-	kCharSetShared,
+	// whether it is shared or not
+	true,
+	
+	// whether the tiles are optimized or not
+	false,
 
 	// char spec
 	IndustrialFontTiles,

@@ -25,8 +25,11 @@ CharSetROMSpec PompousExtFontCharSet =
 	// number of chars
 	512,
 
-	// sharing scheme
-	kCharSetShared,
+	// whether it is shared or not
+	true,
+	
+	// whether the tiles are optimized or not
+	false,
 
 	// char spec
 	PompousFontTiles,

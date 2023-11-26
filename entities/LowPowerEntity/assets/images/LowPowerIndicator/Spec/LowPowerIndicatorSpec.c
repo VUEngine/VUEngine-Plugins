@@ -90,14 +90,15 @@ AnimationFunctionROMSpec* const LowPowerIndicatorAnimations[] =
 
 CharSetROMSpec LowPowerIndicatorCharset =
 {
-	// number of chars, depending on allocation type:
-	// kCharSetNotShared, kCharSetShared: number of chars of a single animation frame (cols * rows)
-	// kCharSetSharedMulti: sum of all chars
+	// number of chars in function of the number of frames to load at the same time
+
 	2,
 
-	// sharing scheme
-	// [kCharSetNotShared, kCharSetShared, kCharSetSharedMulti]
-	kCharSetNotShared,
+	// whether it is shared or not
+	false,
+	
+	// whether the tiles are optimized or not
+	false,
 
 	// char spec
 	LowPowerIndicatorTiles,
@@ -123,9 +124,7 @@ TextureROMSpec LowPowerIndicatorTexture =
 	// padding for affine/hbias transformations (cols, rows)
 	{0, 0},
 
-	// number of frames, depending on charset's allocation type:
-	// kCharSetNotShared, kCharSetShared: 1
-	// kCharSetSharedMulti: total number of frames
+	// number of frames
 	1,
 
 	// palette number (0-3)
