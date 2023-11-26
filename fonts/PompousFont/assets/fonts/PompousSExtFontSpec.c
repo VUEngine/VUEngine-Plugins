@@ -25,8 +25,8 @@ CharSetROMSpec PompousSExtFontCharSet =
 	// number of chars
 	512,
 
-	// allocation type
-	__NOT_ANIMATED,
+	// sharing scheme
+	kCharSetShared,
 
 	// char spec
 	PompousFontShadowTiles,

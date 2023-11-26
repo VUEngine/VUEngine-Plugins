@@ -26,8 +26,8 @@ CharSetROMSpec VirtualBoyFontCharSet =
 	// number of chars
 	576,
 
-	// allocation type
-	__NOT_ANIMATED,
+	// sharing scheme
+	kCharSetShared,
 
 	// char spec
 	VirtualBoyFontTiles,

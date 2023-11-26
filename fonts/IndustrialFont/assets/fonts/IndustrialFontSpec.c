@@ -26,8 +26,8 @@ CharSetROMSpec IndustrialFontCharSet =
 	// number of chars
 	128,
 
-	// allocation type
-	__NOT_ANIMATED,
+	// sharing scheme
+	kCharSetShared,
 
 	// char spec
 	IndustrialFontTiles,
