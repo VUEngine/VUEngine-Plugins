@@ -79,7 +79,7 @@ void SplashScreenState::exit(void* owner)
 // state's suspend
 void SplashScreenState::suspend(void* owner)
 {
-	if(!VUEngine::isEnteringSpecialMode(VUEngine::getInstance()))
+	if(!VUEngine::isEnteringToolState(VUEngine::getInstance()))
 	{
 		// do a fade out effect
 		Camera::startEffect(Camera::getInstance(), kFadeOut, __FADE_DELAY);
@@ -96,7 +96,7 @@ void SplashScreenState::resume(void* owner)
 
 	SplashScreenState::print(this);
 
-	if(!VUEngine::isExitingSpecialMode(VUEngine::getInstance()))
+	if(!VUEngine::isExitingToolState(VUEngine::getInstance()))
 	{
 		VUEngine::disableKeypad(VUEngine::getInstance());
 
