@@ -57,9 +57,9 @@ int16 GuiBgmapAnimatedSprite::doRender(int16 index, bool evenFrame)
 	worldPointer->gy = this->position.y + this->displacement.y - this->halfHeight;
 	worldPointer->gp = this->position.parallax + this->displacement.parallax;
 
-	worldPointer->mx = this->textureSource.mx;
-	worldPointer->my = this->textureSource.my;
-	worldPointer->mp = this->textureSource.mp;
+	worldPointer->mx = this->bgmapTextureSource.mx;
+	worldPointer->my = this->bgmapTextureSource.my;
+	worldPointer->mp = this->bgmapTextureSource.mp;
 
 	worldPointer->w = this->halfWidth << 1;
 	worldPointer->h = this->halfHeight << 1;
