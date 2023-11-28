@@ -19,7 +19,7 @@
 #define __TILT_STARTING_ROW		(0)
 #endif
 
-#ifdef __TILT_ENDING_ROW
+#ifndef __TILT_ENDING_ROW
 #define __TILT_ENDING_ROW			(__SCREEN_HEIGHT)
 #endif
 

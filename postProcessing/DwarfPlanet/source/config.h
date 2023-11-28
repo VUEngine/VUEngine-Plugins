@@ -19,7 +19,7 @@
 #define __DWARF_PLANET_STARTING_ROW		(0)
 #endif
 
-#ifdef __DWARF_PLANET_ENDING_ROW
+#ifndef __DWARF_PLANET_ENDING_ROW
 #define __DWARF_PLANET_ENDING_ROW		(__SCREEN_HEIGHT)
 #endif
 

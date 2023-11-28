@@ -19,7 +19,7 @@
 #define __WOBBLE_STARTING_ROW		(0)
 #endif
 
-#ifdef __WOBBLE_ENDING_ROW
+#ifndef __WOBBLE_ENDING_ROW
 #define __WOBBLE_ENDING_ROW			(__SCREEN_HEIGHT)
 #endif
 
