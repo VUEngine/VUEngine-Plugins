@@ -88,8 +88,8 @@ static void PostProcessingDwarfPlanet::dwarfPlanet(uint32 currentDrawingFrameBuf
 	int32 counter = lutEntries;
 	for(; --counter;)
 	{
-		int32 x1 = __DWARF_PLANET_STARTING_COLUMN + lutEntries - counter;
-		int32 x2 = __DWARF_PLANET_ENDING_COLUMN - __DWARF_PLANET_STARTING_COLUMN - counter;
+		int32 x1 = __DWARF_PLANET_STARTING_COLUMN - 1 + lutEntries - counter;
+		int32 x2 = __DWARF_PLANET_ENDING_COLUMN - counter;
 
 		// get pointer to currently manipulated 32 bits of framebuffer
 		uint32* columnSourcePointerLeft1 = (uint32*) (currentDrawingFrameBufferSet) + (x1 << 4);
