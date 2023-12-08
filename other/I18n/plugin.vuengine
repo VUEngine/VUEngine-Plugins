@@ -19,30 +19,32 @@
 	},
 	"templates": {
 		"LanguageSpecs.c": {
-			"target": "assets/Translations/LanguageSpecs.c",
-			"targetRoot": "project",
+			"targets": [{
+				"path": "assets/Translations/LanguageSpecs.c",
+				"root": "project"
+			}],
 			"template": "templates/LanguageSpecs.c.nj",
 			"encoding": "win1252"
 		},
 		"Languages.c": {
-			"target": "assets/Translations/Languages.c",
-			"targetRoot": "project",
+			"targets": [{
+				"path": "assets/Translations/Languages.c",
+				"root": "project"
+			}],
 			"template": "templates/Languages.c.nj",
-			"events": [
-				{
-					"type": "installedPluginsChanged"
-				}
-			]
+			"events": [{
+				"type": "installedPluginsChanged"
+			}]
 		},
 		"Languages.h": {
-			"target": "source/assets/Languages.h",
-			"targetRoot": "project",
+			"targets": [{
+				"path": "source/assets/Languages.h",
+				"root": "project"
+			}],
 			"template": "templates/Languages.h.nj",
-			"events": [
-				{
-					"type": "installedPluginsChanged"
-				}
-			]
+			"events": [{
+				"type": "installedPluginsChanged"
+			}]
 		}
 	},
 	"types": {
