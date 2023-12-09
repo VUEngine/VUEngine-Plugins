@@ -36,22 +36,22 @@ extern EntitySpec LowPowerIndicatorEntity;
 
 PositionedEntityROMSpec AdjustmentScreenStageEntities[] =
 {
-#ifdef __ADJUSTMENT_SCREEN_USE_LOW_POWER_ENTITY
-	{&LowPowerIndicatorEntity, 	{__ADJUSTMENT_SCREEN_LOW_POWER_ENTITY_X_POSITION, __ADJUSTMENT_SCREEN_LOW_POWER_ENTITY_Y_POSITION, __ADJUSTMENT_SCREEN_LOW_POWER_ENTITY_Z_POSITION, __ADJUSTMENT_SCREEN_LOW_POWER_ENTITY_Z_DISPLACEMENT}, 0, NULL, NULL, NULL, false},
-#endif
-
-	{&AdjustmentScreenIconLEntity, 	{ 12,  12,  0, 0}, 0, NULL, NULL, NULL, false},
-	{&AdjustmentScreenIconREntity, 	{ 12, 212,  0, 0}, 0, NULL, NULL, NULL, false},
-	{&AdjustmentScreenBgEntity, 		{192, 112, 16, 0}, 0, NULL, NULL, NULL, false},
-	{&AdjustmentScreenLogoEntity, 	{192, 112,  0, 0}, 0, NULL, NULL, NULL, false},
-	{&AdjustmentScreenIconLEntity, 	{372, 212,  0, 0}, 0, NULL, NULL, NULL, false},
-	{&AdjustmentScreenIconREntity, 	{372,  12,  0, 0}, 0, NULL, NULL, NULL, false},
-
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
 };
 
 PositionedEntityROMSpec AdjustmentScreenStageUiEntities[] =
 {
+#ifdef __ADJUSTMENT_SCREEN_USE_LOW_POWER_ENTITY
+	{&LowPowerIndicatorEntity, 	{__ADJUSTMENT_SCREEN_LOW_POWER_ENTITY_X_POSITION, __ADJUSTMENT_SCREEN_LOW_POWER_ENTITY_Y_POSITION, __ADJUSTMENT_SCREEN_LOW_POWER_ENTITY_Z_POSITION, __ADJUSTMENT_SCREEN_LOW_POWER_ENTITY_Z_DISPLACEMENT}, 0, NULL, NULL, NULL, false},
+#endif
+
+	{&AdjustmentScreenIconLEntity, 	{-180, -100,  0, 0}, 0, NULL, NULL, NULL, false},
+	{&AdjustmentScreenIconREntity, 	{-180, 100,  0, 0}, 0, NULL, NULL, NULL, false},
+	{&AdjustmentScreenBgEntity, 	{0, 0, 16, 0}, 0, NULL, NULL, NULL, false},
+	{&AdjustmentScreenLogoEntity, 	{0, 0,  0, 0}, 0, NULL, NULL, NULL, false},
+	{&AdjustmentScreenIconLEntity, 	{180, 100,  0, 0}, 0, NULL, NULL, NULL, false},
+	{&AdjustmentScreenIconREntity, 	{180, -100,  0, 0}, 0, NULL, NULL, NULL, false},
+
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
 };
 
@@ -227,7 +227,7 @@ StageROMSpec AdjustmentScreenStage =
 			// maximum view distance's power into the horizon
 			__MAXIMUM_X_VIEW_DISTANCE, __MAXIMUM_Y_VIEW_DISTANCE,
 			// distance of the eyes to the screen
-			__CAMERA_NEAR_PLANE,
+			0,
 			// distance from left to right eye (depth sensation)
 			__BASE_FACTOR,
 			// horizontal view point center
@@ -249,7 +249,7 @@ StageROMSpec AdjustmentScreenStage =
 		},
 
 		// friction
-		__F_TO_FIXED(0.1f),
+		__F_TO_FIXED(0),
 	},
 
 	// assets

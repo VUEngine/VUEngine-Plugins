@@ -71,7 +71,7 @@ SoundChannelROM AutomaticPauseSelectSoundChannel1 =
 	/// Configuration
 	(SoundChannelConfiguration*)&AutomaticPauseSelectSoundChannel1Configuration,
 
-	/// Length (PCM)
+	//// Total number of samples
 	0,
 
 	/// Sound track

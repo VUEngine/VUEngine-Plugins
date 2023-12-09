@@ -244,7 +244,7 @@ StageROMSpec AutomaticPauseSelectionScreenStage =
 		},
 
 		// friction
-		__F_TO_FIXED(0.1f),
+		__F_TO_FIXED(0),
 	},
 
 	// assets

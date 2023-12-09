@@ -71,7 +71,7 @@ SoundChannelROM LangSelectSoundChannel1 =
 	/// Configuration
 	(SoundChannelConfiguration*)&LangSelectSoundChannel1Configuration,
 
-	/// Length (PCM)
+	//// Total number of samples
 	0,
 
 	/// Sound track
