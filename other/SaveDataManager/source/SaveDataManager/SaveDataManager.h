@@ -51,12 +51,11 @@ typedef struct SaveData
  * manipulation or corruption of such data. Easily extendable with custom data,
  * see VUEngine Barebone project for an example.
  */
-singleton class SaveDataManager : ListenerObject
+abstract class SaveDataManager : ListenerObject
 {
 	// flag that tells if sram is available on the current cartridge
 	bool sramAvailable;
 
-	static SaveDataManager getInstance();
 	void constructor();
 
 	void getValue(BYTE* destination, int32 memberOffset, int32 dataSize);
@@ -68,9 +67,8 @@ singleton class SaveDataManager : ListenerObject
 	virtual void writeDefaults();
 	virtual int32 getSaveDataSize();
 
-	// TODO: remove hard dependencies to i18n and auto pause plugins 
-	// 		 and get rid of the following methods
-	virtual void restoreSettings();
+	// TODO: removed hard dependencies to i18n and auto pause plugins 
+	// 		 but still have to get rid of the following methods
 	bool getAutomaticPauseStatus();
 	void setAutomaticPauseStatus(uint8 autoPauseStatus);
 	uint8 getLanguage();

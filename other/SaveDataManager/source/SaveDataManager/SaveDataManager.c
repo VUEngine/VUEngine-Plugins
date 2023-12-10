@@ -18,7 +18,6 @@
 #include <I18n.h>
 #include <SRAMManager.h>
 #include <Utilities.h>
-#include <AutomaticPauseManager.h>
 #include <SaveDataManager.h>
 
 
@@ -193,22 +192,6 @@ void SaveDataManager::setValue(const BYTE* const source, int32 memberOffset, int
 int32 SaveDataManager::getSaveDataSize()
 {
 	return (int32)sizeof(SaveData);
-}
-
-void SaveDataManager::restoreSettings()
-{
-	if(this->sramAvailable)
-	{
-		// load and set active language
-		I18n::setActiveLanguage(I18n::getInstance(), SaveDataManager::getLanguage(this));
-
-		// load and set auto pause state
-		AutomaticPauseManager::setActive(AutomaticPauseManager::getInstance(), SaveDataManager::getAutomaticPauseStatus(this));
-	}
-	else
-	{
-		I18n::setActiveLanguage(I18n::getInstance(), 0);
-	}
 }
 
 uint8 SaveDataManager::getLanguage()
