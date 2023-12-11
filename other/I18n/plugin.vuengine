@@ -18,20 +18,13 @@
 		"dependencies": []
 	},
 	"templates": {
-		"LanguageSpecs.c": {
-			"targets": [{
-				"path": "assets/Translations/LanguageSpecs.c",
-				"root": "project"
-			}],
-			"template": "templates/LanguageSpecs.c.nj",
-			"encoding": "win1252"
-		},
 		"Languages.c": {
 			"targets": [{
-				"path": "assets/Translations/Languages.c",
+				"path": "assets/Languages.c",
 				"root": "project"
 			}],
 			"template": "templates/Languages.c.nj",
+			"encoding": "win1252",
 			"events": [{
 				"type": "installedPluginsChanged"
 			}]
@@ -94,7 +87,6 @@
             },
 			"icon": "fa fa-language",
 			"templates": [
-				"LanguageSpecs.c",
 				"Languages.c",
 				"Languages.h"
 			]
