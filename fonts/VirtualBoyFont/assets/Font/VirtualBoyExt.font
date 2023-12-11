@@ -1,6 +1,6 @@
 {
     "_id": "9N2Ju6Zm0Pv2tn4F",
-    "characterCount": 96,
+    "characterCount": 224,
     "characters": [
         null,
         null,
@@ -43859,7 +43859,7 @@
         ]
     ],
     "compression": "none",
-    "name": "VirtualBoy",
+    "name": "VirtualBoy Ext",
     "offset": 32,
     "section": "rom",
     "size": {
