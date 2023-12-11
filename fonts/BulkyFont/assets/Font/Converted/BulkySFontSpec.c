@@ -169,7 +169,7 @@ CharSetROMSpec BulkySFontCharSet =
 	NULL    
 };
 
-FontROMSpec BulkySFont =
+FontROMSpec BulkySFontSpec =
 {
 	// font charset spec pointer
 	(CharSetSpec*)&BulkySFontCharSet,
