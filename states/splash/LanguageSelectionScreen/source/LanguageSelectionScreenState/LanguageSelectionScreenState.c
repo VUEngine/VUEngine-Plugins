@@ -126,7 +126,7 @@ void LanguageSelectionScreenState::enter(void* owner)
 	#if(__LANGUAGE_SELECTION_SCREEN_VARIANT == 1)
 
 		// add flags to stage
-		this->flagsTotalHalfWidth = LanguageSelectionScreenState::getFlagsTotalHalfWidth(this);
+		this->flagsTotalHalfWidth = ((LanguageSelectionScreenState::getNumLangs(this) - 1) * (__LANGUAGE_SELECTION_SCREEN_IMAGE_WIDTH)) >> 1;
 		uint8 i = 0;
 		this->flagCursorEntity = LanguageSelectionScreenState::addFlagToStage(this, &FlagCursorEntity, 0);
 		for(i = 0; _languages[i]; i++)
@@ -185,8 +185,13 @@ void LanguageSelectionScreenState::printSelection()
 		// set cursor position
 		Vector3D position =
 		{
+		#ifdef __LEGACY_COORDINATE_PROJECTION
 			__PIXELS_TO_METERS(LanguageSelectionScreenState::getFlagXPosition(this, this->selection)),
 			__PIXELS_TO_METERS(LanguageSelectionScreenState::getFlagYPosition(this)),
+		#else
+			__PIXELS_TO_METERS(this->selection * (__LANGUAGE_SELECTION_SCREEN_IMAGE_WIDTH) - this->flagsTotalHalfWidth),
+			0,
+		#endif
 			0,
 		};
 		Entity::setLocalPosition(this->flagCursorEntity, &position);
@@ -247,25 +252,30 @@ uint8 LanguageSelectionScreenState::getNumLangs()
 	return numLangs;
 }
 
-uint8 LanguageSelectionScreenState::getFlagsTotalHalfWidth()
-{
-	return ((LanguageSelectionScreenState::getNumLangs(this) - 1) * (__LANGUAGE_SELECTION_SCREEN_IMAGE_WIDTH)) >> 1;
-}
-
 Entity LanguageSelectionScreenState::addFlagToStage(EntitySpec* entitySpec, uint8 position)
 {
 	PositionedEntity flagPositionedEntity = {
 		entitySpec,
 		{
+		#ifdef __LEGACY_COORDINATE_PROJECTION
 			LanguageSelectionScreenState::getFlagXPosition(this, position),
 			LanguageSelectionScreenState::getFlagYPosition(this),
+		#else
+			position * (__LANGUAGE_SELECTION_SCREEN_IMAGE_WIDTH) - this->flagsTotalHalfWidth,
+			0,
+		#endif
 			0,
 			0,
 		},
 		0, NULL, NULL, NULL, false
 	};
 
+#ifdef __LEGACY_COORDINATE_PROJECTION
 	return Stage::addChildEntity(VUEngine::getStage(VUEngine::getInstance()), &flagPositionedEntity, true);
+#else
+	UIContainer uiContainer = Stage::getUIContainer(VUEngine::getStage(VUEngine::getInstance()));
+	return UIContainer::addChildEntity(uiContainer, &flagPositionedEntity);
+#endif
 }
 
 int32 LanguageSelectionScreenState::getFlagXPosition(uint8 position)

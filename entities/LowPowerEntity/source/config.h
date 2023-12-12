@@ -20,11 +20,19 @@
 #endif
 
 #ifndef	__LOW_POWER_ENTITY_X_POSITION
-#define __LOW_POWER_ENTITY_X_POSITION						16
+	#ifdef __LEGACY_COORDINATE_PROJECTION
+		#define __LOW_POWER_ENTITY_X_POSITION						16
+	#else
+		#define __LOW_POWER_ENTITY_X_POSITION						-176
+	#endif
 #endif
 
 #ifndef	__LOW_POWER_ENTITY_Y_POSITION
-#define __LOW_POWER_ENTITY_Y_POSITION						12
+	#ifdef __LEGACY_COORDINATE_PROJECTION
+		#define __LOW_POWER_ENTITY_Y_POSITION						12
+	#else
+		#define __LOW_POWER_ENTITY_Y_POSITION						-100
+	#endif
 #endif
 
 #ifndef	__LOW_POWER_ENTITY_Z_POSITION

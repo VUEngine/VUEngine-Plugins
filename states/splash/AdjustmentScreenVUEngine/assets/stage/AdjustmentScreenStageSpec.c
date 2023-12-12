@@ -45,12 +45,21 @@ PositionedEntityROMSpec AdjustmentScreenStageUiEntities[] =
 	{&LowPowerIndicatorEntity, 	{__ADJUSTMENT_SCREEN_LOW_POWER_ENTITY_X_POSITION, __ADJUSTMENT_SCREEN_LOW_POWER_ENTITY_Y_POSITION, __ADJUSTMENT_SCREEN_LOW_POWER_ENTITY_Z_POSITION, __ADJUSTMENT_SCREEN_LOW_POWER_ENTITY_Z_DISPLACEMENT}, 0, NULL, NULL, NULL, false},
 #endif
 
+#ifdef __LEGACY_COORDINATE_PROJECTION
+	{&AdjustmentScreenIconLEntity, 	{  12,   12,  0, 0}, 0, NULL, NULL, NULL, false},
+	{&AdjustmentScreenIconREntity, 	{  12,  212,  0, 0}, 0, NULL, NULL, NULL, false},
+	{&AdjustmentScreenBgEntity, 	{ 192,  112, 16, 0}, 0, NULL, NULL, NULL, false},
+	{&AdjustmentScreenLogoEntity, 	{ 192,  112,  0, 0}, 0, NULL, NULL, NULL, false},
+	{&AdjustmentScreenIconLEntity, 	{ 372,  212,  0, 0}, 0, NULL, NULL, NULL, false},
+	{&AdjustmentScreenIconREntity, 	{ 372,   12,  0, 0}, 0, NULL, NULL, NULL, false},
+#else
 	{&AdjustmentScreenIconLEntity, 	{-180, -100,  0, 0}, 0, NULL, NULL, NULL, false},
-	{&AdjustmentScreenIconREntity, 	{-180, 100,  0, 0}, 0, NULL, NULL, NULL, false},
-	{&AdjustmentScreenBgEntity, 	{0, 0, 16, 0}, 0, NULL, NULL, NULL, false},
-	{&AdjustmentScreenLogoEntity, 	{0, 0,  0, 0}, 0, NULL, NULL, NULL, false},
-	{&AdjustmentScreenIconLEntity, 	{180, 100,  0, 0}, 0, NULL, NULL, NULL, false},
-	{&AdjustmentScreenIconREntity, 	{180, -100,  0, 0}, 0, NULL, NULL, NULL, false},
+	{&AdjustmentScreenIconREntity, 	{-180,  100,  0, 0}, 0, NULL, NULL, NULL, false},
+	{&AdjustmentScreenBgEntity, 	{   0,    0, 16, 0}, 0, NULL, NULL, NULL, false},
+	{&AdjustmentScreenLogoEntity, 	{   0,    0,  0, 0}, 0, NULL, NULL, NULL, false},
+	{&AdjustmentScreenIconLEntity, 	{ 180,  100,  0, 0}, 0, NULL, NULL, NULL, false},
+	{&AdjustmentScreenIconREntity, 	{ 180, -100,  0, 0}, 0, NULL, NULL, NULL, false},
+#endif
 
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
 };

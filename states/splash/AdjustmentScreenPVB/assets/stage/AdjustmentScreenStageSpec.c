@@ -36,22 +36,31 @@ extern EntitySpec LowPowerIndicatorEntity;
 
 PositionedEntityROMSpec AdjustmentScreenStageEntities[] =
 {
-#ifdef __ADJUSTMENT_SCREEN_USE_LOW_POWER_ENTITY
-	{&LowPowerIndicatorEntity, 	{__ADJUSTMENT_SCREEN_LOW_POWER_ENTITY_X_POSITION, __ADJUSTMENT_SCREEN_LOW_POWER_ENTITY_Y_POSITION, __ADJUSTMENT_SCREEN_LOW_POWER_ENTITY_Z_POSITION, __ADJUSTMENT_SCREEN_LOW_POWER_ENTITY_Z_DISPLACEMENT}, 0, NULL, NULL, NULL, false},
-#endif
-
-	{&AdjustmentScreenIconLEntity, 	{  8,   8,  0, 0}, 0, NULL, NULL, NULL, false},
-	{&AdjustmentScreenIconREntity, 	{  8, 216,  0, 0}, 0, NULL, NULL, NULL, false},
-	{&AdjustmentScreenBgEntity, 		{192, 112, 16, 0}, 0, NULL, NULL, NULL, false},
-	{&AdjustmentScreenLogoEntity, 	{192, 110,  0, 0}, 0, NULL, NULL, NULL, false},
-	{&AdjustmentScreenIconLEntity, 	{376, 216,  0, 0}, 0, NULL, NULL, NULL, false},
-	{&AdjustmentScreenIconREntity, 	{376,   8,  0, 0}, 0, NULL, NULL, NULL, false},
-
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
 };
 
 PositionedEntityROMSpec AdjustmentScreenStageUiEntities[] =
 {
+#ifdef __ADJUSTMENT_SCREEN_USE_LOW_POWER_ENTITY
+	{&LowPowerIndicatorEntity, 	{__ADJUSTMENT_SCREEN_LOW_POWER_ENTITY_X_POSITION, __ADJUSTMENT_SCREEN_LOW_POWER_ENTITY_Y_POSITION, __ADJUSTMENT_SCREEN_LOW_POWER_ENTITY_Z_POSITION, __ADJUSTMENT_SCREEN_LOW_POWER_ENTITY_Z_DISPLACEMENT}, 0, NULL, NULL, NULL, false},
+#endif
+
+#ifdef __LEGACY_COORDINATE_PROJECTION
+	{&AdjustmentScreenIconLEntity, 	{   8,    8,  0, 0}, 0, NULL, NULL, NULL, false},
+	{&AdjustmentScreenIconREntity, 	{   8,  216,  0, 0}, 0, NULL, NULL, NULL, false},
+	{&AdjustmentScreenBgEntity, 	{ 192,  112, 16, 0}, 0, NULL, NULL, NULL, false},
+	{&AdjustmentScreenLogoEntity, 	{ 192,  110,  0, 0}, 0, NULL, NULL, NULL, false},
+	{&AdjustmentScreenIconLEntity, 	{ 376,  216,  0, 0}, 0, NULL, NULL, NULL, false},
+	{&AdjustmentScreenIconREntity, 	{ 376,    8,  0, 0}, 0, NULL, NULL, NULL, false},
+#else
+	{&AdjustmentScreenIconLEntity, 	{-184, -104,  0, 0}, 0, NULL, NULL, NULL, false},
+	{&AdjustmentScreenIconREntity, 	{-184,  104,  0, 0}, 0, NULL, NULL, NULL, false},
+	{&AdjustmentScreenBgEntity, 	{   0,    0, 16, 0}, 0, NULL, NULL, NULL, false},
+	{&AdjustmentScreenLogoEntity, 	{   0,   -2,  0, 0}, 0, NULL, NULL, NULL, false},
+	{&AdjustmentScreenIconLEntity, 	{ 184,  104,  0, 0}, 0, NULL, NULL, NULL, false},
+	{&AdjustmentScreenIconREntity, 	{ 184, -104,  0, 0}, 0, NULL, NULL, NULL, false},
+#endif
+
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
 };
 
@@ -227,7 +236,7 @@ StageROMSpec AdjustmentScreenStage =
 			// maximum view distance's power into the horizon
 			__MAXIMUM_X_VIEW_DISTANCE, __MAXIMUM_Y_VIEW_DISTANCE,
 			// distance of the eyes to the screen
-			__CAMERA_NEAR_PLANE,
+			0,
 			// distance from left to right eye (depth sensation)
 			__BASE_FACTOR,
 			// horizontal view point center

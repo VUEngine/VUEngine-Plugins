@@ -30,15 +30,15 @@ extern EntitySpec LowPowerIndicatorEntity;
 
 PositionedEntityROMSpec LanguageSelectionScreenStageEntities[] =
 {
-#ifdef __LANGUAGE_SELECTION_SCREEN_USE_LOW_POWER_ENTITY
-	{&LowPowerIndicatorEntity, 	{__LOW_POWER_ENTITY_X_POSITION, __LOW_POWER_ENTITY_Y_POSITION, __LOW_POWER_ENTITY_Z_POSITION, __LOW_POWER_ENTITY_Z_DISPLACEMENT}, 0, NULL, NULL, NULL, false},
-#endif
-
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
 };
 
 PositionedEntityROMSpec LanguageSelectionScreenStageUiEntities[] =
 {
+#ifdef __LANGUAGE_SELECTION_SCREEN_USE_LOW_POWER_ENTITY
+	{&LowPowerIndicatorEntity, 	{__LOW_POWER_ENTITY_X_POSITION, __LOW_POWER_ENTITY_Y_POSITION, __LOW_POWER_ENTITY_Z_POSITION, __LOW_POWER_ENTITY_Z_DISPLACEMENT}, 0, NULL, NULL, NULL, false},
+#endif
+
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
 };
 
@@ -209,7 +209,7 @@ StageROMSpec LanguageSelectionScreenStage =
 			// maximum view distance's power into the horizon
 			__MAXIMUM_X_VIEW_DISTANCE, __MAXIMUM_Y_VIEW_DISTANCE,
 			// distance of the eyes to the screen
-			__CAMERA_NEAR_PLANE,
+			0,
 			// distance from left to right eye (depth sensation)
 			__BASE_FACTOR,
 			// horizontal view point center

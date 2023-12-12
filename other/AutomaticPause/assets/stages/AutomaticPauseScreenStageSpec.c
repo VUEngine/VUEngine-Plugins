@@ -32,17 +32,21 @@ extern EntitySpec LowPowerIndicatorEntity;
 
 PositionedEntityROMSpec AutomaticPauseScreenStageEntities[] =
 {
-	{&AutomaticPauseLogoEntity, 	{200, 72, 0, 0}, 0, NULL, NULL, NULL, false},
-
-#if __AUTOMATIC_PAUSE_SCREEN_USE_LOW_POWER_ENTITY
-	{&LowPowerIndicatorEntity, 	{__LOW_POWER_ENTITY_X_POSITION, __LOW_POWER_ENTITY_Y_POSITION, __LOW_POWER_ENTITY_Z_POSITION, __LOW_POWER_ENTITY_Z_DISPLACEMENT}, 0, NULL, NULL, NULL, false},
-#endif
-
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
 };
 
 PositionedEntityROMSpec AutomaticPauseScreenStageUiEntities[] =
 {
+#if __AUTOMATIC_PAUSE_SCREEN_USE_LOW_POWER_ENTITY
+	{&LowPowerIndicatorEntity, 	{__LOW_POWER_ENTITY_X_POSITION, __LOW_POWER_ENTITY_Y_POSITION, __LOW_POWER_ENTITY_Z_POSITION, __LOW_POWER_ENTITY_Z_DISPLACEMENT}, 0, NULL, NULL, NULL, false},
+#endif
+
+#ifdef __LEGACY_COORDINATE_PROJECTION
+	{&AutomaticPauseLogoEntity, 	{200,  72, 0, 0}, 0, NULL, NULL, NULL, false},
+#else
+	{&AutomaticPauseLogoEntity, 	{  8, -40, 0, 0}, 0, NULL, NULL, NULL, false},
+#endif
+
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
 };
 
@@ -213,7 +217,7 @@ StageROMSpec AutomaticPauseScreenStage =
 			// maximum view distance's power into the horizon
 			__MAXIMUM_X_VIEW_DISTANCE, __MAXIMUM_Y_VIEW_DISTANCE,
 			// distance of the eyes to the screen
-			__CAMERA_NEAR_PLANE,
+			0,
 			// distance from left to right eye (depth sensation)
 			__BASE_FACTOR,
 			// horizontal view point center
