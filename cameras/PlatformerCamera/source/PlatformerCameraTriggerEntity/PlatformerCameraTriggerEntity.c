@@ -15,7 +15,7 @@
 #include <PlatformerCameraTriggerEntity.h>
 #include <CollisionManager.h>
 #include <Optics.h>
-#include <Shape.h>
+#include <Collider.h>
 #include <Camera.h>
 #include <InverseBox.h>
 #include <PlatformerLevelState.h>
@@ -78,9 +78,9 @@ void PlatformerCameraTriggerEntity::transform(const Transformation* environmentT
 		this->transformation.globalPosition.y = currentGlobalPosition.y;
 	}
 
-	Entity::transformShapes(this);
+	Entity::transformColliders(this);
 
-//	Entity::showShapes(this);
+//	Entity::showColliders(this);
 }
 
 void PlatformerCameraTriggerEntity::update()
@@ -157,7 +157,7 @@ Vector3DFlag PlatformerCameraTriggerEntity::getOverridePositionFlag()
 // process collisions
 bool PlatformerCameraTriggerEntity::enterCollision(const CollisionInformation* collisionInformation)
 {
-	ASSERT(collisionInformation->collidingShape, "PlatformerCameraTriggerEntity::enterCollision: null collidingObjects");
+	ASSERT(collisionInformation->otherCollider, "PlatformerCameraTriggerEntity::enterCollision: null collidingObjects");
 
 #define CAMERA_BOUNDING_BOX_DISPLACEMENT	{__PIXELS_TO_METERS(0), __PIXELS_TO_METERS(-24/16), __PIXELS_TO_METERS(0)}
 

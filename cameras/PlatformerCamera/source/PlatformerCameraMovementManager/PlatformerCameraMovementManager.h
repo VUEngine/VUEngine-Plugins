@@ -50,7 +50,7 @@ singleton class PlatformerCameraMovementManager : CameraMovementManager
 	bool (*previousFocusFunction)(void*, Camera, bool, uint32);
 	PlatformerCameraTriggerEntitySpec platformerCameraTriggerEntitySpec;
 	Vector3D boundingBoxDisplacement;
-	ShapeSpec platformerCameraTriggerEntityShapesSpec[2];
+	ColliderSpec platformerCameraTriggerEntityCollidersSpec[2];
 	Entity cameraTrigger;
 
 	// declare a PlatformerCameraMovementManager

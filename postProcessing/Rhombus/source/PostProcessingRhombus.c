@@ -28,7 +28,7 @@
 //---------------------------------------------------------------------------------------------------------
 
 /**
- * Helper function used by the rhombus emitter effect that prints a rhombus shape to the frame buffer
+ * Helper function used by the rhombus emitter effect that prints a rhombus collider to the frame buffer
  *
  * @param radius
  * @param color

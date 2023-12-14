@@ -298,9 +298,9 @@ void PlatformerCameraMovementManager::lockMovement(uint8 axisToLockUp, bool lock
 
 void PlatformerCameraMovementManager::configure(Entity focusEntity, uint32 focusEntityLayer, uint32 cameraTriggerLayer, PixelSize boundingBoxSize, Vector3D boundingBoxDisplacement, Vector3D screenDisplacement)
 {
-	this->platformerCameraTriggerEntityShapesSpec[0] = (ShapeSpec)
+	this->platformerCameraTriggerEntityCollidersSpec[0] = (ColliderSpec)
 	{
-		// shape
+		// collider
 		__TYPE(InverseBox),
 
 		// size (x, y, z)
@@ -315,7 +315,7 @@ void PlatformerCameraMovementManager::configure(Entity focusEntity, uint32 focus
 		// scale (x, y, z)
 		{0, 0, 0},
 
-		/// if true this shape checks for collisions against other shapes
+		/// if true this collider checks for collisions against other shapes
 		true,
 
 		/// layers in which I live
@@ -325,7 +325,7 @@ void PlatformerCameraMovementManager::configure(Entity focusEntity, uint32 focus
 		~(focusEntityLayer),
 	};
 
-	this->platformerCameraTriggerEntityShapesSpec[1] = (ShapeSpec) {NULL, {0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0}, {0, 0, 0}, false, kLayerNone, kLayerNone};
+	this->platformerCameraTriggerEntityCollidersSpec[1] = (ColliderSpec) {NULL, {0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0}, {0, 0, 0}, false, kLayerNone, kLayerNone};
 
 	this->platformerCameraTriggerEntitySpec = (PlatformerCameraTriggerEntitySpec)
 	{
@@ -351,7 +351,7 @@ void PlatformerCameraMovementManager::configure(Entity focusEntity, uint32 focus
 		(WireframeSpec**)NULL,
 
 		// collision shapes
-		(ShapeSpec*)this->platformerCameraTriggerEntityShapesSpec,
+		(ColliderSpec*)this->platformerCameraTriggerEntityCollidersSpec,
 
 		// size
 		// if 0, width and height will be inferred from the first sprite's texture's size
