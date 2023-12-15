@@ -12,19 +12,23 @@
 //												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
-#include <string.h>
+#include <AutomaticPauseSelectionScreenState.h>
 
-#include <VUEngine.h>
+#include <AutomaticPauseManager.h>
 #include <Camera.h>
+#include <CameraEffectManager.h>
+#include <DirectDraw.h>
+#include <I18n.h>
+#include <KeypadManager.h>
+#include <Languages.h>
+#include <LowPowerManager.h>
 #include <Printing.h>
 #include <MessageDispatcher.h>
-#include <AutomaticPauseSelectionScreenState.h>
-#include <KeypadManager.h>
-#include <SoundManager.h>
-#include <I18n.h>
-#include <Languages.h>
-#include <AutomaticPauseManager.h>
 #include <SaveDataManager.h>
+#include <SoundManager.h>
+#include <VUEngine.h>
+
+#include <string.h>
 
 
 //---------------------------------------------------------------------------------------------------------

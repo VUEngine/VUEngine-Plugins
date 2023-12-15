@@ -13,6 +13,7 @@
 //---------------------------------------------------------------------------------------------------------
 
 #include <LowPowerEntity.h>
+
 #include <Events.h>
 #include <KeypadManager.h>
 #include <VUEngine.h>

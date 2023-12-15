@@ -12,10 +12,11 @@
 //												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
-#include <VUEngine.h>
+#include <SplashScreenState.h>
+
 #include <Camera.h>
 #include <CameraEffectManager.h>
-#include <SplashScreenState.h>
+#include <VUEngine.h>
 
 
 //---------------------------------------------------------------------------------------------------------

@@ -13,16 +13,15 @@
 //---------------------------------------------------------------------------------------------------------
 
 #include <PostProcessingTilt.h>
+
+#include <Camera.h>
+#include <Container.h>
+#include <DirectDraw.h>
+#include <Entity.h>
 #include <Optics.h>
 #include <Utilities.h>
-#include <DirectDraw.h>
-#include <VUEngine.h>
-#include <Container.h>
-#include <Entity.h>
 #include <VIPManager.h>
-#include <Camera.h>
-
-//#include "config.h"
+#include <VUEngine.h>
 
 //---------------------------------------------------------------------------------------------------------
 //												FUNCTIONS

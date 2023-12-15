@@ -13,6 +13,7 @@
 //---------------------------------------------------------------------------------------------------------
 
 #include <AutomaticPauseScreenState.h>
+
 #include <AutomaticPauseManager.h>
 #include <StateMachine.h>
 #include <VUEngine.h>

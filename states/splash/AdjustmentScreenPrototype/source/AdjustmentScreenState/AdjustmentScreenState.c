@@ -12,13 +12,14 @@
 //												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
-#include <VUEngine.h>
+#include <AdjustmentScreenState.h>
+
 #include <Camera.h>
 #include <CameraEffectManager.h>
-#include <MessageDispatcher.h>
-#include <AdjustmentScreenState.h>
 #include <DirectDraw.h>
 #include <LowPowerManager.h>
+#include <MessageDispatcher.h>
+#include <VUEngine.h>
 
 
 //---------------------------------------------------------------------------------------------------------

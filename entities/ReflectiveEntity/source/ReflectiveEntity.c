@@ -13,11 +13,12 @@
 //---------------------------------------------------------------------------------------------------------
 
 #include <ReflectiveEntity.h>
-#include <VUEngine.h>
-#include <Optics.h>
+
 #include <Camera.h>
-#include <Utilities.h>
 #include <DirectDraw.h>
+#include <Optics.h>
+#include <Utilities.h>
+#include <VUEngine.h>
 
 
 //---------------------------------------------------------------------------------------------------------
