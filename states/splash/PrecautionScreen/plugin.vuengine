@@ -34,45 +34,5 @@
 			"vuengine//other/I18n",
 			"vuengine//states/splash/SplashScreen"
 		]
-	},
-	"items": {
-        "Translations": {
-            "9Gz5SO9qNUiJG8DQ": {
-                "languages": [
-                    {
-                        "code": "en",
-                        "flag": "",
-                        "localizedName": "English",
-                        "name": "English"
-                    },
-                    {
-                        "code": "de",
-                        "flag": "",
-                        "localizedName": "Deutsch",
-                        "name": "German"
-                    },
-                    {
-                        "code": "es",
-                        "flag": "",
-                        "localizedName": "Español",
-                        "name": "Spanish"
-                    },
-                    {
-                        "code": "fr",
-                        "flag": "",
-                        "localizedName": "Français",
-                        "name": "French"
-                    }
-                ],
-                "translations": {
-                    "PrecautionScreenBody": {
-                        "de": "        WICHTIG\nBITTE LESEN SIE VOR DEM\n SPIELEN DIE ANLEITUNG\nUND SICHERHEITSHINWEISE",
-                        "en": "     IMPORTANT\nREAD INSTRUCTION AND\nPRECAUTION BOOKLETS\n  BEFORE OPERATING",
-                        "es": "         IMPORTANTE\n     LEE LOS LIBROS DE\nINSTRUCCIONES Y PRECAUCIONES\n       ANTES DE JUGAR",
-                        "fr": "        IMPORTANT\nPRENEZ CONAISSANCE DE LA\nNOTICE ET DES PRÉCAUTIONS\n    A AVANT DE JOUER"
-                    }
-                }
-            }
-		}
 	}
 }

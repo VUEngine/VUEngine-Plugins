@@ -1,0 +1,42 @@
+{
+	"languages": [
+		{
+			"code": "en",
+			"flag": "",
+			"localizedName": "English",
+			"name": "English"
+		},
+		{
+			"code": "de",
+			"flag": "",
+			"localizedName": "Deutsch",
+			"name": "German"
+		},
+		{
+			"code": "es",
+			"flag": "",
+			"localizedName": "Español",
+			"name": "Spanish"
+		},
+		{
+			"code": "fr",
+			"flag": "",
+			"localizedName": "Français",
+			"name": "French"
+		}
+	],
+	"translations": {
+		"AutomaticPauseTitle": {
+			"en": "AUTOMATIC PAUSE",
+			"de": "AUTOMATISCHE PAUSE",
+			"es": "PAUSA AUTOMÁTICA",
+			"fr": "PAUSE AUTOMATIQUE"
+		},
+		"AutomaticPauseBody": {
+			"en": "Please take a rest!",
+			"de": "Bitte mache eine Pause!",
+			"es": "¡Por favor, tómese un descanso!",
+			"fr": "Se il vous plaît, prendre un repos!"
+		}
+	}
+}
