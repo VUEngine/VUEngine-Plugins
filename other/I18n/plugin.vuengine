@@ -31,7 +31,7 @@
 		},
 		"Languages.h": {
 			"targets": [{
-				"path": "source/assets/Languages.h",
+				"path": "headers/Languages.h",
 				"root": "project"
 			}],
 			"template": "templates/Languages.h.nj",
