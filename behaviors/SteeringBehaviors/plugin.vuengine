@@ -2,6 +2,7 @@
  	"folders": [{
 		"path": "."
 	}],
+	"name": "Plugin: behaviors/SteeringBehaviors",
 	"plugin": {
 		"displayName": {
 			"en": "Steering Behaviors",

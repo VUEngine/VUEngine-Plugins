@@ -2,6 +2,7 @@
 	"folders": [{
 		"path": "."
 	}],
+	"name": "Plugin: other/I18n",
 	"plugin": {
 		"displayName": "I18n",
 		"author": "Team VUEngine",

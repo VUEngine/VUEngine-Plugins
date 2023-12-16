@@ -2,6 +2,7 @@
 	"folders": [{
 		"path": "."
 	}],
+	"name": "Plugin: states/splash/AdjustmentScreenNintendo",
 	"plugin": {
 		"displayName": {
 			"en": "Adjustment Screen (Nintendo)",

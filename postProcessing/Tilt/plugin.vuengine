@@ -2,6 +2,7 @@
 	"folders": [{
 		"path": "."
 	}],
+	"name": "Plugin: postProcessing/Tilt",
 	"plugin": {
 		"displayName": {
 			"en": "Tilt Effect",

@@ -2,6 +2,7 @@
  	"folders": [{
 		"path": "."
 	}],
+	"name": "Plugin: entities/LocalizedEntity",
 	"plugin": {
 		"displayName": {
 			"en": "Localized Entity",

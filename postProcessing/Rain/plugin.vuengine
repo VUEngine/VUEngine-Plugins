@@ -2,6 +2,7 @@
 	"folders": [{
 		"path": "."
 	}],
+	"name": "Plugin: postProcessing/Rain",
 	"plugin": {
 		"displayName": {
 			"en": "Rain Effect",

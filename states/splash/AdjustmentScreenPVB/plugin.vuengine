@@ -2,6 +2,7 @@
 	"folders": [{
 		"path": "."
 	}],
+	"name": "Plugin: states/splash/AdjustmentScreenPVB",
 	"plugin": {
 		"displayName": {
 			"en": "Adjustment Screen (Planet VB)",

@@ -2,6 +2,7 @@
 	"folders": [{
 		"path": "."
 	}],
+	"name": "Plugin: states/splash/SplashScreen",
 	"plugin": {
 		"displayName": {
 			"en": "Splash Screen",

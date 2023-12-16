@@ -2,6 +2,7 @@
 	"folders": [{
 		"path": "."
 	}],
+	"name": "Plugin: fonts/BulkyFont",
 	"plugin": {
 		"displayName": {
 			"en": "Bulky Font",

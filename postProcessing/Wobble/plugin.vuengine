@@ -2,6 +2,7 @@
 	"folders": [{
 		"path": "."
 	}],
+	"name": "Plugin: postProcessing/Wobble",
 	"plugin": {
 		"displayName": {
 			"en": "Wobble Effect",

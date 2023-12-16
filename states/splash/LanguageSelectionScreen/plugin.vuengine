@@ -2,6 +2,7 @@
 	"folders": [{
 		"path": "."
 	}],
+	"name": "Plugin: states/splash/LanguageSelectionScreen",
 	"plugin": {
 		"displayName": {
 			"en": "Language Selection Screen",

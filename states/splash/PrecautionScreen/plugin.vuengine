@@ -2,6 +2,7 @@
 	"folders": [{
 		"path": "."
 	}],
+	"name": "Plugin: states/splash/PrecautionScreen",
 	"plugin": {
 		"displayName": {
 			"en": "Precaution Screen",

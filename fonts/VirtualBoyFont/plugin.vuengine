@@ -2,6 +2,7 @@
 	"folders": [{
 		"path": "."
 	}],
+	"name": "Plugin: fonts/VirtualBoyFont",
 	"plugin": {
 		"displayName": {
 			"en": "Virtual Boy Font",
@@ -24,33 +25,5 @@
 			}
 		],
 		"dependencies": []
-	},
-	"items": {
-		"Font": {
-            "0aBBDNoWWtsrP77d": {
-				"name": "VirtualBoy",
-				"tiles": "VirtualBoyFontTiles",
-				"type": "bgmap",
-				"offset": 32,
-				"characterCount": 96,
-				"charactersPerLine": 16,
-				"size": {
-					"x": 2,
-					"y": 3
-				}
-            },
-            "Kkd9VO32CKm9bohV": {
-				"name": "VirtualBoyExt",
-				"tiles": "VirtualBoyFontTiles",
-				"type": "bgmap",
-				"offset": 32,
-				"characterCount": 224,
-				"charactersPerLine": 16,
-				"size": {
-					"x": 2,
-					"y": 3
-				}
-            }
-        }
 	}
 }

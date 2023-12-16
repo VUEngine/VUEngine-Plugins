@@ -2,6 +2,7 @@
 	"folders": [{
 		"path": "."
 	}],
+	"name": "Plugin: fonts/AstonishFont",
 	"plugin": {
 		"displayName": {
 			"en": "Astonish Font",
@@ -24,57 +25,5 @@
 			}
 		],
 		"dependencies": []
-	},
-	"items": {
-		"Font": {
-            "vTjHBFoSIHDIFmth": {
-				"name": "Astonish",
-				"tiles": "AstonishFontTiles",
-				"type": "bgmap",
-				"offset": 0,
-				"characterCount": 128,
-				"charactersPerLine": 32,
-				"size": {
-					"x": 1,
-					"y": 2
-				}
-            },
-            "uD51jMt1T4oJvSF0": {
-				"name": "AstonishExt",
-				"tiles": "AstonishFontTiles",
-				"type": "bgmap",
-				"offset": 0,
-				"characterCount": 256,
-				"charactersPerLine": 32,
-				"size": {
-					"x": 1,
-					"y": 2
-				}
-            },
-            "bQUVMbOkRlZowwkc": {
-				"name": "AstonishS",
-				"tiles": "AstonishFontShadowTiles",
-				"type": "bgmap",
-				"offset": 0,
-				"characterCount": 128,
-				"charactersPerLine": 32,
-				"size": {
-					"x": 1,
-					"y": 2
-				}
-            },
-            "f7UxZrBP7IPmQgjh": {
-				"name": "AstonishSExt",
-				"tiles": "AstonishFontShadowTiles",
-				"type": "bgmap",
-				"offset": 0,
-				"characterCount": 256,
-				"charactersPerLine": 32,
-				"size": {
-					"x": 1,
-					"y": 2
-				}
-            }
-        }
 	}
 }

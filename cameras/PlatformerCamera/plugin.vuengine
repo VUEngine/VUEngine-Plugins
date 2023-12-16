@@ -2,6 +2,7 @@
  	"folders": [{
 		"path": "."
 	}],
+	"name": "Plugin: cameras/PlatformerCamera",
 	"plugin": {
 		"displayName": {
 			"en": "Platformer Camera",

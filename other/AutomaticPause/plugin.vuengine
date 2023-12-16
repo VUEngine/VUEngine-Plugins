@@ -2,6 +2,7 @@
 	"folders": [{
 		"path": "."
 	}],
+	"name": "Plugin: other/AutomaticPause",
 	"plugin": {
 		"displayName": {
 			"en": "Automatic Pause",

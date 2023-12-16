@@ -2,6 +2,7 @@
 	"folders": [{
 		"path": "."
 	}],
+	"name": "Plugin: states/splash/AutomaticPauseSelectionScreen",
 	"plugin": {
 		"displayName": {
 			"en": "Automatic Pause Selection Screen",

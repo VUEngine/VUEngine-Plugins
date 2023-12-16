@@ -2,6 +2,7 @@
 	"folders": [{
 		"path": "."
 	}],
+	"name": "Plugin: postProcessing/Test",
 	"plugin": {
 		"displayName": {
 			"en": "Test Effect",

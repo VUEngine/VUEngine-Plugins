@@ -2,6 +2,7 @@
  	"folders": [{
 		"path": "."
 	}],
+	"name": "Plugin: entities/LowPowerEntity",
 	"plugin": {
 		"displayName": {
 			"en": "Low Power Entity",

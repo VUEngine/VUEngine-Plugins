@@ -2,6 +2,7 @@
 	"folders": [{
 		"path": "."
 	}],
+	"name": "Plugin: postProcessing/DwarfPlanet",
 	"plugin": {
 		"displayName": {
 			"en": "Dwarf Planet Effect",
