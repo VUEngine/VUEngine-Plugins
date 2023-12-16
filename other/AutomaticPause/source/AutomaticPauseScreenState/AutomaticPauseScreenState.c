@@ -13,6 +13,7 @@
 //---------------------------------------------------------------------------------------------------------
 
 #include <AutomaticPauseScreenState.h>
+
 #include <Camera.h>
 #include <CameraEffectManager.h>
 #include <I18n.h>
@@ -21,6 +22,7 @@
 #include <Printing.h>
 #include <PhysicalWorld.h>
 #include <VUEngine.h>
+
 #include <string.h>
 
 

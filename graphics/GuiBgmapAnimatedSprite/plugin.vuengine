@@ -2,6 +2,7 @@
 	"folders": [{
 		"path": "."
 	}],
+	"name": "Plugin: graphics/GuiBgmapAnimatedSprite",
 	"plugin": {
 		"displayName": "GuiBgmapAnimatedSprite",
 		"author": "Team VUEngine",

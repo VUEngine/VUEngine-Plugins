@@ -2,6 +2,7 @@
  	"folders": [{
 		"path": "."
 	}],
+	"name": "Plugin: entities/ReflectiveEntity",
 	"plugin": {
 		"displayName": {
 			"en": "Reflective Entity",

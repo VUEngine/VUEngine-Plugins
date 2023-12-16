@@ -2,6 +2,7 @@
 	"folders": [{
 		"path": "."
 	}],
+	"name": "Plugin: states/splash/AdjustmentScreenVUEngine",
 	"plugin": {
 		"displayName": {
 			"en": "Adjustment Screen (VUEngine)",

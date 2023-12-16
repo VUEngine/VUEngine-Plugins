@@ -2,6 +2,7 @@
 	"folders": [{
 		"path": "."
 	}],
+	"name": "Plugin: other/I18n",
 	"plugin": {
 		"displayName": "I18n",
 		"author": "Team VUEngine",
@@ -18,32 +19,31 @@
 		"dependencies": []
 	},
 	"templates": {
-		"LanguageSpecs.c": {
-			"target": "assets/Translations/LanguageSpecs.c",
-			"template": "templates/LanguageSpecs.c.nj",
-			"encoding": "win1252"
-		},
 		"Languages.c": {
-			"target": "assets/Translations/Languages.c",
+			"targets": [{
+				"path": "assets/Languages.c",
+				"root": "project"
+			}],
 			"template": "templates/Languages.c.nj",
-			"events": [
-				{
-					"type": "installedPluginsChanged"
-				}
-			]
+			"encoding": "win1252",
+			"events": [{
+				"type": "installedPluginsChanged"
+			}]
 		},
 		"Languages.h": {
-			"target": "source/assets/Languages.h",
+			"targets": [{
+				"path": "headers/Languages.h",
+				"root": "project"
+			}],
 			"template": "templates/Languages.h.nj",
-			"events": [
-				{
-					"type": "installedPluginsChanged"
-				}
-			]
+			"events": [{
+				"type": "installedPluginsChanged"
+			}]
 		}
 	},
 	"types": {
 		"Translations": {
+			"file": "Translations",
 			"schema": {
 				"title": "Translations",
 				"properties": {
@@ -86,11 +86,8 @@
                 "type": "TranslationsEditor",
                 "scope": "#"
             },
-			"multiple": false,
-			"category": "Assets",
 			"icon": "fa fa-language",
 			"templates": [
-				"LanguageSpecs.c",
 				"Languages.c",
 				"Languages.h"
 			]

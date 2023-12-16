@@ -2,6 +2,7 @@
 	"folders": [{
 		"path": "."
 	}],
+	"name": "Plugin: postProcessing/Lantern",
 	"plugin": {
 		"displayName": {
 			"en": "Lantern Effect",

@@ -2,6 +2,7 @@
 	"folders": [{
 		"path": "."
 	}],
+	"name": "Plugin: fonts/PompousFont",
 	"plugin": {
 		"displayName": {
 			"en": "Pompous Font",
@@ -24,57 +25,5 @@
 			}
 		],
 		"dependencies": []
-	},
-	"items": {
-		"Font": {
-            "iT6lsZjJmfPvvyul": {
-				"name": "Pompous",
-				"tiles": "PompousFontTiles",
-				"type": "bgmap",
-				"offset": 0,
-				"characterCount": 128,
-				"charactersPerLine": 32,
-				"size": {
-					"x": 1,
-					"y": 2
-				}
-            },
-            "6e5PbhtDScX2MQav": {
-				"name": "PompousExt",
-				"tiles": "PompousFontTiles",
-				"type": "bgmap",
-				"offset": 0,
-				"characterCount": 256,
-				"charactersPerLine": 32,
-				"size": {
-					"x": 1,
-					"y": 2
-				}
-            },
-            "a2kyMAkAJeT7YBwt": {
-				"name": "PompousS",
-				"tiles": "PompousFontShadowTiles",
-				"type": "bgmap",
-				"offset": 0,
-				"characterCount": 128,
-				"charactersPerLine": 32,
-				"size": {
-					"x": 1,
-					"y": 2
-				}
-            },
-            "dD5RyKFTXr5315QS": {
-				"name": "PompousSExt",
-				"tiles": "PompousFontShadowTiles",
-				"type": "bgmap",
-				"offset": 0,
-				"characterCount": 256,
-				"charactersPerLine": 32,
-				"size": {
-					"x": 1,
-					"y": 2
-				}
-            }
-        }
 	}
 }

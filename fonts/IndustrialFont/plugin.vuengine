@@ -2,6 +2,7 @@
 	"folders": [{
 		"path": "."
 	}],
+	"name": "Plugin: fonts/IndustrialFont",
 	"plugin": {
 		"displayName": {
 			"en": "Industrial Font",
@@ -24,33 +25,5 @@
 			}
 		],
 		"dependencies": []
-	},
-	"items": {
-		"Font": {
-            "LgyD7l7HfwVhGvDW": {
-				"name": "Industrial",
-				"tiles": "IndustrialFontTiles",
-				"type": "bgmap",
-				"offset": 0,
-				"characterCount": 128,
-				"charactersPerLine": 32,
-				"size": {
-					"x": 1,
-					"y": 1
-				}
-            },
-            "3LMrPSiEjKIleTRz": {
-				"name": "IndustrialExt",
-				"tiles": "IndustrialFontTiles",
-				"type": "bgmap",
-				"offset": 0,
-				"characterCount": 256,
-				"charactersPerLine": 32,
-				"size": {
-					"x": 1,
-					"y": 1
-				}
-            }
-        }
 	}
 }

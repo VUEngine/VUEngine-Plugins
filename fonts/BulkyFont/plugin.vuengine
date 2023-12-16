@@ -2,6 +2,7 @@
 	"folders": [{
 		"path": "."
 	}],
+	"name": "Plugin: fonts/BulkyFont",
 	"plugin": {
 		"displayName": {
 			"en": "Bulky Font",
@@ -24,33 +25,5 @@
 			}
 		],
 		"dependencies": []
-	},
-	"items": {
-		"Font": {
-            "SDrpAajYWN9971YL": {
-				"name": "Bulky",
-				"tiles": "BulkyFontTiles",
-				"type": "bgmap",
-				"offset": 32,
-				"characterCount": 64,
-				"charactersPerLine": 16,
-				"size": {
-					"x": 2,
-					"y": 2
-				}
-            },
-            "jVJi4if5VaTr0c4J": {
-				"name": "BulkyS",
-				"tiles": "BulkyFontShadowTiles",
-				"type": "bgmap",
-				"offset": 32,
-				"characterCount": 64,
-				"charactersPerLine": 16,
-				"size": {
-					"x": 2,
-					"y": 2
-				}
-            }
-        }
 	}
 }

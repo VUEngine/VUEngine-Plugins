@@ -2,6 +2,7 @@
 	"folders": [{
 		"path": "."
 	}],
+	"name": "Plugin: other/LowPowerIndicator",
 	"plugin": {
 		"displayName": {
 			"en": "Low Power Indicator",

@@ -2,6 +2,7 @@
 	"folders": [{
 		"path": "."
 	}],
+	"name": "Plugin: states/splash/AdjustmentScreenPrototype",
 	"plugin": {
 		"displayName": {
 			"en": "Adjustment Screen (Prototype)",

@@ -2,6 +2,7 @@
 	"folders": [{
 		"path": "."
 	}],
+	"name": "Plugin: graphics/Shader",
 	"plugin": {
 		"displayName": "Shader",
 		"author": "Team VUEngine",
