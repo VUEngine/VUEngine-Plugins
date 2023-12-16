@@ -12,7 +12,6 @@
 //												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
-#include <GameEvents.h>
 #include <PlatformerCameraMovementManager.h>
 #include <Optics.h>
 #include <Camera.h>
