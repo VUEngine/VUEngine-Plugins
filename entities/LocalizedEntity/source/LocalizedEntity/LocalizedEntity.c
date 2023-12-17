@@ -15,7 +15,6 @@
 #include <VUEngine.h>
 #include <I18n.h>
 #include <Utilities.h>
-#include <GameEvents.h>
 #include "LocalizedEntity.h"
 
 
