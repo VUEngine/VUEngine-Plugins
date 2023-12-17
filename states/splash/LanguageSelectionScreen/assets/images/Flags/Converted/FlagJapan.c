@@ -1,18 +1,18 @@
 //---------------------------------------------------------------------------------------------------------
 //
 //  FlagJapan
-//  • 40×32 pixels
-//  • 5 tiles, reduced by non-unique and flipped tiles, not compressed
-//  • 5×4 map, not compressed
+//  * 5 tiles, reduced by non-unique and flipped tiles, not compressed
+//  * 5x4 map, not compressed
 //  Size: 84 + 40 = 124
 //
 //---------------------------------------------------------------------------------------------------------
 
 const uint32 FlagJapanTiles[21] __attribute__((aligned(4))) =
 {
-    0x00000000,0x00000000,0x55540000,0xFFF4FFF4,0xFFF4FFF4,0x00000000,0x55550000,0xFFFFFFFF,
-    0xFFFFFFFF,0xFFF4FFF4,0xFFF4FFF4,0xFFF4FFF4,0xFFF4FFF4,0xFFFFFFFF,0xFFFFFFFF,0xFFFFFFFF,
-    0xBFFFBFFF,0xFFFFFFFF,0xFAAFFFFF,0xAAAAAAAA,0xAAAAAAAA,
+    0x00000000,
+    0x00000000,0x55540000,0xFFF4FFF4,0xFFF4FFF4,0x00000000,0x55550000,0xFFFFFFFF,0xFFFFFFFF,
+    0xFFF4FFF4,0xFFF4FFF4,0xFFF4FFF4,0xFFF4FFF4,0xFFFFFFFF,0xFFFFFFFF,0xFFFFFFFF,0xBFFFBFFF,
+    0xFFFFFFFF,0xFAAFFFFF,0xAAAAAAAA,0xAAAAAAAA,
 };
 
 const uint16 FlagJapanMap[20] __attribute__((aligned(4))) =

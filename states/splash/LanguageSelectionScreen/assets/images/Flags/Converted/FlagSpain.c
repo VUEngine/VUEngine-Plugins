@@ -1,18 +1,17 @@
 //---------------------------------------------------------------------------------------------------------
 //
 //  FlagSpain
-//  • 40×32 pixels
-//  • 4 tiles, reduced by non-unique and flipped tiles, not compressed
-//  • 5×4 map, not compressed
+//  * 4 tiles, reduced by non-unique and flipped tiles, not compressed
+//  * 5x4 map, not compressed
 //  Size: 68 + 40 = 108
 //
 //---------------------------------------------------------------------------------------------------------
 
 const uint32 FlagSpainTiles[17] __attribute__((aligned(4))) =
 {
-    0x00000000,0x00000000,0x55540000,0xAAA4AAA4,0xAAA4AAA4,0x00000000,0x55550000,0xAAAAAAAA,
-    0xAAAAAAAA,0xAAA4AAA4,0xFFF4FFF4,0xFFF4FFF4,0xFFF4FFF4,0xAAAAAAAA,0xFFFFFFFF,0xFFFFFFFF,
-    0xFFFFFFFF,
+    0x00000000,
+    0x00000000,0x55540000,0xAAA4AAA4,0xAAA4AAA4,0x00000000,0x55550000,0xAAAAAAAA,0xAAAAAAAA,
+    0xAAA4AAA4,0xFFF4FFF4,0xFFF4FFF4,0xFFF4FFF4,0xAAAAAAAA,0xFFFFFFFF,0xFFFFFFFF,0xFFFFFFFF,
 };
 
 const uint16 FlagSpainMap[20] __attribute__((aligned(4))) =

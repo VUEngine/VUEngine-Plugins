@@ -1,0 +1,25 @@
+{
+    "_id": "y1yO7254KZeViHlk",
+    "animation": {
+        "frames": 4,
+        "individualFiles": false,
+        "isAnimation": true
+    },
+    "files": [
+        "entities/LowPowerEntity/assets/images/LowPowerIndicator/LowPowerIndicator.png"
+    ],
+    "map": {
+        "compression": "none",
+        "generate": true,
+        "reduce": {
+            "flipped": false,
+            "unique": false
+        }
+    },
+    "name": "Low Power Indicator",
+    "section": "rom",
+    "tileset": {
+        "compression": "none",
+        "shared": false
+    }
+}

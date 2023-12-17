@@ -1,17 +1,16 @@
 //---------------------------------------------------------------------------------------------------------
 //
 //  AdjustmentScreenBG
-//  • 96×96 pixels
-//  • 2 tiles, reduced by non-unique and flipped tiles, not compressed
-//  • 12×12 map, not compressed
+//  * 2 tiles, reduced by non-unique and flipped tiles, not compressed
+//  * 12x12 map, not compressed
 //  Size: 36 + 288 = 324
 //
 //---------------------------------------------------------------------------------------------------------
 
 const uint32 AdjustmentScreenBGTiles[9] __attribute__((aligned(4))) =
 {
-    0x00000000,0x00003333,0x00003333,0x00003333,0x00003333,0x00002222,0x00002222,0x00002222,
-    0x00002222,
+    0x00000000,
+    0x00003333,0x00003333,0x00003333,0x00003333,0x00002222,0x00002222,0x00002222,0x00002222,
 };
 
 const uint16 AdjustmentScreenBGMap[144] __attribute__((aligned(4))) =

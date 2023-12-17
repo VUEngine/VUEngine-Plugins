@@ -1,19 +1,18 @@
 //---------------------------------------------------------------------------------------------------------
 //
 //  FlagSweden
-//  • 40×32 pixels
-//  • 6 tiles, reduced by non-unique and flipped tiles, not compressed
-//  • 5×4 map, not compressed
+//  * 6 tiles, reduced by non-unique and flipped tiles, not compressed
+//  * 5x4 map, not compressed
 //  Size: 100 + 40 = 140
 //
 //---------------------------------------------------------------------------------------------------------
 
 const uint32 FlagSwedenTiles[25] __attribute__((aligned(4))) =
 {
-    0x00000000,0x00000000,0x55540000,0x55545554,0x55545554,0x00000000,0x55550000,0xA555A555,
-    0xA555A555,0x00000000,0x55550000,0x55555555,0x55555555,0x55545554,0x55545554,0x55545554,
-    0xAAA4AAA4,0xA555A555,0xA555A555,0xA555A555,0xAAAAAAAA,0x55555555,0x55555555,0x55555555,
-    0xAAAAAAAA,
+    0x00000000,
+    0x00000000,0x55540000,0x55545554,0x55545554,0x00000000,0x55550000,0xA555A555,0xA555A555,
+    0x00000000,0x55550000,0x55555555,0x55555555,0x55545554,0x55545554,0x55545554,0xAAA4AAA4,
+    0xA555A555,0xA555A555,0xA555A555,0xAAAAAAAA,0x55555555,0x55555555,0x55555555,0xAAAAAAAA,
 };
 
 const uint16 FlagSwedenMap[20] __attribute__((aligned(4))) =

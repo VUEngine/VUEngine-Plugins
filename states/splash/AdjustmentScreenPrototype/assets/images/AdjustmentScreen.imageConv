@@ -1,0 +1,27 @@
+{
+    "_id": "YACds2hvIsAZ9a6W",
+    "animation": {
+        "frames": 0,
+        "individualFiles": false,
+        "isAnimation": false
+    },
+    "files": [
+        "states/splash/AdjustmentScreenPrototype/assets/images/AdjustmentScreenBG.png",
+        "states/splash/AdjustmentScreenPrototype/assets/images/AdjustmentScreenIcon.png",
+        "states/splash/AdjustmentScreenPrototype/assets/images/AdjustmentScreenLogo.png"
+    ],
+    "map": {
+        "compression": "none",
+        "generate": true,
+        "reduce": {
+            "flipped": true,
+            "unique": true
+        }
+    },
+    "name": "Adjustment Screen",
+    "section": "rom",
+    "tileset": {
+        "compression": "none",
+        "shared": false
+    }
+}
