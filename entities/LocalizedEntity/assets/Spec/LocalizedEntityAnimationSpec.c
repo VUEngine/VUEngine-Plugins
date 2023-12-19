@@ -19,7 +19,7 @@
 //												DEFINITIONS
 //---------------------------------------------------------------------------------------------------------
 
-AnimationFunctionROMSpec LocalizedEntity0Animation =
+AnimationFunctionROMSpec LocalizedEntity0Animations =
 {
 	// number of frames of this animation function
 	1,
@@ -43,7 +43,7 @@ AnimationFunctionROMSpec LocalizedEntity0Animation =
 };
 
 
-AnimationFunctionROMSpec LocalizedEntity1Animation =
+AnimationFunctionROMSpec LocalizedEntity1Animations =
 {
 	// number of frames of this animation function
 	1,
@@ -67,7 +67,7 @@ AnimationFunctionROMSpec LocalizedEntity1Animation =
 };
 
 
-AnimationFunctionROMSpec LocalizedEntity2Animation =
+AnimationFunctionROMSpec LocalizedEntity2Animations =
 {
 	// number of frames of this animation function
 	1,
@@ -91,7 +91,7 @@ AnimationFunctionROMSpec LocalizedEntity2Animation =
 };
 
 
-AnimationFunctionROMSpec LocalizedEntity3Animation =
+AnimationFunctionROMSpec LocalizedEntity3Animations =
 {
 	// number of frames of this animation function
 	1,
@@ -115,7 +115,7 @@ AnimationFunctionROMSpec LocalizedEntity3Animation =
 };
 
 
-AnimationFunctionROMSpec LocalizedEntity4Animation =
+AnimationFunctionROMSpec LocalizedEntity4Animations =
 {
 	// number of frames of this animation function
 	1,
@@ -139,7 +139,7 @@ AnimationFunctionROMSpec LocalizedEntity4Animation =
 };
 
 
-AnimationFunctionROMSpec LocalizedEntity5Animation =
+AnimationFunctionROMSpec LocalizedEntity5Animations =
 {
 	// number of frames of this animation function
 	1,
@@ -163,7 +163,7 @@ AnimationFunctionROMSpec LocalizedEntity5Animation =
 };
 
 
-AnimationFunctionROMSpec LocalizedEntity6Animation =
+AnimationFunctionROMSpec LocalizedEntity6Animations =
 {
 	// number of frames of this animation function
 	1,
@@ -187,7 +187,7 @@ AnimationFunctionROMSpec LocalizedEntity6Animation =
 };
 
 
-AnimationFunctionROMSpec LocalizedEntity7Animation =
+AnimationFunctionROMSpec LocalizedEntity7Animations =
 {
 	// number of frames of this animation function
 	1,
@@ -211,7 +211,7 @@ AnimationFunctionROMSpec LocalizedEntity7Animation =
 };
 
 
-AnimationFunctionROMSpec LocalizedEntity8Animation =
+AnimationFunctionROMSpec LocalizedEntity8Animations =
 {
 	// number of frames of this animation function
 	1,
@@ -235,7 +235,7 @@ AnimationFunctionROMSpec LocalizedEntity8Animation =
 };
 
 
-AnimationFunctionROMSpec LocalizedEntity9Animation =
+AnimationFunctionROMSpec LocalizedEntity9Animations =
 {
 	// number of frames of this animation function
 	1,
@@ -259,7 +259,7 @@ AnimationFunctionROMSpec LocalizedEntity9Animation =
 };
 
 
-AnimationFunctionROMSpec LocalizedEntity10Animation =
+AnimationFunctionROMSpec LocalizedEntity10Animations =
 {
 	// number of frames of this animation function
 	1,
@@ -283,7 +283,7 @@ AnimationFunctionROMSpec LocalizedEntity10Animation =
 };
 
 
-AnimationFunctionROMSpec LocalizedEntity11Animation =
+AnimationFunctionROMSpec LocalizedEntity11Animations =
 {
 	// number of frames of this animation function
 	1,
@@ -307,7 +307,7 @@ AnimationFunctionROMSpec LocalizedEntity11Animation =
 };
 
 
-AnimationFunctionROMSpec LocalizedEntity12Animation =
+AnimationFunctionROMSpec LocalizedEntity12Animations =
 {
 	// number of frames of this animation function
 	1,
@@ -331,7 +331,7 @@ AnimationFunctionROMSpec LocalizedEntity12Animation =
 };
 
 
-AnimationFunctionROMSpec LocalizedEntity13Animation =
+AnimationFunctionROMSpec LocalizedEntity13Animations =
 {
 	// number of frames of this animation function
 	1,
@@ -355,7 +355,7 @@ AnimationFunctionROMSpec LocalizedEntity13Animation =
 };
 
 
-AnimationFunctionROMSpec LocalizedEntity14Animation =
+AnimationFunctionROMSpec LocalizedEntity14Animations =
 {
 	// number of frames of this animation function
 	1,
@@ -379,7 +379,7 @@ AnimationFunctionROMSpec LocalizedEntity14Animation =
 };
 
 
-AnimationFunctionROMSpec LocalizedEntity15Animation =
+AnimationFunctionROMSpec LocalizedEntity15Animations =
 {
 	// number of frames of this animation function
 	1,
@@ -403,38 +403,38 @@ AnimationFunctionROMSpec LocalizedEntity15Animation =
 };
 
 // an animation spec
-AnimationFunctionROMSpec* const LocalizedEntityAnimations[] =
+AnimationFunctionROMSpec* const LocalizedEntityAnimationSpecs[] =
 {
-	&LocalizedEntity0Animation,
+	&LocalizedEntity0Animations,
 	
-	&LocalizedEntity1Animation,
+	&LocalizedEntity1Animations,
 		
-	&LocalizedEntity2Animation,
+	&LocalizedEntity2Animations,
 		
-	&LocalizedEntity3Animation,
+	&LocalizedEntity3Animations,
 		
-	&LocalizedEntity4Animation,
+	&LocalizedEntity4Animations,
 		
-	&LocalizedEntity5Animation,
+	&LocalizedEntity5Animations,
 		
-	&LocalizedEntity6Animation,
+	&LocalizedEntity6Animations,
 		
-	&LocalizedEntity7Animation,
+	&LocalizedEntity7Animations,
 		
-	&LocalizedEntity8Animation,
+	&LocalizedEntity8Animations,
 		
-	&LocalizedEntity9Animation,
+	&LocalizedEntity9Animations,
 		
-	&LocalizedEntity10Animation,
+	&LocalizedEntity10Animations,
 		
-	&LocalizedEntity11Animation,
+	&LocalizedEntity11Animations,
 		
-	&LocalizedEntity12Animation,
+	&LocalizedEntity12Animations,
 		
-	&LocalizedEntity13Animation,
+	&LocalizedEntity13Animations,
 		
-	&LocalizedEntity14Animation,
+	&LocalizedEntity14Animations,
 		
-	&LocalizedEntity15Animation,
+	&LocalizedEntity15Animations,
 		NULL,
 };

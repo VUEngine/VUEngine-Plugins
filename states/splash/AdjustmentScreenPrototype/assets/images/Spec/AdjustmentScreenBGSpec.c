@@ -114,7 +114,7 @@ BgmapSpriteROMSpec* const AdjustmentScreenBgSprites[] =
 	NULL
 };
 
-EntityROMSpec AdjustmentScreenBgEntity =
+EntityROMSpec AdjustmentScreenBgEntitySpec =
 {
 	// class allocator
 	__TYPE(Entity),

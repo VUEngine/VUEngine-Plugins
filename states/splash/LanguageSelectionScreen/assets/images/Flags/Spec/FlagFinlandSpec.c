@@ -114,7 +114,7 @@ BgmapSpriteROMSpec* const FlagFinlandSprites[] =
 	NULL
 };
 
-EntityROMSpec FlagFinlandEntity =
+EntityROMSpec FlagFinlandEntitySpec =
 {
 	// class allocator
 	__TYPE(Entity),

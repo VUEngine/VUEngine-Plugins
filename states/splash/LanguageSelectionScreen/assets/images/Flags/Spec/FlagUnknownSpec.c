@@ -114,7 +114,7 @@ BgmapSpriteROMSpec* const FlagUnknownSprites[] =
 	NULL
 };
 
-EntityROMSpec FlagUnknownEntity =
+EntityROMSpec FlagUnknownEntitySpec =
 {
 	// class allocator
 	__TYPE(Entity),

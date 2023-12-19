@@ -114,7 +114,7 @@ BgmapSpriteROMSpec* const FlagCzechRepublicSprites[] =
 	NULL
 };
 
-EntityROMSpec FlagCzechRepublicEntity =
+EntityROMSpec FlagCzechRepublicEntitySpec =
 {
 	// class allocator
 	__TYPE(Entity),

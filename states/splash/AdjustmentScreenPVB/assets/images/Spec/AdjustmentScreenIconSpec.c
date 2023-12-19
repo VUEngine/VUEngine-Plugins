@@ -147,7 +147,7 @@ BgmapSpriteROMSpec* const AdjustmentScreenIconRSprites[] =
 
 };
 
-EntityROMSpec AdjustmentScreenIconLEntity =
+EntityROMSpec AdjustmentScreenIconLEntitySpec =
 {
 	// class allocator
 	__TYPE(Entity),
@@ -184,7 +184,7 @@ EntityROMSpec AdjustmentScreenIconLEntity =
 	(PhysicalProperties*)NULL,
 };
 
-EntityROMSpec AdjustmentScreenIconREntity =
+EntityROMSpec AdjustmentScreenIconREntitySpec =
 {
 	// class allocator
 	__TYPE(Entity),

@@ -20,10 +20,10 @@
 //											DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern EntitySpec AdjustmentScreenBgEntity;
-extern EntitySpec AdjustmentScreenIconLEntity;
-extern EntitySpec AdjustmentScreenIconREntity;
-extern EntitySpec AdjustmentScreenLogoEntity;
+extern EntitySpec AdjustmentScreenBgEntitySpec;
+extern EntitySpec AdjustmentScreenIconLEntitySpec;
+extern EntitySpec AdjustmentScreenIconREntitySpec;
+extern EntitySpec AdjustmentScreenLogoEntitySpec;
 
 #ifdef __ADJUSTMENT_SCREEN_USE_LOW_POWER_ENTITY
 extern EntitySpec LowPowerIndicatorEntitySpec;
@@ -46,19 +46,19 @@ PositionedEntityROMSpec AdjustmentScreenStageUiEntities[] =
 #endif
 
 #ifdef __LEGACY_COORDINATE_PROJECTION
-	{&AdjustmentScreenIconLEntity, 	{  12,   12,  0, 0}, 0, NULL, NULL, NULL, false},
-	{&AdjustmentScreenIconREntity, 	{  12,  212,  0, 0}, 0, NULL, NULL, NULL, false},
-	{&AdjustmentScreenBgEntity, 	{ 192,  112, 16, 0}, 0, NULL, NULL, NULL, false},
-	{&AdjustmentScreenLogoEntity, 	{ 192,  112,  0, 0}, 0, NULL, NULL, NULL, false},
-	{&AdjustmentScreenIconLEntity, 	{ 372,  212,  0, 0}, 0, NULL, NULL, NULL, false},
-	{&AdjustmentScreenIconREntity, 	{ 372,   12,  0, 0}, 0, NULL, NULL, NULL, false},
+	{&AdjustmentScreenIconLEntitySpec, 	{  12,   12,  0, 0}, 0, NULL, NULL, NULL, false},
+	{&AdjustmentScreenIconREntitySpec, 	{  12,  212,  0, 0}, 0, NULL, NULL, NULL, false},
+	{&AdjustmentScreenBgEntitySpec, 	{ 192,  112, 16, 0}, 0, NULL, NULL, NULL, false},
+	{&AdjustmentScreenLogoEntitySpec, 	{ 192,  112,  0, 0}, 0, NULL, NULL, NULL, false},
+	{&AdjustmentScreenIconLEntitySpec, 	{ 372,  212,  0, 0}, 0, NULL, NULL, NULL, false},
+	{&AdjustmentScreenIconREntitySpec, 	{ 372,   12,  0, 0}, 0, NULL, NULL, NULL, false},
 #else
-	{&AdjustmentScreenIconLEntity, 	{-180, -100,  0, 0}, 0, NULL, NULL, NULL, false},
-	{&AdjustmentScreenIconREntity, 	{-180,  100,  0, 0}, 0, NULL, NULL, NULL, false},
-	{&AdjustmentScreenBgEntity, 	{   0,    0, 16, 0}, 0, NULL, NULL, NULL, false},
-	{&AdjustmentScreenLogoEntity, 	{   0,    0,  0, 0}, 0, NULL, NULL, NULL, false},
-	{&AdjustmentScreenIconLEntity, 	{ 180,  100,  0, 0}, 0, NULL, NULL, NULL, false},
-	{&AdjustmentScreenIconREntity, 	{ 180, -100,  0, 0}, 0, NULL, NULL, NULL, false},
+	{&AdjustmentScreenIconLEntitySpec, 	{-180, -100,  0, 0}, 0, NULL, NULL, NULL, false},
+	{&AdjustmentScreenIconREntitySpec, 	{-180,  100,  0, 0}, 0, NULL, NULL, NULL, false},
+	{&AdjustmentScreenBgEntitySpec, 	{   0,    0, 16, 0}, 0, NULL, NULL, NULL, false},
+	{&AdjustmentScreenLogoEntitySpec, 	{   0,    0,  0, 0}, 0, NULL, NULL, NULL, false},
+	{&AdjustmentScreenIconLEntitySpec, 	{ 180,  100,  0, 0}, 0, NULL, NULL, NULL, false},
+	{&AdjustmentScreenIconREntitySpec, 	{ 180, -100,  0, 0}, 0, NULL, NULL, NULL, false},
 #endif
 
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},

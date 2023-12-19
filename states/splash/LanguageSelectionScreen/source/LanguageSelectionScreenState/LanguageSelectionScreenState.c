@@ -33,8 +33,8 @@
 
 extern StageROMSpec LanguageSelectionScreenStage;
 extern LangROMSpec* _languages[];
-extern EntitySpec FlagCursorEntity;
-extern EntitySpec FlagUnknownEntity;
+extern EntitySpec FlagCursorEntitySpec;
+extern EntitySpec FlagUnknownEntitySpec;
 extern Sound LangConfirmSound;
 extern Sound LangSelectSound;
 
@@ -131,13 +131,13 @@ void LanguageSelectionScreenState::enter(void* owner)
 		// add flags to stage
 		this->flagsTotalHalfWidth = ((LanguageSelectionScreenState::getNumLangs(this) - 1) * (__LANGUAGE_SELECTION_SCREEN_IMAGE_WIDTH)) >> 1;
 		uint8 i = 0;
-		this->flagCursorEntity = LanguageSelectionScreenState::addFlagToStage(this, &FlagCursorEntity, 0);
+		this->flagCursorEntity = LanguageSelectionScreenState::addFlagToStage(this, &FlagCursorEntitySpec, 0);
 		for(i = 0; _languages[i]; i++)
 		{
 			// add flag
 			EntitySpec* entitySpec = (_languages[i]->entitySpec != NULL)
 				? _languages[i]->entitySpec
-				: &FlagUnknownEntity;
+				: &FlagUnknownEntitySpec;
 			LanguageSelectionScreenState::addFlagToStage(this, entitySpec, i);
 		}
 

@@ -113,7 +113,7 @@ BgmapSpriteROMSpec* const AutomaticPauseLogoSprites[] =
 	NULL
 };
 
-EntityROMSpec AutomaticPauseLogoEntity =
+EntityROMSpec AutomaticPauseLogoEntitySpec =
 {
 	// class allocator
 	__TYPE(Entity),

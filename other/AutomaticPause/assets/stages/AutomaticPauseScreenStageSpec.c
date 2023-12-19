@@ -19,7 +19,7 @@
 //											DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern EntitySpec AutomaticPauseLogoEntity;
+extern EntitySpec AutomaticPauseLogoEntitySpec;
 
 #if __AUTOMATIC_PAUSE_SCREEN_USE_LOW_POWER_ENTITY
 extern EntitySpec LowPowerIndicatorEntitySpec;
@@ -42,9 +42,9 @@ PositionedEntityROMSpec AutomaticPauseScreenStageUiEntities[] =
 #endif
 
 #ifdef __LEGACY_COORDINATE_PROJECTION
-	{&AutomaticPauseLogoEntity, 	{200,  72, 0, 0}, 0, NULL, NULL, NULL, false},
+	{&AutomaticPauseLogoEntitySpec, 	{200,  72, 0, 0}, 0, NULL, NULL, NULL, false},
 #else
-	{&AutomaticPauseLogoEntity, 	{  8, -40, 0, 0}, 0, NULL, NULL, NULL, false},
+	{&AutomaticPauseLogoEntitySpec, 	{  8, -40, 0, 0}, 0, NULL, NULL, NULL, false},
 #endif
 
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
