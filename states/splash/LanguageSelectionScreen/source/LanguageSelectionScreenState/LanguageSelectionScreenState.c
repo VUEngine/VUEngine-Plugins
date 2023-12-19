@@ -12,7 +12,7 @@
 //												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
-#include <LanguageSelectionScreenState.h>
+#include <string.h>
 
 #include <Camera.h>
 #include <I18n.h>
@@ -24,7 +24,7 @@
 #include <SoundManager.h>
 #include <VUEngine.h>
 
-#include <string.h>
+#include "LanguageSelectionScreenState.h"
 
 
 //---------------------------------------------------------------------------------------------------------

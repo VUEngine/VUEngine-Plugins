@@ -12,7 +12,7 @@
 //												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
-#include <AutomaticPauseScreenState.h>
+#include <string.h>
 
 #include <Camera.h>
 #include <CameraEffectManager.h>
@@ -23,7 +23,7 @@
 #include <PhysicalWorld.h>
 #include <VUEngine.h>
 
-#include <string.h>
+#include "AutomaticPauseScreenState.h"
 
 
 //---------------------------------------------------------------------------------------------------------

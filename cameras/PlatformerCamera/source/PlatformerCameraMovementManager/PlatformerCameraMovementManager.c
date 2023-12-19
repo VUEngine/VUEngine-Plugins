@@ -12,7 +12,6 @@
 //												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
-#include <PlatformerCameraMovementManager.h>
 #include <Optics.h>
 #include <Camera.h>
 #include <MessageDispatcher.h>
@@ -22,6 +21,8 @@
 #include <InverseBox.h>
 #include <EventManager.h>
 #include <Utilities.h>
+
+#include "PlatformerCameraMovementManager.h"
 
 
 //---------------------------------------------------------------------------------------------------------

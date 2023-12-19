@@ -12,10 +12,11 @@
 //												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
-#include <BrakeSteeringBehavior.h>
 #include <Vehicle.h>
 #include <VirtualList.h>
 #include <DebugUtilities.h>
+
+#include "BrakeSteeringBehavior.h"
 
 
 //---------------------------------------------------------------------------------------------------------

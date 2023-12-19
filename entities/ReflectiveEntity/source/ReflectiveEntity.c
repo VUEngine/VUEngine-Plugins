@@ -12,13 +12,13 @@
 //												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
-#include <ReflectiveEntity.h>
-
 #include <Camera.h>
 #include <DirectDraw.h>
 #include <Optics.h>
 #include <Utilities.h>
 #include <VUEngine.h>
+
+#include "ReflectiveEntity.h"
 
 
 //---------------------------------------------------------------------------------------------------------

@@ -12,12 +12,13 @@
 //												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
-#include <LowPowerManager.h>
 #include <KeypadManager.h>
 #include <Printing.h>
 #include <VirtualList.h>
 #include <VirtualNode.h>
 #include <VUEngine.h>
+
+#include "LowPowerManager.h"
 
 
 //---------------------------------------------------------------------------------------------------------

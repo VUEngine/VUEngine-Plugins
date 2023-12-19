@@ -12,15 +12,16 @@
 //												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
-#include <PostProcessingRhombus.h>
-#include <Optics.h>
-#include <Utilities.h>
+#include <Camera.h>
 #include <DirectDraw.h>
-#include <VUEngine.h>
 #include <Container.h>
 #include <Entity.h>
+#include <Optics.h>
+#include <Utilities.h>
 #include <VIPManager.h>
-#include <Camera.h>
+#include <VUEngine.h>
+
+#include "PostProcessingRhombus.h"
 
 
 //---------------------------------------------------------------------------------------------------------

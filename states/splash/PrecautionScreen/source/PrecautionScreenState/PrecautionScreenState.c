@@ -12,8 +12,6 @@
 //												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
-#include <PrecautionScreenState.h>
-
 #include <Camera.h>
 #include <I18n.h>
 #include <KeypadManager.h>
@@ -24,6 +22,8 @@
 #include <SoundManager.h>
 #include <Telegram.h>
 #include <VUEngine.h>
+
+#include "PrecautionScreenState.h"
 
 
 //---------------------------------------------------------------------------------------------------------

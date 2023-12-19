@@ -12,17 +12,18 @@
 //												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
-#include <PostProcessingRain.h>
-#include <Optics.h>
-#include <Clock.h>
-#include <GameState.h>
-#include <Utilities.h>
-#include <DirectDraw.h>
-#include <VUEngine.h>
-#include <Container.h>
-#include <Entity.h>
-#include <VIPManager.h>
 #include <Camera.h>
+#include <Clock.h>
+#include <Container.h>
+#include <DirectDraw.h>
+#include <Entity.h>
+#include <GameState.h>
+#include <Optics.h>
+#include <Utilities.h>
+#include <VIPManager.h>
+#include <VUEngine.h>
+
+#include "PostProcessingRain.h"
 
 
 //---------------------------------------------------------------------------------------------------------

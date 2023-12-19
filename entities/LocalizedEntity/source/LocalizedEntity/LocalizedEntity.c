@@ -12,9 +12,10 @@
 //												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
-#include <VUEngine.h>
 #include <I18n.h>
 #include <Utilities.h>
+#include <VUEngine.h>
+
 #include "LocalizedEntity.h"
 
 

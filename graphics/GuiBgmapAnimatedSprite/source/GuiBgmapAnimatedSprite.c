@@ -12,12 +12,13 @@
 //												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
-#include <GuiBgmapAnimatedSprite.h>
-
 #include <BgmapTexture.h>
+#include <DebugUtilities.h>
 #include <VIPManager.h>
 #include <VirtualList.h>
 #include <VirtualNode.h>
+
+#include "GuiBgmapAnimatedSprite.h"
 
 
 //---------------------------------------------------------------------------------------------------------
