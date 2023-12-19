@@ -26,7 +26,7 @@ extern EntitySpec AdjustmentScreenIconREntity;
 extern EntitySpec AdjustmentScreenLogoEntity;
 
 #ifdef __ADJUSTMENT_SCREEN_USE_LOW_POWER_ENTITY
-extern EntitySpec LowPowerIndicatorEntity;
+extern EntitySpec LowPowerIndicatorEntitySpec;
 #endif
 
 
@@ -42,7 +42,7 @@ PositionedEntityROMSpec AdjustmentScreenStageEntities[] =
 PositionedEntityROMSpec AdjustmentScreenStageUiEntities[] =
 {
 #ifdef __ADJUSTMENT_SCREEN_USE_LOW_POWER_ENTITY
-	{&LowPowerIndicatorEntity, 	{__ADJUSTMENT_SCREEN_LOW_POWER_ENTITY_X_POSITION, __ADJUSTMENT_SCREEN_LOW_POWER_ENTITY_Y_POSITION, __ADJUSTMENT_SCREEN_LOW_POWER_ENTITY_Z_POSITION, __ADJUSTMENT_SCREEN_LOW_POWER_ENTITY_Z_DISPLACEMENT}, 0, NULL, NULL, NULL, false},
+	{&LowPowerIndicatorEntitySpec, 	{__ADJUSTMENT_SCREEN_LOW_POWER_ENTITY_X_POSITION, __ADJUSTMENT_SCREEN_LOW_POWER_ENTITY_Y_POSITION, __ADJUSTMENT_SCREEN_LOW_POWER_ENTITY_Z_POSITION, __ADJUSTMENT_SCREEN_LOW_POWER_ENTITY_Z_DISPLACEMENT}, 0, NULL, NULL, NULL, false},
 #endif
 
 #ifdef __LEGACY_COORDINATE_PROJECTION

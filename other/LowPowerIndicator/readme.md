@@ -1,6 +1,6 @@
 Shows a flashing low power indicator on screen when the system power is low.
 
-Uses the printing layer to do so. If you can spare the extra World, you can instead use the `vuengine//entities/LowPowerIndicatorEntity` plugin, which uses an Entity.
+Uses the printing layer to do so. If you can spare the extra World, you can instead use the `vuengine//entities/LowPowerIndicatorEntitySpec` plugin, which uses an Entity.
 
 ![](https://raw.githubusercontent.com/VUEngine/VUEngine-Plugins/master/other/LowPowerIndicator/preview.png)
 

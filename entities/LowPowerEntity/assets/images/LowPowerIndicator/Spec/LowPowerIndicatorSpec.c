@@ -34,7 +34,7 @@ extern uint16 LowPowerIndicatorMap[];
 //												DEFINITIONS
 //---------------------------------------------------------------------------------------------------------
 
-AnimationFunctionROMSpec LowPowerIndicatorHideAnimation =
+AnimationFunctionROMSpec LowPowerIndicatorHideAnimationSpec =
 {
 	// number of frames of this animation function
 	1,
@@ -57,7 +57,7 @@ AnimationFunctionROMSpec LowPowerIndicatorHideAnimation =
 	"Hide",
 };
 
-AnimationFunctionROMSpec LowPowerIndicatorFlashAnimation =
+AnimationFunctionROMSpec LowPowerIndicatorFlashAnimationSpec =
 {
 	// number of frames of this animation function
 	12,
@@ -80,14 +80,14 @@ AnimationFunctionROMSpec LowPowerIndicatorFlashAnimation =
 	"Flash",
 };
 
-AnimationFunctionROMSpec* const LowPowerIndicatorAnimations[] =
+AnimationFunctionROMSpec* const LowPowerIndicatorAnimationSpecs[] =
 {
-	&LowPowerIndicatorHideAnimation,
-	&LowPowerIndicatorFlashAnimation,
+	&LowPowerIndicatorHideAnimationSpec,
+	&LowPowerIndicatorFlashAnimationSpec,
 	NULL,
 };
 
-CharSetROMSpec LowPowerIndicatorCharset =
+CharSetROMSpec LowPowerIndicatorCharsetSpec =
 {
 	// number of chars in function of the number of frames to load at the same time
 
@@ -106,10 +106,10 @@ CharSetROMSpec LowPowerIndicatorCharset =
 	NULL
 };
 
-TextureROMSpec LowPowerIndicatorTexture =
+TextureROMSpec LowPowerIndicatorTextureSpec =
 {
 	// charset spec
-	(CharSetSpec*)&LowPowerIndicatorCharset,
+	(CharSetSpec*)&LowPowerIndicatorCharsetSpec,
 
 	// bgmap spec
 	LowPowerIndicatorMap,
@@ -139,7 +139,7 @@ TextureROMSpec LowPowerIndicatorTexture =
 	false,
 };
 
-BgmapSpriteROMSpec LowPowerIndicatorSprite =
+BgmapSpriteROMSpec LowPowerIndicatorSpriteSpec =
 {
 	{
 		// sprite's type
@@ -150,7 +150,7 @@ BgmapSpriteROMSpec LowPowerIndicatorSprite =
 #endif
 
 		// texture spec
-		(TextureSpec*)&LowPowerIndicatorTexture,
+		(TextureSpec*)&LowPowerIndicatorTextureSpec,
 
 		// transparent (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
@@ -170,13 +170,13 @@ BgmapSpriteROMSpec LowPowerIndicatorSprite =
 	__WORLD_ON,
 };
 
-BgmapSpriteROMSpec* const LowPowerIndicatorSprites[] =
+BgmapSpriteROMSpec* const LowPowerIndicatorSpriteSpecs[] =
 {
-	&LowPowerIndicatorSprite,
+	&LowPowerIndicatorSpriteSpec,
 	NULL
 };
 
-LowPowerEntityROMSpec LowPowerIndicatorEntity =
+LowPowerEntityROMSpec LowPowerIndicatorEntitySpec =
 {
 	{
 		// class allocator
@@ -192,7 +192,7 @@ LowPowerEntityROMSpec LowPowerIndicatorEntity =
 		NULL,
 
 		// sprites
-		(SpriteSpec**)LowPowerIndicatorSprites,
+		(SpriteSpec**)LowPowerIndicatorSpriteSpecs,
 
 		// use z displacement in projection
 		false,
@@ -215,7 +215,7 @@ LowPowerEntityROMSpec LowPowerIndicatorEntity =
 	},
 
 	// pointer to the animation spec for the item
-	(const AnimationFunction**)LowPowerIndicatorAnimations,
+	(const AnimationFunction**)LowPowerIndicatorAnimationSpecs,
 
 	// initial animation
 	"Hide",
