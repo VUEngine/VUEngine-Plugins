@@ -1,13 +1,10 @@
 {
-    "images": [
-        "."
-    ],
+    "files": [],
     "name": "",
     "section": "rom",
     "tileset": {
         "shared": false,
-        "reduce": true,
-        "compress": false
+        "compression": "none"
     },
     "map": {
         "generate": true,
@@ -15,12 +12,12 @@
             "flipped": true,
             "unique": true
         },
-        "compress": false
+        "compression": "none"
     },
     "animation": {
         "isAnimation": false,
         "individualFiles": false,
-        "frameWidth": 0,
-        "frameHeight": 0
-    }
+        "frames": 0
+    },
+    "_id": "Mga6pDrgVWegLsoU"
 }

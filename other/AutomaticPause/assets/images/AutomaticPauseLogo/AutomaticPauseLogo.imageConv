@@ -1,0 +1,25 @@
+{
+    "_id": "f9jPGOUcOsh0XoDY",
+    "animation": {
+        "frames": 0,
+        "individualFiles": false,
+        "isAnimation": false
+    },
+    "files": [
+        "other/AutomaticPause/assets/images/AutomaticPauseLogo/AutomaticPauseLogo.png"
+    ],
+    "map": {
+        "compression": "none",
+        "generate": true,
+        "reduce": {
+            "flipped": true,
+            "unique": true
+        }
+    },
+    "name": "Automatic Pause Logo",
+    "section": "rom",
+    "tileset": {
+        "compression": "none",
+        "shared": false
+    }
+}

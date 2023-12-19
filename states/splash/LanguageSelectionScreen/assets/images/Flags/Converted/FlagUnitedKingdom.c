@@ -1,21 +1,20 @@
 //---------------------------------------------------------------------------------------------------------
 //
 //  FlagUnitedKingdom
-//  • 40×32 pixels
-//  • 10 tiles, reduced by non-unique and flipped tiles, not compressed
-//  • 5×4 map, not compressed
+//  * 10 tiles, reduced by non-unique and flipped tiles, not compressed
+//  * 5x4 map, not compressed
 //  Size: 164 + 40 = 204
 //
 //---------------------------------------------------------------------------------------------------------
 
 const uint32 FlagUnitedKingdomTiles[41] __attribute__((aligned(4))) =
 {
-    0x00000000,0x00000000,0x55540000,0x7FB45FF4,0xEF54FAD4,0x00000000,0x55550000,0x55555555,
-    0x555F5557,0x00000000,0x55550000,0x7AAD7AAD,0x7AAD7AAD,0x00000000,0x55550000,0x55555555,
-    0xB555D555,0x00000000,0x15550000,0x1FAD1FF5,0x15FE17FB,0xD554B554,0x55545554,0xFFF45554,
-    0xAAA4AAA4,0x57FB55FE,0xFEF57FAD,0xFFFFEB55,0xAAAAAAAA,0x7AAD7AAD,0x7AAD7AAD,0xFAAFFAAF,
-    0xAAAAAAAA,0xFAD5EF55,0x5FEB7FBD,0xFFFF55FE,0xAAAAAAAA,0x1557155F,0x15551555,0x1FFF1555,
-    0x1AAA1AAA,
+    0x00000000,
+    0x00000000,0x55540000,0x7FB45FF4,0xEF54FAD4,0x00000000,0x55550000,0x55555555,0x555F5557,
+    0x00000000,0x55550000,0x7AAD7AAD,0x7AAD7AAD,0x00000000,0x55550000,0x55555555,0xB555D555,
+    0x00000000,0x15550000,0x1FAD1FF5,0x15FE17FB,0xD554B554,0x55545554,0xFFF45554,0xAAA4AAA4,
+    0x57FB55FE,0xFEF57FAD,0xFFFFEB55,0xAAAAAAAA,0x7AAD7AAD,0x7AAD7AAD,0xFAAFFAAF,0xAAAAAAAA,
+    0xFAD5EF55,0x5FEB7FBD,0xFFFF55FE,0xAAAAAAAA,0x1557155F,0x15551555,0x1FFF1555,0x1AAA1AAA,
 };
 
 const uint16 FlagUnitedKingdomMap[20] __attribute__((aligned(4))) =

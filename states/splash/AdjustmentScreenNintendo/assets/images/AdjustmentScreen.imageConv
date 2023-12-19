@@ -1,0 +1,27 @@
+{
+    "_id": "BgRvaWoRMNA1g5KM",
+    "animation": {
+        "frames": 0,
+        "individualFiles": false,
+        "isAnimation": false
+    },
+    "files": [
+        "states/splash/AdjustmentScreenNintendo/assets/images/AdjustmentScreenBG.png",
+        "states/splash/AdjustmentScreenNintendo/assets/images/AdjustmentScreenIcon.png",
+        "states/splash/AdjustmentScreenNintendo/assets/images/AdjustmentScreenLogo.png"
+    ],
+    "map": {
+        "compression": "none",
+        "generate": true,
+        "reduce": {
+            "flipped": true,
+            "unique": true
+        }
+    },
+    "name": "Adjustment Screen",
+    "section": "rom",
+    "tileset": {
+        "compression": "none",
+        "shared": false
+    }
+}

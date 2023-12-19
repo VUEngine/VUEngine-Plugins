@@ -1,19 +1,18 @@
 //---------------------------------------------------------------------------------------------------------
 //
 //  FlagFinland
-//  • 40×32 pixels
-//  • 6 tiles, reduced by non-unique and flipped tiles, not compressed
-//  • 5×4 map, not compressed
+//  * 6 tiles, reduced by non-unique and flipped tiles, not compressed
+//  * 5x4 map, not compressed
 //  Size: 100 + 40 = 140
 //
 //---------------------------------------------------------------------------------------------------------
 
 const uint32 FlagFinlandTiles[25] __attribute__((aligned(4))) =
 {
-    0x00000000,0x00000000,0x55540000,0xFFF4FFF4,0xFFF4FFF4,0x00000000,0x55550000,0x57FF57FF,
-    0x57FF57FF,0x00000000,0x55550000,0xFFFFFFFF,0xFFFFFFFF,0xFFF4FFF4,0xFFF4FFF4,0x5554FFF4,
-    0x55545554,0x57FF57FF,0x57FF57FF,0x555557FF,0x55555555,0xFFFFFFFF,0xFFFFFFFF,0x5555FFFF,
-    0x55555555,
+    0x00000000,
+    0x00000000,0x55540000,0xFFF4FFF4,0xFFF4FFF4,0x00000000,0x55550000,0x57FF57FF,0x57FF57FF,
+    0x00000000,0x55550000,0xFFFFFFFF,0xFFFFFFFF,0xFFF4FFF4,0xFFF4FFF4,0x5554FFF4,0x55545554,
+    0x57FF57FF,0x57FF57FF,0x555557FF,0x55555555,0xFFFFFFFF,0xFFFFFFFF,0x5555FFFF,0x55555555,
 };
 
 const uint16 FlagFinlandMap[20] __attribute__((aligned(4))) =

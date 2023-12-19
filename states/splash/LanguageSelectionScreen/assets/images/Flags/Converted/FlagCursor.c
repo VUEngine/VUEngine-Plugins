@@ -1,18 +1,17 @@
 //---------------------------------------------------------------------------------------------------------
 //
 //  FlagCursor
-//  • 40×32 pixels
-//  • 4 tiles, reduced by non-unique and flipped tiles, not compressed
-//  • 5×4 map, not compressed
+//  * 4 tiles, reduced by non-unique and flipped tiles, not compressed
+//  * 5x4 map, not compressed
 //  Size: 68 + 40 = 108
 //
 //---------------------------------------------------------------------------------------------------------
 
 const uint32 FlagCursorTiles[17] __attribute__((aligned(4))) =
 {
-    0x00000000,0x00000000,0x00000000,0x00000000,0x00000000,0x00000000,0x0003FFFF,0x00030003,
-    0x00030003,0x00000000,0x0000FFFF,0x00000000,0x00000000,0x00030003,0x00030003,0x00030003,
-    0x00030003,
+    0x00000000,
+    0x00000000,0x00000000,0x00000000,0x00000000,0x00000000,0x0003FFFF,0x00030003,0x00030003,
+    0x00000000,0x0000FFFF,0x00000000,0x00000000,0x00030003,0x00030003,0x00030003,0x00030003,
 };
 
 const uint16 FlagCursorMap[20] __attribute__((aligned(4))) =
