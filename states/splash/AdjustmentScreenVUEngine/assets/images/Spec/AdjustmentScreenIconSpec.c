@@ -81,7 +81,7 @@ TextureROMSpec AdjustmentScreenIconTexture =
 	false,
 };
 
-BgmapSpriteROMSpec AdjustmentScreenIconLSprite =
+BgmapSpriteROMSpec AdjustmentScreenIconLSpriteSpec =
 {
 	{
 		// sprite's type
@@ -108,13 +108,13 @@ BgmapSpriteROMSpec AdjustmentScreenIconLSprite =
 	__WORLD_LON,
 };
 
-BgmapSpriteROMSpec* const AdjustmentScreenIconLSprites[] =
+BgmapSpriteROMSpec* const AdjustmentScreenIconLSpriteSpecs[] =
 {
-	&AdjustmentScreenIconLSprite,
+	&AdjustmentScreenIconLSpriteSpec,
 	NULL
 };
 
-BgmapSpriteROMSpec const ADJUSTMENT_SCREEN_ICON_R_SPRITE =
+BgmapSpriteROMSpec const AdjustmentScreenIconRSpriteSpec =
 {
 	{
 		// sprite's type
@@ -141,9 +141,9 @@ BgmapSpriteROMSpec const ADJUSTMENT_SCREEN_ICON_R_SPRITE =
 	__WORLD_RON,
 };
 
-BgmapSpriteROMSpec* const AdjustmentScreenIconRSprites[] =
+BgmapSpriteROMSpec* const AdjustmentScreenIconRSpriteSpecs[] =
 {
-	&ADJUSTMENT_SCREEN_ICON_R_SPRITE,
+	&AdjustmentScreenIconRSpriteSpec,
 	NULL
 
 };
@@ -163,7 +163,7 @@ EntityROMSpec AdjustmentScreenIconLEntitySpec =
 	NULL,
 
 	// sprites
-	(SpriteSpec**)AdjustmentScreenIconLSprites,
+	(SpriteSpec**)AdjustmentScreenIconLSpriteSpecs,
 
 	// use z displacement in projection
 	false,
@@ -200,7 +200,7 @@ EntityROMSpec AdjustmentScreenIconREntitySpec =
 	NULL,
 
 	// sprites
-	(SpriteSpec**)AdjustmentScreenIconRSprites,
+	(SpriteSpec**)AdjustmentScreenIconRSpriteSpecs,
 
 	// use z displacement in projection
 	false,

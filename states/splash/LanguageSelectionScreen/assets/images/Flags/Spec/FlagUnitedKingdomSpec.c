@@ -81,7 +81,7 @@ TextureROMSpec FlagUnitedKingdomTexture =
 	false,
 };
 
-BgmapSpriteROMSpec FlagUnitedKingdomSprite =
+BgmapSpriteROMSpec FlagUnitedKingdomSpriteSpec =
 {
 	{
 		// sprite's type
@@ -108,9 +108,9 @@ BgmapSpriteROMSpec FlagUnitedKingdomSprite =
 	__WORLD_ON,
 };
 
-BgmapSpriteROMSpec* const FlagUnitedKingdomSprites[] =
+BgmapSpriteROMSpec* const FlagUnitedKingdomSpriteSpecs[] =
 {
-	&FlagUnitedKingdomSprite,
+	&FlagUnitedKingdomSpriteSpec,
 	NULL
 };
 
@@ -129,7 +129,7 @@ EntityROMSpec FlagUnitedKingdomEntitySpec =
 	NULL,
 
 	// sprites
-	(SpriteSpec**)FlagUnitedKingdomSprites,
+	(SpriteSpec**)FlagUnitedKingdomSpriteSpecs,
 
 	// use z displacement in projection
 	false,

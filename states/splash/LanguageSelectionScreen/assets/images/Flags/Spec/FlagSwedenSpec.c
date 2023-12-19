@@ -81,7 +81,7 @@ TextureROMSpec FlagSwedenTexture =
 	false,
 };
 
-BgmapSpriteROMSpec FlagSwedenSprite =
+BgmapSpriteROMSpec FlagSwedenSpriteSpec =
 {
 	{
 		// sprite's type
@@ -108,9 +108,9 @@ BgmapSpriteROMSpec FlagSwedenSprite =
 	__WORLD_ON,
 };
 
-BgmapSpriteROMSpec* const FlagSwedenSprites[] =
+BgmapSpriteROMSpec* const FlagSwedenSpriteSpecs[] =
 {
-	&FlagSwedenSprite,
+	&FlagSwedenSpriteSpec,
 	NULL
 };
 
@@ -129,7 +129,7 @@ EntityROMSpec FlagSwedenEntitySpec =
 	NULL,
 
 	// sprites
-	(SpriteSpec**)FlagSwedenSprites,
+	(SpriteSpec**)FlagSwedenSpriteSpecs,
 
 	// use z displacement in projection
 	false,

@@ -81,7 +81,7 @@ TextureROMSpec FlagFranceTexture =
 	false,
 };
 
-BgmapSpriteROMSpec FlagFranceSprite =
+BgmapSpriteROMSpec FlagFranceSpriteSpec =
 {
 	{
 		// sprite's type
@@ -108,9 +108,9 @@ BgmapSpriteROMSpec FlagFranceSprite =
 	__WORLD_ON,
 };
 
-BgmapSpriteROMSpec* const FlagFranceSprites[] =
+BgmapSpriteROMSpec* const FlagFranceSpriteSpecs[] =
 {
-	&FlagFranceSprite,
+	&FlagFranceSpriteSpec,
 	NULL
 };
 
@@ -129,7 +129,7 @@ EntityROMSpec FlagFranceEntitySpec =
 	NULL,
 
 	// sprites
-	(SpriteSpec**)FlagFranceSprites,
+	(SpriteSpec**)FlagFranceSpriteSpecs,
 
 	// use z displacement in projection
 	false,

@@ -81,7 +81,7 @@ TextureROMSpec FlagCursorTexture =
 	false,
 };
 
-BgmapSpriteROMSpec FlagCursorSprite =
+BgmapSpriteROMSpec FlagCursorSpriteSpec =
 {
 	{
 		// sprite's type
@@ -108,9 +108,9 @@ BgmapSpriteROMSpec FlagCursorSprite =
 	__WORLD_ON,
 };
 
-BgmapSpriteROMSpec* const FlagCursorSprites[] =
+BgmapSpriteROMSpec* const FlagCursorSpriteSpecs[] =
 {
-	&FlagCursorSprite,
+	&FlagCursorSpriteSpec,
 	NULL
 };
 
@@ -129,7 +129,7 @@ EntityROMSpec FlagCursorEntitySpec =
 	NULL,
 
 	// sprites
-	(SpriteSpec**)FlagCursorSprites,
+	(SpriteSpec**)FlagCursorSpriteSpecs,
 
 	// use z displacement in projection
 	false,

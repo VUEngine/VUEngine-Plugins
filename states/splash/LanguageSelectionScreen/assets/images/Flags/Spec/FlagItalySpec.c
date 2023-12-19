@@ -81,7 +81,7 @@ TextureROMSpec FlagItalyTexture =
 	false,
 };
 
-BgmapSpriteROMSpec FlagItalySprite =
+BgmapSpriteROMSpec FlagItalySpriteSpec =
 {
 	{
 		// sprite's type
@@ -108,9 +108,9 @@ BgmapSpriteROMSpec FlagItalySprite =
 	__WORLD_ON,
 };
 
-BgmapSpriteROMSpec* const FlagItalySprites[] =
+BgmapSpriteROMSpec* const FlagItalySpriteSpecs[] =
 {
-	&FlagItalySprite,
+	&FlagItalySpriteSpec,
 	NULL
 };
 
@@ -129,7 +129,7 @@ EntityROMSpec FlagItalyEntitySpec =
 	NULL,
 
 	// sprites
-	(SpriteSpec**)FlagItalySprites,
+	(SpriteSpec**)FlagItalySpriteSpecs,
 
 	// use z displacement in projection
 	false,

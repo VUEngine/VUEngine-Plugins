@@ -81,7 +81,7 @@ TextureROMSpec FlagNetherlandsTexture =
 	false,
 };
 
-BgmapSpriteROMSpec FlagNetherlandsSprite =
+BgmapSpriteROMSpec FlagNetherlandsSpriteSpec =
 {
 	{
 		// sprite's type
@@ -108,9 +108,9 @@ BgmapSpriteROMSpec FlagNetherlandsSprite =
 	__WORLD_ON,
 };
 
-BgmapSpriteROMSpec* const FlagNetherlandsSprites[] =
+BgmapSpriteROMSpec* const FlagNetherlandsSpriteSpecs[] =
 {
-	&FlagNetherlandsSprite,
+	&FlagNetherlandsSpriteSpec,
 	NULL
 };
 
@@ -129,7 +129,7 @@ EntityROMSpec FlagNetherlandsEntitySpec =
 	NULL,
 
 	// sprites
-	(SpriteSpec**)FlagNetherlandsSprites,
+	(SpriteSpec**)FlagNetherlandsSpriteSpecs,
 
 	// use z displacement in projection
 	false,	

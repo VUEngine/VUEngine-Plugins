@@ -81,7 +81,7 @@ TextureROMSpec FlagUnknownTexture =
 	false,
 };
 
-BgmapSpriteROMSpec FlagUnknownSprite =
+BgmapSpriteROMSpec FlagUnknownSpriteSpec =
 {
 	{
 		// sprite's type
@@ -108,9 +108,9 @@ BgmapSpriteROMSpec FlagUnknownSprite =
 	__WORLD_ON,
 };
 
-BgmapSpriteROMSpec* const FlagUnknownSprites[] =
+BgmapSpriteROMSpec* const FlagUnknownSpriteSpecs[] =
 {
-	&FlagUnknownSprite,
+	&FlagUnknownSpriteSpec,
 	NULL
 };
 
@@ -129,7 +129,7 @@ EntityROMSpec FlagUnknownEntitySpec =
 	NULL,
 
 	// sprites
-	(SpriteSpec**)FlagUnknownSprites,
+	(SpriteSpec**)FlagUnknownSpriteSpecs,
 
 	// use z displacement in projection
 	false,

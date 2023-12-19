@@ -81,7 +81,7 @@ TextureROMSpec FlagCzechRepublicTexture =
 	false,
 };
 
-BgmapSpriteROMSpec FlagCzechRepublicSprite =
+BgmapSpriteROMSpec FlagCzechRepublicSpriteSpec =
 {
 	{
 		// sprite's type
@@ -108,9 +108,9 @@ BgmapSpriteROMSpec FlagCzechRepublicSprite =
 	__WORLD_ON,
 };
 
-BgmapSpriteROMSpec* const FlagCzechRepublicSprites[] =
+BgmapSpriteROMSpec* const FlagCzechRepublicSpriteSpecs[] =
 {
-	&FlagCzechRepublicSprite,
+	&FlagCzechRepublicSpriteSpec,
 	NULL
 };
 
@@ -129,7 +129,7 @@ EntityROMSpec FlagCzechRepublicEntitySpec =
 	NULL,
 
 	// sprites
-	(SpriteSpec**)FlagCzechRepublicSprites,
+	(SpriteSpec**)FlagCzechRepublicSpriteSpecs,
 
 	// use z displacement in projection
 	false,

@@ -81,7 +81,7 @@ TextureROMSpec FlagFinlandTexture =
 	false,
 };
 
-BgmapSpriteROMSpec FlagFinlandSprite =
+BgmapSpriteROMSpec FlagFinlandSpriteSpec =
 {
 	{
 		// sprite's type
@@ -108,9 +108,9 @@ BgmapSpriteROMSpec FlagFinlandSprite =
 	__WORLD_ON,
 };
 
-BgmapSpriteROMSpec* const FlagFinlandSprites[] =
+BgmapSpriteROMSpec* const FlagFinlandSpriteSpecs[] =
 {
-	&FlagFinlandSprite,
+	&FlagFinlandSpriteSpec,
 	NULL
 };
 
@@ -129,7 +129,7 @@ EntityROMSpec FlagFinlandEntitySpec =
 	NULL,
 
 	// sprites
-	(SpriteSpec**)FlagFinlandSprites,
+	(SpriteSpec**)FlagFinlandSpriteSpecs,
 
 	// use z displacement in projection
 	false,

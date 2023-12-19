@@ -80,7 +80,7 @@ TextureROMSpec AutomaticPauseLogoTexture =
 	false,
 };
 
-BgmapSpriteROMSpec AutomaticPauseLogoSprite =
+BgmapSpriteROMSpec AutomaticPauseLogoSpriteSpec =
 {
 	{
 		// sprite's type
@@ -107,9 +107,9 @@ BgmapSpriteROMSpec AutomaticPauseLogoSprite =
 	__WORLD_ON,
 };
 
-BgmapSpriteROMSpec* const AutomaticPauseLogoSprites[] =
+BgmapSpriteROMSpec* const AutomaticPauseLogoSpriteSpecs[] =
 {
-	&AutomaticPauseLogoSprite,
+	&AutomaticPauseLogoSpriteSpec,
 	NULL
 };
 
@@ -128,7 +128,7 @@ EntityROMSpec AutomaticPauseLogoEntitySpec =
 	NULL,
 
 	// sprites
-	(SpriteSpec**)AutomaticPauseLogoSprites,
+	(SpriteSpec**)AutomaticPauseLogoSpriteSpecs,
 
 	// use z displacement in projection
 	false,

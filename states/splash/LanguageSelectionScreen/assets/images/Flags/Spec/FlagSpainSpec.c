@@ -81,7 +81,7 @@ TextureROMSpec FlagSpainTexture =
 	false,
 };
 
-BgmapSpriteROMSpec FlagSpainSprite =
+BgmapSpriteROMSpec FlagSpainSpriteSpec =
 {
 	{
 		// sprite's type
@@ -108,9 +108,9 @@ BgmapSpriteROMSpec FlagSpainSprite =
 	__WORLD_ON,
 };
 
-BgmapSpriteROMSpec* const FlagSpainSprites[] =
+BgmapSpriteROMSpec* const FlagSpainSpriteSpecs[] =
 {
-	&FlagSpainSprite,
+	&FlagSpainSpriteSpec,
 	NULL
 };
 
@@ -129,7 +129,7 @@ EntityROMSpec FlagSpainEntitySpec =
 	NULL,
 
 	// sprites
-	(SpriteSpec**)FlagSpainSprites,
+	(SpriteSpec**)FlagSpainSpriteSpecs,
 
 	// use z displacement in projection
 	false,

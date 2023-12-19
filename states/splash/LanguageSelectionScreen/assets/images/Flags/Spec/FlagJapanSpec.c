@@ -81,7 +81,7 @@ TextureROMSpec FlagJapanTexture =
 	false,
 };
 
-BgmapSpriteROMSpec FlagJapanSprite =
+BgmapSpriteROMSpec FlagJapanSpriteSpec =
 {
 	{
 		// sprite's type
@@ -108,9 +108,9 @@ BgmapSpriteROMSpec FlagJapanSprite =
 	__WORLD_ON,
 };
 
-BgmapSpriteROMSpec* const FlagJapanSprites[] =
+BgmapSpriteROMSpec* const FlagJapanSpriteSpecs[] =
 {
-	&FlagJapanSprite,
+	&FlagJapanSpriteSpec,
 	NULL
 };
 
@@ -129,7 +129,7 @@ EntityROMSpec FlagJapanEntitySpec =
 	NULL,
 
 	// sprites
-	(SpriteSpec**)FlagJapanSprites,
+	(SpriteSpec**)FlagJapanSpriteSpecs,
 
 	// use z displacement in projection
 	false,

@@ -81,7 +81,7 @@ TextureROMSpec AdjustmentScreenLogoTexture =
 	false,
 };
 
-BgmapSpriteROMSpec AdjustmentScreenLogoSprite =
+BgmapSpriteROMSpec AdjustmentScreenLogoSpriteSpec =
 {
 	{
 		// sprite's type
@@ -108,9 +108,9 @@ BgmapSpriteROMSpec AdjustmentScreenLogoSprite =
 	__WORLD_ON,
 };
 
-BgmapSpriteROMSpec* const AdjustmentScreenLogoSprites[] =
+BgmapSpriteROMSpec* const AdjustmentScreenLogoSpriteSpecs[] =
 {
-	&AdjustmentScreenLogoSprite,
+	&AdjustmentScreenLogoSpriteSpec,
 	NULL
 };
 
@@ -129,7 +129,7 @@ EntityROMSpec AdjustmentScreenLogoEntitySpec =
 	NULL,
 
 	// sprites
-	(SpriteSpec**)AdjustmentScreenLogoSprites,
+	(SpriteSpec**)AdjustmentScreenLogoSpriteSpecs,
 
 	// use z displacement in projection
 	false,
