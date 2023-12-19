@@ -361,7 +361,7 @@ void PlatformerCameraMovementManager::configure(Entity focusEntity, uint32 focus
 		!isDeleted(focusEntity) ? Entity::getInGameType(focusEntity) : kTypeNone,
 
 		// physical specification
-		(PhysicalSpecification*)NULL,
+		(PhysicalProperties*)NULL,
 	};
 
 	if(!isDeleted(focusEntity))

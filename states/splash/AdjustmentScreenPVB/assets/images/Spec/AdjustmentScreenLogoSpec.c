@@ -148,5 +148,5 @@ EntityROMSpec AdjustmentScreenLogoEntity =
 	kTypeNone,
 
 	// physical specification
-	(PhysicalSpecification*)NULL,
+	(PhysicalProperties*)NULL,
 };

@@ -147,5 +147,5 @@ EntityROMSpec AutomaticPauseLogoEntity =
 	kTypeNone,
 
 	// physical specification
-	(PhysicalSpecification*)NULL,
+	(PhysicalProperties*)NULL,
 };
