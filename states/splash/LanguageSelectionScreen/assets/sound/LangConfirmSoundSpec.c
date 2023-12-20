@@ -88,7 +88,7 @@ SoundChannelROM* const LangConfirmSoundChannels[] =
 	NULL
 };
 
-SoundROM LangConfirmSound =
+SoundROMSpec LangConfirmSoundSpec =
 {
 	/// Name
 	"Language confirm",

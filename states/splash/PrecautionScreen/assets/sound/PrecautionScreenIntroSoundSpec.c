@@ -87,7 +87,7 @@ SoundChannelROM* const PrecautionScreenIntroSoundChannels[] =
 	NULL
 };
 
-SoundROM PrecautionScreenIntroSound =
+SoundROMSpec PrecautionScreenIntroSoundSpec =
 {
 	/// Name
 	"Boot",

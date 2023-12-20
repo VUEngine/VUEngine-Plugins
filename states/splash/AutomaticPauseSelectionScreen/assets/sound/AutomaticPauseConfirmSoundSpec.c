@@ -88,7 +88,7 @@ SoundChannelROM* const AutomaticPauseConfirmSoundChannels[] =
 	NULL
 };
 
-SoundROM AutomaticPauseConfirmSound =
+SoundROMSpec AutomaticPauseConfirmSoundSpec =
 {
 	/// Name
 	"Automatic Pause confirm",

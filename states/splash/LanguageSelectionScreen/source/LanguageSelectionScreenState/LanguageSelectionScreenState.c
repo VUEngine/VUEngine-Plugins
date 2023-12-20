@@ -35,8 +35,8 @@ extern StageROMSpec LanguageSelectionScreenStage;
 extern LangROMSpec* _languages[];
 extern EntitySpec FlagCursorEntitySpec;
 extern EntitySpec FlagUnknownEntitySpec;
-extern Sound LangConfirmSound;
-extern Sound LangSelectSound;
+extern SoundSpec LangConfirmSoundSpec;
+extern SoundSpec LangSelectSoundSpec;
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -78,7 +78,7 @@ void LanguageSelectionScreenState::processUserInput(const UserInput* userInput)
 	}
 	else if(userInput->pressedKey & (K_A | K_STA))
 	{
-		SoundManager::playSound(SoundManager::getInstance(), &LangConfirmSound, kPlayAll, NULL, kSoundWrapperPlaybackNormal, NULL, NULL);
+		SoundManager::playSound(SoundManager::getInstance(), &LangConfirmSoundSpec, kPlayAll, NULL, kSoundPlaybackNormal, NULL, NULL);
 
 		SplashScreenState::loadNextState(SplashScreenState::safeCast(this));
 	}
@@ -230,7 +230,7 @@ void LanguageSelectionScreenState::select(bool next)
 	LanguageSelectionScreenState::persistChoice(this);
 	LanguageSelectionScreenState::printSelection(this);
 
-	SoundManager::playSound(SoundManager::getInstance(), &LangSelectSound, kPlayAll, NULL, kSoundWrapperPlaybackNormal, NULL, NULL);
+	SoundManager::playSound(SoundManager::getInstance(), &LangSelectSoundSpec, kPlayAll, NULL, kSoundPlaybackNormal, NULL, NULL);
 }
 
 void LanguageSelectionScreenState::persistChoice()

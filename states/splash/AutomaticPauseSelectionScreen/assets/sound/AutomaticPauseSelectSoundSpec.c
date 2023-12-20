@@ -87,7 +87,7 @@ SoundChannelROM* const AutomaticPauseSelectSoundChannels[] =
 	NULL
 };
 
-SoundROM AutomaticPauseSelectSound =
+SoundROMSpec AutomaticPauseSelectSoundSpec =
 {
 	/// Name
 	"Automatic Pause select",

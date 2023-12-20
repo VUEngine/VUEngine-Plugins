@@ -36,8 +36,8 @@
 //---------------------------------------------------------------------------------------------------------
 
 extern StageROMSpec AutomaticPauseSelectionScreenStage;
-extern Sound AutomaticPauseSelectSound;
-extern Sound AutomaticPauseConfirmSound;
+extern SoundSpec AutomaticPauseSelectSoundSpec;
+extern SoundSpec AutomaticPauseConfirmSoundSpec;
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -147,7 +147,7 @@ void AutomaticPauseSelectionScreenState::processUserInput(const UserInput* userI
 		this->selection = !this->selection;
 		AutomaticPauseSelectionScreenState::renderSelection(this);
 
-		SoundManager::playSound(SoundManager::getInstance(), &AutomaticPauseSelectSound, kPlayAll, NULL, kSoundWrapperPlaybackNormal, NULL, NULL);
+		SoundManager::playSound(SoundManager::getInstance(), &AutomaticPauseSelectSoundSpec, kPlayAll, NULL, kSoundPlaybackNormal, NULL, NULL);
 	}
 	else if(userInput->pressedKey & (K_A | K_STA))
 	{
@@ -160,7 +160,7 @@ void AutomaticPauseSelectionScreenState::processUserInput(const UserInput* userI
 			SaveDataManager::setAutomaticPauseStatus(saveDataManager, this->selection);
 		}
 
-		SoundManager::playSound(SoundManager::getInstance(), &AutomaticPauseConfirmSound, kPlayAll, NULL, kSoundWrapperPlaybackNormal, NULL, NULL);
+		SoundManager::playSound(SoundManager::getInstance(), &AutomaticPauseConfirmSoundSpec, kPlayAll, NULL, kSoundPlaybackNormal, NULL, NULL);
 
 		SplashScreenState::loadNextState(SplashScreenState::safeCast(this));
 	}

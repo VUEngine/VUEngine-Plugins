@@ -87,7 +87,7 @@ SoundChannelROM* const LangSelectSoundChannels[] =
 	NULL
 };
 
-SoundROM LangSelectSound =
+SoundROMSpec LangSelectSoundSpec =
 {
 	/// Name
 	"Language select",
