@@ -1,6 +1,6 @@
 {%- set allLanguages = project.combined.items.Translations | values -%}
 {%- import 'templates/partials/macros.nj' as macros -%}
-{% include('templates/partials/fileHeader.h.nj') %}
+{% include('templates/partials/fileHeader/fileHeader.h.nj') %}
 
 #ifndef LANGUAGES_H_
 #define LANGUAGES_H_
