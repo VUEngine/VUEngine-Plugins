@@ -1,0 +1,50 @@
+{
+	"file": "Translations",
+	"schema": {
+		"title": "Translations",
+		"properties": {
+			"languages": {
+				"type": "array",
+				"items": {
+					"name": {
+						"type": "string",
+						"default": ""
+					},
+					"localizedName": {
+						"type": "string",
+						"default": ""
+					},
+					"code": {
+						"type": "string",
+						"default": "",
+						"maxLength": 2,
+						"minLength": 2
+					},
+					"flag": {
+						"type": "string",
+						"default": ""
+					}
+				}
+			},
+			"translations": {
+				"type": "object",
+				"additionalProperties": {
+					"type": "object",
+					"additionalProperties": {
+						"type": "string"
+					}
+				}
+			}
+		},
+		"required": []
+	},
+	"uiSchema": {
+		"type": "TranslationsEditor",
+		"scope": "#"
+	},
+	"icon": "fa fa-language",
+	"templates": [
+		"LanguagesC",
+		"LanguagesH"
+	]
+}

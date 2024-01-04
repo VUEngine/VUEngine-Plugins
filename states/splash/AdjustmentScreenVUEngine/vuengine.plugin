@@ -1,0 +1,33 @@
+{
+	"displayName": {
+		"en": "Adjustment Screen (VUEngine)",
+		"de": "Anpassungsbildschirm (VUEngine)",
+		"es": "Pantalla de ajuste (VUEngine)"
+	},
+	"author": "Team VUEngine",
+	"description": {
+		"en": "VUEngine IPD/focus adjustment screen that resembles a circuit board.",
+		"de": "VUEngine IPD/Fokus-Anpassungsbildschirm, welcher einer Platine ähnelt.",
+		"es": "Pantalla de ajuste de IPD/enfoque de VUEngine que se asemeja a una placa de circuito."
+	},
+	"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/states/splash/AdjustmentScreenVUEngine",
+	"license": "MIT",
+	"tags": [
+		{
+			"en": "Essentials",
+			"de": "Essentiell",
+			"es": "Esenciales"
+		},
+		"Splash",
+		{
+			"en": "State",
+			"de": "Zustand",
+			"es": "Estado"
+		}
+	],
+	"dependencies": [
+		"vuengine//entities/LowPowerEntity",
+		"vuengine//other/LowPowerIndicator",
+		"vuengine//states/splash/SplashScreen"
+	]
+}

@@ -1,0 +1,23 @@
+{
+	"displayName": {
+		"en": "Wobble Effect",
+		"de": "Taumeleffekt",
+		"es": "Efecto de bamboleo"
+	},
+	"author": "Team VUEngine",
+	"description": {
+		"en": "Applies a full screen wobble distortion that is reminiscent of water waves.",
+		"de": "Wendet eine bildschirmfüllende Wackelverzerrung an, die an Wasserwellen erinnert.",
+		"es": "Aplica una distorsión de bamboleo en pantalla completa que recuerda a las olas del agua."
+	},
+	"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/postProcessing/Wobble",
+	"license": "MIT",
+	"tags": [
+		{
+			"en": "Post Processing",
+			"de": "Nachbearbeitung",
+			"es": "Postproceso"
+		}
+	],
+	"dependencies": []
+}

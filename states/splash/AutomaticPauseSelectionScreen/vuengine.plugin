@@ -1,0 +1,35 @@
+{
+	"displayName": {
+		"en": "Automatic Pause Selection Screen",
+		"de": "Automatische Pause Auswahlbildschirm",
+		"es": "Pantalla de selección de pausa automática"
+	},
+	"author": "Team VUEngine",
+	"description": {
+		"en": "Splash screen that allows the user to turn Automatic Pause on or off.",
+		"de": "Splashbildschirm, auf dem der Benutzer die automatische Pause ein- oder ausschalten kann.",
+		"es": "Pantalla de bienvenida que permite al usuario activar o desactivar la Pausa Automática."
+	},
+	"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/states/splash/AutomaticPauseSelectionScreen",
+	"license": "MIT",
+	"tags": [
+		{
+			"en": "Essentials",
+			"de": "Essentiell",
+			"es": "Esenciales"
+		},
+		"Splash",
+		{
+			"en": "State",
+			"de": "Zustand",
+			"es": "Estado"
+		}
+	],
+	"dependencies": [
+		"vuengine//entities/LowPowerEntity",
+		"vuengine//other/AutomaticPause",
+		"vuengine//other/I18n",
+		"vuengine//other/SaveDataManager",
+		"vuengine//states/splash/SplashScreen"
+	]
+}

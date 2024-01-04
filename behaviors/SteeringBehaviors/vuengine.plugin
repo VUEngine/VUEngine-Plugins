@@ -1,0 +1,23 @@
+{
+	"displayName": {
+		"en": "Steering Behaviors",
+		"de": "Lenkverhalten",
+		"es": "Comportamiento de la dirección"
+	},
+	"author": "Team VUEngine",
+	"description": {
+		"en": "Various physics based behaviors to steer AI entities.",
+		"de": "Verschiedene physikbasierte Verhaltensweisen zur Steuerung von KI-Entitäten.",
+		"es": "Varios comportamientos basados en la física para dirigir las entidades de la IA."
+	},
+	"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/behaviors/SteeringBehaviors",
+	"license": "MIT",
+	"tags": [
+		{
+			"en": "Behavior",
+			"de": "Verhalten",
+			"es": "Comportamiento"
+		}
+	],
+	"dependencies": []
+}

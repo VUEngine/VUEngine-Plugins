@@ -1,0 +1,23 @@
+{
+	"displayName": {
+		"en": "Low Power Indicator",
+		"de": "Niedriger Batteriestand Anzeige",
+		"es": "Indicador de baja potencia"
+	},
+	"author": "Team VUEngine",
+	"description": {
+		"en": "Printing layer based indicator that flashes when the system power is low.",
+		"de": "Auf der Druckebene basierende Anzeige, die blinkt, wenn die Energie des Systems niedrig ist.",
+		"es": "Indicador basado en la capa de impresión que parpadea cuando la energía del sistema es baja."
+	},
+	"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/other/LowPowerIndicator",
+	"license": "MIT",
+	"tags": [
+		{
+			"en": "Essentials",
+			"de": "Essentiell",
+			"es": "Esenciales"
+		}
+	],
+	"dependencies": []
+}

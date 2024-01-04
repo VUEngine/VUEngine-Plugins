@@ -1,0 +1,35 @@
+{
+	"displayName": {
+		"en": "Language Selection Screen",
+		"de": "Sprach-Auswahlbildschirm",
+		"es": "Pantalla de selección de idioma"
+	},
+	"author": "Team VUEngine",
+	"description": {
+		"en": "Splash screen that allows the user to select a language.",
+		"de": "Splashsbildschirm, auf dem der Benutzer eine Sprache auswählen kann.",
+		"es": "Pantalla de bienvenida que permite al usuario seleccionar un idioma."
+	},
+	"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/states/splash/LanguageSelectionScreen",
+	"license": "MIT",
+	"tags": [
+		{
+			"en": "Essentials",
+			"de": "Essentiell",
+			"es": "Esenciales"
+		},
+		"I18n",
+		"Splash",
+		{
+			"en": "State",
+			"de": "Zustand",
+			"es": "Estado"
+		}
+	],
+	"dependencies": [
+		"vuengine//entities/LowPowerEntity",
+		"vuengine//other/I18n",
+		"vuengine//other/SaveDataManager",
+		"vuengine//states/splash/SplashScreen"
+	]
+}
