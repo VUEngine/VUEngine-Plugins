@@ -77,10 +77,6 @@ void PlatformerCameraTriggerEntity::transform(const Transformation* environmentT
 	{
 		this->transformation.globalPosition.y = currentGlobalPosition.y;
 	}
-
-	Entity::transformColliders(this);
-
-//	Entity::showColliders(this);
 }
 
 void PlatformerCameraTriggerEntity::update()
