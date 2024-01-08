@@ -86,19 +86,6 @@ void ReflectiveEntity::resume()
 	VUEngine::pushFrontPostProcessingEffect(VUEngine::getInstance(), ReflectiveEntity::reflect, SpatialObject::safeCast(this));
 }
 
-void ReflectiveEntity::synchronizeGraphics()
-{
-//	Base::synchronizeGraphics(this);
-	
-	Vector3D position3D = Vector3D::getRelativeToCamera(this->transformation.globalPosition);
-
-	PixelVector position2D = PixelVector::project(position3D, 0);
-
-	this->position2D = this->nextFramePosition2D;
-	this->nextFramePosition2D.x = position2D.x;
-	this->nextFramePosition2D.y = position2D.y;
-}
-
 static void ReflectiveEntity::reflect(uint32 currentDrawingFrameBufferSet, SpatialObject spatialObject)
 {
 	ASSERT(spatialObject, "ReflectiveEntity::reflect: null this");

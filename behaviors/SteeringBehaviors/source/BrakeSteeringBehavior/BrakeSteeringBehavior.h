@@ -44,7 +44,7 @@ class BrakeSteeringBehavior : SteeringBehavior
 {
 	fixed_t strength;
 
-	void constructor(const BrakeSteeringBehaviorSpec* brakeSteeringBehaviorSpec);
+	void constructor(SpatialObject owner, const BrakeSteeringBehaviorSpec* brakeSteeringBehaviorSpec);
 
 	fixed_t getStrength();
 	void setStrength(fixed_t value);

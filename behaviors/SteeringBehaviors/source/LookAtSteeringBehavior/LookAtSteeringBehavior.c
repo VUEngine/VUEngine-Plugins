@@ -25,9 +25,9 @@
 /**
  * Class constructor
  */
-void LookAtSteeringBehavior::constructor(const LookAtSteeringBehaviorSpec* LookAtSteeringBehaviorSpec)
+void LookAtSteeringBehavior::constructor(SpatialObject owner, const LookAtSteeringBehaviorSpec* LookAtSteeringBehaviorSpec)
 {
-	Base::constructor(&LookAtSteeringBehaviorSpec->steeringBehaviorSpec);
+	Base::constructor(owner, &LookAtSteeringBehaviorSpec->steeringBehaviorSpec);
 
 	this->target = Vector3D::zero();
 	this->slowDownWhenReachingTarget = false;

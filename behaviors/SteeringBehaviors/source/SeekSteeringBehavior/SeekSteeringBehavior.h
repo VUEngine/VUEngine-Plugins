@@ -55,7 +55,7 @@ class SeekSteeringBehavior : SteeringBehavior
 	bool reachedTarget;
 	bool allowEasing;
 
-	void constructor(const SeekSteeringBehaviorSpec* seekSteeringBehaviorSpec);
+	void constructor(SpatialObject owner, const SeekSteeringBehaviorSpec* seekSteeringBehaviorSpec);
 
 	Vector3D getTarget();
 	void setTarget(Vector3D value);

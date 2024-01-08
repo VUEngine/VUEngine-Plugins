@@ -26,9 +26,9 @@
 /**
  * Class constructor
  */
-void BrakeSteeringBehavior::constructor(const BrakeSteeringBehaviorSpec* brakeSteeringBehaviorSpec)
+void BrakeSteeringBehavior::constructor(SpatialObject owner, const BrakeSteeringBehaviorSpec* brakeSteeringBehaviorSpec)
 {
-	Base::constructor(&brakeSteeringBehaviorSpec->steeringBehaviorSpec);
+	Base::constructor(owner, &brakeSteeringBehaviorSpec->steeringBehaviorSpec);
 
 	this->strength = 0;
 }

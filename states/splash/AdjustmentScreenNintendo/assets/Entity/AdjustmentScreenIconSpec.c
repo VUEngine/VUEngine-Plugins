@@ -171,7 +171,7 @@ EntityROMSpec AdjustmentScreenIconLEntitySpec =
 	// wireframes
 	(WireframeSpec**)NULL,
 
-	// collision shapes
+	// collision colliders
 	(ColliderSpec*)NULL,
 
 	// size
@@ -208,7 +208,7 @@ EntityROMSpec AdjustmentScreenIconREntitySpec =
 	// wireframes
 	(WireframeSpec**)NULL,
 
-	// collision shapes
+	// collision colliders
 	(ColliderSpec*)NULL,
 
 	// size
