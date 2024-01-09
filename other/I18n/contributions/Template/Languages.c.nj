@@ -1,7 +1,7 @@
-{%- set combinedTranslations = project.combined.items.Translations | values -%}
+{%- set projectTranslations = project.items.Translations | values -%}
 {%- set translationIds = [] -%}
 {%- set allTranslations = {} -%}
-{%- for translation in combinedTranslations -%}
+{%- for translation in projectTranslations -%}
     {%- for translationId, translations in translation.translations %}
         {%- set translationIds = (translationIds.push(translationId), translationIds) -%}
 		{%- set allTranslations = allTranslations | setAttribute(translationId, translations) -%}
