@@ -31,10 +31,10 @@ friend class CharSet;
 //												CLASS'S METHODS
 //---------------------------------------------------------------------------------------------------------
 
-void ShaderSprite::constructor(const ShaderSpriteSpec* shaderSpriteSpec, ListenerObject owner)
+void ShaderSprite::constructor(SpatialObject owner, const ShaderSpriteSpec* shaderSpriteSpec)
 {
 	// construct base
-	Base::constructor((BgmapSpriteSpec*)&shaderSpriteSpec->bgmapSpriteSpec, owner);
+	Base::constructor(owner, &shaderSpriteSpec->bgmapSpriteSpec);
 
 	this->buffer = shaderSpriteSpec->shaderDisplaySide;
 	this->charSet = NULL;
@@ -43,8 +43,6 @@ void ShaderSprite::constructor(const ShaderSpriteSpec* shaderSpriteSpec, Listene
 	{
 		this->charSet = Texture::getCharSet(this->texture, true);
 	}
-
-	this->positioned = true;
 }
 
 void ShaderSprite::destructor()

@@ -64,23 +64,19 @@ void PlatformerCameraTriggerEntity::ready(bool recursive)
 
 void PlatformerCameraTriggerEntity::transform(const Transformation* environmentTransform, uint8 invalidateTransformationFlag)
 {
-	Vector3D currentGlobalPosition = this->transformation.globalPosition;
+	Vector3D currentGlobalPosition = this->transformation.position;
 
 	Base::transform(this, environmentTransform, invalidateTransformationFlag);
 
 	if(this->overridePositionFlag.x)
 	{
-		this->transformation.globalPosition.x = currentGlobalPosition.x;
+		this->transformation.position.x = currentGlobalPosition.x;
 	}
 
 	if(this->overridePositionFlag.y)
 	{
-		this->transformation.globalPosition.y = currentGlobalPosition.y;
+		this->transformation.position.y = currentGlobalPosition.y;
 	}
-
-	Entity::transformColliders(this);
-
-//	Entity::showColliders(this);
 }
 
 void PlatformerCameraTriggerEntity::update()
@@ -88,7 +84,7 @@ void PlatformerCameraTriggerEntity::update()
 	Base::update(this);
 
 	// If there is a change in direction over the X axis
-	int8 currentXDirection = this->transformation.globalPosition.x > this->previousGlobalPosition.x ? __RIGHT : this->transformation.globalPosition.x < this->previousGlobalPosition.x ? __LEFT : 0;
+	int8 currentXDirection = this->transformation.position.x > this->previousGlobalPosition.x ? __RIGHT : this->transformation.position.x < this->previousGlobalPosition.x ? __LEFT : 0;
 
 	if(currentXDirection)
 	{
@@ -98,7 +94,7 @@ void PlatformerCameraTriggerEntity::update()
 			this->normalizedDirection.x = currentXDirection;
 		}
 
-		this->previousGlobalPosition = this->transformation.globalPosition;
+		this->previousGlobalPosition = this->transformation.position;
 	}
 }
 

@@ -56,7 +56,6 @@ void AdjustmentScreenState::enter(void* owner)
 
 	this->stream = false;
 	this->transform = false;
-	this->synchronizeGraphics = false;
 	this->updatePhysics = false;
 	this->processCollisions = false;
 

@@ -55,7 +55,7 @@ class LookAtSteeringBehavior : SteeringBehavior
 	bool reachedTarget;
 	bool allowEasing;
 
-	void constructor(const LookAtSteeringBehaviorSpec* LookAtSteeringBehaviorSpec);
+	void constructor(SpatialObject owner, const LookAtSteeringBehaviorSpec* LookAtSteeringBehaviorSpec);
 
 	Vector3D getTarget();
 	void setTarget(Vector3D value);

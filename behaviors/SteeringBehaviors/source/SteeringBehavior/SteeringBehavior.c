@@ -36,9 +36,9 @@ friend class VirtualNode;
 /**
  * Class constructor
  */
-void SteeringBehavior::constructor(const SteeringBehaviorSpec* steeringBehaviorSpec)
+void SteeringBehavior::constructor(SpatialObject owner, const SteeringBehaviorSpec* steeringBehaviorSpec)
 {
-	Base::constructor(&steeringBehaviorSpec->behaviorSpec);
+	Base::constructor(owner, &steeringBehaviorSpec->behaviorSpec);
 
 	this->steeringBehaviorSpec = steeringBehaviorSpec;
 

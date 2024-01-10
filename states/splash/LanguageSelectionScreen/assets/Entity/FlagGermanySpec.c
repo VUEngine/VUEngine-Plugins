@@ -137,7 +137,7 @@ EntityROMSpec FlagGermanyEntitySpec =
 	// wireframes
 	(WireframeSpec**)NULL,
 
-	// collision shapes
+	// collision colliders
 	NULL,
 
 	// size

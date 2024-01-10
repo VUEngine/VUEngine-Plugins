@@ -37,9 +37,9 @@ friend class VirtualNode;
 /**
  * Class constructor
  */
-void AvoidSteeringBehavior::constructor(const AvoidSteeringBehaviorSpec* avoidSteeringBehaviorSpec)
+void AvoidSteeringBehavior::constructor(SpatialObject owner, const AvoidSteeringBehaviorSpec* avoidSteeringBehaviorSpec)
 {
-	Base::constructor(&avoidSteeringBehaviorSpec->steeringBehaviorSpec);
+	Base::constructor(owner, &avoidSteeringBehaviorSpec->steeringBehaviorSpec);
 
 	this->obstacles = new VirtualList();
 	this->avoidSteeringBehaviorSpec = avoidSteeringBehaviorSpec;

@@ -220,9 +220,6 @@ class ReflectiveEntity : Entity
 	 */
 	override void suspend();
 
-//	override void synchronizeGraphics();
-
-
 	/// @privatesection
 
 	/**

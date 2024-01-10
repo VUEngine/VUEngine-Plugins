@@ -67,7 +67,7 @@ class AvoidSteeringBehavior : SteeringBehavior
 	const AvoidSteeringBehaviorSpec* avoidSteeringBehaviorSpec;
 	bool isBraking;
 
-	void constructor(const AvoidSteeringBehaviorSpec* seekSteeringBehaviorSpec);
+	void constructor(SpatialObject owner, const AvoidSteeringBehaviorSpec* seekSteeringBehaviorSpec);
 
 	void addObstacle(SpatialObject spatialObject);
 	void removeAllObstacles();

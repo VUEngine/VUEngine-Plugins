@@ -137,7 +137,7 @@ EntityROMSpec FlagCursorEntitySpec =
 	// wireframes
 	(WireframeSpec**)NULL,
 
-	// collision shapes
+	// collision colliders
 	NULL,
 
 	// size

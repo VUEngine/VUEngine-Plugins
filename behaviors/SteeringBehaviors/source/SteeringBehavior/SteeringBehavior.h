@@ -76,7 +76,7 @@ class SteeringBehavior : Behavior
 	fixed_t maximumForce;
 	fixed_t deviation;
 
-	void constructor(const SteeringBehaviorSpec* steeringBehaviorSpec);
+	void constructor(SpatialObject owner, const SteeringBehaviorSpec* steeringBehaviorSpec);
 
 	static Vector3D calculateForce(Vehicle vehicle, uint16 summingMethod);
 	int32 getPriority();

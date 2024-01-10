@@ -315,7 +315,7 @@ void PlatformerCameraMovementManager::configure(Entity focusEntity, uint32 focus
 		// scale (x, y, z)
 		{0, 0, 0},
 
-		/// if true this collider checks for collisions against other shapes
+		/// if true this collider checks for collisions against other colliders
 		true,
 
 		/// layers in which I live
@@ -350,7 +350,7 @@ void PlatformerCameraMovementManager::configure(Entity focusEntity, uint32 focus
 		// wireframes
 		(WireframeSpec**)NULL,
 
-		// collision shapes
+		// collision colliders
 		(ColliderSpec*)this->platformerCameraTriggerEntityCollidersSpec,
 
 		// size
