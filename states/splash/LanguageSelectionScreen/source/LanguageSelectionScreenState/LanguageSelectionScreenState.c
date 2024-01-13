@@ -276,7 +276,7 @@ Entity LanguageSelectionScreenState::addFlagToStage(EntitySpec* entitySpec, uint
 #ifdef __LEGACY_COORDINATE_PROJECTION
 	return Stage::addChildEntity(VUEngine::getStage(VUEngine::getInstance()), &flagPositionedEntity, true);
 #else
-	UIContainer uiContainer = Stage::getUIContainer(VUEngine::getStage(VUEngine::getInstance()));
+	UIContainer uiContainer = VUEngine::getUIContainer(VUEngine::getInstance());
 	return UIContainer::addChildEntity(uiContainer, &flagPositionedEntity);
 #endif
 }
