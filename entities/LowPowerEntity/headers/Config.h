@@ -7,40 +7,40 @@
  * that was distributed with this source code.
  */
 
-#ifndef LOW_POWER_ENTITY_CONFIG_H_
-#define LOW_POWER_ENTITY_CONFIG_H_
+#ifndef __PLUGIN_LOW_POWER_ENTITY_CONFIG_H_
+#define __PLUGIN_LOW_POWER_ENTITY_CONFIG_H_
 
 
 //---------------------------------------------------------------------------------------------------------
 //											CONFIGURATION MACROS
 //---------------------------------------------------------------------------------------------------------
 
-#ifndef __LOW_POWER_ENTITY_USE_GUI_BGMAP_ANIMATED_SPRITE
-#define __LOW_POWER_ENTITY_USE_GUI_BGMAP_ANIMATED_SPRITE	0
+#ifndef __PLUGIN_LOW_POWER_ENTITY_USE_GUI_BGMAP_ANIMATED_SPRITE
+#define __PLUGIN_LOW_POWER_ENTITY_USE_GUI_BGMAP_ANIMATED_SPRITE		(0)
 #endif
 
-#ifndef	__LOW_POWER_ENTITY_X_POSITION
+#ifndef	__PLUGIN_LOW_POWER_ENTITY_X_POSITION
 	#ifdef __LEGACY_COORDINATE_PROJECTION
-		#define __LOW_POWER_ENTITY_X_POSITION						16
+		#define __PLUGIN_LOW_POWER_ENTITY_X_POSITION				(16)
 	#else
-		#define __LOW_POWER_ENTITY_X_POSITION						-176
+		#define __PLUGIN_LOW_POWER_ENTITY_X_POSITION				(-176)
 	#endif
 #endif
 
-#ifndef	__LOW_POWER_ENTITY_Y_POSITION
+#ifndef	__PLUGIN_LOW_POWER_ENTITY_Y_POSITION
 	#ifdef __LEGACY_COORDINATE_PROJECTION
-		#define __LOW_POWER_ENTITY_Y_POSITION						12
+		#define __PLUGIN_LOW_POWER_ENTITY_Y_POSITION				(12)
 	#else
-		#define __LOW_POWER_ENTITY_Y_POSITION						-100
+		#define __PLUGIN_LOW_POWER_ENTITY_Y_POSITION				(-100)
 	#endif
 #endif
 
-#ifndef	__LOW_POWER_ENTITY_Z_POSITION
-#define __LOW_POWER_ENTITY_Z_POSITION						0
+#ifndef	__PLUGIN_LOW_POWER_ENTITY_Z_POSITION
+#define __PLUGIN_LOW_POWER_ENTITY_Z_POSITION						(0)
 #endif
 
-#ifndef	__LOW_POWER_ENTITY_Z_DISPLACEMENT
-#define __LOW_POWER_ENTITY_Z_DISPLACEMENT					0
+#ifndef	__PLUGIN_LOW_POWER_ENTITY_Z_DISPLACEMENT
+#define __PLUGIN_LOW_POWER_ENTITY_Z_DISPLACEMENT					(0)
 #endif
 
 

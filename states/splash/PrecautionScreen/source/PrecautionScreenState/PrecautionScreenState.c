@@ -86,7 +86,7 @@ void PrecautionScreenState::print()
 	FontSize textSize = Printing::getTextSize(
 		Printing::getInstance(),
 		strBody,
-		__PRECAUTION_SCREEN_TEXT_FONT
+		__PLUGIN_PRECAUTION_SCREEN_TEXT_FONT
 	);
 
 	Printing::text(
@@ -94,6 +94,6 @@ void PrecautionScreenState::print()
 		strBody,
 		(__HALF_SCREEN_WIDTH_IN_CHARS) - (textSize.x >> 1),
 		(__HALF_SCREEN_HEIGHT_IN_CHARS) - (textSize.y >> 1),
-		__PRECAUTION_SCREEN_TEXT_FONT
+		__PLUGIN_PRECAUTION_SCREEN_TEXT_FONT
 	);
 }

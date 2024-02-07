@@ -99,10 +99,10 @@ void LanguageSelectionScreenState::enter(void* owner)
 	I18n::setActiveLanguage(I18n::getInstance(), activeLanguage);
 	this->selection = activeLanguage;
 
-	#if(__LANGUAGE_SELECTION_SCREEN_VARIANT == 0)
+	#if(__PLUGIN_LANGUAGE_SELECTION_SCREEN_VARIANT == 0)
 
 		// create options selector and populate with language names
-		this->languageSelector = new OptionsSelector(1, 8, __LANGUAGE_SELECTION_SCREEN_LANGUAGE_NAME_FONT);
+		this->languageSelector = new OptionsSelector(1, 8, __PLUGIN_LANGUAGE_SELECTION_SCREEN_LANGUAGE_NAME_FONT);
 		VirtualList languageNames = new VirtualList();
 		uint8 optionsWidth = 0;
 		int32 i = 0;
@@ -113,7 +113,7 @@ void LanguageSelectionScreenState::enter(void* owner)
 			option->type = kString;
 			VirtualList::pushBack(languageNames, option);
 
-			FontSize strOptionSize = Printing::getTextSize(Printing::getInstance(), option->value, __LANGUAGE_SELECTION_SCREEN_LANGUAGE_NAME_FONT);
+			FontSize strOptionSize = Printing::getTextSize(Printing::getInstance(), option->value, __PLUGIN_LANGUAGE_SELECTION_SCREEN_LANGUAGE_NAME_FONT);
 			optionsWidth = (strOptionSize.x > optionsWidth) ? strOptionSize.x : optionsWidth;
 		}
 		OptionsSelector::setOptions(this->languageSelector, languageNames);
@@ -126,10 +126,10 @@ void LanguageSelectionScreenState::enter(void* owner)
 		LanguageSelectionScreenState::printSelection(this);
 
 	#endif
-	#if(__LANGUAGE_SELECTION_SCREEN_VARIANT == 1)
+	#if(__PLUGIN_LANGUAGE_SELECTION_SCREEN_VARIANT == 1)
 
 		// add flags to stage
-		this->flagsTotalHalfWidth = ((LanguageSelectionScreenState::getNumLangs(this) - 1) * (__LANGUAGE_SELECTION_SCREEN_IMAGE_WIDTH)) >> 1;
+		this->flagsTotalHalfWidth = ((LanguageSelectionScreenState::getNumLangs(this) - 1) * (__PLUGIN_LANGUAGE_SELECTION_SCREEN_IMAGE_WIDTH)) >> 1;
 		uint8 i = 0;
 		this->flagCursorEntity = LanguageSelectionScreenState::addFlagToStage(this, &FlagCursorEntitySpec, 0);
 		for(i = 0; _languages[i]; i++)
@@ -149,32 +149,32 @@ void LanguageSelectionScreenState::enter(void* owner)
 void LanguageSelectionScreenState::print()
 {
 	const char* strTitle = I18n::getText(I18n::getInstance(), kStringLanguageSelectTitle);
-	#if(__LANGUAGE_SELECTION_SCREEN_VARIANT == 0)
+	#if(__PLUGIN_LANGUAGE_SELECTION_SCREEN_VARIANT == 0)
 
 		// print header
-		FontSize strHeaderSize = Printing::getTextSize(Printing::getInstance(), strTitle, __LANGUAGE_SELECTION_SCREEN_TITLE_TEXT_FONT);
+		FontSize strHeaderSize = Printing::getTextSize(Printing::getInstance(), strTitle, __PLUGIN_LANGUAGE_SELECTION_SCREEN_TITLE_TEXT_FONT);
 		uint8 strHeaderXPos = (__HALF_SCREEN_WIDTH_IN_CHARS) - (strHeaderSize.x >> 1);
 		uint8 strHeaderYPos = 9 - strHeaderSize.y;
-		Printing::text(Printing::getInstance(), "                                                ", 0, strHeaderYPos, __LANGUAGE_SELECTION_SCREEN_TITLE_TEXT_FONT);
-		Printing::text(Printing::getInstance(), strTitle, strHeaderXPos, strHeaderYPos, __LANGUAGE_SELECTION_SCREEN_TITLE_TEXT_FONT);
+		Printing::text(Printing::getInstance(), "                                                ", 0, strHeaderYPos, __PLUGIN_LANGUAGE_SELECTION_SCREEN_TITLE_TEXT_FONT);
+		Printing::text(Printing::getInstance(), strTitle, strHeaderXPos, strHeaderYPos, __PLUGIN_LANGUAGE_SELECTION_SCREEN_TITLE_TEXT_FONT);
 
 	#endif
-	#if(__LANGUAGE_SELECTION_SCREEN_VARIANT == 1)
+	#if(__PLUGIN_LANGUAGE_SELECTION_SCREEN_VARIANT == 1)
 
 		// print header
-		FontSize strHeaderSize = Printing::getTextSize(Printing::getInstance(), strTitle, __LANGUAGE_SELECTION_SCREEN_TITLE_TEXT_FONT);
+		FontSize strHeaderSize = Printing::getTextSize(Printing::getInstance(), strTitle, __PLUGIN_LANGUAGE_SELECTION_SCREEN_TITLE_TEXT_FONT);
 		uint8 strHeaderXPos = (__HALF_SCREEN_WIDTH_IN_CHARS) - (strHeaderSize.x >> 1);
 		uint8 strHeaderYPos = 11 - strHeaderSize.y;
-		Printing::text(Printing::getInstance(), "                                                ", 0, strHeaderYPos, __LANGUAGE_SELECTION_SCREEN_TITLE_TEXT_FONT);
-		Printing::text(Printing::getInstance(), strTitle, strHeaderXPos, strHeaderYPos, __LANGUAGE_SELECTION_SCREEN_TITLE_TEXT_FONT);
+		Printing::text(Printing::getInstance(), "                                                ", 0, strHeaderYPos, __PLUGIN_LANGUAGE_SELECTION_SCREEN_TITLE_TEXT_FONT);
+		Printing::text(Printing::getInstance(), strTitle, strHeaderXPos, strHeaderYPos, __PLUGIN_LANGUAGE_SELECTION_SCREEN_TITLE_TEXT_FONT);
 
 		// print language
 		char* strLanguageName = I18n::getActiveLanguageName(I18n::getInstance());
-		FontSize strLanguageNameSize = Printing::getTextSize(Printing::getInstance(), strLanguageName, __LANGUAGE_SELECTION_SCREEN_LANGUAGE_NAME_FONT);
+		FontSize strLanguageNameSize = Printing::getTextSize(Printing::getInstance(), strLanguageName, __PLUGIN_LANGUAGE_SELECTION_SCREEN_LANGUAGE_NAME_FONT);
 		int32 strLanguageNameXPos = (__HALF_SCREEN_WIDTH_IN_CHARS) - (strLanguageNameSize.x >> 1);
-		int32 strLanguageNameYPos = ((LanguageSelectionScreenState::getFlagYPosition(this) + __LANGUAGE_SELECTION_SCREEN_IMAGE_HEIGHT) >> 3) - 1;
-		Printing::text(Printing::getInstance(), "                                                ", 0, strLanguageNameYPos, __LANGUAGE_SELECTION_SCREEN_LANGUAGE_NAME_FONT);
-		Printing::text(Printing::getInstance(), strLanguageName, strLanguageNameXPos, strLanguageNameYPos, __LANGUAGE_SELECTION_SCREEN_LANGUAGE_NAME_FONT);
+		int32 strLanguageNameYPos = ((LanguageSelectionScreenState::getFlagYPosition(this) + __PLUGIN_LANGUAGE_SELECTION_SCREEN_IMAGE_HEIGHT) >> 3) - 1;
+		Printing::text(Printing::getInstance(), "                                                ", 0, strLanguageNameYPos, __PLUGIN_LANGUAGE_SELECTION_SCREEN_LANGUAGE_NAME_FONT);
+		Printing::text(Printing::getInstance(), strLanguageName, strLanguageNameXPos, strLanguageNameYPos, __PLUGIN_LANGUAGE_SELECTION_SCREEN_LANGUAGE_NAME_FONT);
 
 	#endif
 }
@@ -183,7 +183,7 @@ void LanguageSelectionScreenState::printSelection()
 {
 	LanguageSelectionScreenState::print(this);
 
-	#if(__LANGUAGE_SELECTION_SCREEN_VARIANT == 1)
+	#if(__PLUGIN_LANGUAGE_SELECTION_SCREEN_VARIANT == 1)
 
 		// set cursor position
 		Vector3D position =
@@ -192,7 +192,7 @@ void LanguageSelectionScreenState::printSelection()
 			__PIXELS_TO_METERS(LanguageSelectionScreenState::getFlagXPosition(this, this->selection)),
 			__PIXELS_TO_METERS(LanguageSelectionScreenState::getFlagYPosition(this)),
 		#else
-			__PIXELS_TO_METERS(this->selection * (__LANGUAGE_SELECTION_SCREEN_IMAGE_WIDTH) - this->flagsTotalHalfWidth),
+			__PIXELS_TO_METERS(this->selection * (__PLUGIN_LANGUAGE_SELECTION_SCREEN_IMAGE_WIDTH) - this->flagsTotalHalfWidth),
 			0,
 		#endif
 			0,
@@ -204,7 +204,7 @@ void LanguageSelectionScreenState::printSelection()
 
 void LanguageSelectionScreenState::select(bool next)
 {
-	#if(__LANGUAGE_SELECTION_SCREEN_VARIANT == 0)
+	#if(__PLUGIN_LANGUAGE_SELECTION_SCREEN_VARIANT == 0)
 		if(next)
 		{
 			OptionsSelector::selectNext(this->languageSelector);
@@ -215,7 +215,7 @@ void LanguageSelectionScreenState::select(bool next)
 		}
 		this->selection = OptionsSelector::getSelectedOption(this->languageSelector);
 	#endif
-	#if(__LANGUAGE_SELECTION_SCREEN_VARIANT == 1)
+	#if(__PLUGIN_LANGUAGE_SELECTION_SCREEN_VARIANT == 1)
 		uint8 numLangs = LanguageSelectionScreenState::getNumLangs(this);
 		if(next)
 		{
@@ -264,7 +264,7 @@ Entity LanguageSelectionScreenState::addFlagToStage(EntitySpec* entitySpec, uint
 			LanguageSelectionScreenState::getFlagXPosition(this, position),
 			LanguageSelectionScreenState::getFlagYPosition(this),
 		#else
-			position * (__LANGUAGE_SELECTION_SCREEN_IMAGE_WIDTH) - this->flagsTotalHalfWidth,
+			position * (__PLUGIN_LANGUAGE_SELECTION_SCREEN_IMAGE_WIDTH) - this->flagsTotalHalfWidth,
 			0,
 		#endif
 			0,
@@ -283,10 +283,10 @@ Entity LanguageSelectionScreenState::addFlagToStage(EntitySpec* entitySpec, uint
 
 int32 LanguageSelectionScreenState::getFlagXPosition(uint8 position)
 {
-	return 192 - this->flagsTotalHalfWidth + (position * (__LANGUAGE_SELECTION_SCREEN_IMAGE_WIDTH));
+	return 192 - this->flagsTotalHalfWidth + (position * (__PLUGIN_LANGUAGE_SELECTION_SCREEN_IMAGE_WIDTH));
 }
 
 int32 LanguageSelectionScreenState::getFlagYPosition()
 {
-	return 96 + ((__LANGUAGE_SELECTION_SCREEN_IMAGE_HEIGHT) >> 1);
+	return 96 + ((__PLUGIN_LANGUAGE_SELECTION_SCREEN_IMAGE_HEIGHT) >> 1);
 }

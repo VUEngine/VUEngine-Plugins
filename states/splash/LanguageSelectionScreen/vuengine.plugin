@@ -18,8 +18,16 @@
 			"de": "Essentiell",
 			"es": "Esenciales"
 		},
-		"I18n",
-		"Splash",
+		{
+			"en": "I18n",
+			"de": "I18n",
+			"es": "I18n"
+		},
+		{
+			"en": "Splash",
+			"de": "Splash",
+			"es": "Splash"
+		},
 		{
 			"en": "State",
 			"de": "Zustand",
@@ -31,5 +39,62 @@
 		"vuengine//other/I18n",
 		"vuengine//other/SaveDataManager",
 		"vuengine//states/splash/SplashScreen"
+	],
+	"configuration": [
+		{
+			"name": "useLowPowerEntity",
+			"label": {
+				"en": "Use Low Power Entity"
+			},
+			"dataType": "boolean",
+			"default": false
+		},
+		{
+			"name": "variant",
+			"label": {
+				"en": "Variant"
+			},
+			"description": {
+				"en": "The language select screen variant to use (0: simple list, 1: flags)."
+			},
+			"dataType": "integer",
+			"default": 0,
+			"min": 0,
+			"max": 1
+		},
+		{
+			"name": "titleTextFont",
+			"label": {
+				"en": "Title Text Font"
+			},
+			"dataType": "type",
+			"type": "Font",
+			"default": "Default"
+		},
+		{
+			"name": "languageNameFont",
+			"label": {
+				"en": "Language Name Font"
+			},
+			"dataType": "type",
+			"type": "Font",
+			"default": "Default"
+		},
+		{
+			"name": "imageWidth",
+			"label": {
+				"en": "Image Width"
+			},
+			"dataType": "integer",
+			"default": 44
+		},
+		{
+			"name": "imageHeight",
+			"label": {
+				"en": "Image Height"
+			},
+			"dataType": "integer",
+			"default": 32
+		}
 	]
 }

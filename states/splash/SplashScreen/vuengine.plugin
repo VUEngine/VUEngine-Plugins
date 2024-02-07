@@ -13,8 +13,16 @@
 	"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/states/splash/SplashScreen",
 	"license": "MIT",
 	"tags": [
-		"Splash",
-		"State"
+		{
+			"en": "Splash",
+			"de": "Splash",
+			"es": "Splash"
+		},
+		{
+			"en": "State",
+			"de": "Zustand",
+			"es": "Estado"
+		}
 	],
 	"dependencies": []
 }

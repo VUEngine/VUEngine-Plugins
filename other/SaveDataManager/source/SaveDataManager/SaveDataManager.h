@@ -27,7 +27,7 @@
 typedef struct SaveData
 {
 	// flag to know if there is data from this game saved
-	uint8 saveStamp[__SAVE_DATA_MANAGER_SAVE_STAMP_LENGTH];
+	uint8 saveStamp[__PLUGIN_SAVE_DATA_MANAGER_SAVE_STAMP_LENGTH];
 
 	// checksum over sram content to prevent save data manipulation
 	uint32 checksum;

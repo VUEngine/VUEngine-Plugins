@@ -34,8 +34,8 @@ void LowPowerManager::constructor()
 	this->isShowingIndicator = false;
 	this->isActive = false;
 	this->lowPowerDuration = 0;
-	this->indicatorXPos = __LOW_POWER_INDICATOR_X_POSITION;
-	this->indicatorYPos = __LOW_POWER_INDICATOR_Y_POSITION;
+	this->indicatorXPos = __PLUGIN_LOW_POWER_INDICATOR_X_POSITION;
+	this->indicatorYPos = __PLUGIN_LOW_POWER_INDICATOR_Y_POSITION;
 
 	// add event listeners
 }
@@ -82,7 +82,7 @@ void LowPowerManager::onSecondChange(ListenerObject eventFirer __attribute__ ((u
 	// check low power flag
 	if(this->isActive)
 	{
-		if(this->lowPowerDuration >= __LOW_POWER_INDICATOR_FLASH_DELAY - 1)
+		if(this->lowPowerDuration >= __PLUGIN_LOW_POWER_INDICATOR_FLASH_DELAY - 1)
 		{
 			LowPowerManager::printLowPowerIndicator(this, !this->isShowingIndicator);
 		}
@@ -103,10 +103,10 @@ void LowPowerManager::printLowPowerIndicator(bool showIndicator)
 {
 	Printing::text(
 		Printing::getInstance(),
-		(showIndicator) ? __LOW_POWER_INDICATOR_ON_TEXT : __LOW_POWER_INDICATOR_OFF_TEXT,
+		(showIndicator) ? __PLUGIN_LOW_POWER_INDICATOR_ON_TEXT : __PLUGIN_LOW_POWER_INDICATOR_OFF_TEXT,
 		this->indicatorXPos,
 		this->indicatorYPos,
-		__LOW_POWER_INDICATOR_FONT
+		__PLUGIN_LOW_POWER_INDICATOR_FONT
 	);
 
 	this->isShowingIndicator = showIndicator;

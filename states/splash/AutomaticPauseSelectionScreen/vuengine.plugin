@@ -18,7 +18,11 @@
 			"de": "Essentiell",
 			"es": "Esenciales"
 		},
-		"Splash",
+		{
+			"en": "Splash",
+			"de": "Splash",
+			"es": "Splash"
+		},
 		{
 			"en": "State",
 			"de": "Zustand",
@@ -31,5 +35,60 @@
 		"vuengine//other/I18n",
 		"vuengine//other/SaveDataManager",
 		"vuengine//states/splash/SplashScreen"
+	],
+	"configuration": [
+		{
+			"name": "useLowPowerEntity",
+			"label": {
+				"en": "Use Low Power Entity"
+			},
+			"dataType": "boolean",
+			"default": false
+		},
+		{
+			"name": "optionsGap",
+			"label": {
+				"en": "Options Gap"
+			},
+			"dataType": "integer",
+			"default": 3
+		},
+		{
+			"name": "optionsYPos",
+			"label": {
+				"en": "Options Y Position"
+			},
+			"dataType": "integer",
+			"default": 15
+		},
+		{
+			"name": "titleTextFont",
+			"label": {
+				"en": "Title Font",
+				"de": "Schriftart Titel",
+				"es": "Fuente del título"
+			},
+			"dataType": "type",
+			"type": "Font",
+			"default": "Default"
+		},
+		{
+			"name": "bodyTextFont",
+			"label": {
+				"en": "Body Text Font"
+			},
+			"dataType": "type",
+			"type": "Font",
+			"default": "Default"
+		},
+		{
+			"name": "optionsTextFont",
+			"label": {
+				"en": "Options Font"
+			},
+			"dataType": "type",
+			"type": "Font",
+			"default": "Default"
+		}
 	]
 }

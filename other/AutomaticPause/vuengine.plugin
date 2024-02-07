@@ -26,5 +26,49 @@
 	],
 	"dependencies": [
 		"vuengine//other/I18n"
+	],
+	"configuration": [
+		{
+			"name": "titleTextFont",
+			"label": {
+				"en": "Title Font",
+				"de": "Schriftart Titel",
+				"es": "Fuente del título"
+			},
+			"description": {
+				"en": "The font to use for the \"Automatic Pause\" title.",
+				"de": "Die für den Titel \"Automatische Pause\" zu verwendende Schriftart.",
+				"es": "Tipo de letra para el título \"Pausa Automática\"."
+			},
+			"dataType": "type",
+			"type": "Font",
+			"default": "Default"
+		},
+		{
+			"name": "bodyTextFont",
+			"label": {
+				"en": "Body Text Font",
+				"de": "Schriftart Erklärtext",
+				"es": "Fuente del cuerpo"
+			},
+			"description": {
+				"en": "The font to use for the explanatory text.",
+				"de": "Die für den erklärenden Text zu verwendende Schriftart.",
+				"es": "El tipo de letra que se utilizará para el texto explicativo."
+			},
+			"dataType": "type",
+			"type": "Font",
+			"default": "Default"
+		},
+		{
+			"name": "useLowPowerEntity",
+			"label": {
+				"en": "Use Low Power Entity",
+				"de": "Niedriger Batteriestand Entität benutzen",
+				"es": "Utilizar entidad de baja potencia"
+			},
+			"dataType": "boolean",
+			"default": false
+		}
 	]
 }

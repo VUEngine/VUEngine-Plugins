@@ -19,5 +19,64 @@
 			"es": "Esenciales"
 		}
 	],
-	"dependencies": []
+	"dependencies": [],
+	"configuration": [
+		{
+			"name": "flashDelay",
+			"label": {
+				"en": "FlashDelay"
+			},
+			"description": {
+				"en": "Show low power indicator after this many seconds of receiving the low power signal."
+			},
+			"dataType": "integer",
+			"default": 2
+		},
+		{
+			"name": "font",
+			"label": {
+				"en": "Font",
+				"de": "Schriftart",
+				"es": "Fuente"
+			},
+			"description": {
+				"en": "The font to use for the low power indicator."
+			},
+			"dataType": "type",
+			"type": "Font",
+			"default": "Default"
+		},
+		{
+			"name": "onText",
+			"label": {
+				"en": "\"On\" Text"
+			},
+			"dataType": "string",
+			"default": "\\x01\\x02"
+		},
+		{
+			"name": "offText",
+			"label": {
+				"en": "\"Off\" Text"
+			},
+			"dataType": "string",
+			"default": "  "
+		},
+		{
+			"name": "xPosition",
+			"label": {
+				"en": "X Position"
+			},
+			"dataType": "integer",
+			"default": 1
+		},
+		{
+			"name": "yPosition",
+			"label": {
+				"en": "Y Position"
+			},
+			"dataType": "integer",
+			"default": 1
+		}
+	]
 }

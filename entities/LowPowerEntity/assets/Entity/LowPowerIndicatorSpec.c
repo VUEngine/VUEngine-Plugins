@@ -15,7 +15,7 @@
 
 #include <LowPowerEntity.h>
 #include <VIPManager.h>
-#ifdef __LOW_POWER_ENTITY_USE_GUI_BGMAP_ANIMATED_SPRITE
+#if __PLUGIN_LOW_POWER_ENTITY_USE_GUI_BGMAP_ANIMATED_SPRITE
 #include <GuiBgmapAnimatedSprite.h>
 #else
 #include <BgmapAnimatedSprite.h>
@@ -143,7 +143,7 @@ BgmapSpriteROMSpec LowPowerIndicatorSpriteSpec =
 {
 	{
 		// sprite's type
-#ifdef __LOW_POWER_ENTITY_USE_GUI_BGMAP_ANIMATED_SPRITE
+#if __PLUGIN_LOW_POWER_ENTITY_USE_GUI_BGMAP_ANIMATED_SPRITE
 		__TYPE(GuiBgmapAnimatedSprite),
 #else
 		__TYPE(BgmapAnimatedSprite),

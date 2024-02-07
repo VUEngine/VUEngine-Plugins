@@ -7,20 +7,20 @@
  * that was distributed with this source code.
  */
 
-#ifndef PRECAUTION_SCREEN_CONFIG_H_
-#define PRECAUTION_SCREEN_CONFIG_H_
+#ifndef __PLUGIN_PRECAUTION_SCREEN_CONFIG_H_
+#define __PLUGIN_PRECAUTION_SCREEN_CONFIG_H_
 
 
 //---------------------------------------------------------------------------------------------------------
 //											CONFIGURATION MACROS
 //---------------------------------------------------------------------------------------------------------
 
-#ifndef __PRECAUTION_SCREEN_TEXT_FONT
-#define __PRECAUTION_SCREEN_TEXT_FONT				NULL
+#ifndef __PLUGIN_PRECAUTION_SCREEN_TEXT_FONT
+#define __PLUGIN_PRECAUTION_SCREEN_TEXT_FONT				NULL
 #endif
 
-#ifndef __PRECAUTION_SCREEN_USE_LOW_POWER_ENTITY
-#define __PRECAUTION_SCREEN_USE_LOW_POWER_ENTITY	false
+#ifndef __PLUGIN_PRECAUTION_SCREEN_USE_LOW_POWER_ENTITY
+#define __PLUGIN_PRECAUTION_SCREEN_USE_LOW_POWER_ENTITY		false
 #endif
 
 

@@ -19,5 +19,47 @@
 			"es": "Postproceso"
 		}
 	],
-	"dependencies": []
+	"dependencies": [],
+	"configuration": [
+		{
+			"name": "xPosition",
+			"label": {
+				"en": "X Position"
+			},
+			"dataType": "integer",
+			"default": 768
+		},
+		{
+			"name": "yPosition",
+			"label": {
+				"en": "Y Position"
+			},
+			"dataType": "integer",
+			"default": 448
+		},
+		{
+			"name": "width",
+			"label": {
+				"en": "Width"
+			},
+			"dataType": "integer",
+			"default": 200
+		},
+		{
+			"name": "height",
+			"label": {
+				"en": "Height"
+			},
+			"dataType": "integer",
+			"default": 100
+		},
+		{
+			"name": "yStepThrottle",
+			"label": {
+				"en": "Y Step Throttle"
+			},
+			"dataType": "integer",
+			"default": 0
+		}
+	]
 }

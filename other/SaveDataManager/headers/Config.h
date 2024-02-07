@@ -7,29 +7,28 @@
  * that was distributed with this source code.
  */
 
-#ifndef SAVE_DATA_MANAGER_CONFIG_H_
-#define SAVE_DATA_MANAGER_CONFIG_H_
+#ifndef __PLUGIN_SAVE_DATA_MANAGER_CONFIG_H_
+#define __PLUGIN_SAVE_DATA_MANAGER_CONFIG_H_
 
 
 //---------------------------------------------------------------------------------------------------------
 //											CONFIGURATION MACROS
 //---------------------------------------------------------------------------------------------------------
 
-
-#ifndef	__SAVE_DATA_MANAGER_CRC_MASK
-#define __SAVE_DATA_MANAGER_CRC_MASK				0xEDB88320
+#ifndef	__PLUGIN_SAVE_DATA_MANAGER_CRC_MASK
+#define __PLUGIN_SAVE_DATA_MANAGER_CRC_MASK					(0xEDB88320)
 #endif
 
-#ifndef	__SAVE_DATA_MANAGER_SAVE_STAMP
-#define __SAVE_DATA_MANAGER_SAVE_STAMP				"VUEngine"
+#ifndef __PLUGIN_SAVE_DATA_MANAGER_CRC_CHECK_RANGE
+#define __PLUGIN_SAVE_DATA_MANAGER_CRC_CHECK_RANGE			(512)
 #endif
 
-#ifndef __SAVE_DATA_MANAGER_CRC_CHECK_RANGE
-#define __SAVE_DATA_MANAGER_CRC_CHECK_RANGE			512
+#ifndef	__PLUGIN_SAVE_DATA_MANAGER_SAVE_STAMP
+#define __PLUGIN_SAVE_DATA_MANAGER_SAVE_STAMP				("VUEngine")
 #endif
 
-#ifndef __SAVE_DATA_MANAGER_SAVE_STAMP_LENGTH
-#define __SAVE_DATA_MANAGER_SAVE_STAMP_LENGTH		8
+#ifndef __PLUGIN_SAVE_DATA_MANAGER_SAVE_STAMP_LENGTH
+#define __PLUGIN_SAVE_DATA_MANAGER_SAVE_STAMP_LENGTH		(8)
 #endif
 
 

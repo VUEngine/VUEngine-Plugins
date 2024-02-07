@@ -115,7 +115,7 @@ static void PostProcessingWobble::wobble(uint32 currentDrawingFrameBufferSet, Sp
 
 		// loop current column in steps of 16 pixels (32 bits)
 		// ignore the bottom 16 pixels of the screen (gui)
-		for(y = ((__WOBBLE_STARTING_ROW * 2) / 8) / sizeof(uint32); y < ((__WOBBLE_ENDING_ROW * 2) / 8) / sizeof(uint32); y++)
+		for(y = ((__PLUGIN_WOBBLE_STARTING_ROW * 2) / 8) / sizeof(uint32); y < ((__PLUGIN_WOBBLE_ENDING_ROW * 2) / 8) / sizeof(uint32); y++)
 		{
 			previousSourcePointerValueLeft = PostProcessingWobble::writeToFrameBuffer(y, waveLut[waveLutIndex], columnSourcePointerLeft, previousSourcePointerValueLeft);
 			previousSourcePointerValueRight = PostProcessingWobble::writeToFrameBuffer(y, waveLut[waveLutIndex], columnSourcePointerRight, previousSourcePointerValueRight);

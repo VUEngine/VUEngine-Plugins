@@ -19,5 +19,23 @@
 			"es": "Postproceso"
 		}
 	],
-	"dependencies": []
+	"dependencies": [],
+	"configuration": [
+		{
+			"name": "startingRow",
+			"label": {
+				"en": "Starting Row"
+			},
+			"dataType": "integer",
+			"default": 0
+		},
+		{
+			"name": "endingRow",
+			"label": {
+				"en": "Ending Row"
+			},
+			"dataType": "integer",
+			"default": 224
+		}
+	]
 }

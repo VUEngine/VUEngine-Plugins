@@ -19,7 +19,7 @@
 //											DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-#ifdef __LANGUAGE_SELECTION_SCREEN_USE_LOW_POWER_ENTITY
+#if __PLUGIN_LANGUAGE_SELECTION_SCREEN_USE_LOW_POWER_ENTITY
 extern EntitySpec LowPowerIndicatorEntitySpec;
 #endif
 
@@ -35,8 +35,8 @@ PositionedEntityROMSpec LanguageSelectionScreenStageEntities[] =
 
 PositionedEntityROMSpec LanguageSelectionScreenStageUiEntities[] =
 {
-#ifdef __LANGUAGE_SELECTION_SCREEN_USE_LOW_POWER_ENTITY
-	{&LowPowerIndicatorEntitySpec, 	{__LOW_POWER_ENTITY_X_POSITION, __LOW_POWER_ENTITY_Y_POSITION, __LOW_POWER_ENTITY_Z_POSITION, __LOW_POWER_ENTITY_Z_DISPLACEMENT}, 0, NULL, NULL, NULL, false},
+#if __PLUGIN_LANGUAGE_SELECTION_SCREEN_USE_LOW_POWER_ENTITY
+	{&LowPowerIndicatorEntitySpec, 	{__PLUGIN_LOW_POWER_ENTITY_X_POSITION, __PLUGIN_LOW_POWER_ENTITY_Y_POSITION, __PLUGIN_LOW_POWER_ENTITY_Z_POSITION, __PLUGIN_LOW_POWER_ENTITY_Z_DISPLACEMENT}, 0, NULL, NULL, NULL, false},
 #endif
 
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},

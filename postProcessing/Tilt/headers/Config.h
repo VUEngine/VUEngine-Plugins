@@ -7,20 +7,20 @@
  * that was distributed with this source code.
  */
 
-#ifndef POST_PROCESSING_TILT_CONFIG_H_
-#define POST_PROCESSING_TILT_CONFIG_H_
+#ifndef __PLUGIN_TILT_CONFIG_H_
+#define __PLUGIN_TILT_CONFIG_H_
 
 
 //---------------------------------------------------------------------------------------------------------
 //											CONFIGURATION MACROS
 //---------------------------------------------------------------------------------------------------------
 
-#ifndef __TILT_STARTING_ROW
-#define __TILT_STARTING_ROW		(0)
+#ifndef __PLUGIN_TILT_STARTING_ROW
+#define __PLUGIN_TILT_STARTING_ROW		(0)
 #endif
 
-#ifndef __TILT_ENDING_ROW
-#define __TILT_ENDING_ROW			(__SCREEN_HEIGHT)
+#ifndef __PLUGIN_TILT_ENDING_ROW
+#define __PLUGIN_TILT_ENDING_ROW		(__SCREEN_HEIGHT)
 #endif
 
 

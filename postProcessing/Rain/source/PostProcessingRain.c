@@ -379,11 +379,11 @@ static void PostProcessingRain::rain(uint32 currentDrawingFrameBufferSet __attri
 
 static void PostProcessingRain::waterFall(uint32 currentDrawingFrameBufferSet __attribute__ ((unused)), SpatialObject spatialObject __attribute__ ((unused)))
 {
-	int32 width = __WATERFALL_WIDTH;
-	int32 height = __WATERFALL_HEIGHT;
-	int32 yStepThrottle = __WATERFALL_Y_STEP_THROTTLE;
+	int32 width = __PLUGIN_RAIN_WIDTH;
+	int32 height = __PLUGIN_RAIN_HEIGHT;
+	int32 yStepThrottle = __PLUGIN_RAIN_Y_STEP_THROTTLE;
 
-	Vector3D position = {__WATERFALL_X_POSITION, __WATERFALL_Y_POSITION, 0};
+	Vector3D position = {__PLUGIN_RAIN_X_POSITION, __PLUGIN_RAIN_Y_POSITION, 0};
 
 	if(!isDeleted(spatialObject))
 	{

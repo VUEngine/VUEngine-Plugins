@@ -88,8 +88,8 @@ static void PostProcessingDwarfPlanet::dwarfPlanet(uint32 currentDrawingFrameBuf
 	int32 counter = lutEntries;
 	for(; --counter;)
 	{
-		int32 x1 = __DWARF_PLANET_STARTING_COLUMN - 1 + lutEntries - counter;
-		int32 x2 = __DWARF_PLANET_ENDING_COLUMN - counter;
+		int32 x1 = __PLUGIN_DWARF_PLANET_STARTING_COLUMN - 1 + lutEntries - counter;
+		int32 x2 = __PLUGIN_DWARF_PLANET_ENDING_COLUMN - counter;
 
 		// get pointer to currently manipulated 32 bits of framebuffer
 		uint32* columnSourcePointerLeft1 = (uint32*) (currentDrawingFrameBufferSet) + (x1 << 4);
@@ -104,7 +104,7 @@ static void PostProcessingDwarfPlanet::dwarfPlanet(uint32 currentDrawingFrameBuf
 		uint32 previousSourcePointerValueRight2 = 0;
 
 		// loop current column in steps of 16 pixels (32 bits)
-		for(uint16 y = (__DWARF_PLANET_STARTING_ROW / 16); y < (__DWARF_PLANET_ENDING_ROW / 16); y++)
+		for(uint16 y = (__PLUGIN_DWARF_PLANET_STARTING_ROW / 16); y < (__PLUGIN_DWARF_PLANET_ENDING_ROW / 16); y++)
 		{
 			previousSourcePointerValueLeft1 = PostProcessingDwarfPlanet::writeToFrameBuffer(y, 32 -lut[lutEntries - counter], columnSourcePointerLeft1, previousSourcePointerValueLeft1);
 			previousSourcePointerValueRight1 = PostProcessingDwarfPlanet::writeToFrameBuffer(y, 32 -lut[lutEntries - counter], columnSourcePointerRight1, previousSourcePointerValueRight1);

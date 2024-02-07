@@ -26,5 +26,47 @@
 	],
 	"dependencies": [
 		"vuengine//graphics/GuiBgmapAnimatedSprite"
+	],
+	"configuration": [
+		{
+			"name": "useGuiBgmapAnimatedSprite",
+			"label": {
+				"en": "Use GuiBgmapAnimatedSprite"
+			},
+			"dataType": "boolean",
+			"default": false
+		},
+		{
+			"name": "xPosition",
+			"label": {
+				"en": "X Position"
+			},
+			"dataType": "integer",
+			"default": -176
+		},
+		{
+			"name": "yPosition",
+			"label": {
+				"en": "Y Position"
+			},
+			"dataType": "integer",
+			"default": -100
+		},
+		{
+			"name": "zPosition",
+			"label": {
+				"en": "Z Position"
+			},
+			"dataType": "integer",
+			"default": 0
+		},
+		{
+			"name": "zDisplacement",
+			"label": {
+				"en": "Z Displacement"
+			},
+			"dataType": "integer",
+			"default": 0
+		}
 	]
 }

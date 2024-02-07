@@ -117,19 +117,19 @@ void AdjustmentScreenState::processUserInput(const UserInput* userInput)
 
 void AdjustmentScreenState::setLowPowerIndicatorPosition()
 {
-	LowPowerManager::setPosition(LowPowerManager::getInstance(), __ADJUSTMENT_SCREEN_LOW_POWER_INDICATOR_X_POSITION, __ADJUSTMENT_SCREEN_LOW_POWER_INDICATOR_Y_POSITION);
+	LowPowerManager::setPosition(LowPowerManager::getInstance(), __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_LOW_POWER_INDICATOR_X_POSITION, __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_LOW_POWER_INDICATOR_Y_POSITION);
 }
 
 void AdjustmentScreenState::resetLowPowerIndicatorPosition()
 {
-	LowPowerManager::setPosition(LowPowerManager::getInstance(), __LOW_POWER_INDICATOR_X_POSITION, __LOW_POWER_INDICATOR_Y_POSITION);
+	LowPowerManager::setPosition(LowPowerManager::getInstance(), __PLUGIN_LOW_POWER_INDICATOR_X_POSITION, __PLUGIN_LOW_POWER_INDICATOR_Y_POSITION);
 }
 
 static void AdjustmentScreenState::rhombusEmitterPostProcessingEffect(uint32 currentDrawingFrameBufferSet __attribute__ ((unused)), SpatialObject spatialObject __attribute__ ((unused)))
 {
 	// runtime working variables
 	// negative value to achieve an initial delay
-	static int32 radius = __ADJUSTMENT_SCREEN_RHOMBUS_INITIAL_VALUE;
+	static int32 radius = __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_RHOMBUS_INITIAL_VALUE;
 
 	// increase radius in each cycle
 	radius += 2;
@@ -141,7 +141,7 @@ static void AdjustmentScreenState::rhombusEmitterPostProcessingEffect(uint32 cur
 	else if(radius > 300)
 	{
 		// reset radius when reaching a certain length
-		radius = __ADJUSTMENT_SCREEN_RHOMBUS_INITIAL_VALUE;
+		radius = __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_RHOMBUS_INITIAL_VALUE;
 		return;
 	}
 
@@ -149,8 +149,8 @@ static void AdjustmentScreenState::rhombusEmitterPostProcessingEffect(uint32 cur
 
 	// top left line
 	DirectDraw::drawColorLine(
-		(PixelVector) {(192 - radius),	(112),			0, -((radius + __ADJUSTMENT_SCREEN_RHOMBUS_INITIAL_VALUE)>>5)},
-		(PixelVector) {(192),			(112 - radius),	0, -((radius + __ADJUSTMENT_SCREEN_RHOMBUS_INITIAL_VALUE)>>5)},
+		(PixelVector) {(192 - radius),	(112),			0, -((radius + __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_RHOMBUS_INITIAL_VALUE)>>5)},
+		(PixelVector) {(192),			(112 - radius),	0, -((radius + __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_RHOMBUS_INITIAL_VALUE)>>5)},
 		__COLOR_BRIGHT_RED,
 		0,
 		false
@@ -158,8 +158,8 @@ static void AdjustmentScreenState::rhombusEmitterPostProcessingEffect(uint32 cur
 
 	// top right line
 	DirectDraw::drawColorLine(
-		(PixelVector) {(192 + radius),	(112),			0, -((radius + __ADJUSTMENT_SCREEN_RHOMBUS_INITIAL_VALUE)>>5)},
-		(PixelVector) {(192),			(112 - radius),	0, -((radius + __ADJUSTMENT_SCREEN_RHOMBUS_INITIAL_VALUE)>>5)},
+		(PixelVector) {(192 + radius),	(112),			0, -((radius + __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_RHOMBUS_INITIAL_VALUE)>>5)},
+		(PixelVector) {(192),			(112 - radius),	0, -((radius + __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_RHOMBUS_INITIAL_VALUE)>>5)},
 		__COLOR_BRIGHT_RED,
 		0,
 		false
@@ -167,8 +167,8 @@ static void AdjustmentScreenState::rhombusEmitterPostProcessingEffect(uint32 cur
 
 	// bottom right line
 	DirectDraw::drawColorLine(
-		(PixelVector) {(192 + radius),	(112),			0, -((radius + __ADJUSTMENT_SCREEN_RHOMBUS_INITIAL_VALUE)>>5)},
-		(PixelVector) {(192),			(112 + radius),	0, -((radius + __ADJUSTMENT_SCREEN_RHOMBUS_INITIAL_VALUE)>>5)},
+		(PixelVector) {(192 + radius),	(112),			0, -((radius + __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_RHOMBUS_INITIAL_VALUE)>>5)},
+		(PixelVector) {(192),			(112 + radius),	0, -((radius + __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_RHOMBUS_INITIAL_VALUE)>>5)},
 		__COLOR_BRIGHT_RED,
 		0,
 		false
@@ -176,8 +176,8 @@ static void AdjustmentScreenState::rhombusEmitterPostProcessingEffect(uint32 cur
 
 	// bottom left line
 	DirectDraw::drawColorLine(
-		(PixelVector) {(192 - radius),	(112),			0, -((radius + __ADJUSTMENT_SCREEN_RHOMBUS_INITIAL_VALUE)>>5)},
-		(PixelVector) {(192),			(112 + radius),	0, -((radius + __ADJUSTMENT_SCREEN_RHOMBUS_INITIAL_VALUE)>>5)},
+		(PixelVector) {(192 - radius),	(112),			0, -((radius + __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_RHOMBUS_INITIAL_VALUE)>>5)},
+		(PixelVector) {(192),			(112 + radius),	0, -((radius + __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_RHOMBUS_INITIAL_VALUE)>>5)},
 		__COLOR_BRIGHT_RED,
 		0,
 		false

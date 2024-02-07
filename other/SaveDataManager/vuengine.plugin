@@ -19,5 +19,39 @@
 			"es": "Esenciales"
 		}
 	],
-	"dependencies": []
+	"dependencies": [],
+	"configuration": [
+		{
+			"name": "crcMask",
+			"label": {
+				"en": "CRC Mask"
+			},
+			"dataType": "hex",
+			"default": "0xEDB88320"
+		},
+		{
+			"name": "crcCheckRange",
+			"label": {
+				"en": "CRC Check Range"
+			},
+			"dataType": "integer",
+			"default": 512
+		},
+		{
+			"name": "saveStamp",
+			"label": {
+				"en": "Save Stamp"
+			},
+			"dataType": "string",
+			"default": "VUEngine"
+		},
+		{
+			"name": "saveStampLength",
+			"label": {
+				"en": "Save Stamp Length"
+			},
+			"dataType": "integer",
+			"default": 8
+		}
+	]
 }

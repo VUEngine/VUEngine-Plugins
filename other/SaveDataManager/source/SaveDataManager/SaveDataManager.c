@@ -31,7 +31,7 @@
 const SaveData SaveDataDefaults =
 {
 	// save stamp
-	__SAVE_DATA_MANAGER_SAVE_STAMP,
+	__PLUGIN_SAVE_DATA_MANAGER_SAVE_STAMP,
 	// checksum
 	0,
 	// active language id
@@ -68,20 +68,20 @@ void SaveDataManager::destructor()
 
 bool SaveDataManager::verifySaveStamp()
 {
-	char saveStamp[__SAVE_DATA_MANAGER_SAVE_STAMP_LENGTH];
+	char saveStamp[__PLUGIN_SAVE_DATA_MANAGER_SAVE_STAMP_LENGTH];
 
 	// read save stamp
 	SRAMManager::read(SRAMManager::getInstance(), (BYTE*)&saveStamp, offsetof(struct SaveData, saveStamp), sizeof(saveStamp));
 
-	return !strncmp(saveStamp, __SAVE_DATA_MANAGER_SAVE_STAMP, __SAVE_DATA_MANAGER_SAVE_STAMP_LENGTH);
+	return !strncmp(saveStamp, __PLUGIN_SAVE_DATA_MANAGER_SAVE_STAMP, __PLUGIN_SAVE_DATA_MANAGER_SAVE_STAMP_LENGTH);
 }
 
 bool SaveDataManager::checkSRAM()
 {
-	char saveStamp[__SAVE_DATA_MANAGER_SAVE_STAMP_LENGTH];
+	char saveStamp[__PLUGIN_SAVE_DATA_MANAGER_SAVE_STAMP_LENGTH];
 
 	// write save stamp
-	SRAMManager::save(SRAMManager::getInstance(), (BYTE*)__SAVE_DATA_MANAGER_SAVE_STAMP, offsetof(struct SaveData, saveStamp), sizeof(saveStamp));
+	SRAMManager::save(SRAMManager::getInstance(), (BYTE*)__PLUGIN_SAVE_DATA_MANAGER_SAVE_STAMP, offsetof(struct SaveData, saveStamp), sizeof(saveStamp));
 
 	return SaveDataManager::verifySaveStamp(this);
 }
@@ -94,9 +94,9 @@ uint32 SaveDataManager::computeChecksum()
 	int32 i = (offsetof(struct SaveData, checksum) + sizeof(crc32));
 	int16 saveDataSize = SaveDataManager::getSaveDataSize(this);
 
-	if(__SAVE_DATA_MANAGER_CRC_CHECK_RANGE < saveDataSize)
+	if(__PLUGIN_SAVE_DATA_MANAGER_CRC_CHECK_RANGE < saveDataSize)
 	{
-		saveDataSize = __SAVE_DATA_MANAGER_CRC_CHECK_RANGE;
+		saveDataSize = __PLUGIN_SAVE_DATA_MANAGER_CRC_CHECK_RANGE;
 	}
 
 	SRAMManager sramManager = SRAMManager::getInstance();
@@ -109,7 +109,7 @@ uint32 SaveDataManager::computeChecksum()
 		uint32 currentValue = 0;
 		SRAMManager::read(sramManager, (BYTE*)&currentValue, i, sizeof(currentValue));
 
-		crc32 += currentValue ^ __SAVE_DATA_MANAGER_CRC_MASK;
+		crc32 += currentValue ^ __PLUGIN_SAVE_DATA_MANAGER_CRC_MASK;
 	}
 
 	HardwareManager::resumeInterrupts();

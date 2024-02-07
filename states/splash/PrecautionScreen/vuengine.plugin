@@ -18,7 +18,11 @@
 			"de": "Essentiell",
 			"es": "Esenciales"
 		},
-		"Splash",
+		{
+			"en": "Splash",
+			"de": "Splash",
+			"es": "Splash"
+		},
 		{
 			"en": "State",
 			"de": "Zustand",
@@ -29,5 +33,24 @@
 		"vuengine//entities/LowPowerEntity",
 		"vuengine//other/I18n",
 		"vuengine//states/splash/SplashScreen"
+	],
+	"configuration": [
+		{
+			"name": "useLowPowerEntity",
+			"label": {
+				"en": "Use Low Power Entity"
+			},
+			"dataType": "boolean",
+			"default": false
+		},
+		{
+			"name": "textFont",
+			"label": {
+				"en": "Text Font"
+			},
+			"dataType": "type",
+			"type": "Font",
+			"default": "Default"
+		}
 	]
 }

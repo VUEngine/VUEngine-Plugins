@@ -13,7 +13,11 @@
 	"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/states/splash/AdjustmentScreenPrototype",
 	"license": "MIT",
 	"tags": [
-		"Splash", 
+		{
+			"en": "Splash",
+			"de": "Splash",
+			"es": "Splash"
+		},
 		{
 			"en": "State",
 			"de": "Zustand",
@@ -24,5 +28,63 @@
 		"vuengine//entities/LowPowerEntity",
 		"vuengine//other/LowPowerIndicator",
 		"vuengine//states/splash/SplashScreen"
+	],
+	"configuration": [
+		{
+			"name": "useLowPowerEntity",
+			"label": {
+				"en": "Use Low Power Entity"
+			},
+			"dataType": "boolean",
+			"default": false
+		},
+		{
+			"name": "lowPowerIndicatorXPosition",
+			"label": {
+				"en": "Low Power Indicator X Position"
+			},
+			"dataType": "integer",
+			"default": 4
+		},
+		{
+			"name": "lowPowerIndicatorYPosition",
+			"label": {
+				"en": "Low Power Indicator Y Position"
+			},
+			"dataType": "integer",
+			"default": 1
+		},
+		{
+			"name": "lowPowerEntityXPosition",
+			"label": {
+				"en": "Low Power Entity X Position"
+			},
+			"dataType": "integer",
+			"default": -152
+		},
+		{
+			"name": "lowPowerEntityYPosition",
+			"label": {
+				"en": "Low Power Entity Y Position"
+			},
+			"dataType": "integer",
+			"default": -100
+		},
+		{
+			"name": "lowPowerEntityZPosition",
+			"label": {
+				"en": "Low Power Entity Z Position"
+			},
+			"dataType": "integer",
+			"default": 0
+		},
+		{
+			"name": "lowPowerEntityZDisplacement",
+			"label": {
+				"en": "Low Power Entity Z Displacement"
+			},
+			"dataType": "integer",
+			"default": 0
+		}
 	]
 }
