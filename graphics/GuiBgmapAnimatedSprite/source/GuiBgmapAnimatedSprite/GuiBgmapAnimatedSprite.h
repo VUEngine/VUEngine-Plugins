@@ -65,9 +65,9 @@ class GuiBgmapAnimatedSprite : BgmapAnimatedSprite
 	/**
      * Render
      *
-     * @param evenFrame
+     * @param index
      */
-	override int16 doRender(int16 index, bool evenFrame);
+	override int16 doRender(int16 index);
 }
 
 

@@ -60,9 +60,9 @@ bool ShaderSprite::hasSpecialEffects()
 	return true;
 }
 
-int16 ShaderSprite::doRender(int16 index, bool evenFrame __attribute__((unused)))
+int16 ShaderSprite::doRender(int16 index)
 {
-	if(Base::doRender(this, index, evenFrame) == index)
+	if(Base::doRender(this, index) == index)
 	{
 //		ShaderSprite::renderToTexture(this, (WORD*)(buffer[this->buffer]));
 		return index;
