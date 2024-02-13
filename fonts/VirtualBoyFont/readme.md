@@ -1,6 +1,6 @@
 Large font based on the "Virtual Boy" writing from the official IPD/Focus adjustment screen.
 
-![](https://raw.githubusercontent.com/VUEngine/VUEngine-Plugins/master/fonts/VirtualBoyFont/preview.png)
+![Preview Image](preview.png)
 
 ## Usage
 

@@ -1,6 +1,6 @@
 A wide 8x16 pixel font for medium size text.
 
-![](https://raw.githubusercontent.com/VUEngine/VUEngine-Plugins/master/fonts/PompousFont/preview.png)
+![Preview Image](preview.png)
 
 ## Usage
 

@@ -1,6 +1,6 @@
 A bold, angular 8x8 pixel font that resembles industrial lettering.
 
-![](https://raw.githubusercontent.com/VUEngine/VUEngine-Plugins/master/fonts/IndustrialFont/preview.png)
+![Preview Image](preview.png)
 
 ## Usage
 
