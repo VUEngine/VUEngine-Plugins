@@ -1,6 +1,6 @@
 Manages persistence of user data in SRAM.
 
-![](https://raw.githubusercontent.com/VUEngine/VUEngine-Plugins/master/other/SaveDataManager/preview.png)
+![Preview Image](preview.png)
 
 ## Usage
 

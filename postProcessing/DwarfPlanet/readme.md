@@ -2,7 +2,7 @@
 
 This effect reads and writes a fourth of the screen and is therefore quite heavy on hardware, reducing the frame rate by about 50%.
 
-![](https://raw.githubusercontent.com/VUEngine/VUEngine-Plugins/master/postProcessing/DwarfPlanet/preview.png)
+![Preview Image](preview.png)
 
 ## Usage
 	

@@ -1,6 +1,6 @@
 Automatically pauses the game every 30 minutes. Also comes with a default Automatic Pause Screen.
 
-![](https://raw.githubusercontent.com/VUEngine/VUEngine-Plugins/master/other/AutomaticPause/preview.png)
+![Preview Image](preview.png)
 
 ## Usage
 

@@ -1,6 +1,6 @@
 Dynamic full screen rain effect. 
 
-![](https://raw.githubusercontent.com/VUEngine/VUEngine-Plugins/master/postProcessing/Rain/preview.png)
+![Preview Image](preview.png)
 
 ## Usage
 

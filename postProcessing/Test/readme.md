@@ -4,7 +4,7 @@ Play with sources to modify the effect to add distortion and/or negate the image
 
 This effect is meant for learning purposes.
 
-![](https://raw.githubusercontent.com/VUEngine/VUEngine-Plugins/master/postProcessing/Test/preview.png)
+![Preview Image](preview.png)
 
 ## Usage
 

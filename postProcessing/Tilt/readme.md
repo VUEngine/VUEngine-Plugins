@@ -2,7 +2,7 @@
 
 This effect reads and write almost the whole screen and is therefore not feasible on hardware. 
 
-![](https://raw.githubusercontent.com/VUEngine/VUEngine-Plugins/master/postProcessing/Tilt/preview.png)
+![Preview Image](preview.png)
 
 ## Usage
 
