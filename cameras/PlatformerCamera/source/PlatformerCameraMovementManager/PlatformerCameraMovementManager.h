@@ -56,8 +56,8 @@ singleton class PlatformerCameraMovementManager : CameraMovementManager
 	/* update axis flag */
 	Vector3DFlag positionFlag;
 	/* pointer to function that implements the required focusing */
-	bool (*focusFunction)(void*, Camera, bool, uint32);
-	bool (*previousFocusFunction)(void*, Camera, bool, uint32);
+	Vector3D (*focusFunction)(void*, Camera, bool, uint32);
+	Vector3D (*previousFocusFunction)(void*, Camera, bool, uint32);
 	PlatformerCameraTriggerEntitySpec platformerCameraTriggerEntitySpec;
 	Vector3D boundingBoxDisplacement;
 	ColliderSpec platformerCameraTriggerEntityCollidersSpec[2];
@@ -75,7 +75,7 @@ singleton class PlatformerCameraMovementManager : CameraMovementManager
 	void dontAlertWhenTargetFocused();
 	void lockMovement(uint8 axisToLockUp, bool locked);
 	void configure(Entity focusEntity, uint32 focusEntityLayer, uint32 cameraTriggerLayer, PixelSize boundingBoxSize, Vector3D boundingBoxDisplacement, Vector3D screenDisplacement);
-	override void focus(Camera camera, bool checkIfFocusEntityIsMoving);
+	override Vector3D focus(Camera camera, bool checkIfFocusEntityIsMoving);
 }
 
 

@@ -54,45 +54,41 @@ void PlatformerCameraMovementManager::destructor()
 }
 
 // center world's camera in function of focus actor's position
-void PlatformerCameraMovementManager::focus(Camera camera, bool checkIfFocusEntityIsMoving __attribute__ ((unused)))
+Vector3D PlatformerCameraMovementManager::focus(Camera camera, bool checkIfFocusEntityIsMoving __attribute__ ((unused)))
 {
 	if(isDeleted(camera))
 	{
-		return;
+		return Vector3D::zero()s;
 	}
 
-	this->focusFunction(this, camera, checkIfFocusEntityIsMoving, false);
+	return this->focusFunction(this, camera, checkIfFocusEntityIsMoving, false);
 }
 
-bool PlatformerCameraMovementManager::doFocusWithNoEasing(Camera camera, bool checkIfFocusEntityIsMoving __attribute__ ((unused)), uint32 introFocusing __attribute__ ((unused)))
+Vector3D PlatformerCameraMovementManager::doFocusWithNoEasing(Camera camera, bool checkIfFocusEntityIsMoving __attribute__ ((unused)), uint32 introFocusing __attribute__ ((unused)))
 {
 	NormalizedDirection normalizedDirection = Entity::getNormalizedDirection(Entity::safeCast(Camera::getFocusEntity(camera)));
 
-	Vector3D cameraPosition =
+	return cameraPosition =
 	{
 		this->focusEntityPosition->x + normalizedDirection.x * Camera::getFocusEntityPositionDisplacement(camera).x - __PIXELS_TO_METERS(__SCREEN_WIDTH / 2),
 		this->focusEntityPosition->y + Camera::getFocusEntityPositionDisplacement(camera).y - __PIXELS_TO_METERS(__SCREEN_HEIGHT / 2),
 		0
 	};
-
-	Camera::setPosition(camera, cameraPosition, true);
-
-	return true;
 }
 
 // center world's camera in function of focus actor's position
-bool PlatformerCameraMovementManager::dontFocus(Camera camera __attribute__ ((unused)), bool checkIfFocusEntityIsMoving __attribute__ ((unused)), uint32 introFocusing __attribute__ ((unused)))
+Vector3D PlatformerCameraMovementManager::dontFocus(Camera camera __attribute__ ((unused)), bool checkIfFocusEntityIsMoving __attribute__ ((unused)), uint32 introFocusing __attribute__ ((unused)))
 {
-	return false;
+	return Camera::getPosition(camera);
 }
 
 // center world's camera in function of focus actor's position
-bool PlatformerCameraMovementManager::doFocus(Camera camera, bool checkIfFocusEntityIsMoving __attribute__ ((unused)), uint32 introFocusing __attribute__ ((unused)))
+Vector3D PlatformerCameraMovementManager::doFocus(Camera camera, bool checkIfFocusEntityIsMoving __attribute__ ((unused)), uint32 introFocusing __attribute__ ((unused)))
 {
 	// if focusEntity is defined
 	if(!Camera::getFocusEntity(camera))
 	{
-		return false;
+		return Camera::getPosition(camera);
 	}
 
 	Actor focusActor = Actor::safeCast(Camera::getFocusEntity(camera));
@@ -211,28 +207,24 @@ bool PlatformerCameraMovementManager::doFocus(Camera camera, bool checkIfFocusEn
 		}
 	}
 
-	Camera::setPosition(camera, cameraNewPosition, true);
-
 	if(reachedTargetFlag.x && reachedTargetFlag.y)
 	{
-		return true;
+		return cameraNewPosition;
 	}
 
-	return false;
+	return Camera::getPosition(camera);
 }
 
 // center world's camera in function of focus actor's position
-bool PlatformerCameraMovementManager::doFocusAndAlertWhenTargetReached(Camera camera, bool checkIfFocusEntityIsMoving __attribute__ ((unused)), uint32 introFocusing __attribute__ ((unused)))
+Vector3D PlatformerCameraMovementManager::doFocusAndAlertWhenTargetReached(Camera camera, bool checkIfFocusEntityIsMoving __attribute__ ((unused)), uint32 introFocusing __attribute__ ((unused)))
 {
 	if(PlatformerCameraMovementManager::doFocus(this, camera, checkIfFocusEntityIsMoving, true))
 	{
 		EventManager::fireEvent(EventManager::getInstance(), kEventScreenFocused);
 		NM_ASSERT(!isDeleted(EventManager::getInstance()), "PlatformerCameraMovementManager::doFocusAndAlertWhenTargetReached: deleted entity manager during kEventScreenFocused");
-
-		return true;
 	}
 
-	return false;
+	return Camera::getPosition(camera);
 }
 
 void PlatformerCameraMovementManager::setPositionFlag(Vector3DFlag positionFlag)
