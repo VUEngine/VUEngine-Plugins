@@ -65,10 +65,11 @@ void LowPowerManager::setActive(bool active)
 	}
 }
 
-void LowPowerManager::onKeypadManagerRaisedPowerFlag(ListenerObject eventFirer __attribute__ ((unused)))
+bool LowPowerManager::onKeypadManagerRaisedPowerFlag(ListenerObject eventFirer __attribute__ ((unused)))
 {
-	KeypadManager::removeEventListener(KeypadManager::getInstance(), ListenerObject::safeCast(this), (EventListener)LowPowerManager::onKeypadManagerRaisedPowerFlag, kEventKeypadManagerRaisedPowerFlag);
 	Clock::addEventListener(VUEngine::getClock(VUEngine::getInstance()), ListenerObject::safeCast(this), (EventListener)LowPowerManager::onSecondChange, kEventSecondChanged);
+
+	return false;
 }
 
 void LowPowerManager::setPosition(uint8 x, uint8 y)
@@ -77,7 +78,7 @@ void LowPowerManager::setPosition(uint8 x, uint8 y)
 	this->indicatorYPos = y;
 }
 
-void LowPowerManager::onSecondChange(ListenerObject eventFirer __attribute__ ((unused)))
+bool LowPowerManager::onSecondChange(ListenerObject eventFirer __attribute__ ((unused)))
 {
 	// check low power flag
 	if(this->isActive)
@@ -97,6 +98,8 @@ void LowPowerManager::onSecondChange(ListenerObject eventFirer __attribute__ ((u
 		this->lowPowerDuration = 0;
 		LowPowerManager::printLowPowerIndicator(this, false);
 	}
+
+	return true;
 }
 
 void LowPowerManager::printLowPowerIndicator(bool showIndicator)

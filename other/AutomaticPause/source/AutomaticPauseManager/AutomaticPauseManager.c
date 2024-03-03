@@ -90,7 +90,7 @@ void AutomaticPauseManager::setActive(bool active)
 	}
 }
 
-void AutomaticPauseManager::onMinuteChange(ListenerObject eventFirer __attribute__ ((unused)))
+bool AutomaticPauseManager::onMinuteChange(ListenerObject eventFirer __attribute__ ((unused)))
 {
 	if(this->automaticPauseState && this->isActive && !VUEngine::isPaused(VUEngine::getInstance()))
 	{
@@ -104,4 +104,6 @@ void AutomaticPauseManager::onMinuteChange(ListenerObject eventFirer __attribute
 			this->elapsedTime = 0;
 		}
 	}
+
+	return true;
 }

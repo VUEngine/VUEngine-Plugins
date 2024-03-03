@@ -138,18 +138,22 @@ void AutomaticPauseScreenState::processUserInput(const UserInput*  userInput)
 }
 
 // handle event
-void AutomaticPauseScreenState::onFadeInComplete(ListenerObject eventFirer __attribute__ ((unused)))
+bool AutomaticPauseScreenState::onFadeInComplete(ListenerObject eventFirer __attribute__ ((unused)))
 {
 	// re-enable user input
 	VUEngine::enableKeypad(VUEngine::getInstance());
+
+	return false;
 }
 
 // handle event
-void AutomaticPauseScreenState::onFadeOutComplete(ListenerObject eventFirer __attribute__ ((unused)))
+bool AutomaticPauseScreenState::onFadeOutComplete(ListenerObject eventFirer __attribute__ ((unused)))
 {
 	// re-enable user input
 	VUEngine::enableKeypad(VUEngine::getInstance());
 
 	// resume game
 	VUEngine::unpause(VUEngine::getInstance(), GameState::safeCast(this));
+
+	return false;
 }

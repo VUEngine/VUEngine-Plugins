@@ -58,8 +58,10 @@ void LocalizedEntity::localize()
 }
 
 // handle event
-void LocalizedEntity::onLanguageChanged(ListenerObject eventFirer __attribute__ ((unused)))
+bool LocalizedEntity::onLanguageChanged(ListenerObject eventFirer __attribute__ ((unused)))
 {
 	// translate entity
 	LocalizedEntity::localize(this);
+
+	return true;
 }

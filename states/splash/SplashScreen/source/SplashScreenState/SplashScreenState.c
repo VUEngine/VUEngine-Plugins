@@ -158,14 +158,16 @@ void SplashScreenState::loadNextState()
 }
 
 // handle event
-void SplashScreenState::onFadeInComplete(ListenerObject eventFirer __attribute__ ((unused)))
+bool SplashScreenState::onFadeInComplete(ListenerObject eventFirer __attribute__ ((unused)))
 {
 	// enable user input
 	VUEngine::enableKeypad(VUEngine::getInstance());
+
+	return false;
 }
 
 // handle event
-void SplashScreenState::onFadeOutComplete(ListenerObject eventFirer __attribute__ ((unused)))
+bool SplashScreenState::onFadeOutComplete(ListenerObject eventFirer __attribute__ ((unused)))
 {
 	if(this->nextState == NULL)
 	{
@@ -174,4 +176,6 @@ void SplashScreenState::onFadeOutComplete(ListenerObject eventFirer __attribute_
 
 	// switch to next stage
 	VUEngine::changeState(VUEngine::getInstance(), this->nextState);
+
+	return false;
 }

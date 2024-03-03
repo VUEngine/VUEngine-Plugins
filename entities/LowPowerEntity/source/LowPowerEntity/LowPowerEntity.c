@@ -44,9 +44,10 @@ void LowPowerEntity::destructor()
 	Base::destructor();
 }
 
-void LowPowerEntity::onKeypadManagerRaisedPowerFlag(ListenerObject eventFirer __attribute__ ((unused)))
+bool LowPowerEntity::onKeypadManagerRaisedPowerFlag(ListenerObject eventFirer __attribute__ ((unused)))
 {
 	AnimatedEntity::playAnimation(AnimatedEntity::safeCast(this), "Flash");
-	KeypadManager::removeEventListener(KeypadManager::getInstance(), ListenerObject::safeCast(this), (EventListener)LowPowerEntity::onKeypadManagerRaisedPowerFlag, kEventKeypadManagerRaisedPowerFlag);
+
+	return false;
 }
 
