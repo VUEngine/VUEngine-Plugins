@@ -22,6 +22,7 @@
 #include <MessageDispatcher.h>
 #include <SaveDataManager.h>
 #include <SoundManager.h>
+#include <VirtualList.h>
 #include <VUEngine.h>
 
 #include "LanguageSelectionScreenState.h"
@@ -102,7 +103,7 @@ void LanguageSelectionScreenState::enter(void* owner)
 	#if(__PLUGIN_LANGUAGE_SELECTION_SCREEN_VARIANT == 0)
 
 		// create options selector and populate with language names
-		this->languageSelector = new OptionsSelector(1, 8, __PLUGIN_LANGUAGE_SELECTION_SCREEN_LANGUAGE_NAME_FONT);
+		this->languageSelector = new OptionsSelector(1, 8, __PLUGIN_LANGUAGE_SELECTION_SCREEN_LANGUAGE_NAME_FONT, NULL, NULL);
 		VirtualList languageNames = new VirtualList();
 		uint8 optionsWidth = 0;
 		int32 i = 0;
@@ -120,7 +121,7 @@ void LanguageSelectionScreenState::enter(void* owner)
 		delete languageNames;
 
 		// print options
-		OptionsSelector::printOptions(this->languageSelector, (__HALF_SCREEN_WIDTH_IN_CHARS) - (optionsWidth >> 1), 10);
+		OptionsSelector::printOptions(this->languageSelector, (__HALF_SCREEN_WIDTH_IN_CHARS) - (optionsWidth >> 1), 10, kOptionsAlignLeft, 0);
 		OptionsSelector::setSelectedOption(this->languageSelector, activeLanguage);
 
 		LanguageSelectionScreenState::printSelection(this);
