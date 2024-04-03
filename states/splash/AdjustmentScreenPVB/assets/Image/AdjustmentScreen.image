@@ -5,11 +5,7 @@
         "individualFiles": false,
         "isAnimation": false
     },
-    "files": [
-        "states/splash/AdjustmentScreenPVB/assets/images/AdjustmentScreenBG.png",
-        "states/splash/AdjustmentScreenPVB/assets/images/AdjustmentScreenIcon.png",
-        "states/splash/AdjustmentScreenPVB/assets/images/AdjustmentScreenLogo.png"
-    ],
+    "files": [],
     "map": {
         "compression": "none",
         "generate": true,
@@ -18,7 +14,6 @@
             "unique": true
         }
     },
-    "name": "Adjustment Screen",
     "section": "rom",
     "tileset": {
         "compression": "none",

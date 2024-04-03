@@ -11674,7 +11674,6 @@
         ]
     ],
     "compression": "none",
-    "name": "BulkyS",
     "offset": 32,
     "section": "rom",
     "size": {

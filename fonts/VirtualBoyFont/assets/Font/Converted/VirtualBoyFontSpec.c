@@ -13,7 +13,7 @@
 //                                              DECLARATIONS                                               
 //---------------------------------------------------------------------------------------------------------
 
-const uint32 VirtualBoyFontTiles[2308] __attribute__((aligned(4))) =
+const uint32 VirtualBoyFontTiles[] __attribute__((aligned(4))) =
 {
     0x00000000,
     0x00000000,0x00000000,0x00000000,0x00000000,0x00000000,0x00000000,0x00000000,0x00000000,

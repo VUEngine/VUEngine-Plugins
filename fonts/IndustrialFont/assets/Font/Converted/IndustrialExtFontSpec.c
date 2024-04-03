@@ -13,7 +13,7 @@
 //                                              DECLARATIONS                                               
 //---------------------------------------------------------------------------------------------------------
 
-const uint32 IndustrialExtFontTiles[1028] __attribute__((aligned(4))) =
+const uint32 IndustrialExtFontTiles[] __attribute__((aligned(4))) =
 {
     0x00000000,
     0x04450441,0x04510445,0x04410451,0x00001441,0x000CC3FC,0x3F0C0F0C,0xFF0CFF0C,0xFFFC000C,

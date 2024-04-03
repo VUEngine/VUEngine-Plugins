@@ -43859,7 +43859,6 @@
         ]
     ],
     "compression": "none",
-    "name": "VirtualBoy Ext",
     "offset": 32,
     "section": "rom",
     "size": {
