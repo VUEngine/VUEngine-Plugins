@@ -46,19 +46,19 @@ PositionedEntityROMSpec AdjustmentScreenStageUiEntities[] =
 #endif
 
 #ifdef __LEGACY_COORDINATE_PROJECTION
-	{&AdjustmentScreenIconLEntitySpec, 	{  12,   12}, {0, 0, 0}, {1, 1, 1},  0, NULL, NULL, NULL, false},
-	{&AdjustmentScreenIconREntitySpec, 	{  12,  212}, {0, 0, 0}, {1, 1, 1},  0, NULL, NULL, NULL, false},
+	{&AdjustmentScreenIconLEntitySpec, 	{  12,   12, 0}, {0, 0, 0}, {1, 1, 1},  0, NULL, NULL, NULL, false},
+	{&AdjustmentScreenIconREntitySpec, 	{  12,  212, 0}, {0, 0, 0}, {1, 1, 1},  0, NULL, NULL, NULL, false},
 	{&AdjustmentScreenBgEntitySpec, 	{ 192,  112, 16}, {0, 0, 0}, {1, 1, 1},  0, NULL, NULL, NULL, false},
-	{&AdjustmentScreenLogoEntitySpec, 	{ 192,  112}, {0, 0, 0}, {1, 1, 1},  0, NULL, NULL, NULL, false},
-	{&AdjustmentScreenIconLEntitySpec, 	{ 372,  212}, {0, 0, 0}, {1, 1, 1},  0, NULL, NULL, NULL, false},
-	{&AdjustmentScreenIconREntitySpec, 	{ 372,   12}, {0, 0, 0}, {1, 1, 1},  0, NULL, NULL, NULL, false},
+	{&AdjustmentScreenLogoEntitySpec, 	{ 192,  112, 0}, {0, 0, 0}, {1, 1, 1},  0, NULL, NULL, NULL, false},
+	{&AdjustmentScreenIconLEntitySpec, 	{ 372,  212, 0}, {0, 0, 0}, {1, 1, 1},  0, NULL, NULL, NULL, false},
+	{&AdjustmentScreenIconREntitySpec, 	{ 372,   12, 0}, {0, 0, 0}, {1, 1, 1},  0, NULL, NULL, NULL, false},
 #else
-	{&AdjustmentScreenIconLEntitySpec, 	{-180, -100}, {0, 0, 0}, {1, 1, 1},  0, NULL, NULL, NULL, false},
-	{&AdjustmentScreenIconREntitySpec, 	{-180,  100}, {0, 0, 0}, {1, 1, 1},  0, NULL, NULL, NULL, false},
+	{&AdjustmentScreenIconLEntitySpec, 	{-180, -100, 0}, {0, 0, 0}, {1, 1, 1},  0, NULL, NULL, NULL, false},
+	{&AdjustmentScreenIconREntitySpec, 	{-180,  100, 0}, {0, 0, 0}, {1, 1, 1},  0, NULL, NULL, NULL, false},
 	{&AdjustmentScreenBgEntitySpec, 	{   0,    0, 16}, {0, 0, 0}, {1, 1, 1},  0, NULL, NULL, NULL, false},
-	{&AdjustmentScreenLogoEntitySpec, 	{   0,    0}, {0, 0, 0}, {1, 1, 1},  0, NULL, NULL, NULL, false},
-	{&AdjustmentScreenIconLEntitySpec, 	{ 180,  100}, {0, 0, 0}, {1, 1, 1},  0, NULL, NULL, NULL, false},
-	{&AdjustmentScreenIconREntitySpec, 	{ 180, -100}, {0, 0, 0}, {1, 1, 1},  0, NULL, NULL, NULL, false},
+	{&AdjustmentScreenLogoEntitySpec, 	{   0,    0, 0}, {0, 0, 0}, {1, 1, 1},  0, NULL, NULL, NULL, false},
+	{&AdjustmentScreenIconLEntitySpec, 	{ 180,  100, 0}, {0, 0, 0}, {1, 1, 1},  0, NULL, NULL, NULL, false},
+	{&AdjustmentScreenIconREntitySpec, 	{ 180, -100, 0}, {0, 0, 0}, {1, 1, 1},  0, NULL, NULL, NULL, false},
 #endif
 
 	{NULL, {0, 0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},

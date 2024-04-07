@@ -268,8 +268,7 @@ Entity LanguageSelectionScreenState::addFlagToStage(EntitySpec* entitySpec, uint
 			position * (__PLUGIN_LANGUAGE_SELECTION_SCREEN_IMAGE_WIDTH) - this->flagsTotalHalfWidth,
 			0,
 		#endif
-			0,
-			0,
+			0
 		},
 		{0, 0, 0}, 
 		{1, 1, 1},
