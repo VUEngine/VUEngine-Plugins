@@ -32,22 +32,22 @@ extern EntitySpec LowPowerIndicatorEntitySpec;
 
 PositionedEntityROMSpec AutomaticPauseScreenStageEntities[] =
 {
-	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
+	{NULL, {0,0,0,0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 };
 
 PositionedEntityROMSpec AutomaticPauseScreenStageUiEntities[] =
 {
 #if __PLUGIN_AUTOMATIC_PAUSE_USE_LOW_POWER_ENTITY
-	{&LowPowerIndicatorEntitySpec, 	{__PLUGIN_LOW_POWER_ENTITY_X_POSITION, __PLUGIN_LOW_POWER_ENTITY_Y_POSITION, __PLUGIN_LOW_POWER_ENTITY_Z_POSITION, __PLUGIN_LOW_POWER_ENTITY_Z_DISPLACEMENT}, 0, NULL, NULL, NULL, false},
+	{&LowPowerIndicatorEntitySpec, 	{__PLUGIN_LOW_POWER_ENTITY_X_POSITION, __PLUGIN_LOW_POWER_ENTITY_Y_POSITION, __PLUGIN_LOW_POWER_ENTITY_Z_POSITION, __PLUGIN_LOW_POWER_ENTITY_Z_DISPLACEMENT}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 #endif
 
 #ifdef __LEGACY_COORDINATE_PROJECTION
-	{&AutomaticPauseLogoEntitySpec, 	{200,  72, 0, 0}, 0, NULL, NULL, NULL, false},
+	{&AutomaticPauseLogoEntitySpec, 	{200,  72, 0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 #else
-	{&AutomaticPauseLogoEntitySpec, 	{  8, -40, 0, 0}, 0, NULL, NULL, NULL, false},
+	{&AutomaticPauseLogoEntitySpec, 	{  8, -40, 0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 #endif
 
-	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
+	{NULL, {0,0,0,0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 };
 
 

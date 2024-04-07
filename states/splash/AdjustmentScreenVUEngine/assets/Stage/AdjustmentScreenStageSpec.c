@@ -36,32 +36,32 @@ extern EntitySpec LowPowerIndicatorEntitySpec;
 
 PositionedEntityROMSpec AdjustmentScreenStageEntities[] =
 {
-	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
+	{NULL, {0,0,0,0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 };
 
 PositionedEntityROMSpec AdjustmentScreenStageUiEntities[] =
 {
 #if __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_USE_LOW_POWER_ENTITY
-	{&LowPowerIndicatorEntitySpec, 	{__PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_LOW_POWER_ENTITY_X_POSITION, __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_LOW_POWER_ENTITY_Y_POSITION, __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_LOW_POWER_ENTITY_Z_POSITION, __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_LOW_POWER_ENTITY_Z_DISPLACEMENT}, 0, NULL, NULL, NULL, false},
+	{&LowPowerIndicatorEntitySpec, 	{__PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_LOW_POWER_ENTITY_X_POSITION, __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_LOW_POWER_ENTITY_Y_POSITION, __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_LOW_POWER_ENTITY_Z_POSITION, __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_LOW_POWER_ENTITY_Z_DISPLACEMENT}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 #endif
 
 #ifdef __LEGACY_COORDINATE_PROJECTION
-	{&AdjustmentScreenIconLEntitySpec, 	{  12,   12,  0, 0}, 0, NULL, NULL, NULL, false},
-	{&AdjustmentScreenIconREntitySpec, 	{  12,  212,  0, 0}, 0, NULL, NULL, NULL, false},
-	{&AdjustmentScreenBgEntitySpec, 	{ 192,  112, 16, 0}, 0, NULL, NULL, NULL, false},
-	{&AdjustmentScreenLogoEntitySpec, 	{ 192,  112,  0, 0}, 0, NULL, NULL, NULL, false},
-	{&AdjustmentScreenIconLEntitySpec, 	{ 372,  212,  0, 0}, 0, NULL, NULL, NULL, false},
-	{&AdjustmentScreenIconREntitySpec, 	{ 372,   12,  0, 0}, 0, NULL, NULL, NULL, false},
+	{&AdjustmentScreenIconLEntitySpec, 	{  12,   12,  0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&AdjustmentScreenIconREntitySpec, 	{  12,  212,  0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&AdjustmentScreenBgEntitySpec, 	{ 192,  112, 16, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&AdjustmentScreenLogoEntitySpec, 	{ 192,  112,  0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&AdjustmentScreenIconLEntitySpec, 	{ 372,  212,  0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&AdjustmentScreenIconREntitySpec, 	{ 372,   12,  0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 #else
-	{&AdjustmentScreenIconLEntitySpec, 	{-180, -100,  0, 0}, 0, NULL, NULL, NULL, false},
-	{&AdjustmentScreenIconREntitySpec, 	{-180,  100,  0, 0}, 0, NULL, NULL, NULL, false},
-	{&AdjustmentScreenBgEntitySpec, 	{   0,    0, 16, 0}, 0, NULL, NULL, NULL, false},
-	{&AdjustmentScreenLogoEntitySpec, 	{   0,    0,  0, 0}, 0, NULL, NULL, NULL, false},
-	{&AdjustmentScreenIconLEntitySpec, 	{ 180,  100,  0, 0}, 0, NULL, NULL, NULL, false},
-	{&AdjustmentScreenIconREntitySpec, 	{ 180, -100,  0, 0}, 0, NULL, NULL, NULL, false},
+	{&AdjustmentScreenIconLEntitySpec, 	{-180, -100,  0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&AdjustmentScreenIconREntitySpec, 	{-180,  100,  0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&AdjustmentScreenBgEntitySpec, 	{   0,    0, 16, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&AdjustmentScreenLogoEntitySpec, 	{   0,    0,  0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&AdjustmentScreenIconLEntitySpec, 	{ 180,  100,  0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&AdjustmentScreenIconREntitySpec, 	{ 180, -100,  0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 #endif
 
-	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
+	{NULL, {0,0,0,0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 };
 
 SoundROMSpec* const AdjustmentScreenStageSoundSpecs[] =

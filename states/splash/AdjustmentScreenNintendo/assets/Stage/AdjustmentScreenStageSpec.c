@@ -36,7 +36,7 @@ extern EntitySpec LowPowerIndicatorEntitySpec;
 
 PositionedEntityROMSpec AdjustmentScreenStageEntities[] =
 {
-	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
+	{NULL, {0,0,0,0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 };
 
 PositionedEntityROMSpec AdjustmentScreenStageUiEntities[] =
@@ -61,7 +61,7 @@ PositionedEntityROMSpec AdjustmentScreenStageUiEntities[] =
 	{&AdjustmentScreenIconREntitySpec, 	{ 184, -104,  0, 0}, 0, NULL, NULL, NULL, false},
 #endif
 
-	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
+	{NULL, {0,0,0,0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 };
 
 SoundROMSpec* const AdjustmentScreenStageSoundSpecs[] =
