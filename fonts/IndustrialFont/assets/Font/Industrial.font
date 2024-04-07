@@ -12518,7 +12518,6 @@
         ]
     ],
     "compression": "none",
-    "name": "Industrial",
     "offset": 0,
     "section": "rom",
     "size": {

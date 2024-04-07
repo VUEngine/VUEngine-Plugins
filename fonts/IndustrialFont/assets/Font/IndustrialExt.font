@@ -12518,7 +12518,6 @@
         ]
     ],
     "compression": "none",
-    "name": "Industrial Ext",
     "offset": 0,
     "section": "rom",
     "size": {

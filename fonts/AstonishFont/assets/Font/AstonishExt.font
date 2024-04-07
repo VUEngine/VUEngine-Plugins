@@ -21934,7 +21934,6 @@
         ]
     ],
     "compression": "none",
-    "name": "Astonish Ext",
     "offset": 0,
     "section": "rom",
     "size": {

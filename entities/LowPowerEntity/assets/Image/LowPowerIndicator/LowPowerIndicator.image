@@ -5,9 +5,7 @@
         "individualFiles": false,
         "isAnimation": true
     },
-    "files": [
-        "entities/LowPowerEntity/assets/images/LowPowerIndicator/LowPowerIndicator.png"
-    ],
+    "files": [],
     "map": {
         "compression": "none",
         "generate": true,
@@ -16,7 +14,6 @@
             "unique": false
         }
     },
-    "name": "Low Power Indicator",
     "section": "rom",
     "tileset": {
         "compression": "none",

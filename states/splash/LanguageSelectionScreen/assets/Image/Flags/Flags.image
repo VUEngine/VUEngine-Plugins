@@ -1,23 +1,22 @@
 {
-    "files": [],
-    "name": "",
-    "section": "rom",
-    "tileset": {
-        "shared": false,
-        "compression": "none"
+    "_id": "Mga6pDrgVWegLsoU",
+    "animation": {
+        "frames": 0,
+        "individualFiles": false,
+        "isAnimation": false
     },
+    "files": [],
     "map": {
+        "compression": "none",
         "generate": true,
         "reduce": {
             "flipped": true,
             "unique": true
-        },
-        "compression": "none"
+        }
     },
-    "animation": {
-        "isAnimation": false,
-        "individualFiles": false,
-        "frames": 0
-    },
-    "_id": "Mga6pDrgVWegLsoU"
+    "section": "rom",
+    "tileset": {
+        "compression": "none",
+        "shared": false
+    }
 }

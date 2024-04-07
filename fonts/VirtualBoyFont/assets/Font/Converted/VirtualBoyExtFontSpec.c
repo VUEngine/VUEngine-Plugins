@@ -13,7 +13,7 @@
 //                                              DECLARATIONS                                               
 //---------------------------------------------------------------------------------------------------------
 
-const uint32 VirtualBoyExtFontTiles[5380] __attribute__((aligned(4))) =
+const uint32 VirtualBoyExtFontTiles[] __attribute__((aligned(4))) =
 {
     0x00000000,
     0x00000000,0x00000000,0x00000000,0x00000000,0x00000000,0x00000000,0x00000000,0x00000000,
