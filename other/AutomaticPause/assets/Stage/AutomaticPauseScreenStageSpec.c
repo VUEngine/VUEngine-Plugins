@@ -32,7 +32,7 @@ extern EntitySpec LowPowerIndicatorEntitySpec;
 
 PositionedEntityROMSpec AutomaticPauseScreenStageEntities[] =
 {
-	{NULL, {0,0,0,0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{NULL, {0, 0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 };
 
 PositionedEntityROMSpec AutomaticPauseScreenStageUiEntities[] =
@@ -42,12 +42,12 @@ PositionedEntityROMSpec AutomaticPauseScreenStageUiEntities[] =
 #endif
 
 #ifdef __LEGACY_COORDINATE_PROJECTION
-	{&AutomaticPauseLogoEntitySpec, 	{200,  72, 0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&AutomaticPauseLogoEntitySpec, 	{200,  72, 0}, {0, 0, 0}, {1, 1, 1},  0, NULL, NULL, NULL, false},
 #else
-	{&AutomaticPauseLogoEntitySpec, 	{  8, -40, 0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&AutomaticPauseLogoEntitySpec, 	{  8, -40, 0}, {0, 0, 0}, {1, 1, 1},  0, NULL, NULL, NULL, false},
 #endif
 
-	{NULL, {0,0,0,0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{NULL, {0, 0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 };
 
 
