@@ -1,5 +1,5 @@
-PLUGINS = 	vuengine//entities/LowPowerEntity \
-			vuengine//other/SaveDataManager \
-			vuengine//other/I18n \
+PLUGINS =	vuengine//entities/LowPowerEntity \
 			vuengine//other/AutomaticPause \
+			vuengine//other/I18n \
+			vuengine//other/SaveDataManager \
 			vuengine//states/splash/SplashScreen

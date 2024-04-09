@@ -1,54 +1,37 @@
-/**
- * VUEngine Plugins Library
- *
- * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
- *
- * For the full copyright and license information, please view the LICENSE file
- * that was distributed with this source code.
- */
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                              THIS FILE WAS AUTO-GENERATED - DO NOT EDIT                               //
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #ifndef __PLUGIN_ADJUSTMENT_SCREEN_NINTENDO_CONFIG_H_
 #define __PLUGIN_ADJUSTMENT_SCREEN_NINTENDO_CONFIG_H_
 
 
 //---------------------------------------------------------------------------------------------------------
-//											CONFIGURATION MACROS
+//                                          CONFIGURATION MACROS                                           
 //---------------------------------------------------------------------------------------------------------
 
 #ifndef __PLUGIN_ADJUSTMENT_SCREEN_NINTENDO_USE_LOW_POWER_ENTITY
-#define __PLUGIN_ADJUSTMENT_SCREEN_NINTENDO_USE_LOW_POWER_ENTITY							false
+#define __PLUGIN_ADJUSTMENT_SCREEN_NINTENDO_USE_LOW_POWER_ENTITY (false)
 #endif
 
 #ifndef __PLUGIN_ADJUSTMENT_SCREEN_NINTENDO_LOW_POWER_INDICATOR_X_POSITION
-#define __PLUGIN_ADJUSTMENT_SCREEN_NINTENDO_LOW_POWER_INDICATOR_X_POSITION					4
+#define __PLUGIN_ADJUSTMENT_SCREEN_NINTENDO_LOW_POWER_INDICATOR_X_POSITION (4)
 #endif
 
 #ifndef __PLUGIN_ADJUSTMENT_SCREEN_NINTENDO_LOW_POWER_INDICATOR_Y_POSITION
-#define __PLUGIN_ADJUSTMENT_SCREEN_NINTENDO_LOW_POWER_INDICATOR_Y_POSITION					1
+#define __PLUGIN_ADJUSTMENT_SCREEN_NINTENDO_LOW_POWER_INDICATOR_Y_POSITION (1)
 #endif
 
 #ifndef __PLUGIN_ADJUSTMENT_SCREEN_NINTENDO_LOW_POWER_ENTITY_X_POSITION
-	#ifdef __LEGACY_COORDINATE_PROJECTION
-		#define __PLUGIN_ADJUSTMENT_SCREEN_NINTENDO_LOW_POWER_ENTITY_X_POSITION				40
-	#else
-		#define __PLUGIN_ADJUSTMENT_SCREEN_NINTENDO_LOW_POWER_ENTITY_X_POSITION				-152
-	#endif
+#define __PLUGIN_ADJUSTMENT_SCREEN_NINTENDO_LOW_POWER_ENTITY_X_POSITION (-152)
 #endif
 
 #ifndef __PLUGIN_ADJUSTMENT_SCREEN_NINTENDO_LOW_POWER_ENTITY_Y_POSITION
-	#ifdef __LEGACY_COORDINATE_PROJECTION
-		#define __PLUGIN_ADJUSTMENT_SCREEN_NINTENDO_LOW_POWER_ENTITY_Y_POSITION				12
-	#else
-		#define __PLUGIN_ADJUSTMENT_SCREEN_NINTENDO_LOW_POWER_ENTITY_Y_POSITION				-100
-	#endif
+#define __PLUGIN_ADJUSTMENT_SCREEN_NINTENDO_LOW_POWER_ENTITY_Y_POSITION (-100)
 #endif
 
 #ifndef __PLUGIN_ADJUSTMENT_SCREEN_NINTENDO_LOW_POWER_ENTITY_Z_POSITION
-#define __PLUGIN_ADJUSTMENT_SCREEN_NINTENDO_LOW_POWER_ENTITY_Z_POSITION						0
-#endif
-
-#ifndef __PLUGIN_ADJUSTMENT_SCREEN_NINTENDO_LOW_POWER_ENTITY_Z_DISPLACEMENT
-#define __PLUGIN_ADJUSTMENT_SCREEN_NINTENDO_LOW_POWER_ENTITY_Z_DISPLACEMENT					0
+#define __PLUGIN_ADJUSTMENT_SCREEN_NINTENDO_LOW_POWER_ENTITY_Z_POSITION (0)
 #endif
 
 

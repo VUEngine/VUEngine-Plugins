@@ -59,14 +59,6 @@
 			},
 			"dataType": "integer",
 			"default": 0
-		},
-		{
-			"name": "zDisplacement",
-			"label": {
-				"en": "Z Displacement"
-			},
-			"dataType": "integer",
-			"default": 0
 		}
 	]
 }

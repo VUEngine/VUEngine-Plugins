@@ -77,14 +77,6 @@
 			},
 			"dataType": "integer",
 			"default": 0
-		},
-		{
-			"name": "lowPowerEntityZDisplacement",
-			"label": {
-				"en": "Low Power Entity Z Displacement"
-			},
-			"dataType": "integer",
-			"default": 0
 		}
 	]
 }

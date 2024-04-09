@@ -1,1 +1,1 @@
-PLUGINS = 	vuengine//graphics/GuiBgmapAnimatedSprite
+PLUGINS =	vuengine//graphics/GuiBgmapAnimatedSprite
