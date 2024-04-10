@@ -1,0 +1,170 @@
+{
+    "_id": "Ev2ACaNDcK0JNc9J",
+    "animations": {
+        "default": 0,
+        "multiframe": false,
+        "totalFrames": 1
+    },
+    "components": {
+        "animations": [],
+        "behaviors": [],
+        "children": [],
+        "colliders": [],
+        "scripts": [],
+        "sprites": [
+            {
+                "_imageData": {
+                    "dupeIndex": 1,
+                    "images": [
+                        {
+                            "maps": [
+                                {
+                                    "data": "H4sIAAAAAAAAE4tWMjAwMFTSGaWoQ8UCAH1pmMdRAQAA",
+                                    "height": "1",
+                                    "width": "48",
+                                    "name": "AlignmentCheckLeft"
+                                }
+                            ],
+                            "tiles": {
+                                "count": 3,
+                                "data": "H4sIAAAAAAAAE4tWMoACJR2SmG5AgF+tkaMBCBNmxgIAuH+G24UAAAA=",
+                                "height": "24",
+                                "name": "AlignmentCheck",
+                                "width": "8"
+                            }
+                        }
+                    ]
+                },
+                "bgmapMode": "Bgmap",
+                "colorMode": 0,
+                "compression": "none",
+                "displacement": {
+                    "parallax": 0,
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "displayMode": "Mono",
+                "displays": "LON",
+                "manipulationFunction": "",
+                "name": "Left",
+                "section": "rom",
+                "texture": {
+                    "files": [
+                        "states/splash/AlignmentCheckScreen/assets/Entity/AlignmentCheckLeft.png"
+                    ],
+                    "files2": [],
+                    "flip": {
+                        "x": false,
+                        "y": false
+                    },
+                    "padding": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "palette": 0,
+                    "recycleable": false,
+                    "repeat": {
+                        "mode": "1x1",
+                        "size": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "x": false,
+                        "y": false
+                    }
+                },
+                "transparency": "None"
+            },
+            {
+                "_imageData": {
+                    "dupeIndex": 1,
+                    "images": [
+                        {
+                            "maps": [
+                                {
+                                    "data": "H4sIAAAAAAAAE4tWMjAwMFLSAVEGNKeMUKjhaF8sAPFilDNRAQAA",
+                                    "height": "3",
+                                    "width": "16",
+                                    "name": "AlignmentCheckRight"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "bgmapMode": "Bgmap",
+                "colorMode": 0,
+                "compression": "none",
+                "displacement": {
+                    "parallax": 0,
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "displayMode": "Mono",
+                "displays": "RON",
+                "manipulationFunction": "",
+                "name": "Right",
+                "section": "rom",
+                "texture": {
+                    "files": [
+                        "states/splash/AlignmentCheckScreen/assets/Entity/AlignmentCheckRight.png"
+                    ],
+                    "files2": [],
+                    "flip": {
+                        "x": false,
+                        "y": false
+                    },
+                    "padding": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "palette": 0,
+                    "recycleable": false,
+                    "repeat": {
+                        "mode": "1x1",
+                        "size": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "x": false,
+                        "y": false
+                    }
+                },
+                "transparency": "None"
+            }
+        ],
+        "wireframes": []
+    },
+    "extraProperties": {
+        "customAllocator": "",
+        "enabled": false,
+        "extraInfo": "",
+        "pixelSize": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        }
+    },
+    "inGameType": "None",
+    "physics": {
+        "bounciness": 0,
+        "enabled": false,
+        "friction": 0,
+        "gravityAxes": [],
+        "mass": 0,
+        "maximumSpeed": 0,
+        "maximumVelocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        },
+        "rotationAxes": []
+    },
+    "sprites": {
+        "optimizedTiles": true,
+        "sharedTiles": true,
+        "type": "Bgmap",
+        "useZDisplacementInProjection": false
+    }
+}
