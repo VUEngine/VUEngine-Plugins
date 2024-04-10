@@ -1,0 +1,31 @@
+{
+    "author": "Team VUEngine",
+    "configuration": [],
+    "dependencies": [
+        "vuengine//states/splash/SplashScreen"
+    ],
+    "description": {
+        "de": "Eine Nachbildung von Nintendos offiziellem Bildschirm zur Überprüfung der Bildschirm-Ausrichtung.",
+        "en": "A recreation of Nintendo's official screen alignment check screen.",
+        "es": "Una recreación de la pantalla oficial de comprobación de alineación de Nintendo."
+    },
+    "displayName": {
+        "de": "Bildschirm \"Ausrichtungsprüfung\"",
+        "en": "Alignment Check Screen",
+        "es": "Pantalla de comprobación de alineación"
+    },
+    "license": "MIT",
+    "repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/states/splash/AlignmentCheckScreen",
+    "tags": [
+        {
+            "de": "Essentiell",
+            "en": "Essentials",
+            "es": "Esenciales"
+        },
+        {
+            "de": "Zustand",
+            "en": "State",
+            "es": "Estado"
+        }
+    ]
+}
