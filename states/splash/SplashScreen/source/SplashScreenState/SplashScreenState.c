@@ -80,11 +80,8 @@ void SplashScreenState::exit(void* owner)
 // state's suspend
 void SplashScreenState::suspend(void* owner)
 {
-	if(!VUEngine::isEnteringToolState(VUEngine::getInstance()))
-	{
-		// do a fade out effect
-		Camera::startEffect(Camera::getInstance(), kFadeOut, __FADE_DELAY);
-	}
+	// do a fade out effect
+	Camera::startEffect(Camera::getInstance(), kFadeOut, __FADE_DELAY);
 
 	// call base
 	Base::suspend(this, owner);
@@ -97,21 +94,18 @@ void SplashScreenState::resume(void* owner)
 
 	SplashScreenState::print(this);
 
-	if(!VUEngine::isExitingToolState(VUEngine::getInstance()))
-	{
-		VUEngine::disableKeypad(VUEngine::getInstance());
+	VUEngine::disableKeypad(VUEngine::getInstance());
 
-		// start fade in effect
-		Camera::startEffect(Camera::getInstance(), kHide);
-		Camera::startEffect(Camera::getInstance(),
-			kFadeTo, // effect type
-			0, // initial delay (in ms)
-			NULL, // target brightness
-			__FADE_DELAY, // delay between fading steps (in ms)
-			(void (*)(ListenerObject, ListenerObject))SplashScreenState::onFadeInComplete, // callback function
-			ListenerObject::safeCast(this) // callback scope
-		);
-	}
+	// start fade in effect
+	Camera::startEffect(Camera::getInstance(), kHide);
+	Camera::startEffect(Camera::getInstance(),
+		kFadeTo, // effect type
+		0, // initial delay (in ms)
+		NULL, // target brightness
+		__FADE_DELAY, // delay between fading steps (in ms)
+		(void (*)(ListenerObject, ListenerObject))SplashScreenState::onFadeInComplete, // callback function
+		ListenerObject::safeCast(this) // callback scope
+	);
 }
 
 bool SplashScreenState::processMessage(void* owner __attribute__ ((unused)), Telegram telegram __attribute__ ((unused)))
