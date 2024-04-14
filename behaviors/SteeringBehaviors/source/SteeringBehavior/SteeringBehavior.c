@@ -81,9 +81,9 @@ static Vector3D SteeringBehavior::calculateForce(Vehicle vehicle, uint16 summing
 static Vector3D SteeringBehavior::applyDeviation(Vector3D force, fixed_t deviation)
 {
 	long seed = _gameRandomSeed;
-	force.x -= force.x ? Utilities::random(seed, deviation << 1) - deviation : 0;
-	force.y -= force.y ? Utilities::random(seed, deviation << 1) - deviation : 0;
-	force.z -= force.z ? Utilities::random(seed, deviation << 1) - deviation : 0;
+	force.x -= force.x ? Math::random(seed, deviation << 1) - deviation : 0;
+	force.y -= force.y ? Math::random(seed, deviation << 1) - deviation : 0;
+	force.z -= force.z ? Math::random(seed, deviation << 1) - deviation : 0;
 
 	return force;
 }
