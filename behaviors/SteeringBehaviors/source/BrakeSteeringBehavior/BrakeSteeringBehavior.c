@@ -14,7 +14,6 @@
 
 #include <Vehicle.h>
 #include <VirtualList.h>
-#include <DebugUtilities.h>
 
 #include "BrakeSteeringBehavior.h"
 
