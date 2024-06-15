@@ -21,7 +21,6 @@
 #include <I18n.h>
 #include <KeypadManager.h>
 #include <Languages.h>
-#include <LowPowerManager.h>
 #include <Printing.h>
 #include <MessageDispatcher.h>
 #include <SaveDataManager.h>
