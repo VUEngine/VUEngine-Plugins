@@ -63,7 +63,7 @@ abstract class SaveDataManager : ListenerObject
 	void writeChecksum();
 	uint32 computeChecksum();
 
-	virtual void restoreSettings() = 0;
+	virtual void restoreSettings();
 	virtual void writeDefaults();
 	virtual int32 getSaveDataSize();
 

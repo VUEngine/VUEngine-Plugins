@@ -164,6 +164,10 @@ void SaveDataManager::initialize()
 	}
 }
 
+void SaveDataManager::restoreSettings()
+{
+}
+
 void SaveDataManager::writeDefaults()
 {
 	SRAMManager::save(SRAMManager::getInstance(), (BYTE*)&SaveDataDefaults, 0, sizeof(SaveDataDefaults));
