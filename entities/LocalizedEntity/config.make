@@ -1,1 +1,1 @@
-PLUGINS = 	vuengine//other/I18n
+PLUGINS =	vuengine//other/I18n

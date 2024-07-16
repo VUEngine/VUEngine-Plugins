@@ -11,11 +11,11 @@
 //---------------------------------------------------------------------------------------------------------
 
 #ifndef __PLUGIN_AUTOMATIC_PAUSE_TITLE_TEXT_FONT
-#define __PLUGIN_AUTOMATIC_PAUSE_TITLE_TEXT_FONT ("Default")
+#define __PLUGIN_AUTOMATIC_PAUSE_TITLE_TEXT_FONT "Default"
 #endif
 
 #ifndef __PLUGIN_AUTOMATIC_PAUSE_BODY_TEXT_FONT
-#define __PLUGIN_AUTOMATIC_PAUSE_BODY_TEXT_FONT ("Default")
+#define __PLUGIN_AUTOMATIC_PAUSE_BODY_TEXT_FONT "Default"
 #endif
 
 #ifndef __PLUGIN_AUTOMATIC_PAUSE_USE_LOW_POWER_ENTITY

@@ -15,7 +15,7 @@
 #endif
 
 #ifndef __PLUGIN_PRECAUTION_SCREEN_TEXT_FONT
-#define __PLUGIN_PRECAUTION_SCREEN_TEXT_FONT ("Default")
+#define __PLUGIN_PRECAUTION_SCREEN_TEXT_FONT "Default"
 #endif
 
 
