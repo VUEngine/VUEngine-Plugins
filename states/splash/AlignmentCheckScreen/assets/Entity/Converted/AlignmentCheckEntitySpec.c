@@ -15,8 +15,9 @@
 //                                              DECLARATIONS                                               
 //---------------------------------------------------------------------------------------------------------
 
-extern uint32 AlignmentCheckEntityAlignmentCheckTiles[];
+extern uint32 AlignmentCheckEntityAlignmentCheckLeftTiles[];
 extern uint16 AlignmentCheckEntityAlignmentCheckLeftMap[];
+extern uint32 AlignmentCheckEntityAlignmentCheckRightTiles[];
 extern uint16 AlignmentCheckEntityAlignmentCheckRightMap[];
 
 
@@ -28,7 +29,7 @@ extern uint16 AlignmentCheckEntityAlignmentCheckRightMap[];
 CharSetROMSpec AlignmentCheckSprite1CharsetSpec =
 {
 	// number of chars in function or the number of frames to load at the same time
-	3,
+	1,
 
 	// whether it is shared or not
 	true,
@@ -37,7 +38,7 @@ CharSetROMSpec AlignmentCheckSprite1CharsetSpec =
 	true,
 
 	// char spec
-	AlignmentCheckEntityAlignmentCheckTiles,
+	AlignmentCheckEntityAlignmentCheckLeftTiles,
 
 	// pointer to the frames offsets
 	NULL,
@@ -103,10 +104,29 @@ BgmapSpriteROMSpec AlignmentCheckSprite1SpriteSpec =
 	__WORLD_LON,
 };
 
+
+CharSetROMSpec AlignmentCheckSprite2CharsetSpec =
+{
+	// number of chars in function or the number of frames to load at the same time
+	2,
+
+	// whether it is shared or not
+	true,
+
+	// whether the tiles are optimized or not
+	true,
+
+	// char spec
+	AlignmentCheckEntityAlignmentCheckRightTiles,
+
+	// pointer to the frames offsets
+	NULL,
+};
+
 TextureROMSpec AlignmentCheckSprite2TextureSpec =
 {
 	// charset spec
-	(CharSetSpec*)&AlignmentCheckSprite1CharsetSpec,
+	(CharSetSpec*)&AlignmentCheckSprite2CharsetSpec,
 
 	// bgmap spec
 	AlignmentCheckEntityAlignmentCheckRightMap,
@@ -207,6 +227,6 @@ EntityROMSpec AlignmentCheckEntitySpec =
 			// gameworld's character's type
 			kTypeNone,
 
-			// physical specification
-			(PhysicalProperties*)NULL,
+			// physical specification 
+			NULL,
 };

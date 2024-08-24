@@ -14,23 +14,23 @@
         "sprites": [
             {
                 "_imageData": {
-                    "dupeIndex": 1,
                     "images": [
                         {
+                            "animation": {
+                                "frames": 1
+                            },
                             "maps": [
                                 {
-                                    "data": "H4sIAAAAAAAAE4tWMjAwMFTSGaWoQ8UCAH1pmMdRAQAA",
+                                    "data": "H4sIAAAAAAAAE4tWMjAwMFDSGaWoQ8UCABAk9dVRAQAA",
                                     "height": "1",
                                     "width": "48",
                                     "name": "AlignmentCheckLeft"
                                 }
                             ],
                             "tiles": {
-                                "count": 3,
-                                "data": "H4sIAAAAAAAAE4tWMoACJR2SmG5AgF+tkaMBCBNmxgIAuH+G24UAAAA=",
-                                "height": "24",
-                                "name": "AlignmentCheck",
-                                "width": "8"
+                                "count": 1,
+                                "data": "H4sIAAAAAAAAE4tWMoACJR0lNzc3NygTSRTOjAUACS2mcS0AAAA=",
+                                "name": "AlignmentCheckLeft"
                             }
                         }
                     ]
@@ -46,12 +46,20 @@
                 },
                 "displayMode": "Mono",
                 "displays": "LON",
+                "imageProcessingSettings": {
+                    "colorDistanceFormula": "euclidean",
+                    "imageQuantizationAlgorithm": "nearest",
+                    "minimumColorDistanceToDither": 0,
+                    "serpentine": false
+                },
                 "manipulationFunction": "",
                 "name": "Left",
+                "optimizeTiles": true,
                 "section": "rom",
+                "sourceType": "image",
                 "texture": {
                     "files": [
-                        "states/splash/AlignmentCheckScreen/assets/Entity/AlignmentCheckLeft.png"
+                        "AlignmentCheckLeft.png"
                     ],
                     "files2": [],
                     "flip": {
@@ -78,17 +86,24 @@
             },
             {
                 "_imageData": {
-                    "dupeIndex": 1,
                     "images": [
                         {
+                            "animation": {
+                                "frames": 1
+                            },
                             "maps": [
                                 {
-                                    "data": "H4sIAAAAAAAAE4tWMjAwMFLSAVEGNKeMUKjhaF8sAPFilDNRAQAA",
+                                    "data": "H4sIAAAAAAAAE4tWMjAwMFTSAVEGNKcMUajhaF8sAEAEfUtRAQAA",
                                     "height": "3",
                                     "width": "16",
                                     "name": "AlignmentCheckRight"
                                 }
-                            ]
+                            ],
+                            "tiles": {
+                                "count": 2,
+                                "data": "H4sIAAAAAAAAE4tWMoACJR0imEaOBiBMmBkLAHesF4VZAAAA",
+                                "name": "AlignmentCheckRight"
+                            }
                         }
                     ]
                 },
@@ -103,12 +118,20 @@
                 },
                 "displayMode": "Mono",
                 "displays": "RON",
+                "imageProcessingSettings": {
+                    "colorDistanceFormula": "euclidean",
+                    "imageQuantizationAlgorithm": "nearest",
+                    "minimumColorDistanceToDither": 0,
+                    "serpentine": false
+                },
                 "manipulationFunction": "",
                 "name": "Right",
+                "optimizeTiles": true,
                 "section": "rom",
+                "sourceType": "image",
                 "texture": {
                     "files": [
-                        "states/splash/AlignmentCheckScreen/assets/Entity/AlignmentCheckRight.png"
+                        "AlignmentCheckRight.png"
                     ],
                     "files2": [],
                     "flip": {
@@ -162,8 +185,6 @@
         "rotationAxes": []
     },
     "sprites": {
-        "optimizedTiles": true,
-        "sharedTiles": true,
         "type": "Bgmap",
         "useZDisplacementInProjection": false
     }
