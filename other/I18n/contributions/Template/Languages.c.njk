@@ -8,8 +8,8 @@
     {%- endfor -%}
 {%- endfor %}
 {%- set translationIds = translationIds | unique | sort -%}
-{%- import 'templates/partials/macros.nj' as macros -%}
-{% include('templates/partials/fileHeader/fileHeader.c.nj') %}
+{%- import 'templates/partials/macros.njk' as macros -%}
+{% include('templates/partials/fileHeader/fileHeader.c.njk') %}
 
 {{ macros.sectionHeader('Includes') }}
 

@@ -3,7 +3,7 @@
 		"path": "headers/Languages.h",
 		"root": "project"
 	}],
-	"template": "contributions/Template/Languages.h.nj",
+	"template": "contributions/Template/Languages.h.njk",
 	"events": [{
 		"type": "installedPluginsChanged"
 	}]
