@@ -43860,6 +43860,7 @@
     ],
     "compression": "none",
     "offset": 32,
+    "pageSize": 224,
     "section": "rom",
     "size": {
         "x": 2,

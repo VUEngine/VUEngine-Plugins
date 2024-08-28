@@ -23645,6 +23645,7 @@
     ],
     "compression": "none",
     "offset": 0,
+    "pageSize": 256,
     "section": "rom",
     "size": {
         "x": 1,
