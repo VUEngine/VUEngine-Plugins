@@ -117,6 +117,7 @@ void LanguageSelectionScreenState::enter(void* owner)
 			FontSize strOptionSize = Printing::getTextSize(Printing::getInstance(), option->value, __PLUGIN_LANGUAGE_SELECTION_SCREEN_LANGUAGE_NAME_FONT);
 			optionsWidth = (strOptionSize.x > optionsWidth) ? strOptionSize.x : optionsWidth;
 		}
+		
 		OptionsSelector::setOptions(this->languageSelector, languageNames);
 		delete languageNames;
 
