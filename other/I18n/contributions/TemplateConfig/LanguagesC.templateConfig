@@ -3,7 +3,7 @@
 		"path": "assets/Languages.c",
 		"root": "project"
 	}],
-	"template": "contributions/Template/Languages.c.nj",
+	"template": "contributions/Template/Languages.c.njk",
 	"encoding": "win1252",
 	"events": [{
 		"type": "installedPluginsChanged"

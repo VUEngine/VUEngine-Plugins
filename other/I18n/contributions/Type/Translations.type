@@ -6,24 +6,24 @@
 			"languages": {
 				"type": "array",
 				"items": {
-					"name": {
-						"type": "string",
-						"default": ""
+					"type": "object",
+					"properties": {
+						"name": {
+							"type": "string"
+						},
+						"localizedName": {
+							"type": "string"
+						},
+						"code": {
+							"type": "string",
+							"maxLength": 2,
+							"minLength": 2
+						},
+						"flag": {
+							"type": "string"
+						}
 					},
-					"localizedName": {
-						"type": "string",
-						"default": ""
-					},
-					"code": {
-						"type": "string",
-						"default": "",
-						"maxLength": 2,
-						"minLength": 2
-					},
-					"flag": {
-						"type": "string",
-						"default": ""
-					}
+					"additionalProperties": false
 				}
 			},
 			"translations": {
