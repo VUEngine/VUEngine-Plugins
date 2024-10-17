@@ -277,10 +277,10 @@ Entity LanguageSelectionScreenState::addFlagToStage(EntitySpec* entitySpec, uint
 	};
 
 #ifdef __LEGACY_COORDINATE_PROJECTION
-	return Stage::addChildEntity(VUEngine::getStage(VUEngine::getInstance()), &flagPositionedEntity, true);
+	return Stage::spawnChildEntity(VUEngine::getStage(VUEngine::getInstance()), &flagPositionedEntity, true);
 #else
 	UIContainer uiContainer = VUEngine::getUIContainer(VUEngine::getInstance());
-	return UIContainer::addChildEntity(uiContainer, &flagPositionedEntity);
+	return UIContainer::spawnChildEntity(uiContainer, &flagPositionedEntity);
 #endif
 }
 

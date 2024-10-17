@@ -166,8 +166,8 @@ void ShaderSprite::renderClock(WORD* bufferAddress)
 		0
 	};
 
-	PixelVector fromVertex2D = PixelVector::project(fromVector, 0);
-	PixelVector toVertex2D = PixelVector::project(toVector, 0);
+	PixelVector fromVertex2D = PixelVector::projectVector3D(fromVector, 0);
+	PixelVector toVertex2D = PixelVector::projectVector3D(toVector, 0);
 
 	ShaderSprite::drawLine(this, bufferAddress, fromVertex2D, toVertex2D, __COLOR_BRIGHT_RED);
 }

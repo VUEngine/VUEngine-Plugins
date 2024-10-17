@@ -36,7 +36,7 @@ static void PostProcessingTest::lighting(uint32 currentDrawingFrameBufferSet, Sp
 		return;
 	}
 
-	PixelVector screenPixelPosition = PixelVector::project(Vector3D::getRelativeToCamera(*SpatialObject::getPosition(spatialObject)), 0);
+	PixelVector screenPixelPosition = PixelVector::projectVector3D(Vector3D::getRelativeToCamera(*SpatialObject::getPosition(spatialObject)), 0);
 
 	// the pixel in screen coordinates (x: 0 - 383, y: 0 - 223)
 	int32 x = 0;

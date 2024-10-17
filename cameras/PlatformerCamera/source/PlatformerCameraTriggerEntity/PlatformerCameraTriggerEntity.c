@@ -102,7 +102,7 @@ void PlatformerCameraTriggerEntity::resume()
 {
 	Base::resume(this);
 
-	Camera::focus(Camera::getInstance(), false);
+	Camera::focus(Camera::getInstance());
 
 	Vector3DFlag positionFlag = {true, true, true};
 	PlatformerCameraMovementManager::setPositionFlag(PlatformerCameraMovementManager::getInstance(), positionFlag);
