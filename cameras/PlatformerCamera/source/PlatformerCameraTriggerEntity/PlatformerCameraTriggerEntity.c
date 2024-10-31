@@ -134,7 +134,7 @@ void PlatformerCameraTriggerEntity::lockMovement(uint8 axisToLockUp, bool locked
 
 void PlatformerCameraTriggerEntity::setOverridePositionFlag(Vector3DFlag overridePositionFlag)
 {
-	Container::invalidateGlobalPosition(this);
+	PlatformerCameraTriggerEntity::invalidateTransformation(this);
 
 	Transformation* environmentTransform = Container::getTransform(this->parent);
 
