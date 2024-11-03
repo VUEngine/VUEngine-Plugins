@@ -151,9 +151,9 @@ Vector3DFlag PlatformerCameraTriggerEntity::getOverridePositionFlag()
 }
 
 // process collisions
-bool PlatformerCameraTriggerEntity::enterCollision(const CollisionInformation* collisionInformation)
+bool PlatformerCameraTriggerEntity::collisionStarts(const CollisionInformation* collisionInformation)
 {
-	ASSERT(collisionInformation->otherCollider, "PlatformerCameraTriggerEntity::enterCollision: null collidingObjects");
+	ASSERT(collisionInformation->otherCollider, "PlatformerCameraTriggerEntity::collisionStarts: null collidingObjects");
 
 #define CAMERA_BOUNDING_BOX_DISPLACEMENT	{__PIXELS_TO_METERS(0), __PIXELS_TO_METERS(-24/16), __PIXELS_TO_METERS(0)}
 

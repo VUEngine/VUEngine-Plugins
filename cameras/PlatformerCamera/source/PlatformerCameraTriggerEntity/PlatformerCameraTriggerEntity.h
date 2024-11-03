@@ -41,7 +41,7 @@ class PlatformerCameraTriggerEntity : Entity
 	override void transform(const Transformation* environmentTransform, uint8 invalidateTransformationFlag);
 	override void update();
 	override void resume();
-	override bool enterCollision(const CollisionInformation* collisionInformation);
+	override bool collisionStarts(const CollisionInformation* collisionInformation);
 }
 
 
