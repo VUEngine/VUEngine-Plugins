@@ -139,11 +139,6 @@ VirtualList Vehicle::getSteeringBehaviors()
 	return this->steeringBehaviors;
 }
 
-const Vector3D* Vehicle::getVelocity()
-{
-	return Body::getVelocity(this->body);
-}
-
 fixed_t Vehicle::getFrictionMassRatio()
 {
 	return 0;//this->frictionMassRatio;

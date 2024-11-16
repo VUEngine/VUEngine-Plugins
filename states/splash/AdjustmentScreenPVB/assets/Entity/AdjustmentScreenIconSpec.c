@@ -89,7 +89,7 @@ BgmapSpriteROMSpec AdjustmentScreenIconLSpriteSpec =
 		// texture spec
 		(TextureSpec*)&AdjustmentScreenIconTexture,
 
-		// transparent (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
+		// transparency (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
 
 		// displacement
@@ -122,7 +122,7 @@ BgmapSpriteROMSpec const AdjustmentScreenIconRSpriteSpec =
 		// texture spec
 		(TextureSpec*)&AdjustmentScreenIconTexture,
 
-		// transparent (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
+		// transparency (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
 
 		// displacement

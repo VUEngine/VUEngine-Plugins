@@ -90,7 +90,7 @@ BgmapSpriteROMSpec AdjustmentScreenLogoSpriteSpec =
 		// texture spec
 		(TextureSpec*)&AdjustmentScreenLogoTexture,
 
-		// transparent (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
+		// transparency (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
 
 		// displacement

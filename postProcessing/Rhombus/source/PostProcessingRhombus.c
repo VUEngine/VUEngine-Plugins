@@ -37,7 +37,7 @@
  */
 static void PostProcessingRhombus::drawRhombus(int32 radius, uint32 color, PixelVector screenPixelPosition, int32 parallax)
 {
-	DirectDraw::drawColorLine(
+	DirectDraw::drawLine(
 		(PixelVector) {screenPixelPosition.x - radius,	screenPixelPosition.y,			0, parallax},
 		(PixelVector) {screenPixelPosition.x,			screenPixelPosition.y - radius,	0, parallax},
 		color,
@@ -45,7 +45,7 @@ static void PostProcessingRhombus::drawRhombus(int32 radius, uint32 color, Pixel
 		false
 	);
 
-	DirectDraw::drawColorLine(
+	DirectDraw::drawLine(
 		(PixelVector) {screenPixelPosition.x + radius,	screenPixelPosition.y,			0, parallax},
 		(PixelVector) {screenPixelPosition.x,			screenPixelPosition.y - radius,	0, parallax},
 		color,
@@ -53,7 +53,7 @@ static void PostProcessingRhombus::drawRhombus(int32 radius, uint32 color, Pixel
 		false
 	);
 
-	DirectDraw::drawColorLine(
+	DirectDraw::drawLine(
 		(PixelVector) {screenPixelPosition.x + radius,	screenPixelPosition.y,			0, parallax},
 		(PixelVector) {screenPixelPosition.x,			screenPixelPosition.y + radius,	0, parallax},
 		color,
@@ -61,7 +61,7 @@ static void PostProcessingRhombus::drawRhombus(int32 radius, uint32 color, Pixel
 		false
 	);
 
-	DirectDraw::drawColorLine(
+	DirectDraw::drawLine(
 		(PixelVector) {screenPixelPosition.x - radius,	screenPixelPosition.y,			0, parallax},
 		(PixelVector) {screenPixelPosition.x,			screenPixelPosition.y + radius,	0, parallax},
 		color,

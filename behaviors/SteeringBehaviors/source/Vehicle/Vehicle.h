@@ -53,7 +53,6 @@ class Vehicle : Actor
 	uint16 getSummingMethod();
 	bool updateForce();
 	VirtualList getSteeringBehaviors();
-	const Vector3D* getVelocity();
 	fixed_t getFrictionMassRatio();
 
 	override void ready(bool recursive);

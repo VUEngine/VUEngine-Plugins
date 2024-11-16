@@ -133,7 +133,7 @@ void ReflectiveEntity::applyReflection(uint32 currentDrawingFrameBufferSet)
 		reflectiveEntitySpec->height,
 		reflectiveEntitySpec->reflectionMask,
 		reflectiveEntitySpec->axisForReversing,
-		reflectiveEntitySpec->transparent,
+		reflectiveEntitySpec->transparency,
 		reflectiveEntitySpec->reflectParallax,
 		reflectiveEntitySpec->parallaxDisplacement,
 		reflectiveEntitySpec->waveLut,
@@ -188,7 +188,7 @@ void ReflectiveEntity::drawReflection(uint32 currentDrawingFrameBufferSet,
 	int16 xOutputStart, int16 yOutputStart,
 	int16 width, int16 height,
 	uint32 reflectionMask,
-	uint16 axisForReversing, bool transparent, bool reflectParallax,
+	uint16 axisForReversing, bool transparency, bool reflectParallax,
 	int16 parallaxDisplacement,
 	const uint8 waveLut[], int32 numberOfWaveLutEntries, fixed_t waveLutThrottleFactor,
 	bool flattenTop __attribute__ ((unused)), bool flattenBottom,
@@ -228,7 +228,7 @@ void ReflectiveEntity::drawReflection(uint32 currentDrawingFrameBufferSet,
 
 	fixed_t fixedNumberOfWaveLutEntries = __FIXED_MULT(waveLutThrottleFactor, __I_TO_FIXED(numberOfWaveLutEntries));
 
-	uint32 transparentMask = transparent ? 0xFFFFFFFF : 0;
+	uint32 transparentMask = transparency ? 0xFFFFFFFF : 0;
 
 	int32 xClamping = 0;
 	int32 xOutputStartSave = xOutputStart;
@@ -447,7 +447,7 @@ void ReflectiveEntity::drawReflection(uint32 currentDrawingFrameBufferSet,
 
 			reflectionMask = reflectionMaskSave;
 
-			if(transparent && waveLutPixelDisplacement)
+			if(transparency && waveLutPixelDisplacement)
 			{
 				if(0 < pixelShift)
 				{
@@ -525,7 +525,7 @@ void ReflectiveEntity::drawReflection(uint32 currentDrawingFrameBufferSet,
 				columnOutputPointerLeft++;
 				columnOutputPointerRight++;
 
-				if(transparent)
+				if(transparency)
 				{
 					outputValueLeft = *columnOutputPointerLeft;
 					outputValueRight = *columnOutputPointerRight;
@@ -553,7 +553,7 @@ void ReflectiveEntity::drawReflection(uint32 currentDrawingFrameBufferSet,
 				effectiveContentMask = 0xFFFFFFFF >> maskDisplacement;
 				uint32 remainderContentMask = effectiveContentMask & ~(bottomBorderMask >> maskDisplacement);
 
-				if(!transparent)
+				if(!transparency)
 				{
 					outputValueLeft = *columnOutputPointerLeft;
 					outputValueRight = *columnOutputPointerRight;
@@ -637,7 +637,7 @@ void ReflectiveEntity::drawReflection(uint32 currentDrawingFrameBufferSet,
 
 			reflectionMask = reflectionMaskSave;
 
-			if(transparent && waveLutPixelDisplacement)
+			if(transparency && waveLutPixelDisplacement)
 			{
 				if(0 < pixelShift)
 				{
@@ -705,7 +705,7 @@ void ReflectiveEntity::drawReflection(uint32 currentDrawingFrameBufferSet,
 				columnOutputPointerLeft++;
 				columnOutputPointerRight++;
 
-				if(transparent)
+				if(transparency)
 				{
 					outputValueLeft = *columnOutputPointerLeft;
 				}
@@ -728,7 +728,7 @@ void ReflectiveEntity::drawReflection(uint32 currentDrawingFrameBufferSet,
 				effectiveContentMask = 0xFFFFFFFF >> maskDisplacement;
 				uint32 remainderContentMask = effectiveContentMask & ~(bottomBorderMask >> maskDisplacement);
 
-				if(!transparent)
+				if(!transparency)
 				{
 					outputValueLeft = *columnOutputPointerLeft;
 				}

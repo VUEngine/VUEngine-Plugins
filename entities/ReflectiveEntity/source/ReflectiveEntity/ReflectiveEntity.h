@@ -74,8 +74,8 @@ typedef struct ReflectiveEntitySpec
 	/// mask to apply to the mirrored image
 	uint32 reflectionMask;
 
-	/// transparent
-	bool transparent;
+	/// transparency
+	bool transparency;
 
 	/// reflect parallax info
 	bool reflectParallax;
@@ -177,7 +177,7 @@ class ReflectiveEntity : Entity
      * @param height
      * @param reflectionMask
      * @param axisForReversing
-     * @param transparent
+     * @param transparency
      * @param reflectParallax
      * @param parallaxDisplacement
      * @param waveLut
@@ -191,7 +191,7 @@ class ReflectiveEntity : Entity
      * @param rightBorderMask
      * @param noisePasses
      */
-	virtual void drawReflection(uint32 currentDrawingFrameBufferSet, int16 xSourceStart, int16 ySourceStart, int16 xOutputStart, int16 yOutputStart, int16 width, int16 height, uint32 reflectionMask, uint16 axisForReversing, bool transparent, bool reflectParallax, int16 parallaxDisplacement, const uint8 waveLut[], int32 numberOfWaveLutEntries, fixed_t waveLutThrottleFactor, bool flattenTop, bool flattenBottom, uint32 topBorderMask, uint32 bottomBorderMask, uint32 leftBorderMask, uint32 rightBorderMask, int16 noisePasses);
+	virtual void drawReflection(uint32 currentDrawingFrameBufferSet, int16 xSourceStart, int16 ySourceStart, int16 xOutputStart, int16 yOutputStart, int16 width, int16 height, uint32 reflectionMask, uint16 axisForReversing, bool transparency, bool reflectParallax, int16 parallaxDisplacement, const uint8 waveLut[], int32 numberOfWaveLutEntries, fixed_t waveLutThrottleFactor, bool flattenTop, bool flattenBottom, uint32 topBorderMask, uint32 bottomBorderMask, uint32 leftBorderMask, uint32 rightBorderMask, int16 noisePasses);
 
 	/**
 	 * Entity is ready
