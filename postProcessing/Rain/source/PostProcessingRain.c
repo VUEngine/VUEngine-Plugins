@@ -245,7 +245,7 @@ static void PostProcessingRain::calculateRainPrecipitation(fix19_13* yStepThrott
 		return;
 	}
 
-	uint32 currentTime = Clock::getMilliseconds(GameState::getUpdateClock(VUEngine::getCurrentState(VUEngine::getInstance())));
+	uint32 currentTime = Clock::getMilliseconds(GameState::getLogicsClock(VUEngine::getCurrentState(VUEngine::getInstance())));
 
 	if((currentTime - previousTime) / 1000 > timePeriod[timePeriodIndex])
 	{

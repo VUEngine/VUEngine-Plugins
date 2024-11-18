@@ -122,7 +122,7 @@ void LanguageSelectionScreenState::enter(void* owner)
 		delete languageNames;
 
 		// print options
-		OptionsSelector::printOptions(this->languageSelector, (__HALF_SCREEN_WIDTH_IN_CHARS) - (optionsWidth >> 1), 10, kOptionsAlignLeft, 0);
+		OptionsSelector::print(this->languageSelector, (__HALF_SCREEN_WIDTH_IN_CHARS) - (optionsWidth >> 1), 10, kOptionsAlignLeft, 0);
 		OptionsSelector::setSelectedOption(this->languageSelector, activeLanguage);
 
 		LanguageSelectionScreenState::printSelection(this);

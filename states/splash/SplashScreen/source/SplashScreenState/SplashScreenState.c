@@ -46,7 +46,7 @@ void SplashScreenState::enter(void* owner)
 
 	if(NULL != this->stageSpec)
 	{
-		SplashScreenState::loadStage(this, this->stageSpec, NULL);
+		SplashScreenState::configureStage(this, this->stageSpec, NULL);
 	}
 
 	SplashScreenState::print(this);
