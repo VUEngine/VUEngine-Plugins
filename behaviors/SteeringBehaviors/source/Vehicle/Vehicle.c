@@ -1,4 +1,4 @@
-/**
+/*
  * VUEngine Plugins Library
  *
  * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
@@ -20,19 +20,19 @@
 #include "Vehicle.h"
 
 
-//---------------------------------------------------------------------------------------------------------
-//												CLASS'S DECLARATIONS
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// CLASS' DECLARATIONS
+//=========================================================================================================
 
 friend class VirtualNode;
 friend class VirtualList;
 
 
-//---------------------------------------------------------------------------------------------------------
-//												CLASS'S METHODS
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// CLASS' PUBLIC METHODS
+//=========================================================================================================
 
-// class's constructor
+//---------------------------------------------------------------------------------------------------------
 void Vehicle::constructor(VehicleSpec* vehicleSpec, int16 internalId, const char* const name)
 {
 	// construct base
@@ -44,10 +44,17 @@ void Vehicle::constructor(VehicleSpec* vehicleSpec, int16 internalId, const char
 	this->accumulatedForce = Vector3D::zero();
 	this->radius = 0;
 	this->checkIfCanMove = false;
-//	this->frictionMassRatio = Body::getFrictionCoefficient(this->body) + Body::getMass(this->body);
-}
 
-// class's destructor
+	if(isDeleted(this->body))
+	{
+		this->frictionMassRatio = 0;
+	}
+	else
+	{
+		this->frictionMassRatio = Body::getFrictionCoefficient(this->body) + Body::getMass(this->body);
+	}
+}
+//---------------------------------------------------------------------------------------------------------
 void Vehicle::destructor()
 {
 	if(!isDeleted(this->steeringBehaviors))
@@ -60,7 +67,17 @@ void Vehicle::destructor()
 	// must always be called at the end of the destructor
 	Base::destructor();
 }
+//---------------------------------------------------------------------------------------------------------
+fixed_t Vehicle::getRadius()
+{
+	if(0 == this->radius)
+	{
+		this->radius = Base::getRadius(this);
+	}
 
+	return this->radius;
+}
+//---------------------------------------------------------------------------------------------------------
 void Vehicle::ready(bool recursive)
 {
 	Base::ready(this, recursive);
@@ -120,7 +137,14 @@ void Vehicle::ready(bool recursive)
 		this->evenCycle = this->internalId % 2;
 	}
 }
+//---------------------------------------------------------------------------------------------------------
+void Vehicle::update()
+{
+	Base::update(this);
 
+	Vehicle::updateForce(this);
+}
+//---------------------------------------------------------------------------------------------------------
 bool Vehicle::applyForce(const Vector3D* force, bool checkIfCanMove __attribute__((unused)))
 {
 	this->checkIfCanMove |= checkIfCanMove;
@@ -128,22 +152,23 @@ bool Vehicle::applyForce(const Vector3D* force, bool checkIfCanMove __attribute_
 
 	return true;
 }
-
-uint16 Vehicle::getSummingMethod()
-{
-	return ((VehicleSpec*)this->entitySpec)->summingMethod;
-}
-
+//---------------------------------------------------------------------------------------------------------
 VirtualList Vehicle::getSteeringBehaviors()
 {
 	return this->steeringBehaviors;
 }
-
+//---------------------------------------------------------------------------------------------------------
 fixed_t Vehicle::getFrictionMassRatio()
 {
-	return 0;//this->frictionMassRatio;
+	return this->frictionMassRatio;
 }
+//---------------------------------------------------------------------------------------------------------
 
+//=========================================================================================================
+// CLASS' PRIVATE METHODS
+//=========================================================================================================
+
+//---------------------------------------------------------------------------------------------------------
 bool Vehicle::updateForce()
 {
 	bool computeForce = 0 > this->evenCycle;
@@ -169,20 +194,4 @@ bool Vehicle::updateForce()
 
 	return computeForce;
 }
-
-void Vehicle::update()
-{
-	Base::update(this);
-
-	Vehicle::updateForce(this);
-}
-
-fixed_t Vehicle::getRadius()
-{
-	if(0 == this->radius)
-	{
-		this->radius = Base::getRadius(this);
-	}
-
-	return this->radius;
-}
+//---------------------------------------------------------------------------------------------------------

@@ -75,37 +75,73 @@ typedef const SteeringBehaviorSpec SteeringBehaviorROMSpec;
 ///
 /// Inherits from Behavior
 ///
-/// Defines an interface for steering behaviors
+/// Defines an interface for steering behaviors.
 class SteeringBehavior : Behavior
 {
 	/// Force to apply
 	Vector3D force;
 
-	// higher value has more priority
+	/// Priority of the steering behavior for the accumulation of forces to apply to its vehicle
+	/// (higher values mean higher priority)
 	int32 priority;
+
+	/// Weight to this behavior on the overal effect (range: 0-1)
 	fixed_t weight;
+
+	/// Maximum force to apply
 	fixed_t maximumForce;
+
+	/// Random deviation range
 	fixed_t deviation;
+
+	/// Calculate the force vector to apply to the provided vechile.
+	/// @param vehicle: Vehicle to which the steering behavior is applied
+	/// @param summingMethod: The method used to combine the forces of the vehicle's
+	/// steering behaviors
+	/// @return The force vector to apply to the provided vechile
+	static Vector3D calculateForce(Vehicle vehicle, uint16 summingMethod);
 
 	/// Class' constructor
 	/// @param owner: SpatialObject to which the behavior attaches to
 	/// @param steeringBehaviorSpec: Specification that determines how to configure the behavior
 	void constructor(SpatialObject owner, const SteeringBehaviorSpec* steeringBehaviorSpec);
 
+	/// Retrieve the specification used to configure the steering behavior.
+	/// @return Specification used to configure the steering behavior
 	const SteeringBehaviorSpec* getSteeringBehaviorSpec();
+
+	/// Reset the steering behavior's state.
 	void reset();
 
-	static Vector3D calculateForce(Vehicle vehicle, uint16 summingMethod);
+	/// Set the steering behavior's priority.
+	/// @param priority: Priority of the steering behavior for the accumulation of forces to apply 
+	/// to its vehicle (higher values mean higher priority)
+	void setPriority(int32 priority);
 
-	void setPriority(int32 value);
+	/// Retrieve the steering behavior's priority.
+	/// @return Priority of the steering behavior for the accumulation of forces to apply 
+	/// to its vehicle (higher values mean higher priority)
 	int32 getPriority();
 
-	void setWeight(fixed_t value);
+	/// Set the steering behavior's weight.
+	/// @param weight: Weight to this behavior on the overal effect (range: 0-1)
+	void setWeight(fixed_t weight);
+
+	/// Retrieve the steering behavior's weight.
+	/// @return Weight to this behavior on the overal effect (range: 0-1)
 	fixed_t getWeight();
 
-	void setMaximumForce(fixed_t value);
+	/// Set the steering behavior's maximum force.
+	/// @param maximumForce: Maximum force to apply
+	void setMaximumForce(fixed_t maximumForce);
+
+	/// Retrieve the steering behavior's maximum force.
+	/// @return Maximum force that this steering behavior can apply
 	fixed_t getMaximumForce();
 
+	/// Calculate the force vector to apply.
+	/// @param owner: Vehicle that owns the steering behavior
+	/// @return The force vector to apply to the provided vechile
 	virtual Vector3D calculate(Vehicle owner) = 0;
 }
 

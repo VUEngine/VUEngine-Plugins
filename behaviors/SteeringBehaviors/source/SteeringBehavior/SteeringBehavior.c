@@ -1,4 +1,4 @@
-/**
+/*
  * VUEngine Plugins Library
  *
  * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
@@ -21,40 +21,19 @@
 #include "SteeringBehavior.h"
 
 
-//---------------------------------------------------------------------------------------------------------
-//												CLASS'S DECLARATIONS
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// CLASS' DECLARATIONS
+//=========================================================================================================
 
 friend class VirtualList;
 friend class VirtualNode;
 
 
+//=========================================================================================================
+// CLASS' STATIC METHODS
+//=========================================================================================================
+
 //---------------------------------------------------------------------------------------------------------
-//												CLASS'S METHODS
-//---------------------------------------------------------------------------------------------------------
-
-/**
- * Class constructor
- */
-void SteeringBehavior::constructor(SpatialObject owner, const SteeringBehaviorSpec* steeringBehaviorSpec)
-{
-	Base::constructor(owner, &steeringBehaviorSpec->behaviorSpec);
-
-	this->force = Vector3D::zero();
-
-	SteeringBehavior::reset(this);
-}
-
-/**
- * Class destructor
- */
-void SteeringBehavior::destructor()
-{
-	// destroy the super object
-	// must always be called at the end of the destructor
-	Base::destructor();
-}
-
 static Vector3D SteeringBehavior::calculateForce(Vehicle vehicle, uint16 summingMethod)
 {
 	Vector3D steeringForce = {0, 0, 0};
@@ -75,37 +54,13 @@ static Vector3D SteeringBehavior::calculateForce(Vehicle vehicle, uint16 summing
 
 	return steeringForce;
 }
+//---------------------------------------------------------------------------------------------------------
 
-static Vector3D SteeringBehavior::applyDeviation(Vector3D force, fixed_t deviation)
-{
-	long seed = _gameRandomSeed;
-	force.x -= force.x ? Math::random(seed, deviation << 1) - deviation : 0;
-	force.y -= force.y ? Math::random(seed, deviation << 1) - deviation : 0;
-	force.z -= force.z ? Math::random(seed, deviation << 1) - deviation : 0;
+//=========================================================================================================
+// CLASS' PRIVATE STATIC METHODS
+//=========================================================================================================
 
-	return force;
-}
-
-static Vector3D SteeringBehavior::clampForce(Vector3D force, fixed_t maximumForce)
-{
-	if(maximumForce)
-	{
-		fixed_ext_t squaredForceMagnitude = Vector3D::squareLength(force);
-
-		if(squaredForceMagnitude > __FIXED_EXT_MULT(maximumForce, maximumForce))
-		{
-			fixed_t forceMagnitude = __F_TO_FIXED(Math::squareRoot(__FIXED_EXT_TO_F(squaredForceMagnitude)));
-
-			if(forceMagnitude)
-			{
-				force = Vector3D::scalarProduct(force, __FIXED_DIV(maximumForce, forceMagnitude));
-			}
-		}
-	}
-
-	return force;
-}
-
+//---------------------------------------------------------------------------------------------------------
 static Vector3D SteeringBehavior::calculatePrioritized(Vehicle vehicle)
 {
 	Vector3D steeringForce = {0, 0, 0};
@@ -154,7 +109,7 @@ static Vector3D SteeringBehavior::calculatePrioritized(Vehicle vehicle)
 
 	return steeringForce;
 }
-
+//---------------------------------------------------------------------------------------------------------
 static Vector3D SteeringBehavior::calculateWeightedSum(Vehicle vehicle)
 {
 	Vector3D steeringForce = {0, 0, 0};
@@ -185,7 +140,7 @@ static Vector3D SteeringBehavior::calculateWeightedSum(Vehicle vehicle)
 
 	return steeringForce;
 }
-
+//---------------------------------------------------------------------------------------------------------
 //  This function calculates how much of its max steering force the
 //  vehicle has left to apply and then applies that amount of the
 //  force to add.
@@ -231,37 +186,64 @@ static bool SteeringBehavior::accumulateForce(fixed_t maximumForce, Vector3D *to
 
 	return true;
 }
-
-int32 SteeringBehavior::getPriority()
+//---------------------------------------------------------------------------------------------------------
+static Vector3D SteeringBehavior::applyDeviation(Vector3D force, fixed_t deviation)
 {
-	return this->priority;
-}
+	long seed = _gameRandomSeed;
+	force.x -= force.x ? Math::random(seed, deviation << 1) - deviation : 0;
+	force.y -= force.y ? Math::random(seed, deviation << 1) - deviation : 0;
+	force.z -= force.z ? Math::random(seed, deviation << 1) - deviation : 0;
 
-void SteeringBehavior::setPriority(int32 value)
+	return force;
+}
+//---------------------------------------------------------------------------------------------------------
+static Vector3D SteeringBehavior::clampForce(Vector3D force, fixed_t maximumForce)
 {
-	this->priority = value;
-}
+	if(maximumForce)
+	{
+		fixed_ext_t squaredForceMagnitude = Vector3D::squareLength(force);
 
-fixed_t SteeringBehavior::getWeight()
+		if(squaredForceMagnitude > __FIXED_EXT_MULT(maximumForce, maximumForce))
+		{
+			fixed_t forceMagnitude = __F_TO_FIXED(Math::squareRoot(__FIXED_EXT_TO_F(squaredForceMagnitude)));
+
+			if(forceMagnitude)
+			{
+				force = Vector3D::scalarProduct(force, __FIXED_DIV(maximumForce, forceMagnitude));
+			}
+		}
+	}
+
+	return force;
+}
+//---------------------------------------------------------------------------------------------------------
+
+//=========================================================================================================
+// CLASS' PUBLIC METHODS
+//=========================================================================================================
+
+//---------------------------------------------------------------------------------------------------------
+void SteeringBehavior::constructor(SpatialObject owner, const SteeringBehaviorSpec* steeringBehaviorSpec)
 {
-	return this->weight;
-}
+	Base::constructor(owner, &steeringBehaviorSpec->behaviorSpec);
 
-void SteeringBehavior::setWeight(fixed_t value)
+	this->force = Vector3D::zero();
+
+	SteeringBehavior::reset(this);
+}
+//---------------------------------------------------------------------------------------------------------
+void SteeringBehavior::destructor()
 {
-	this->weight = value;
+	// destroy the super object
+	// must always be called at the end of the destructor
+	Base::destructor();
 }
-
-fixed_t SteeringBehavior::getMaximumForce()
+//---------------------------------------------------------------------------------------------------------
+const SteeringBehaviorSpec* SteeringBehavior::getSteeringBehaviorSpec()
 {
-	return this->maximumForce;
+	return ((SteeringBehaviorSpec*)this->componentSpec);
 }
-
-void SteeringBehavior::setMaximumForce(fixed_t value)
-{
-	this->maximumForce = value;
-}
-
+//---------------------------------------------------------------------------------------------------------
 void SteeringBehavior::reset()
 {
 	this->priority = ((SteeringBehaviorSpec*)this->componentSpec)->priority;
@@ -269,8 +251,34 @@ void SteeringBehavior::reset()
 	this->maximumForce = ((SteeringBehaviorSpec*)this->componentSpec)->maximumForce;
 	this->deviation = ((SteeringBehaviorSpec*)this->componentSpec)->deviation;
 }
-
-const SteeringBehaviorSpec* SteeringBehavior::getSteeringBehaviorSpec()
+//---------------------------------------------------------------------------------------------------------
+void SteeringBehavior::setPriority(int32 value)
 {
-	return ((SteeringBehaviorSpec*)this->componentSpec);
+	this->priority = value;
 }
+//---------------------------------------------------------------------------------------------------------
+int32 SteeringBehavior::getPriority()
+{
+	return this->priority;
+}
+//---------------------------------------------------------------------------------------------------------
+void SteeringBehavior::setWeight(fixed_t value)
+{
+	this->weight = value;
+}
+//---------------------------------------------------------------------------------------------------------
+fixed_t SteeringBehavior::getWeight()
+{
+	return this->weight;
+}
+//---------------------------------------------------------------------------------------------------------
+void SteeringBehavior::setMaximumForce(fixed_t value)
+{
+	this->maximumForce = value;
+}
+//---------------------------------------------------------------------------------------------------------
+fixed_t SteeringBehavior::getMaximumForce()
+{
+	return this->maximumForce;
+}
+//---------------------------------------------------------------------------------------------------------

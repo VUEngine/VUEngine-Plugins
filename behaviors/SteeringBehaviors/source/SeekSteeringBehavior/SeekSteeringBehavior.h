@@ -1,4 +1,4 @@
-/**
+/*
  * VUEngine Plugins Library
  *
  * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
@@ -18,11 +18,12 @@
 #include <SteeringBehavior.h>
 
 
-//---------------------------------------------------------------------------------------------------------
-//											 DEFINITIONS
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// CLASS' DATA
+//=========================================================================================================
 
-// defines an entity in ROM memory
+/// A SeekSteeringBehavior Spec
+/// @memberof SeekSteeringBehavior
 typedef struct SeekSteeringBehaviorSpec
 {
 	SteeringBehaviorSpec steeringBehaviorSpec;
@@ -35,17 +36,22 @@ typedef struct SeekSteeringBehaviorSpec
 
 } SeekSteeringBehaviorSpec;
 
+/// A SeekSteeringBehavior spec that is stored in ROM
+/// @memberof SeekSteeringBehavior
 typedef const SeekSteeringBehaviorSpec SeekSteeringBehaviorROMSpec;
 
 
-//---------------------------------------------------------------------------------------------------------
-//											CLASS'S DECLARATION
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// CLASS' DECLARATION
+//=========================================================================================================
 
-//  Given a target, this behavior returns a steering force which will
-//  direct the agent towards the target
-
-/// @ingroup base
+///
+/// Class Behavior
+///
+/// Inherits from Behavior
+///
+/// Defines a behavior that returns a steering force which will
+/// direct the agent towards a target
 class SeekSteeringBehavior : SteeringBehavior
 {
 	Vector3D target;
@@ -55,17 +61,28 @@ class SeekSteeringBehavior : SteeringBehavior
 	bool reachedTarget;
 	bool allowEasing;
 
+	/// Class' constructor
+	/// @param owner: SpatialObject to which the behavior attaches to
+	/// @param seekSteeringBehaviorSpec: Specification that determines how to configure the behavior
 	void constructor(SpatialObject owner, const SeekSteeringBehaviorSpec* seekSteeringBehaviorSpec);
 
-	Vector3D getTarget();
-	void setTarget(Vector3D value);
-	bool getAllowEasing();
-	void setAllowEasing(bool value);
-	bool getSlowDownWhenReachingTarget();
-	void setSlowDownWhenReachingTarget(bool value);
-	fixed_t getReachedDistanceThreshold();
-	void setReachedDistanceThreshold(fixed_t value);
+	/// Calculate the force vector to apply.
+	/// @param owner: Vehicle that owns the steering behavior
+	/// @return The force vector to apply to the provided vechile
 	override Vector3D calculate(Vehicle owner);
+
+	void setTarget(Vector3D value);
+	Vector3D getTarget();
+
+	void setAllowEasing(bool value);
+	bool getAllowEasing();
+	
+	void setSlowDownWhenReachingTarget(bool value);
+	bool getSlowDownWhenReachingTarget();
+	
+	void setReachedDistanceThreshold(fixed_t value);
+	fixed_t getReachedDistanceThreshold();
+	
 }
 
 
