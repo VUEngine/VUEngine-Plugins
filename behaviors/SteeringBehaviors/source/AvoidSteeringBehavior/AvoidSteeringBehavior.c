@@ -1,4 +1,4 @@
-/**
+/*
  * VUEngine Plugins Library
  *
  * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
@@ -20,36 +20,39 @@
 #include "AvoidSteeringBehavior.h"
 
 
-//---------------------------------------------------------------------------------------------------------
-//												CLASS'S DECLARATIONS
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// CLASS' DECLARATIONS
+//=========================================================================================================
 
 friend class VirtualList;
 friend class VirtualNode;
 
 
-#undef DRAW_FORCE
+//=========================================================================================================
+// CLASS' DATA
+//=========================================================================================================
 
+typedef struct Obstacle
+{
+	SpatialObject spatialObject;
+	const Vector3D* position;
+	fixed_t radius;
+
+}Obstacle;
+
+
+//=========================================================================================================
+// CLASS' PUBLIC METHODS
+//=========================================================================================================
 
 //---------------------------------------------------------------------------------------------------------
-//												CLASS'S METHODS
-//---------------------------------------------------------------------------------------------------------
-
-/**
- * Class constructor
- */
 void AvoidSteeringBehavior::constructor(SpatialObject owner, const AvoidSteeringBehaviorSpec* avoidSteeringBehaviorSpec)
 {
 	Base::constructor(owner, &avoidSteeringBehaviorSpec->steeringBehaviorSpec);
 
 	this->obstacles = new VirtualList();
-	this->avoidSteeringBehaviorSpec = avoidSteeringBehaviorSpec;
-	this->isBraking = false;
 }
-
-/**
- * Class destructor
- */
+//---------------------------------------------------------------------------------------------------------
 void AvoidSteeringBehavior::destructor()
 {
 	AvoidSteeringBehavior::removeAllObstacles(this);
@@ -59,22 +62,22 @@ void AvoidSteeringBehavior::destructor()
 	// must always be called at the end of the destructor
 	Base::destructor();
 }
-
-void AvoidSteeringBehavior::removeAllObstacles()
+//---------------------------------------------------------------------------------------------------------
+Vector3D AvoidSteeringBehavior::calculate(Vehicle owner)
 {
-	VirtualList::deleteData(this->obstacles);
-}
+	this->force = Vector3D::zero();
 
-fixed_t AvoidSteeringBehavior::getAvoidanceDetectionDistance()
-{
-	return this->avoidSteeringBehaviorSpec->avoidanceDetectionDistance;
-}
+	if(isDeleted(owner))
+	{
+		this->enabled = false;
+		return this->force;
+	}
 
-VirtualList AvoidSteeringBehavior::getObstacles()
-{
-	return this->obstacles;
-}
+	this->force = AvoidSteeringBehavior::awayFromObstacles(this, owner);
 
+	return this->force;
+}
+//---------------------------------------------------------------------------------------------------------
 void AvoidSteeringBehavior::addObstacle(SpatialObject spatialObject)
 {
 	if(isDeleted(spatialObject))
@@ -88,26 +91,20 @@ void AvoidSteeringBehavior::addObstacle(SpatialObject spatialObject)
 	obstacle->position = SpatialObject::getPosition(spatialObject);
 	obstacle->radius = SpatialObject::getRadius(spatialObject);
 
-
 	VirtualList::pushBack(this->obstacles, obstacle);
 }
-
-Vector3D AvoidSteeringBehavior::calculate(Vehicle owner)
+//---------------------------------------------------------------------------------------------------------
+void AvoidSteeringBehavior::removeAllObstacles()
 {
-	this->isBraking = false;
-	this->force = Vector3D::zero();
-
-	if(isDeleted(owner))
-	{
-		this->enabled = false;
-		return this->force;
-	}
-
-	this->force = AvoidSteeringBehavior::awayFromObstacles(this, owner);
-
-	return this->force;
+	VirtualList::deleteData(this->obstacles);
 }
+//---------------------------------------------------------------------------------------------------------
 
+//=========================================================================================================
+// CLASS' PRIVATES METHODS
+//=========================================================================================================
+
+//---------------------------------------------------------------------------------------------------------
 Vector3D AvoidSteeringBehavior::awayFromObstacles(Vehicle vehicle)
 {
 	VirtualNode node = this->obstacles->head;
@@ -122,7 +119,7 @@ Vector3D AvoidSteeringBehavior::awayFromObstacles(Vehicle vehicle)
 	Vector3D position = *Vehicle::getPosition(vehicle);
 	Vector3D direction = *Vehicle::getDirection(vehicle);
 
-	fixed_t squareAvoidanceDetectionDistance = __FIXED_MULT(this->avoidSteeringBehaviorSpec->avoidanceDetectionDistance, this->avoidSteeringBehaviorSpec->avoidanceDetectionDistance);
+	fixed_t squareAvoidanceDetectionDistance = __FIXED_MULT(((AvoidSteeringBehaviorSpec*)this->componentSpec)->avoidanceDetectionDistance, ((AvoidSteeringBehaviorSpec*)this->componentSpec)->avoidanceDetectionDistance);
 	fixed_ext_t squareMaximumForce = __FIXED_EXT_MULT(this->maximumForce, this->maximumForce);
 
 	for(; NULL != node; node = node->next)
@@ -134,7 +131,7 @@ Vector3D AvoidSteeringBehavior::awayFromObstacles(Vehicle vehicle)
 
 		fixed_t dotProduct = Vector3D::dotProduct(direction, Vector3D::normalize(vectorVehicleObstacle));
 
-		if(squareDistance < squareAvoidanceDetectionDistance && __FIX7_9_TO_FIXED(__COS(this->avoidSteeringBehaviorSpec->maximumAngle)) < dotProduct)
+		if(squareDistance < squareAvoidanceDetectionDistance && __FIX7_9_TO_FIXED(__COS(((AvoidSteeringBehaviorSpec*)this->componentSpec)->maximumAngle)) < dotProduct)
 		{
 			Vector3D desiredDirection1 =
 			{
@@ -172,10 +169,8 @@ Vector3D AvoidSteeringBehavior::awayFromObstacles(Vehicle vehicle)
 			{
 				fixed_t speedDifference = __FIXED_DIV(Vehicle::getSpeed(vehicle), obstacleSpeed) - __I_TO_FIXED(1);
 
-				if(0 < speedDifference && __F_TO_FIXED(0.6f) > speedDifference && this->avoidSteeringBehaviorSpec->brakingMinimumAngleCos < dotProduct)
+				if(0 < speedDifference && __F_TO_FIXED(0.6f) > speedDifference && ((AvoidSteeringBehaviorSpec*)this->componentSpec)->brakingMinimumAngleCos < dotProduct)
 				{
-					this->isBraking = true;
-
 					factor = __FIXED_EXT_MULT(speedDifference, __FIXED_DIV(factor, Vehicle::getFrictionMassRatio(vehicle)));
 					Vector3D reverseDirection = Vector3D::scalarProduct(direction, -(__FIXED_MULT(factor, dotProduct)));
 					desiredVelocity = Vector3D::sum(desiredVelocity, reverseDirection);
@@ -186,8 +181,4 @@ Vector3D AvoidSteeringBehavior::awayFromObstacles(Vehicle vehicle)
 
 	return desiredVelocity;
 }
-
-bool AvoidSteeringBehavior::isBraking()
-{
-	return this->isBraking && this->enabled;
-}
+//---------------------------------------------------------------------------------------------------------

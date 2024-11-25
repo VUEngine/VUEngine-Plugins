@@ -252,9 +252,9 @@ void SteeringBehavior::reset()
 	this->deviation = ((SteeringBehaviorSpec*)this->componentSpec)->deviation;
 }
 //---------------------------------------------------------------------------------------------------------
-void SteeringBehavior::setPriority(int32 value)
+void SteeringBehavior::setPriority(int32 priority)
 {
-	this->priority = value;
+	this->priority = priority;
 }
 //---------------------------------------------------------------------------------------------------------
 int32 SteeringBehavior::getPriority()
@@ -262,9 +262,9 @@ int32 SteeringBehavior::getPriority()
 	return this->priority;
 }
 //---------------------------------------------------------------------------------------------------------
-void SteeringBehavior::setWeight(fixed_t value)
+void SteeringBehavior::setWeight(fixed_t weight)
 {
-	this->weight = value;
+	this->weight = weight;
 }
 //---------------------------------------------------------------------------------------------------------
 fixed_t SteeringBehavior::getWeight()
@@ -272,9 +272,9 @@ fixed_t SteeringBehavior::getWeight()
 	return this->weight;
 }
 //---------------------------------------------------------------------------------------------------------
-void SteeringBehavior::setMaximumForce(fixed_t value)
+void SteeringBehavior::setMaximumForce(fixed_t maximumForce)
 {
-	this->maximumForce = value;
+	this->maximumForce = maximumForce;
 }
 //---------------------------------------------------------------------------------------------------------
 fixed_t SteeringBehavior::getMaximumForce()

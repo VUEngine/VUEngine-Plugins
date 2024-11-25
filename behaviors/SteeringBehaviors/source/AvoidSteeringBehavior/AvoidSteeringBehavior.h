@@ -1,4 +1,4 @@
-/**
+/*
  * VUEngine Plugins Library
  *
  * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
@@ -18,14 +18,20 @@
 #include <SteeringBehavior.h>
 
 
-//---------------------------------------------------------------------------------------------------------
-//											 DEFINITIONS
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// FORWARD DECLARATIONS
+//=========================================================================================================
 
 class SpatialObject;
 class VirtualList;
 
-// defines an entity in ROM memory
+
+//=========================================================================================================
+// CLASS' DATA
+//=========================================================================================================
+
+/// A AvoidSteeringBehavior Spec
+/// @memberof AvoidSteeringBehavior
 typedef struct AvoidSteeringBehaviorSpec
 {
 	SteeringBehaviorSpec steeringBehaviorSpec;
@@ -41,41 +47,43 @@ typedef struct AvoidSteeringBehaviorSpec
 
 } AvoidSteeringBehaviorSpec;
 
+/// A AvoidSteeringBehavior spec that is stored in ROM
+/// @memberof AvoidSteeringBehavior
 typedef const AvoidSteeringBehaviorSpec AvoidSteeringBehaviorROMSpec;
 
-typedef struct Obstacle
-{
-	SpatialObject spatialObject;
-	const Vector3D* position;
-	fixed_t radius;
 
-}Obstacle;
+//=========================================================================================================
+// CLASS' DECLARATION
+//=========================================================================================================
 
-
-//---------------------------------------------------------------------------------------------------------
-//											CLASS'S DECLARATION
-//---------------------------------------------------------------------------------------------------------
-
-//  Given a target, this behavior returns a steering force which will
-//  direct the agent towards the target
-
-/// @ingroup base
+///
+/// Class SeekSteeringBehavior
+///
+/// Inherits from Behavior
+///
+//  Implements a behavior that computes a steering force that avoids
+/// obstacles.
 class AvoidSteeringBehavior : SteeringBehavior
 {
+	/// Linked list of obstacles to avoid
 	VirtualList obstacles;
-	const AvoidSteeringBehaviorSpec* avoidSteeringBehaviorSpec;
-	bool isBraking;
 
+	/// Class' constructor
+	/// @param owner: SpatialObject to which the behavior attaches to
+	/// @param seekSteeringBehaviorSpec: Specification that determines how to configure the behavior
 	void constructor(SpatialObject owner, const AvoidSteeringBehaviorSpec* seekSteeringBehaviorSpec);
 
-	void addObstacle(SpatialObject spatialObject);
-	void removeAllObstacles();
-	bool isBraking();
-	VirtualList getObstacles();
-	fixed_t getAvoidanceDetectionDistance();
-	Vector3D getForce();
+	/// Calculate the force vector to apply.
+	/// @param owner: Vehicle that owns the steering behavior
+	/// @return The force vector to apply to the provided vechile
 	override Vector3D calculate(Vehicle owner);
-}
 
+	/// Add an obstacle to avoid.
+	/// @param spatialObject: Obstacle to avoid
+	void addObstacle(SpatialObject spatialObject);
+
+	/// Remove all registerd obstacles.
+	void removeAllObstacles();
+}
 
 #endif

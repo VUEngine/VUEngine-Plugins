@@ -1,4 +1,4 @@
-/**
+/*
  * VUEngine Plugins Library
  *
  * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
@@ -18,86 +18,11 @@
 #include "LookAtSteeringBehavior.h"
 
 
+//=========================================================================================================
+// CLASS' STATIC METHODS
+//=========================================================================================================
+
 //---------------------------------------------------------------------------------------------------------
-//												CLASS'S METHODS
-//---------------------------------------------------------------------------------------------------------
-
-/**
- * Class constructor
- */
-void LookAtSteeringBehavior::constructor(SpatialObject owner, const LookAtSteeringBehaviorSpec* LookAtSteeringBehaviorSpec)
-{
-	Base::constructor(owner, &LookAtSteeringBehaviorSpec->steeringBehaviorSpec);
-
-	this->target = Vector3D::zero();
-	this->slowDownWhenReachingTarget = false;
-	this->reachedTarget = false;
-	this->allowEasing = false;
-	this->reachedDistanceThreshold = LookAtSteeringBehaviorSpec->reachedDistanceThreshold;
-	this->easingDistanceThreshold = LookAtSteeringBehaviorSpec->easingDistanceThreshold;
-}
-
-/**
- * Class destructor
- */
-void LookAtSteeringBehavior::destructor()
-{
-	// destroy the super object
-	// must always be called at the end of the destructor
-	Base::destructor();
-}
-
-bool LookAtSteeringBehavior::getAllowEasing()
-{
-	return this->allowEasing;
-}
-
-void LookAtSteeringBehavior::setAllowEasing(bool value)
-{
-	this->allowEasing = value;
-}
-
-Vector3D LookAtSteeringBehavior::getTarget()
-{
-	return this->target;
-}
-
-void LookAtSteeringBehavior::setTarget(Vector3D value)
-{
-	this->target = value;
-	this->reachedTarget = false;
-}
-
-bool LookAtSteeringBehavior::getSlowDownWhenReachingTarget()
-{
-	return this->slowDownWhenReachingTarget;
-}
-
-void LookAtSteeringBehavior::setSlowDownWhenReachingTarget(bool value)
-{
-	this->slowDownWhenReachingTarget = value;
-}
-
-Vector3D LookAtSteeringBehavior::calculate(Vehicle owner)
-{
-	this->force = Vector3D::zero();
-
-	if(isDeleted(owner))
-	{
-		this->enabled = false;
-		return this->force;
-	}
-
-	if(this->reachedTarget)
-	{
-		return this->force;
-	}
-
-	this->force = LookAtSteeringBehavior::toTarget(this, owner, this->target, this->slowDownWhenReachingTarget, this->reachedDistanceThreshold, this->easingDistanceThreshold, this->allowEasing);
-
-	return this->force;
-}
-
 static Vector3D LookAtSteeringBehavior::toTarget(LookAtSteeringBehavior LookAtSteeringBehavior, Vehicle vehicle, Vector3D target, bool proportionalToDistance, fixed_t reachedDistanceThreshold, fixed_t easingDistanceThreshold, bool allowEasing)
 {
 	Vector3D trajectory = Vector3D::get(*Vehicle::getPosition(vehicle), target);
@@ -129,23 +54,99 @@ static Vector3D LookAtSteeringBehavior::toTarget(LookAtSteeringBehavior LookAtSt
 
 	return desiredVelocity;
 }
+//---------------------------------------------------------------------------------------------------------
 
-fixed_t LookAtSteeringBehavior::getEasingDistanceThreshold()
+//=========================================================================================================
+// CLASS' PUBLIC METHODS
+//=========================================================================================================
+
+//---------------------------------------------------------------------------------------------------------
+void LookAtSteeringBehavior::constructor(SpatialObject owner, const LookAtSteeringBehaviorSpec* lookAtSteeringBehaviorSpec)
 {
-	return this->easingDistanceThreshold;
-}
+	Base::constructor(owner, &lookAtSteeringBehaviorSpec->steeringBehaviorSpec);
 
-void LookAtSteeringBehavior::setEasingDistanceThreshold(fixed_t value)
+	this->target = Vector3D::zero();
+	this->slowDownWhenReachingTarget = false;
+	this->reachedTarget = false;
+	this->reachedDistanceThreshold = lookAtSteeringBehaviorSpec->reachedDistanceThreshold;
+	this->easingDistanceThreshold = lookAtSteeringBehaviorSpec->easingDistanceThreshold;
+}
+//---------------------------------------------------------------------------------------------------------
+void LookAtSteeringBehavior::destructor()
 {
-	this->easingDistanceThreshold = value;
+	// destroy the super object
+	// must always be called at the end of the destructor
+	Base::destructor();
 }
+//---------------------------------------------------------------------------------------------------------
+Vector3D LookAtSteeringBehavior::calculate(Vehicle owner)
+{
+	this->force = Vector3D::zero();
 
+	if(isDeleted(owner))
+	{
+		this->enabled = false;
+		return this->force;
+	}
+
+	if(this->reachedTarget)
+	{
+		return this->force;
+	}
+
+	this->force = LookAtSteeringBehavior::toTarget(this, owner, this->target, this->slowDownWhenReachingTarget, this->reachedDistanceThreshold, this->easingDistanceThreshold, this->allowEasing);
+
+	return this->force;
+}
+//---------------------------------------------------------------------------------------------------------
+void LookAtSteeringBehavior::setTarget(Vector3D value)
+{
+	this->target = value;
+	this->reachedTarget = false;
+}
+//---------------------------------------------------------------------------------------------------------
+Vector3D LookAtSteeringBehavior::getTarget()
+{
+	return this->target;
+}
+//---------------------------------------------------------------------------------------------------------
+void LookAtSteeringBehavior::setReachedDistanceThreshold(fixed_t reachedDistanceThreshold)
+{
+	this->reachedDistanceThreshold = reachedDistanceThreshold;
+}
+//---------------------------------------------------------------------------------------------------------
 fixed_t LookAtSteeringBehavior::getReachedDistanceThreshold()
 {
 	return this->reachedDistanceThreshold;
 }
-
-void LookAtSteeringBehavior::setReachedDistanceThreshold(fixed_t value)
+//---------------------------------------------------------------------------------------------------------
+void LookAtSteeringBehavior::setEasingDistanceThreshold(fixed_t easingDistanceThreshold)
 {
-	this->reachedDistanceThreshold = value;
+	this->easingDistanceThreshold = easingDistanceThreshold;
 }
+//---------------------------------------------------------------------------------------------------------
+fixed_t LookAtSteeringBehavior::getEasingDistanceThreshold()
+{
+	return this->easingDistanceThreshold;
+}
+//---------------------------------------------------------------------------------------------------------
+void LookAtSteeringBehavior::setSlowDownWhenReachingTarget(bool value)
+{
+	this->slowDownWhenReachingTarget = value;
+}
+//---------------------------------------------------------------------------------------------------------
+bool LookAtSteeringBehavior::getSlowDownWhenReachingTarget()
+{
+	return this->slowDownWhenReachingTarget;
+}
+//---------------------------------------------------------------------------------------------------------
+void LookAtSteeringBehavior::setAllowEasing(bool allowEasing)
+{
+	this->allowEasing = allowEasing;
+}
+//---------------------------------------------------------------------------------------------------------
+bool LookAtSteeringBehavior::getAllowEasing()
+{
+	return this->allowEasing;
+}
+//---------------------------------------------------------------------------------------------------------
