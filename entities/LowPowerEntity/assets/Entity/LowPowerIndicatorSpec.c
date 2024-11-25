@@ -15,11 +15,7 @@
 
 #include <LowPowerEntity.h>
 #include <VIPManager.h>
-#if __PLUGIN_LOW_POWER_ENTITY_USE_GUI_BGMAP_ANIMATED_SPRITE
-#include <GuiBgmapAnimatedSprite.h>
-#else
 #include <BgmapAnimatedSprite.h>
-#endif
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -143,11 +139,7 @@ BgmapSpriteROMSpec LowPowerIndicatorSpriteSpec =
 {
 	{
 		// sprite's type
-#if __PLUGIN_LOW_POWER_ENTITY_USE_GUI_BGMAP_ANIMATED_SPRITE
-		__TYPE(GuiBgmapAnimatedSprite),
-#else
 		__TYPE(BgmapAnimatedSprite),
-#endif
 
 		// texture spec
 		(TextureSpec*)&LowPowerIndicatorTextureSpec,
@@ -178,45 +170,49 @@ BgmapSpriteROMSpec* const LowPowerIndicatorSpriteSpecs[] =
 
 LowPowerEntityROMSpec LowPowerIndicatorEntitySpec =
 {
+	// animated entity
 	{
-		// class allocator
-		__TYPE(LowPowerEntity),
+		// entity
+		{
+			// class allocator
+			__TYPE(LowPowerEntity),
 
-		// children
-		NULL,
+			// children
+			NULL,
 
-		// behaviors
-		NULL,
+			// behaviors
+			NULL,
 
-		// extra
-		NULL,
+			// extra
+			NULL,
 
-		// sprites
-		(SpriteSpec**)LowPowerIndicatorSpriteSpecs,
+			// sprites
+			(SpriteSpec**)LowPowerIndicatorSpriteSpecs,
 
-		// use z displacement in projection
-		false,
-			
-		// wireframes
-		(WireframeSpec**)NULL,
+			// use z displacement in projection
+			false,
+				
+			// wireframes
+			(WireframeSpec**)NULL,
 
-		// collision colliders
-		(ColliderSpec*)NULL,
+			// collision colliders
+			(ColliderSpec*)NULL,
 
-		// size
-		// if 0, width and height will be inferred from the first sprite's texture's size
-		{0, 0, 0},
+			// size
+			// if 0, width and height will be inferred from the first sprite's texture's size
+			{0, 0, 0},
 
-		// gameworld's character's type
-		kTypeNone,
+			// gameworld's character's type
+			kTypeNone,
 
-		// physical specification
-		(PhysicalProperties*)NULL,
-	},
+			// physical specification
+			(PhysicalProperties*)NULL,
+		},
 
-	// pointer to the animation spec for the item
-	(const AnimationFunction**)LowPowerIndicatorAnimationSpecs,
+		// pointer to the animation spec for the item
+		(const AnimationFunction**)LowPowerIndicatorAnimationSpecs,
 
-	// initial animation
-	"Hide",
+		// initial animation
+		"Hide",
+	}
 };

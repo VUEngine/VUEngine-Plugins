@@ -1,4 +1,4 @@
-/**
+/*
  * VUEngine Plugins Library
  *
  * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
@@ -11,33 +11,50 @@
 #define ADJUSTMENT_SCREEN_STATE_H_
 
 
-//---------------------------------------------------------------------------------------------------------
-//												INCLUDES
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// INCLUDES
+//=========================================================================================================
 
 #include <SplashScreenState.h>
 
 
-//---------------------------------------------------------------------------------------------------------
-//												MACROS
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// CLASS' DECLARATION
+//=========================================================================================================
 
-#define __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_RHOMBUS_INITIAL_VALUE		-64
-
-
-//---------------------------------------------------------------------------------------------------------
-//											CLASS'S DECLARATION
-//---------------------------------------------------------------------------------------------------------
-
+///
+/// Class AdjustmentScreenState
+///
+/// Inherits from SplashScreenState
+///
+/// Implements a state for adjusting the screen.
 dynamic_singleton class AdjustmentScreenState : SplashScreenState
 {
-	static AdjustmentScreenState getInstance(void);
-	override void enter(void* owner);
-	override void exit(void* owner);
-	override void suspend(void* owner);
-	override void resume(void* owner);
-	override void processUserInput(const UserInput* userInput);
-}
+	/// @publicsection
 
+	/// Method to retrieve the singleton instance
+	/// @return AdjustmentScreenState singleton
+	static AdjustmentScreenState getInstance(void);
+
+	/// Prepares the object to enter this state.
+	/// @param owner: Object that is entering in this state
+	override void enter(void* owner);
+
+	/// Prepares the object to exit this state.
+	/// @param owner: Object that is exiting this state
+	override void exit(void* owner);
+
+	/// Prepares the object to become inactive in this state.
+	/// @param owner: Object that is in this state
+	override void suspend(void* owner);
+
+	/// Prepares the object to become active in this state.
+	/// @param owner: Object that is in this state
+	override void resume(void* owner);
+
+	/// Process the provided user input.
+	/// @param userInput: Struct with the current user input information
+	override void processUserInput(const UserInput*  userInput);
+}
 
 #endif

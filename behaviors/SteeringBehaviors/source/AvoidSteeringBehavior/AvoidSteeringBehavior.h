@@ -43,7 +43,6 @@ typedef struct AvoidSteeringBehaviorSpec
 
 typedef const AvoidSteeringBehaviorSpec AvoidSteeringBehaviorROMSpec;
 
-
 typedef struct Obstacle
 {
 	SpatialObject spatialObject;

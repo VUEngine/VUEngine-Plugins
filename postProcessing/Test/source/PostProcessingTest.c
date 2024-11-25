@@ -1,4 +1,4 @@
-/**
+/*
  * VUEngine Plugins Library
  *
  * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
@@ -8,17 +8,18 @@
  */
 
 
-//---------------------------------------------------------------------------------------------------------
-//												INCLUDES
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// INCLUDES
+//=========================================================================================================
 
-#include <PostProcessingTest.h>
+#include "PostProcessingTest.h"
 
+
+//=========================================================================================================
+// CLASS' STATIC METHODS
+//=========================================================================================================
 
 //---------------------------------------------------------------------------------------------------------
-//												FUNCTIONS
-//---------------------------------------------------------------------------------------------------------
-
 /**
  * Increases the palette index within a rectangular area around the spatialObject, effectively
  * "lightening" it up. This effect reads and write only a small portion of the screen and is therefore
@@ -100,7 +101,7 @@ static void PostProcessingTest::lighting(uint32 currentDrawingFrameBufferSet, Sp
 	}
 */
 }
-
+//---------------------------------------------------------------------------------------------------------
 static void PostProcessingTest::dummy(uint32 currentDrawingFrameBufferSet, SpatialObject spatialObject __attribute__ ((unused)))
 {
 	uint16 x = 0, y = 0;
@@ -128,7 +129,13 @@ static void PostProcessingTest::dummy(uint32 currentDrawingFrameBufferSet, Spati
 		}
 	}
 }
+//---------------------------------------------------------------------------------------------------------
 
+//=========================================================================================================
+// CLASS' PRIVATE STATIC METHODS
+//=========================================================================================================
+
+//---------------------------------------------------------------------------------------------------------
 /**
  * Helper function to write a 32 bit value to the framebuffer
  * (16 pixels)
@@ -162,3 +169,4 @@ static uint32 PostProcessingTest::writeToFrameBuffer(uint16 y, uint16 shift, uin
 	// it to a temp variable while modifying
 	return previousSourcePointerLeftValueTemp;
 }
+//---------------------------------------------------------------------------------------------------------

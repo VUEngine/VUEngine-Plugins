@@ -1,4 +1,4 @@
-/**
+/*
  * VUEngine Plugins Library
  *
  * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
@@ -8,9 +8,9 @@
  */
 
 
-//---------------------------------------------------------------------------------------------------------
-//												INCLUDES
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// INCLUDES
+//=========================================================================================================
 
 #include <AutomaticPauseManager.h>
 #include <StateMachine.h>
@@ -19,54 +19,26 @@
 #include "AutomaticPauseScreenState.h"
 
 
+//=========================================================================================================
+// CLASS' PRIVATE METHODS
+//=========================================================================================================
+
 //---------------------------------------------------------------------------------------------------------
-//												CLASS'S METHODS
-//---------------------------------------------------------------------------------------------------------
-
-void AutomaticPauseManager::constructor()
-{
-	// construct base object
-	Base::constructor();
-
-	// init members
-	this->automaticPauseState = NULL;
-	this->isActive = false;
-	this->elapsedTime = 0;
-	this->autoPauseDelay = 30;
-}
-
-void AutomaticPauseManager::destructor()
-{
-	// remove event listeners
-	Clock::removeEventListener(VUEngine::getClock(VUEngine::getInstance()), ListenerObject::safeCast(this), (EventListener)AutomaticPauseManager::onMinuteChange, kEventMinuteChanged);
-
-	// destroy base
-	Base::destructor();
-}
-
-// set auto pause state
 void AutomaticPauseManager::setAutomaticPauseState(GameState automaticPauseState)
 {
 	this->automaticPauseState = automaticPauseState;
 }
-
-// get auto pause state
+//---------------------------------------------------------------------------------------------------------
 GameState AutomaticPauseManager::getAutomaticPauseState()
 {
 	return this->automaticPauseState;
 }
-
-// set auto pause delay
+//---------------------------------------------------------------------------------------------------------
 void AutomaticPauseManager::setAutomaticPauseDelay(uint8 automaticPauseDelay)
 {
 	this->autoPauseDelay = automaticPauseDelay;
 }
-
-bool AutomaticPauseManager::isActive()
-{
-	return this->isActive;
-}
-
+//---------------------------------------------------------------------------------------------------------
 void AutomaticPauseManager::setActive(bool active)
 {
 	this->isActive = active;
@@ -89,7 +61,39 @@ void AutomaticPauseManager::setActive(bool active)
 		Clock::removeEventListener(VUEngine::getClock(VUEngine::getInstance()), ListenerObject::safeCast(this), (EventListener)AutomaticPauseManager::onMinuteChange, kEventMinuteChanged);
 	}
 }
+//---------------------------------------------------------------------------------------------------------
+bool AutomaticPauseManager::isActive()
+{
+	return this->isActive;
+}
+//---------------------------------------------------------------------------------------------------------
 
+//=========================================================================================================
+// CLASS' PUBLIC METHODS
+//=========================================================================================================
+
+//---------------------------------------------------------------------------------------------------------
+void AutomaticPauseManager::constructor()
+{
+	// construct base object
+	Base::constructor();
+
+	// init members
+	this->automaticPauseState = NULL;
+	this->isActive = false;
+	this->elapsedTime = 0;
+	this->autoPauseDelay = 30;
+}
+//---------------------------------------------------------------------------------------------------------
+void AutomaticPauseManager::destructor()
+{
+	// remove event listeners
+	Clock::removeEventListener(VUEngine::getClock(VUEngine::getInstance()), ListenerObject::safeCast(this), (EventListener)AutomaticPauseManager::onMinuteChange, kEventMinuteChanged);
+
+	// destroy base
+	Base::destructor();
+}
+//---------------------------------------------------------------------------------------------------------
 bool AutomaticPauseManager::onMinuteChange(ListenerObject eventFirer __attribute__ ((unused)))
 {
 	if(this->automaticPauseState && this->isActive && !VUEngine::isPaused(VUEngine::getInstance()))
@@ -107,3 +111,4 @@ bool AutomaticPauseManager::onMinuteChange(ListenerObject eventFirer __attribute
 
 	return true;
 }
+//---------------------------------------------------------------------------------------------------------

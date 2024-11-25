@@ -1,4 +1,4 @@
-/**
+/*
  * VUEngine Plugins Library
  *
  * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
@@ -11,22 +11,34 @@
 #define POST_PROCESSING_RAIN_H_
 
 
-//---------------------------------------------------------------------------------------------------------
-//												INCLUDES
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// INCLUDES
+//=========================================================================================================
 
 #include <SpatialObject.h>
 
 
-//---------------------------------------------------------------------------------------------------------
-//										FUNCTIONS
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// CLASS' DECLARATION
+//=========================================================================================================
 
+///
+/// Class PostProcessingDwarfPlanet
+///
+/// Inherits from ListenerObject
+///
+/// Implements a dynamic full screen rain effect.
 static class PostProcessingRain : ListenerObject
 {
+	/// Apply the post processing effect.
+	/// @param currentDrawingFrameBufferSet: The framebuffer set that's currently being accessed
+	/// @param spatialObject: Post-processing effect function's scope
 	static void rain(uint32 currentDrawingFrameBufferSet, SpatialObject spatialObject);
-	static void waterFall(uint32 currentDrawingFrameBufferSet, SpatialObject spatialObject);
-}
 
+	/// Apply a shrinked post processing effect.
+	/// @param currentDrawingFrameBufferSet: The framebuffer set that's currently being accessed
+	/// @param spatialObject: Post-processing effect function's scope
+	static void thinRain(uint32 currentDrawingFrameBufferSet, SpatialObject spatialObject);
+}
 
 #endif

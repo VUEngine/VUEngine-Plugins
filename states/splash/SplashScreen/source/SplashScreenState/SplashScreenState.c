@@ -1,4 +1,4 @@
-/**
+/*
  * VUEngine Plugins Library
  *
  * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
@@ -8,9 +8,9 @@
  */
 
 
-//---------------------------------------------------------------------------------------------------------
-//												INCLUDES
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// INCLUDES
+//=========================================================================================================
 
 #include <Camera.h>
 #include <CameraEffectManager.h>
@@ -19,10 +19,11 @@
 #include "SplashScreenState.h"
 
 
-//---------------------------------------------------------------------------------------------------------
-//												CLASS'S METHODS
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// CLASS' PUBLIC METHODS
+//=========================================================================================================
 
+//---------------------------------------------------------------------------------------------------------
 void SplashScreenState::constructor()
 {
 	Base::constructor();
@@ -31,14 +32,14 @@ void SplashScreenState::constructor()
 	this->stageSpec = NULL;
 	this->nextState = NULL;
 }
-
+//---------------------------------------------------------------------------------------------------------
 void SplashScreenState::destructor()
 {
 	// destroy the super object
 	// must always be called at the end of the destructor
 	Base::destructor();
 }
-
+//---------------------------------------------------------------------------------------------------------
 void SplashScreenState::enter(void* owner)
 {
 	// call base
@@ -67,7 +68,7 @@ void SplashScreenState::enter(void* owner)
 		ListenerObject::safeCast(this) // callback scope
 	);
 }
-
+//---------------------------------------------------------------------------------------------------------
 void SplashScreenState::exit(void* owner)
 {
 	// call base
@@ -76,8 +77,7 @@ void SplashScreenState::exit(void* owner)
 	// destroy the state
 	delete this;
 }
-
-// state's suspend
+//---------------------------------------------------------------------------------------------------------
 void SplashScreenState::suspend(void* owner)
 {
 	// do a fade out effect
@@ -86,8 +86,7 @@ void SplashScreenState::suspend(void* owner)
 	// call base
 	Base::suspend(this, owner);
 }
-
-// state's resume
+//---------------------------------------------------------------------------------------------------------
 void SplashScreenState::resume(void* owner)
 {
 	Base::resume(this, owner);
@@ -107,12 +106,7 @@ void SplashScreenState::resume(void* owner)
 		ListenerObject::safeCast(this) // callback scope
 	);
 }
-
-bool SplashScreenState::processMessage(void* owner __attribute__ ((unused)), Telegram telegram __attribute__ ((unused)))
-{
-	return false;
-}
-
+//---------------------------------------------------------------------------------------------------------
 void SplashScreenState::processUserInput(const UserInput* userInput)
 {
 	if(userInput->pressedKey & (K_STA | K_SEL | K_A | K_B))
@@ -120,20 +114,17 @@ void SplashScreenState::processUserInput(const UserInput* userInput)
 		SplashScreenState::loadNextState(this);
 	}
 }
-
-void SplashScreenState::print()
+//---------------------------------------------------------------------------------------------------------
+bool SplashScreenState::processMessage(void* owner __attribute__ ((unused)), Telegram telegram __attribute__ ((unused)))
 {
+	return false;
 }
-
-void SplashScreenState::initNextState()
-{
-}
-
+//---------------------------------------------------------------------------------------------------------
 void SplashScreenState::setNextState(GameState nextState)
 {
 	this->nextState = nextState;
 }
-
+//---------------------------------------------------------------------------------------------------------
 void SplashScreenState::loadNextState()
 {
 	// disable user input
@@ -150,8 +141,16 @@ void SplashScreenState::loadNextState()
 		ListenerObject::safeCast(this) // callback scope
 	);
 }
+//---------------------------------------------------------------------------------------------------------
+void SplashScreenState::print()
+{}
+//---------------------------------------------------------------------------------------------------------
 
-// handle event
+//=========================================================================================================
+// CLASS' PRIVATE METHODS
+//=========================================================================================================
+
+//---------------------------------------------------------------------------------------------------------
 bool SplashScreenState::onFadeInComplete(ListenerObject eventFirer __attribute__ ((unused)))
 {
 	// enable user input
@@ -159,17 +158,12 @@ bool SplashScreenState::onFadeInComplete(ListenerObject eventFirer __attribute__
 
 	return false;
 }
-
-// handle event
+//---------------------------------------------------------------------------------------------------------
 bool SplashScreenState::onFadeOutComplete(ListenerObject eventFirer __attribute__ ((unused)))
 {
-	if(this->nextState == NULL)
-	{
-		SplashScreenState::initNextState(this);
-	}
-
 	// switch to next stage
 	VUEngine::changeState(VUEngine::getInstance(), this->nextState);
 
 	return false;
 }
+//---------------------------------------------------------------------------------------------------------

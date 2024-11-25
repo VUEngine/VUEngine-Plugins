@@ -1,4 +1,4 @@
-/**
+/*
  * VUEngine Plugins Library
  *
  * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
@@ -11,21 +11,30 @@
 #define POST_PROCESSING_DWARF_PLANET_H_
 
 
-//---------------------------------------------------------------------------------------------------------
-//												INCLUDES
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// INCLUDES
+//=========================================================================================================
 
 #include <SpatialObject.h>
 
 
-//---------------------------------------------------------------------------------------------------------
-//										FUNCTIONS
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// CLASS' DECLARATION
+//=========================================================================================================
 
+///
+/// Class PostProcessingDwarfPlanet
+///
+/// Inherits from ListenerObject
+///
+/// Implements a "bending down" of the left and right edges of the screen to make the 
+/// game world look like a very small planet.
 static class PostProcessingDwarfPlanet : ListenerObject
 {
+	/// Apply the post processing effect.
+	/// @param currentDrawingFrameBufferSet: The framebuffer set that's currently being accessed
+	/// @param spatialObject: Post-processing effect function's scope
 	static void dwarfPlanet(uint32 currentDrawingFrameBufferSet, SpatialObject spatialObject);
 }
-
 
 #endif

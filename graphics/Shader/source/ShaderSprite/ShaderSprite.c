@@ -1,4 +1,4 @@
-/**
+/*
  * VUEngine Plugins Library
  *
  * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
@@ -8,9 +8,9 @@
  */
 
 
-//---------------------------------------------------------------------------------------------------------
-//												INCLUDES
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// INCLUDES
+//=========================================================================================================
 
 #include <Mem.h>
 #include <Utilities.h>
@@ -18,19 +18,25 @@
 #include "ShaderSprite.h"
 
 
-//---------------------------------------------------------------------------------------------------------
-//												CLASS'S DECLARATIONS
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// CLASS' DECLARATIONS
+//=========================================================================================================
 
 friend class CharSet;
+
+
+//=========================================================================================================
+// CLASS' MACROS
+//=========================================================================================================
 
 #define CHARS_PER_BUFFER (__CHAR_MEMORY_TOTAL_CHARS / 2)
 
 
-//---------------------------------------------------------------------------------------------------------
-//												CLASS'S METHODS
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// CLASS' PUBLIC METHODS
+//=========================================================================================================
 
+//---------------------------------------------------------------------------------------------------------
 void ShaderSprite::constructor(SpatialObject owner, const ShaderSpriteSpec* shaderSpriteSpec)
 {
 	// construct base
@@ -44,7 +50,7 @@ void ShaderSprite::constructor(SpatialObject owner, const ShaderSpriteSpec* shad
 		this->charSet = Texture::getCharSet(this->texture, true);
 	}
 }
-
+//---------------------------------------------------------------------------------------------------------
 void ShaderSprite::destructor()
 {
 	this->charSet = NULL;
@@ -53,13 +59,7 @@ void ShaderSprite::destructor()
 	// must always be called at the end of the destructor
 	Base::destructor();
 }
-
-
-bool ShaderSprite::hasSpecialEffects()
-{
-	return true;
-}
-
+//---------------------------------------------------------------------------------------------------------
 int16 ShaderSprite::doRender(int16 index)
 {
 	if(Base::doRender(this, index) == index)
@@ -70,8 +70,12 @@ int16 ShaderSprite::doRender(int16 index)
 
 	return __NO_RENDER_INDEX;
 }
-
-
+//---------------------------------------------------------------------------------------------------------
+bool ShaderSprite::hasSpecialEffects()
+{
+	return true;
+}
+//---------------------------------------------------------------------------------------------------------
 void ShaderSprite::processEffects()
 {
 	if(isDeleted(this->charSet))
@@ -81,7 +85,13 @@ void ShaderSprite::processEffects()
 
 	ShaderSprite::renderToTexture(this, (WORD*)(__CHAR_SPACE_BASE_ADDRESS + (((uint32)this->charSet->offset) << 4)));
 }
+//---------------------------------------------------------------------------------------------------------
 
+//=========================================================================================================
+// CLASS' PRIVATE METHODS
+//=========================================================================================================
+
+//---------------------------------------------------------------------------------------------------------
 void ShaderSprite::copyBufferTo(WORD* bufferAddress, WORD* destinationAddress)
 {
 	Mem::copyWORD(
@@ -90,7 +100,7 @@ void ShaderSprite::copyBufferTo(WORD* bufferAddress, WORD* destinationAddress)
 		__BYTES_PER_CHARS(CharSet::getNumberOfChars(this->charSet)) / sizeof(WORD)
 	);
 }
-
+//---------------------------------------------------------------------------------------------------------
 // TODO: Should use the Mem::copyWORD, but this is way faster on hardware somehow
 static void ShaderSprite::addWORD(WORD* destination, const WORD* source, uint32 numberOfWORDS, uint32 increment)
 {
@@ -99,7 +109,7 @@ static void ShaderSprite::addWORD(WORD* destination, const WORD* source, uint32 
 		*destination++ = *source++ + increment;
 	}
 }
-
+//---------------------------------------------------------------------------------------------------------
 void ShaderSprite::clear(WORD* destinationAddress)
 {
 	extern uint32 ShaderTiles[];
@@ -111,7 +121,7 @@ void ShaderSprite::clear(WORD* destinationAddress)
 		0
 	);
 }
-
+//---------------------------------------------------------------------------------------------------------
 void ShaderSprite::drawRandom(WORD* destinationAddress)
 {
 	extern uint32 ShaderTiles[];
@@ -126,7 +136,7 @@ void ShaderSprite::drawRandom(WORD* destinationAddress)
 		increment
 	);
 }
-
+//---------------------------------------------------------------------------------------------------------
 void ShaderSprite::renderToTexture(WORD* bufferAddress)
 {
 	if(isDeleted(this->charSet))
@@ -142,7 +152,7 @@ void ShaderSprite::renderToTexture(WORD* bufferAddress)
 		ShaderSprite::renderClock(this, bufferAddress);
 	}
 }
-
+//---------------------------------------------------------------------------------------------------------
 void ShaderSprite::renderClock(WORD* bufferAddress)
 {
 	Vector3D fromVector = 
@@ -171,7 +181,7 @@ void ShaderSprite::renderClock(WORD* bufferAddress)
 
 	ShaderSprite::drawLine(this, bufferAddress, fromVertex2D, toVertex2D, __COLOR_BRIGHT_RED);
 }
-
+//---------------------------------------------------------------------------------------------------------
 void ShaderSprite::drawPixel(WORD* bufferAddress, uint16 x, uint16 y, int32 color)
 {
 	int32 cols = Texture::getCols(this->texture);
@@ -200,7 +210,7 @@ void ShaderSprite::drawPixel(WORD* bufferAddress, uint16 x, uint16 y, int32 colo
 		__BYTES_PER_CHARS(1) / sizeof(WORD)
 	);
 }
-
+//---------------------------------------------------------------------------------------------------------
 void ShaderSprite::drawLine(WORD* bufferAddress, PixelVector fromPoint, PixelVector toPoint, int32 color)
 {
 	fix19_13 fromPointX = __I_TO_FIX19_13(fromPoint.x);
@@ -293,3 +303,4 @@ void ShaderSprite::drawLine(WORD* bufferAddress, PixelVector fromPoint, PixelVec
 		auxParallax += parallaxStep;
 	}
 }
+//---------------------------------------------------------------------------------------------------------

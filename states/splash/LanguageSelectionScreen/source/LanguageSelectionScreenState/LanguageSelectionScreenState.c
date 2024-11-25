@@ -1,4 +1,4 @@
-/**
+/*
  * VUEngine Plugins Library
  *
  * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
@@ -8,18 +8,15 @@
  */
 
 
-//---------------------------------------------------------------------------------------------------------
-//												INCLUDES
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// INCLUDES
+//=========================================================================================================
 
 #include <string.h>
 
-#include <Camera.h>
 #include <I18n.h>
-#include <KeypadManager.h>
 #include <Languages.h>
 #include <Printing.h>
-#include <MessageDispatcher.h>
 #include <SaveDataManager.h>
 #include <SoundManager.h>
 #include <VirtualList.h>
@@ -28,9 +25,9 @@
 #include "LanguageSelectionScreenState.h"
 
 
-//---------------------------------------------------------------------------------------------------------
-//												DECLARATIONS
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// CLASS' DECLARATIONS
+//=========================================================================================================
 
 extern StageROMSpec LanguageSelectionScreenStage;
 extern LangROMSpec* _languages[];
@@ -40,51 +37,11 @@ extern SoundSpec LangConfirmSoundSpec;
 extern SoundSpec LangSelectSoundSpec;
 
 
+//=========================================================================================================
+// CLASS' PUBLIC METHODS
+//=========================================================================================================
+
 //---------------------------------------------------------------------------------------------------------
-//												CLASS'S METHODS
-//---------------------------------------------------------------------------------------------------------
-
-void LanguageSelectionScreenState::constructor()
-{
-	Base::constructor();
-
-	// init members
-	this->stageSpec = (StageSpec*)&LanguageSelectionScreenStage;
-	this->flagCursorEntity = NULL;
-	this->languageSelector = NULL;
-	this->selection = 0;
-	this->flagsTotalHalfWidth = 0;
-}
-
-void LanguageSelectionScreenState::destructor()
-{
-	if(this->languageSelector)
-	{
-		delete this->languageSelector;
-	}
-
-	// destroy base
-	Base::destructor();
-}
-
-void LanguageSelectionScreenState::processUserInput(const UserInput* userInput)
-{
-	if(userInput->pressedKey & (K_LU | K_RU | K_LL | K_RL))
-	{
-		LanguageSelectionScreenState::select(this, false);
-	}
-	else if(userInput->pressedKey & (K_LD | K_RD | K_LR | K_RR))
-	{
-		LanguageSelectionScreenState::select(this, true);
-	}
-	else if(userInput->pressedKey & (K_A | K_STA))
-	{
-		SoundManager::playSound(SoundManager::getInstance(), &LangConfirmSoundSpec, kPlayAll, NULL, kSoundPlaybackNormal, NULL, NULL);
-
-		SplashScreenState::loadNextState(SplashScreenState::safeCast(this));
-	}
-}
-
 void LanguageSelectionScreenState::enter(void* owner)
 {
 	Base::enter(this, owner);
@@ -147,7 +104,25 @@ void LanguageSelectionScreenState::enter(void* owner)
 
 	#endif
 }
+//---------------------------------------------------------------------------------------------------------
+void LanguageSelectionScreenState::processUserInput(const UserInput* userInput)
+{
+	if(userInput->pressedKey & (K_LU | K_RU | K_LL | K_RL))
+	{
+		LanguageSelectionScreenState::select(this, false);
+	}
+	else if(userInput->pressedKey & (K_LD | K_RD | K_LR | K_RR))
+	{
+		LanguageSelectionScreenState::select(this, true);
+	}
+	else if(userInput->pressedKey & (K_A | K_STA))
+	{
+		SoundManager::playSound(SoundManager::getInstance(), &LangConfirmSoundSpec, kPlayAll, NULL, kSoundPlaybackNormal, NULL, NULL);
 
+		SplashScreenState::loadNextState(SplashScreenState::safeCast(this));
+	}
+}
+//---------------------------------------------------------------------------------------------------------
 void LanguageSelectionScreenState::print()
 {
 	const char* strTitle = I18n::getText(I18n::getInstance(), kStringLanguageSelectTitle);
@@ -180,7 +155,36 @@ void LanguageSelectionScreenState::print()
 
 	#endif
 }
+//---------------------------------------------------------------------------------------------------------
 
+//=========================================================================================================
+// CLASS' PRIVATE METHODS
+//=========================================================================================================
+
+//---------------------------------------------------------------------------------------------------------
+void LanguageSelectionScreenState::constructor()
+{
+	Base::constructor();
+
+	// init members
+	this->stageSpec = (StageSpec*)&LanguageSelectionScreenStage;
+	this->flagCursorEntity = NULL;
+	this->languageSelector = NULL;
+	this->selection = 0;
+	this->flagsTotalHalfWidth = 0;
+}
+//---------------------------------------------------------------------------------------------------------
+void LanguageSelectionScreenState::destructor()
+{
+	if(this->languageSelector)
+	{
+		delete this->languageSelector;
+	}
+
+	// destroy base
+	Base::destructor();
+}
+//---------------------------------------------------------------------------------------------------------
 void LanguageSelectionScreenState::printSelection()
 {
 	LanguageSelectionScreenState::print(this);
@@ -203,7 +207,7 @@ void LanguageSelectionScreenState::printSelection()
 
 	#endif
 }
-
+//---------------------------------------------------------------------------------------------------------
 void LanguageSelectionScreenState::select(bool next)
 {
 	#if(__PLUGIN_LANGUAGE_SELECTION_SCREEN_VARIANT == 0)
@@ -234,7 +238,7 @@ void LanguageSelectionScreenState::select(bool next)
 
 	SoundManager::playSound(SoundManager::getInstance(), &LangSelectSoundSpec, kPlayAll, NULL, kSoundPlaybackNormal, NULL, NULL);
 }
-
+//---------------------------------------------------------------------------------------------------------
 void LanguageSelectionScreenState::persistChoice()
 {
 	ListenerObject saveDataManager = VUEngine::getSaveDataManager(VUEngine::getInstance());
@@ -245,7 +249,7 @@ void LanguageSelectionScreenState::persistChoice()
 		SaveDataManager::setLanguage(saveDataManager, this->selection);
 	}
 }
-
+//---------------------------------------------------------------------------------------------------------
 uint8 LanguageSelectionScreenState::getNumLangs()
 {
 	uint8 i, numLangs = 0;
@@ -256,7 +260,7 @@ uint8 LanguageSelectionScreenState::getNumLangs()
 
 	return numLangs;
 }
-
+//---------------------------------------------------------------------------------------------------------
 Entity LanguageSelectionScreenState::addFlagToStage(EntitySpec* entitySpec, uint8 position)
 {
 	PositionedEntity flagPositionedEntity = {
@@ -283,13 +287,14 @@ Entity LanguageSelectionScreenState::addFlagToStage(EntitySpec* entitySpec, uint
 	return UIContainer::spawnChildEntity(uiContainer, &flagPositionedEntity);
 #endif
 }
-
+//---------------------------------------------------------------------------------------------------------
 int32 LanguageSelectionScreenState::getFlagXPosition(uint8 position)
 {
 	return 192 - this->flagsTotalHalfWidth + (position * (__PLUGIN_LANGUAGE_SELECTION_SCREEN_IMAGE_WIDTH));
 }
-
+//---------------------------------------------------------------------------------------------------------
 int32 LanguageSelectionScreenState::getFlagYPosition()
 {
 	return 96 + ((__PLUGIN_LANGUAGE_SELECTION_SCREEN_IMAGE_HEIGHT) >> 1);
 }
+//---------------------------------------------------------------------------------------------------------

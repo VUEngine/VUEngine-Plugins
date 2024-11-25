@@ -1,4 +1,4 @@
-/**
+/*
  * VUEngine Plugins Library
  *
  * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
@@ -11,30 +11,46 @@
 #define LOW_POWER_ENTITY_H_
 
 
-//---------------------------------------------------------------------------------------------------------
-//												INCLUDES
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// INCLUDES
+//=========================================================================================================
 
 #include <AnimatedEntity.h>
-#include <Body.h>
 
 
+//=========================================================================================================
+// CLASS' DATA
+//=========================================================================================================
 
-//---------------------------------------------------------------------------------------------------------
-//											TYPE DEFINITIONS
-//---------------------------------------------------------------------------------------------------------
+/// An LowPowerEntity Spec
+/// @memberof LocalizedEntity
+typedef struct LowPowerEntitySpec
+{
+	AnimatedEntitySpec animatedEntitySpec;
 
-typedef const AnimatedEntitySpec LowPowerEntitySpec;
+} LowPowerEntitySpec;
+
+/// A LowPowerEntity spec that is stored in ROM
+/// @memberof LowPowerEntity
 typedef const LowPowerEntitySpec LowPowerEntityROMSpec;
 
 
-//---------------------------------------------------------------------------------------------------------
-//											CLASS'S DECLARATION
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// CLASS' DECLARATION
+//=========================================================================================================
 
+///
+/// Class LowPowerEntity
+///
+/// Inherits from AnimatedEntity
+///
+/// Implements localized visual elements, where each animation represents one translation to another language.
 class LowPowerEntity : AnimatedEntity
 {
-	void constructor(const LowPowerEntitySpec* LowPowerEntitySpec, int16 internalId, const char* const name);
+	/// @param lowPowerEntitySpec: Specification that determines how to configure the actor
+	/// @param internalId: ID to keep track internally of the new instance
+	/// @param name: Name to assign to the new instance
+	void constructor(const LowPowerEntitySpec* lowPowerEntitySpec, int16 internalId, const char* const name);
 }
 
 

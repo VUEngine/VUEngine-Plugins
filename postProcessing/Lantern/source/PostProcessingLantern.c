@@ -1,4 +1,4 @@
-/**
+/*
  * VUEngine Plugins Library
  *
  * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
@@ -8,9 +8,9 @@
  */
 
 
-//---------------------------------------------------------------------------------------------------------
-//												INCLUDES
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// INCLUDES
+//=========================================================================================================
 
 #include <Container.h>
 #include <Camera.h>
@@ -18,19 +18,65 @@
 #include "PostProcessingLantern.h"
 
 
-//---------------------------------------------------------------------------------------------------------
-//												MACROS
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// CLASS' MACROS
+//=========================================================================================================
 
 #define POST_PROCESSING_LANTERN_SIZE_OF_S16_POWER		1
 #define POST_PROCESSING_LANTERN_Y_STEP_SIZE				16
 #define POST_PROCESSING_LANTERN_Y_STEP_SIZE_2_EXP		4
 
 
+//=========================================================================================================
+// CLASS' STATIC METHODS
+//=========================================================================================================
+
 //---------------------------------------------------------------------------------------------------------
-//												FUNCTIONS
+static void PostProcessingLantern::lantern(uint32 currentDrawingFrameBufferSet, SpatialObject spatialObject __attribute__ ((unused)))
+{
+ 	static bool ellipsisArcCalculated = false;
+
+	if(isDeleted(spatialObject))
+	{
+ 		if(ellipsisArcCalculated)
+ 		{
+ 			PostProcessingLantern::applyMask(currentDrawingFrameBufferSet, _cameraFrustum->x0, _cameraFrustum->x1, _cameraFrustum->y0, _cameraFrustum->y1, 0);
+ 		}
+ 		return;
+	}
+
+	PixelVector screenPixelPosition = PixelVector::projectVector3D(Vector3D::getRelativeToCamera(*SpatialObject::getPosition(spatialObject)), 0);
+
+ 	screenPixelPosition.y -= 10;
+
+ 	#define ELLIPSIS_X_AXIS_LENGTH		65
+ 	#define ELLIPSIS_Y_AXIS_LENGTH		70
+	#define PENUMBRA_MASK				0x55555555
+
+ 	static int16 ellipsisArc[ELLIPSIS_X_AXIS_LENGTH];
+
+ 	if(!ellipsisArcCalculated)
+	{
+		ellipsisArcCalculated = true;
+
+		uint16 i = 0;
+		float x = 0;
+
+		for(i = sizeof(ellipsisArc) >> POST_PROCESSING_LANTERN_SIZE_OF_S16_POWER; --i; x++)
+		{
+			ellipsisArc[i] = ELLIPSIS_Y_AXIS_LENGTH * Math::squareRoot(((ELLIPSIS_X_AXIS_LENGTH * ELLIPSIS_X_AXIS_LENGTH) - (x * x)) / (ELLIPSIS_X_AXIS_LENGTH * ELLIPSIS_X_AXIS_LENGTH));
+		}
+	}
+
+	PostProcessingLantern::ellipticalWindow(currentDrawingFrameBufferSet, screenPixelPosition, ellipsisArc, ELLIPSIS_X_AXIS_LENGTH, PENUMBRA_MASK, true);
+}
 //---------------------------------------------------------------------------------------------------------
 
+//=========================================================================================================
+// CLASS' PRIVATE STATIC METHODS
+//=========================================================================================================
+
+//---------------------------------------------------------------------------------------------------------
 static void PostProcessingLantern::applyMask(uint32 currentDrawingFrameBufferSet, int32 xStart, int32 xEnd, int32 yStart, int32 yEnd, uint32 mask)
 {
 	if(xEnd < xStart || yEnd < yStart)
@@ -75,7 +121,7 @@ static void PostProcessingLantern::applyMask(uint32 currentDrawingFrameBufferSet
 		}
 	}
 }
-
+//---------------------------------------------------------------------------------------------------------
 static void PostProcessingLantern::ellipticalWindow(uint32 currentDrawingFrameBufferSet, PixelVector position, int16 ellipsisArc[], uint16 ellipsisHorizontalAxisSize, uint32 penumbraMask, bool roundBorder)
 {
  	int32 xPosition = position.x;
@@ -203,43 +249,4 @@ static void PostProcessingLantern::ellipticalWindow(uint32 currentDrawingFrameBu
 		}
 	}
 }
-
-static void PostProcessingLantern::lantern(uint32 currentDrawingFrameBufferSet, SpatialObject spatialObject __attribute__ ((unused)))
-{
- 	static bool ellipsisArcCalculated = false;
-
-	if(isDeleted(spatialObject))
-	{
- 		if(ellipsisArcCalculated)
- 		{
- 			PostProcessingLantern::applyMask(currentDrawingFrameBufferSet, _cameraFrustum->x0, _cameraFrustum->x1, _cameraFrustum->y0, _cameraFrustum->y1, 0);
- 		}
- 		return;
-	}
-
-	PixelVector screenPixelPosition = PixelVector::projectVector3D(Vector3D::getRelativeToCamera(*SpatialObject::getPosition(spatialObject)), 0);
-
- 	screenPixelPosition.y -= 10;
-
- 	#define ELLIPSIS_X_AXIS_LENGTH		65
- 	#define ELLIPSIS_Y_AXIS_LENGTH		70
-	#define PENUMBRA_MASK				0x55555555
-
- 	static int16 ellipsisArc[ELLIPSIS_X_AXIS_LENGTH];
-
- 	if(!ellipsisArcCalculated)
-	{
-		ellipsisArcCalculated = true;
-
-		uint16 i = 0;
-		float x = 0;
-
-		for(i = sizeof(ellipsisArc) >> POST_PROCESSING_LANTERN_SIZE_OF_S16_POWER; --i; x++)
-		{
-			ellipsisArc[i] = ELLIPSIS_Y_AXIS_LENGTH * Math::squareRoot(((ELLIPSIS_X_AXIS_LENGTH * ELLIPSIS_X_AXIS_LENGTH) - (x * x)) / (ELLIPSIS_X_AXIS_LENGTH * ELLIPSIS_X_AXIS_LENGTH));
-		}
-	}
-
-	PostProcessingLantern::ellipticalWindow(currentDrawingFrameBufferSet, screenPixelPosition, ellipsisArc, ELLIPSIS_X_AXIS_LENGTH, PENUMBRA_MASK, true);
-}
-
+//---------------------------------------------------------------------------------------------------------

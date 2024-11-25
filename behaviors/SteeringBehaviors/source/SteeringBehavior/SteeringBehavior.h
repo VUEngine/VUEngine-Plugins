@@ -1,4 +1,4 @@
-/**
+/*
  * VUEngine Plugins Library
  *
  * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
@@ -11,19 +11,24 @@
 #define STEERING_BEHAVIOR_H_
 
 
-//---------------------------------------------------------------------------------------------------------
-//												INCLUDES
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// INCLUDES
+//=========================================================================================================
 
 #include <Events.h>
 #include <Behavior.h>
 
 
-//---------------------------------------------------------------------------------------------------------
-//											 DEFINITIONS
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// FORWARD DECLARATIONS
+//=========================================================================================================
 
 class Vehicle;
+
+
+//=========================================================================================================
+// CLASS' DATA
+//=========================================================================================================
 
 enum SteeringBehaviorEvents
 {
@@ -36,10 +41,10 @@ enum SummingMethod
 	kWeightedAverage
 };
 
-// defines an entity in ROM memory
+/// A SteeringBehavior Spec
+/// @memberof SteeringBehavior
 typedef struct SteeringBehaviorSpec
 {
-	/// BehaviorSpec
 	BehaviorSpec behaviorSpec;
 
 	/// Priority: higher values have more priority
@@ -56,18 +61,24 @@ typedef struct SteeringBehaviorSpec
 
 } SteeringBehaviorSpec;
 
+/// A SteeringBehavior spec that is stored in ROM
+/// @memberof SteeringBehavior
 typedef const SteeringBehaviorSpec SteeringBehaviorROMSpec;
 
 
-//---------------------------------------------------------------------------------------------------------
-//											CLASS'S DECLARATION
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// CLASS' DECLARATION
+//=========================================================================================================
 
-/// @ingroup base
+///
+/// Class Behavior
+///
+/// Inherits from Behavior
+///
+/// Defines an interface for steering behaviors
 class SteeringBehavior : Behavior
 {
-	const SteeringBehaviorSpec* steeringBehaviorSpec;
-
+	/// Force to apply
 	Vector3D force;
 
 	// higher value has more priority
@@ -76,21 +87,26 @@ class SteeringBehavior : Behavior
 	fixed_t maximumForce;
 	fixed_t deviation;
 
+	/// Class' constructor
+	/// @param owner: SpatialObject to which the behavior attaches to
+	/// @param steeringBehaviorSpec: Specification that determines how to configure the behavior
 	void constructor(SpatialObject owner, const SteeringBehaviorSpec* steeringBehaviorSpec);
 
-	static Vector3D calculateForce(Vehicle vehicle, uint16 summingMethod);
-	int32 getPriority();
-	void setPriority(int32 value);
-	fixed_t getWeight();
-	void setWeight(fixed_t value);
-	fixed_t getMaximumForce();
-	void setMaximumForce(fixed_t value);
-	void reset();
 	const SteeringBehaviorSpec* getSteeringBehaviorSpec();
-	Vector3D getForce();
+	void reset();
+
+	static Vector3D calculateForce(Vehicle vehicle, uint16 summingMethod);
+
+	void setPriority(int32 value);
+	int32 getPriority();
+
+	void setWeight(fixed_t value);
+	fixed_t getWeight();
+
+	void setMaximumForce(fixed_t value);
+	fixed_t getMaximumForce();
 
 	virtual Vector3D calculate(Vehicle owner) = 0;
 }
-
 
 #endif

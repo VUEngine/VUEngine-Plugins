@@ -1,4 +1,4 @@
-/**
+/*
  * VUEngine Plugins Library
  *
  * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
@@ -8,21 +8,16 @@
  */
 
 
-//---------------------------------------------------------------------------------------------------------
-//												INCLUDES
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// INCLUDES
+//=========================================================================================================
 
 #include <string.h>
 
 #include <AutomaticPauseManager.h>
-#include <Camera.h>
-#include <CameraEffectManager.h>
-#include <DirectDraw.h>
 #include <I18n.h>
-#include <KeypadManager.h>
 #include <Languages.h>
 #include <Printing.h>
-#include <MessageDispatcher.h>
 #include <SaveDataManager.h>
 #include <SoundManager.h>
 #include <VUEngine.h>
@@ -30,35 +25,46 @@
 #include "AutomaticPauseSelectionScreenState.h"
 
 
-//---------------------------------------------------------------------------------------------------------
-//												DECLARATIONS
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// CLASS' DECLARATIONS
+//=========================================================================================================
 
 extern StageROMSpec AutomaticPauseSelectionScreenStage;
 extern SoundSpec AutomaticPauseSelectSoundSpec;
 extern SoundSpec AutomaticPauseConfirmSoundSpec;
 
 
+//=========================================================================================================
+// CLASS' PUBLIC METHODS
+//=========================================================================================================
+
 //---------------------------------------------------------------------------------------------------------
-//												CLASS'S METHODS
+void AutomaticPauseSelectionScreenState::processUserInput(const UserInput* userInput)
+{
+	if(userInput->pressedKey & (K_LL | K_LR))
+	{
+		this->selection = !this->selection;
+		AutomaticPauseSelectionScreenState::renderSelection(this);
+
+		SoundManager::playSound(SoundManager::getInstance(), &AutomaticPauseSelectSoundSpec, kPlayAll, NULL, kSoundPlaybackNormal, NULL, NULL);
+	}
+	else if(userInput->pressedKey & (K_A | K_STA))
+	{
+		ListenerObject saveDataManager = VUEngine::getSaveDataManager(VUEngine::getInstance());
+
+		AutomaticPauseManager::setActive(AutomaticPauseManager::getInstance(), this->selection);
+		
+		if(saveDataManager)
+		{
+			SaveDataManager::setAutomaticPauseStatus(saveDataManager, this->selection);
+		}
+
+		SoundManager::playSound(SoundManager::getInstance(), &AutomaticPauseConfirmSoundSpec, kPlayAll, NULL, kSoundPlaybackNormal, NULL, NULL);
+
+		SplashScreenState::loadNextState(SplashScreenState::safeCast(this));
+	}
+}
 //---------------------------------------------------------------------------------------------------------
-
-// class's constructor
-void AutomaticPauseSelectionScreenState::constructor()
-{
-	Base::constructor();
-
-	this->stageSpec = (StageSpec*)&AutomaticPauseSelectionScreenStage;
-	this->selection = true;
-}
-
-// class's destructor
-void AutomaticPauseSelectionScreenState::destructor()
-{
-	// destroy base
-	Base::destructor();
-}
-
 void AutomaticPauseSelectionScreenState::print()
 {
 	ListenerObject saveDataManager = VUEngine::getSaveDataManager(VUEngine::getInstance());
@@ -87,7 +93,27 @@ void AutomaticPauseSelectionScreenState::print()
 
 	AutomaticPauseSelectionScreenState::renderSelection(this);
 }
+//---------------------------------------------------------------------------------------------------------
 
+//=========================================================================================================
+// CLASS' PRIVATE METHODS
+//=========================================================================================================
+
+//---------------------------------------------------------------------------------------------------------
+void AutomaticPauseSelectionScreenState::constructor()
+{
+	Base::constructor();
+
+	this->stageSpec = (StageSpec*)&AutomaticPauseSelectionScreenStage;
+	this->selection = true;
+}
+//---------------------------------------------------------------------------------------------------------
+void AutomaticPauseSelectionScreenState::destructor()
+{
+	// destroy base
+	Base::destructor();
+}
+//---------------------------------------------------------------------------------------------------------
 void AutomaticPauseSelectionScreenState::renderSelection()
 {
 	// get strings and determine sizes
@@ -138,29 +164,4 @@ void AutomaticPauseSelectionScreenState::renderSelection()
 	Printing::text(Printing::getInstance(), "\x05\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08", optionStart, __PLUGIN_AUTOMATIC_PAUSE_SELECTION_SCREEN_OPTIONS_Y_POS + 1 + strOnSize.y, NULL);
 	Printing::text(Printing::getInstance(), "\x06               ", optionEnd, __PLUGIN_AUTOMATIC_PAUSE_SELECTION_SCREEN_OPTIONS_Y_POS + 1 + strOnSize.y, NULL);
 }
-
-void AutomaticPauseSelectionScreenState::processUserInput(const UserInput* userInput)
-{
-	if(userInput->pressedKey & (K_LL | K_LR))
-	{
-		this->selection = !this->selection;
-		AutomaticPauseSelectionScreenState::renderSelection(this);
-
-		SoundManager::playSound(SoundManager::getInstance(), &AutomaticPauseSelectSoundSpec, kPlayAll, NULL, kSoundPlaybackNormal, NULL, NULL);
-	}
-	else if(userInput->pressedKey & (K_A | K_STA))
-	{
-		ListenerObject saveDataManager = VUEngine::getSaveDataManager(VUEngine::getInstance());
-
-		AutomaticPauseManager::setActive(AutomaticPauseManager::getInstance(), this->selection);
-		
-		if(saveDataManager)
-		{
-			SaveDataManager::setAutomaticPauseStatus(saveDataManager, this->selection);
-		}
-
-		SoundManager::playSound(SoundManager::getInstance(), &AutomaticPauseConfirmSoundSpec, kPlayAll, NULL, kSoundPlaybackNormal, NULL, NULL);
-
-		SplashScreenState::loadNextState(SplashScreenState::safeCast(this));
-	}
-}
+//---------------------------------------------------------------------------------------------------------

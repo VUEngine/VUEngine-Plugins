@@ -24,18 +24,8 @@
 			"es": "Esenciales"
 		}
 	],
-	"dependencies": [
-		"vuengine//graphics/GuiBgmapAnimatedSprite"
-	],
+	"dependencies": [],
 	"configuration": [
-		{
-			"name": "useGuiBgmapAnimatedSprite",
-			"label": {
-				"en": "Use GuiBgmapAnimatedSprite"
-			},
-			"dataType": "boolean",
-			"default": false
-		},
 		{
 			"name": "xPosition",
 			"label": {

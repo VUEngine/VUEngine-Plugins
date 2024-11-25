@@ -1,4 +1,4 @@
-/**
+/*
  * VUEngine Plugins Library
  *
  * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
@@ -8,17 +8,13 @@
  */
 
 
-//---------------------------------------------------------------------------------------------------------
-//												INCLUDES
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// INCLUDES
+//=========================================================================================================
 
-#include <Camera.h>
 #include <I18n.h>
-#include <KeypadManager.h>
 #include <Languages.h>
-#include <Printing.h>
 #include <MessageDispatcher.h>
-#include <SaveDataManager.h>
 #include <SoundManager.h>
 #include <Telegram.h>
 #include <VUEngine.h>
@@ -26,32 +22,28 @@
 #include "PrecautionScreenState.h"
 
 
-//---------------------------------------------------------------------------------------------------------
-//												DECLARATIONS
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// CLASS' DECLARATIONS
+//=========================================================================================================
 
 extern StageROMSpec PrecautionScreenStage;
 
 
-//---------------------------------------------------------------------------------------------------------
-//											CLASS'S DEFINITION
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// CLASS' DATA
+//=========================================================================================================
 
-// class's constructor
-void PrecautionScreenState::constructor()
+enum SplashScreenMessageTypes
 {
-	Base::constructor();
+	kMessageAllowUserInput = kMessageLastEngine + 1
+};
 
-	this->stageSpec = (StageSpec*)&PrecautionScreenStage;
-}
 
-// class's destructor
-void PrecautionScreenState::destructor()
-{
-	// destroy base
-	Base::destructor();
-}
+//=========================================================================================================
+// CLASS' PUBLIC METHODS
+//=========================================================================================================
 
+//---------------------------------------------------------------------------------------------------------
 void PrecautionScreenState::enter(void* owner)
 {
 	// call base
@@ -66,8 +58,7 @@ void PrecautionScreenState::enter(void* owner)
 	VUEngine::disableKeypad(VUEngine::getInstance());
 	MessageDispatcher::dispatchMessage(2000, ListenerObject::safeCast(this), ListenerObject::safeCast(VUEngine::getInstance()), kMessageAllowUserInput, NULL);
 }
-
-// state's handle message
+//---------------------------------------------------------------------------------------------------------
 bool PrecautionScreenState::processMessage(void* owner __attribute__ ((unused)), Telegram telegram)
 {
 	switch(Telegram::getMessage(telegram))
@@ -79,7 +70,7 @@ bool PrecautionScreenState::processMessage(void* owner __attribute__ ((unused)),
 
 	return false;
 }
-
+//---------------------------------------------------------------------------------------------------------
 void PrecautionScreenState::print()
 {
 	const char* strBody = I18n::getText(I18n::getInstance(), kStringPrecautionScreenBody);
@@ -97,3 +88,23 @@ void PrecautionScreenState::print()
 		__PLUGIN_PRECAUTION_SCREEN_TEXT_FONT
 	);
 }
+//---------------------------------------------------------------------------------------------------------
+
+//=========================================================================================================
+// CLASS' PRIVATE METHODS
+//=========================================================================================================
+
+//---------------------------------------------------------------------------------------------------------
+void PrecautionScreenState::constructor()
+{
+	Base::constructor();
+
+	this->stageSpec = (StageSpec*)&PrecautionScreenStage;
+}
+//---------------------------------------------------------------------------------------------------------
+void PrecautionScreenState::destructor()
+{
+	// destroy base
+	Base::destructor();
+}
+//---------------------------------------------------------------------------------------------------------

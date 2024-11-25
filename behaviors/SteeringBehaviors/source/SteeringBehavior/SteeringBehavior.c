@@ -40,8 +40,6 @@ void SteeringBehavior::constructor(SpatialObject owner, const SteeringBehaviorSp
 {
 	Base::constructor(owner, &steeringBehaviorSpec->behaviorSpec);
 
-	this->steeringBehaviorSpec = steeringBehaviorSpec;
-
 	this->force = Vector3D::zero();
 
 	SteeringBehavior::reset(this);
@@ -266,18 +264,13 @@ void SteeringBehavior::setMaximumForce(fixed_t value)
 
 void SteeringBehavior::reset()
 {
-	this->priority = this->steeringBehaviorSpec->priority;
-	this->weight = this->steeringBehaviorSpec->weight;
-	this->maximumForce = this->steeringBehaviorSpec->maximumForce;
-	this->deviation = this->steeringBehaviorSpec->deviation;
+	this->priority = ((SteeringBehaviorSpec*)this->componentSpec)->priority;
+	this->weight = ((SteeringBehaviorSpec*)this->componentSpec)->weight;
+	this->maximumForce = ((SteeringBehaviorSpec*)this->componentSpec)->maximumForce;
+	this->deviation = ((SteeringBehaviorSpec*)this->componentSpec)->deviation;
 }
 
 const SteeringBehaviorSpec* SteeringBehavior::getSteeringBehaviorSpec()
 {
-	return this->steeringBehaviorSpec;
-}
-
-Vector3D SteeringBehavior::getForce()
-{
-	return this->force;
+	return ((SteeringBehaviorSpec*)this->componentSpec);
 }

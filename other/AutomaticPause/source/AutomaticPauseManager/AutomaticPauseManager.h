@@ -1,4 +1,4 @@
-/**
+/*
  * VUEngine Plugins Library
  *
  * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
@@ -11,60 +11,66 @@
 #define AUTOMATIC_PAUSE_MANAGER_H_
 
 
-//---------------------------------------------------------------------------------------------------------
-//												INCLUDES
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// INCLUDES
+//=========================================================================================================
 
 #include <ListenerObject.h>
 #include <GameState.h>
 
 
-//---------------------------------------------------------------------------------------------------------
-//											CLASS'S DECLARATION
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// CLASS' DECLARATION
+//=========================================================================================================
 
-/**
- * Shows an indicator on screen when the system power is low
- *
- * @ingroup vuengine-plugins-other
- */
+///
+/// Class AutomaticPauseManager
+///
+/// Inherits from ListenerObject
+///
+/// Manages the automatic pause feature.
 singleton class AutomaticPauseManager : ListenerObject
 {
 	/// @protectedsection
 
-	// auto pause state
+	/// Auto pause state
 	GameState automaticPauseState;
-	// auto pause active flag
-	bool isActive;
-	// after this many minutes the auto pause kicks in
-	uint8 autoPauseDelay;
-	// minutes elapsed since last automatic pause
-	uint8 elapsedTime;
 
+	/// Auto pause active flag
+	bool isActive;
+
+	/// After this many minutes the auto pause kicks in
+	uint8 autoPauseDelay;
+
+	/// Minutes elapsed since last automatic pause
+	uint8 elapsedTime;
 
 	/// @publicsection
 
-	/**
-	 * Get instance.
-	 *
-	 * @return	AutomaticPauseManager instance
-	 */
+	/// Method to retrieve the singleton instance
+	/// @return AutomaticPauseManager singleton
 	static AutomaticPauseManager getInstance();
 
-	GameState getAutomaticPauseState();
+	/// Set the state that the game must transition to when pausing it.
+	/// @param automaticPauseState: State that the game must transition to when pausing it
 	void setAutomaticPauseState(GameState automaticPauseState);
-	void setAutomaticPauseDelay(uint8 automaticPauseDelay);
-	bool isActive();
+	
+	/// Retrieve the state that the game transitions to when pausing it.
+	/// @return State that the game transitions to when pausing it
+	GameState getAutomaticPauseState();
 
-	/**
-     * De/activate
-     *
-     * @param active	Set as active or inactive?
-     */
+	/// Set the deplay before pausing the game.
+	/// @param automaticPauseDelay: Amount of time that must elapse before pausing the game
+	void setAutomaticPauseDelay(uint8 automaticPauseDelay);
+
+	/// Activate/deactivate the automatic pause feature.
+	/// @param active: If true, the game will pause automatically after the
+	/// configured elapsed time
     void setActive(bool active);
 
-
-	/// @privatesection
+	/// Retrieve the activation state for the automatic pause feature.
+	/// @return True if the the automatic pause feature is enabled; false otherwise
+	bool isActive();
 }
 
 

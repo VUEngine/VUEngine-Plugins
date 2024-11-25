@@ -1,4 +1,4 @@
-/**
+/*
  * VUEngine Plugins Library
  *
  * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
@@ -11,21 +11,29 @@
 #define POST_PROCESSING_WOBBLE_H_
 
 
-//---------------------------------------------------------------------------------------------------------
-//												INCLUDES
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// INCLUDES
+//=========================================================================================================
 
 #include <SpatialObject.h>
 
 
-//---------------------------------------------------------------------------------------------------------
-//										FUNCTIONS
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// CLASS' DECLARATION
+//=========================================================================================================
 
+///
+/// Class PostProcessingDwarfPlanet
+///
+/// Inherits from ListenerObject
+///
+/// Implements a full screen wobble distortion that is reminiscent of water waves.
 static class PostProcessingWobble : ListenerObject
 {
+	/// Apply the post processing effect.
+	/// @param currentDrawingFrameBufferSet: The framebuffer set that's currently being accessed
+	/// @param spatialObject: Post-processing effect function's scope
 	static void wobble(uint32 currentDrawingFrameBufferSet, SpatialObject spatialObject);
 }
-
 
 #endif

@@ -1,4 +1,4 @@
-/**
+/*
  * VUEngine Plugins Library
  *
  * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
@@ -11,70 +11,72 @@
 #define ShaderSprite_SPRITE_H_
 
 
-//---------------------------------------------------------------------------------------------------------
-//												INCLUDES
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// INCLUDES
+//=========================================================================================================
 
 #include <BgmapSprite.h>
 
 
-//---------------------------------------------------------------------------------------------------------
-//												MACROS
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// CLASS' DATA
+//=========================================================================================================
 
-
-//---------------------------------------------------------------------------------------------------------
-//											TYPE DEFINITIONS
-//---------------------------------------------------------------------------------------------------------
-
-enum ShaderSide
-{
-	kShaderSideLeft = 0,
-	kShaderSideRight
-};
-
-/**
- * Spec of a ShaderSprite
- *
- * @memberof 	ShaderSprite
- */
+/// A ShaderSprite Spec
+/// @memberof ShaderSprite
 typedef struct ShaderSpriteSpec
 {
-	/// entity spec
 	BgmapSpriteSpec bgmapSpriteSpec;
 
-	/// display side
+	/// Display side
 	int32 shaderDisplaySide;
 
 } ShaderSpriteSpec;
 
-/**
- * A ShaderSpriteSpec that is stored in ROM
- *
- * @memberof 	ShaderSprite
- */
+/// A ShaderSprite spec that is stored in ROM
+/// @memberof ShaderSprite
 typedef const ShaderSpriteSpec ShaderSpriteROMSpec;
 
 
-//---------------------------------------------------------------------------------------------------------
-//											CLASS'S DECLARATION
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// CLASS' DECLARATION
+//=========================================================================================================
 
-
+///
+/// Class Sprite
+///
+/// Inherits from VisualComponent
+///
+/// Displays a Texture on the screen.
+/// @ingroup graphics-2d-sprites
 class ShaderSprite : BgmapSprite
 {
+	/// @protectedsection
+
+	/// CharSet to write into
 	CharSet charSet;
+
+	/// Frame buffer to use
 	int32 buffer;
 
 	/// @publicsection
+
+	/// Class' constructor
+	/// @param owner: SpatialObject to which the sprite attaches to
+	/// @param spriteSpec: Specification that determines how to configure the sprite
 	void constructor(SpatialObject owner, const ShaderSpriteSpec* shaderSpriteSpec);
 
 	/// Render the sprite by configuring the DRAM assigned to it by means of the provided index.
 	/// @param index: Determines the region of DRAM that this sprite is allowed to configure
 	/// @return The index that determines the region of DRAM that this sprite manages
 	override int16 doRender(int16 index);
-	override void processEffects();
+
+	/// Check if the sprite has special effects.
+	/// @return True if the sprite has special effects
 	override bool hasSpecialEffects();
+
+	/// Process special effects.
+	override void processEffects();
 }
 
 

@@ -1,4 +1,4 @@
-/**
+/*
  * VUEngine Plugins Library
  *
  * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
@@ -8,9 +8,9 @@
  */
 
 
-//---------------------------------------------------------------------------------------------------------
-//												INCLUDES
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// INCLUDES
+//=========================================================================================================
 
 #include <I18n.h>
 #include <Utilities.h>
@@ -19,19 +19,20 @@
 #include "LocalizedEntity.h"
 
 
-//---------------------------------------------------------------------------------------------------------
-//												CLASS'S METHODS
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// CLASS' PUBLIC METHODS
+//=========================================================================================================
 
+//---------------------------------------------------------------------------------------------------------
 void LocalizedEntity::constructor(const LocalizedEntitySpec* localizedEntitySpec, int16 internalId, const char* const name)
 {
 	// construct base object
-	Base::constructor((AnimatedEntitySpec*)localizedEntitySpec, internalId, name);
+	Base::constructor((AnimatedEntitySpec*)&localizedEntitySpec->animatedEntitySpec, internalId, name);
 
 	// add event listeners
 	GameState::addEventListener(VUEngine::getCurrentState(VUEngine::getInstance()), ListenerObject::safeCast(this), (EventListener)LocalizedEntity::onLanguageChanged, kEventLanguageChanged);
 }
-
+//---------------------------------------------------------------------------------------------------------
 void LocalizedEntity::destructor()
 {
 	// remove event listeners
@@ -41,7 +42,7 @@ void LocalizedEntity::destructor()
 	// must always be called at the end of the destructor
 	Base::destructor();
 }
-
+//---------------------------------------------------------------------------------------------------------
 void LocalizedEntity::ready(bool recursive)
 {
 	// call base
@@ -50,14 +51,19 @@ void LocalizedEntity::ready(bool recursive)
 	// translate entity
 	LocalizedEntity::localize(this);
 }
+//---------------------------------------------------------------------------------------------------------
 
+//=========================================================================================================
+// CLASS' PRIVATE METHODS
+//=========================================================================================================
+
+//---------------------------------------------------------------------------------------------------------
 void LocalizedEntity::localize()
 {
 	char* language = Utilities::itoa(I18n::getActiveLanguage(I18n::getInstance()), 10, 1);
 	LocalizedEntity::playAnimation(AnimatedEntity::safeCast(this), language);
 }
-
-// handle event
+//---------------------------------------------------------------------------------------------------------
 bool LocalizedEntity::onLanguageChanged(ListenerObject eventFirer __attribute__ ((unused)))
 {
 	// translate entity
@@ -65,3 +71,4 @@ bool LocalizedEntity::onLanguageChanged(ListenerObject eventFirer __attribute__ 
 
 	return true;
 }
+//---------------------------------------------------------------------------------------------------------

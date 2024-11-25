@@ -1,4 +1,4 @@
-/**
+/*
  * VUEngine Plugins Library
  *
  * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
@@ -8,9 +8,9 @@
  */
 
 
-//---------------------------------------------------------------------------------------------------------
-//												INCLUDES
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// INCLUDES
+//=========================================================================================================
 
 #include <Optics.h>
 #include <Camera.h>
@@ -25,11 +25,170 @@
 #include "PlatformerCameraMovementManager.h"
 
 
+//=========================================================================================================
+// CLASS' PUBLIC METHODS
+//=========================================================================================================
+
 //---------------------------------------------------------------------------------------------------------
-//												CLASS'S METHODS
+Vector3D PlatformerCameraMovementManager::focus(Camera camera)
+{
+	if(isDeleted(camera))
+	{
+		return Vector3D::zero()s;
+	}
+
+	return this->focusFunction(this, camera, false);
+}
+//---------------------------------------------------------------------------------------------------------
+void PlatformerCameraMovementManager::enable()
+{
+	this->focusFunction = this->previousFocusFunction;
+	this->previousFocusFunction = this->focusFunction;
+}
+//---------------------------------------------------------------------------------------------------------
+void PlatformerCameraMovementManager::disable()
+{
+	if(&PlatformerCameraMovementManager::dontFocus != this->focusFunction)
+	{
+		this->previousFocusFunction = this->focusFunction;
+	}
+
+	this->focusFunction = &PlatformerCameraMovementManager::dontFocus;
+}
+//---------------------------------------------------------------------------------------------------------
+void PlatformerCameraMovementManager::enableFocusEasing()
+{
+	this->focusFunction = &PlatformerCameraMovementManager::doFocus;
+	this->previousFocusFunction = this->focusFunction;
+}
+//---------------------------------------------------------------------------------------------------------
+void PlatformerCameraMovementManager::disableFocusEasing()
+{
+	this->focusFunction = &PlatformerCameraMovementManager::doFocusWithNoEasing;
+	this->previousFocusFunction = this->focusFunction;
+}
+//---------------------------------------------------------------------------------------------------------
+void PlatformerCameraMovementManager::alertWhenTargetFocused()
+{
+	if(&PlatformerCameraMovementManager::doFocusAndAlertWhenTargetReached != this->focusFunction)
+	{
+		this->previousFocusFunction = this->focusFunction;
+	}
+
+	this->focusFunction = &PlatformerCameraMovementManager::doFocusAndAlertWhenTargetReached;
+}
+//---------------------------------------------------------------------------------------------------------
+void PlatformerCameraMovementManager::dontAlertWhenTargetFocused()
+{
+	this->focusFunction = this->previousFocusFunction;
+}
+//---------------------------------------------------------------------------------------------------------
+void PlatformerCameraMovementManager::setPositionFlag(Vector3DFlag positionFlag)
+{
+	this->positionFlag = positionFlag;
+}
+//---------------------------------------------------------------------------------------------------------
+Vector3DFlag PlatformerCameraMovementManager::getPositionFlag()
+{
+	return this->positionFlag;
+}
+//---------------------------------------------------------------------------------------------------------
+void PlatformerCameraMovementManager::lockMovement(uint8 axisToLockUp, bool locked)
+{
+	if(!isDeleted(this->cameraTrigger))
+	{
+		PlatformerCameraTriggerEntity::lockMovement(this->cameraTrigger, axisToLockUp, locked);
+	}
+}
+//---------------------------------------------------------------------------------------------------------
+void PlatformerCameraMovementManager::configure(Entity focusEntity, uint32 focusEntityLayer, uint32 cameraTriggerLayer, PixelSize boundingBoxSize, Vector3D boundingBoxDisplacement, Vector3D screenDisplacement)
+{
+	this->platformerCameraTriggerEntityCollidersSpec[0] = (ColliderSpec)
+	{
+		// collider
+		__TYPE(InverseBox),
+
+		// size (x, y, z)
+		boundingBoxSize,
+
+		// displacement (x, y, z, p)
+		{0, 0, 0, 0},
+
+		// rotation (x, y, z)
+		{0, 0, 0},
+
+		// scale (x, y, z)
+		{0, 0, 0},
+
+		/// if true this collider checks for collisions against other colliders
+		true,
+
+		/// layers in which I live
+		cameraTriggerLayer,
+
+		/// layers to ignore when checking for collisions
+		~(focusEntityLayer),
+	};
+
+	this->platformerCameraTriggerEntityCollidersSpec[1] = (ColliderSpec) {NULL, {0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0}, {0, 0, 0}, false, kLayerNone, kLayerNone};
+
+	this->platformerCameraTriggerEntitySpec = (PlatformerCameraTriggerEntitySpec)
+	{
+		// class allocator
+		__TYPE(PlatformerCameraTriggerEntity),
+
+		// children
+		NULL,
+
+		// behaviors
+		NULL,
+
+		// extra
+		NULL,
+
+		// sprites
+		NULL,
+
+		// use z displacement in projection
+		false,
+
+		// wireframes
+		(WireframeSpec**)NULL,
+
+		// collision colliders
+		(ColliderSpec*)this->platformerCameraTriggerEntityCollidersSpec,
+
+		// size
+		// if 0, width and height will be inferred from the first sprite's texture's size
+		{0, 0, 0},
+
+		// gameworld's character's type
+		!isDeleted(focusEntity) ? Entity::getInGameType(focusEntity) : kTypeNone,
+
+		// physical specification
+		(PhysicalProperties*)NULL,
+	};
+
+	if(!isDeleted(focusEntity))
+	{
+		// Configure the camera
+		Camera::setFocusEntity(Camera::getInstance(), focusEntity);
+		Camera::setFocusEntityPositionDisplacement(Camera::getInstance(), screenDisplacement);
+
+		// Configure the camera trigger
+		this->cameraTrigger = Entity::spawnChildEntity(focusEntity, (EntitySpec*)&this->platformerCameraTriggerEntitySpec, 0, NULL, &boundingBoxDisplacement, NULL);
+
+		// make sure that focusing gets completed immediately
+		PlatformerCameraMovementManager::enable(this);
+	}
+}
 //---------------------------------------------------------------------------------------------------------
 
-// class's constructor
+//=========================================================================================================
+// CLASS' PRIVATE METHODS
+//=========================================================================================================
+
+//---------------------------------------------------------------------------------------------------------
 void PlatformerCameraMovementManager::constructor()
 {
 	// construct base object
@@ -45,25 +204,13 @@ void PlatformerCameraMovementManager::constructor()
 
 	PlatformerCameraMovementManager::configure(this, NULL, kLayerNone, kLayerNone, (PixelSize){8 * 8, 8 * 8, 8 * 8}, Vector3D::zero(), Vector3D::zero());
 }
-
-// class's destructor
+//---------------------------------------------------------------------------------------------------------
 void PlatformerCameraMovementManager::destructor()
 {
 	// destroy base
 	Base::destructor();
 }
-
-// center world's camera in function of focus actor's position
-Vector3D PlatformerCameraMovementManager::focus(Camera camera)
-{
-	if(isDeleted(camera))
-	{
-		return Vector3D::zero()s;
-	}
-
-	return this->focusFunction(this, camera, false);
-}
-
+//---------------------------------------------------------------------------------------------------------
 Vector3D PlatformerCameraMovementManager::doFocusWithNoEasing(Camera camera, uint32 introFocusing __attribute__ ((unused)))
 {
 	NormalizedDirection normalizedDirection = Entity::getNormalizedDirection(Entity::safeCast(Camera::getFocusEntity(camera)));
@@ -75,14 +222,12 @@ Vector3D PlatformerCameraMovementManager::doFocusWithNoEasing(Camera camera, uin
 		0
 	};
 }
-
-// center world's camera in function of focus actor's position
+//---------------------------------------------------------------------------------------------------------
 Vector3D PlatformerCameraMovementManager::dontFocus(Camera camera __attribute__ ((unused)), uint32 introFocusing __attribute__ ((unused)))
 {
 	return Camera::getPosition(camera);
 }
-
-// center world's camera in function of focus actor's position
+//---------------------------------------------------------------------------------------------------------
 Vector3D PlatformerCameraMovementManager::doFocus(Camera camera, uint32 introFocusing __attribute__ ((unused)))
 {
 	// if focusEntity is defined
@@ -214,8 +359,7 @@ Vector3D PlatformerCameraMovementManager::doFocus(Camera camera, uint32 introFoc
 
 	return Camera::getPosition(camera);
 }
-
-// center world's camera in function of focus actor's position
+//---------------------------------------------------------------------------------------------------------
 Vector3D PlatformerCameraMovementManager::doFocusAndAlertWhenTargetReached(Camera camera, uint32 introFocusing __attribute__ ((unused)))
 {
 	if(PlatformerCameraMovementManager::doFocus(this, camera, true))
@@ -226,146 +370,4 @@ Vector3D PlatformerCameraMovementManager::doFocusAndAlertWhenTargetReached(Camer
 
 	return Camera::getPosition(camera);
 }
-
-void PlatformerCameraMovementManager::setPositionFlag(Vector3DFlag positionFlag)
-{
-	this->positionFlag = positionFlag;
-}
-
-Vector3DFlag PlatformerCameraMovementManager::getPositionFlag()
-{
-	return this->positionFlag;
-}
-
-void PlatformerCameraMovementManager::enable()
-{
-	this->focusFunction = this->previousFocusFunction;
-	this->previousFocusFunction = this->focusFunction;
-}
-
-void PlatformerCameraMovementManager::disable()
-{
-	if(&PlatformerCameraMovementManager::dontFocus != this->focusFunction)
-	{
-		this->previousFocusFunction = this->focusFunction;
-	}
-
-	this->focusFunction = &PlatformerCameraMovementManager::dontFocus;
-}
-
-void PlatformerCameraMovementManager::enableFocusEasing()
-{
-	this->focusFunction = &PlatformerCameraMovementManager::doFocus;
-	this->previousFocusFunction = this->focusFunction;
-}
-
-void PlatformerCameraMovementManager::disableFocusEasing()
-{
-	this->focusFunction = &PlatformerCameraMovementManager::doFocusWithNoEasing;
-	this->previousFocusFunction = this->focusFunction;
-}
-
-void PlatformerCameraMovementManager::alertWhenTargetFocused()
-{
-	if(&PlatformerCameraMovementManager::doFocusAndAlertWhenTargetReached != this->focusFunction)
-	{
-		this->previousFocusFunction = this->focusFunction;
-	}
-
-	this->focusFunction = &PlatformerCameraMovementManager::doFocusAndAlertWhenTargetReached;
-}
-
-void PlatformerCameraMovementManager::dontAlertWhenTargetFocused()
-{
-	this->focusFunction = this->previousFocusFunction;
-}
-
-void PlatformerCameraMovementManager::lockMovement(uint8 axisToLockUp, bool locked)
-{
-	if(!isDeleted(this->cameraTrigger))
-	{
-		PlatformerCameraTriggerEntity::lockMovement(this->cameraTrigger, axisToLockUp, locked);
-	}
-}
-
-void PlatformerCameraMovementManager::configure(Entity focusEntity, uint32 focusEntityLayer, uint32 cameraTriggerLayer, PixelSize boundingBoxSize, Vector3D boundingBoxDisplacement, Vector3D screenDisplacement)
-{
-	this->platformerCameraTriggerEntityCollidersSpec[0] = (ColliderSpec)
-	{
-		// collider
-		__TYPE(InverseBox),
-
-		// size (x, y, z)
-		boundingBoxSize,
-
-		// displacement (x, y, z, p)
-		{0, 0, 0, 0},
-
-		// rotation (x, y, z)
-		{0, 0, 0},
-
-		// scale (x, y, z)
-		{0, 0, 0},
-
-		/// if true this collider checks for collisions against other colliders
-		true,
-
-		/// layers in which I live
-		cameraTriggerLayer,
-
-		/// layers to ignore when checking for collisions
-		~(focusEntityLayer),
-	};
-
-	this->platformerCameraTriggerEntityCollidersSpec[1] = (ColliderSpec) {NULL, {0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0}, {0, 0, 0}, false, kLayerNone, kLayerNone};
-
-	this->platformerCameraTriggerEntitySpec = (PlatformerCameraTriggerEntitySpec)
-	{
-		// class allocator
-		__TYPE(PlatformerCameraTriggerEntity),
-
-		// children
-		NULL,
-
-		// behaviors
-		NULL,
-
-		// extra
-		NULL,
-
-		// sprites
-		NULL,
-
-		// use z displacement in projection
-		false,
-
-		// wireframes
-		(WireframeSpec**)NULL,
-
-		// collision colliders
-		(ColliderSpec*)this->platformerCameraTriggerEntityCollidersSpec,
-
-		// size
-		// if 0, width and height will be inferred from the first sprite's texture's size
-		{0, 0, 0},
-
-		// gameworld's character's type
-		!isDeleted(focusEntity) ? Entity::getInGameType(focusEntity) : kTypeNone,
-
-		// physical specification
-		(PhysicalProperties*)NULL,
-	};
-
-	if(!isDeleted(focusEntity))
-	{
-		// Configure the camera
-		Camera::setFocusEntity(Camera::getInstance(), focusEntity);
-		Camera::setFocusEntityPositionDisplacement(Camera::getInstance(), screenDisplacement);
-
-		// Configure the camera trigger
-		this->cameraTrigger = Entity::spawnChildEntity(focusEntity, (EntitySpec*)&this->platformerCameraTriggerEntitySpec, 0, NULL, &boundingBoxDisplacement, NULL);
-
-		// make sure that focusing gets completed immediately
-		PlatformerCameraMovementManager::enable(this);
-	}
-}
+//---------------------------------------------------------------------------------------------------------

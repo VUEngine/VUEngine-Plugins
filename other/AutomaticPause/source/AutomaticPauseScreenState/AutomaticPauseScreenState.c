@@ -1,4 +1,4 @@
-/**
+/*
  * VUEngine Plugins Library
  *
  * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
@@ -8,9 +8,9 @@
  */
 
 
-//---------------------------------------------------------------------------------------------------------
-//												INCLUDES
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// INCLUDES
+//=========================================================================================================
 
 #include <string.h>
 
@@ -26,31 +26,18 @@
 #include "AutomaticPauseScreenState.h"
 
 
-//---------------------------------------------------------------------------------------------------------
-//												DECLARATIONS
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// CLASS' DECLARATIONS
+//=========================================================================================================
 
 extern StageROMSpec AutomaticPauseScreenStage;
 
 
+//=========================================================================================================
+// CLASS' PUBLIC METHODS
+//=========================================================================================================
+
 //---------------------------------------------------------------------------------------------------------
-//												CLASS'S METHODS
-//---------------------------------------------------------------------------------------------------------
-
-// class's constructor
-void AutomaticPauseScreenState::constructor()
-{
-	Base::constructor();
-}
-
-// class's destructor
-void AutomaticPauseScreenState::destructor()
-{
-	// destroy base
-	Base::destructor();
-}
-
-// state's enter
 void AutomaticPauseScreenState::enter(void* owner __attribute__ ((unused)))
 {
 	// call base
@@ -109,14 +96,13 @@ void AutomaticPauseScreenState::enter(void* owner __attribute__ ((unused)))
 		ListenerObject::safeCast(this) // callback scope
 	);
 }
-
-// state's exit
+//---------------------------------------------------------------------------------------------------------
 void AutomaticPauseScreenState::exit(void* owner __attribute__ ((unused)))
 {
 	// call base
 	Base::exit(this, owner);
 }
-
+//---------------------------------------------------------------------------------------------------------
 void AutomaticPauseScreenState::processUserInput(const UserInput*  userInput)
 {
 	if(K_STA & userInput->pressedKey)
@@ -136,8 +122,24 @@ void AutomaticPauseScreenState::processUserInput(const UserInput*  userInput)
 		);
 	}
 }
+//---------------------------------------------------------------------------------------------------------
 
-// handle event
+//=========================================================================================================
+// CLASS' PRIVATE METHODS
+//=========================================================================================================
+
+//---------------------------------------------------------------------------------------------------------
+void AutomaticPauseScreenState::constructor()
+{
+	Base::constructor();
+}
+//---------------------------------------------------------------------------------------------------------
+void AutomaticPauseScreenState::destructor()
+{
+	// destroy base
+	Base::destructor();
+}
+//---------------------------------------------------------------------------------------------------------
 bool AutomaticPauseScreenState::onFadeInComplete(ListenerObject eventFirer __attribute__ ((unused)))
 {
 	// re-enable user input
@@ -145,8 +147,7 @@ bool AutomaticPauseScreenState::onFadeInComplete(ListenerObject eventFirer __att
 
 	return false;
 }
-
-// handle event
+//---------------------------------------------------------------------------------------------------------
 bool AutomaticPauseScreenState::onFadeOutComplete(ListenerObject eventFirer __attribute__ ((unused)))
 {
 	// re-enable user input
@@ -157,3 +158,4 @@ bool AutomaticPauseScreenState::onFadeOutComplete(ListenerObject eventFirer __at
 
 	return false;
 }
+//---------------------------------------------------------------------------------------------------------

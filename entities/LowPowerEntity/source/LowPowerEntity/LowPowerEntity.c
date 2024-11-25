@@ -1,4 +1,4 @@
-/**
+/*
  * VUEngine Plugins Library
  *
  * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
@@ -8,32 +8,29 @@
  */
 
 
-//---------------------------------------------------------------------------------------------------------
-//												INCLUDES
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// INCLUDES
+//=========================================================================================================
 
 #include <Events.h>
 #include <KeypadManager.h>
-#include <VUEngine.h>
 
 #include "LowPowerEntity.h"
 
 
-//---------------------------------------------------------------------------------------------------------
-//												CLASS'S METHODS
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// CLASS' PUBLIC METHODS
+//=========================================================================================================
 
-// class's constructor
-void LowPowerEntity::constructor(const LowPowerEntitySpec* LowPowerEntitySpec, int16 internalId, const char* const name)
+//---------------------------------------------------------------------------------------------------------
+void LowPowerEntity::constructor(const LowPowerEntitySpec* lowPowerEntitySpec, int16 internalId, const char* const name)
 {
-	// construct base object
-	Base::constructor((AnimatedEntitySpec*)LowPowerEntitySpec, internalId, name);
+	Base::constructor((AnimatedEntitySpec*)&lowPowerEntitySpec->animatedEntitySpec, internalId, name);
 
-	// add event listeners
+	// Add event listeners
 	KeypadManager::addEventListener(KeypadManager::getInstance(), ListenerObject::safeCast(this), (EventListener)LowPowerEntity::onKeypadManagerRaisedPowerFlag, kEventKeypadManagerRaisedPowerFlag);
 }
-
-// class's destructor
+//---------------------------------------------------------------------------------------------------------
 void LowPowerEntity::destructor()
 {
 	// remove event listeners
@@ -43,11 +40,17 @@ void LowPowerEntity::destructor()
 	// must always be called at the end of the destructor
 	Base::destructor();
 }
+//---------------------------------------------------------------------------------------------------------
 
+//=========================================================================================================
+// CLASS' PRIVATE METHODS
+//=========================================================================================================
+
+//---------------------------------------------------------------------------------------------------------
 bool LowPowerEntity::onKeypadManagerRaisedPowerFlag(ListenerObject eventFirer __attribute__ ((unused)))
 {
 	AnimatedEntity::playAnimation(AnimatedEntity::safeCast(this), "Flash");
 
 	return false;
 }
-
+//---------------------------------------------------------------------------------------------------------

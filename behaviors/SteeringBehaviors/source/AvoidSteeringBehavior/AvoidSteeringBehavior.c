@@ -186,11 +186,6 @@ Vector3D AvoidSteeringBehavior::awayFromObstacles(Vehicle vehicle)
 	return desiredVelocity;
 }
 
-Vector3D AvoidSteeringBehavior::getForce()
-{
-	return this->enabled ? this->force : Vector3D::zero();
-}
-
 bool AvoidSteeringBehavior::isBraking()
 {
 	return this->isBraking && this->enabled;

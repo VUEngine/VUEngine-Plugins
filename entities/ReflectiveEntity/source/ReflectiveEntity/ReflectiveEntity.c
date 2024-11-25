@@ -1,4 +1,4 @@
-/**
+/*
  * VUEngine Plugins Library
  *
  * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
@@ -8,9 +8,9 @@
  */
 
 
-//---------------------------------------------------------------------------------------------------------
-//												INCLUDES
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// INCLUDES
+//=========================================================================================================
 
 #include <Camera.h>
 #include <DirectDraw.h>
@@ -21,10 +21,11 @@
 #include "ReflectiveEntity.h"
 
 
-//---------------------------------------------------------------------------------------------------------
-//												CLASS'S METHODS
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// CLASS' PRIVATE STATIC METHODS
+//=========================================================================================================
 
+//---------------------------------------------------------------------------------------------------------
 static uint32 ReflectiveEntity::randomSeed()
 {
 	static uint32 seed = 7;
@@ -40,52 +41,7 @@ static uint32 ReflectiveEntity::randomSeed()
 
 	return seed;
 }
-
-void ReflectiveEntity::constructor(ReflectiveEntitySpec* reflectiveEntitySpec, int16 internalId, const char* const name)
-{
-	// construct base
-	Base::constructor(&reflectiveEntitySpec->entitySpec, internalId, name);
-
-	this->waveLutIndex = 0;
-	this->waveLutIndexIncrement = __FIXED_MULT(reflectiveEntitySpec->waveLutThrottleFactor, __FIXED_DIV(__I_TO_FIXED(reflectiveEntitySpec->numberOfWaveLutEntries), __I_TO_FIXED(reflectiveEntitySpec->width)));
-	this->nextFramePosition2D = this->position2D = (Point){_cameraFrustum->x1 + 1, _cameraFrustum->y1 + 1};
-}
-
-void ReflectiveEntity::destructor()
-{
-	// remove post processing effect
-	VUEngine::removePostProcessingEffect(VUEngine::getInstance(), ReflectiveEntity::reflect, SpatialObject::safeCast(this));
-
-	// delete the super object
-	// must always be called at the end of the destructor
-	Base::destructor();
-}
-
-void ReflectiveEntity::ready(bool recursive)
-{
-	// call base
-	Base::ready(this, recursive);
-
-	// add post processing effect
-	VUEngine::pushFrontPostProcessingEffect(VUEngine::getInstance(), ReflectiveEntity::reflect, SpatialObject::safeCast(this));
-}
-
-void ReflectiveEntity::suspend()
-{
-	Base::suspend(this);
-
-	// remove post processing effect
-	VUEngine::removePostProcessingEffect(VUEngine::getInstance(), ReflectiveEntity::reflect, SpatialObject::safeCast(this));
-}
-
-void ReflectiveEntity::resume()
-{
-	Base::resume(this);
-
-	// add post processing effect
-	VUEngine::pushFrontPostProcessingEffect(VUEngine::getInstance(), ReflectiveEntity::reflect, SpatialObject::safeCast(this));
-}
-
+//---------------------------------------------------------------------------------------------------------
 static void ReflectiveEntity::reflect(uint32 currentDrawingFrameBufferSet, SpatialObject spatialObject)
 {
 	ASSERT(spatialObject, "ReflectiveEntity::reflect: null this");
@@ -99,53 +55,7 @@ static void ReflectiveEntity::reflect(uint32 currentDrawingFrameBufferSet, Spati
 
 	ReflectiveEntity::applyReflection(this, currentDrawingFrameBufferSet);
 }
-
-void ReflectiveEntity::applyReflection(uint32 currentDrawingFrameBufferSet)
-{
-	ReflectiveEntitySpec* reflectiveEntitySpec = (ReflectiveEntitySpec*)this->entitySpec;
-
-/*
-	static fixed_t index = 0;
-
-	const int16 displ[] =
-	{
-		0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
-		9, 8, 7, 6, 5, 4, 3, 2, 1, 0, -1,
-		-2, -3, -4, -5, -6, -7, -8, -9, -10,
-		-9, -8, -7, -6, -5, -4, -3, -2, -1,
-	};
-
-	index += this->waveLutIndexIncrement;
-
-	if(__FIXED_TO_I(index) >= sizeof(displ) / sizeof(int16))
-	{
-		index = 0;
-	}
-*/
-
-	ReflectiveEntity::drawReflection(this,
-		currentDrawingFrameBufferSet,
-		this->position2D.x + reflectiveEntitySpec->sourceDisplacement.x,
-		this->position2D.y + reflectiveEntitySpec->sourceDisplacement.y,
-		this->position2D.x + reflectiveEntitySpec->outputDisplacement.x,
-		this->position2D.y + reflectiveEntitySpec->outputDisplacement.y,
-		reflectiveEntitySpec->width,
-		reflectiveEntitySpec->height,
-		reflectiveEntitySpec->reflectionMask,
-		reflectiveEntitySpec->axisForReversing,
-		reflectiveEntitySpec->transparency,
-		reflectiveEntitySpec->reflectParallax,
-		reflectiveEntitySpec->parallaxDisplacement,
-		reflectiveEntitySpec->waveLut,
-		reflectiveEntitySpec->numberOfWaveLutEntries,
-		reflectiveEntitySpec->waveLutThrottleFactor,
-		reflectiveEntitySpec->flattenTop, reflectiveEntitySpec->flattenBottom,
-		reflectiveEntitySpec->topBorder, reflectiveEntitySpec->bottomBorder,
-		reflectiveEntitySpec->leftBorder, reflectiveEntitySpec->rightBorder,
-		reflectiveEntitySpec->noisePasses
-	);
-}
-
+//---------------------------------------------------------------------------------------------------------
 static uint32 ReflectiveEntity::getNoise(int16 passes)
 {
 	if(0 >= passes)
@@ -162,7 +72,7 @@ static uint32 ReflectiveEntity::getNoise(int16 passes)
 
 	return noise;
 }
-
+//---------------------------------------------------------------------------------------------------------
 static void ReflectiveEntity::shiftPixels(int32 pixelShift, REFLECTIVE_ENTITY_POINTER_TYPE* sourceValue, uint32 nextSourceValue, REFLECTIVE_ENTITY_POINTER_TYPE* remainderValue, uint32 reflectionMask, uint32 noise)
 {
 	*sourceValue &= reflectionMask;
@@ -182,7 +92,7 @@ static void ReflectiveEntity::shiftPixels(int32 pixelShift, REFLECTIVE_ENTITY_PO
 		*remainderValue = nextSourceValue >> (-pixelShift);
 	}
 }
-
+//---------------------------------------------------------------------------------------------------------
 void ReflectiveEntity::drawReflection(uint32 currentDrawingFrameBufferSet,
 	int16 xSourceStart, int16 ySourceStart,
 	int16 xOutputStart, int16 yOutputStart,
@@ -759,3 +669,101 @@ void ReflectiveEntity::drawReflection(uint32 currentDrawingFrameBufferSet,
 		}
 	}
 }
+//---------------------------------------------------------------------------------------------------------
+
+
+//=========================================================================================================
+// CLASS' PUBLIC METHODS
+//=========================================================================================================
+
+//---------------------------------------------------------------------------------------------------------
+void ReflectiveEntity::constructor(ReflectiveEntitySpec* reflectiveEntitySpec, int16 internalId, const char* const name)
+{
+	// construct base
+	Base::constructor(&reflectiveEntitySpec->entitySpec, internalId, name);
+
+	this->waveLutIndex = 0;
+	this->waveLutIndexIncrement = __FIXED_MULT(reflectiveEntitySpec->waveLutThrottleFactor, __FIXED_DIV(__I_TO_FIXED(reflectiveEntitySpec->numberOfWaveLutEntries), __I_TO_FIXED(reflectiveEntitySpec->width)));
+}
+//---------------------------------------------------------------------------------------------------------
+void ReflectiveEntity::destructor()
+{
+	// remove post processing effect
+	VUEngine::removePostProcessingEffect(VUEngine::getInstance(), ReflectiveEntity::reflect, SpatialObject::safeCast(this));
+
+	// delete the super object
+	// must always be called at the end of the destructor
+	Base::destructor();
+}
+//---------------------------------------------------------------------------------------------------------
+void ReflectiveEntity::ready(bool recursive)
+{
+	// call base
+	Base::ready(this, recursive);
+
+	// add post processing effect
+	VUEngine::pushFrontPostProcessingEffect(VUEngine::getInstance(), ReflectiveEntity::reflect, SpatialObject::safeCast(this));
+}
+//---------------------------------------------------------------------------------------------------------
+void ReflectiveEntity::suspend()
+{
+	Base::suspend(this);
+
+	// remove post processing effect
+	VUEngine::removePostProcessingEffect(VUEngine::getInstance(), ReflectiveEntity::reflect, SpatialObject::safeCast(this));
+}
+//---------------------------------------------------------------------------------------------------------
+void ReflectiveEntity::resume()
+{
+	Base::resume(this);
+
+	// add post processing effect
+	VUEngine::pushFrontPostProcessingEffect(VUEngine::getInstance(), ReflectiveEntity::reflect, SpatialObject::safeCast(this));
+}
+//---------------------------------------------------------------------------------------------------------
+void ReflectiveEntity::applyReflection(uint32 currentDrawingFrameBufferSet)
+{
+	ReflectiveEntitySpec* reflectiveEntitySpec = (ReflectiveEntitySpec*)this->entitySpec;
+
+/*
+	static fixed_t index = 0;
+
+	const int16 displ[] =
+	{
+		0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+		9, 8, 7, 6, 5, 4, 3, 2, 1, 0, -1,
+		-2, -3, -4, -5, -6, -7, -8, -9, -10,
+		-9, -8, -7, -6, -5, -4, -3, -2, -1,
+	};
+
+	index += this->waveLutIndexIncrement;
+
+	if(__FIXED_TO_I(index) >= sizeof(displ) / sizeof(int16))
+	{
+		index = 0;
+	}
+*/
+
+	ReflectiveEntity::drawReflection(this,
+		currentDrawingFrameBufferSet,
+		this->position2D.x + reflectiveEntitySpec->sourceDisplacement.x,
+		this->position2D.y + reflectiveEntitySpec->sourceDisplacement.y,
+		this->position2D.x + reflectiveEntitySpec->outputDisplacement.x,
+		this->position2D.y + reflectiveEntitySpec->outputDisplacement.y,
+		reflectiveEntitySpec->width,
+		reflectiveEntitySpec->height,
+		reflectiveEntitySpec->reflectionMask,
+		reflectiveEntitySpec->axisForReversing,
+		reflectiveEntitySpec->transparency,
+		reflectiveEntitySpec->reflectParallax,
+		reflectiveEntitySpec->parallaxDisplacement,
+		reflectiveEntitySpec->waveLut,
+		reflectiveEntitySpec->numberOfWaveLutEntries,
+		reflectiveEntitySpec->waveLutThrottleFactor,
+		reflectiveEntitySpec->flattenTop, reflectiveEntitySpec->flattenBottom,
+		reflectiveEntitySpec->topBorder, reflectiveEntitySpec->bottomBorder,
+		reflectiveEntitySpec->leftBorder, reflectiveEntitySpec->rightBorder,
+		reflectiveEntitySpec->noisePasses
+	);
+}
+//---------------------------------------------------------------------------------------------------------
