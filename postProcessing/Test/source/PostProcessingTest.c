@@ -20,7 +20,7 @@
 //=========================================================================================================
 
 //---------------------------------------------------------------------------------------------------------
-/**
+/*
  * Increases the palette index within a rectangular area around the spatialObject, effectively
  * "lightening" it up. This effect reads and write only a small portion of the screen and is therefore
  * semi-feasible on hardware.
@@ -136,7 +136,7 @@ static void PostProcessingTest::dummy(uint32 currentDrawingFrameBufferSet, Spati
 //=========================================================================================================
 
 //---------------------------------------------------------------------------------------------------------
-/**
+/*
  * Helper function to write a 32 bit value to the framebuffer
  * (16 pixels)
  *

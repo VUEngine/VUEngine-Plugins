@@ -1,4 +1,4 @@
-/**
+/*
  * VUEngine Plugins Library
  *
  * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
@@ -38,7 +38,7 @@ extern LangROMSpec* _languages[];
 /// @return		I18n instance
 
 
-/**
+/*
  * Class constructor
  *
  * @private
@@ -57,7 +57,7 @@ void I18n::constructor()
 	}
 }
 
-/**
+/*
  * Class destructor
  */
 void I18n::destructor()
@@ -66,7 +66,7 @@ void I18n::destructor()
 	Base::destructor();
 }
 
-/**
+/*
  * Get localized string
  *
  * @param string	The identifier of the string to localize
@@ -93,7 +93,7 @@ const char* I18n::getText(int32 string)
 	return 0 <= string ? _languages[this->activeLanguage]->language[string] : "String not found";
 }
 
-/**
+/*
  * Set the active language
  * @param languageId	ID of the language to make active
  */
@@ -113,7 +113,7 @@ void I18n::setActiveLanguage(uint8 languageId)
 	}
 }
 
-/**
+/*
  * Get all registered languages
  *
  * @return		Array of LangSpec pointers
@@ -123,7 +123,7 @@ LangSpec * I18n::getLanguages()
 	return (LangSpec *)_languages;
 }
 
-/**
+/*
  * Retrieves ID of the currently active language
  *
  * @return		ID of currently active language
@@ -133,7 +133,7 @@ uint8 I18n::getActiveLanguage()
 	return this->activeLanguage;
 }
 
-/**
+/*
  * Retrieves name of the currently active language
  *
  * @return	Name of currently active language
@@ -144,7 +144,7 @@ char* I18n::getActiveLanguageName()
 	return (char*)_languages[this->activeLanguage]->name;
 }
 
-/**
+/*
  * Retrieves the number of registered languages
  *
  * @return		ID of currently active language

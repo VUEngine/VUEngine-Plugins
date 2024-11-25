@@ -1,4 +1,4 @@
-/**
+/*
  * VUEngine Plugins Library
  *
  * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
@@ -45,7 +45,7 @@ typedef struct SaveData
 //											CLASS'S DECLARATION
 //---------------------------------------------------------------------------------------------------------
 
-/**
+/*
  * Class that handles SRAM save data, including checksum mechanism to detect 
  * manipulation or corruption of such data. Easily extendable with custom data,
  * see VUEngine Barebone project for an example.

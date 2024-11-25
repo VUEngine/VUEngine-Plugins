@@ -1,4 +1,4 @@
-/**
+/*
  * VUEngine Plugins Library
  *
  * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
@@ -45,7 +45,7 @@ enum I18nEvents
 //											TYPE DEFINITIONS
 //---------------------------------------------------------------------------------------------------------
 
-/**
+/*
  * A language spec
  * @memberof I18n
  */
@@ -62,7 +62,7 @@ typedef struct LangSpec
 
 } LangSpec;
 
-/**
+/*
  * A LangSpec that is stored in ROM
  * @memberof I18n
  */
@@ -73,7 +73,7 @@ typedef const LangSpec LangROMSpec;
 //											CLASS'S DECLARATION
 //---------------------------------------------------------------------------------------------------------
 
-/**
+/*
  * Handles internationalization of text output and thus allows for multiple selectable languages.
  * @ingroup base
  */

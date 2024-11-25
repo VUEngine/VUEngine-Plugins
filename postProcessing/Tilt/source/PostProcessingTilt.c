@@ -26,7 +26,7 @@
 //=========================================================================================================
 
 //---------------------------------------------------------------------------------------------------------
-/**
+/*
  * "Tilts" the game image by a few percent by gradually shifting columns. This effect reads and write
  * almost the whole screen and is therefore not feasible on hardware.
  *
@@ -69,7 +69,7 @@ static void PostProcessingTilt::tiltScreen(uint32 currentDrawingFrameBufferSet, 
 //=========================================================================================================
 
 //---------------------------------------------------------------------------------------------------------
-/**
+/*
  * Helper function to write a 32 bit value to the framebuffer
  * (16 pixels)
  *

@@ -20,7 +20,7 @@
 //=========================================================================================================
 
 //---------------------------------------------------------------------------------------------------------
-/**
+/*
  * "Bends down" the left and right edges of the screen to make the world look like a very small planet.
  * This effect reads and write a fourth of the screen and is therefore quite heavy on hardware,
  * reducing the frame rate by about 50%.
@@ -87,7 +87,7 @@ static void PostProcessingDwarfPlanet::dwarfPlanet(uint32 currentDrawingFrameBuf
 //=========================================================================================================
 
 //---------------------------------------------------------------------------------------------------------
-/**
+/*
  * Helper function to write a 32 bit value to the framebuffer
  * (16 pixels)
  *

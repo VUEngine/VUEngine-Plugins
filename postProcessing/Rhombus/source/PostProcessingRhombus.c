@@ -27,7 +27,7 @@
 //=========================================================================================================
 
 //---------------------------------------------------------------------------------------------------------
-/**
+/*
  * Uses directdraw to draw a rhombus around the spatialObject.
  * This effect only writes to the framebuffers, but does not read them. Since write access is much quicker
  * than reading, and since only a few pixels are affected, this effect runs well on hardware.
@@ -71,7 +71,7 @@ static void PostProcessingRhombus::rhombus(uint32 currentDrawingFrameBufferSet _
 //=========================================================================================================
 
 //---------------------------------------------------------------------------------------------------------
-/**
+/*
  * Helper function used by the rhombus emitter effect that prints a rhombus collider to the frame buffer
  *
  * @param radius

@@ -28,7 +28,7 @@
 //=========================================================================================================
 
 //---------------------------------------------------------------------------------------------------------
-/**
+/*
  * Applies a full screen wobble distortion that is reminiscent of water waves. This effect reads and write
  * almost the whole screen and is therefore not feasible on hardware.
  *
@@ -99,7 +99,7 @@ static void PostProcessingWobble::wobble(uint32 currentDrawingFrameBufferSet, Sp
 //=========================================================================================================
 
 //---------------------------------------------------------------------------------------------------------
-/**
+/*
  * Helper function to write a 32 bit value to the framebuffer
  * (16 pixels)
  *

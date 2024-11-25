@@ -1,4 +1,4 @@
-/**
+/*
  * VUEngine Plugins Library
  *
  * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
@@ -117,7 +117,7 @@ uint32 SaveDataManager::computeChecksum()
 	return ~crc32;
 }
 
-/**
+/*
  * Write given checksum to SRAM.
  */
 void SaveDataManager::writeChecksum()
@@ -126,7 +126,7 @@ void SaveDataManager::writeChecksum()
 	SRAMManager::save(SRAMManager::getInstance(), (BYTE*)&checksum, offsetof(struct SaveData, checksum), sizeof(checksum));
 }
 
-/**
+/*
  * Recompute checksum and compare to that stored in SRAM.
  */
 bool SaveDataManager::verifyChecksum()
@@ -190,7 +190,7 @@ void SaveDataManager::setValue(const BYTE* const source, int32 memberOffset, int
 	}
 }
 
-/**
+/*
  * Return overall size of save data
  *
  * Any game extending SaveData MUST override this method to return the correct value!
