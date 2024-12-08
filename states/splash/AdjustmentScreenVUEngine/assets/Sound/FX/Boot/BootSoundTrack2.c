@@ -61,7 +61,7 @@ const SoundTrackKeyframe BootSoundTrack2Keyframes[] =
 	{60, kSoundTrackEventStart},
 	{30, kSoundTrackEventSxFQ},
 	{30, kSoundTrackEventSxFQ},
-	{30, kSoundTrackEventEnd},	
+	{0, kSoundTrackEventEnd},	
 };
 
 SoundTrackROMSpec BootSoundTrack2 =

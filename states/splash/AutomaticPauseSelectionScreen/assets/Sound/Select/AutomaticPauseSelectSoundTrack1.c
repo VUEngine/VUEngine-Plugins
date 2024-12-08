@@ -60,7 +60,7 @@ const SoundTrackKeyframe AutomaticPauseSelectSoundTrack1Keyframes[] =
 {
 	{40, kSoundTrackEventStart},
 	{40, kSoundTrackEventSxEV1},
-	{40, kSoundTrackEventEnd},	
+	{0, kSoundTrackEventEnd},	
 };
 
 SoundTrackROMSpec AutomaticPauseSelectSoundTrack1 =

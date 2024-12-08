@@ -60,7 +60,7 @@ const SoundTrackKeyframe PrecautionScreenIntroSoundTrack1Keyframes[] =
 {
 	{80, kSoundTrackEventStart},
 	{80, kSoundTrackEventSxFQ | kSoundTrackEventSxEV1},
-	{80, kSoundTrackEventEnd},	
+	{0, kSoundTrackEventEnd},	
 };
 
 SoundTrackROMSpec PrecautionScreenIntroSoundTrack1 =
