@@ -33,7 +33,7 @@ const uint8 LanguageSelectSoundTrack1SxLRV[] =
 
 const uint16 LanguageSelectSoundTrack1SxFQ[] =
 {
-	CS4
+	G_4
 };
 
 const uint8 LanguageSelectSoundTrack1SxEV0[] =
@@ -43,7 +43,7 @@ const uint8 LanguageSelectSoundTrack1SxEV0[] =
 
 const uint8 LanguageSelectSoundTrack1SxEV1[] =
 {
-	0x01
+	0x00, 0x01
 };
 
 const int8* const LanguageSelectSoundTrack1SxRAM[] =
@@ -59,8 +59,8 @@ const uint8 LanguageSelectSoundTrack1SxSWP[] =
 const SoundTrackKeyframe LanguageSelectSoundTrack1Keyframes[] =
 {
 	{0, kSoundTrackEventStart},
-	{150, kSoundTrackEventSxEV1},
-	{1, kSoundTrackEventEnd},	
+	{40, kSoundTrackEventSxEV1},
+	{40, kSoundTrackEventEnd},	
 };
 
 SoundTrackROMSpec LanguageSelectSoundTrack1 =

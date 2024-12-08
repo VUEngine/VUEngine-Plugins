@@ -33,7 +33,7 @@ const uint8 AutomaticPauseSelectSoundTrack1SxLRV[] =
 
 const uint16 AutomaticPauseSelectSoundTrack1SxFQ[] =
 {
-	CS4
+	E_4
 };
 
 const uint8 AutomaticPauseSelectSoundTrack1SxEV0[] =
@@ -43,7 +43,7 @@ const uint8 AutomaticPauseSelectSoundTrack1SxEV0[] =
 
 const uint8 AutomaticPauseSelectSoundTrack1SxEV1[] =
 {
-	0x01
+	0x00, 0x01
 };
 
 const int8* const AutomaticPauseSelectSoundTrack1SxRAM[] =
@@ -59,8 +59,8 @@ const uint8 AutomaticPauseSelectSoundTrack1SxSWP[] =
 const SoundTrackKeyframe AutomaticPauseSelectSoundTrack1Keyframes[] =
 {
 	{0, kSoundTrackEventStart},
-	{150, kSoundTrackEventSxEV1},
-	{1, kSoundTrackEventEnd},	
+	{40, kSoundTrackEventSxEV1},
+	{40, kSoundTrackEventEnd},	
 };
 
 SoundTrackROMSpec AutomaticPauseSelectSoundTrack1 =
