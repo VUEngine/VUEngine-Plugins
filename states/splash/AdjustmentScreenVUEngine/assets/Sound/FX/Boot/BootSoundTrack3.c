@@ -33,7 +33,7 @@ const uint8 BootSoundTrack3SxLRV[] =
 
 const uint16 BootSoundTrack3SxFQ[] =
 {
-	CS6, CS6, A_5, B_5,
+	CS6, A_5, B_5,
 };
 
 const uint8 BootSoundTrack3SxEV0[] =
@@ -58,11 +58,10 @@ const uint8 BootSoundTrack3SxSWP[] =
 
 const SoundTrackKeyframe BootSoundTrack3Keyframes[] =
 {
-	{0, kSoundTrackEventStart},
-	{60, kSoundTrackEventSxFQ},
+	{60, kSoundTrackEventStart},
 	{30, kSoundTrackEventSxFQ},
 	{30, kSoundTrackEventSxFQ},
-	{120, kSoundTrackEventEnd},	
+	{60, kSoundTrackEventEnd},	
 };
 
 SoundTrackROMSpec BootSoundTrack3 =

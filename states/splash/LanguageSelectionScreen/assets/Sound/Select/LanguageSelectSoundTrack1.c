@@ -58,7 +58,7 @@ const uint8 LanguageSelectSoundTrack1SxSWP[] =
 
 const SoundTrackKeyframe LanguageSelectSoundTrack1Keyframes[] =
 {
-	{0, kSoundTrackEventStart},
+	{40, kSoundTrackEventStart},
 	{40, kSoundTrackEventSxEV1},
 	{40, kSoundTrackEventEnd},	
 };

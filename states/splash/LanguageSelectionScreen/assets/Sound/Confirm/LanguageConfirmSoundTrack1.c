@@ -58,10 +58,10 @@ const uint8 LanguageConfirmSoundTrack1SxSWP[] =
 
 const SoundTrackKeyframe LanguageConfirmSoundTrack1Keyframes[] =
 {
-	{0, kSoundTrackEventStart},
+	{80, kSoundTrackEventStart},
 	{80, kSoundTrackEventSxFQ},
 	{80, kSoundTrackEventSxFQ},
-	{1, kSoundTrackEventEnd},	
+	{80, kSoundTrackEventEnd},	
 };
 
 SoundTrackROMSpec LanguageConfirmSoundTrack1 =

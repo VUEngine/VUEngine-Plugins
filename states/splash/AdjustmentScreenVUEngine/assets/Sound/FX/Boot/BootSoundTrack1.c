@@ -33,7 +33,7 @@ const uint8 BootSoundTrack1SxLRV[] =
 
 const uint16 BootSoundTrack1SxFQ[] =
 {
-	A_6, A_6, E_6, FS6
+	A_6, E_6, FS6
 };
 
 const uint8 BootSoundTrack1SxEV0[] =
@@ -43,7 +43,7 @@ const uint8 BootSoundTrack1SxEV0[] =
 
 const uint8 BootSoundTrack1SxEV1[] =
 {
-	0x01
+	0x00
 };
 
 const int8* const BootSoundTrack1SxRAM[] =
@@ -58,8 +58,7 @@ const uint8 BootSoundTrack1SxSWP[] =
 
 const SoundTrackKeyframe BootSoundTrack1Keyframes[] =
 {
-	{0, kSoundTrackEventStart},
-	{60, kSoundTrackEventSxFQ},
+	{60, kSoundTrackEventStart},
 	{30, kSoundTrackEventSxFQ},
 	{30, kSoundTrackEventSxFQ},
 	{120, kSoundTrackEventEnd},	

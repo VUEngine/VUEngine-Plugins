@@ -58,10 +58,10 @@ const uint8 AutomaticPauseConfirmSoundTrack1SxSWP[] =
 
 const SoundTrackKeyframe AutomaticPauseConfirmSoundTrack1Keyframes[] =
 {
-	{0, kSoundTrackEventStart},
+	{80, kSoundTrackEventStart},
 	{80, kSoundTrackEventSxFQ},
 	{80, kSoundTrackEventSxFQ},
-	{1, kSoundTrackEventEnd},	
+	{80, kSoundTrackEventEnd},	
 };
 
 SoundTrackROMSpec AutomaticPauseConfirmSoundTrack1 =

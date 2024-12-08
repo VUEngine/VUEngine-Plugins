@@ -58,7 +58,7 @@ const uint8 AutomaticPauseSelectSoundTrack1SxSWP[] =
 
 const SoundTrackKeyframe AutomaticPauseSelectSoundTrack1Keyframes[] =
 {
-	{0, kSoundTrackEventStart},
+	{40, kSoundTrackEventStart},
 	{40, kSoundTrackEventSxEV1},
 	{40, kSoundTrackEventEnd},	
 };

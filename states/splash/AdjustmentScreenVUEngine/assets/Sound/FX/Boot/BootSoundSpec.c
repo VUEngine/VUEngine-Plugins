@@ -46,7 +46,7 @@ SoundROMSpec BootSoundSpec =
 	// Play in loop
 	false,
 
-	// Target timer resolution in us
+	// Tick duraction in US
 	1000,
 
 	// Tracks
