@@ -43,7 +43,7 @@ const uint8 PrecautionScreenIntroSoundTrack1SxEV0[] =
 
 const uint8 PrecautionScreenIntroSoundTrack1SxEV1[] =
 {
-	0x01, 0x01
+	0x00, 0x01
 };
 
 const int8* const PrecautionScreenIntroSoundTrack1SxRAM[] =
@@ -60,7 +60,7 @@ const SoundTrackKeyframe PrecautionScreenIntroSoundTrack1Keyframes[] =
 {
 	{0, kSoundTrackEventStart},
 	{150, kSoundTrackEventSxEV1},
-	{1, kSoundTrackEventEnd},	
+	{150, kSoundTrackEventEnd},	
 };
 
 SoundTrackROMSpec PrecautionScreenIntroSoundTrack1 =
