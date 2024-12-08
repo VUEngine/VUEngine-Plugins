@@ -46,5 +46,5 @@ SoundROMSpec PrecautionScreenIntroSoundSpec =
 	1000,
 
 	// Tracks
-	(SoundTrackSpec**)NULL
+	(SoundTrackSpec**)PrecautionScreenIntroSoundTracks
 };
