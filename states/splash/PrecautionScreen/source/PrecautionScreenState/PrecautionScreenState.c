@@ -51,7 +51,7 @@ void PrecautionScreenState::enter(void* owner)
 
 	// play start-up sound
 	extern SoundSpec PrecautionScreenIntroSoundSpec;
-	SoundManager::playSound(SoundManager::getInstance(), &PrecautionScreenIntroSoundSpec, kPlayAll, NULL, kSoundPlaybackNormal, NULL, NULL);
+	SoundManager::playSound(SoundManager::getInstance(), &PrecautionScreenIntroSoundSpec, NULL, kSoundPlaybackNormal, NULL, NULL);
 
 	// show this screen for at least 2 seconds
 	// as defined by Nintendo in the official development manual (Appendix 1)

@@ -16,6 +16,7 @@
 #include <CameraEffectManager.h>
 #include <DirectDraw.h>
 #include <LowPowerManager.h>
+#include <SoundManager.h>
 #include <VUEngine.h>
 
 #include "AdjustmentScreenState.h"
@@ -46,6 +47,8 @@ static void AdjustmentScreenState::rhombusEmitterPostProcessingEffect(uint32 cur
 	// negative value to achieve an initial delay
 	static int32 radius = __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_RHOMBUS_INITIAL_VALUE;
 
+	static bool firstTime = false;
+
 	// increase radius in each cycle
 	radius += 2;
 
@@ -58,6 +61,22 @@ static void AdjustmentScreenState::rhombusEmitterPostProcessingEffect(uint32 cur
 		// reset radius when reaching a certain length
 		radius = __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_RHOMBUS_INITIAL_VALUE;
 		return;
+	}
+	else if(!firstTime)
+	{
+		firstTime = true;
+
+		extern SoundSpec ChangeSelection1SoundSpec;
+
+		SoundManager::playSound
+		(
+			SoundManager::getInstance(), 
+			&ChangeSelection1SoundSpec, 
+			NULL, 
+			kSoundPlaybackNormal,
+			NULL,
+			NULL
+		);
 	}
 
 	// draw rhombus around object with given radius

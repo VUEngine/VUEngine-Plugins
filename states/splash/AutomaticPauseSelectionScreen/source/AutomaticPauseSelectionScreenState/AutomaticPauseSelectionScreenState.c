@@ -46,7 +46,7 @@ void AutomaticPauseSelectionScreenState::processUserInput(const UserInput* userI
 		this->selection = !this->selection;
 		AutomaticPauseSelectionScreenState::renderSelection(this);
 
-		SoundManager::playSound(SoundManager::getInstance(), &AutomaticPauseSelectSoundSpec, kPlayAll, NULL, kSoundPlaybackNormal, NULL, NULL);
+		SoundManager::playSound(SoundManager::getInstance(), &AutomaticPauseSelectSoundSpec,  NULL, kSoundPlaybackNormal, NULL, NULL);
 	}
 	else if(userInput->pressedKey & (K_A | K_STA))
 	{
@@ -59,7 +59,7 @@ void AutomaticPauseSelectionScreenState::processUserInput(const UserInput* userI
 			SaveDataManager::setAutomaticPauseStatus(saveDataManager, this->selection);
 		}
 
-		SoundManager::playSound(SoundManager::getInstance(), &AutomaticPauseConfirmSoundSpec, kPlayAll, NULL, kSoundPlaybackNormal, NULL, NULL);
+		SoundManager::playSound(SoundManager::getInstance(), &AutomaticPauseConfirmSoundSpec, NULL, kSoundPlaybackNormal, NULL, NULL);
 
 		SplashScreenState::loadNextState(SplashScreenState::safeCast(this));
 	}
