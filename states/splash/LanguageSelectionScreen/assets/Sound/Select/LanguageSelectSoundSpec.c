@@ -42,7 +42,7 @@ SoundROMSpec LanguageSelectSoundSpec =
 	// Play in loop
 	false,
 
-	// Tick duraction in US
+	// Tick duration in US
 	1000,
 
 	// Tracks
