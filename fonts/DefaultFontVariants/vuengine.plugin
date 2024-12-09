@@ -1,0 +1,25 @@
+{
+    "_version": "0.6.0",
+    "author": "Team VUEngine",
+    "configuration": [],
+    "dependencies": [],
+    "description": {
+        "de": "Varianten der VUEngine Standardschriftart.",
+        "en": "Variants of VUEngine's default font.",
+        "es": "Variantes de la fuente por defecto de VUEngine."
+    },
+    "displayName": {
+        "de": "Standard-Schriftart Varianten",
+        "en": "Default Font Variants",
+        "es": "Astonish Fuente Variantes"
+    },
+    "license": "MIT",
+    "repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/fonts/DefaultFontVariants",
+	"tags": [
+		{
+			"en": "Font",
+			"de": "Schriftart",
+			"es": "Fuente"
+		}
+	]
+}
