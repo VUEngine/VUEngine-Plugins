@@ -1,11 +1,21 @@
 {
     "_id": "f9jPGOUcOsh0XoDY",
+    "_version": "0.6.0",
     "animation": {
         "frames": 0,
         "individualFiles": false,
         "isAnimation": false
     },
-    "files": [],
+    "colorMode": 0,
+    "files": [
+        "AutomaticPauseLogo.png"
+    ],
+    "imageProcessingSettings": {
+        "distanceCalculator": "euclidean",
+        "imageQuantizationAlgorithm": "nearest",
+        "minimumColorDistanceToDither": 0,
+        "serpentine": false
+    },
     "map": {
         "compression": "none",
         "generate": true,

@@ -2,9 +2,9 @@
 //
 //	LowPowerIndicator
 //	* 8 tiles, unreduced, not compressed
-//	* 2x1 map, not compressed
+//	* 2x4 map, not compressed
 //	* 4 animation frames, spritesheet
-//	Size: 132 + 4 = 136 byte
+//	Size: 132 + 16 = 148 byte
 //
 //---------------------------------------------------------------------------------------------------------
 

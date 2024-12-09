@@ -1,23 +1,25 @@
 {
-	"displayName": {
-		"en": "Platformer Camera",
-		"de": "Jump'n'Run-Kamera",
-		"es": "Cámara de plataformas"
-	},
-	"author": "Team VUEngine",
-	"description": {
-		"en": "A common platformer camera that follows an entity.",
-		"de": "Eine gewöhnliche Jump'n'Run-Kamera, die einer Entität folgt.",
-		"es": "Una cámara común de plataformas que sigue a una entidad."
-	},
-	"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/cameras/PlatformerCamera",
-	"license": "MIT",
+    "_version": "0.6.0",
+    "author": "Team VUEngine",
+    "configuration": [],
+    "dependencies": [],
+    "description": {
+        "de": "Eine gewöhnliche Jump'n'Run-Kamera, die einer Entität folgt.",
+        "en": "A common platformer camera that follows an entity.",
+        "es": "Una cámara común de plataformas que sigue a una entidad."
+    },
+    "displayName": {
+        "de": "Jump'n'Run-Kamera",
+        "en": "Platformer Camera",
+        "es": "Cámara de plataformas"
+    },
+    "license": "MIT",
+    "repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/cameras/PlatformerCamera",
 	"tags": [
 		{
 			"en": "Camera",
 			"de": "Kamera",
 			"es": "Cámara"
 		}
-	],
-	"dependencies": []
+	]
 }
