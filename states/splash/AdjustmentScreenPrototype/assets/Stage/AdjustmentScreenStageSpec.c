@@ -82,7 +82,7 @@ StageROMSpec AdjustmentScreenStage =
 	// Timer config
 	{
 		__TIMER_100US,
-		1000,
+		10,
 		kMS
 	},
 
