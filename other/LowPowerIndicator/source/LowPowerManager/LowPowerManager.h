@@ -24,8 +24,6 @@
 
 /*
  * Shows an indicator on screen when the system power is low
- *
- * @ingroup vuengine-plugins-other
  */
 singleton class LowPowerManager : ListenerObject
 {

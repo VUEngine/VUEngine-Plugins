@@ -63,7 +63,6 @@ enum PlatformerCameraMovementManagerEvents
 /// Inherits from CameraMovementManager
 ///
 /// Implements a camera manager for platformer games.
-/// @ingroup camera
 singleton class PlatformerCameraMovementManager : CameraMovementManager
 {
 	/// Cache the camera instance's reference

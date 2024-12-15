@@ -48,7 +48,6 @@ typedef const ShaderSpriteSpec ShaderSpriteROMSpec;
 /// Inherits from VisualComponent
 ///
 /// Displays a Texture on the screen.
-/// @ingroup graphics-2d-sprites
 class ShaderSprite : BgmapSprite
 {
 	/// @protectedsection
