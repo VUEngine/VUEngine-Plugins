@@ -63,7 +63,7 @@ class ShaderSprite : BgmapSprite
 
 	/// Class' constructor
 	/// @param owner: SpatialObject to which the sprite attaches to
-	/// @param spriteSpec: Specification that determines how to configure the sprite
+	/// @param shaderSpriteSpec: Specification that determines how to configure the sprite
 	void constructor(SpatialObject owner, const ShaderSpriteSpec* shaderSpriteSpec);
 
 	/// Render the sprite by configuring the DRAM assigned to it by means of the provided index.
