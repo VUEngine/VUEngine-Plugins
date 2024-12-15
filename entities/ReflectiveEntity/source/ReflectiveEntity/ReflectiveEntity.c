@@ -26,6 +26,16 @@
 //=========================================================================================================
 
 //---------------------------------------------------------------------------------------------------------
+static inline uint32 ReflectiveEntity::reverse(uint32 number, int32 bits)
+{
+    number = ((number & 0x55555555) << 1) | ((number & 0xAAAAAAAA) >> 1);
+    number = ((number & 0x33333333) << 2) | ((number & 0xCCCCCCCC) >> 2);
+    number = ((number & 0x0F0F0F0F) << 4) | ((number & 0xF0F0F0F0) >> 4);
+    number = ((number & 0x00FF00FF) << 8) | ((number & 0xFF00FF00) >> 8);
+    number = ((number & 0x0000FFFF) << 16) | ((number & 0xFFFF0000) >> 16);
+    return number >> ((sizeof(uint32) << 3) - bits);
+}
+//---------------------------------------------------------------------------------------------------------
 static uint32 ReflectiveEntity::randomSeed()
 {
 	static uint32 seed = 7;
@@ -396,10 +406,10 @@ void ReflectiveEntity::drawReflection(uint32 currentDrawingFrameBufferSet,
 
 			if(__Y_AXIS & axisForReversing)
 			{
-				sourceCurrentValueLeft = Utilities::reverse(sourceCurrentValueLeft, REFLECTIVE_ENTITY_BITS_PER_STEP);
-				sourceCurrentValueRight = Utilities::reverse(sourceCurrentValueRight, REFLECTIVE_ENTITY_BITS_PER_STEP);
-				sourceNextValueLeft = Utilities::reverse(sourceNextValueLeft, REFLECTIVE_ENTITY_BITS_PER_STEP);
-				sourceNextValueRight = Utilities::reverse(sourceNextValueRight, REFLECTIVE_ENTITY_BITS_PER_STEP);
+				sourceCurrentValueLeft = ReflectiveEntity::reverse(sourceCurrentValueLeft, REFLECTIVE_ENTITY_BITS_PER_STEP);
+				sourceCurrentValueRight = ReflectiveEntity::reverse(sourceCurrentValueRight, REFLECTIVE_ENTITY_BITS_PER_STEP);
+				sourceNextValueLeft = ReflectiveEntity::reverse(sourceNextValueLeft, REFLECTIVE_ENTITY_BITS_PER_STEP);
+				sourceNextValueRight = ReflectiveEntity::reverse(sourceNextValueRight, REFLECTIVE_ENTITY_BITS_PER_STEP);
 			}
 
 			waveLutPixelDisplacement =  flattenBottom ? 0 : waveLutPixelDisplacement;
@@ -452,8 +462,8 @@ void ReflectiveEntity::drawReflection(uint32 currentDrawingFrameBufferSet,
 
 				if(__Y_AXIS & axisForReversing)
 				{
-					sourceNextValueLeft = Utilities::reverse(sourceNextValueLeft, REFLECTIVE_ENTITY_BITS_PER_STEP);
-					sourceNextValueRight = Utilities::reverse(sourceNextValueRight, REFLECTIVE_ENTITY_BITS_PER_STEP);
+					sourceNextValueLeft = ReflectiveEntity::reverse(sourceNextValueLeft, REFLECTIVE_ENTITY_BITS_PER_STEP);
+					sourceNextValueRight = ReflectiveEntity::reverse(sourceNextValueRight, REFLECTIVE_ENTITY_BITS_PER_STEP);
 				}
 			}
 
@@ -581,8 +591,8 @@ void ReflectiveEntity::drawReflection(uint32 currentDrawingFrameBufferSet,
 
 			if(__Y_AXIS & axisForReversing)
 			{
-				sourceCurrentValueLeft = Utilities::reverse(sourceCurrentValueLeft, REFLECTIVE_ENTITY_BITS_PER_STEP);
-				sourceNextValueLeft = Utilities::reverse(sourceNextValueLeft, REFLECTIVE_ENTITY_BITS_PER_STEP);
+				sourceCurrentValueLeft = ReflectiveEntity::reverse(sourceCurrentValueLeft, REFLECTIVE_ENTITY_BITS_PER_STEP);
+				sourceNextValueLeft = ReflectiveEntity::reverse(sourceNextValueLeft, REFLECTIVE_ENTITY_BITS_PER_STEP);
 			}
 
 			waveLutPixelDisplacement =  flattenBottom ? 0 : waveLutPixelDisplacement;
@@ -628,7 +638,7 @@ void ReflectiveEntity::drawReflection(uint32 currentDrawingFrameBufferSet,
 
 				if(__Y_AXIS & axisForReversing)
 				{
-					sourceNextValueLeft = Utilities::reverse(sourceNextValueLeft, REFLECTIVE_ENTITY_BITS_PER_STEP);
+					sourceNextValueLeft = ReflectiveEntity::reverse(sourceNextValueLeft, REFLECTIVE_ENTITY_BITS_PER_STEP);
 				}
 			}
 
