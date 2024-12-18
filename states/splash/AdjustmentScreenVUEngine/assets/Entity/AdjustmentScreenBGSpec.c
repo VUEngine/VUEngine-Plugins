@@ -114,11 +114,10 @@ BgmapSpriteROMSpec AdjustmentScreenBgSpriteSpec =
 	__WORLD_ON,
 };
 
-BgmapSpriteROMSpec* const AdjustmentScreenBgSpriteSpecs[] =
-{
+@COMP_ARRAY_START:AdjustmentScreenBgSpriteSpecs
 	&AdjustmentScreenBgSpriteSpec,
-	NULL
-};
+	
+@COMP_ARRAY_END:AdjustmentScreenBgSpriteSpecs
 
 ComponentSpec** AdjustmentScreenBgEntitySpecComponentSpecs[] = 
 {

@@ -195,12 +195,11 @@ BgmapSpriteROMSpec AlignmentCheckSprite2SpriteSpec =
 	__WORLD_RON,
 };
 
-BgmapSpriteROMSpec* const AlignmentCheckSpriteSpecs[] =
-{
+@COMP_ARRAY_START:AlignmentCheckSpriteSpecs
 	(BgmapSpriteSpec*)&AlignmentCheckSprite1SpriteSpec,
 	(BgmapSpriteSpec*)&AlignmentCheckSprite2SpriteSpec,
-	NULL
-};
+	
+@COMP_ARRAY_END:AlignmentCheckSpriteSpecs
 
 //---------------------------------------------------------------------------------------------------------
 //                                                 ENTITY                                                  

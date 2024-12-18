@@ -114,11 +114,10 @@ BgmapSpriteROMSpec FlagCursorSpriteSpec =
 	__WORLD_ON,
 };
 
-BgmapSpriteROMSpec* const FlagCursorSpriteSpecs[] =
-{
+@COMP_ARRAY_START:FlagCursorSpriteSpecs
 	&FlagCursorSpriteSpec,
-	NULL
-};
+	
+@COMP_ARRAY_END:FlagCursorSpriteSpecs
 
 ComponentSpec** FlagCursorEntitySpecComponentSpecs[] = 
 {

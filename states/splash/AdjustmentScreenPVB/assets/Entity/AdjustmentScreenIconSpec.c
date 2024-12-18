@@ -113,11 +113,10 @@ BgmapSpriteROMSpec AdjustmentScreenIconLSpriteSpec =
 	__WORLD_LON,
 };
 
-BgmapSpriteROMSpec* const AdjustmentScreenIconLSpriteSpecs[] =
-{
+@COMP_ARRAY_START:AdjustmentScreenIconLSpriteSpecs
 	&AdjustmentScreenIconLSpriteSpec,
-	NULL
-};
+	
+@COMP_ARRAY_END:AdjustmentScreenIconLSpriteSpecs
 
 BgmapSpriteROMSpec const AdjustmentScreenIconRSpriteSpec =
 {

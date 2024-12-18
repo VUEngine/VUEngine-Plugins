@@ -114,11 +114,10 @@ BgmapSpriteROMSpec FlagCzechRepublicSpriteSpec =
 	__WORLD_ON,
 };
 
-BgmapSpriteROMSpec* const FlagCzechRepublicSpriteSpecs[] =
-{
+@COMP_ARRAY_START:FlagCzechRepublicSpriteSpecs
 	&FlagCzechRepublicSpriteSpec,
-	NULL
-};
+	
+@COMP_ARRAY_END:FlagCzechRepublicSpriteSpecs
 
 ComponentSpec** FlagCzechRepublicEntitySpecComponentSpecs[] = 
 {

@@ -113,11 +113,10 @@ BgmapSpriteROMSpec AutomaticPauseLogoSpriteSpec =
 	__WORLD_ON,
 };
 
-BgmapSpriteROMSpec* const AutomaticPauseLogoSpriteSpecs[] =
-{
+@COMP_ARRAY_START:AutomaticPauseLogoSpriteSpecs
 	&AutomaticPauseLogoSpriteSpec,
-	NULL
-};
+	
+@COMP_ARRAY_END:AutomaticPauseLogoSpriteSpecs
 
 ComponentSpec** AutomaticPauseLogoEntitySpecComponentSpecs[] = 
 {

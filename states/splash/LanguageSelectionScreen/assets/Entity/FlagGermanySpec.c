@@ -114,11 +114,10 @@ BgmapSpriteROMSpec FlagGermanySpriteSpec =
 	__WORLD_ON,
 };
 
-BgmapSpriteROMSpec* const FlagGermanySpriteSpecs[] =
-{
+@COMP_ARRAY_START:FlagGermanySpriteSpecs
 	&FlagGermanySpriteSpec,
-	NULL
-};
+	
+@COMP_ARRAY_END:FlagGermanySpriteSpecs
 
 ComponentSpec** FlagGermanyEntitySpecComponentSpecs[] = 
 {

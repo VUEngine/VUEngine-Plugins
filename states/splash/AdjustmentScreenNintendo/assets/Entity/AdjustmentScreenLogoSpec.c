@@ -114,11 +114,10 @@ BgmapSpriteROMSpec AdjustmentScreenLogoSpriteSpec =
 	__WORLD_ON,
 };
 
-BgmapSpriteROMSpec* const AdjustmentScreenLogoSpriteSpecs[] =
-{
+@COMP_ARRAY_START:AdjustmentScreenLogoSpriteSpecs
 	&AdjustmentScreenLogoSpriteSpec,
-	NULL
-};
+	
+@COMP_ARRAY_END:AdjustmentScreenLogoSpriteSpecs
 
 ComponentSpec** AdjustmentScreenLogoEntitySpecComponentSpecs[] = 
 {
