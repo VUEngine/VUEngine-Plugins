@@ -83,8 +83,14 @@ TextureROMSpec AutomaticPauseLogoTexture =
 BgmapSpriteROMSpec AutomaticPauseLogoSpriteSpec =
 {
 	{
-		// sprite's type
-		__TYPE(BgmapSprite),
+		// Component
+		{
+			// Allocator
+			__TYPE(BgmapSprite),
+
+			// Component type
+			kSpriteComponent
+		},
 
 		// texture spec
 		(TextureSpec*)&AutomaticPauseLogoTexture,
@@ -113,6 +119,11 @@ BgmapSpriteROMSpec* const AutomaticPauseLogoSpriteSpecs[] =
 	NULL
 };
 
+ComponentSpec** AutomaticPauseLogoEntitySpecComponentSpecs[] = 
+{
+	@COMPONENTS:AutomaticPauseLogoEntitySpec@
+};
+
 EntityROMSpec AutomaticPauseLogoEntitySpec =
 {
 	// class allocator
@@ -121,23 +132,19 @@ EntityROMSpec AutomaticPauseLogoEntitySpec =
 	// children
 	NULL,
 
-	// behaviors
-	NULL,
+	@BEHAVIORS:NULL@,
 
 	// extra
 	NULL,
 
-	// sprites
-	(SpriteSpec**)AutomaticPauseLogoSpriteSpecs,
+	@SPRITES:(SpriteSpec**)AutomaticPauseLogoSpriteSpecs@,
 
 	// use z displacement in projection
 	false,
 			
-	// wireframes
-	(WireframeSpec**)NULL,
+	@WIREFRAMES:(WireframeSpec**)NULL@,
 
-	// collision colliders
-	(ColliderSpec*)NULL,
+	@COLLIDERS:(ColliderSpec*)NULL@,
 
 	// size
 	// if 0, width and height will be inferred from the first sprite's texture's size
@@ -146,6 +153,5 @@ EntityROMSpec AutomaticPauseLogoEntitySpec =
 	// gameworld's character's type
 	kTypeNone,
 
-	// physical specification
-	(PhysicalProperties*)NULL,
+	@PHYSICS:(PhysicalProperties*)NULL@,
 };

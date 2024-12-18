@@ -84,8 +84,14 @@ TextureROMSpec AdjustmentScreenBgTexture =
 BgmapSpriteROMSpec AdjustmentScreenBgSpriteSpec =
 {
 	{
-		// sprite's type
-		__TYPE(BgmapSprite),
+		// Component
+		{
+			// Allocator
+			__TYPE(BgmapSprite),
+
+			// Component type
+			kSpriteComponent
+		},
 
 		// texture spec
 		(TextureSpec*)&AdjustmentScreenBgTexture,
@@ -114,6 +120,11 @@ BgmapSpriteROMSpec* const AdjustmentScreenBgSpriteSpecs[] =
 	NULL
 };
 
+ComponentSpec** AdjustmentScreenBgEntitySpecComponentSpecs[] = 
+{
+	@COMPONENTS:AdjustmentScreenBgEntitySpec@
+};
+
 EntityROMSpec AdjustmentScreenBgEntitySpec =
 {
 	// class allocator
@@ -122,23 +133,19 @@ EntityROMSpec AdjustmentScreenBgEntitySpec =
 	// children
 	NULL,
 
-	// behaviors
-	NULL,
+	@BEHAVIORS:NULL@,
 
 	// extra
 	NULL,
 
-	// sprites
-	(SpriteSpec**)AdjustmentScreenBgSpriteSpecs,
+	@SPRITES:(SpriteSpec**)AdjustmentScreenBgSpriteSpecs@,
 
 	// use z displacement in projection
 	false,
 			
-	// wireframes
-	(WireframeSpec**)NULL,
+	@WIREFRAMES:(WireframeSpec**)NULL@,
 
-	// collision colliders
-	(ColliderSpec*)NULL,
+	@COLLIDERS:(ColliderSpec*)NULL@,
 
 	// size
 	// if 0, width and height will be inferred from the first sprite's texture's size
@@ -147,6 +154,5 @@ EntityROMSpec AdjustmentScreenBgEntitySpec =
 	// gameworld's character's type
 	kTypeNone,
 
-	// physical specification
-	(PhysicalProperties*)NULL,
+	@PHYSICS:(PhysicalProperties*)NULL@,
 };

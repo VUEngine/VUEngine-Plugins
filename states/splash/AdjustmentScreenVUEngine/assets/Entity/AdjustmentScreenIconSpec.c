@@ -84,8 +84,14 @@ TextureROMSpec AdjustmentScreenIconTexture =
 BgmapSpriteROMSpec AdjustmentScreenIconLSpriteSpec =
 {
 	{
-		// sprite's type
-		__TYPE(BgmapSprite),
+		// Component
+		{
+			// Allocator
+			__TYPE(BgmapSprite),
+
+			// Component type
+			kSpriteComponent
+		},
 
 		// texture spec
 		(TextureSpec*)&AdjustmentScreenIconTexture,
@@ -117,8 +123,14 @@ BgmapSpriteROMSpec* const AdjustmentScreenIconLSpriteSpecs[] =
 BgmapSpriteROMSpec const AdjustmentScreenIconRSpriteSpec =
 {
 	{
-		// sprite's type
-		__TYPE(BgmapSprite),
+		// Component
+		{
+			// Allocator
+			__TYPE(BgmapSprite),
+
+			// Component type
+			kSpriteComponent
+		},
 
 		// texture spec
 		(TextureSpec*)&AdjustmentScreenIconTexture,
@@ -148,6 +160,11 @@ BgmapSpriteROMSpec* const AdjustmentScreenIconRSpriteSpecs[] =
 
 };
 
+ComponentSpec** AdjustmentScreenIconLEntitySpecComponentSpecs[] = 
+{
+	@COMPONENTS:AdjustmentScreenIconLEntitySpec@
+};
+
 EntityROMSpec AdjustmentScreenIconLEntitySpec =
 {
 	// class allocator
@@ -156,23 +173,19 @@ EntityROMSpec AdjustmentScreenIconLEntitySpec =
 	// children
 	NULL,
 
-	// behaviors
-	NULL,
+	@BEHAVIORS:NULL@,
 
 	// extra
 	NULL,
 
-	// sprites
-	(SpriteSpec**)AdjustmentScreenIconLSpriteSpecs,
+	@SPRITES:(SpriteSpec**)AdjustmentScreenIconLSpriteSpecs@,
 
 	// use z displacement in projection
 	false,
 			
-	// wireframes
-	(WireframeSpec**)NULL,
+	@WIREFRAMES:(WireframeSpec**)NULL@,
 
-	// collision colliders
-	(ColliderSpec*)NULL,
+	@COLLIDERS:(ColliderSpec*)NULL@,
 
 	// size
 	// if 0, width and height will be inferred from the first sprite's texture's size
@@ -181,8 +194,12 @@ EntityROMSpec AdjustmentScreenIconLEntitySpec =
 	// gameworld's character's type
 	kTypeNone,
 
-	// physical specification
-	(PhysicalProperties*)NULL,
+	@PHYSICS:(PhysicalProperties*)NULL@,
+};
+
+ComponentSpec** AdjustmentScreenIconREntitySpecComponentSpecs[] = 
+{
+	@COMPONENTS:AdjustmentScreenIconREntitySpec@
 };
 
 EntityROMSpec AdjustmentScreenIconREntitySpec =
@@ -193,23 +210,19 @@ EntityROMSpec AdjustmentScreenIconREntitySpec =
 	// children
 	NULL,
 
-	// behaviors
-	NULL,
+	@BEHAVIORS:NULL@,
 
 	// extra
 	NULL,
 
-	// sprites
-	(SpriteSpec**)AdjustmentScreenIconRSpriteSpecs,
+	@SPRITES:(SpriteSpec**)AdjustmentScreenIconRSpriteSpecs@,
 
 	// use z displacement in projection
 	false,
 			
-	// wireframes
-	(WireframeSpec**)NULL,
+	@WIREFRAMES:(WireframeSpec**)NULL@,
 
-	// collision colliders
-	(ColliderSpec*)NULL,
+	@COLLIDERS:(ColliderSpec*)NULL@,
 
 	// size
 	// if 0, width and height will be inferred from the first sprite's texture's size
@@ -218,6 +231,5 @@ EntityROMSpec AdjustmentScreenIconREntitySpec =
 	// gameworld's character's type
 	kTypeNone,
 
-	// physical specification
-	(PhysicalProperties*)NULL,
+	@PHYSICS:(PhysicalProperties*)NULL@,
 };

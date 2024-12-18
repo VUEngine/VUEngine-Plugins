@@ -84,8 +84,14 @@ TextureROMSpec FlagUnitedStatesTexture =
 BgmapSpriteROMSpec FlagUnitedStatesSpriteSpec =
 {
 	{
-		// sprite's type
-		__TYPE(BgmapSprite),
+		// Component
+		{
+			// Allocator
+			__TYPE(BgmapSprite),
+
+			// Component type
+			kSpriteComponent
+		},
 
 		// texture spec
 		(TextureSpec*)&FlagUnitedStatesTexture,
@@ -114,6 +120,11 @@ BgmapSpriteROMSpec* const FlagUnitedStatesSpriteSpecs[] =
 	NULL
 };
 
+ComponentSpec** FlagUnitedStatesEntitySpecComponentSpecs[] = 
+{
+	@COMPONENTS:FlagUnitedStatesEntitySpec@
+};
+
 EntityROMSpec FlagUnitedStatesEntitySpec =
 {
 	// class allocator
@@ -122,23 +133,19 @@ EntityROMSpec FlagUnitedStatesEntitySpec =
 	// children
 	NULL,
 
-	// behaviors
-	NULL,
+	@BEHAVIORS:NULL@,
 
 	// extra
 	NULL,
 
-	// sprites
-	(SpriteSpec**)FlagUnitedStatesSpriteSpecs,
+	@SPRITES:(SpriteSpec**)FlagUnitedStatesSpriteSpecs@,
 
 	// use z displacement in projection
 	false,
 
-	// wireframes
-	(WireframeSpec**)NULL,
+	@WIREFRAMES:(WireframeSpec**)NULL@,
 
-	// collision colliders
-	NULL,
+	@COLLIDERS:NULL@,
 
 	// size
 	// if 0, width and height will be inferred from the first sprite's texture's size
@@ -147,6 +154,5 @@ EntityROMSpec FlagUnitedStatesEntitySpec =
 	// gameworld's character's type
 	kTypeNone,
 
-	// physical specification
-	NULL,
+	@PHYSICS:NULL@,
 };

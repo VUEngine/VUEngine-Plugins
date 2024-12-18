@@ -84,8 +84,14 @@ TextureROMSpec FlagJapanTexture =
 BgmapSpriteROMSpec FlagJapanSpriteSpec =
 {
 	{
-		// sprite's type
-		__TYPE(BgmapSprite),
+		// Component
+		{
+			// Allocator
+			__TYPE(BgmapSprite),
+
+			// Component type
+			kSpriteComponent
+		},
 
 		// texture spec
 		(TextureSpec*)&FlagJapanTexture,
@@ -114,6 +120,11 @@ BgmapSpriteROMSpec* const FlagJapanSpriteSpecs[] =
 	NULL
 };
 
+ComponentSpec** FlagJapanEntitySpecComponentSpecs[] = 
+{
+	@COMPONENTS:FlagJapanEntitySpec@
+};
+
 EntityROMSpec FlagJapanEntitySpec =
 {
 	// class allocator
@@ -122,23 +133,19 @@ EntityROMSpec FlagJapanEntitySpec =
 	// children
 	NULL,
 
-	// behaviors
-	NULL,
+	@BEHAVIORS:NULL@,
 
 	// extra
 	NULL,
 
-	// sprites
-	(SpriteSpec**)FlagJapanSpriteSpecs,
+	@SPRITES:(SpriteSpec**)FlagJapanSpriteSpecs@,
 
 	// use z displacement in projection
 	false,
 			
-	// wireframes
-	(WireframeSpec**)NULL,
+	@WIREFRAMES:(WireframeSpec**)NULL@,
 
-	// collision colliders
-	NULL,
+	@COLLIDERS:NULL@,
 
 	// size
 	// if 0, width and height will be inferred from the first sprite's texture's size
@@ -147,6 +154,5 @@ EntityROMSpec FlagJapanEntitySpec =
 	// gameworld's character's type
 	kTypeNone,
 
-	// physical specification
-	NULL,
+	@PHYSICS:NULL@,
 };

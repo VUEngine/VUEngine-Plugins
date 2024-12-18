@@ -84,8 +84,14 @@ TextureROMSpec FlagCursorTexture =
 BgmapSpriteROMSpec FlagCursorSpriteSpec =
 {
 	{
-		// sprite's type
-		__TYPE(BgmapSprite),
+		// Component
+		{
+			// Allocator
+			__TYPE(BgmapSprite),
+
+			// Component type
+			kSpriteComponent
+		},
 
 		// texture spec
 		(TextureSpec*)&FlagCursorTexture,
@@ -114,6 +120,11 @@ BgmapSpriteROMSpec* const FlagCursorSpriteSpecs[] =
 	NULL
 };
 
+ComponentSpec** FlagCursorEntitySpecComponentSpecs[] = 
+{
+	@COMPONENTS:FlagCursorEntitySpec@
+};
+
 EntityROMSpec FlagCursorEntitySpec =
 {
 	// class allocator
@@ -122,23 +133,19 @@ EntityROMSpec FlagCursorEntitySpec =
 	// children
 	NULL,
 
-	// behaviors
-	NULL,
+	@BEHAVIORS:NULL@,
 
 	// extra
 	NULL,
 
-	// sprites
-	(SpriteSpec**)FlagCursorSpriteSpecs,
+	@SPRITES:(SpriteSpec**)FlagCursorSpriteSpecs@,
 
 	// use z displacement in projection
 	false,
 			
-	// wireframes
-	(WireframeSpec**)NULL,
+	@WIREFRAMES:(WireframeSpec**)NULL@,
 
-	// collision colliders
-	NULL,
+	@COLLIDERS:NULL@,
 
 	// size
 	// if 0, width and height will be inferred from the first sprite's texture's size
@@ -147,6 +154,5 @@ EntityROMSpec FlagCursorEntitySpec =
 	// gameworld's character's type
 	kTypeNone,
 
-	// physical specification
-	NULL,
+	@PHYSICS:NULL@,
 };

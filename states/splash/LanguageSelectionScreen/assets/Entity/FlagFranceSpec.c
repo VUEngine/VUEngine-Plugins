@@ -84,8 +84,14 @@ TextureROMSpec FlagFranceTexture =
 BgmapSpriteROMSpec FlagFranceSpriteSpec =
 {
 	{
-		// sprite's type
-		__TYPE(BgmapSprite),
+		// Component
+		{
+			// Allocator
+			__TYPE(BgmapSprite),
+
+			// Component type
+			kSpriteComponent
+		},
 
 		// texture spec
 		(TextureSpec*)&FlagFranceTexture,
@@ -114,6 +120,11 @@ BgmapSpriteROMSpec* const FlagFranceSpriteSpecs[] =
 	NULL
 };
 
+ComponentSpec** FlagFranceEntitySpecComponentSpecs[] = 
+{
+	@COMPONENTS:FlagFranceEntitySpec@
+};
+
 EntityROMSpec FlagFranceEntitySpec =
 {
 	// class allocator
@@ -122,23 +133,19 @@ EntityROMSpec FlagFranceEntitySpec =
 	// children
 	NULL,
 
-	// behaviors
-	NULL,
+	@BEHAVIORS:NULL@,
 
 	// extra
 	NULL,
 
-	// sprites
-	(SpriteSpec**)FlagFranceSpriteSpecs,
+	@SPRITES:(SpriteSpec**)FlagFranceSpriteSpecs@,
 
 	// use z displacement in projection
 	false,
 			
-	// wireframes
-	(WireframeSpec**)NULL,
+	@WIREFRAMES:(WireframeSpec**)NULL@,
 
-	// collision colliders
-	NULL,
+	@COLLIDERS:NULL@,
 
 	// size
 	// if 0, width and height will be inferred from the first sprite's texture's size
@@ -147,6 +154,5 @@ EntityROMSpec FlagFranceEntitySpec =
 	// gameworld's character's type
 	kTypeNone,
 
-	// physical specification
-	NULL,
+	@PHYSICS:NULL@,
 };

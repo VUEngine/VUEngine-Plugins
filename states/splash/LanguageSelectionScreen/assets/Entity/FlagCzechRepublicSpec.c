@@ -84,8 +84,14 @@ TextureROMSpec FlagCzechRepublicTexture =
 BgmapSpriteROMSpec FlagCzechRepublicSpriteSpec =
 {
 	{
-		// sprite's type
-		__TYPE(BgmapSprite),
+		// Component
+		{
+			// Allocator
+			__TYPE(BgmapSprite),
+
+			// Component type
+			kSpriteComponent
+		},
 
 		// texture spec
 		(TextureSpec*)&FlagCzechRepublicTexture,
@@ -114,6 +120,11 @@ BgmapSpriteROMSpec* const FlagCzechRepublicSpriteSpecs[] =
 	NULL
 };
 
+ComponentSpec** FlagCzechRepublicEntitySpecComponentSpecs[] = 
+{
+	@COMPONENTS:FlagCzechRepublicEntitySpec@
+};
+
 EntityROMSpec FlagCzechRepublicEntitySpec =
 {
 	// class allocator
@@ -122,23 +133,19 @@ EntityROMSpec FlagCzechRepublicEntitySpec =
 	// children
 	NULL,
 
-	// behaviors
-	NULL,
+	@BEHAVIORS:NULL@,
 
 	// extra
 	NULL,
 
-	// sprites
-	(SpriteSpec**)FlagCzechRepublicSpriteSpecs,
+	@SPRITES:(SpriteSpec**)FlagCzechRepublicSpriteSpecs@,
 
 	// use z displacement in projection
 	false,
 			
-	// wireframes
-	(WireframeSpec**)NULL,
+	@WIREFRAMES:(WireframeSpec**)NULL@,
 
-	// collision colliders
-	NULL,
+	@COLLIDERS:NULL@,
 
 	// size
 	// if 0, width and height will be inferred from the first sprite's texture's size
@@ -147,6 +154,5 @@ EntityROMSpec FlagCzechRepublicEntitySpec =
 	// gameworld's character's type
 	kTypeNone,
 
-	// physical specification
-	NULL,
+	@PHYSICS:NULL@,
 };

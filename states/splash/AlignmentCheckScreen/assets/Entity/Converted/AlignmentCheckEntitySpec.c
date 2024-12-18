@@ -80,8 +80,14 @@ TextureROMSpec AlignmentCheckSprite1TextureSpec =
 BgmapSpriteROMSpec AlignmentCheckSprite1SpriteSpec =
 {
 	{
-		// sprite's type
-		__TYPE(BgmapSprite),
+		// Component
+		{
+			// Allocator
+			__TYPE(BgmapSprite),
+
+			// Component type
+			kSpriteComponent
+		},
 
 		// texture spec
 		(TextureSpec*)&AlignmentCheckSprite1TextureSpec,
@@ -159,8 +165,14 @@ TextureROMSpec AlignmentCheckSprite2TextureSpec =
 BgmapSpriteROMSpec AlignmentCheckSprite2SpriteSpec =
 {
 	{
-		// sprite's type
-		__TYPE(BgmapSprite),
+		// Component
+		{
+			// Allocator
+			__TYPE(BgmapSprite),
+
+			// Component type
+			kSpriteComponent
+		},
 
 		// texture spec
 		(TextureSpec*)&AlignmentCheckSprite2TextureSpec,
@@ -194,6 +206,11 @@ BgmapSpriteROMSpec* const AlignmentCheckSpriteSpecs[] =
 //                                                 ENTITY                                                  
 //---------------------------------------------------------------------------------------------------------
 
+ComponentSpec** AlignmentCheckEntitySpecComponentSpecs[] = 
+{
+	@COMPONENTS:AlignmentCheckEntitySpec@
+};
+
 EntityROMSpec AlignmentCheckEntitySpec =
 {
 			// class allocator
@@ -202,23 +219,19 @@ EntityROMSpec AlignmentCheckEntitySpec =
 			// children
 			NULL,
 
-			// behaviors
-			NULL,
+			@BEHAVIORS:NULL@,
 
 			// extra
 			NULL,
 
-			// sprites
-			(SpriteSpec**)AlignmentCheckSpriteSpecs,
+			@SPRITES:(SpriteSpec**)AlignmentCheckSpriteSpecs@,
 
 			// use z displacement in projection
 			false,
 
-			// wireframes
-			NULL,
+			@WIREFRAMES:NULL@,
 
-			// colliders
-			NULL,
+			@COLLIDERS:NULL@,
 
 			// size
 			// if 0, width and height will be inferred from the first sprite's texture's size
@@ -227,6 +240,5 @@ EntityROMSpec AlignmentCheckEntitySpec =
 			// gameworld's character's type
 			kTypeNone,
 
-			// physical specification 
-			NULL,
+			@PHYSICS:NULL@,
 };

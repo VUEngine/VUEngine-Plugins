@@ -84,8 +84,14 @@ TextureROMSpec FlagUnknownTexture =
 BgmapSpriteROMSpec FlagUnknownSpriteSpec =
 {
 	{
-		// sprite's type
-		__TYPE(BgmapSprite),
+		// Component
+		{
+			// Allocator
+			__TYPE(BgmapSprite),
+
+			// Component type
+			kSpriteComponent
+		},
 
 		// texture spec
 		(TextureSpec*)&FlagUnknownTexture,
@@ -114,6 +120,11 @@ BgmapSpriteROMSpec* const FlagUnknownSpriteSpecs[] =
 	NULL
 };
 
+ComponentSpec** FlagUnknownEntitySpecComponentSpecs[] = 
+{
+	@COMPONENTS:FlagUnknownEntitySpec@
+};
+
 EntityROMSpec FlagUnknownEntitySpec =
 {
 	// class allocator
@@ -122,23 +133,19 @@ EntityROMSpec FlagUnknownEntitySpec =
 	// children
 	NULL,
 
-	// behaviors
-	NULL,
+	@BEHAVIORS:NULL@,
 
 	// extra
 	NULL,
 
-	// sprites
-	(SpriteSpec**)FlagUnknownSpriteSpecs,
+	@SPRITES:(SpriteSpec**)FlagUnknownSpriteSpecs@,
 
 	// use z displacement in projection
 	false,
 
-	// wireframes
-	(WireframeSpec**)NULL,
+	@WIREFRAMES:(WireframeSpec**)NULL@,
 
-	// collision colliders
-	NULL,
+	@COLLIDERS:NULL@,
 
 	// size
 	// if 0, width and height will be inferred from the first sprite's texture's size
@@ -147,6 +154,5 @@ EntityROMSpec FlagUnknownEntitySpec =
 	// gameworld's character's type
 	kTypeNone,
 
-	// physical specification
-	NULL,
+	@PHYSICS:NULL@,
 };
