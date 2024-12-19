@@ -152,12 +152,10 @@ BgmapSpriteROMSpec const AdjustmentScreenIconRSpriteSpec =
 	__WORLD_RON,
 };
 
-BgmapSpriteROMSpec* const AdjustmentScreenIconRSpriteSpecs[] =
-{
+@COMP_ARRAY_START:AdjustmentScreenIconRSpriteSpecs
 	&AdjustmentScreenIconRSpriteSpec,
-	NULL
-
-};
+	
+@COMP_ARRAY_END:AdjustmentScreenIconRSpriteSpecs
 
 const ComponentSpec* AdjustmentScreenIconLEntitySpecComponentSpecs[] = 
 {
