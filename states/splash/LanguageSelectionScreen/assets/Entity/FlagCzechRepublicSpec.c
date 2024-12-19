@@ -114,14 +114,12 @@ BgmapSpriteROMSpec FlagCzechRepublicSpriteSpec =
 	__WORLD_ON,
 };
 
-@COMP_ARRAY_START:FlagCzechRepublicSpriteSpecs
-	&FlagCzechRepublicSpriteSpec,
-	
-@COMP_ARRAY_END:FlagCzechRepublicSpriteSpecs
+
 
 const ComponentSpec* FlagCzechRepublicEntitySpecComponentSpecs[] = 
 {
-	@COMPONENTS:FlagCzechRepublicEntitySpec@
+	(ComponentSpec*)FlagCzechRepublicSpriteSpec,
+	NULL
 };
 
 EntityROMSpec FlagCzechRepublicEntitySpec =
@@ -135,19 +133,19 @@ EntityROMSpec FlagCzechRepublicEntitySpec =
 	// children
 	NULL,
 
-	@BEHAVIORS:NULL@,
+	
 
 	// extra
 	NULL,
 
-	@SPRITES:(SpriteSpec**)FlagCzechRepublicSpriteSpecs@,
+	
 
 	// use z displacement in projection
 	false,
 			
-	@WIREFRAMES:(WireframeSpec**)NULL@,
+	
 
-	@COLLIDERS:NULL@,
+	
 
 	// size
 	// if 0, width and height will be inferred from the first sprite's texture's size
@@ -156,5 +154,5 @@ EntityROMSpec FlagCzechRepublicEntitySpec =
 	// gameworld's character's type
 	kTypeNone,
 
-	@PHYSICS:NULL@,
+	
 };

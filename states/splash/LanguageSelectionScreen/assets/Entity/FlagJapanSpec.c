@@ -114,14 +114,12 @@ BgmapSpriteROMSpec FlagJapanSpriteSpec =
 	__WORLD_ON,
 };
 
-@COMP_ARRAY_START:FlagJapanSpriteSpecs
-	&FlagJapanSpriteSpec,
-	
-@COMP_ARRAY_END:FlagJapanSpriteSpecs
+
 
 const ComponentSpec* FlagJapanEntitySpecComponentSpecs[] = 
 {
-	@COMPONENTS:FlagJapanEntitySpec@
+	(ComponentSpec*)FlagJapanSpriteSpec,
+	NULL
 };
 
 EntityROMSpec FlagJapanEntitySpec =
@@ -135,19 +133,19 @@ EntityROMSpec FlagJapanEntitySpec =
 	// children
 	NULL,
 
-	@BEHAVIORS:NULL@,
+	
 
 	// extra
 	NULL,
 
-	@SPRITES:(SpriteSpec**)FlagJapanSpriteSpecs@,
+	
 
 	// use z displacement in projection
 	false,
 			
-	@WIREFRAMES:(WireframeSpec**)NULL@,
+	
 
-	@COLLIDERS:NULL@,
+	
 
 	// size
 	// if 0, width and height will be inferred from the first sprite's texture's size
@@ -156,5 +154,5 @@ EntityROMSpec FlagJapanEntitySpec =
 	// gameworld's character's type
 	kTypeNone,
 
-	@PHYSICS:NULL@,
+	
 };

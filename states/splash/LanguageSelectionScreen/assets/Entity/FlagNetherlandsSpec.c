@@ -114,14 +114,12 @@ BgmapSpriteROMSpec FlagNetherlandsSpriteSpec =
 	__WORLD_ON,
 };
 
-@COMP_ARRAY_START:FlagNetherlandsSpriteSpecs
-	&FlagNetherlandsSpriteSpec,
-	
-@COMP_ARRAY_END:FlagNetherlandsSpriteSpecs
+
 
 const ComponentSpec* FlagNetherlandsEntitySpecComponentSpecs[] = 
 {
-	@COMPONENTS:FlagNetherlandsEntitySpec@
+	(ComponentSpec*)FlagNetherlandsSpriteSpec,
+	NULL
 };
 
 EntityROMSpec FlagNetherlandsEntitySpec =
@@ -135,19 +133,19 @@ EntityROMSpec FlagNetherlandsEntitySpec =
 	// children
 	NULL,
 
-	@BEHAVIORS:NULL@,
+	
 
 	// extra
 	NULL,
 
-	@SPRITES:(SpriteSpec**)FlagNetherlandsSpriteSpecs@,
+	
 
 	// use z displacement in projection
 	false,	
 
-	@WIREFRAMES:(WireframeSpec**)NULL@,
+	
 
-	@COLLIDERS:NULL@,
+	
 
 	// size
 	// if 0, width and height will be inferred from the first sprite's texture's size
@@ -156,5 +154,5 @@ EntityROMSpec FlagNetherlandsEntitySpec =
 	// gameworld's character's type
 	kTypeNone,
 
-	@PHYSICS:NULL@,
+	
 };

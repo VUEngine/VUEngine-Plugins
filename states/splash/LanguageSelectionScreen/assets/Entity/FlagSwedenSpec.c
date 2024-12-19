@@ -114,14 +114,12 @@ BgmapSpriteROMSpec FlagSwedenSpriteSpec =
 	__WORLD_ON,
 };
 
-@COMP_ARRAY_START:FlagSwedenSpriteSpecs
-	&FlagSwedenSpriteSpec,
-	
-@COMP_ARRAY_END:FlagSwedenSpriteSpecs
+
 
 const ComponentSpec* FlagSwedenEntitySpecComponentSpecs[] = 
 {
-	@COMPONENTS:FlagSwedenEntitySpec@
+	(ComponentSpec*)FlagSwedenSpriteSpec,
+	NULL
 };
 
 EntityROMSpec FlagSwedenEntitySpec =
@@ -135,19 +133,19 @@ EntityROMSpec FlagSwedenEntitySpec =
 	// children
 	NULL,
 
-	@BEHAVIORS:NULL@,
+	
 
 	// extra
 	NULL,
 
-	@SPRITES:(SpriteSpec**)FlagSwedenSpriteSpecs@,
+	
 
 	// use z displacement in projection
 	false,
 
-	@WIREFRAMES:(WireframeSpec**)NULL@,
+	
 
-	@COLLIDERS:NULL@,
+	
 
 	// size
 	// if 0, width and height will be inferred from the first sprite's texture's size
@@ -156,5 +154,5 @@ EntityROMSpec FlagSwedenEntitySpec =
 	// gameworld's character's type
 	kTypeNone,
 
-	@PHYSICS:NULL@,
+	
 };

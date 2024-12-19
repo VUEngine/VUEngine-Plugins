@@ -114,14 +114,12 @@ BgmapSpriteROMSpec FlagUnitedKingdomSpriteSpec =
 	__WORLD_ON,
 };
 
-@COMP_ARRAY_START:FlagUnitedKingdomSpriteSpecs
-	&FlagUnitedKingdomSpriteSpec,
-	
-@COMP_ARRAY_END:FlagUnitedKingdomSpriteSpecs
+
 
 const ComponentSpec* FlagUnitedKingdomEntitySpecComponentSpecs[] = 
 {
-	@COMPONENTS:FlagUnitedKingdomEntitySpec@
+	(ComponentSpec*)FlagUnitedKingdomSpriteSpec,
+	NULL
 };
 
 EntityROMSpec FlagUnitedKingdomEntitySpec =
@@ -135,19 +133,19 @@ EntityROMSpec FlagUnitedKingdomEntitySpec =
 	// children
 	NULL,
 
-	@BEHAVIORS:NULL@,
+	
 
 	// extra
 	NULL,
 
-	@SPRITES:(SpriteSpec**)FlagUnitedKingdomSpriteSpecs@,
+	
 
 	// use z displacement in projection
 	false,
 
-	@WIREFRAMES:(WireframeSpec**)NULL@,
+	
 
-	@COLLIDERS:NULL@,
+	
 
 	// size
 	// if 0, width and height will be inferred from the first sprite's texture's size
@@ -156,5 +154,5 @@ EntityROMSpec FlagUnitedKingdomEntitySpec =
 	// gameworld's character's type
 	kTypeNone,
 
-	@PHYSICS:NULL@,
+	
 };

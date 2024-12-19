@@ -114,14 +114,12 @@ BgmapSpriteROMSpec FlagGermanySpriteSpec =
 	__WORLD_ON,
 };
 
-@COMP_ARRAY_START:FlagGermanySpriteSpecs
-	&FlagGermanySpriteSpec,
-	
-@COMP_ARRAY_END:FlagGermanySpriteSpecs
+
 
 const ComponentSpec* FlagGermanyEntitySpecComponentSpecs[] = 
 {
-	@COMPONENTS:FlagGermanyEntitySpec@
+	(ComponentSpec*)FlagGermanySpriteSpec,
+	NULL
 };
 
 EntityROMSpec FlagGermanyEntitySpec =
@@ -135,19 +133,19 @@ EntityROMSpec FlagGermanyEntitySpec =
 	// children
 	NULL,
 
-	@BEHAVIORS:NULL@,
+	
 
 	// extra
 	NULL,
 
-	@SPRITES:(SpriteSpec**)FlagGermanySpriteSpecs@,
+	
 
 	// use z displacement in projection
 	false,
 			
-	@WIREFRAMES:(WireframeSpec**)NULL@,
+	
 
-	@COLLIDERS:NULL@,
+	
 
 	// size
 	// if 0, width and height will be inferred from the first sprite's texture's size
@@ -156,5 +154,5 @@ EntityROMSpec FlagGermanyEntitySpec =
 	// gameworld's character's type
 	kTypeNone,
 
-	@PHYSICS:NULL@,
+	
 };

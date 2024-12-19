@@ -113,14 +113,12 @@ BgmapSpriteROMSpec AutomaticPauseLogoSpriteSpec =
 	__WORLD_ON,
 };
 
-@COMP_ARRAY_START:AutomaticPauseLogoSpriteSpecs
-	&AutomaticPauseLogoSpriteSpec,
-	
-@COMP_ARRAY_END:AutomaticPauseLogoSpriteSpecs
+
 
 const ComponentSpec* AutomaticPauseLogoEntitySpecComponentSpecs[] = 
 {
-	@COMPONENTS:AutomaticPauseLogoEntitySpec@
+	(ComponentSpec*)AutomaticPauseLogoSpriteSpec,
+	NULL
 };
 
 EntityROMSpec AutomaticPauseLogoEntitySpec =
@@ -134,19 +132,19 @@ EntityROMSpec AutomaticPauseLogoEntitySpec =
 	// children
 	NULL,
 
-	@BEHAVIORS:NULL@,
+	
 
 	// extra
 	NULL,
 
-	@SPRITES:(SpriteSpec**)AutomaticPauseLogoSpriteSpecs@,
+	
 
 	// use z displacement in projection
 	false,
 			
-	@WIREFRAMES:(WireframeSpec**)NULL@,
+	
 
-	@COLLIDERS:(ColliderSpec*)NULL@,
+	
 
 	// size
 	// if 0, width and height will be inferred from the first sprite's texture's size
@@ -155,5 +153,5 @@ EntityROMSpec AutomaticPauseLogoEntitySpec =
 	// gameworld's character's type
 	kTypeNone,
 
-	@PHYSICS:(PhysicalProperties*)NULL@,
+	
 };

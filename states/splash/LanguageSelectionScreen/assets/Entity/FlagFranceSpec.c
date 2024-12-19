@@ -114,14 +114,12 @@ BgmapSpriteROMSpec FlagFranceSpriteSpec =
 	__WORLD_ON,
 };
 
-@COMP_ARRAY_START:FlagFranceSpriteSpecs
-	&FlagFranceSpriteSpec,
-	
-@COMP_ARRAY_END:FlagFranceSpriteSpecs
+
 
 const ComponentSpec* FlagFranceEntitySpecComponentSpecs[] = 
 {
-	@COMPONENTS:FlagFranceEntitySpec@
+	(ComponentSpec*)FlagFranceSpriteSpec,
+	NULL
 };
 
 EntityROMSpec FlagFranceEntitySpec =
@@ -135,19 +133,19 @@ EntityROMSpec FlagFranceEntitySpec =
 	// children
 	NULL,
 
-	@BEHAVIORS:NULL@,
+	
 
 	// extra
 	NULL,
 
-	@SPRITES:(SpriteSpec**)FlagFranceSpriteSpecs@,
+	
 
 	// use z displacement in projection
 	false,
 			
-	@WIREFRAMES:(WireframeSpec**)NULL@,
+	
 
-	@COLLIDERS:NULL@,
+	
 
 	// size
 	// if 0, width and height will be inferred from the first sprite's texture's size
@@ -156,5 +154,5 @@ EntityROMSpec FlagFranceEntitySpec =
 	// gameworld's character's type
 	kTypeNone,
 
-	@PHYSICS:NULL@,
+	
 };

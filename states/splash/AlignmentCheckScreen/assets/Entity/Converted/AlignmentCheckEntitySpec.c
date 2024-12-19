@@ -195,11 +195,7 @@ BgmapSpriteROMSpec AlignmentCheckSprite2SpriteSpec =
 	__WORLD_RON,
 };
 
-@COMP_ARRAY_START:AlignmentCheckSpriteSpecs
-	(BgmapSpriteSpec*)&AlignmentCheckSprite1SpriteSpec,
-	(BgmapSpriteSpec*)&AlignmentCheckSprite2SpriteSpec,
-	
-@COMP_ARRAY_END:AlignmentCheckSpriteSpecs
+
 
 //---------------------------------------------------------------------------------------------------------
 //                                                 ENTITY                                                  
@@ -207,7 +203,9 @@ BgmapSpriteROMSpec AlignmentCheckSprite2SpriteSpec =
 
 const ComponentSpec* AlignmentCheckEntitySpecComponentSpecs[] = 
 {
-	@COMPONENTS:AlignmentCheckEntitySpec@
+	(ComponentSpec*)AlignmentCheckSprite1SpriteSpec,
+    (ComponentSpec*)AlignmentCheckSprite2SpriteSpec,
+	NULL
 };
 
 EntityROMSpec AlignmentCheckEntitySpec =
@@ -221,19 +219,19 @@ EntityROMSpec AlignmentCheckEntitySpec =
 			// children
 			NULL,
 
-			@BEHAVIORS:NULL@,
+			
 
 			// extra
 			NULL,
 
-			@SPRITES:(SpriteSpec**)AlignmentCheckSpriteSpecs@,
+			
 
 			// use z displacement in projection
 			false,
 
-			@WIREFRAMES:NULL@,
+			
 
-			@COLLIDERS:NULL@,
+			
 
 			// size
 			// if 0, width and height will be inferred from the first sprite's texture's size
@@ -242,5 +240,5 @@ EntityROMSpec AlignmentCheckEntitySpec =
 			// gameworld's character's type
 			kTypeNone,
 
-			@PHYSICS:NULL@,
+			
 };

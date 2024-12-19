@@ -114,14 +114,12 @@ BgmapSpriteROMSpec AdjustmentScreenBgSpriteSpec =
 	__WORLD_ON,
 };
 
-@COMP_ARRAY_START:AdjustmentScreenBgSpriteSpecs
-	&AdjustmentScreenBgSpriteSpec,
-	
-@COMP_ARRAY_END:AdjustmentScreenBgSpriteSpecs
+
 
 const ComponentSpec* AdjustmentScreenBgEntitySpecComponentSpecs[] = 
 {
-	@COMPONENTS:AdjustmentScreenBgEntitySpec@
+	(ComponentSpec*)AdjustmentScreenBgSpriteSpec,
+	NULL
 };
 
 EntityROMSpec AdjustmentScreenBgEntitySpec =
@@ -135,19 +133,19 @@ EntityROMSpec AdjustmentScreenBgEntitySpec =
 	// children
 	NULL,
 
-	@BEHAVIORS:NULL@,
+	
 
 	// extra
 	NULL,
 
-	@SPRITES:(SpriteSpec**)AdjustmentScreenBgSpriteSpecs@,
+	
 
 	// use z displacement in projection
 	false,
 			
-	@WIREFRAMES:(WireframeSpec**)NULL@,
+	
 
-	@COLLIDERS:(ColliderSpec*)NULL@,
+	
 
 	// size
 	// if 0, width and height will be inferred from the first sprite's texture's size
@@ -156,5 +154,5 @@ EntityROMSpec AdjustmentScreenBgEntitySpec =
 	// gameworld's character's type
 	kTypeNone,
 
-	@PHYSICS:(PhysicalProperties*)NULL@,
+	
 };

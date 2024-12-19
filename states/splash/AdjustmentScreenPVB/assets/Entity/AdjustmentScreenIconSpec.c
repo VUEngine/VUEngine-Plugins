@@ -113,10 +113,7 @@ BgmapSpriteROMSpec AdjustmentScreenIconLSpriteSpec =
 	__WORLD_LON,
 };
 
-@COMP_ARRAY_START:AdjustmentScreenIconLSpriteSpecs
-	&AdjustmentScreenIconLSpriteSpec,
-	
-@COMP_ARRAY_END:AdjustmentScreenIconLSpriteSpecs
+
 
 BgmapSpriteROMSpec const AdjustmentScreenIconRSpriteSpec =
 {
@@ -151,14 +148,12 @@ BgmapSpriteROMSpec const AdjustmentScreenIconRSpriteSpec =
 	__WORLD_RON,
 };
 
-@COMP_ARRAY_START:AdjustmentScreenIconRSpriteSpecs
-	&AdjustmentScreenIconRSpriteSpec,
-	
-@COMP_ARRAY_END:AdjustmentScreenIconRSpriteSpecs
+
 
 const ComponentSpec* AdjustmentScreenIconLEntitySpecComponentSpecs[] = 
 {
-	@COMPONENTS:AdjustmentScreenIconLEntitySpec@
+	(ComponentSpec*)AdjustmentScreenIconLSpriteSpec,
+	NULL
 };
 
 EntityROMSpec AdjustmentScreenIconLEntitySpec =
@@ -172,19 +167,19 @@ EntityROMSpec AdjustmentScreenIconLEntitySpec =
 	// children
 	NULL,
 
-	@BEHAVIORS:NULL@,
+	
 
 	// extra
 	NULL,
 
-	@SPRITES:(SpriteSpec**)AdjustmentScreenIconLSpriteSpecs@,
+	
 
 	// use z displacement in projection
 	false,
 			
-	@WIREFRAMES:(WireframeSpec**)NULL@,
+	
 
-	@COLLIDERS:(ColliderSpec*)NULL@,
+	
 
 	// size
 	// if 0, width and height will be inferred from the first sprite's texture's size
@@ -193,12 +188,13 @@ EntityROMSpec AdjustmentScreenIconLEntitySpec =
 	// gameworld's character's type
 	kTypeNone,
 
-	@PHYSICS:(PhysicalProperties*)NULL@,
+	
 };
 
 const ComponentSpec* AdjustmentScreenIconREntitySpecComponentSpecs[] = 
 {
-	@COMPONENTS:AdjustmentScreenIconREntitySpec@
+	(ComponentSpec*)AdjustmentScreenIconRSpriteSpec,
+	NULL
 };
 
 EntityROMSpec AdjustmentScreenIconREntitySpec =
@@ -212,19 +208,19 @@ EntityROMSpec AdjustmentScreenIconREntitySpec =
 	// children
 	NULL,
 
-	@BEHAVIORS:NULL@,
+	
 
 	// extra
 	NULL,
 
-	@SPRITES:(SpriteSpec**)AdjustmentScreenIconRSpriteSpecs@,
+	
 
 	// use z displacement in projection
 	false,
 			
-	@WIREFRAMES:(WireframeSpec**)NULL@,
+	
 
-	@COLLIDERS:(ColliderSpec*)NULL@,
+	
 
 	// size
 	// if 0, width and height will be inferred from the first sprite's texture's size
@@ -233,5 +229,5 @@ EntityROMSpec AdjustmentScreenIconREntitySpec =
 	// gameworld's character's type
 	kTypeNone,
 
-	@PHYSICS:(PhysicalProperties*)NULL@,
+	
 };

@@ -114,14 +114,12 @@ BgmapSpriteROMSpec FlagCursorSpriteSpec =
 	__WORLD_ON,
 };
 
-@COMP_ARRAY_START:FlagCursorSpriteSpecs
-	&FlagCursorSpriteSpec,
-	
-@COMP_ARRAY_END:FlagCursorSpriteSpecs
+
 
 const ComponentSpec* FlagCursorEntitySpecComponentSpecs[] = 
 {
-	@COMPONENTS:FlagCursorEntitySpec@
+	(ComponentSpec*)FlagCursorSpriteSpec,
+	NULL
 };
 
 EntityROMSpec FlagCursorEntitySpec =
@@ -135,19 +133,19 @@ EntityROMSpec FlagCursorEntitySpec =
 	// children
 	NULL,
 
-	@BEHAVIORS:NULL@,
+	
 
 	// extra
 	NULL,
 
-	@SPRITES:(SpriteSpec**)FlagCursorSpriteSpecs@,
+	
 
 	// use z displacement in projection
 	false,
 			
-	@WIREFRAMES:(WireframeSpec**)NULL@,
+	
 
-	@COLLIDERS:NULL@,
+	
 
 	// size
 	// if 0, width and height will be inferred from the first sprite's texture's size
@@ -156,5 +154,5 @@ EntityROMSpec FlagCursorEntitySpec =
 	// gameworld's character's type
 	kTypeNone,
 
-	@PHYSICS:NULL@,
+	
 };

@@ -168,14 +168,12 @@ BgmapSpriteROMSpec LowPowerIndicatorSpriteSpec =
 	__WORLD_ON,
 };
 
-@COMP_ARRAY_START:LowPowerIndicatorSpriteSpecs
-	&LowPowerIndicatorSpriteSpec,
-	
-@COMP_ARRAY_END:LowPowerIndicatorSpriteSpecs
+
 
 const ComponentSpec* LowPowerIndicatorEntitySpecComponentSpecs[] = 
 {
-	@COMPONENTS:LowPowerIndicatorEntitySpec@
+	(ComponentSpec*)LowPowerIndicatorSpriteSpec,
+	NULL
 };
 
 LowPowerEntityROMSpec LowPowerIndicatorEntitySpec =
@@ -193,19 +191,19 @@ LowPowerEntityROMSpec LowPowerIndicatorEntitySpec =
 			// children
 			NULL,
 
-			@BEHAVIORS:NULL@,
+			
 
 			// extra
 			NULL,
 
-			@SPRITES:(SpriteSpec**)LowPowerIndicatorSpriteSpecs@,
+			
 
 			// use z displacement in projection
 			false,
 				
-			@WIREFRAMES:(WireframeSpec**)NULL@,
+			
 
-			@COLLIDERS:(ColliderSpec*)NULL@,
+			
 
 			// size
 			// if 0, width and height will be inferred from the first sprite's texture's size
@@ -214,7 +212,7 @@ LowPowerEntityROMSpec LowPowerIndicatorEntitySpec =
 			// gameworld's character's type
 			kTypeNone,
 
-			@PHYSICS:(PhysicalProperties*)NULL@,
+			
 		},
 
 		// pointer to the animation spec for the item

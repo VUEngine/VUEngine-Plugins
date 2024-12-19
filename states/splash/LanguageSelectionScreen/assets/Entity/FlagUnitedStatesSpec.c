@@ -114,14 +114,12 @@ BgmapSpriteROMSpec FlagUnitedStatesSpriteSpec =
 	__WORLD_ON,
 };
 
-@COMP_ARRAY_START:FlagUnitedStatesSpriteSpecs
-	&FlagUnitedStatesSpriteSpec,
-	
-@COMP_ARRAY_END:FlagUnitedStatesSpriteSpecs
+
 
 const ComponentSpec* FlagUnitedStatesEntitySpecComponentSpecs[] = 
 {
-	@COMPONENTS:FlagUnitedStatesEntitySpec@
+	(ComponentSpec*)FlagUnitedStatesSpriteSpec,
+	NULL
 };
 
 EntityROMSpec FlagUnitedStatesEntitySpec =
@@ -135,19 +133,19 @@ EntityROMSpec FlagUnitedStatesEntitySpec =
 	// children
 	NULL,
 
-	@BEHAVIORS:NULL@,
+	
 
 	// extra
 	NULL,
 
-	@SPRITES:(SpriteSpec**)FlagUnitedStatesSpriteSpecs@,
+	
 
 	// use z displacement in projection
 	false,
 
-	@WIREFRAMES:(WireframeSpec**)NULL@,
+	
 
-	@COLLIDERS:NULL@,
+	
 
 	// size
 	// if 0, width and height will be inferred from the first sprite's texture's size
@@ -156,5 +154,5 @@ EntityROMSpec FlagUnitedStatesEntitySpec =
 	// gameworld's character's type
 	kTypeNone,
 
-	@PHYSICS:NULL@,
+	
 };
