@@ -13,7 +13,7 @@
 //=========================================================================================================
 
 #include <PlatformerCameraTriggerEntity.h>
-#include <CollisionManager.h>
+#include <ColliderManager.h>
 #include <Optics.h>
 #include <Collider.h>
 #include <Camera.h>

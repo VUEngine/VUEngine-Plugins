@@ -17,7 +17,7 @@
 #include <MessageDispatcher.h>
 #include <Actor.h>
 #include <VUEngine.h>
-#include <PhysicalWorld.h>
+#include <BodyManager.h>
 #include <InverseBox.h>
 #include <EventManager.h>
 #include <Utilities.h>
@@ -163,10 +163,7 @@ void PlatformerCameraMovementManager::configure(Entity focusEntity, uint32 focus
 		{0, 0, 0},
 
 		// gameworld's character's type
-		!isDeleted(focusEntity) ? Entity::getInGameType(focusEntity) : kTypeNone,
-
-		// physical specification
-		(PhysicalProperties*)NULL,
+		!isDeleted(focusEntity) ? Entity::getInGameType(focusEntity) : kTypeNone
 	};
 
 	if(!isDeleted(focusEntity))

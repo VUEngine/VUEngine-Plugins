@@ -204,7 +204,7 @@ BgmapSpriteROMSpec AlignmentCheckSprite2SpriteSpec =
 const ComponentSpec* AlignmentCheckEntitySpecComponentSpecs[] = 
 {
 	(ComponentSpec*)&AlignmentCheckSprite1SpriteSpec,
-    (ComponentSpec*)&AlignmentCheckSprite2SpriteSpec,
+	(ComponentSpec*)&AlignmentCheckSprite2SpriteSpec,
 	NULL
 };
 

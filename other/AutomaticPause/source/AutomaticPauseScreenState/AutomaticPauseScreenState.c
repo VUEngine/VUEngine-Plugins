@@ -20,7 +20,7 @@
 #include <Languages.h>
 #include <MessageDispatcher.h>
 #include <Printing.h>
-#include <PhysicalWorld.h>
+#include <BodyManager.h>
 #include <VUEngine.h>
 
 #include "AutomaticPauseScreenState.h"
