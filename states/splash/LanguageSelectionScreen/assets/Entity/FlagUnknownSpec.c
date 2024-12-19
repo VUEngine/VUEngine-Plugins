@@ -114,11 +114,9 @@ BgmapSpriteROMSpec FlagUnknownSpriteSpec =
 	__WORLD_ON,
 };
 
-
-
 const ComponentSpec* FlagUnknownEntitySpecComponentSpecs[] = 
 {
-	(ComponentSpec*)FlagUnknownSpriteSpec,
+	(ComponentSpec*)&FlagUnknownSpriteSpec,
 	NULL
 };
 

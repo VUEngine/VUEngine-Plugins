@@ -149,11 +149,9 @@ BgmapSpriteROMSpec const AdjustmentScreenIconRSpriteSpec =
 	__WORLD_RON,
 };
 
-
-
 const ComponentSpec* AdjustmentScreenIconLEntitySpecComponentSpecs[] = 
 {
-	(ComponentSpec*)AdjustmentScreenIconLSpriteSpec,
+	(ComponentSpec*)&AdjustmentScreenIconLSpriteSpec,
 	NULL
 };
 
@@ -181,7 +179,7 @@ EntityROMSpec AdjustmentScreenIconLEntitySpec =
 
 const ComponentSpec* AdjustmentScreenIconREntitySpecComponentSpecs[] = 
 {
-	(ComponentSpec*)AdjustmentScreenIconRSpriteSpec,
+	(ComponentSpec*)&AdjustmentScreenIconRSpriteSpec,
 	NULL
 };
 

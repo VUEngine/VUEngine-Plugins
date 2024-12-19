@@ -114,11 +114,9 @@ BgmapSpriteROMSpec FlagCzechRepublicSpriteSpec =
 	__WORLD_ON,
 };
 
-
-
 const ComponentSpec* FlagCzechRepublicEntitySpecComponentSpecs[] = 
 {
-	(ComponentSpec*)FlagCzechRepublicSpriteSpec,
+	(ComponentSpec*)&FlagCzechRepublicSpriteSpec,
 	NULL
 };
 

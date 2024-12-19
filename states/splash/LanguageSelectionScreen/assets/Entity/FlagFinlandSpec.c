@@ -114,11 +114,9 @@ BgmapSpriteROMSpec FlagFinlandSpriteSpec =
 	__WORLD_ON,
 };
 
-
-
 const ComponentSpec* FlagFinlandEntitySpecComponentSpecs[] = 
 {
-	(ComponentSpec*)FlagFinlandSpriteSpec,
+	(ComponentSpec*)&FlagFinlandSpriteSpec,
 	NULL
 };
 
