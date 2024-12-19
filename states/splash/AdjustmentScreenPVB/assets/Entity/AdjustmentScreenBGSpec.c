@@ -119,7 +119,7 @@ BgmapSpriteROMSpec AdjustmentScreenBgSpriteSpec =
 	
 @COMP_ARRAY_END:AdjustmentScreenBgSpriteSpecs
 
-ComponentSpec** AdjustmentScreenBgEntitySpecComponentSpecs[] = 
+const ComponentSpec* AdjustmentScreenBgEntitySpecComponentSpecs[] = 
 {
 	@COMPONENTS:AdjustmentScreenBgEntitySpec@
 };

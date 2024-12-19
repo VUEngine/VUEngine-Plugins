@@ -119,7 +119,7 @@ BgmapSpriteROMSpec FlagUnknownSpriteSpec =
 	
 @COMP_ARRAY_END:FlagUnknownSpriteSpecs
 
-ComponentSpec** FlagUnknownEntitySpecComponentSpecs[] = 
+const ComponentSpec* FlagUnknownEntitySpecComponentSpecs[] = 
 {
 	@COMPONENTS:FlagUnknownEntitySpec@
 };

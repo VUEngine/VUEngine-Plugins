@@ -119,7 +119,7 @@ BgmapSpriteROMSpec FlagNetherlandsSpriteSpec =
 	
 @COMP_ARRAY_END:FlagNetherlandsSpriteSpecs
 
-ComponentSpec** FlagNetherlandsEntitySpecComponentSpecs[] = 
+const ComponentSpec* FlagNetherlandsEntitySpecComponentSpecs[] = 
 {
 	@COMPONENTS:FlagNetherlandsEntitySpec@
 };

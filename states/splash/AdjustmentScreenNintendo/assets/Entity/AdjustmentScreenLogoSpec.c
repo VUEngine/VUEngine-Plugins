@@ -119,7 +119,7 @@ BgmapSpriteROMSpec AdjustmentScreenLogoSpriteSpec =
 	
 @COMP_ARRAY_END:AdjustmentScreenLogoSpriteSpecs
 
-ComponentSpec** AdjustmentScreenLogoEntitySpecComponentSpecs[] = 
+const ComponentSpec* AdjustmentScreenLogoEntitySpecComponentSpecs[] = 
 {
 	@COMPONENTS:AdjustmentScreenLogoEntitySpec@
 };

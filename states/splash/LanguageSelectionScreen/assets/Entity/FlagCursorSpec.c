@@ -119,7 +119,7 @@ BgmapSpriteROMSpec FlagCursorSpriteSpec =
 	
 @COMP_ARRAY_END:FlagCursorSpriteSpecs
 
-ComponentSpec** FlagCursorEntitySpecComponentSpecs[] = 
+const ComponentSpec* FlagCursorEntitySpecComponentSpecs[] = 
 {
 	@COMPONENTS:FlagCursorEntitySpec@
 };

@@ -118,7 +118,7 @@ BgmapSpriteROMSpec AutomaticPauseLogoSpriteSpec =
 	
 @COMP_ARRAY_END:AutomaticPauseLogoSpriteSpecs
 
-ComponentSpec** AutomaticPauseLogoEntitySpecComponentSpecs[] = 
+const ComponentSpec* AutomaticPauseLogoEntitySpecComponentSpecs[] = 
 {
 	@COMPONENTS:AutomaticPauseLogoEntitySpec@
 };

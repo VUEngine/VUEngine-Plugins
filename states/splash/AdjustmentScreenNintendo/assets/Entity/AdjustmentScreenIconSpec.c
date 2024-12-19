@@ -159,7 +159,7 @@ BgmapSpriteROMSpec* const AdjustmentScreenIconRSpriteSpecs[] =
 
 };
 
-ComponentSpec** AdjustmentScreenIconLEntitySpecComponentSpecs[] = 
+const ComponentSpec* AdjustmentScreenIconLEntitySpecComponentSpecs[] = 
 {
 	@COMPONENTS:AdjustmentScreenIconLEntitySpec@
 };
@@ -196,7 +196,7 @@ EntityROMSpec AdjustmentScreenIconLEntitySpec =
 	@PHYSICS:(PhysicalProperties*)NULL@,
 };
 
-ComponentSpec** AdjustmentScreenIconREntitySpecComponentSpecs[] = 
+const ComponentSpec* AdjustmentScreenIconREntitySpecComponentSpecs[] = 
 {
 	@COMPONENTS:AdjustmentScreenIconREntitySpec@
 };

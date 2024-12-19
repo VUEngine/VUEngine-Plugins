@@ -173,7 +173,7 @@ BgmapSpriteROMSpec LowPowerIndicatorSpriteSpec =
 	
 @COMP_ARRAY_END:LowPowerIndicatorSpriteSpecs
 
-ComponentSpec** LowPowerIndicatorEntitySpecComponentSpecs[] = 
+const ComponentSpec* LowPowerIndicatorEntitySpecComponentSpecs[] = 
 {
 	@COMPONENTS:LowPowerIndicatorEntitySpec@
 };

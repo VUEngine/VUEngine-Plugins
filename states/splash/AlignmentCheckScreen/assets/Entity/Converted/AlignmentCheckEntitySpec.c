@@ -205,7 +205,7 @@ BgmapSpriteROMSpec AlignmentCheckSprite2SpriteSpec =
 //                                                 ENTITY                                                  
 //---------------------------------------------------------------------------------------------------------
 
-ComponentSpec** AlignmentCheckEntitySpecComponentSpecs[] = 
+const ComponentSpec* AlignmentCheckEntitySpecComponentSpecs[] = 
 {
 	@COMPONENTS:AlignmentCheckEntitySpec@
 };
