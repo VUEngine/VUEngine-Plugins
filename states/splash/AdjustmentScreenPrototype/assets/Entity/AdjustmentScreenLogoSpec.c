@@ -114,7 +114,7 @@ BgmapSpriteROMSpec AdjustmentScreenLogoSpriteSpec =
 	__WORLD_ON,
 };
 
-const ComponentSpec* AdjustmentScreenLogoEntitySpecComponentSpecs[] = 
+const ComponentSpec* AdjustmentScreenLogoEntityComponentSpecs[] = 
 {
 	(ComponentSpec*)&AdjustmentScreenLogoSpriteSpec,
 	NULL
@@ -126,7 +126,7 @@ EntityROMSpec AdjustmentScreenLogoEntitySpec =
 	__TYPE(Entity),
 
 	// Component specs
-	(ComponentSpec**)AdjustmentScreenLogoEntitySpecComponentSpecs,
+	(ComponentSpec**)AdjustmentScreenLogoEntityComponentSpecs,
 
 	// Children specs
 	NULL,

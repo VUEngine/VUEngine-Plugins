@@ -114,7 +114,7 @@ BgmapSpriteROMSpec FlagItalySpriteSpec =
 	__WORLD_ON,
 };
 
-const ComponentSpec* FlagItalyEntitySpecComponentSpecs[] = 
+const ComponentSpec* FlagItalyEntityComponentSpecs[] = 
 {
 	(ComponentSpec*)&FlagItalySpriteSpec,
 	NULL
@@ -126,7 +126,7 @@ EntityROMSpec FlagItalyEntitySpec =
 	__TYPE(Entity),
 
 	// Component specs
-	(ComponentSpec**)FlagItalyEntitySpecComponentSpecs,
+	(ComponentSpec**)FlagItalyEntityComponentSpecs,
 
 	// Children specs
 	NULL,

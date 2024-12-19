@@ -113,7 +113,7 @@ BgmapSpriteROMSpec AutomaticPauseLogoSpriteSpec =
 	__WORLD_ON,
 };
 
-const ComponentSpec* AutomaticPauseLogoEntitySpecComponentSpecs[] = 
+const ComponentSpec* AutomaticPauseLogoEntityComponentSpecs[] = 
 {
 	(ComponentSpec*)&AutomaticPauseLogoSpriteSpec,
 	NULL
@@ -125,7 +125,7 @@ EntityROMSpec AutomaticPauseLogoEntitySpec =
 	__TYPE(Entity),
 
 	// Component specs
-	(ComponentSpec**)AutomaticPauseLogoEntitySpecComponentSpecs,
+	(ComponentSpec**)AutomaticPauseLogoEntityComponentSpecs,
 
 	// Children specs
 	NULL,

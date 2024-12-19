@@ -149,7 +149,7 @@ BgmapSpriteROMSpec const AdjustmentScreenIconRSpriteSpec =
 	__WORLD_RON,
 };
 
-const ComponentSpec* AdjustmentScreenIconLEntitySpecComponentSpecs[] = 
+const ComponentSpec* AdjustmentScreenIconLEntityComponentSpecs[] = 
 {
 	(ComponentSpec*)&AdjustmentScreenIconLSpriteSpec,
 	NULL
@@ -161,7 +161,7 @@ EntityROMSpec AdjustmentScreenIconLEntitySpec =
 	__TYPE(Entity),
 
 	// Component specs
-	(ComponentSpec**)AdjustmentScreenIconLEntitySpecComponentSpecs,
+	(ComponentSpec**)AdjustmentScreenIconLEntityComponentSpecs,
 
 	// Children specs
 	NULL,
@@ -177,7 +177,7 @@ EntityROMSpec AdjustmentScreenIconLEntitySpec =
 	kTypeNone
 };
 
-const ComponentSpec* AdjustmentScreenIconREntitySpecComponentSpecs[] = 
+const ComponentSpec* AdjustmentScreenIconREntityComponentSpecs[] = 
 {
 	(ComponentSpec*)&AdjustmentScreenIconRSpriteSpec,
 	NULL
@@ -189,7 +189,7 @@ EntityROMSpec AdjustmentScreenIconREntitySpec =
 	__TYPE(Entity),
 
 	// Component specs
-	(ComponentSpec**)AdjustmentScreenIconREntitySpecComponentSpecs,
+	(ComponentSpec**)AdjustmentScreenIconREntityComponentSpecs,
 
 	// Children specs
 	NULL,

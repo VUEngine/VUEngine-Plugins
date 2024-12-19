@@ -168,7 +168,7 @@ BgmapSpriteROMSpec LowPowerIndicatorSpriteSpec =
 	__WORLD_ON,
 };
 
-const ComponentSpec* LowPowerIndicatorEntitySpecComponentSpecs[] = 
+const ComponentSpec* LowPowerIndicatorEntityComponentSpecs[] = 
 {
 	(ComponentSpec*)&LowPowerIndicatorSpriteSpec,
 	NULL
@@ -184,7 +184,7 @@ LowPowerEntityROMSpec LowPowerIndicatorEntitySpec =
 			__TYPE(LowPowerEntity),
 
 			// Component specs
-			(ComponentSpec**)LowPowerIndicatorEntitySpecComponentSpecs,
+			(ComponentSpec**)LowPowerIndicatorEntityComponentSpecs,
 
 			// Children specs
 			NULL,

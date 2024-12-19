@@ -201,7 +201,7 @@ BgmapSpriteROMSpec AlignmentCheckSprite2SpriteSpec =
 //                                                 ENTITY                                                  
 //---------------------------------------------------------------------------------------------------------
 
-const ComponentSpec* AlignmentCheckEntitySpecComponentSpecs[] = 
+const ComponentSpec* AlignmentCheckEntityComponentSpecs[] = 
 {
 	(ComponentSpec*)&AlignmentCheckSprite1SpriteSpec,
 	(ComponentSpec*)&AlignmentCheckSprite2SpriteSpec,
@@ -214,7 +214,7 @@ EntityROMSpec AlignmentCheckEntitySpec =
 			__TYPE(Entity),
 
 			// Component specs
-			(ComponentSpec**)AlignmentCheckEntitySpecComponentSpecs,
+			(ComponentSpec**)AlignmentCheckEntityComponentSpecs,
 
 			// Children specs
 			NULL,

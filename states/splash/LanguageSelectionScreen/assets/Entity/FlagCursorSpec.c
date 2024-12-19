@@ -114,7 +114,7 @@ BgmapSpriteROMSpec FlagCursorSpriteSpec =
 	__WORLD_ON,
 };
 
-const ComponentSpec* FlagCursorEntitySpecComponentSpecs[] = 
+const ComponentSpec* FlagCursorEntityComponentSpecs[] = 
 {
 	(ComponentSpec*)&FlagCursorSpriteSpec,
 	NULL
@@ -126,7 +126,7 @@ EntityROMSpec FlagCursorEntitySpec =
 	__TYPE(Entity),
 
 	// Component specs
-	(ComponentSpec**)FlagCursorEntitySpecComponentSpecs,
+	(ComponentSpec**)FlagCursorEntityComponentSpecs,
 
 	// Children specs
 	NULL,

@@ -114,7 +114,7 @@ BgmapSpriteROMSpec AdjustmentScreenBgSpriteSpec =
 	__WORLD_ON,
 };
 
-const ComponentSpec* AdjustmentScreenBgEntitySpecComponentSpecs[] = 
+const ComponentSpec* AdjustmentScreenBgEntityComponentSpecs[] = 
 {
 	(ComponentSpec*)&AdjustmentScreenBgSpriteSpec,
 	NULL
@@ -126,7 +126,7 @@ EntityROMSpec AdjustmentScreenBgEntitySpec =
 	__TYPE(Entity),
 
 	// Component specs
-	(ComponentSpec**)AdjustmentScreenBgEntitySpecComponentSpecs,
+	(ComponentSpec**)AdjustmentScreenBgEntityComponentSpecs,
 
 	// Children specs
 	NULL,
