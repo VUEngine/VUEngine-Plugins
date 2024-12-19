@@ -186,20 +186,17 @@ LowPowerEntityROMSpec LowPowerIndicatorEntitySpec =
 			__TYPE(LowPowerEntity),
 
 			// Components
-			(ComponentSpecs**)LowPowerIndicatorEntitySpecComponentSpecs,
+			(ComponentSpec**)LowPowerIndicatorEntitySpecComponentSpecs,
 
 			// children
 			NULL,
-
-			
 
 			// extra
 			NULL,
 
 			
 
-			// use z displacement in projection
-			false,
+			
 				
 			
 

@@ -184,9 +184,5 @@
             "z": 0
         },
         "rotationAxes": []
-    },
-    "sprites": {
-        "type": "Bgmap",
-        "useZDisplacementInProjection": false
     }
 }
