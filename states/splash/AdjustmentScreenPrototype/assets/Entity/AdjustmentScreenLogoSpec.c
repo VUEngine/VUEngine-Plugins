@@ -126,8 +126,11 @@ const ComponentSpec* AdjustmentScreenLogoEntitySpecComponentSpecs[] =
 
 EntityROMSpec AdjustmentScreenLogoEntitySpec =
 {
-	// class allocator
+	// class allocator	
 	__TYPE(Entity),
+
+	// Components
+	(ComponentSpecs**)AdjustmentScreenLogoEntitySpecComponentSpecs,
 
 	// children
 	NULL,

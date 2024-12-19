@@ -163,8 +163,11 @@ const ComponentSpec* AdjustmentScreenIconLEntitySpecComponentSpecs[] =
 
 EntityROMSpec AdjustmentScreenIconLEntitySpec =
 {
-	// class allocator
+	// class allocator	
 	__TYPE(Entity),
+
+	// Components
+	(ComponentSpecs**)AdjustmentScreenIconLEntitySpecComponentSpecs,
 
 	// children
 	NULL,
@@ -200,8 +203,11 @@ const ComponentSpec* AdjustmentScreenIconREntitySpecComponentSpecs[] =
 
 EntityROMSpec AdjustmentScreenIconREntitySpec =
 {
-	// class allocator
+	// class allocator	
 	__TYPE(Entity),
+
+	// Components
+	(ComponentSpecs**)AdjustmentScreenIconREntitySpecComponentSpecs,
 
 	// children
 	NULL,

@@ -126,8 +126,11 @@ const ComponentSpec* FlagSwedenEntitySpecComponentSpecs[] =
 
 EntityROMSpec FlagSwedenEntitySpec =
 {
-	// class allocator
+	// class allocator	
 	__TYPE(Entity),
+
+	// Components
+	(ComponentSpecs**)FlagSwedenEntitySpecComponentSpecs,
 
 	// children
 	NULL,

@@ -212,8 +212,11 @@ const ComponentSpec* AlignmentCheckEntitySpecComponentSpecs[] =
 
 EntityROMSpec AlignmentCheckEntitySpec =
 {
-			// class allocator
+			// class allocator			
 			__TYPE(Entity),
+
+			// Components
+			(ComponentSpecs**)AlignmentCheckEntitySpecComponentSpecs,
 
 			// children
 			NULL,

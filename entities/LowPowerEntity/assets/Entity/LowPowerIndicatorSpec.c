@@ -184,8 +184,11 @@ LowPowerEntityROMSpec LowPowerIndicatorEntitySpec =
 	{
 		// entity
 		{
-			// class allocator
+			// class allocator			
 			__TYPE(LowPowerEntity),
+
+			// Components
+			(ComponentSpecs**)LowPowerIndicatorEntitySpecComponentSpecs,
 
 			// children
 			NULL,

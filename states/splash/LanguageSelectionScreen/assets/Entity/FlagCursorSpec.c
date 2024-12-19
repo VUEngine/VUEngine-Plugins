@@ -126,8 +126,11 @@ const ComponentSpec* FlagCursorEntitySpecComponentSpecs[] =
 
 EntityROMSpec FlagCursorEntitySpec =
 {
-	// class allocator
+	// class allocator	
 	__TYPE(Entity),
+
+	// Components
+	(ComponentSpecs**)FlagCursorEntitySpecComponentSpecs,
 
 	// children
 	NULL,

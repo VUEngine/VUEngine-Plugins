@@ -125,8 +125,11 @@ const ComponentSpec* AutomaticPauseLogoEntitySpecComponentSpecs[] =
 
 EntityROMSpec AutomaticPauseLogoEntitySpec =
 {
-	// class allocator
+	// class allocator	
 	__TYPE(Entity),
+
+	// Components
+	(ComponentSpecs**)AutomaticPauseLogoEntitySpecComponentSpecs,
 
 	// children
 	NULL,
