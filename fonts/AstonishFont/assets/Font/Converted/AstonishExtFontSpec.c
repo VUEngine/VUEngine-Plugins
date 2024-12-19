@@ -311,7 +311,7 @@ FontROMSpec AstonishExtFontSpec =
 	// number of characters per line in charset
 	1,
 
-	// size of a single character (in chars) ({width, height})
+	// Size of a single character (in chars) ({width, height})
 	{1, 2},
 
 	// font's name

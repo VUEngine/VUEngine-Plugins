@@ -73,7 +73,7 @@ StageROMSpec AlignmentCheckScreenStage =
 
 	// level
 	{
-		// size
+		// Size
 		{
 			// x
 			__SCREEN_WIDTH,
@@ -263,7 +263,7 @@ StageROMSpec AlignmentCheckScreenStage =
 			__TYPE(UIContainer),
 		},
 
-		// children
+		// Children specs
 		(PositionedEntity*)AlignmentCheckScreenStageEntities,
 	},
 

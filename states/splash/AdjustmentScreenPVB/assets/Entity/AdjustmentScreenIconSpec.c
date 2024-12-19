@@ -156,23 +156,23 @@ const ComponentSpec* AdjustmentScreenIconLEntitySpecComponentSpecs[] =
 
 EntityROMSpec AdjustmentScreenIconLEntitySpec =
 {
-	// class allocator	
+	// Class allocator	
 	__TYPE(Entity),
 
-	// Components
+	// Component specs
 	(ComponentSpec**)AdjustmentScreenIconLEntitySpecComponentSpecs,
 
-	// children
+	// Children specs
 	NULL,
 
-	// extra
+	// Extra info
 	NULL,
 
-	// size
-	// if 0, width and height will be inferred from the first sprite's texture's size
+	// Size
+	// If 0, it is computed from the visual components if any
 	{0, 0, 0},
 
-	// gameworld's character's type
+	// In-game entity's type
 	kTypeNone
 };
 
@@ -184,22 +184,22 @@ const ComponentSpec* AdjustmentScreenIconREntitySpecComponentSpecs[] =
 
 EntityROMSpec AdjustmentScreenIconREntitySpec =
 {
-	// class allocator	
+	// Class allocator	
 	__TYPE(Entity),
 
-	// Components
+	// Component specs
 	(ComponentSpec**)AdjustmentScreenIconREntitySpecComponentSpecs,
 
-	// children
+	// Children specs
 	NULL,
 
-	// extra
+	// Extra info
 	NULL,
 
-	// size
-	// if 0, width and height will be inferred from the first sprite's texture's size
+	// Size
+	// If 0, it is computed from the visual components if any
 	{0, 0, 0},
 
-	// gameworld's character's type
+	// In-game entity's type
 	kTypeNone
 };

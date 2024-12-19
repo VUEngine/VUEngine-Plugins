@@ -69,7 +69,7 @@ StageROMSpec AutomaticPauseSelectionScreenStage =
 
 	// level
 	{
-		// size
+		// Size
 		{
 			// x
 			__SCREEN_WIDTH,
@@ -259,7 +259,7 @@ StageROMSpec AutomaticPauseSelectionScreenStage =
 			__TYPE(UIContainer),
 		},
 
-		// children
+		// Children specs
 		(PositionedEntity*)AutomaticPauseSelectionScreenStageEntities,
 	},
 

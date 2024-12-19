@@ -67,7 +67,7 @@ StageROMSpec PrecautionScreenStage =
 
 	// level
 	{
-		// size
+		// Size
 		{
 			// x
 			__SCREEN_WIDTH,
@@ -257,7 +257,7 @@ StageROMSpec PrecautionScreenStage =
 			__TYPE(UIContainer),
 		},
 
-		// children
+		// Children specs
 		(PositionedEntity*)PrecautionScreenStageEntities,
 	},
 
