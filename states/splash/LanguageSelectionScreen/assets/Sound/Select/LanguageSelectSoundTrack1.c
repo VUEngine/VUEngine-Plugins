@@ -94,6 +94,9 @@ SoundTrackROMSpec LanguageSelectSoundTrack1 =
 	/// SxRAM pointers
 	(int8**)LanguageSelectSoundTrack1SxRAM,
 
-	/// S5SWP values
-	(uint8*)LanguageSelectSoundTrack1SxSWP
+	/// SxSWP values
+	(uint8*)LanguageSelectSoundTrack1SxSWP,
+
+	/// SxMOD values
+	(int8**)NULL
 };

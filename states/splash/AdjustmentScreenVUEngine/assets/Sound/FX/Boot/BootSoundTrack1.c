@@ -95,6 +95,9 @@ SoundTrackROMSpec BootSoundTrack1 =
 	/// SxRAM pointers
 	(int8**)BootSoundTrack1SxRAM,
 
-	/// S5SWP values
-	(uint8*)BootSoundTrack1SxSWP
+	/// SxSWP values
+	(uint8*)BootSoundTrack1SxSWP,
+
+	/// SxMOD values
+	(int8**)NULL
 };

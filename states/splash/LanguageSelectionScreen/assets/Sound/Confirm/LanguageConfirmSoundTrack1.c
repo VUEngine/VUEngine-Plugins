@@ -95,6 +95,9 @@ SoundTrackROMSpec LanguageConfirmSoundTrack1 =
 	/// SxRAM pointers
 	(int8**)LanguageConfirmSoundTrack1SxRAM,
 
-	/// S5SWP values
-	(uint8*)LanguageConfirmSoundTrack1SxSWP
+	/// SxSWP values
+	(uint8*)LanguageConfirmSoundTrack1SxSWP,
+
+	/// SxMOD values
+	(int8**)NULL
 };

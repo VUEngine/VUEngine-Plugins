@@ -94,6 +94,9 @@ SoundTrackROMSpec AutomaticPauseSelectSoundTrack1 =
 	/// SxRAM pointers
 	(int8**)AutomaticPauseSelectSoundTrack1SxRAM,
 
-	/// S5SWP values
-	(uint8*)AutomaticPauseSelectSoundTrack1SxSWP
+	/// SxSWP values
+	(uint8*)AutomaticPauseSelectSoundTrack1SxSWP,
+
+	/// SxMOD values
+	(int8**)NULL
 };

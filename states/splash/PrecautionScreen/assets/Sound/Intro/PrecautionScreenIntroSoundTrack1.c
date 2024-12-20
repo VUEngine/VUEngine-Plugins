@@ -94,6 +94,9 @@ SoundTrackROMSpec PrecautionScreenIntroSoundTrack1 =
 	/// SxRAM pointers
 	(int8**)PrecautionScreenIntroSoundTrack1SxRAM,
 
-	/// S5SWP values
-	(uint8*)PrecautionScreenIntroSoundTrack1SxSWP
+	/// SxSWP values
+	(uint8*)PrecautionScreenIntroSoundTrack1SxSWP,
+
+	/// SxMOD values
+	(int8**)NULL
 };

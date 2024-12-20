@@ -95,6 +95,9 @@ SoundTrackROMSpec AutomaticPauseConfirmSoundTrack1 =
 	/// SxRAM pointers
 	(int8**)AutomaticPauseConfirmSoundTrack1SxRAM,
 
-	/// S5SWP values
-	(uint8*)AutomaticPauseConfirmSoundTrack1SxSWP
+	/// SxSWP values
+	(uint8*)AutomaticPauseConfirmSoundTrack1SxSWP,
+
+	/// SxMOD values
+	(int8**)NULL
 };
