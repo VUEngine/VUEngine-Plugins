@@ -114,7 +114,7 @@ BgmapSpriteROMSpec AdjustmentScreenBgSpriteSpec =
 	__WORLD_ON,
 };
 
-const ComponentSpec* AdjustmentScreenBgEntityComponentSpecs[] = 
+ComponentSpec* const AdjustmentScreenBgEntityComponentSpecs[] = 
 {
 	(ComponentSpec*)&AdjustmentScreenBgSpriteSpec,
 	NULL
@@ -138,6 +138,6 @@ EntityROMSpec AdjustmentScreenBgEntitySpec =
 	// If 0, it is computed from the visual components if any
 	{0, 0, 0},
 
-	// In-game entity's type
+	// Entity's in-game type
 	kTypeNone
 };

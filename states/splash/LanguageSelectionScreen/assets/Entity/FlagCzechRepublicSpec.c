@@ -114,7 +114,7 @@ BgmapSpriteROMSpec FlagCzechRepublicSpriteSpec =
 	__WORLD_ON,
 };
 
-const ComponentSpec* FlagCzechRepublicEntityComponentSpecs[] = 
+ComponentSpec* const FlagCzechRepublicEntityComponentSpecs[] = 
 {
 	(ComponentSpec*)&FlagCzechRepublicSpriteSpec,
 	NULL
@@ -138,6 +138,6 @@ EntityROMSpec FlagCzechRepublicEntitySpec =
 	// If 0, it is computed from the visual components if any
 	{0, 0, 0},
 
-	// In-game entity's type
+	// Entity's in-game type
 	kTypeNone
 };

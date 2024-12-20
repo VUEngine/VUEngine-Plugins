@@ -114,7 +114,7 @@ BgmapSpriteROMSpec FlagGermanySpriteSpec =
 	__WORLD_ON,
 };
 
-const ComponentSpec* FlagGermanyEntityComponentSpecs[] = 
+ComponentSpec* const FlagGermanyEntityComponentSpecs[] = 
 {
 	(ComponentSpec*)&FlagGermanySpriteSpec,
 	NULL
@@ -138,6 +138,6 @@ EntityROMSpec FlagGermanyEntitySpec =
 	// If 0, it is computed from the visual components if any
 	{0, 0, 0},
 
-	// In-game entity's type
+	// Entity's in-game type
 	kTypeNone
 };

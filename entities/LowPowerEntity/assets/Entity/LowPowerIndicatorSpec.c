@@ -168,7 +168,7 @@ BgmapSpriteROMSpec LowPowerIndicatorSpriteSpec =
 	__WORLD_ON,
 };
 
-const ComponentSpec* LowPowerIndicatorEntityComponentSpecs[] = 
+ComponentSpec* const LowPowerIndicatorEntityComponentSpecs[] = 
 {
 	(ComponentSpec*)&LowPowerIndicatorSpriteSpec,
 	NULL
@@ -192,19 +192,11 @@ LowPowerEntityROMSpec LowPowerIndicatorEntitySpec =
 			// Extra info
 			NULL,
 
-			
-
-			
-				
-			
-
-			
-
 			// Size
 			// If 0, it is computed from the visual components if any
 			{0, 0, 0},
 
-			// In-game entity's type
+			// Entity's in-game type
 			kTypeNone,
 
 			

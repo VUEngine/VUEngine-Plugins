@@ -201,7 +201,7 @@ BgmapSpriteROMSpec AlignmentCheckSprite2SpriteSpec =
 //                                                 ENTITY                                                  
 //---------------------------------------------------------------------------------------------------------
 
-const ComponentSpec* AlignmentCheckEntityComponentSpecs[] = 
+ComponentSpec* const AlignmentCheckEntityComponentSpecs[] = 
 {
 	(ComponentSpec*)&AlignmentCheckSprite1SpriteSpec,
 	(ComponentSpec*)&AlignmentCheckSprite2SpriteSpec,
@@ -226,7 +226,7 @@ EntityROMSpec AlignmentCheckEntitySpec =
 			// If 0, it is computed from the visual components if any
 			{ 0, 0, 0 },
 
-			// In-game entity's type
+			// Entity's in-game type
 			kTypeNone,
 
 			

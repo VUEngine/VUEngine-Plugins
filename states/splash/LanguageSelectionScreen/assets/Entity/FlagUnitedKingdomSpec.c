@@ -114,7 +114,7 @@ BgmapSpriteROMSpec FlagUnitedKingdomSpriteSpec =
 	__WORLD_ON,
 };
 
-const ComponentSpec* FlagUnitedKingdomEntityComponentSpecs[] = 
+ComponentSpec* const FlagUnitedKingdomEntityComponentSpecs[] = 
 {
 	(ComponentSpec*)&FlagUnitedKingdomSpriteSpec,
 	NULL
@@ -138,6 +138,6 @@ EntityROMSpec FlagUnitedKingdomEntitySpec =
 	// If 0, it is computed from the visual components if any
 	{0, 0, 0},
 
-	// In-game entity's type
+	// Entity's in-game type
 	kTypeNone
 };

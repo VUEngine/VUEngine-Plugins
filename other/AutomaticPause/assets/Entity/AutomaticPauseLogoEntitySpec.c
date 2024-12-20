@@ -113,7 +113,7 @@ BgmapSpriteROMSpec AutomaticPauseLogoSpriteSpec =
 	__WORLD_ON,
 };
 
-const ComponentSpec* AutomaticPauseLogoEntityComponentSpecs[] = 
+ComponentSpec* const AutomaticPauseLogoEntityComponentSpecs[] = 
 {
 	(ComponentSpec*)&AutomaticPauseLogoSpriteSpec,
 	NULL
@@ -137,6 +137,6 @@ EntityROMSpec AutomaticPauseLogoEntitySpec =
 	// If 0, it is computed from the visual components if any
 	{0, 0, 0},
 
-	// In-game entity's type
+	// Entity's in-game type
 	kTypeNone
 };

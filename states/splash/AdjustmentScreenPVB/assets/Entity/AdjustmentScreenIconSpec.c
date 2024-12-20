@@ -148,7 +148,7 @@ BgmapSpriteROMSpec const AdjustmentScreenIconRSpriteSpec =
 	__WORLD_RON,
 };
 
-const ComponentSpec* AdjustmentScreenIconLEntityComponentSpecs[] = 
+ComponentSpec* const AdjustmentScreenIconLEntityComponentSpecs[] = 
 {
 	(ComponentSpec*)&AdjustmentScreenIconLSpriteSpec,
 	NULL
@@ -172,11 +172,11 @@ EntityROMSpec AdjustmentScreenIconLEntitySpec =
 	// If 0, it is computed from the visual components if any
 	{0, 0, 0},
 
-	// In-game entity's type
+	// Entity's in-game type
 	kTypeNone
 };
 
-const ComponentSpec* AdjustmentScreenIconREntityComponentSpecs[] = 
+ComponentSpec* const AdjustmentScreenIconREntityComponentSpecs[] = 
 {
 	(ComponentSpec*)&AdjustmentScreenIconRSpriteSpec,
 	NULL
@@ -200,6 +200,6 @@ EntityROMSpec AdjustmentScreenIconREntitySpec =
 	// If 0, it is computed from the visual components if any
 	{0, 0, 0},
 
-	// In-game entity's type
+	// Entity's in-game type
 	kTypeNone
 };
