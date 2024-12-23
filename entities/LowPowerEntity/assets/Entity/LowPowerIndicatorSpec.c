@@ -90,7 +90,7 @@ CharSetROMSpec LowPowerIndicatorCharsetSpec =
 	2,
 
 	// whether it is shared or not
-	false,
+	true,
 	
 	// whether the tiles are optimized or not
 	false,
