@@ -137,39 +137,39 @@ const uint32 DefaultBoldExtFontTiles[] __attribute__((aligned(4))) =
 
 CharSetROMSpec DefaultBoldExtFontCharSet =
 {
-	// number of chars
+	// Number of chars in function of the number of frames to load at the same time
 	224,
 
-	// whether it is shared or not
+	// Whether it is shared or not
 	true,
 
-	// whether the tiles are optimized or not
+	// Whether the tiles are optimized or not
 	false,
 
 	// char data
 	(uint32*)DefaultBoldExtFontTiles,
 
-	// pointer to the frames offsets
+	// Frame offsets array
 	NULL    
 };
 
 FontROMSpec DefaultBoldExtFontSpec =
 {
-	// font charset spec pointer
+	// Pointer to the char spec that the font uses
 	(CharSetSpec*)&DefaultBoldExtFontCharSet,
 
-	// character number at which the font starts, allows you to skip the control characters for example
+	// Offset at which character number the font starts
 	32,
 
-	// number of characters in this font
+	// Number of characters in this font
 	224,
 
-	// number of characters per line in charset
+	// Number of characters per line in charset
 	1,
 
 	// Size of a single character (in chars) ({width, height})
 	{1, 1},
 
-	// font's name
+	// Font's name
 	"DefaultBoldExt",
 };

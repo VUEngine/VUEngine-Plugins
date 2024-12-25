@@ -21,384 +21,384 @@
 
 AnimationFunctionROMSpec LocalizedEntity0Animations =
 {
-	// number of frames of this animation function
+	// Number of frames that the texture supports of this animation function
 	1,
 
-	// frames to play in animation
+	// Frames to play in animation
 	{
 		0
 	},
 
-	// number of cycles a frame of animation is displayed
+	// Number of cycles a frame of animation is displayed
 	8,
 
-	// whether to play it in loop or not
+	// Whether to play it in loop or not
 	false,
 
-	// method to call on function completion
+	// Callback on animation completion
 	NULL,
 
-	// function's name
+	// Animation's name
 	"0",
 };
 
 
 AnimationFunctionROMSpec LocalizedEntity1Animations =
 {
-	// number of frames of this animation function
+	// Number of frames that the texture supports of this animation function
 	1,
 
-	// frames to play in animation
+	// Frames to play in animation
 	{
 		1
 	},
 
-	// number of cycles a frame of animation is displayed
+	// Number of cycles a frame of animation is displayed
 	8,
 
-	// whether to play it in loop or not
+	// Whether to play it in loop or not
 	false,
 
-	// method to call on function completion
+	// Callback on animation completion
 	NULL,
 
-	// function's name
+	// Animation's name
 	"1",
 };
 
 
 AnimationFunctionROMSpec LocalizedEntity2Animations =
 {
-	// number of frames of this animation function
+	// Number of frames that the texture supports of this animation function
 	1,
 
-	// frames to play in animation
+	// Frames to play in animation
 	{
 		2
 	},
 
-	// number of cycles a frame of animation is displayed
+	// Number of cycles a frame of animation is displayed
 	8,
 
-	// whether to play it in loop or not
+	// Whether to play it in loop or not
 	false,
 
-	// method to call on function completion
+	// Callback on animation completion
 	NULL,
 
-	// function's name
+	// Animation's name
 	"2",
 };
 
 
 AnimationFunctionROMSpec LocalizedEntity3Animations =
 {
-	// number of frames of this animation function
+	// Number of frames that the texture supports of this animation function
 	1,
 
-	// frames to play in animation
+	// Frames to play in animation
 	{
 		3
 	},
 
-	// number of cycles a frame of animation is displayed
+	// Number of cycles a frame of animation is displayed
 	8,
 
-	// whether to play it in loop or not
+	// Whether to play it in loop or not
 	false,
 
-	// method to call on function completion
+	// Callback on animation completion
 	NULL,
 
-	// function's name
+	// Animation's name
 	"3",
 };
 
 
 AnimationFunctionROMSpec LocalizedEntity4Animations =
 {
-	// number of frames of this animation function
+	// Number of frames that the texture supports of this animation function
 	1,
 
-	// frames to play in animation
+	// Frames to play in animation
 	{
 		4
 	},
 
-	// number of cycles a frame of animation is displayed
+	// Number of cycles a frame of animation is displayed
 	8,
 
-	// whether to play it in loop or not
+	// Whether to play it in loop or not
 	false,
 
-	// method to call on function completion
+	// Callback on animation completion
 	NULL,
 
-	// function's name
+	// Animation's name
 	"4",
 };
 
 
 AnimationFunctionROMSpec LocalizedEntity5Animations =
 {
-	// number of frames of this animation function
+	// Number of frames that the texture supports of this animation function
 	1,
 
-	// frames to play in animation
+	// Frames to play in animation
 	{
 		5
 	},
 
-	// number of cycles a frame of animation is displayed
+	// Number of cycles a frame of animation is displayed
 	8,
 
-	// whether to play it in loop or not
+	// Whether to play it in loop or not
 	false,
 
-	// method to call on function completion
+	// Callback on animation completion
 	NULL,
 
-	// function's name
+	// Animation's name
 	"5",
 };
 
 
 AnimationFunctionROMSpec LocalizedEntity6Animations =
 {
-	// number of frames of this animation function
+	// Number of frames that the texture supports of this animation function
 	1,
 
-	// frames to play in animation
+	// Frames to play in animation
 	{
 		6
 	},
 
-	// number of cycles a frame of animation is displayed
+	// Number of cycles a frame of animation is displayed
 	8,
 
-	// whether to play it in loop or not
+	// Whether to play it in loop or not
 	false,
 
-	// method to call on function completion
+	// Callback on animation completion
 	NULL,
 
-	// function's name
+	// Animation's name
 	"6",
 };
 
 
 AnimationFunctionROMSpec LocalizedEntity7Animations =
 {
-	// number of frames of this animation function
+	// Number of frames that the texture supports of this animation function
 	1,
 
-	// frames to play in animation
+	// Frames to play in animation
 	{
 		7
 	},
 
-	// number of cycles a frame of animation is displayed
+	// Number of cycles a frame of animation is displayed
 	8,
 
-	// whether to play it in loop or not
+	// Whether to play it in loop or not
 	false,
 
-	// method to call on function completion
+	// Callback on animation completion
 	NULL,
 
-	// function's name
+	// Animation's name
 	"7",
 };
 
 
 AnimationFunctionROMSpec LocalizedEntity8Animations =
 {
-	// number of frames of this animation function
+	// Number of frames that the texture supports of this animation function
 	1,
 
-	// frames to play in animation
+	// Frames to play in animation
 	{
 		8
 	},
 
-	// number of cycles a frame of animation is displayed
+	// Number of cycles a frame of animation is displayed
 	8,
 
-	// whether to play it in loop or not
+	// Whether to play it in loop or not
 	false,
 
-	// method to call on function completion
+	// Callback on animation completion
 	NULL,
 
-	// function's name
+	// Animation's name
 	"8",
 };
 
 
 AnimationFunctionROMSpec LocalizedEntity9Animations =
 {
-	// number of frames of this animation function
+	// Number of frames that the texture supports of this animation function
 	1,
 
-	// frames to play in animation
+	// Frames to play in animation
 	{
 		9
 	},
 
-	// number of cycles a frame of animation is displayed
+	// Number of cycles a frame of animation is displayed
 	8,
 
-	// whether to play it in loop or not
+	// Whether to play it in loop or not
 	false,
 
-	// method to call on function completion
+	// Callback on animation completion
 	NULL,
 
-	// function's name
+	// Animation's name
 	"9",
 };
 
 
 AnimationFunctionROMSpec LocalizedEntity10Animations =
 {
-	// number of frames of this animation function
+	// Number of frames that the texture supports of this animation function
 	1,
 
-	// frames to play in animation
+	// Frames to play in animation
 	{
 		0
 	},
 
-	// number of cycles a frame of animation is displayed
+	// Number of cycles a frame of animation is displayed
 	8,
 
-	// whether to play it in loop or not
+	// Whether to play it in loop or not
 	false,
 
-	// method to call on function completion
+	// Callback on animation completion
 	NULL,
 
-	// function's name
+	// Animation's name
 	"10",
 };
 
 
 AnimationFunctionROMSpec LocalizedEntity11Animations =
 {
-	// number of frames of this animation function
+	// Number of frames that the texture supports of this animation function
 	1,
 
-	// frames to play in animation
+	// Frames to play in animation
 	{
 		1
 	},
 
-	// number of cycles a frame of animation is displayed
+	// Number of cycles a frame of animation is displayed
 	8,
 
-	// whether to play it in loop or not
+	// Whether to play it in loop or not
 	false,
 
-	// method to call on function completion
+	// Callback on animation completion
 	NULL,
 
-	// function's name
+	// Animation's name
 	"11",
 };
 
 
 AnimationFunctionROMSpec LocalizedEntity12Animations =
 {
-	// number of frames of this animation function
+	// Number of frames that the texture supports of this animation function
 	1,
 
-	// frames to play in animation
+	// Frames to play in animation
 	{
 		2
 	},
 
-	// number of cycles a frame of animation is displayed
+	// Number of cycles a frame of animation is displayed
 	8,
 
-	// whether to play it in loop or not
+	// Whether to play it in loop or not
 	false,
 
-	// method to call on function completion
+	// Callback on animation completion
 	NULL,
 
-	// function's name
+	// Animation's name
 	"12",
 };
 
 
 AnimationFunctionROMSpec LocalizedEntity13Animations =
 {
-	// number of frames of this animation function
+	// Number of frames that the texture supports of this animation function
 	1,
 
-	// frames to play in animation
+	// Frames to play in animation
 	{
 		3
 	},
 
-	// number of cycles a frame of animation is displayed
+	// Number of cycles a frame of animation is displayed
 	8,
 
-	// whether to play it in loop or not
+	// Whether to play it in loop or not
 	false,
 
-	// method to call on function completion
+	// Callback on animation completion
 	NULL,
 
-	// function's name
+	// Animation's name
 	"13",
 };
 
 
 AnimationFunctionROMSpec LocalizedEntity14Animations =
 {
-	// number of frames of this animation function
+	// Number of frames that the texture supports of this animation function
 	1,
 
-	// frames to play in animation
+	// Frames to play in animation
 	{
 		4
 	},
 
-	// number of cycles a frame of animation is displayed
+	// Number of cycles a frame of animation is displayed
 	8,
 
-	// whether to play it in loop or not
+	// Whether to play it in loop or not
 	false,
 
-	// method to call on function completion
+	// Callback on animation completion
 	NULL,
 
-	// function's name
+	// Animation's name
 	"14",
 };
 
 
 AnimationFunctionROMSpec LocalizedEntity15Animations =
 {
-	// number of frames of this animation function
+	// Number of frames that the texture supports of this animation function
 	1,
 
-	// frames to play in animation
+	// Frames to play in animation
 	{
 		5
 	},
 
-	// number of cycles a frame of animation is displayed
+	// Number of cycles a frame of animation is displayed
 	8,
 
-	// whether to play it in loop or not
+	// Whether to play it in loop or not
 	false,
 
-	// method to call on function completion
+	// Callback on animation completion
 	NULL,
 
-	// function's name
+	// Animation's name
 	"15",
 };
 

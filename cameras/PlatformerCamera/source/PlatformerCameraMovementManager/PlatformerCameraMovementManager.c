@@ -108,25 +108,25 @@ void PlatformerCameraMovementManager::configure(Entity focusEntity, uint32 focus
 		// collider
 		__TYPE(InverseBox),
 
-		// size (x, y, z)
+		// Size (x, y, z)
 		boundingBoxSize,
 
-		// displacement (x, y, z, p)
+		// Displacement (x, y, z, p)
 		{0, 0, 0, 0},
 
-		// rotation (x, y, z)
+		// Rotation (x, y, z)
 		{0, 0, 0},
 
-		// scale (x, y, z)
+		// Scale (x, y, z)
 		{0, 0, 0},
 
-		/// if true this collider checks for collisions against other colliders
+		/// If true this collider checks for collisions against other colliders
 		true,
 
-		/// layers in which I live
+		/// Layers in which I live
 		cameraTriggerLayer,
 
-		/// layers to ignore when checking for collisions
+		/// Layers to ignore when checking for collisions
 		~(focusEntityLayer),
 	};
 

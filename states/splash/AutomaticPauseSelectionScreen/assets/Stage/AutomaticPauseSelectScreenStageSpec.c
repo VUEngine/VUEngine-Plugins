@@ -232,7 +232,7 @@ StageROMSpec AutomaticPauseSelectionScreenStage =
 			__I_TO_FIXED(0),
 		},
 
-		// friction
+		// Friction
 		__F_TO_FIXED(0),
 	},
 

@@ -153,39 +153,39 @@ const uint32 IndustrialExtFontTiles[] __attribute__((aligned(4))) =
 
 CharSetROMSpec IndustrialExtFontCharSet =
 {
-	// number of chars
+	// Number of chars in function of the number of frames to load at the same time
 	256,
 
-	// whether it is shared or not
+	// Whether it is shared or not
 	true,
 
-	// whether the tiles are optimized or not
+	// Whether the tiles are optimized or not
 	false,
 
 	// char data
 	(uint32*)IndustrialExtFontTiles,
 
-	// pointer to the frames offsets
+	// Frame offsets array
 	NULL    
 };
 
 FontROMSpec IndustrialExtFontSpec =
 {
-	// font charset spec pointer
+	// Pointer to the char spec that the font uses
 	(CharSetSpec*)&IndustrialExtFontCharSet,
 
-	// character number at which the font starts, allows you to skip the control characters for example
+	// Offset at which character number the font starts
 	0,
 
-	// number of characters in this font
+	// Number of characters in this font
 	256,
 
-	// number of characters per line in charset
+	// Number of characters per line in charset
 	1,
 
 	// Size of a single character (in chars) ({width, height})
 	{1, 1},
 
-	// font's name
+	// Font's name
 	"IndustrialExt",
 };
