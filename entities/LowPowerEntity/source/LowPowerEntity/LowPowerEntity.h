@@ -10,20 +10,18 @@
 #ifndef LOW_POWER_ENTITY_H_
 #define LOW_POWER_ENTITY_H_
 
-
 //=========================================================================================================
 // INCLUDES
 //=========================================================================================================
 
 #include <AnimatedEntity.h>
 
-
 //=========================================================================================================
 // CLASS' DATA
 //=========================================================================================================
 
 /// An LowPowerEntity Spec
-/// @memberof LocalizedEntity
+/// @memberof LowPowerEntity
 typedef struct LowPowerEntitySpec
 {
 	AnimatedEntitySpec animatedEntitySpec;
@@ -34,7 +32,6 @@ typedef struct LowPowerEntitySpec
 /// @memberof LowPowerEntity
 typedef const LowPowerEntitySpec LowPowerEntityROMSpec;
 
-
 //=========================================================================================================
 // CLASS' DECLARATION
 //=========================================================================================================
@@ -44,14 +41,16 @@ typedef const LowPowerEntitySpec LowPowerEntityROMSpec;
 ///
 /// Inherits from AnimatedEntity
 ///
-/// Implements localized visual elements, where each animation represents one translation to another language.
+/// Implements localized visual elements, where each animation represents one translation to another
+/// language.
 class LowPowerEntity : AnimatedEntity
 {
 	/// @param lowPowerEntitySpec: Specification that determines how to configure the actor
 	/// @param internalId: ID to keep track internally of the new instance
 	/// @param name: Name to assign to the new instance
-	void constructor(const LowPowerEntitySpec* lowPowerEntitySpec, int16 internalId, const char* const name);
+	void constructor(
+		const LowPowerEntitySpec* lowPowerEntitySpec, int16 internalId, const char* const name
+	);
 }
-
 
 #endif

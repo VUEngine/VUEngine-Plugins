@@ -10,20 +10,19 @@
 #ifndef SAVE_DATA_MANAGER_H_
 #define SAVE_DATA_MANAGER_H_
 
-
 //=========================================================================================================
 // INCLUDES
 //=========================================================================================================
 
 #include <ListenerObject.h>
 
-
 //---------------------------------------------------------------------------------------------------------
 //											TYPE DEFINITIONS
 //---------------------------------------------------------------------------------------------------------
 
-// this struct is never instantiated, its sole purpose is to determine offsets of its members.
-// therefore it acts as kind of like a map of sram content.
+/// this struct is never instantiated, its sole purpose is to determine offsets of its members.
+/// therefore it acts as kind of like a map of sram content.
+/// @memberof SaveDataManager
 typedef struct SaveData
 {
 	// flag to know if there is data from this game saved
@@ -40,13 +39,12 @@ typedef struct SaveData
 
 } SaveData;
 
-
 //---------------------------------------------------------------------------------------------------------
 //											CLASS'S DECLARATION
 //---------------------------------------------------------------------------------------------------------
 
 /*
- * Class that handles SRAM save data, including checksum mechanism to detect 
+ * Class that handles SRAM save data, including checksum mechanism to detect
  * manipulation or corruption of such data. Easily extendable with custom data,
  * see VUEngine Barebone project for an example.
  */
@@ -67,13 +65,12 @@ abstract class SaveDataManager : ListenerObject
 	virtual void writeDefaults();
 	virtual int32 getSaveDataSize();
 
-	// TODO: removed hard dependencies to i18n and auto pause plugins 
+	// TODO: removed hard dependencies to i18n and auto pause plugins
 	// 		 but still have to get rid of the following methods
 	bool getAutomaticPauseStatus();
 	void setAutomaticPauseStatus(uint8 autoPauseStatus);
 	uint8 getLanguage();
 	void setLanguage(uint8 languageId);
 }
-
 
 #endif
