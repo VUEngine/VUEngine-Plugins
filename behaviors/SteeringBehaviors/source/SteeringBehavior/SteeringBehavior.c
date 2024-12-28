@@ -225,6 +225,7 @@ static Vector3D SteeringBehavior::clampForce(Vector3D force, fixed_t maximumForc
 //---------------------------------------------------------------------------------------------------------
 void SteeringBehavior::constructor(SpatialObject owner, const SteeringBehaviorSpec* steeringBehaviorSpec)
 {
+	// Always explicitly call the base's constructor 
 	Base::constructor(owner, &steeringBehaviorSpec->behaviorSpec);
 
 	this->force = Vector3D::zero();
@@ -234,6 +235,7 @@ void SteeringBehavior::constructor(SpatialObject owner, const SteeringBehaviorSp
 //---------------------------------------------------------------------------------------------------------
 void SteeringBehavior::destructor()
 {
+	// Always explicitly call the base's destructor 
 	Base::destructor();
 }
 //---------------------------------------------------------------------------------------------------------

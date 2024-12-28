@@ -97,6 +97,7 @@ void PrecautionScreenState::print()
 //---------------------------------------------------------------------------------------------------------
 void PrecautionScreenState::constructor()
 {
+	// Always explicitly call the base's constructor 
 	Base::constructor();
 
 	this->stageSpec = (StageSpec*)&PrecautionScreenStage;
@@ -105,6 +106,7 @@ void PrecautionScreenState::constructor()
 void PrecautionScreenState::destructor()
 {
 	// destroy base
+	// Always explicitly call the base's destructor 
 	Base::destructor();
 }
 //---------------------------------------------------------------------------------------------------------

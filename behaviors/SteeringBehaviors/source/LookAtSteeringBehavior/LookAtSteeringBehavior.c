@@ -63,6 +63,7 @@ static Vector3D LookAtSteeringBehavior::toTarget(LookAtSteeringBehavior LookAtSt
 //---------------------------------------------------------------------------------------------------------
 void LookAtSteeringBehavior::constructor(SpatialObject owner, const LookAtSteeringBehaviorSpec* lookAtSteeringBehaviorSpec)
 {
+	// Always explicitly call the base's constructor 
 	Base::constructor(owner, &lookAtSteeringBehaviorSpec->steeringBehaviorSpec);
 
 	this->target = Vector3D::zero();
@@ -74,6 +75,7 @@ void LookAtSteeringBehavior::constructor(SpatialObject owner, const LookAtSteeri
 //---------------------------------------------------------------------------------------------------------
 void LookAtSteeringBehavior::destructor()
 {
+	// Always explicitly call the base's destructor 
 	Base::destructor();
 }
 //---------------------------------------------------------------------------------------------------------

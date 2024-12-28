@@ -77,6 +77,7 @@ void AlignmentCheckScreenState::processUserInput(const UserInput* userInput)
 //---------------------------------------------------------------------------------------------------------
 void AlignmentCheckScreenState::constructor()
 {
+	// Always explicitly call the base's constructor 
 	Base::constructor();
 
 	this->stageSpec = (StageSpec*)&AlignmentCheckScreenStage;
@@ -85,6 +86,7 @@ void AlignmentCheckScreenState::constructor()
 void AlignmentCheckScreenState::destructor()
 {
 	// destroy base
+	// Always explicitly call the base's destructor 
 	Base::destructor();
 }
 //---------------------------------------------------------------------------------------------------------

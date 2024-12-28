@@ -43,6 +43,7 @@ static Vector3D BrakeSteeringBehavior::toTarget(BrakeSteeringBehavior seekSteeri
 //---------------------------------------------------------------------------------------------------------
 void BrakeSteeringBehavior::constructor(SpatialObject owner, const BrakeSteeringBehaviorSpec* brakeSteeringBehaviorSpec)
 {
+	// Always explicitly call the base's constructor 
 	Base::constructor(owner, &brakeSteeringBehaviorSpec->steeringBehaviorSpec);
 
 	this->strength = 0;
@@ -50,6 +51,7 @@ void BrakeSteeringBehavior::constructor(SpatialObject owner, const BrakeSteering
 //---------------------------------------------------------------------------------------------------------
 void BrakeSteeringBehavior::destructor()
 {
+	// Always explicitly call the base's destructor 
 	Base::destructor();
 }
 //---------------------------------------------------------------------------------------------------------

@@ -164,6 +164,7 @@ void LanguageSelectionScreenState::print()
 //---------------------------------------------------------------------------------------------------------
 void LanguageSelectionScreenState::constructor()
 {
+	// Always explicitly call the base's constructor 
 	Base::constructor();
 
 	// init members
@@ -182,6 +183,7 @@ void LanguageSelectionScreenState::destructor()
 	}
 
 	// destroy base
+	// Always explicitly call the base's destructor 
 	Base::destructor();
 }
 //---------------------------------------------------------------------------------------------------------

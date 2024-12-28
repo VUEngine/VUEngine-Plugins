@@ -26,6 +26,7 @@
 //---------------------------------------------------------------------------------------------------------
 void LocalizedEntity::constructor(const LocalizedEntitySpec* localizedEntitySpec, int16 internalId, const char* const name)
 {
+	// Always explicitly call the base's constructor 
 	Base::constructor((AnimatedEntitySpec*)&localizedEntitySpec->animatedEntitySpec, internalId, name);
 
 	// add event listeners
@@ -37,7 +38,7 @@ void LocalizedEntity::destructor()
 	// remove event listeners
 	GameState::removeEventListener(VUEngine::getCurrentState(VUEngine::getInstance()), ListenerObject::safeCast(this), (EventListener)LocalizedEntity::onLanguageChanged, kEventLanguageChanged);
 
-
+	// Always explicitly call the base's destructor 
 	Base::destructor();
 }
 //---------------------------------------------------------------------------------------------------------

@@ -26,6 +26,7 @@
 //---------------------------------------------------------------------------------------------------------
 void SplashScreenState::constructor()
 {
+	// Always explicitly call the base's constructor 
 	Base::constructor();
 
 	// init class members
@@ -35,6 +36,7 @@ void SplashScreenState::constructor()
 //---------------------------------------------------------------------------------------------------------
 void SplashScreenState::destructor()
 {
+	// Always explicitly call the base's destructor 
 	Base::destructor();
 }
 //---------------------------------------------------------------------------------------------------------

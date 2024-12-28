@@ -27,6 +27,7 @@
 
 void LowPowerManager::constructor()
 {
+	// Always explicitly call the base's constructor 
 	Base::constructor();
 
 	// init class variables
@@ -46,6 +47,7 @@ void LowPowerManager::destructor()
 	Clock::removeEventListener(VUEngine::getClock(VUEngine::getInstance()), ListenerObject::safeCast(this), (EventListener)LowPowerManager::onSecondChange, kEventSecondChanged);
 
 	// destroy base
+	// Always explicitly call the base's destructor 
 	Base::destructor();
 }
 

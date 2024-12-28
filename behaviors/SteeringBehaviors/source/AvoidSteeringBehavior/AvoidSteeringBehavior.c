@@ -48,6 +48,7 @@ typedef struct Obstacle
 //---------------------------------------------------------------------------------------------------------
 void AvoidSteeringBehavior::constructor(SpatialObject owner, const AvoidSteeringBehaviorSpec* avoidSteeringBehaviorSpec)
 {
+	// Always explicitly call the base's constructor 
 	Base::constructor(owner, &avoidSteeringBehaviorSpec->steeringBehaviorSpec);
 
 	this->obstacles = new VirtualList();
@@ -58,7 +59,7 @@ void AvoidSteeringBehavior::destructor()
 	AvoidSteeringBehavior::removeAllObstacles(this);
 	delete this->obstacles;
 
-
+	// Always explicitly call the base's destructor 
 	Base::destructor();
 }
 //---------------------------------------------------------------------------------------------------------

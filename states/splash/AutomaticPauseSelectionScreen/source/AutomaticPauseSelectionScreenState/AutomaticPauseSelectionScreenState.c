@@ -102,6 +102,7 @@ void AutomaticPauseSelectionScreenState::print()
 //---------------------------------------------------------------------------------------------------------
 void AutomaticPauseSelectionScreenState::constructor()
 {
+	// Always explicitly call the base's constructor 
 	Base::constructor();
 
 	this->stageSpec = (StageSpec*)&AutomaticPauseSelectionScreenStage;
@@ -111,6 +112,7 @@ void AutomaticPauseSelectionScreenState::constructor()
 void AutomaticPauseSelectionScreenState::destructor()
 {
 	// destroy base
+	// Always explicitly call the base's destructor 
 	Base::destructor();
 }
 //---------------------------------------------------------------------------------------------------------

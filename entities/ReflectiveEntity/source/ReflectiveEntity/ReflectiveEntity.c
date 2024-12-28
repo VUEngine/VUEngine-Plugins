@@ -689,6 +689,7 @@ void ReflectiveEntity::drawReflection(uint32 currentDrawingFrameBufferSet,
 //---------------------------------------------------------------------------------------------------------
 void ReflectiveEntity::constructor(ReflectiveEntitySpec* reflectiveEntitySpec, int16 internalId, const char* const name)
 {
+	// Always explicitly call the base's constructor 
 	Base::constructor(&reflectiveEntitySpec->entitySpec, internalId, name);
 
 	this->waveLutIndex = 0;
@@ -700,6 +701,7 @@ void ReflectiveEntity::destructor()
 	// remove post processing effect
 	VUEngine::removePostProcessingEffect(VUEngine::getInstance(), ReflectiveEntity::reflect, SpatialObject::safeCast(this));
 
+	// Always explicitly call the base's destructor 
 	Base::destructor();
 }
 //---------------------------------------------------------------------------------------------------------

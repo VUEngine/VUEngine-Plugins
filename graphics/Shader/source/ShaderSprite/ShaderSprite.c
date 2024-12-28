@@ -40,6 +40,7 @@ friend class CharSet;
 void ShaderSprite::constructor(SpatialObject owner, const ShaderSpriteSpec* shaderSpriteSpec)
 {
 	// construct base
+	// Always explicitly call the base's constructor 
 	Base::constructor(owner, &shaderSpriteSpec->bgmapSpriteSpec);
 
 	this->buffer = shaderSpriteSpec->shaderDisplaySide;
@@ -55,6 +56,7 @@ void ShaderSprite::destructor()
 {
 	this->charSet = NULL;
 
+	// Always explicitly call the base's destructor 
 	Base::destructor();
 }
 //---------------------------------------------------------------------------------------------------------

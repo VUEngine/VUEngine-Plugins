@@ -47,6 +47,7 @@ const SaveData SaveDataDefaults =
 
 void SaveDataManager::constructor()
 {
+	// Always explicitly call the base's constructor 
 	Base::constructor();
 
 	// init class variables
@@ -62,6 +63,7 @@ void SaveDataManager::constructor()
 void SaveDataManager::destructor()
 {
 	// destroy base
+	// Always explicitly call the base's destructor 
 	Base::destructor();
 }
 

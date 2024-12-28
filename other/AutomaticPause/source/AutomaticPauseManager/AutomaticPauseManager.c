@@ -75,6 +75,7 @@ bool AutomaticPauseManager::isActive()
 //---------------------------------------------------------------------------------------------------------
 void AutomaticPauseManager::constructor()
 {
+	// Always explicitly call the base's constructor 
 	Base::constructor();
 
 	// init members
@@ -90,6 +91,7 @@ void AutomaticPauseManager::destructor()
 	Clock::removeEventListener(VUEngine::getClock(VUEngine::getInstance()), ListenerObject::safeCast(this), (EventListener)AutomaticPauseManager::onMinuteChange, kEventMinuteChanged);
 
 	// destroy base
+	// Always explicitly call the base's destructor 
 	Base::destructor();
 }
 //---------------------------------------------------------------------------------------------------------

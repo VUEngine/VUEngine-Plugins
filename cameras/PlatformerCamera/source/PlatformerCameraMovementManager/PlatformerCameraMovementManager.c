@@ -188,6 +188,7 @@ void PlatformerCameraMovementManager::configure(Entity focusEntity, uint32 focus
 //---------------------------------------------------------------------------------------------------------
 void PlatformerCameraMovementManager::constructor()
 {
+	// Always explicitly call the base's constructor 
 	Base::constructor();
 
 	this->positionFlag.x = 0;
@@ -204,6 +205,7 @@ void PlatformerCameraMovementManager::constructor()
 void PlatformerCameraMovementManager::destructor()
 {
 	// destroy base
+	// Always explicitly call the base's destructor 
 	Base::destructor();
 }
 //---------------------------------------------------------------------------------------------------------

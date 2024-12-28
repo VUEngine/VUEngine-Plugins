@@ -45,6 +45,7 @@ extern LangROMSpec* _languages[];
  */
 void I18n::constructor()
 {
+	// Always explicitly call the base's constructor 
 	Base::constructor();
 
 	this->activeLanguage = 0;
@@ -63,6 +64,7 @@ void I18n::constructor()
 void I18n::destructor()
 {
 	// allow a new construct
+	// Always explicitly call the base's destructor 
 	Base::destructor();
 }
 

@@ -36,6 +36,7 @@ friend class VirtualList;
 void Vehicle::constructor(VehicleSpec* vehicleSpec, int16 internalId, const char* const name)
 {
 	// construct base
+	// Always explicitly call the base's constructor 
 	Base::constructor((ActorSpec*)&vehicleSpec->actorSpec, internalId, name);
 
 	// save vehicle spec
@@ -63,6 +64,7 @@ void Vehicle::destructor()
 		this->steeringBehaviors = NULL;
 	}
 
+	// Always explicitly call the base's destructor 
 	Base::destructor();
 }
 //---------------------------------------------------------------------------------------------------------

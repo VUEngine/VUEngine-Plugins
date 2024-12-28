@@ -89,6 +89,7 @@ void AdjustmentScreenState::processUserInput(const UserInput*  userInput)
 //---------------------------------------------------------------------------------------------------------
 void AdjustmentScreenState::constructor()
 {
+	// Always explicitly call the base's constructor 
 	Base::constructor();
 
 	extern StageROMSpec AdjustmentScreenStage;
@@ -99,6 +100,7 @@ void AdjustmentScreenState::constructor()
 void AdjustmentScreenState::destructor()
 {
 	// destroy base
+	// Always explicitly call the base's destructor 
 	Base::destructor();
 }
 //---------------------------------------------------------------------------------------------------------

@@ -31,6 +31,7 @@ void PlatformerCameraTriggerEntity::constructor(PlatformerCameraTriggerEntitySpe
 {
 	ASSERT(cameraEntitySpec, "PlatformerCameraTriggerEntity::constructor: null spec");
 
+	// Always explicitly call the base's constructor 
 	Base::constructor((EntitySpec*)cameraEntitySpec, internalId, name);
 
 	this->overridePositionFlag.x = false;
@@ -48,7 +49,7 @@ void PlatformerCameraTriggerEntity::destructor()
 {
 	Camera::setFocusEntity(Camera::getInstance(), NULL);
 
-
+	// Always explicitly call the base's destructor 
 	Base::destructor();
 }
 //---------------------------------------------------------------------------------------------------------

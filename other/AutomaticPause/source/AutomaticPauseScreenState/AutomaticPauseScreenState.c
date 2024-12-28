@@ -131,12 +131,14 @@ void AutomaticPauseScreenState::processUserInput(const UserInput*  userInput)
 //---------------------------------------------------------------------------------------------------------
 void AutomaticPauseScreenState::constructor()
 {
+	// Always explicitly call the base's constructor 
 	Base::constructor();
 }
 //---------------------------------------------------------------------------------------------------------
 void AutomaticPauseScreenState::destructor()
 {
 	// destroy base
+	// Always explicitly call the base's destructor 
 	Base::destructor();
 }
 //---------------------------------------------------------------------------------------------------------

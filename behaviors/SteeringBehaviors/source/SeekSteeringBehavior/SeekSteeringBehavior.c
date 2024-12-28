@@ -69,6 +69,7 @@ static Vector3D SeekSteeringBehavior::toTarget(SeekSteeringBehavior seekSteering
 //---------------------------------------------------------------------------------------------------------
 void SeekSteeringBehavior::constructor(SpatialObject owner, const SeekSteeringBehaviorSpec* seekSteeringBehaviorSpec)
 {
+	// Always explicitly call the base's constructor 
 	Base::constructor(owner, &seekSteeringBehaviorSpec->steeringBehaviorSpec);
 
 	this->target = Vector3D::zero();
@@ -81,6 +82,7 @@ void SeekSteeringBehavior::constructor(SpatialObject owner, const SeekSteeringBe
 //---------------------------------------------------------------------------------------------------------
 void SeekSteeringBehavior::destructor()
 {
+	// Always explicitly call the base's destructor 
 	Base::destructor();
 }
 //---------------------------------------------------------------------------------------------------------
