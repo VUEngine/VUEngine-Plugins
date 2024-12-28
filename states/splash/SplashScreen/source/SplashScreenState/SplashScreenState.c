@@ -35,8 +35,7 @@ void SplashScreenState::constructor()
 //---------------------------------------------------------------------------------------------------------
 void SplashScreenState::destructor()
 {
-	// destroy the super object
-	// must always be called at the end of the destructor
+
 	Base::destructor();
 }
 //---------------------------------------------------------------------------------------------------------

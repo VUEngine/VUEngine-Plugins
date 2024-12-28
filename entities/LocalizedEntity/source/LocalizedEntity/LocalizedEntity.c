@@ -38,8 +38,7 @@ void LocalizedEntity::destructor()
 	// remove event listeners
 	GameState::removeEventListener(VUEngine::getCurrentState(VUEngine::getInstance()), ListenerObject::safeCast(this), (EventListener)LocalizedEntity::onLanguageChanged, kEventLanguageChanged);
 
-	// destroy the super object
-	// must always be called at the end of the destructor
+
 	Base::destructor();
 }
 //---------------------------------------------------------------------------------------------------------

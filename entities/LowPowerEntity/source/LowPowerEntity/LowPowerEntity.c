@@ -36,8 +36,7 @@ void LowPowerEntity::destructor()
 	// remove event listeners
 	KeypadManager::removeEventListener(KeypadManager::getInstance(), ListenerObject::safeCast(this), (EventListener)LowPowerEntity::onKeypadManagerRaisedPowerFlag, kEventKeypadManagerRaisedPowerFlag);
 
-	// destroy the super object
-	// must always be called at the end of the destructor
+
 	Base::destructor();
 }
 //---------------------------------------------------------------------------------------------------------

@@ -58,8 +58,7 @@ void AvoidSteeringBehavior::destructor()
 	AvoidSteeringBehavior::removeAllObstacles(this);
 	delete this->obstacles;
 
-	// destroy the super object
-	// must always be called at the end of the destructor
+
 	Base::destructor();
 }
 //---------------------------------------------------------------------------------------------------------
