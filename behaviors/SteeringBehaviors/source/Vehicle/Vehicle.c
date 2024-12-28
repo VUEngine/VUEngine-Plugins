@@ -12,6 +12,7 @@
 // INCLUDES
 //=========================================================================================================
 
+#include <Body.h>
 #include <SteeringBehavior.h>
 #include <VirtualList.h>
 #include <VirtualNode.h>
