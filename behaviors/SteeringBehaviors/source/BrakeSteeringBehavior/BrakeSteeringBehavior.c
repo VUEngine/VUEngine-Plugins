@@ -50,7 +50,6 @@ void BrakeSteeringBehavior::constructor(SpatialObject owner, const BrakeSteering
 //---------------------------------------------------------------------------------------------------------
 void BrakeSteeringBehavior::destructor()
 {
-
 	Base::destructor();
 }
 //---------------------------------------------------------------------------------------------------------

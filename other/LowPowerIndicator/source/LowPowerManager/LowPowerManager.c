@@ -27,7 +27,6 @@
 
 void LowPowerManager::constructor()
 {
-	// construct base object
 	Base::constructor();
 
 	// init class variables

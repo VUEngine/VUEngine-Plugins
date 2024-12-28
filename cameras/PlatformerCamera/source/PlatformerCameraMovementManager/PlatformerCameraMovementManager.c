@@ -188,7 +188,6 @@ void PlatformerCameraMovementManager::configure(Entity focusEntity, uint32 focus
 //---------------------------------------------------------------------------------------------------------
 void PlatformerCameraMovementManager::constructor()
 {
-	// construct base object
 	Base::constructor();
 
 	this->positionFlag.x = 0;

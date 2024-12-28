@@ -74,7 +74,6 @@ void LookAtSteeringBehavior::constructor(SpatialObject owner, const LookAtSteeri
 //---------------------------------------------------------------------------------------------------------
 void LookAtSteeringBehavior::destructor()
 {
-
 	Base::destructor();
 }
 //---------------------------------------------------------------------------------------------------------

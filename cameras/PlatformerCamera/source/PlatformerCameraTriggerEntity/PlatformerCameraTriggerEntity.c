@@ -31,7 +31,6 @@ void PlatformerCameraTriggerEntity::constructor(PlatformerCameraTriggerEntitySpe
 {
 	ASSERT(cameraEntitySpec, "PlatformerCameraTriggerEntity::constructor: null spec");
 
-	// construct base object
 	Base::constructor((EntitySpec*)cameraEntitySpec, internalId, name);
 
 	this->overridePositionFlag.x = false;

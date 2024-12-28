@@ -47,7 +47,6 @@ const SaveData SaveDataDefaults =
 
 void SaveDataManager::constructor()
 {
-	// construct base object
 	Base::constructor();
 
 	// init class variables

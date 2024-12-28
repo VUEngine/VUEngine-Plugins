@@ -26,7 +26,6 @@
 //---------------------------------------------------------------------------------------------------------
 void LocalizedEntity::constructor(const LocalizedEntitySpec* localizedEntitySpec, int16 internalId, const char* const name)
 {
-	// construct base object
 	Base::constructor((AnimatedEntitySpec*)&localizedEntitySpec->animatedEntitySpec, internalId, name);
 
 	// add event listeners

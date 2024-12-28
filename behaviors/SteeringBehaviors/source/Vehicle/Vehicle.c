@@ -63,8 +63,6 @@ void Vehicle::destructor()
 		this->steeringBehaviors = NULL;
 	}
 
-	// delete the super object
-
 	Base::destructor();
 }
 //---------------------------------------------------------------------------------------------------------

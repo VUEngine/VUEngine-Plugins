@@ -75,7 +75,6 @@ bool AutomaticPauseManager::isActive()
 //---------------------------------------------------------------------------------------------------------
 void AutomaticPauseManager::constructor()
 {
-	// construct base object
 	Base::constructor();
 
 	// init members

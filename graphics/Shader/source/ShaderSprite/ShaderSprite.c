@@ -55,8 +55,6 @@ void ShaderSprite::destructor()
 {
 	this->charSet = NULL;
 
-	// delete the super object
-
 	Base::destructor();
 }
 //---------------------------------------------------------------------------------------------------------

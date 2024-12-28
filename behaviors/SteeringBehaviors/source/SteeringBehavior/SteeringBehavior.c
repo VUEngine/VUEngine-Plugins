@@ -234,7 +234,6 @@ void SteeringBehavior::constructor(SpatialObject owner, const SteeringBehaviorSp
 //---------------------------------------------------------------------------------------------------------
 void SteeringBehavior::destructor()
 {
-
 	Base::destructor();
 }
 //---------------------------------------------------------------------------------------------------------
