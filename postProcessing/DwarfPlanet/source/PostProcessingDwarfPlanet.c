@@ -27,7 +27,7 @@
  *
  * @param currentDrawingFrameBufferSet	The framebuffer set that's currently being accessed
  */
-static void PostProcessingDwarfPlanet::dwarfPlanet(uint32 currentDrawingFrameBufferSet, SpatialObject spatialObject __attribute__ ((unused)))
+static void PostProcessingDwarfPlanet::dwarfPlanet(uint32 currentDrawingFrameBufferSet, GameObject gameObject __attribute__ ((unused)))
 {
 	// look up table of bitshifts performed on rows
 	const uint32 lut[96] =

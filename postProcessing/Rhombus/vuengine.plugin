@@ -6,9 +6,9 @@
 	},
 	"author": "Team VUEngine",
 	"description": {
-		"en": "Draws a growing rhombus emitted from any SpatialObject.",
-		"de": "Zeichnet einen wachsenden Rhombus, der von einem beliebigen SpatialObject ausgeht.",
-		"es": "Dibuja un rombo creciente emitido desde cualquier SpatialObject."
+		"en": "Draws a growing rhombus emitted from any GameObject.",
+		"de": "Zeichnet einen wachsenden Rhombus, der von einem beliebigen GameObject ausgeht.",
+		"es": "Dibuja un rombo creciente emitido desde cualquier GameObject."
 	},
 	"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/postProcessing/Rhombus",
 	"license": "MIT",

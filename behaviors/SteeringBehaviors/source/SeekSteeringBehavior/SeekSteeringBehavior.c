@@ -67,7 +67,7 @@ static Vector3D SeekSteeringBehavior::toTarget(SeekSteeringBehavior seekSteering
 //=========================================================================================================
 
 //---------------------------------------------------------------------------------------------------------
-void SeekSteeringBehavior::constructor(SpatialObject owner, const SeekSteeringBehaviorSpec* seekSteeringBehaviorSpec)
+void SeekSteeringBehavior::constructor(GameObject owner, const SeekSteeringBehaviorSpec* seekSteeringBehaviorSpec)
 {
 	// Always explicitly call the base's constructor 
 	Base::constructor(owner, &seekSteeringBehaviorSpec->steeringBehaviorSpec);

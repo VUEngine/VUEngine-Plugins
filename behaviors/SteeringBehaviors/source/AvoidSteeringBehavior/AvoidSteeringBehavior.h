@@ -22,7 +22,7 @@
 // FORWARD DECLARATIONS
 //=========================================================================================================
 
-class SpatialObject;
+class GameObject;
 class VirtualList;
 
 
@@ -69,9 +69,9 @@ class AvoidSteeringBehavior : SteeringBehavior
 	VirtualList obstacles;
 
 	/// Class' constructor
-	/// @param owner: SpatialObject to which the behavior attaches to
+	/// @param owner: GameObject to which the behavior attaches to
 	/// @param seekSteeringBehaviorSpec: Specification that determines how to configure the behavior
-	void constructor(SpatialObject owner, const AvoidSteeringBehaviorSpec* seekSteeringBehaviorSpec);
+	void constructor(GameObject owner, const AvoidSteeringBehaviorSpec* seekSteeringBehaviorSpec);
 
 	/// Calculate the force vector to apply.
 	/// @param owner: Vehicle that owns the steering behavior
@@ -79,8 +79,8 @@ class AvoidSteeringBehavior : SteeringBehavior
 	override Vector3D calculate(Vehicle owner);
 
 	/// Add an obstacle to avoid.
-	/// @param spatialObject: Obstacle to avoid
-	void addObstacle(SpatialObject spatialObject);
+	/// @param gameObject: Obstacle to avoid
+	void addObstacle(GameObject gameObject);
 
 	/// Remove all registerd obstacles.
 	void removeAllObstacles();

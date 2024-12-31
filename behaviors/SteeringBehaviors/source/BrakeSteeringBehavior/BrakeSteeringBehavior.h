@@ -52,9 +52,9 @@ class BrakeSteeringBehavior : SteeringBehavior
 	fixed_t strength;
 
 	/// Class' constructor
-	/// @param owner: SpatialObject to which the behavior attaches to
+	/// @param owner: GameObject to which the behavior attaches to
 	/// @param brakeSteeringBehaviorSpec: Specification that determines how to configure the behavior
-	void constructor(SpatialObject owner, const BrakeSteeringBehaviorSpec* brakeSteeringBehaviorSpec);
+	void constructor(GameObject owner, const BrakeSteeringBehaviorSpec* brakeSteeringBehaviorSpec);
 
 	/// Calculate the force vector to apply.
 	/// @param owner: Vehicle that owns the steering behavior

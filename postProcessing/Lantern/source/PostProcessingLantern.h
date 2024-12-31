@@ -15,7 +15,7 @@
 // INCLUDES
 //=========================================================================================================
 
-#include <SpatialObject.h>
+#include <GameObject.h>
 
 
 //=========================================================================================================
@@ -27,14 +27,14 @@
 ///
 /// Inherits from ListenerObject
 ///
-/// Adds a lantern like effect to any SpatialObject, where everything outside of a 
-/// certain radius around the SpatialObject is rendered black.
+/// Adds a lantern like effect to any GameObject, where everything outside of a 
+/// certain radius around the GameObject is rendered black.
 static class PostProcessingLantern : ListenerObject
 {
 	/// Apply the post processing effect.
 	/// @param currentDrawingFrameBufferSet: The framebuffer set that's currently being accessed
-	/// @param spatialObject: Post-processing effect function's scope
-	static void lantern(uint32 currentDrawingFrameBufferSet, SpatialObject spatialObject);
+	/// @param gameObject: Post-processing effect function's scope
+	static void lantern(uint32 currentDrawingFrameBufferSet, GameObject gameObject);
 }
 
 #endif

@@ -52,16 +52,16 @@ static uint32 ReflectiveEntity::randomSeed()
 	return seed;
 }
 //---------------------------------------------------------------------------------------------------------
-static void ReflectiveEntity::reflect(uint32 currentDrawingFrameBufferSet, SpatialObject spatialObject)
+static void ReflectiveEntity::reflect(uint32 currentDrawingFrameBufferSet, GameObject gameObject)
 {
-	ASSERT(spatialObject, "ReflectiveEntity::reflect: null this");
+	ASSERT(gameObject, "ReflectiveEntity::reflect: null this");
 
-	if(isDeleted(spatialObject))
+	if(isDeleted(gameObject))
 	{
 		return;
 	}
 
-	ReflectiveEntity this = ReflectiveEntity::safeCast(spatialObject);
+	ReflectiveEntity this = ReflectiveEntity::safeCast(gameObject);
 
 	ReflectiveEntity::applyReflection(this, currentDrawingFrameBufferSet);
 }
@@ -699,7 +699,7 @@ void ReflectiveEntity::constructor(ReflectiveEntitySpec* reflectiveEntitySpec, i
 void ReflectiveEntity::destructor()
 {
 	// remove post processing effect
-	VUEngine::removePostProcessingEffect(VUEngine::getInstance(), ReflectiveEntity::reflect, SpatialObject::safeCast(this));
+	VUEngine::removePostProcessingEffect(VUEngine::getInstance(), ReflectiveEntity::reflect, GameObject::safeCast(this));
 
 	// Always explicitly call the base's destructor 
 	Base::destructor();
@@ -711,7 +711,7 @@ void ReflectiveEntity::ready(bool recursive)
 	Base::ready(this, recursive);
 
 	// add post processing effect
-	VUEngine::pushFrontPostProcessingEffect(VUEngine::getInstance(), ReflectiveEntity::reflect, SpatialObject::safeCast(this));
+	VUEngine::pushFrontPostProcessingEffect(VUEngine::getInstance(), ReflectiveEntity::reflect, GameObject::safeCast(this));
 }
 //---------------------------------------------------------------------------------------------------------
 void ReflectiveEntity::suspend()
@@ -719,7 +719,7 @@ void ReflectiveEntity::suspend()
 	Base::suspend(this);
 
 	// remove post processing effect
-	VUEngine::removePostProcessingEffect(VUEngine::getInstance(), ReflectiveEntity::reflect, SpatialObject::safeCast(this));
+	VUEngine::removePostProcessingEffect(VUEngine::getInstance(), ReflectiveEntity::reflect, GameObject::safeCast(this));
 }
 //---------------------------------------------------------------------------------------------------------
 void ReflectiveEntity::resume()
@@ -727,7 +727,7 @@ void ReflectiveEntity::resume()
 	Base::resume(this);
 
 	// add post processing effect
-	VUEngine::pushFrontPostProcessingEffect(VUEngine::getInstance(), ReflectiveEntity::reflect, SpatialObject::safeCast(this));
+	VUEngine::pushFrontPostProcessingEffect(VUEngine::getInstance(), ReflectiveEntity::reflect, GameObject::safeCast(this));
 }
 //---------------------------------------------------------------------------------------------------------
 void ReflectiveEntity::applyReflection(uint32 currentDrawingFrameBufferSet)

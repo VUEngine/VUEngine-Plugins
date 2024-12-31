@@ -34,7 +34,7 @@
  *
  * @param currentDrawingFrameBufferSet	The framebuffer set that's currently being accessed
  */
-static void PostProcessingWobble::wobble(uint32 currentDrawingFrameBufferSet, SpatialObject spatialObject __attribute__ ((unused)))
+static void PostProcessingWobble::wobble(uint32 currentDrawingFrameBufferSet, GameObject gameObject __attribute__ ((unused)))
 {
 	uint16 x = 0, y = 0;
 	uint32 previousSourcePointerValueLeft = 0;

@@ -15,7 +15,7 @@
 // INCLUDES
 //=========================================================================================================
 
-#include <SpatialObject.h>
+#include <GameObject.h>
 
 
 //=========================================================================================================
@@ -33,8 +33,8 @@ static class PostProcessingDwarfPlanet : ListenerObject
 {
 	/// Apply the post processing effect.
 	/// @param currentDrawingFrameBufferSet: The framebuffer set that's currently being accessed
-	/// @param spatialObject: Post-processing effect function's scope
-	static void dwarfPlanet(uint32 currentDrawingFrameBufferSet, SpatialObject spatialObject);
+	/// @param gameObject: Post-processing effect function's scope
+	static void dwarfPlanet(uint32 currentDrawingFrameBufferSet, GameObject gameObject);
 }
 
 #endif

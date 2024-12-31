@@ -37,7 +37,7 @@ friend class CharSet;
 //=========================================================================================================
 
 //---------------------------------------------------------------------------------------------------------
-void ShaderSprite::constructor(SpatialObject owner, const ShaderSpriteSpec* shaderSpriteSpec)
+void ShaderSprite::constructor(GameObject owner, const ShaderSpriteSpec* shaderSpriteSpec)
 {
 	// construct base
 	// Always explicitly call the base's constructor 

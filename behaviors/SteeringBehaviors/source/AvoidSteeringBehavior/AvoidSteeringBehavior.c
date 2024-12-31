@@ -34,7 +34,7 @@ friend class VirtualNode;
 
 typedef struct Obstacle
 {
-	SpatialObject spatialObject;
+	GameObject gameObject;
 	const Vector3D* position;
 	fixed_t radius;
 
@@ -46,7 +46,7 @@ typedef struct Obstacle
 //=========================================================================================================
 
 //---------------------------------------------------------------------------------------------------------
-void AvoidSteeringBehavior::constructor(SpatialObject owner, const AvoidSteeringBehaviorSpec* avoidSteeringBehaviorSpec)
+void AvoidSteeringBehavior::constructor(GameObject owner, const AvoidSteeringBehaviorSpec* avoidSteeringBehaviorSpec)
 {
 	// Always explicitly call the base's constructor 
 	Base::constructor(owner, &avoidSteeringBehaviorSpec->steeringBehaviorSpec);
@@ -78,18 +78,18 @@ Vector3D AvoidSteeringBehavior::calculate(Vehicle owner)
 	return this->force;
 }
 //---------------------------------------------------------------------------------------------------------
-void AvoidSteeringBehavior::addObstacle(SpatialObject spatialObject)
+void AvoidSteeringBehavior::addObstacle(GameObject gameObject)
 {
-	if(isDeleted(spatialObject))
+	if(isDeleted(gameObject))
 	{
 		return;
 	}
 
 	Obstacle* obstacle = new Obstacle;
 
-	obstacle->spatialObject = spatialObject;
-	obstacle->position = SpatialObject::getPosition(spatialObject);
-	obstacle->radius = SpatialObject::getRadius(spatialObject);
+	obstacle->gameObject = gameObject;
+	obstacle->position = GameObject::getPosition(gameObject);
+	obstacle->radius = GameObject::getRadius(gameObject);
 
 	VirtualList::pushBack(this->obstacles, obstacle);
 }
@@ -163,7 +163,7 @@ Vector3D AvoidSteeringBehavior::awayFromObstacles(Vehicle vehicle)
 			}
 
 			desiredVelocity = Vector3D::sum(desiredVelocity, Vector3D::scalarProduct(desiredDirection, __FIXED_EXT_MULT(dotProduct, factor)));
-			fixed_t obstacleSpeed = SpatialObject::getSpeed(obstacle->spatialObject);
+			fixed_t obstacleSpeed = GameObject::getSpeed(obstacle->gameObject);
 
 			if(obstacleSpeed)
 			{

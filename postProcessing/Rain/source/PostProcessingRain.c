@@ -39,7 +39,7 @@
 //=========================================================================================================
 
 //---------------------------------------------------------------------------------------------------------
-static void PostProcessingRain::rain(uint32 currentDrawingFrameBufferSet __attribute__ ((unused)), SpatialObject spatialObject __attribute__ ((unused)))
+static void PostProcessingRain::rain(uint32 currentDrawingFrameBufferSet __attribute__ ((unused)), GameObject gameObject __attribute__ ((unused)))
 {
  	#define POST_PROCESSING_RAIN_X_RANGE_1					383
  	#define POST_PROCESSING_RAIN_MINIMUM_DROPLET_LENGTH		3
@@ -129,7 +129,7 @@ static void PostProcessingRain::rain(uint32 currentDrawingFrameBufferSet __attri
 	yStepThrottle += yScreenDisplacement;
 }
 //---------------------------------------------------------------------------------------------------------
-static void PostProcessingRain::thinRain(uint32 currentDrawingFrameBufferSet __attribute__ ((unused)), SpatialObject spatialObject __attribute__ ((unused)))
+static void PostProcessingRain::thinRain(uint32 currentDrawingFrameBufferSet __attribute__ ((unused)), GameObject gameObject __attribute__ ((unused)))
 {
 	int32 width = __PLUGIN_RAIN_WIDTH;
 	int32 height = __PLUGIN_RAIN_HEIGHT;
@@ -137,9 +137,9 @@ static void PostProcessingRain::thinRain(uint32 currentDrawingFrameBufferSet __a
 
 	Vector3D position = {__PLUGIN_RAIN_X_POSITION, __PLUGIN_RAIN_Y_POSITION, 0};
 
-	if(!isDeleted(spatialObject))
+	if(!isDeleted(gameObject))
 	{
-		position = Vector3D::getRelativeToCamera(*SpatialObject::getPosition(spatialObject));
+		position = Vector3D::getRelativeToCamera(*GameObject::getPosition(gameObject));
 	}
 
 	static uint16 yStepIndex = 0;

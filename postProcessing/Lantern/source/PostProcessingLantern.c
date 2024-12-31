@@ -32,11 +32,11 @@
 //=========================================================================================================
 
 //---------------------------------------------------------------------------------------------------------
-static void PostProcessingLantern::lantern(uint32 currentDrawingFrameBufferSet, SpatialObject spatialObject __attribute__ ((unused)))
+static void PostProcessingLantern::lantern(uint32 currentDrawingFrameBufferSet, GameObject gameObject __attribute__ ((unused)))
 {
  	static bool ellipsisArcCalculated = false;
 
-	if(isDeleted(spatialObject))
+	if(isDeleted(gameObject))
 	{
  		if(ellipsisArcCalculated)
  		{
@@ -45,7 +45,7 @@ static void PostProcessingLantern::lantern(uint32 currentDrawingFrameBufferSet, 
  		return;
 	}
 
-	PixelVector screenPixelPosition = PixelVector::projectVector3D(Vector3D::getRelativeToCamera(*SpatialObject::getPosition(spatialObject)), 0);
+	PixelVector screenPixelPosition = PixelVector::projectVector3D(Vector3D::getRelativeToCamera(*GameObject::getPosition(gameObject)), 0);
 
  	screenPixelPosition.y -= 10;
 

@@ -15,7 +15,7 @@
 // INCLUDES
 //=========================================================================================================
 
-#include <SpatialObject.h>
+#include <GameObject.h>
 
 
 //=========================================================================================================
@@ -27,15 +27,15 @@
 ///
 /// Inherits from ListenerObject
 ///
-/// Implements a simple test effect that lights up a rectangular area around any SpatialObject.
+/// Implements a simple test effect that lights up a rectangular area around any GameObject.
 static class PostProcessingTest : ListenerObject
 {
 	/// Apply the post processing effect.
 	/// @param currentDrawingFrameBufferSet: The framebuffer set that's currently being accessed
-	/// @param spatialObject: Post-processing effect function's scope
-	static void lighting(uint32 currentDrawingFrameBufferSet, SpatialObject spatialObject);
+	/// @param gameObject: Post-processing effect function's scope
+	static void lighting(uint32 currentDrawingFrameBufferSet, GameObject gameObject);
 
-	static void dummy(uint32 currentDrawingFrameBufferSet, SpatialObject spatialObject);
+	static void dummy(uint32 currentDrawingFrameBufferSet, GameObject gameObject);
 }
 
 

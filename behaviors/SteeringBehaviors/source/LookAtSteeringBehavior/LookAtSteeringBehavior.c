@@ -61,7 +61,7 @@ static Vector3D LookAtSteeringBehavior::toTarget(LookAtSteeringBehavior LookAtSt
 //=========================================================================================================
 
 //---------------------------------------------------------------------------------------------------------
-void LookAtSteeringBehavior::constructor(SpatialObject owner, const LookAtSteeringBehaviorSpec* lookAtSteeringBehaviorSpec)
+void LookAtSteeringBehavior::constructor(GameObject owner, const LookAtSteeringBehaviorSpec* lookAtSteeringBehaviorSpec)
 {
 	// Always explicitly call the base's constructor 
 	Base::constructor(owner, &lookAtSteeringBehaviorSpec->steeringBehaviorSpec);

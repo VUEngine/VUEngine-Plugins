@@ -15,7 +15,7 @@
 // INCLUDES
 //=========================================================================================================
 
-#include <SpatialObject.h>
+#include <GameObject.h>
 
 
 //=========================================================================================================
@@ -27,13 +27,13 @@
 ///
 /// Inherits from ListenerObject
 ///
-/// Implements the drawing of a growing rhombus emitted from any SpatialObject.
+/// Implements the drawing of a growing rhombus emitted from any GameObject.
 static class PostProcessingRhombus : ListenerObject
 {
 	/// Apply the post processing effect.
 	/// @param currentDrawingFrameBufferSet: The framebuffer set that's currently being accessed
-	/// @param spatialObject: Post-processing effect function's scope
-	static void rhombus(uint32 currentDrawingFrameBufferSet, SpatialObject spatialObject);
+	/// @param gameObject: Post-processing effect function's scope
+	static void rhombus(uint32 currentDrawingFrameBufferSet, GameObject gameObject);
 }
 
 
