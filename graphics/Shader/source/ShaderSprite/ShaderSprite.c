@@ -116,7 +116,6 @@ void ShaderSprite::copyBufferTo(WORD* bufferAddress, WORD* destinationAddress)
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————
-
 // TODO: Should use the Mem::copyWORD, but this is way faster on hardware somehow
 static void ShaderSprite::addWORD(WORD* destination, const WORD* source, uint32 numberOfWORDS, uint32 increment)
 {
