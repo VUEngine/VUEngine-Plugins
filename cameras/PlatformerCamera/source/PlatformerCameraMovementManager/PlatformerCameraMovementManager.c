@@ -8,9 +8,9 @@
  */
 
 
-//=========================================================================================================
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
 // INCLUDES
-//=========================================================================================================
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 #include <Optics.h>
 #include <Camera.h>
@@ -25,11 +25,13 @@
 #include "PlatformerCameraMovementManager.h"
 
 
-//=========================================================================================================
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' PUBLIC METHODS
-//=========================================================================================================
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-//---------------------------------------------------------------------------------------------------------
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 Vector3D PlatformerCameraMovementManager::focus(Camera camera)
 {
 	if(isDeleted(camera))
@@ -39,13 +41,17 @@ Vector3D PlatformerCameraMovementManager::focus(Camera camera)
 
 	return this->focusFunction(this, camera, false);
 }
-//---------------------------------------------------------------------------------------------------------
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 void PlatformerCameraMovementManager::enable()
 {
 	this->focusFunction = this->previousFocusFunction;
 	this->previousFocusFunction = this->focusFunction;
 }
-//---------------------------------------------------------------------------------------------------------
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 void PlatformerCameraMovementManager::disable()
 {
 	if(&PlatformerCameraMovementManager::dontFocus != this->focusFunction)
@@ -55,19 +61,25 @@ void PlatformerCameraMovementManager::disable()
 
 	this->focusFunction = &PlatformerCameraMovementManager::dontFocus;
 }
-//---------------------------------------------------------------------------------------------------------
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 void PlatformerCameraMovementManager::enableFocusEasing()
 {
 	this->focusFunction = &PlatformerCameraMovementManager::doFocus;
 	this->previousFocusFunction = this->focusFunction;
 }
-//---------------------------------------------------------------------------------------------------------
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 void PlatformerCameraMovementManager::disableFocusEasing()
 {
 	this->focusFunction = &PlatformerCameraMovementManager::doFocusWithNoEasing;
 	this->previousFocusFunction = this->focusFunction;
 }
-//---------------------------------------------------------------------------------------------------------
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 void PlatformerCameraMovementManager::alertWhenTargetFocused()
 {
 	if(&PlatformerCameraMovementManager::doFocusAndAlertWhenTargetReached != this->focusFunction)
@@ -77,22 +89,30 @@ void PlatformerCameraMovementManager::alertWhenTargetFocused()
 
 	this->focusFunction = &PlatformerCameraMovementManager::doFocusAndAlertWhenTargetReached;
 }
-//---------------------------------------------------------------------------------------------------------
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 void PlatformerCameraMovementManager::dontAlertWhenTargetFocused()
 {
 	this->focusFunction = this->previousFocusFunction;
 }
-//---------------------------------------------------------------------------------------------------------
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 void PlatformerCameraMovementManager::setPositionFlag(Vector3DFlag positionFlag)
 {
 	this->positionFlag = positionFlag;
 }
-//---------------------------------------------------------------------------------------------------------
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 Vector3DFlag PlatformerCameraMovementManager::getPositionFlag()
 {
 	return this->positionFlag;
 }
-//---------------------------------------------------------------------------------------------------------
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 void PlatformerCameraMovementManager::lockMovement(uint8 axisToLockUp, bool locked)
 {
 	if(!isDeleted(this->cameraTrigger))
@@ -100,7 +120,9 @@ void PlatformerCameraMovementManager::lockMovement(uint8 axisToLockUp, bool lock
 		PlatformerCameraTriggerEntity::lockMovement(this->cameraTrigger, axisToLockUp, locked);
 	}
 }
-//---------------------------------------------------------------------------------------------------------
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 void PlatformerCameraMovementManager::configure(Entity focusEntity, uint32 focusEntityLayer, uint32 cameraTriggerLayer, PixelSize boundingBoxSize, Vector3D boundingBoxDisplacement, Vector3D screenDisplacement)
 {
 	this->platformerCameraTriggerEntityCollidersSpec[0] = (ColliderSpec)
@@ -179,13 +201,17 @@ void PlatformerCameraMovementManager::configure(Entity focusEntity, uint32 focus
 		PlatformerCameraMovementManager::enable(this);
 	}
 }
-//---------------------------------------------------------------------------------------------------------
 
-//=========================================================================================================
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' PRIVATE METHODS
-//=========================================================================================================
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-//---------------------------------------------------------------------------------------------------------
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 void PlatformerCameraMovementManager::constructor()
 {
 	// Always explicitly call the base's constructor 
@@ -201,14 +227,18 @@ void PlatformerCameraMovementManager::constructor()
 
 	PlatformerCameraMovementManager::configure(this, NULL, kLayerNone, kLayerNone, (PixelSize){8 * 8, 8 * 8, 8 * 8}, Vector3D::zero(), Vector3D::zero());
 }
-//---------------------------------------------------------------------------------------------------------
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 void PlatformerCameraMovementManager::destructor()
 {
 	// destroy base
 	// Always explicitly call the base's destructor 
 	Base::destructor();
 }
-//---------------------------------------------------------------------------------------------------------
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 Vector3D PlatformerCameraMovementManager::doFocusWithNoEasing(Camera camera, uint32 introFocusing __attribute__ ((unused)))
 {
 	NormalizedDirection normalizedDirection = Entity::getNormalizedDirection(Entity::safeCast(Camera::getFocusEntity(camera)));
@@ -220,12 +250,16 @@ Vector3D PlatformerCameraMovementManager::doFocusWithNoEasing(Camera camera, uin
 		0
 	};
 }
-//---------------------------------------------------------------------------------------------------------
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 Vector3D PlatformerCameraMovementManager::dontFocus(Camera camera __attribute__ ((unused)), uint32 introFocusing __attribute__ ((unused)))
 {
 	return Camera::getPosition(camera);
 }
-//---------------------------------------------------------------------------------------------------------
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 Vector3D PlatformerCameraMovementManager::doFocus(Camera camera, uint32 introFocusing __attribute__ ((unused)))
 {
 	// if focusEntity is defined
@@ -357,7 +391,9 @@ Vector3D PlatformerCameraMovementManager::doFocus(Camera camera, uint32 introFoc
 
 	return Camera::getPosition(camera);
 }
-//---------------------------------------------------------------------------------------------------------
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 Vector3D PlatformerCameraMovementManager::doFocusAndAlertWhenTargetReached(Camera camera, uint32 introFocusing __attribute__ ((unused)))
 {
 	if(PlatformerCameraMovementManager::doFocus(this, camera, true))
@@ -368,4 +404,6 @@ Vector3D PlatformerCameraMovementManager::doFocusAndAlertWhenTargetReached(Camer
 
 	return Camera::getPosition(camera);
 }
-//---------------------------------------------------------------------------------------------------------
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
+

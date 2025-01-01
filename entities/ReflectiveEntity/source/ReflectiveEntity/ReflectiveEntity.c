@@ -8,9 +8,9 @@
  */
 
 
-//=========================================================================================================
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
 // INCLUDES
-//=========================================================================================================
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 #include <Camera.h>
 #include <DirectDraw.h>
@@ -21,11 +21,13 @@
 #include "ReflectiveEntity.h"
 
 
-//=========================================================================================================
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' PRIVATE STATIC METHODS
-//=========================================================================================================
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-//---------------------------------------------------------------------------------------------------------
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 static inline uint32 ReflectiveEntity::reverse(uint32 number, int32 bits)
 {
     number = ((number & 0x55555555) << 1) | ((number & 0xAAAAAAAA) >> 1);
@@ -35,7 +37,9 @@ static inline uint32 ReflectiveEntity::reverse(uint32 number, int32 bits)
     number = ((number & 0x0000FFFF) << 16) | ((number & 0xFFFF0000) >> 16);
     return number >> ((sizeof(uint32) << 3) - bits);
 }
-//---------------------------------------------------------------------------------------------------------
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 static uint32 ReflectiveEntity::randomSeed()
 {
 	static uint32 seed = 7;
@@ -51,7 +55,9 @@ static uint32 ReflectiveEntity::randomSeed()
 
 	return seed;
 }
-//---------------------------------------------------------------------------------------------------------
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 static void ReflectiveEntity::reflect(uint32 currentDrawingFrameBufferSet, GameObject gameObject)
 {
 	ASSERT(gameObject, "ReflectiveEntity::reflect: null this");
@@ -65,7 +71,9 @@ static void ReflectiveEntity::reflect(uint32 currentDrawingFrameBufferSet, GameO
 
 	ReflectiveEntity::applyReflection(this, currentDrawingFrameBufferSet);
 }
-//---------------------------------------------------------------------------------------------------------
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 static uint32 ReflectiveEntity::getNoise(int16 passes)
 {
 	if(0 >= passes)
@@ -82,7 +90,9 @@ static uint32 ReflectiveEntity::getNoise(int16 passes)
 
 	return noise;
 }
-//---------------------------------------------------------------------------------------------------------
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 static void ReflectiveEntity::shiftPixels(int32 pixelShift, REFLECTIVE_ENTITY_POINTER_TYPE* sourceValue, uint32 nextSourceValue, REFLECTIVE_ENTITY_POINTER_TYPE* remainderValue, uint32 reflectionMask, uint32 noise)
 {
 	*sourceValue &= reflectionMask;
@@ -102,7 +112,9 @@ static void ReflectiveEntity::shiftPixels(int32 pixelShift, REFLECTIVE_ENTITY_PO
 		*remainderValue = nextSourceValue >> (-pixelShift);
 	}
 }
-//---------------------------------------------------------------------------------------------------------
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 void ReflectiveEntity::drawReflection(uint32 currentDrawingFrameBufferSet,
 	int16 xSourceStart, int16 ySourceStart,
 	int16 xOutputStart, int16 yOutputStart,
@@ -679,14 +691,18 @@ void ReflectiveEntity::drawReflection(uint32 currentDrawingFrameBufferSet,
 		}
 	}
 }
-//---------------------------------------------------------------------------------------------------------
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 
-//=========================================================================================================
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' PUBLIC METHODS
-//=========================================================================================================
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-//---------------------------------------------------------------------------------------------------------
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 void ReflectiveEntity::constructor(ReflectiveEntitySpec* reflectiveEntitySpec, int16 internalId, const char* const name)
 {
 	// Always explicitly call the base's constructor 
@@ -695,7 +711,9 @@ void ReflectiveEntity::constructor(ReflectiveEntitySpec* reflectiveEntitySpec, i
 	this->waveLutIndex = 0;
 	this->waveLutIndexIncrement = __FIXED_MULT(reflectiveEntitySpec->waveLutThrottleFactor, __FIXED_DIV(__I_TO_FIXED(reflectiveEntitySpec->numberOfWaveLutEntries), __I_TO_FIXED(reflectiveEntitySpec->width)));
 }
-//---------------------------------------------------------------------------------------------------------
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 void ReflectiveEntity::destructor()
 {
 	// remove post processing effect
@@ -704,7 +722,9 @@ void ReflectiveEntity::destructor()
 	// Always explicitly call the base's destructor 
 	Base::destructor();
 }
-//---------------------------------------------------------------------------------------------------------
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 void ReflectiveEntity::ready(bool recursive)
 {
 	// call base
@@ -713,7 +733,9 @@ void ReflectiveEntity::ready(bool recursive)
 	// add post processing effect
 	VUEngine::pushFrontPostProcessingEffect(VUEngine::getInstance(), ReflectiveEntity::reflect, GameObject::safeCast(this));
 }
-//---------------------------------------------------------------------------------------------------------
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 void ReflectiveEntity::suspend()
 {
 	Base::suspend(this);
@@ -721,7 +743,9 @@ void ReflectiveEntity::suspend()
 	// remove post processing effect
 	VUEngine::removePostProcessingEffect(VUEngine::getInstance(), ReflectiveEntity::reflect, GameObject::safeCast(this));
 }
-//---------------------------------------------------------------------------------------------------------
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 void ReflectiveEntity::resume()
 {
 	Base::resume(this);
@@ -729,7 +753,9 @@ void ReflectiveEntity::resume()
 	// add post processing effect
 	VUEngine::pushFrontPostProcessingEffect(VUEngine::getInstance(), ReflectiveEntity::reflect, GameObject::safeCast(this));
 }
-//---------------------------------------------------------------------------------------------------------
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 void ReflectiveEntity::applyReflection(uint32 currentDrawingFrameBufferSet)
 {
 	ReflectiveEntitySpec* reflectiveEntitySpec = (ReflectiveEntitySpec*)this->entitySpec;
@@ -775,4 +801,6 @@ void ReflectiveEntity::applyReflection(uint32 currentDrawingFrameBufferSet)
 		reflectiveEntitySpec->noisePasses
 	);
 }
-//---------------------------------------------------------------------------------------------------------
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
+

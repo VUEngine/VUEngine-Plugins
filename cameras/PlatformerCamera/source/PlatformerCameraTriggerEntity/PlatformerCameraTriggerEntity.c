@@ -8,9 +8,9 @@
  */
 
 
-//=========================================================================================================
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
 // INCLUDES
-//=========================================================================================================
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 #include <PlatformerCameraTriggerEntity.h>
 #include <ColliderManager.h>
@@ -22,11 +22,13 @@
 #include <PlatformerCameraMovementManager.h>
 
 
-//=========================================================================================================
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' PUBLIC METHODS
-//=========================================================================================================
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-//---------------------------------------------------------------------------------------------------------
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 void PlatformerCameraTriggerEntity::constructor(PlatformerCameraTriggerEntitySpec* cameraEntitySpec, int16 internalId, const char* const name)
 {
 	ASSERT(cameraEntitySpec, "PlatformerCameraTriggerEntity::constructor: null spec");
@@ -44,7 +46,9 @@ void PlatformerCameraTriggerEntity::constructor(PlatformerCameraTriggerEntitySpe
 
 	this->previousGlobalPosition = (Vector3D) {0, 0, 0};
 }
-//---------------------------------------------------------------------------------------------------------
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 void PlatformerCameraTriggerEntity::destructor()
 {
 	Camera::setFocusEntity(Camera::getInstance(), NULL);
@@ -52,7 +56,9 @@ void PlatformerCameraTriggerEntity::destructor()
 	// Always explicitly call the base's destructor 
 	Base::destructor();
 }
-//---------------------------------------------------------------------------------------------------------
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 bool PlatformerCameraTriggerEntity::collisionStarts(const CollisionInformation* collisionInformation)
 {
 	ASSERT(collisionInformation->otherCollider, "PlatformerCameraTriggerEntity::collisionStarts: null collidingObjects");
@@ -79,14 +85,18 @@ bool PlatformerCameraTriggerEntity::collisionStarts(const CollisionInformation* 
 
 	return false;
 }
-//---------------------------------------------------------------------------------------------------------
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 void PlatformerCameraTriggerEntity::ready(bool recursive)
 {
 	Base::ready(this, recursive);
 
 	Entity::checkCollisions(this, true);
 }
-//---------------------------------------------------------------------------------------------------------
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 void PlatformerCameraTriggerEntity::transform(const Transformation* environmentTransform, uint8 invalidateTransformationFlag)
 {
 	Vector3D currentGlobalPosition = this->transformation.position;
@@ -103,7 +113,9 @@ void PlatformerCameraTriggerEntity::transform(const Transformation* environmentT
 		this->transformation.position.y = currentGlobalPosition.y;
 	}
 }
-//---------------------------------------------------------------------------------------------------------
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 void PlatformerCameraTriggerEntity::update()
 {
 	Base::update(this);
@@ -122,7 +134,9 @@ void PlatformerCameraTriggerEntity::update()
 		this->previousGlobalPosition = this->transformation.position;
 	}
 }
-//---------------------------------------------------------------------------------------------------------
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 void PlatformerCameraTriggerEntity::resume()
 {
 	Base::resume(this);
@@ -134,7 +148,9 @@ void PlatformerCameraTriggerEntity::resume()
 
 	PlatformerCameraTriggerEntity::lockMovement(this, __X_AXIS | __Y_AXIS, true);
 }
-//---------------------------------------------------------------------------------------------------------
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 void PlatformerCameraTriggerEntity::setOverridePositionFlag(Vector3DFlag overridePositionFlag)
 {
 	PlatformerCameraTriggerEntity::invalidateTransformation(this);
@@ -147,12 +163,16 @@ void PlatformerCameraTriggerEntity::setOverridePositionFlag(Vector3DFlag overrid
 
 	this->overridePositionFlag = overridePositionFlag;
 }
-//---------------------------------------------------------------------------------------------------------
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 Vector3DFlag PlatformerCameraTriggerEntity::getOverridePositionFlag()
 {
 	return this->overridePositionFlag;
 }
-//---------------------------------------------------------------------------------------------------------
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 void PlatformerCameraTriggerEntity::lockMovement(uint8 axisToLockUp, bool locked)
 {
 	Vector3DFlag overridePositionFlag = PlatformerCameraTriggerEntity::getOverridePositionFlag(this);
@@ -174,4 +194,6 @@ void PlatformerCameraTriggerEntity::lockMovement(uint8 axisToLockUp, bool locked
 	PlatformerCameraTriggerEntity::setOverridePositionFlag(this, overridePositionFlag);
 	PlatformerCameraMovementManager::setPositionFlag(PlatformerCameraMovementManager::getInstance(), positionFlag);
 }
-//---------------------------------------------------------------------------------------------------------
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
+
