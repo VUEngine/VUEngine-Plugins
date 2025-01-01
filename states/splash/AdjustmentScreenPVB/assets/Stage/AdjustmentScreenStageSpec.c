@@ -76,7 +76,7 @@ SoundROMSpec* const AdjustmentScreenStageSoundSpecs[] =
 
 StageROMSpec AdjustmentScreenStage =
 {
-	// allocator
+	// Class allocator
 	__TYPE(Stage),
 
 	// Timer config

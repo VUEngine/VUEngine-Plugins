@@ -51,7 +51,7 @@ PositionedEntityROMSpec AutomaticPauseSelectionScreenStageUiEntities[] =
 
 StageROMSpec AutomaticPauseSelectionScreenStage =
 {
-	// allocator
+	// Class allocator
 	__TYPE(Stage),
 
 	// Timer config

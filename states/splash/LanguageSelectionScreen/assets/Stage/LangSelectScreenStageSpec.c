@@ -49,7 +49,7 @@ PositionedEntityROMSpec LanguageSelectionScreenStageUiEntities[] =
 
 StageROMSpec LanguageSelectionScreenStage =
 {
-	// allocator
+	// Class allocator
 	__TYPE(Stage),
 
 	// Timer config

@@ -55,7 +55,7 @@ SoundROMSpec* const AlignmentCheckScreenStageSoundSpecs[] =
 
 StageROMSpec AlignmentCheckScreenStage =
 {
-	// allocator
+	// Class allocator
 	__TYPE(Stage),
 
 	// Timer config

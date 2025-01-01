@@ -49,7 +49,7 @@ PositionedEntityROMSpec PrecautionScreenStageUiEntities[] =
 
 StageROMSpec PrecautionScreenStage =
 {
-	// allocator
+	// Class allocator
 	__TYPE(Stage),
 
 	// Timer config
