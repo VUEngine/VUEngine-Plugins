@@ -26,9 +26,7 @@
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 
-/*
- * Shows an indicator on screen when the system power is low
- */
+/// Shows an indicator on screen when the system power is low
 singleton class LowPowerManager : ListenerObject
 {
 	/// @protectedsection
@@ -44,62 +42,37 @@ singleton class LowPowerManager : ListenerObject
 	// number of seconds of receiving the low power signal
 	uint8 lowPowerDuration;
 
-
 	/// @publicsection
 
-	/*
-	 * Get instance.
-	 *
-	 * @return	LowPowerManager instance
-	 */
+	/// Method to retrieve the singleton instance
+	/// @return Error singleton
 	static LowPowerManager getInstance();
 
-	/*
-     * De/activate indicator
-     *
-     * @param active	Set as active or inactive?
-     */
+	/// De/activate indicator.
+	/// @param active	Set as active or inactive?
     void setActive(bool active);
 
-	/*
-     * Sets the position of the low power indicator.
-     *
-     * @param x		X position (in tiles)
-     * @param y		Y position (in tiles)
-     */
+	/// Sets the position of the low power indicator.
+	/// @param x: X position (in tiles)
+	/// @param y: Y position (in tiles)
     void setPosition(uint8 x, uint8 y);
-
 
 	/// @privatesection
 
-	/*
-	 * Class constructor.
-	 *
-	 * @fn 			void LowPowerManager::constructor()
-     * @memberof 	LowPowerManager
-	 */
+	/// Class constructor.
+	/// @fn 			void LowPowerManager::constructor()
+	/// @memberof 	LowPowerManager
 
-	/*
-	 * Class destructor.
-	 *
-	 * @fn			void LowPowerManager::destructor()
-     * @memberof 	LowPowerManager
-	 */
+	/// Class destructor.
+	/// @fn			void LowPowerManager::destructor()
+	/// @memberof 	LowPowerManager
 
-	/*
-	 *
-	 *
-	 * @fn			void LowPowerManager::checkLowPower()
-     * @memberof 	LowPowerManager
-	 */
+	/// @fn			void LowPowerManager::checkLowPower()
+	/// @memberof 	LowPowerManager
 
-	/*
-	 *
-	 *
-	 * @fn					void LowPowerManager::onSecondChange(ListenerObject eventFirer)
-     * @memberof 			LowPowerManager
-     * @param eventFirer	ListenerObject that has fired the event
-	 */
+	/// @fn					void LowPowerManager::onSecondChange(ListenerObject eventFirer)
+	/// @memberof 			LowPowerManager
+	/// @param eventFirer	ListenerObject that has fired the event
 }
 
 

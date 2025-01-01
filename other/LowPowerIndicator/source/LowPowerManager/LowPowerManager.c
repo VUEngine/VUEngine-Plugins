@@ -21,11 +21,12 @@
 #include "LowPowerManager.h"
 
 
-
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS'S METHODS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————
 
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 void LowPowerManager::constructor()
 {
@@ -53,6 +54,8 @@ void LowPowerManager::destructor()
 	Base::destructor();
 }
 
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 void LowPowerManager::setActive(bool active)
 {
 	this->isActive = active;
@@ -68,6 +71,8 @@ void LowPowerManager::setActive(bool active)
 	}
 }
 
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 bool LowPowerManager::onKeypadManagerRaisedPowerFlag(ListenerObject eventFirer __attribute__ ((unused)))
 {
 	Clock::addEventListener(VUEngine::getClock(VUEngine::getInstance()), ListenerObject::safeCast(this), (EventListener)LowPowerManager::onSecondChange, kEventSecondChanged);
@@ -75,11 +80,15 @@ bool LowPowerManager::onKeypadManagerRaisedPowerFlag(ListenerObject eventFirer _
 	return false;
 }
 
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 void LowPowerManager::setPosition(uint8 x, uint8 y)
 {
 	this->indicatorXPos = x;
 	this->indicatorYPos = y;
 }
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 bool LowPowerManager::onSecondChange(ListenerObject eventFirer __attribute__ ((unused)))
 {
@@ -105,6 +114,8 @@ bool LowPowerManager::onSecondChange(ListenerObject eventFirer __attribute__ ((u
 	return true;
 }
 
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 void LowPowerManager::printLowPowerIndicator(bool showIndicator)
 {
 	Printing::text(
@@ -117,3 +128,5 @@ void LowPowerManager::printLowPowerIndicator(bool showIndicator)
 
 	this->isShowingIndicator = showIndicator;
 }
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
