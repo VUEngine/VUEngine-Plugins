@@ -119,7 +119,7 @@ ComponentSpec* const FlagSpainEntityComponentSpecs[] =
 
 EntityROMSpec FlagSpainEntitySpec =
 {
-	// Class allocator	
+	// Class allocator
 	__TYPE(Entity),
 
 	// Component specs
@@ -136,5 +136,12 @@ EntityROMSpec FlagSpainEntitySpec =
 	{0, 0, 0},
 
 	// Entity's in-game type
-	kTypeNone
+	kTypeNone,
+
+	// Pointer to animation functions array
+	NULL,
+
+	// Animation to play automatically
+	NULL
 };
+

@@ -36,7 +36,7 @@ void Vehicle::constructor(VehicleSpec* vehicleSpec, int16 internalId, const char
 {
 	// construct base
 	// Always explicitly call the base's constructor 
-	Base::constructor((ActorSpec*)&vehicleSpec->actorSpec, internalId, name);
+	Base::constructor((StatefulActorSpec*)&vehicleSpec->statefulActorSpec, internalId, name);
 
 	// save vehicle spec
 	this->steeringBehaviors = NULL;

@@ -14,7 +14,7 @@
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#include <Actor.h>
+#include <StatefulActor.h>
 #include <SteeringBehavior.h>
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -25,7 +25,7 @@
 /// @memberof Vehicle
 typedef struct VehicleSpec
 {
-	ActorSpec actorSpec;
+	StatefulActorSpec statefulActorSpec;
 
 	/// Vector3D accumulation method: kPrioritized, kWeightedAverage
 	uint16 summingMethod;
@@ -45,10 +45,10 @@ typedef const VehicleSpec VehicleROMSpec;
 
 /// Class Vehicle
 ///
-/// Inherits from Actor
+/// Inherits from StatefulActor
 ///
 /// Implements various physics based behaviors to steer AI actors.
-class Vehicle : Actor
+class Vehicle : StatefulActor
 {
 	/// @protectedsection
 

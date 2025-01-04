@@ -142,7 +142,7 @@ class ReflectiveEntity : Entity
 
 	/// @publicsection
 
-	/// @param reflectiveEntitySpec: Specification that determines how to configure the actor
+	/// @param reflectiveEntitySpec: Specification that determines how to configure the statefulActor
 	/// @param internalId: ID to keep track internally of the new instance
 	/// @param name: Name to assign to the new instance
 	void constructor(ReflectiveEntitySpec* reflectiveEntitySpec, int16 internalId, const char* const name);

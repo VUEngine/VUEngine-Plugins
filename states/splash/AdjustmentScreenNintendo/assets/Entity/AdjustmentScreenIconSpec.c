@@ -152,7 +152,7 @@ ComponentSpec* const AdjustmentScreenIconLEntityComponentSpecs[] =
 
 EntityROMSpec AdjustmentScreenIconLEntitySpec =
 {
-	// Class allocator	
+	// Class allocator
 	__TYPE(Entity),
 
 	// Component specs
@@ -169,8 +169,15 @@ EntityROMSpec AdjustmentScreenIconLEntitySpec =
 	{0, 0, 0},
 
 	// Entity's in-game type
-	kTypeNone
+	kTypeNone,
+
+	// Pointer to animation functions array
+	NULL,
+
+	// Animation to play automatically
+	NULL
 };
+
 
 ComponentSpec* const AdjustmentScreenIconREntityComponentSpecs[] = 
 {
@@ -180,7 +187,7 @@ ComponentSpec* const AdjustmentScreenIconREntityComponentSpecs[] =
 
 EntityROMSpec AdjustmentScreenIconREntitySpec =
 {
-	// Class allocator	
+	// Class allocator
 	__TYPE(Entity),
 
 	// Component specs
@@ -197,5 +204,12 @@ EntityROMSpec AdjustmentScreenIconREntitySpec =
 	{0, 0, 0},
 
 	// Entity's in-game type
-	kTypeNone
+	kTypeNone,
+
+	// Pointer to animation functions array
+	NULL,
+
+	// Animation to play automatically
+	NULL
 };
+

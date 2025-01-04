@@ -14,7 +14,7 @@
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#include <AnimatedEntity.h>
+#include <Entity.h>
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' DATA
@@ -24,7 +24,7 @@
 /// @memberof LowPowerEntity
 typedef struct LowPowerEntitySpec
 {
-	AnimatedEntitySpec animatedEntitySpec;
+	EntitySpec entitySpec;
 
 } LowPowerEntitySpec;
 
@@ -38,13 +38,13 @@ typedef const LowPowerEntitySpec LowPowerEntityROMSpec;
 
 /// Class LowPowerEntity
 ///
-/// Inherits from AnimatedEntity
+/// Inherits from Entity
 ///
 /// Implements localized visual elements, where each animation represents one translation to another
 /// language.
-class LowPowerEntity : AnimatedEntity
+class LowPowerEntity : Entity
 {
-	/// @param lowPowerEntitySpec: Specification that determines how to configure the actor
+	/// @param lowPowerEntitySpec: Specification that determines how to configure the statefulActor
 	/// @param internalId: ID to keep track internally of the new instance
 	/// @param name: Name to assign to the new instance
 	void constructor(

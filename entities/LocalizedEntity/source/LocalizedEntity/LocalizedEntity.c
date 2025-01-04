@@ -26,7 +26,7 @@
 void LocalizedEntity::constructor(const LocalizedEntitySpec* localizedEntitySpec, int16 internalId, const char* const name)
 {
 	// Always explicitly call the base's constructor 
-	Base::constructor((AnimatedEntitySpec*)&localizedEntitySpec->animatedEntitySpec, internalId, name);
+	Base::constructor((EntitySpec*)&localizedEntitySpec->entitySpec, internalId, name);
 
 	// add event listeners
 	GameState::addEventListener
@@ -72,7 +72,7 @@ void LocalizedEntity::ready(bool recursive)
 void LocalizedEntity::localize()
 {
 	char* language = Utilities::itoa(I18n::getActiveLanguage(I18n::getInstance()), 10, 1);
-	LocalizedEntity::playAnimation(AnimatedEntity::safeCast(this), language);
+	LocalizedEntity::playAnimation(Entity::safeCast(this), language);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

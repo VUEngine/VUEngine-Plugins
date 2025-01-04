@@ -175,27 +175,24 @@ LowPowerEntityROMSpec LowPowerIndicatorEntitySpec =
 	// animated entity
 	{
 		// entity
-		{
-			// Class allocator			
-			__TYPE(LowPowerEntity),
+		// Class allocator
+		__TYPE(LowPowerEntity),
 
-			// Component specs
-			(ComponentSpec**)LowPowerIndicatorEntityComponentSpecs,
+		// Component specs
+		(ComponentSpec**)LowPowerIndicatorEntityComponentSpecs,
 
-			// Children specs
-			NULL,
+		// Children specs
+		NULL,
 
-			// Extra info
-			NULL,
+		// Extra info
+		NULL,
 
-			// Size
-			// If 0, it is computed from the visual components if any
-			{0, 0, 0},
+		// Size
+		// If 0, it is computed from the visual components if any
+		{0, 0, 0},
 
-			// Entity's in-game type
-			kTypeNone,
-
-		},
+		// Entity's in-game type
+		kTypeNone,
 
 		// Pointer to animation functions array
 		(const AnimationFunction**)LowPowerIndicatorAnimationSpecs,

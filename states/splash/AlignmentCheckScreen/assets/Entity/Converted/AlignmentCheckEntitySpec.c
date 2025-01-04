@@ -204,23 +204,28 @@ ComponentSpec* const AlignmentCheckEntityComponentSpecs[] =
 
 EntityROMSpec AlignmentCheckEntitySpec =
 {
-			// Class allocator			
-			__TYPE(Entity),
+	// Class allocator
+	__TYPE(Entity),
 
-			// Component specs
-			(ComponentSpec**)AlignmentCheckEntityComponentSpecs,
+	// Component specs
+	(ComponentSpec**)AlignmentCheckEntityComponentSpecs,
 
-			// Children specs
-			NULL,
+	// Children specs
+	NULL,
 
-			// Extra info
-			NULL,
+	// Extra info
+	NULL,
 
-			// Size
-			// If 0, it is computed from the visual components if any
-			{ 0, 0, 0 },
+	// Size
+	// If 0, it is computed from the visual components if any
+	{ 0, 0, 0 },
 
-			// Entity's in-game type
-			kTypeNone,
+	// Entity's in-game type
+	kTypeNone,
 
+	// Pointer to animation functions array
+	NULL,
+
+	// Animation to play automatically
+	NULL
 };

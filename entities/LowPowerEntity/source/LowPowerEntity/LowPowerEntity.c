@@ -25,7 +25,7 @@
 void LowPowerEntity::constructor(const LowPowerEntitySpec* lowPowerEntitySpec, int16 internalId, const char* const name)
 {
 	// Always explicitly call the base's constructor 
-	Base::constructor((AnimatedEntitySpec*)&lowPowerEntitySpec->animatedEntitySpec, internalId, name);
+	Base::constructor((EntitySpec*)&lowPowerEntitySpec->entitySpec, internalId, name);
 
 	// Add event listeners
 	KeypadManager::addEventListener
@@ -60,7 +60,7 @@ void LowPowerEntity::destructor()
 
 bool LowPowerEntity::onKeypadManagerRaisedPowerFlag(ListenerObject eventFirer __attribute__ ((unused)))
 {
-	AnimatedEntity::playAnimation(AnimatedEntity::safeCast(this), "Flash");
+	Entity::playAnimation(Entity::safeCast(this), "Flash");
 
 	return false;
 }

@@ -14,7 +14,7 @@
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#include <AnimatedEntity.h>
+#include <Entity.h>
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' DATA
@@ -24,7 +24,7 @@
 /// @memberof LocalizedEntity
 typedef struct LocalizedEntitySpec
 {
-	AnimatedEntitySpec animatedEntitySpec;
+	EntitySpec entitySpec;
 
 } LocalizedEntitySpec;
 
@@ -38,14 +38,14 @@ typedef const LocalizedEntitySpec LocalizedEntityROMSpec;
 
 /// Class LocalizedEntity
 ///
-/// Inherits from AnimatedEntity
+/// Inherits from Entity
 ///
 /// Implements localized visual elements, where each animation represents one translation to another language.
-class LocalizedEntity : AnimatedEntity
+class LocalizedEntity : Entity
 {
 	/// @publicsection
 
-	/// @param localizedEntitySpec: Specification that determines how to configure the actor
+	/// @param localizedEntitySpec: Specification that determines how to configure the statefulActor
 	/// @param internalId: ID to keep track internally of the new instance
 	/// @param name: Name to assign to the new instance
 	void constructor(const LocalizedEntitySpec* localizedEntitySpec, int16 internalId, const char* const name);
