@@ -31,7 +31,6 @@ typedef struct PlatformerCameraTriggerEntitySpec
 // CLASS' DECLARATION
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-///
 /// Class PlatformerCameraTriggerEntity
 ///
 /// Inherits from Entity

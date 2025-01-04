@@ -36,7 +36,6 @@ typedef const LocalizedEntitySpec LocalizedEntityROMSpec;
 // CLASS' DECLARATION
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-///
 /// Class LocalizedEntity
 ///
 /// Inherits from AnimatedEntity

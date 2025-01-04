@@ -60,7 +60,6 @@ typedef const LangSpec LangROMSpec;
 // CLASS'S DECLARATION
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-///
 /// Class I18n
 ///
 /// Inherits from ListenerObject

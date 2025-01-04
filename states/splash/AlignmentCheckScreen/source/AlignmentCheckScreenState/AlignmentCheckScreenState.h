@@ -26,7 +26,6 @@
 // CLASS' DECLARATION
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-///
 /// Class AlignmentCheckScreenState
 ///
 /// Inherits from SplashScreenState

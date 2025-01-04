@@ -52,7 +52,6 @@ enum PlatformerCameraMovementManagerEvents
 // CLASS' DECLARATION
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-///
 /// Class PlatformerCameraMovementManager
 ///
 /// Inherits from CameraMovementManager

@@ -21,7 +21,6 @@
 // CLASS' DECLARATION
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-///
 /// Class LanguageSelectionScreenState
 ///
 /// Inherits from SplashScreenState

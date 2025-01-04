@@ -122,7 +122,6 @@ typedef const ReflectiveEntitySpec ReflectiveEntityROMSpec;
 // CLASS' DECLARATION
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-///
 /// Class Sprite
 ///
 /// Inherits from Entity

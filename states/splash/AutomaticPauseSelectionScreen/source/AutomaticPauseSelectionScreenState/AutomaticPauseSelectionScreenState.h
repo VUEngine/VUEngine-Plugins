@@ -20,7 +20,6 @@
 // CLASS' DECLARATION
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-///
 /// Class AutomaticPauseSelectionScreenState
 ///
 /// Inherits from SplashScreenState

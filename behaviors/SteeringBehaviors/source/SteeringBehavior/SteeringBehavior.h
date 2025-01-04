@@ -66,7 +66,6 @@ typedef const SteeringBehaviorSpec SteeringBehaviorROMSpec;
 // CLASS' DECLARATION
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-///
 /// Class Behavior
 ///
 /// Inherits from Behavior

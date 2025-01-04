@@ -42,7 +42,6 @@ typedef const SeekSteeringBehaviorSpec SeekSteeringBehaviorROMSpec;
 // CLASS' DECLARATION
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-///
 /// Class SeekSteeringBehavior
 ///
 /// Inherits from SteeringBehavior

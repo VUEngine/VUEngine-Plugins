@@ -36,7 +36,6 @@ typedef const LowPowerEntitySpec LowPowerEntityROMSpec;
 // CLASS' DECLARATION
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-///
 /// Class LowPowerEntity
 ///
 /// Inherits from AnimatedEntity

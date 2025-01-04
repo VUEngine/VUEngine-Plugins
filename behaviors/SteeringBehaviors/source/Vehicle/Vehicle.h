@@ -43,7 +43,6 @@ typedef const VehicleSpec VehicleROMSpec;
 // CLASS' DECLARATION
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-///
 /// Class Vehicle
 ///
 /// Inherits from Actor

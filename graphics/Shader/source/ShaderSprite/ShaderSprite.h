@@ -39,7 +39,6 @@ typedef const ShaderSpriteSpec ShaderSpriteROMSpec;
 // CLASS' DECLARATION
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-///
 /// Class Sprite
 ///
 /// Inherits from VisualComponent

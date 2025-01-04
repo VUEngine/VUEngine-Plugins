@@ -36,7 +36,6 @@ typedef const BrakeSteeringBehaviorSpec BrakeSteeringBehaviorROMSpec;
 // CLASS' DECLARATION
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-///
 /// Class BrakeSteeringBehavior
 ///
 /// Inherits from SteeringBehavior
