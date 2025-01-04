@@ -61,7 +61,7 @@ void PlatformerCameraTriggerActor::destructor()
 
 bool PlatformerCameraTriggerActor::collisionStarts(const CollisionInformation* collisionInformation)
 {
-	ASSERT(collisionInformation->otherCollider, "PlatformerCameraTriggerActor::collisionStarts: null collidingObjects");
+	ASSERT(collisionInformation->otherCollider, "PlatformerCameraTriggerActor::collisionStarts: null collidingEntitys");
 
 #define CAMERA_BOUNDING_BOX_DISPLACEMENT	{__PIXELS_TO_METERS(0), __PIXELS_TO_METERS(-24/16), __PIXELS_TO_METERS(0)}
 
