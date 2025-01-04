@@ -93,7 +93,11 @@ static uint32 ReflectiveEntity::getNoise(int16 passes)
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-static void ReflectiveEntity::shiftPixels(int32 pixelShift, REFLECTIVE_ENTITY_POINTER_TYPE* sourceValue, uint32 nextSourceValue, REFLECTIVE_ENTITY_POINTER_TYPE* remainderValue, uint32 reflectionMask, uint32 noise)
+static void ReflectiveEntity::shiftPixels
+(
+	int32 pixelShift, REFLECTIVE_ENTITY_POINTER_TYPE* sourceValue, uint32 nextSourceValue, 
+	REFLECTIVE_ENTITY_POINTER_TYPE* remainderValue, uint32 reflectionMask, uint32 noise
+)
 {
 	*sourceValue &= reflectionMask;
 	*remainderValue &= reflectionMask;

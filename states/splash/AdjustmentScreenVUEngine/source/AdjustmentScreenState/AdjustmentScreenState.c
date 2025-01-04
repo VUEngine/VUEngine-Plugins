@@ -43,7 +43,10 @@ extern StageROMSpec AdjustmentScreenStage;
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-static void AdjustmentScreenState::rhombusEmitterPostProcessingEffect(uint32 currentDrawingFrameBufferSet __attribute__ ((unused)), GameObject gameObject __attribute__ ((unused)))
+static void AdjustmentScreenState::rhombusEmitterPostProcessingEffect
+(
+	uint32 currentDrawingFrameBufferSet __attribute__ ((unused)), GameObject gameObject __attribute__ ((unused))
+)
 {
 	// runtime working variables
 	// negative value to achieve an initial delay

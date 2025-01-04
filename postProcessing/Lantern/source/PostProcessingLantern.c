@@ -34,7 +34,10 @@
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-static void PostProcessingLantern::lantern(uint32 currentDrawingFrameBufferSet, GameObject gameObject __attribute__ ((unused)))
+static void PostProcessingLantern::lantern
+(
+	uint32 currentDrawingFrameBufferSet, GameObject gameObject __attribute__ ((unused))
+)
 {
  	static bool ellipsisArcCalculated = false;
 
@@ -92,7 +95,10 @@ static void PostProcessingLantern::lantern(uint32 currentDrawingFrameBufferSet, 
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-static void PostProcessingLantern::applyMask(uint32 currentDrawingFrameBufferSet, int32 xStart, int32 xEnd, int32 yStart, int32 yEnd, uint32 mask)
+static void PostProcessingLantern::applyMask
+(
+	uint32 currentDrawingFrameBufferSet, int32 xStart, int32 xEnd, int32 yStart, int32 yEnd, uint32 mask
+)
 {
 	if(xEnd < xStart || yEnd < yStart)
 	{
@@ -139,7 +145,11 @@ static void PostProcessingLantern::applyMask(uint32 currentDrawingFrameBufferSet
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-static void PostProcessingLantern::ellipticalWindow(uint32 currentDrawingFrameBufferSet, PixelVector position, int16 ellipsisArc[], uint16 ellipsisHorizontalAxisSize, uint32 penumbraMask, bool roundBorder)
+static void PostProcessingLantern::ellipticalWindow
+(
+	uint32 currentDrawingFrameBufferSet, PixelVector position, int16 ellipsisArc[], uint16 ellipsisHorizontalAxisSize, 
+	uint32 penumbraMask, bool roundBorder
+)
 {
  	int32 xPosition = position.x;
  	int32 yPosition = position.y;

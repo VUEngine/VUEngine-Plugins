@@ -29,7 +29,10 @@
  *
  * @param currentDrawingFrameBufferSet	The framebuffer set that's currently being accessed
  */
-static void PostProcessingDwarfPlanet::dwarfPlanet(uint32 currentDrawingFrameBufferSet, GameObject gameObject __attribute__ ((unused)))
+static void PostProcessingDwarfPlanet::dwarfPlanet
+(
+	uint32 currentDrawingFrameBufferSet, GameObject gameObject __attribute__ ((unused))
+)
 {
 	// look up table of bitshifts performed on rows
 	const uint32 lut[96] =
@@ -121,7 +124,10 @@ static void PostProcessingDwarfPlanet::dwarfPlanet(uint32 currentDrawingFrameBuf
  * @param columnSourcePointer			Framebuffer address of the current column (x value)
  * @param previousSourcePointerValue	Value from the loop's previous cycle (effectively where y - 1)
  */
-static uint32 PostProcessingDwarfPlanet::writeToFrameBuffer(uint16 y, uint16 shift, uint32* columnSourcePointer, uint32 previousSourcePointerValue)
+static uint32 PostProcessingDwarfPlanet::writeToFrameBuffer
+(
+	uint16 y, uint16 shift, uint32* columnSourcePointer, uint32 previousSourcePointerValue
+)
 {
 	// pointer to currently manipulated 32 bits of framebuffer
 	uint32* sourcePointer = columnSourcePointer + y;

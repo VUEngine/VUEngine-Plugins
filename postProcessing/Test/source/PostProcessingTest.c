@@ -107,7 +107,10 @@ static void PostProcessingTest::lighting(uint32 currentDrawingFrameBufferSet, Ga
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-static void PostProcessingTest::dummy(uint32 currentDrawingFrameBufferSet, GameObject gameObject __attribute__ ((unused)))
+static void PostProcessingTest::dummy
+(
+	uint32 currentDrawingFrameBufferSet, GameObject gameObject __attribute__ ((unused))
+)
 {
 	uint16 x = 0, y = 0;
 	uint32 previousSourcePointerValueLeft = 0;
@@ -156,7 +159,10 @@ static void PostProcessingTest::dummy(uint32 currentDrawingFrameBufferSet, GameO
  * @param columnSourcePointer			Framebuffer address of the current column (x value)
  * @param previousSourcePointerValue	Value from the loop's previous cycle (effectively where y - 1)
  */
-static uint32 PostProcessingTest::writeToFrameBuffer(uint16 y, uint16 shift, uint32* columnSourcePointer, uint32 previousSourcePointerValue)
+static uint32 PostProcessingTest::writeToFrameBuffer
+(
+	uint16 y, uint16 shift, uint32* columnSourcePointer, uint32 previousSourcePointerValue
+)
 {
 	// pointer to currently manipulated 32 bits of framebuffer
 	uint32* sourcePointer = columnSourcePointer + y;

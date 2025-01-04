@@ -34,7 +34,10 @@
  *
  * @param currentDrawingFrameBufferSet	The framebuffer set that's currently being accessed
  */
-static void PostProcessingTilt::tiltScreen(uint32 currentDrawingFrameBufferSet, GameObject gameObject __attribute__ ((unused)))
+static void PostProcessingTilt::tiltScreen
+(
+	uint32 currentDrawingFrameBufferSet, GameObject gameObject __attribute__ ((unused))
+)
 {
 	uint8 buffer = 0, currentShift = 0;
 	uint16 x = 0, y = 0;
@@ -90,7 +93,10 @@ static void PostProcessingTilt::tiltScreen(uint32 currentDrawingFrameBufferSet, 
  * @param columnSourcePointer			Framebuffer address of the current column (x value)
  * @param previousSourcePointerValue	Value from the loop's previous cycle (effectively where y - 1)
  */
-static uint32 PostProcessingTilt::writeToFrameBuffer(uint16 y, uint16 shift, uint32* columnSourcePointer, uint32 previousSourcePointerValue)
+static uint32 PostProcessingTilt::writeToFrameBuffer
+(
+	uint16 y, uint16 shift, uint32* columnSourcePointer, uint32 previousSourcePointerValue
+)
 {
 	// pointer to currently manipulated 32 bits of framebuffer
 	uint32* sourcePointer = columnSourcePointer + y;

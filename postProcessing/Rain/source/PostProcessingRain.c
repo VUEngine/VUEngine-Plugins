@@ -41,7 +41,10 @@
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-static void PostProcessingRain::rain(uint32 currentDrawingFrameBufferSet __attribute__ ((unused)), GameObject gameObject __attribute__ ((unused)))
+static void PostProcessingRain::rain
+(
+	uint32 currentDrawingFrameBufferSet __attribute__ ((unused)), GameObject gameObject __attribute__ ((unused))
+)
 {
  	#define POST_PROCESSING_RAIN_X_RANGE_1					383
  	#define POST_PROCESSING_RAIN_MINIMUM_DROPLET_LENGTH		3
@@ -138,7 +141,10 @@ static void PostProcessingRain::rain(uint32 currentDrawingFrameBufferSet __attri
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-static void PostProcessingRain::thinRain(uint32 currentDrawingFrameBufferSet __attribute__ ((unused)), GameObject gameObject __attribute__ ((unused)))
+static void PostProcessingRain::thinRain
+(
+	uint32 currentDrawingFrameBufferSet __attribute__ ((unused)), GameObject gameObject __attribute__ ((unused))
+)
 {
 	int32 width = __PLUGIN_RAIN_WIDTH;
 	int32 height = __PLUGIN_RAIN_HEIGHT;
@@ -408,7 +414,11 @@ static void PostProcessingRain::waterStream(
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-static void PostProcessingRain::calculateRainPrecipitation(fix19_13* yStepThrottle, fix19_13* xStep, fix19_13 maximumYThrottle, fix19_13 minimumYThrottle, fix19_13 maximumXStep, fix19_13 minimumXStep)
+static void PostProcessingRain::calculateRainPrecipitation
+(
+	fix19_13* yStepThrottle, fix19_13* xStep, fix19_13 maximumYThrottle, fix19_13 minimumYThrottle, 
+	fix19_13 maximumXStep, fix19_13 minimumXStep
+)
 {
 	static uint32 previousTime = 0;
 	static uint8 timePeriodIndex = 0;

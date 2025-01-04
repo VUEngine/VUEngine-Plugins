@@ -36,7 +36,10 @@
  *
  * @param currentDrawingFrameBufferSet	The framebuffer set that's currently being accessed
  */
-static void PostProcessingRhombus::rhombus(uint32 currentDrawingFrameBufferSet __attribute__ ((unused)), GameObject gameObject)
+static void PostProcessingRhombus::rhombus
+(
+	uint32 currentDrawingFrameBufferSet __attribute__ ((unused)), GameObject gameObject
+)
 {
 	// runtime working variable
 	static int32 radius = 4;
