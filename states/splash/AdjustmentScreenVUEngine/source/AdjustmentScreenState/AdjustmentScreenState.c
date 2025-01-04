@@ -187,7 +187,6 @@ void AdjustmentScreenState::constructor()
 
 void AdjustmentScreenState::destructor()
 {
-	// destroy base
 	// Always explicitly call the base's destructor 
 	Base::destructor();
 }
@@ -225,4 +224,3 @@ void AdjustmentScreenState::resetLowPowerIndicatorPosition()
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-

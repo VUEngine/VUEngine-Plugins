@@ -55,7 +55,6 @@ void LowPowerManager::destructor()
 		(EventListener)LowPowerManager::onSecondChange, kEventSecondChanged
 	);
 
-	// destroy base
 	// Always explicitly call the base's destructor 
 	Base::destructor();
 }

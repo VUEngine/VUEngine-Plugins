@@ -112,10 +112,8 @@ void PrecautionScreenState::constructor()
 
 void PrecautionScreenState::destructor()
 {
-	// destroy base
 	// Always explicitly call the base's destructor 
 	Base::destructor();
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-

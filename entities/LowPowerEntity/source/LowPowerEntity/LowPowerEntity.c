@@ -66,4 +66,3 @@ bool LowPowerEntity::onKeypadManagerRaisedPowerFlag(ListenerObject eventFirer __
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-

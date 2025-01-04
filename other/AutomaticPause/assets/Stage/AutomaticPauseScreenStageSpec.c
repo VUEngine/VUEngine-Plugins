@@ -268,4 +268,3 @@ StageROMSpec AutomaticPauseScreenStage =
 	// Post processing effects
 	(PostProcessingEffect*)NULL,
 };
-

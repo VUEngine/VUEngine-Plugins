@@ -287,4 +287,3 @@ StageROMSpec AdjustmentScreenStage =
 	// Post processing effects
 	(PostProcessingEffect*)NULL,
 };
-

@@ -239,7 +239,6 @@ void PlatformerCameraMovementManager::constructor()
 
 void PlatformerCameraMovementManager::destructor()
 {
-	// destroy base
 	// Always explicitly call the base's destructor 
 	Base::destructor();
 }
@@ -428,4 +427,3 @@ Vector3D PlatformerCameraMovementManager::doFocusAndAlertWhenTargetReached(Camer
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-

@@ -101,7 +101,6 @@ void AutomaticPauseManager::destructor()
 	// remove event listeners
 	Clock::removeEventListener(VUEngine::getClock(VUEngine::getInstance()), ListenerObject::safeCast(this), (EventListener)AutomaticPauseManager::onMinuteChange, kEventMinuteChanged);
 
-	// destroy base
 	// Always explicitly call the base's destructor 
 	Base::destructor();
 }
@@ -127,4 +126,3 @@ bool AutomaticPauseManager::onMinuteChange(ListenerObject eventFirer __attribute
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-

@@ -223,5 +223,4 @@ EntityROMSpec AlignmentCheckEntitySpec =
 			// Entity's in-game type
 			kTypeNone,
 
-			
 };

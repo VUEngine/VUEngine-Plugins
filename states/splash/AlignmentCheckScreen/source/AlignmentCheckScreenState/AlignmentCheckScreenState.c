@@ -87,10 +87,8 @@ void AlignmentCheckScreenState::constructor()
 
 void AlignmentCheckScreenState::destructor()
 {
-	// destroy base
 	// Always explicitly call the base's destructor 
 	Base::destructor();
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-

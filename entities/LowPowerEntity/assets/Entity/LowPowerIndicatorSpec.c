@@ -195,7 +195,6 @@ LowPowerEntityROMSpec LowPowerIndicatorEntitySpec =
 			// Entity's in-game type
 			kTypeNone,
 
-			
 		},
 
 		// Pointer to animation functions array

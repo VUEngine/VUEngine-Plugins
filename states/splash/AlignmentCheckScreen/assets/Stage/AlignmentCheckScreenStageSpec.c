@@ -266,4 +266,3 @@ StageROMSpec AlignmentCheckScreenStage =
 	// Post processing effects
 	(PostProcessingEffect*)NULL,
 };
-

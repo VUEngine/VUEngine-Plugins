@@ -47,19 +47,24 @@ void AutomaticPauseScreenState::enter(void* owner __attribute__ ((unused)))
 	const char* strTitle = I18n::getText(I18n::getInstance(), kStringAutomaticPauseTitle);
 	const char* strBody = I18n::getText(I18n::getInstance(), kStringAutomaticPauseBody);
 
-	FontSize strAutomaticPauseSize = Printing::getTextSize(
+	FontSize strAutomaticPauseSize = Printing::getTextSize
+	(
 		Printing::getInstance(),
 		strTitle,
 		__PLUGIN_AUTOMATIC_PAUSE_TITLE_TEXT_FONT
 	);
-	FontSize strAutomaticPauseTextSize = Printing::getTextSize(
+
+	FontSize strAutomaticPauseTextSize = Printing::getTextSize
+	(
 		Printing::getInstance(),
 		strBody,
 		__PLUGIN_AUTOMATIC_PAUSE_BODY_TEXT_FONT
 	);
 
 	uint8 strHeaderXPos = ((__HALF_SCREEN_WIDTH_IN_CHARS) - (strAutomaticPauseSize.x >> 1));
-	Printing::text(
+	
+	Printing::text
+	(
 		Printing::getInstance(),
 		strTitle,
 		strHeaderXPos,
@@ -68,7 +73,9 @@ void AutomaticPauseScreenState::enter(void* owner __attribute__ ((unused)))
 	);
 
 	uint8 strTextXPos = (__HALF_SCREEN_WIDTH_IN_CHARS) - (strAutomaticPauseTextSize.x >> 1);
-	Printing::text(
+	
+	Printing::text
+	(
 		Printing::getInstance(),
 		strBody,
 		strTextXPos,
@@ -84,6 +91,7 @@ void AutomaticPauseScreenState::enter(void* owner __attribute__ ((unused)))
 
 	// fade in screen
 	Camera::startEffect(Camera::getInstance(), kHide);
+	
 	Camera::startEffect(Camera::getInstance(),
 		kFadeTo, // effect type
 		0, // initial delay (in ms)
@@ -141,7 +149,6 @@ void AutomaticPauseScreenState::constructor()
 
 void AutomaticPauseScreenState::destructor()
 {
-	// destroy base
 	// Always explicitly call the base's destructor 
 	Base::destructor();
 }
@@ -170,4 +177,3 @@ bool AutomaticPauseScreenState::onFadeOutComplete(ListenerObject eventFirer __at
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-

@@ -198,4 +198,3 @@ void PlatformerCameraTriggerEntity::lockMovement(uint8 axisToLockUp, bool locked
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-

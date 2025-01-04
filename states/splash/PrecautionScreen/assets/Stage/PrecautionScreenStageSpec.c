@@ -260,4 +260,3 @@ StageROMSpec PrecautionScreenStage =
 	// Post processing effects
 	(PostProcessingEffect*)NULL,
 };
-

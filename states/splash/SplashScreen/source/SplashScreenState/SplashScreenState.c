@@ -188,4 +188,3 @@ bool SplashScreenState::onFadeOutComplete(ListenerObject eventFirer __attribute_
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-

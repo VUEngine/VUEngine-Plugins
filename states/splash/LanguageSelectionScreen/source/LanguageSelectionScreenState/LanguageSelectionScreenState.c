@@ -188,7 +188,6 @@ void LanguageSelectionScreenState::destructor()
 		delete this->languageSelector;
 	}
 
-	// destroy base
 	// Always explicitly call the base's destructor 
 	Base::destructor();
 }
@@ -321,4 +320,3 @@ int32 LanguageSelectionScreenState::getFlagYPosition()
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-

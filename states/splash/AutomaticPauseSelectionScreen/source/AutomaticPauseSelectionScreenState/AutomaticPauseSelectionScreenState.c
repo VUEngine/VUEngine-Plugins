@@ -127,7 +127,6 @@ void AutomaticPauseSelectionScreenState::constructor()
 
 void AutomaticPauseSelectionScreenState::destructor()
 {
-	// destroy base
 	// Always explicitly call the base's destructor 
 	Base::destructor();
 }
@@ -276,4 +275,3 @@ void AutomaticPauseSelectionScreenState::renderSelection()
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-

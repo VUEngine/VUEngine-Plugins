@@ -260,4 +260,3 @@ StageROMSpec LanguageSelectionScreenStage =
 	// Post processing effects
 	(PostProcessingEffect*)NULL,
 };
-

@@ -58,7 +58,6 @@ void SaveDataManager::constructor()
 
 void SaveDataManager::destructor()
 {
-	// destroy base
 	// Always explicitly call the base's destructor 
 	Base::destructor();
 }
