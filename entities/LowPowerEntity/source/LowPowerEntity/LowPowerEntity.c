@@ -31,7 +31,11 @@ void LowPowerEntity::constructor(const LowPowerEntitySpec* lowPowerEntitySpec, i
 	Base::constructor((AnimatedEntitySpec*)&lowPowerEntitySpec->animatedEntitySpec, internalId, name);
 
 	// Add event listeners
-	KeypadManager::addEventListener(KeypadManager::getInstance(), ListenerObject::safeCast(this), (EventListener)LowPowerEntity::onKeypadManagerRaisedPowerFlag, kEventKeypadManagerRaisedPowerFlag);
+	KeypadManager::addEventListener
+	(
+		KeypadManager::getInstance(), ListenerObject::safeCast(this), 
+		(EventListener)LowPowerEntity::onKeypadManagerRaisedPowerFlag, kEventKeypadManagerRaisedPowerFlag
+	);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -39,7 +43,11 @@ void LowPowerEntity::constructor(const LowPowerEntitySpec* lowPowerEntitySpec, i
 void LowPowerEntity::destructor()
 {
 	// remove event listeners
-	KeypadManager::removeEventListener(KeypadManager::getInstance(), ListenerObject::safeCast(this), (EventListener)LowPowerEntity::onKeypadManagerRaisedPowerFlag, kEventKeypadManagerRaisedPowerFlag);
+	KeypadManager::removeEventListener
+	(
+		KeypadManager::getInstance(), ListenerObject::safeCast(this), 
+		(EventListener)LowPowerEntity::onKeypadManagerRaisedPowerFlag, kEventKeypadManagerRaisedPowerFlag
+	);
 
 	// Always explicitly call the base's destructor 
 	Base::destructor();
