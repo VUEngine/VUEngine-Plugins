@@ -27,55 +27,57 @@
 extern LangROMSpec* _languages[];
 
 
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+// CLASS'S PUBLIC METHODS
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-// CLASS'S METHODS
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-
-/// Get instance
-/// @fn			I18n::getInstance()
-/// @memberof	I18n
-/// @public
-/// @return		I18n instance
-
-
-/*
- * Class constructor
- *
- * @private
- */
-void I18n::constructor()
+void I18n::setActiveLanguage(uint8 languageId)
 {
-	// Always explicitly call the base's constructor 
-	Base::constructor();
-
-	this->activeLanguage = 0;
-
-	for(this->totalLanguages = 0; NULL != _languages[this->totalLanguages]; this->totalLanguages++);
-
-	if(10 < this->totalLanguages)
+	if(this->totalLanguages < languageId)
 	{
-		this->totalLanguages = 0;
+		return;
+	}
+
+	this->activeLanguage = languageId;
+
+	if(VUEngine::getCurrentState(VUEngine::getInstance()))
+	{
+		GameState currentGameState = VUEngine::getCurrentState(VUEngine::getInstance());
+		GameState::fireEvent(currentGameState, kEventLanguageChanged);
 	}
 }
 
-/*
- * Class destructor
- */
-void I18n::destructor()
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+uint8 I18n::getActiveLanguage()
 {
-	// allow a new construct
-	// Always explicitly call the base's destructor 
-	Base::destructor();
+	return this->activeLanguage;
 }
 
-/*
- * Get localized string
- *
- * @param string	The identifier of the string to localize
- * @return 			localized string or NULL if no translation could be found
- */
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+char* I18n::getActiveLanguageName()
+{
+	// TODO: check if _languages is empty, return "none" if so
+	return (char*)_languages[this->activeLanguage]->name;
+}
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+uint8 I18n::getRegistedLanguagesCount()
+{
+	uint8 count = 0;
+
+	for(; NULL != _languages[count]; count++);
+
+	return count;
+}
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 const char* I18n::getText(int32 string)
 {
 	if(0 == this->totalLanguages)
@@ -97,67 +99,37 @@ const char* I18n::getText(int32 string)
 	return 0 <= string ? _languages[this->activeLanguage]->language[string] : "String not found";
 }
 
-/*
- * Set the active language
- * @param languageId	ID of the language to make active
- */
-void I18n::setActiveLanguage(uint8 languageId)
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+// CLASS'S PRIVATE METHODS
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+void I18n::constructor()
 {
-	if(this->totalLanguages < languageId)
+	// Always explicitly call the base's constructor 
+	Base::constructor();
+
+	this->activeLanguage = 0;
+
+	for(this->totalLanguages = 0; NULL != _languages[this->totalLanguages]; this->totalLanguages++);
+
+	if(10 < this->totalLanguages)
 	{
-		return;
-	}
-
-	this->activeLanguage = languageId;
-
-	if(VUEngine::getCurrentState(VUEngine::getInstance()))
-	{
-		GameState currentGameState = VUEngine::getCurrentState(VUEngine::getInstance());
-		GameState::fireEvent(currentGameState, kEventLanguageChanged);
+		this->totalLanguages = 0;
 	}
 }
 
-/*
- * Get all registered languages
- *
- * @return		Array of LangSpec pointers
- */
-LangSpec * I18n::getLanguages()
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+void I18n::destructor()
 {
-	return (LangSpec *)_languages;
+	// Always explicitly call the base's destructor 
+	Base::destructor();
 }
 
-/*
- * Retrieves ID of the currently active language
- *
- * @return		ID of currently active language
- */
-uint8 I18n::getActiveLanguage()
-{
-	return this->activeLanguage;
-}
-
-/*
- * Retrieves name of the currently active language
- *
- * @return	Name of currently active language
- */
-char* I18n::getActiveLanguageName()
-{
-	// TODO: check if _languages is empty, return "none" if so
-	return (char*)_languages[this->activeLanguage]->name;
-}
-
-/*
- * Retrieves the number of registered languages
- *
- * @return		ID of currently active language
- */
-uint8 I18n::getActiveLanguagesCount()
-{
-	uint8 count = 0;
-
-	for(; NULL != _languages[count]; count++);
-
-	return count;
-}
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

@@ -20,16 +20,14 @@
 #include <Events.h>
 
 
-
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-// CLASS' MACRO
+// CLASS' MACROS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-
-// handy macros
+// Handy macros
 #define __TRANSLATE(id)				I18n_getText(I18n_getInstance(), id)
 
-// max length of a font's name
+// Max length of a font's name
 #define __MAX_LANGUAGE_NAME_LENGTH	32
 
 
@@ -42,48 +40,73 @@ enum I18nEvents
 	kEventLanguageChanged = kEventEngineLast + 1
 };
 
-/*
- * A language spec
- * @memberof I18n
- */
+/// A Lang Spec
+/// @memberof Lang
 typedef struct LangSpec
 {
-	/// language name
+	/// Language's name
 	char name[__MAX_LANGUAGE_NAME_LENGTH];
 
-	/// pointer to a representative entity (i.e. flag)
+	/// Pointer to a representative entity (i.e. flag)
 	EntitySpec* entitySpec;
 
-	/// language strings
+	/// Language strings
 	const char** language;
 
 } LangSpec;
 
-/*
- * A LangSpec that is stored in ROM
- * @memberof I18n
- */
+/// A Lang spec that is stored in ROM
+/// @memberof Sprite
 typedef const LangSpec LangROMSpec;
+
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS'S DECLARATION
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
+///
+/// Class I18n
+///
+/// Inherits from ListenerObject
+///
 /// Handles internationalization of text output and thus allows for multiple selectable languages.
 singleton class I18n : ListenerObject
 {
-	// Currently active language
+	/// @protectedsection
+
+	/// Currently active language
 	uint8 activeLanguage;
+
+	/// Total amount of registerd languages
 	uint8 totalLanguages;
 
 	/// @publicsection
+
+	/// Method to retrieve the singleton instance
+	/// @return I18n singleton
 	static I18n getInstance();
-	uint8 getActiveLanguage();
-	char* getActiveLanguageName();
-	uint8 getActiveLanguagesCount();
-	LangSpec * getLanguages();
-	const char* getText(int32 string);
+
+	/// Set the active language.
+	/// @param languageId: ID of the language to make active
 	void setActiveLanguage(uint8 languageId);
+
+	/// Retrieve the index of the active language.
+	/// @return Active language's index
+	uint8 getActiveLanguage();
+
+	/// Retrieve the name of the active language.
+	/// @return Active language's name
+	char* getActiveLanguageName();
+
+	/// Retrieve the number of the registered language.
+	/// @return Total count of registered languages
+	uint8 getRegistedLanguagesCount();
+
+	/// Get localized string
+	/// @param string: The identifier of the string to localize
+	/// @return Localized string or NULL if no translation could be found
+	const char* getText(int32 string);
+
 }
 
 
