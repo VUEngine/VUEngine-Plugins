@@ -10,20 +10,17 @@
 #ifndef ALIGNMENT_CHECK_SCREEN_STATE_H_
 #define ALIGNMENT_CHECK_SCREEN_STATE_H_
 
-
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 #include <SplashScreenState.h>
 
-
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' MACROS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 #define __PLUGIN_ALIGNMENT_CHECK_BUTTON_SEQUENCE_LENGTH		5
-
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' DECLARATION
@@ -53,6 +50,5 @@ dynamic_singleton class AlignmentCheckScreenState : SplashScreenState
 	/// @param userInput: Struct with the current user input information
 	override void processUserInput(const UserInput*  userInput);
 }
-
 
 #endif

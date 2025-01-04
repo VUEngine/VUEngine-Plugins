@@ -2,32 +2,26 @@
 //                              THIS FILE WAS AUTO-GENERATED - DO NOT EDIT                               //
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-
 
 #include <BgmapSprite.h>
 #include <Entity.h>
 #include <Texture.h>
 
-
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // DECLARATIONS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-
 
 extern uint32 AlignmentCheckEntityAlignmentCheckLeftTiles[];
 extern uint16 AlignmentCheckEntityAlignmentCheckLeftMap[];
 extern uint32 AlignmentCheckEntityAlignmentCheckRightTiles[];
 extern uint16 AlignmentCheckEntityAlignmentCheckRightMap[];
 
-
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // SPRITES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-
 
 CharSetROMSpec AlignmentCheckSprite1CharsetSpec =
 {
@@ -113,7 +107,6 @@ BgmapSpriteROMSpec AlignmentCheckSprite1SpriteSpec =
 	__WORLD_LON,
 };
 
-
 CharSetROMSpec AlignmentCheckSprite2CharsetSpec =
 {
 	// Number of chars in function or the number of frames to load at the same time
@@ -198,12 +191,9 @@ BgmapSpriteROMSpec AlignmentCheckSprite2SpriteSpec =
 	__WORLD_RON,
 };
 
-
-
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // ENTITY
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-
 
 ComponentSpec* const AlignmentCheckEntityComponentSpecs[] = 
 {

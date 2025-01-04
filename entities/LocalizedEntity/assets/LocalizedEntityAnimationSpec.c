@@ -7,13 +7,11 @@
  * that was distributed with this source code.
  */
 
-
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 #include <BgmapAnimatedSprite.h>
-
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // DEFINITIONS
@@ -42,7 +40,6 @@ AnimationFunctionROMSpec LocalizedEntity0Animations =
 	"0",
 };
 
-
 AnimationFunctionROMSpec LocalizedEntity1Animations =
 {
 	// Number of frames that the texture supports of this animation function
@@ -65,7 +62,6 @@ AnimationFunctionROMSpec LocalizedEntity1Animations =
 	// Animation's name
 	"1",
 };
-
 
 AnimationFunctionROMSpec LocalizedEntity2Animations =
 {
@@ -90,7 +86,6 @@ AnimationFunctionROMSpec LocalizedEntity2Animations =
 	"2",
 };
 
-
 AnimationFunctionROMSpec LocalizedEntity3Animations =
 {
 	// Number of frames that the texture supports of this animation function
@@ -113,7 +108,6 @@ AnimationFunctionROMSpec LocalizedEntity3Animations =
 	// Animation's name
 	"3",
 };
-
 
 AnimationFunctionROMSpec LocalizedEntity4Animations =
 {
@@ -138,7 +132,6 @@ AnimationFunctionROMSpec LocalizedEntity4Animations =
 	"4",
 };
 
-
 AnimationFunctionROMSpec LocalizedEntity5Animations =
 {
 	// Number of frames that the texture supports of this animation function
@@ -161,7 +154,6 @@ AnimationFunctionROMSpec LocalizedEntity5Animations =
 	// Animation's name
 	"5",
 };
-
 
 AnimationFunctionROMSpec LocalizedEntity6Animations =
 {
@@ -186,7 +178,6 @@ AnimationFunctionROMSpec LocalizedEntity6Animations =
 	"6",
 };
 
-
 AnimationFunctionROMSpec LocalizedEntity7Animations =
 {
 	// Number of frames that the texture supports of this animation function
@@ -209,7 +200,6 @@ AnimationFunctionROMSpec LocalizedEntity7Animations =
 	// Animation's name
 	"7",
 };
-
 
 AnimationFunctionROMSpec LocalizedEntity8Animations =
 {
@@ -234,7 +224,6 @@ AnimationFunctionROMSpec LocalizedEntity8Animations =
 	"8",
 };
 
-
 AnimationFunctionROMSpec LocalizedEntity9Animations =
 {
 	// Number of frames that the texture supports of this animation function
@@ -257,7 +246,6 @@ AnimationFunctionROMSpec LocalizedEntity9Animations =
 	// Animation's name
 	"9",
 };
-
 
 AnimationFunctionROMSpec LocalizedEntity10Animations =
 {
@@ -282,7 +270,6 @@ AnimationFunctionROMSpec LocalizedEntity10Animations =
 	"10",
 };
 
-
 AnimationFunctionROMSpec LocalizedEntity11Animations =
 {
 	// Number of frames that the texture supports of this animation function
@@ -305,7 +292,6 @@ AnimationFunctionROMSpec LocalizedEntity11Animations =
 	// Animation's name
 	"11",
 };
-
 
 AnimationFunctionROMSpec LocalizedEntity12Animations =
 {
@@ -330,7 +316,6 @@ AnimationFunctionROMSpec LocalizedEntity12Animations =
 	"12",
 };
 
-
 AnimationFunctionROMSpec LocalizedEntity13Animations =
 {
 	// Number of frames that the texture supports of this animation function
@@ -354,7 +339,6 @@ AnimationFunctionROMSpec LocalizedEntity13Animations =
 	"13",
 };
 
-
 AnimationFunctionROMSpec LocalizedEntity14Animations =
 {
 	// Number of frames that the texture supports of this animation function
@@ -377,7 +361,6 @@ AnimationFunctionROMSpec LocalizedEntity14Animations =
 	// Animation's name
 	"14",
 };
-
 
 AnimationFunctionROMSpec LocalizedEntity15Animations =
 {

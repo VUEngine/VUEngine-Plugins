@@ -10,13 +10,11 @@
 #ifndef LOOK_AT_STEERING_BEHAVIOR_H_
 #define LOOK_AT_STEERING_BEHAVIOR_H_
 
-
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 #include <SteeringBehavior.h>
-
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' DATA
@@ -39,7 +37,6 @@ typedef struct LookAtSteeringBehaviorSpec
 /// A LookAtSteeringBehavior spec that is stored in ROM
 /// @memberof LookAtSteeringBehavior
 typedef const LookAtSteeringBehaviorSpec LookAtSteeringBehaviorROMSpec;
-
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' DECLARATION

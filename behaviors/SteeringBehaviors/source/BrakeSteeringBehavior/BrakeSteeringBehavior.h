@@ -10,13 +10,11 @@
 #ifndef BRAKE_STEERING_BEHAVIOR_H_
 #define BRAKE_STEERING_BEHAVIOR_H_
 
-
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 #include <SteeringBehavior.h>
-
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' DATA
@@ -33,7 +31,6 @@ typedef struct BrakeSteeringBehaviorSpec
 /// A BrakeSteeringBehavior spec that is stored in ROM
 /// @memberof BrakeSteeringBehavior
 typedef const BrakeSteeringBehaviorSpec BrakeSteeringBehaviorROMSpec;
-
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' DECLARATION

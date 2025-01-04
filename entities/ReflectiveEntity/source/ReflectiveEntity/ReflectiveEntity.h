@@ -10,20 +10,17 @@
 #ifndef REFLECTIVE_ENTITY_H_
 #define REFLECTIVE_ENTITY_H_
 
-
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 #include <Entity.h>
 
-
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 //												MACROS
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-
 
 #ifndef REFLECTIVE_ENTITY_POINTER_TYPE
 #define REFLECTIVE_ENTITY_POINTER_TYPE			uint32 // sizeof(uint32) + (sizeof(uint32) / sizeof(REFLECTIVE_ENTITY_POINTER_TYPE) / 2)
@@ -44,7 +41,6 @@
 #ifndef REFLECTIVE_ENTITY_BITS_PER_STEP
 #define REFLECTIVE_ENTITY_BITS_PER_STEP 		32
 #endif
-
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' DATA
@@ -121,7 +117,6 @@ typedef struct ReflectiveEntitySpec
 /// A ReflectiveEntity Spec that is stored in ROM
 /// @memberof ReflectiveEntity
 typedef const ReflectiveEntitySpec ReflectiveEntityROMSpec;
-
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' DECLARATION

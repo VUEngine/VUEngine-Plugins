@@ -10,13 +10,11 @@
 #ifndef PLATFORMER_CAMERA_TRIGGER_ENTITY_H_
 #define PLATFORMER_CAMERA_TRIGGER_ENTITY_H_
 
-
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 #include <Entity.h>
-
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' DATA
@@ -28,7 +26,6 @@ typedef struct PlatformerCameraTriggerEntitySpec
 {
 	Entity entitySpec;
 };
-
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' DECLARATION
@@ -88,6 +85,5 @@ class PlatformerCameraTriggerEntity : Entity
 	/// @param locked: If true, the entity's position is locked on the provided axis
 	void lockMovement(uint8 axisToLockUp, bool locked);
 }
-
 
 #endif

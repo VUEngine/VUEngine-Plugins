@@ -5,11 +5,9 @@
 #ifndef __PLUGIN_LOW_POWER_INDICATOR_CONFIG_H_
 #define __PLUGIN_LOW_POWER_INDICATOR_CONFIG_H_
 
-
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CONFIGURATION MACROS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-
 
 #ifndef __PLUGIN_LOW_POWER_INDICATOR_FLASH_DELAY
 #define __PLUGIN_LOW_POWER_INDICATOR_FLASH_DELAY (2)
@@ -34,6 +32,5 @@
 #ifndef __PLUGIN_LOW_POWER_INDICATOR_Y_POSITION
 #define __PLUGIN_LOW_POWER_INDICATOR_Y_POSITION (1)
 #endif
-
 
 #endif

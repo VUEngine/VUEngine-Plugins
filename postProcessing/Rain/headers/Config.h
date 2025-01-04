@@ -5,11 +5,9 @@
 #ifndef __PLUGIN_RAIN_CONFIG_H_
 #define __PLUGIN_RAIN_CONFIG_H_
 
-
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CONFIGURATION MACROS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-
 
 #ifndef __PLUGIN_RAIN_X_POSITION
 #define __PLUGIN_RAIN_X_POSITION (768)
@@ -30,6 +28,5 @@
 #ifndef __PLUGIN_RAIN_Y_STEP_THROTTLE
 #define __PLUGIN_RAIN_Y_STEP_THROTTLE (0)
 #endif
-
 
 #endif

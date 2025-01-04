@@ -5,11 +5,9 @@
 #ifndef __PLUGIN_DWARF_PLANET_CONFIG_H_
 #define __PLUGIN_DWARF_PLANET_CONFIG_H_
 
-
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CONFIGURATION MACROS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-
 
 #ifndef __PLUGIN_DWARF_PLANET_STARTING_ROW
 #define __PLUGIN_DWARF_PLANET_STARTING_ROW (0)
@@ -26,6 +24,5 @@
 #ifndef __PLUGIN_DWARF_PLANET_ENDING_COLUMN
 #define __PLUGIN_DWARF_PLANET_ENDING_COLUMN (384)
 #endif
-
 
 #endif

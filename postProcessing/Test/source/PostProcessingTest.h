@@ -10,13 +10,11 @@
 #ifndef POST_PROCESSING_TEST_H_
 #define POST_PROCESSING_TEST_H_
 
-
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 #include <GameObject.h>
-
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' DECLARATION
@@ -37,6 +35,5 @@ static class PostProcessingTest : ListenerObject
 
 	static void dummy(uint32 currentDrawingFrameBufferSet, GameObject gameObject);
 }
-
 
 #endif

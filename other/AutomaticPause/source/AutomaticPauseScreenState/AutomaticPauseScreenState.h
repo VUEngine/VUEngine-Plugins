@@ -10,13 +10,11 @@
 #ifndef AUTOMATIC_PAUSE_SCREEN_STATE_H_
 #define AUTOMATIC_PAUSE_SCREEN_STATE_H_
 
-
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 #include <GameState.h>
-
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' DECLARATION
@@ -48,6 +46,5 @@ singleton class AutomaticPauseScreenState : GameState
 	/// @param userInput: Struct with the current user input information
 	override void processUserInput(const UserInput*  userInput);
 }
-
 
 #endif

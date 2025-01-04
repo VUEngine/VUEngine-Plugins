@@ -10,20 +10,17 @@
 #ifndef LOW_POWER_MANAGER_H_
 #define LOW_POWER_MANAGER_H_
 
-
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 #include <ListenerObject.h>
 
-
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 //											CLASS'S DECLARATION
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-
 
 /// Shows an indicator on screen when the system power is low
 singleton class LowPowerManager : ListenerObject
@@ -73,6 +70,5 @@ singleton class LowPowerManager : ListenerObject
 	/// @memberof 			LowPowerManager
 	/// @param eventFirer	ListenerObject that has fired the event
 }
-
 
 #endif

@@ -10,13 +10,11 @@
 #ifndef SEEK_STEERING_BEHAVIOR_H_
 #define SEEK_STEERING_BEHAVIOR_H_
 
-
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 #include <SteeringBehavior.h>
-
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' DATA
@@ -39,7 +37,6 @@ typedef struct SeekSteeringBehaviorSpec
 /// A SeekSteeringBehavior spec that is stored in ROM
 /// @memberof SeekSteeringBehavior
 typedef const SeekSteeringBehaviorSpec SeekSteeringBehaviorROMSpec;
-
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' DECLARATION
@@ -122,6 +119,5 @@ class SeekSteeringBehavior : SteeringBehavior
 	/// @return If true, easing on the computation of the force is allowed
 	bool getAllowEasing();
 }
-
 
 #endif

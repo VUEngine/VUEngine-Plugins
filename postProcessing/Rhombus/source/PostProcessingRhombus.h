@@ -10,13 +10,11 @@
 #ifndef POST_PROCESSING_RHOMBUS_H_
 #define POST_PROCESSING_RHOMBUS_H_
 
-
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 #include <GameObject.h>
-
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' DECLARATION
@@ -35,6 +33,5 @@ static class PostProcessingRhombus : ListenerObject
 	/// @param gameObject: Post-processing effect function's scope
 	static void rhombus(uint32 currentDrawingFrameBufferSet, GameObject gameObject);
 }
-
 
 #endif

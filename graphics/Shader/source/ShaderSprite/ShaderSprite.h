@@ -10,13 +10,11 @@
 #ifndef ShaderSprite_SPRITE_H_
 #define ShaderSprite_SPRITE_H_
 
-
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 #include <BgmapSprite.h>
-
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' DATA
@@ -36,7 +34,6 @@ typedef struct ShaderSpriteSpec
 /// A ShaderSprite spec that is stored in ROM
 /// @memberof ShaderSprite
 typedef const ShaderSpriteSpec ShaderSpriteROMSpec;
-
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' DECLARATION
@@ -77,6 +74,5 @@ class ShaderSprite : BgmapSprite
 	/// Process special effects.
 	override void processEffects();
 }
-
 
 #endif

@@ -10,14 +10,12 @@
 #ifndef LANGUAGE_SELECTION_SCREEN_STATE_H_
 #define LANGUAGE_SELECTION_SCREEN_STATE_H_
 
-
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 #include <SplashScreenState.h>
 #include <OptionsSelector.h>
-
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' DECLARATION
@@ -62,6 +60,5 @@ dynamic_singleton class LanguageSelectionScreenState: SplashScreenState
 	/// Print any text specific to each splash screen state type.
 	override void print();
 }
-
 
 #endif

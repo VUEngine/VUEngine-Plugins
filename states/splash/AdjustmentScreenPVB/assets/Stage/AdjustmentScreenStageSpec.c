@@ -7,7 +7,6 @@
  * that was distributed with this source code.
  */
 
-
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -15,11 +14,9 @@
 #include <Stage.h>
 #include <AdjustmentScreenState.h>
 
-
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // DECLARATIONS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-
 
 extern EntitySpec AdjustmentScreenBgEntitySpec;
 extern EntitySpec AdjustmentScreenIconLEntitySpec;
@@ -29,7 +26,6 @@ extern EntitySpec AdjustmentScreenLogoEntitySpec;
 #if __PLUGIN_ADJUSTMENT_SCREEN_PVB_USE_LOW_POWER_ENTITY
 extern EntitySpec LowPowerIndicatorEntitySpec;
 #endif
-
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // ENTITY LISTS
@@ -69,7 +65,6 @@ SoundROMSpec* const AdjustmentScreenStageSoundSpecs[] =
 {
 	NULL
 };
-
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // STAGE DEFINITION

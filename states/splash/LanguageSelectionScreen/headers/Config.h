@@ -5,11 +5,9 @@
 #ifndef __PLUGIN_LANGUAGE_SELECTION_SCREEN_CONFIG_H_
 #define __PLUGIN_LANGUAGE_SELECTION_SCREEN_CONFIG_H_
 
-
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CONFIGURATION MACROS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-
 
 #ifndef __PLUGIN_LANGUAGE_SELECTION_SCREEN_USE_LOW_POWER_ENTITY
 #define __PLUGIN_LANGUAGE_SELECTION_SCREEN_USE_LOW_POWER_ENTITY (false)
@@ -34,6 +32,5 @@
 #ifndef __PLUGIN_LANGUAGE_SELECTION_SCREEN_IMAGE_HEIGHT
 #define __PLUGIN_LANGUAGE_SELECTION_SCREEN_IMAGE_HEIGHT (32)
 #endif
-
 
 #endif

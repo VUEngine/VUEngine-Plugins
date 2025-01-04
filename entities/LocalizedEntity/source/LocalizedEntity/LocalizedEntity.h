@@ -10,13 +10,11 @@
 #ifndef LOCALIZED_ENTITY_H_
 #define LOCALIZED_ENTITY_H_
 
-
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 #include <AnimatedEntity.h>
-
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' DATA
@@ -33,7 +31,6 @@ typedef struct LocalizedEntitySpec
 /// A LocalizedEntity spec that is stored in ROM
 /// @memberof LocalizedEntity
 typedef const LocalizedEntitySpec LocalizedEntityROMSpec;
-
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' DECLARATION
@@ -58,6 +55,5 @@ class LocalizedEntity : AnimatedEntity
 	/// @param recursive: If true, the ready call is propagated to its children, grand children, etc.
 	override void ready(bool recursive);
 }
-
 
 #endif

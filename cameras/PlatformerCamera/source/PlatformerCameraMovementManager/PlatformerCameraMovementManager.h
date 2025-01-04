@@ -10,7 +10,6 @@
 #ifndef PLATFORMER_CAMERA_MOVEMENT_MANAGER_H_
 #define PLATFORMER_CAMERA_MOVEMENT_MANAGER_H_
 
-
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -21,14 +20,12 @@
 #include <Camera.h>
 #include <PlatformerCameraTriggerEntity.h>
 
-
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // FORWARD DECLARATIONS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 class Camera;
 class Entity;
-
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' MACROS
@@ -42,7 +39,6 @@ class Entity;
 #define SCREEN_WIDTH_REDUCTION						64
 #define SCREEN_HEIGHT_REDUCTION						32
 
-
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' DATA
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -51,7 +47,6 @@ enum PlatformerCameraMovementManagerEvents
 {
 	kEventScreenFocused = kEventEngineLast + 1
 };
-
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' DECLARATION
@@ -140,6 +135,5 @@ singleton class PlatformerCameraMovementManager : CameraMovementManager
 	/// @param screenDisplacement: Displacement to add to the camera when focusing
 	void configure(Entity focusEntity, uint32 focusEntityLayer, uint32 cameraTriggerLayer, PixelSize boundingBoxSize, Vector3D boundingBoxDisplacement, Vector3D screenDisplacement);
 }
-
 
 #endif

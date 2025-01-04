@@ -10,13 +10,11 @@
 #ifndef AVOID_STEERING_BEHAVIOR_H_
 #define AVOID_STEERING_BEHAVIOR_H_
 
-
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 #include <SteeringBehavior.h>
-
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // FORWARD DECLARATIONS
@@ -24,7 +22,6 @@
 
 class GameObject;
 class VirtualList;
-
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' DATA
@@ -50,7 +47,6 @@ typedef struct AvoidSteeringBehaviorSpec
 /// A AvoidSteeringBehavior spec that is stored in ROM
 /// @memberof AvoidSteeringBehavior
 typedef const AvoidSteeringBehaviorSpec AvoidSteeringBehaviorROMSpec;
-
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' DECLARATION

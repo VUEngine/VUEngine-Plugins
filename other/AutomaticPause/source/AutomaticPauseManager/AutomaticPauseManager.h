@@ -10,14 +10,12 @@
 #ifndef AUTOMATIC_PAUSE_MANAGER_H_
 #define AUTOMATIC_PAUSE_MANAGER_H_
 
-
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 #include <ListenerObject.h>
 #include <GameState.h>
-
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' DECLARATION
@@ -72,6 +70,5 @@ singleton class AutomaticPauseManager : ListenerObject
 	/// @return True if the the automatic pause feature is enabled; false otherwise
 	bool isActive();
 }
-
 
 #endif

@@ -7,7 +7,6 @@
  * that was distributed with this source code.
  */
 
-
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -16,14 +15,12 @@
 #include <VIPManager.h>
 #include <BgmapSprite.h>
 
-
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // DECLARATIONS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 extern uint32 AdjustmentScreenIconTiles[];
 extern uint16 AdjustmentScreenIconMap[];
-
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // DEFINITIONS
@@ -113,8 +110,6 @@ BgmapSpriteROMSpec AdjustmentScreenIconLSpriteSpec =
 	// Flag to indicate in which display to show the texture (__WORLD_ON, __WORLD_LON or __WORLD_RON)
 	__WORLD_LON,
 };
-
-
 
 BgmapSpriteROMSpec const AdjustmentScreenIconRSpriteSpec =
 {

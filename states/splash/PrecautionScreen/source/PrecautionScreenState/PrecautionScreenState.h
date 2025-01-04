@@ -10,20 +10,17 @@
 #ifndef PRECAUTION_SCREEN_STATE_H_
 #define PRECAUTION_SCREEN_STATE_H_
 
-
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 #include <SplashScreenState.h>
 
-
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 //											CLASS'S DECLARATION
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-
 
 dynamic_singleton class PrecautionScreenState : SplashScreenState
 {
@@ -32,6 +29,5 @@ dynamic_singleton class PrecautionScreenState : SplashScreenState
 	override void enter(void* owner);
 	override bool processMessage(void* owner, Telegram telegram);
 }
-
 
 #endif
