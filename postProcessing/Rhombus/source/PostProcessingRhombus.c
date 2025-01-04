@@ -46,7 +46,8 @@ static void PostProcessingRhombus::rhombus(uint32 currentDrawingFrameBufferSet _
 		return;
 	}
 
-	PixelVector screenPixelPosition = PixelVector::projectVector3D(Vector3D::getRelativeToCamera(*GameObject::getPosition(gameObject)), 0);
+	PixelVector screenPixelPosition = 
+		PixelVector::projectVector3D(Vector3D::getRelativeToCamera(*GameObject::getPosition(gameObject)), 0);
 
 	// increase radius by 1 in each cycle
 	radius++;

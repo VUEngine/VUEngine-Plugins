@@ -96,7 +96,8 @@ static Vector3D SteeringBehavior::calculatePrioritized(Vehicle vehicle)
 
 			if(steeringBehavior->enabled)
 			{
-				Vector3D force = Vector3D::scalarProduct(SteeringBehavior::calculate(steeringBehavior, vehicle), steeringBehavior->weight);
+				Vector3D force = 
+					Vector3D::scalarProduct(SteeringBehavior::calculate(steeringBehavior, vehicle), steeringBehavior->weight);
 
 				if(0 != steeringBehavior->deviation)
 				{
@@ -134,7 +135,8 @@ static Vector3D SteeringBehavior::calculateWeightedSum(Vehicle vehicle)
 
 			if(steeringBehavior->enabled)
 			{
-				Vector3D force = Vector3D::scalarProduct(SteeringBehavior::calculate(steeringBehavior, vehicle), steeringBehavior->weight);
+				Vector3D force = 
+					Vector3D::scalarProduct(SteeringBehavior::calculate(steeringBehavior, vehicle), steeringBehavior->weight);
 
 				if(steeringBehavior->deviation)
 				{
@@ -190,7 +192,8 @@ static bool SteeringBehavior::accumulateForce(fixed_t maximumForce, Vector3D *to
 		//add it to the steering force
 		if(magnitudeToAdd)
 		{
-			*totalForce = Vector3D::sum(*totalForce, Vector3D::scalarProduct(forceToAdd, __FIXED_DIV(magnitudeRemaining, magnitudeToAdd)));
+			*totalForce = 
+				Vector3D::sum(*totalForce, Vector3D::scalarProduct(forceToAdd, __FIXED_DIV(magnitudeRemaining, magnitudeToAdd)));
 		}
 	}
 

@@ -111,7 +111,12 @@ Vector3D SeekSteeringBehavior::calculate(Vehicle owner)
 		return this->force;
 	}
 
-	this->force = SeekSteeringBehavior::toTarget(this, owner, this->target, this->slowDownWhenReachingTarget, this->squaredReachedDistanceThreshold, this->easingDistanceThreshold, this->allowEasing);
+	this->force = 
+		SeekSteeringBehavior::toTarget
+		(
+			this, owner, this->target, this->slowDownWhenReachingTarget, this->squaredReachedDistanceThreshold, 
+			this->easingDistanceThreshold, this->allowEasing
+		);
 
 	return this->force;
 }

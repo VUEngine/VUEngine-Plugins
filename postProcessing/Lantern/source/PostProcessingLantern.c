@@ -42,12 +42,16 @@ static void PostProcessingLantern::lantern(uint32 currentDrawingFrameBufferSet, 
 	{
  		if(ellipsisArcCalculated)
  		{
- 			PostProcessingLantern::applyMask(currentDrawingFrameBufferSet, _cameraFrustum->x0, _cameraFrustum->x1, _cameraFrustum->y0, _cameraFrustum->y1, 0);
+ 			PostProcessingLantern::applyMask
+			(
+				currentDrawingFrameBufferSet, _cameraFrustum->x0, _cameraFrustum->x1, _cameraFrustum->y0, _cameraFrustum->y1, 0
+			);
  		}
  		return;
 	}
 
-	PixelVector screenPixelPosition = PixelVector::projectVector3D(Vector3D::getRelativeToCamera(*GameObject::getPosition(gameObject)), 0);
+	PixelVector screenPixelPosition = 
+		PixelVector::projectVector3D(Vector3D::getRelativeToCamera(*GameObject::getPosition(gameObject)), 0);
 
  	screenPixelPosition.y -= 10;
 
@@ -66,11 +70,16 @@ static void PostProcessingLantern::lantern(uint32 currentDrawingFrameBufferSet, 
 
 		for(i = sizeof(ellipsisArc) >> POST_PROCESSING_LANTERN_SIZE_OF_S16_POWER; --i; x++)
 		{
-			ellipsisArc[i] = ELLIPSIS_Y_AXIS_LENGTH * Math::squareRoot(((ELLIPSIS_X_AXIS_LENGTH * ELLIPSIS_X_AXIS_LENGTH) - (x * x)) / (ELLIPSIS_X_AXIS_LENGTH * ELLIPSIS_X_AXIS_LENGTH));
+			ellipsisArc[i] = 
+				ELLIPSIS_Y_AXIS_LENGTH * Math::squareRoot(((ELLIPSIS_X_AXIS_LENGTH * ELLIPSIS_X_AXIS_LENGTH) - 
+				(x * x)) / (ELLIPSIS_X_AXIS_LENGTH * ELLIPSIS_X_AXIS_LENGTH));
 		}
 	}
 
-	PostProcessingLantern::ellipticalWindow(currentDrawingFrameBufferSet, screenPixelPosition, ellipsisArc, ELLIPSIS_X_AXIS_LENGTH, PENUMBRA_MASK, true);
+	PostProcessingLantern::ellipticalWindow
+	(
+		currentDrawingFrameBufferSet, screenPixelPosition, ellipsisArc, ELLIPSIS_X_AXIS_LENGTH, PENUMBRA_MASK, true
+	);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -158,7 +167,9 @@ static void PostProcessingLantern::ellipticalWindow(uint32 currentDrawingFrameBu
 		uint32 lowerMask = roundBorder ? ~(0xFFFFFFFF << maskDisplacement) : 0xFFFFFFFF;
 
 		int32 yLowerLimit =  (yPosition + ellipsisY) >> POST_PROCESSING_LANTERN_Y_STEP_SIZE_2_EXP;
-		int32 yUpperLimit = (yPosition >> POST_PROCESSING_LANTERN_Y_STEP_SIZE_2_EXP) - (yLowerLimit - (yPosition >> POST_PROCESSING_LANTERN_Y_STEP_SIZE_2_EXP));
+		int32 yUpperLimit = 
+			(yPosition >> POST_PROCESSING_LANTERN_Y_STEP_SIZE_2_EXP) - 
+			(yLowerLimit - (yPosition >> POST_PROCESSING_LANTERN_Y_STEP_SIZE_2_EXP));
 
 		if(yUpperLimit > yEnd)
 		{

@@ -57,9 +57,15 @@ static void PostProcessingTilt::tiltScreen(uint32 currentDrawingFrameBufferSet, 
 
 			// loop current column in steps of 16 pixels (32 bits)
 			// ignore the bottom 16 pixels of the screen (gui)
-			for(y = ((__PLUGIN_TILT_STARTING_ROW * 2) / 8) / sizeof(uint32); y < ((__PLUGIN_TILT_ENDING_ROW * 2) / 8) / sizeof(uint32); y++)
+			for
+			(
+				y = ((__PLUGIN_TILT_STARTING_ROW * 2) / 8) / sizeof(uint32); 
+				y < ((__PLUGIN_TILT_ENDING_ROW * 2) / 8) / sizeof(uint32); 
+				y++
+			)
 			{
-				previousSourcePointerValue = PostProcessingTilt::writeToFrameBuffer(y, currentShift, columnSourcePointer, previousSourcePointerValue);
+				previousSourcePointerValue = 
+					PostProcessingTilt::writeToFrameBuffer(y, currentShift, columnSourcePointer, previousSourcePointerValue);
 			}
 		}
 	}

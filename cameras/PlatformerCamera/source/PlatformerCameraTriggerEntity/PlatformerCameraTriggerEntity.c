@@ -29,7 +29,10 @@
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void PlatformerCameraTriggerEntity::constructor(PlatformerCameraTriggerEntitySpec* cameraEntitySpec, int16 internalId, const char* const name)
+void PlatformerCameraTriggerEntity::constructor
+(
+	PlatformerCameraTriggerEntitySpec* cameraEntitySpec, int16 internalId, const char* const name
+)
 {
 	ASSERT(cameraEntitySpec, "PlatformerCameraTriggerEntity::constructor: null spec");
 
@@ -121,7 +124,9 @@ void PlatformerCameraTriggerEntity::update()
 	Base::update(this);
 
 	// If there is a change in direction over the X axis
-	int8 currentXDirection = this->transformation.position.x > this->previousGlobalPosition.x ? __RIGHT : this->transformation.position.x < this->previousGlobalPosition.x ? __LEFT : 0;
+	int8 currentXDirection = 
+		this->transformation.position.x > this->previousGlobalPosition.x ? 
+		__RIGHT : this->transformation.position.x < this->previousGlobalPosition.x ? __LEFT : 0;
 
 	if(currentXDirection)
 	{

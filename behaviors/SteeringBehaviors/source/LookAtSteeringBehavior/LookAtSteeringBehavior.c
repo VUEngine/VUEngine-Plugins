@@ -34,7 +34,12 @@ static Vector3D LookAtSteeringBehavior::toTarget(LookAtSteeringBehavior LookAtSt
 	{
 		LookAtSteeringBehavior->reachedTarget = true;
 		LookAtSteeringBehavior::fireEvent(LookAtSteeringBehavior, kTargetReached);
-		NM_ASSERT(!isDeleted(LookAtSteeringBehavior), "LookAtSteeringBehavior::toTarget: deleted LookAtSteeringBehavior during kTargetReached");
+		NM_ASSERT
+		(
+			!isDeleted(LookAtSteeringBehavior), 
+			"LookAtSteeringBehavior::toTarget: deleted LookAtSteeringBehavior during kTargetReached"
+		);
+
 		return Vector3D::zero();
 	}
 
@@ -104,7 +109,12 @@ Vector3D LookAtSteeringBehavior::calculate(Vehicle owner)
 		return this->force;
 	}
 
-	this->force = LookAtSteeringBehavior::toTarget(this, owner, this->target, this->slowDownWhenReachingTarget, this->reachedDistanceThreshold, this->easingDistanceThreshold, this->allowEasing);
+	this->force = 
+		LookAtSteeringBehavior::toTarget
+		(
+			this, owner, this->target, this->slowDownWhenReachingTarget, this->reachedDistanceThreshold, 
+			this->easingDistanceThreshold, this->allowEasing
+		);
 
 	return this->force;
 }

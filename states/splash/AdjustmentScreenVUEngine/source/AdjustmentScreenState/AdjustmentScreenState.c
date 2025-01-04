@@ -217,14 +217,21 @@ void AdjustmentScreenState::init()
 
 void AdjustmentScreenState::setLowPowerIndicatorPosition()
 {
-	LowPowerManager::setPosition(LowPowerManager::getInstance(), __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_LOW_POWER_INDICATOR_X_POSITION, __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_LOW_POWER_INDICATOR_Y_POSITION);
+	LowPowerManager::setPosition
+	(
+		LowPowerManager::getInstance(), __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_LOW_POWER_INDICATOR_X_POSITION, 
+		__PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_LOW_POWER_INDICATOR_Y_POSITION
+	);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 void AdjustmentScreenState::resetLowPowerIndicatorPosition()
 {
-	LowPowerManager::setPosition(LowPowerManager::getInstance(), __PLUGIN_LOW_POWER_INDICATOR_X_POSITION, __PLUGIN_LOW_POWER_INDICATOR_Y_POSITION);
+	LowPowerManager::setPosition
+	(
+		LowPowerManager::getInstance(), __PLUGIN_LOW_POWER_INDICATOR_X_POSITION, __PLUGIN_LOW_POWER_INDICATOR_Y_POSITION
+	);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————

@@ -83,7 +83,10 @@ bool SaveDataManager::checkSRAM()
 	char saveStamp[__PLUGIN_SAVE_DATA_MANAGER_SAVE_STAMP_LENGTH];
 
 	// write save stamp
-	SRAMManager::save(SRAMManager::getInstance(), (BYTE*)__PLUGIN_SAVE_DATA_MANAGER_SAVE_STAMP, offsetof(struct SaveData, saveStamp), sizeof(saveStamp));
+	SRAMManager::save
+	(
+		SRAMManager::getInstance(), (BYTE*)__PLUGIN_SAVE_DATA_MANAGER_SAVE_STAMP, offsetof(struct SaveData, saveStamp), sizeof(saveStamp)
+	);
 
 	return SaveDataManager::verifySaveStamp(this);
 }

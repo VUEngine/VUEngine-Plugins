@@ -133,7 +133,13 @@ Vector3D AvoidSteeringBehavior::awayFromObstacles(Vehicle vehicle)
 	Vector3D position = *Vehicle::getPosition(vehicle);
 	Vector3D direction = *Vehicle::getDirection(vehicle);
 
-	fixed_t squareAvoidanceDetectionDistance = __FIXED_MULT(((AvoidSteeringBehaviorSpec*)this->componentSpec)->avoidanceDetectionDistance, ((AvoidSteeringBehaviorSpec*)this->componentSpec)->avoidanceDetectionDistance);
+	fixed_t squareAvoidanceDetectionDistance = 
+		__FIXED_MULT
+		(
+			((AvoidSteeringBehaviorSpec*)this->componentSpec)->avoidanceDetectionDistance, 
+			((AvoidSteeringBehaviorSpec*)this->componentSpec)->avoidanceDetectionDistance
+		);
+
 	fixed_ext_t squareMaximumForce = __FIXED_EXT_MULT(this->maximumForce, this->maximumForce);
 
 	for(; NULL != node; node = node->next)
@@ -145,7 +151,12 @@ Vector3D AvoidSteeringBehavior::awayFromObstacles(Vehicle vehicle)
 
 		fixed_t dotProduct = Vector3D::dotProduct(direction, Vector3D::normalize(vectorVehicleObstacle));
 
-		if(squareDistance < squareAvoidanceDetectionDistance && __FIX7_9_TO_FIXED(__COS(((AvoidSteeringBehaviorSpec*)this->componentSpec)->maximumAngle)) < dotProduct)
+		if
+		(
+			squareDistance < squareAvoidanceDetectionDistance 
+			&& 
+			__FIX7_9_TO_FIXED(__COS(((AvoidSteeringBehaviorSpec*)this->componentSpec)->maximumAngle)) < dotProduct
+		)
 		{
 			Vector3D desiredDirection1 =
 			{
@@ -176,14 +187,19 @@ Vector3D AvoidSteeringBehavior::awayFromObstacles(Vehicle vehicle)
 				factor = __FIXED_EXT_DIV(factor, squareDistance);
 			}
 
-			desiredVelocity = Vector3D::sum(desiredVelocity, Vector3D::scalarProduct(desiredDirection, __FIXED_EXT_MULT(dotProduct, factor)));
+			desiredVelocity = 
+				Vector3D::sum(desiredVelocity, Vector3D::scalarProduct(desiredDirection, __FIXED_EXT_MULT(dotProduct, factor)));
 			fixed_t obstacleSpeed = GameObject::getSpeed(obstacle->gameObject);
 
 			if(obstacleSpeed)
 			{
 				fixed_t speedDifference = __FIXED_DIV(Vehicle::getSpeed(vehicle), obstacleSpeed) - __I_TO_FIXED(1);
 
-				if(0 < speedDifference && __F_TO_FIXED(0.6f) > speedDifference && ((AvoidSteeringBehaviorSpec*)this->componentSpec)->brakingMinimumAngleCos < dotProduct)
+				if
+				(
+					0 < speedDifference && __F_TO_FIXED(0.6f) > speedDifference && 
+					((AvoidSteeringBehaviorSpec*)this->componentSpec)->brakingMinimumAngleCos < dotProduct
+				)
 				{
 					factor = __FIXED_EXT_MULT(speedDifference, __FIXED_DIV(factor, Vehicle::getFrictionMassRatio(vehicle)));
 					Vector3D reverseDirection = Vector3D::scalarProduct(direction, -(__FIXED_MULT(factor, dotProduct)));

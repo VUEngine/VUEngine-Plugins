@@ -75,10 +75,29 @@ static void PostProcessingDwarfPlanet::dwarfPlanet(uint32 currentDrawingFrameBuf
 		// loop current column in steps of 16 pixels (32 bits)
 		for(uint16 y = (__PLUGIN_DWARF_PLANET_STARTING_ROW / 16); y < (__PLUGIN_DWARF_PLANET_ENDING_ROW / 16); y++)
 		{
-			previousSourcePointerValueLeft1 = PostProcessingDwarfPlanet::writeToFrameBuffer(y, 32 -lut[lutEntries - counter], columnSourcePointerLeft1, previousSourcePointerValueLeft1);
-			previousSourcePointerValueRight1 = PostProcessingDwarfPlanet::writeToFrameBuffer(y, 32 -lut[lutEntries - counter], columnSourcePointerRight1, previousSourcePointerValueRight1);
-			previousSourcePointerValueLeft2 = PostProcessingDwarfPlanet::writeToFrameBuffer(y, 32 -lut[counter], columnSourcePointerLeft2, previousSourcePointerValueLeft2);
-			previousSourcePointerValueRight2 = PostProcessingDwarfPlanet::writeToFrameBuffer(y, 32 -lut[counter], columnSourcePointerRight2, previousSourcePointerValueRight2);
+			previousSourcePointerValueLeft1 = 
+				PostProcessingDwarfPlanet::writeToFrameBuffer
+				(
+					y, 32 -lut[lutEntries - counter], columnSourcePointerLeft1, previousSourcePointerValueLeft1
+				);
+			
+			previousSourcePointerValueRight1 = 
+				PostProcessingDwarfPlanet::writeToFrameBuffer
+				(
+					y, 32 -lut[lutEntries - counter], columnSourcePointerRight1, previousSourcePointerValueRight1
+				);
+			
+			previousSourcePointerValueLeft2 = 
+				PostProcessingDwarfPlanet::writeToFrameBuffer
+				(
+					y, 32 -lut[counter], columnSourcePointerLeft2, previousSourcePointerValueLeft2
+				);
+			
+			previousSourcePointerValueRight2 = 
+				PostProcessingDwarfPlanet::writeToFrameBuffer
+				(
+					y, 32 -lut[counter], columnSourcePointerRight2, previousSourcePointerValueRight2
+				);
 		}
 	}
 }

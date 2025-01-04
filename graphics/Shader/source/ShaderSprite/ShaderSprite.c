@@ -323,7 +323,10 @@ void ShaderSprite::drawLine(WORD* bufferAddress, PixelVector fromPoint, PixelVec
 	{
 		parallax = auxParallax;
 
-		ShaderSprite::drawPixel(this, bufferAddress, (uint16)__FIX19_13_TO_I(fromPointX - parallax), (uint16)__FIX19_13_TO_I(fromPointY), color);
+		ShaderSprite::drawPixel
+		(
+			this, bufferAddress, (uint16)__FIX19_13_TO_I(fromPointX - parallax), (uint16)__FIX19_13_TO_I(fromPointY), color
+		);
 
 		fromPointX += stepX;
 		fromPointY += stepY;

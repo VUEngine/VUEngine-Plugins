@@ -58,7 +58,12 @@ static void PostProcessingRain::rain(uint32 currentDrawingFrameBufferSet __attri
  	fix19_13 yScreenDisplacement = __I_TO_FIX19_13(__METERS_TO_PIXELS(_cameraPosition->y - cameraPreviousPosition.y));
 
  	cumulativeX += __METERS_TO_PIXELS(_cameraPosition->x - cameraPreviousPosition.x);
-	PostProcessingRain::calculateRainPrecipitation(&yStepThrottle, &xStep, POST_PROCESSING_RAIN_MAXIMUM_Y_THROTTLE_1, POST_PROCESSING_RAIN_MINIMUM_Y_THROTTLE_1, POST_PROCESSING_RAIN_MAXIMUM_X_STEP_1, POST_PROCESSING_RAIN_MINIMUM_X_STEP_1);
+	PostProcessingRain::calculateRainPrecipitation
+	(
+		&yStepThrottle, &xStep, POST_PROCESSING_RAIN_MAXIMUM_Y_THROTTLE_1, POST_PROCESSING_RAIN_MINIMUM_Y_THROTTLE_1, 
+		POST_PROCESSING_RAIN_MAXIMUM_X_STEP_1, POST_PROCESSING_RAIN_MINIMUM_X_STEP_1
+	);
+	
 	cameraPreviousPosition = *_cameraPosition;
 
  	const int16 dropletParallax[] =
@@ -445,8 +450,24 @@ static void PostProcessingRain::calculateRainPrecipitation(fix19_13* yStepThrott
 	// multiply by the game cycle per second
 	int32 rainPeriod =  __I_TO_FIX19_13(((int32)timePeriod[timePeriodIndex] + previousTime % timePeriod[timePeriodIndex]) * 50);
 
-	*yStepThrottle += __FIXED_TO_FIX19_13(__FIXED_DIV(__FIX19_13_TO_FIXED(rainAcceleration[rainAccelerationIndex] * (maximumYThrottle - minimumYThrottle)), __FIX19_13_TO_FIXED(rainPeriod)));
-	*xStep -= __FIXED_TO_FIX19_13(__FIXED_DIV(__FIX19_13_TO_FIXED(rainAcceleration[rainAccelerationIndex] * (maximumXStep - minimumXStep)), __FIX19_13_TO_FIXED(rainPeriod)));
+	*yStepThrottle += 
+		__FIXED_TO_FIX19_13
+		(
+			__FIXED_DIV
+			(
+				__FIX19_13_TO_FIXED(rainAcceleration[rainAccelerationIndex] * (maximumYThrottle - minimumYThrottle)),
+				__FIX19_13_TO_FIXED(rainPeriod)
+			)
+		);
+	*xStep -= 
+		__FIXED_TO_FIX19_13
+		(
+			__FIXED_DIV
+			(
+				__FIX19_13_TO_FIXED(rainAcceleration[rainAccelerationIndex] * (maximumXStep - minimumXStep)), 
+				__FIX19_13_TO_FIXED(rainPeriod)
+			)
+		);
 
 	if(*yStepThrottle < minimumYThrottle)
 	{

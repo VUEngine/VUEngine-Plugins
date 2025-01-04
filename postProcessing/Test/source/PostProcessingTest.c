@@ -39,7 +39,8 @@ static void PostProcessingTest::lighting(uint32 currentDrawingFrameBufferSet, Ga
 		return;
 	}
 
-	PixelVector screenPixelPosition = PixelVector::projectVector3D(Vector3D::getRelativeToCamera(*GameObject::getPosition(gameObject)), 0);
+	PixelVector screenPixelPosition = 
+		PixelVector::projectVector3D(Vector3D::getRelativeToCamera(*GameObject::getPosition(gameObject)), 0);
 
 	// the pixel in screen coordinates (x: 0 - 383, y: 0 - 223)
 	int32 x = 0;
@@ -128,8 +129,10 @@ static void PostProcessingTest::dummy(uint32 currentDrawingFrameBufferSet, GameO
 		// ignore the bottom 16 pixels of the screen (gui)
 		for(y = 0; y < 13; y++)
 		{
-			previousSourcePointerValueLeft = PostProcessingTest::writeToFrameBuffer(y, 1, columnSourcePointerLeft, previousSourcePointerValueLeft);
-			previousSourcePointerValueRight = PostProcessingTest::writeToFrameBuffer(y, 1, columnSourcePointerRight, previousSourcePointerValueRight);
+			previousSourcePointerValueLeft = 
+				PostProcessingTest::writeToFrameBuffer(y, 1, columnSourcePointerLeft, previousSourcePointerValueLeft);
+			previousSourcePointerValueRight = 
+				PostProcessingTest::writeToFrameBuffer(y, 1, columnSourcePointerRight, previousSourcePointerValueRight);
 		}
 	}
 }
