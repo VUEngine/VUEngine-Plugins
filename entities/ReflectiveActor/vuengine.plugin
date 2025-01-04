@@ -10,7 +10,7 @@
 		"de": "Eine Entität, die andere Teile des virtuellen Bildschirms spiegeln kann.",
 		"es": "Una entidad que puede reflejar otras partes de la pantalla virtual."
 	},
-	"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/entities/ReflectiveActor",
+	"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/actors/ReflectiveActor",
 	"license": "MIT",
 	"tags": [
 		{

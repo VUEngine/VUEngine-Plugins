@@ -7,8 +7,8 @@
  * that was distributed with this source code.
  */
 
-#ifndef LOCALIZED_ENTITY_H_
-#define LOCALIZED_ENTITY_H_
+#ifndef LOCALIZED_ACTOR_H_
+#define LOCALIZED_ACTOR_H_
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // INCLUDES

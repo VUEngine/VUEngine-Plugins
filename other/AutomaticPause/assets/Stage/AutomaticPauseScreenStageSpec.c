@@ -24,18 +24,18 @@ extern ActorSpec LowPowerIndicatorActorSpec;
 #endif
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-// ENTITY LISTS
+// ACTOR LISTS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-PositionedActorROMSpec AutomaticPauseScreenStageEntities[] =
+PositionedActorROMSpec AutomaticPauseScreenStageActors[] =
 {
 	{NULL, {0, 0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 };
 
-PositionedActorROMSpec AutomaticPauseScreenStageUiEntities[] =
+PositionedActorROMSpec AutomaticPauseScreenStageUiActors[] =
 {
 #if __PLUGIN_AUTOMATIC_PAUSE_USE_LOW_POWER_ENTITY
-	{&LowPowerIndicatorActorSpec, 	{__PLUGIN_LOW_POWER_ENTITY_X_POSITION, __PLUGIN_LOW_POWER_ENTITY_Y_POSITION, __PLUGIN_LOW_POWER_ENTITY_Z_POSITION}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&LowPowerIndicatorActorSpec, 	{__PLUGIN_LOW_POWER_ACTOR_X_POSITION, __PLUGIN_LOW_POWER_ACTOR_Y_POSITION, __PLUGIN_LOW_POWER_ACTOR_Z_POSITION}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 #endif
 
 #ifdef __LEGACY_COORDINATE_PROJECTION
@@ -118,7 +118,7 @@ StageROMSpec AutomaticPauseScreenStage =
 		// Padding to be added to camera's frustum when checking if a actor is
 		// out of the camera's range
 		16,
-		// Amount of actor descriptions to check for streaming in entities
+		// Amount of actor descriptions to check for streaming in actors
 		24,
 		// If true, actor instantiation is done over time
 		false,
@@ -253,16 +253,16 @@ StageROMSpec AutomaticPauseScreenStage =
 		(SoundSpec**)NULL,
 	},
 
-	// Entities
+	// Actors
 	{
 		// UI configuration
 		{
-			(PositionedActor*)AutomaticPauseScreenStageUiEntities,
+			(PositionedActor*)AutomaticPauseScreenStageUiActors,
 			__TYPE(UIContainer),
 		},
 
-		// Stage's children entities
-		(PositionedActor*)AutomaticPauseScreenStageEntities,
+		// Stage's children actors
+		(PositionedActor*)AutomaticPauseScreenStageActors,
 	},
 
 	// Post processing effects

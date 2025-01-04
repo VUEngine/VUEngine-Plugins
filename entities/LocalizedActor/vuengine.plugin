@@ -10,7 +10,7 @@
 		"de": "Verwendet eine Actor zur Implementierung lokalisierter Sprites.",
 		"es": "Utiliza una Actor para implementar Sprites localizados."
 	},
-	"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/entities/LocalizedActor",
+	"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/actors/LocalizedActor",
 	"license": "MIT",
 	"tags": [
 		{

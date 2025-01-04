@@ -1,4 +1,4 @@
-PLUGINS =	vuengine//entities/LowPowerActor \
+PLUGINS =	vuengine//actors/LowPowerActor \
 			vuengine//other/AutomaticPause \
 			vuengine//other/I18n \
 			vuengine//other/SaveDataManager \

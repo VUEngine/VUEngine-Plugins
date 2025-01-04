@@ -21,15 +21,15 @@
 extern ActorSpec AlignmentCheckActorSpec;
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-// ENTITY LISTS
+// ACTOR LISTS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-PositionedActorROMSpec AlignmentCheckScreenStageEntities[] =
+PositionedActorROMSpec AlignmentCheckScreenStageActors[] =
 {
 	{NULL, {0, 0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 };
 
-PositionedActorROMSpec AlignmentCheckScreenStageUiEntities[] =
+PositionedActorROMSpec AlignmentCheckScreenStageUiActors[] =
 {
 #ifdef __LEGACY_COORDINATE_PROJECTION
 	{&AlignmentCheckActorSpec, 	{ 192, 112, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
@@ -116,7 +116,7 @@ StageROMSpec AlignmentCheckScreenStage =
 		// Padding to be added to camera's frustum when checking if a actor is
 		// out of the camera's range
 		16,
-		// Amount of actor descriptions to check for streaming in entities
+		// Amount of actor descriptions to check for streaming in actors
 		24,
 		// If true, actor instantiation is done over time
 		false,
@@ -251,16 +251,16 @@ StageROMSpec AlignmentCheckScreenStage =
 		(SoundSpec**)AlignmentCheckScreenStageSoundSpecs,
 	},
 
-	// Entities
+	// Actors
 	{
 		// UI configuration
 		{
-			(PositionedActor*)AlignmentCheckScreenStageUiEntities,
+			(PositionedActor*)AlignmentCheckScreenStageUiActors,
 			__TYPE(UIContainer),
 		},
 
-		// Stage's children entities
-		(PositionedActor*)AlignmentCheckScreenStageEntities,
+		// Stage's children actors
+		(PositionedActor*)AlignmentCheckScreenStageActors,
 	},
 
 	// Post processing effects

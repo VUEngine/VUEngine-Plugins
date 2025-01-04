@@ -10,7 +10,7 @@
 		"de": "Entitätsbasierte Anzeige, die blinkt, wenn die Systemleistung niedrig ist.",
 		"es": "Indicador basado en la entidad que parpadea cuando la energía del sistema es baja."
 	},
-	"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/entities/LowPowerActor",
+	"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/actors/LowPowerActor",
 	"license": "MIT",
 	"tags": [
 		{

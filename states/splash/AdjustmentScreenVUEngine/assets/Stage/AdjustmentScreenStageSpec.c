@@ -28,18 +28,18 @@ extern ActorSpec LowPowerIndicatorActorSpec;
 #endif
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-// ENTITY LISTS
+// ACTOR LISTS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-PositionedActorROMSpec AdjustmentScreenStageEntities[] =
+PositionedActorROMSpec AdjustmentScreenStageActors[] =
 {
 	{NULL, {0, 0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 };
 
-PositionedActorROMSpec AdjustmentScreenStageUiEntities[] =
+PositionedActorROMSpec AdjustmentScreenStageUiActors[] =
 {
 #if __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_USE_LOW_POWER_ENTITY
-	{&LowPowerIndicatorActorSpec, 	{__PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_LOW_POWER_ENTITY_X_POSITION, __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_LOW_POWER_ENTITY_Y_POSITION, __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_LOW_POWER_ENTITY_Z_POSITION, __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_LOW_POWER_ENTITY_Z_DISPLACEMENT}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&LowPowerIndicatorActorSpec, 	{__PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_LOW_POWER_ACTOR_X_POSITION, __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_LOW_POWER_ACTOR_Y_POSITION, __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_LOW_POWER_ACTOR_Z_POSITION, __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_LOW_POWER_ACTOR_Z_DISPLACEMENT}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 #endif
 
 #ifdef __LEGACY_COORDINATE_PROJECTION
@@ -137,7 +137,7 @@ StageROMSpec AdjustmentScreenStage =
 		// Padding to be added to camera's frustum when checking if a actor is
 		// out of the camera's range
 		16,
-		// Amount of actor descriptions to check for streaming in entities
+		// Amount of actor descriptions to check for streaming in actors
 		24,
 		// If true, actor instantiation is done over time
 		false,
@@ -272,16 +272,16 @@ StageROMSpec AdjustmentScreenStage =
 		(SoundSpec**)AdjustmentScreenStageSoundSpecs,
 	},
 
-	// Entities
+	// Actors
 	{
 		// UI configuration
 		{
-			(PositionedActor*)AdjustmentScreenStageUiEntities,
+			(PositionedActor*)AdjustmentScreenStageUiActors,
 			__TYPE(UIContainer),
 		},
 
-		// Stage's children entities
-		(PositionedActor*)AdjustmentScreenStageEntities,
+		// Stage's children actors
+		(PositionedActor*)AdjustmentScreenStageActors,
 	},
 
 	// Post processing effects

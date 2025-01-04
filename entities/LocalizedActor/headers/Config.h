@@ -2,8 +2,8 @@
 ///////////////////////////////  THIS FILE WAS AUTO-GENERATED - DO NOT EDIT  ///////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#ifndef __PLUGIN_LOCALIZED_ENTITY_CONFIG_H_
-#define __PLUGIN_LOCALIZED_ENTITY_CONFIG_H_
+#ifndef __PLUGIN_LOCALIZED_ACTOR_CONFIG_H_
+#define __PLUGIN_LOCALIZED_ACTOR_CONFIG_H_
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CONFIGURATION MACROS

@@ -1,6 +1,6 @@
 Shows a flashing low power indicator on screen when the system power is low.
 
-Uses the printing layer to do so. If you can spare the extra World, you can instead use the `vuengine//entities/LowPowerActor` plugin, which uses an Actor.
+Uses the printing layer to do so. If you can spare the extra World, you can instead use the `vuengine//actors/LowPowerActor` plugin, which uses an Actor.
 
 ![Preview Image](preview.png)
 

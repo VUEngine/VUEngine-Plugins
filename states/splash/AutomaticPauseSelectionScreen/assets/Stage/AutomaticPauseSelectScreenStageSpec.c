@@ -24,18 +24,18 @@ extern ActorSpec LowPowerIndicatorActorSpec;
 #endif
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-// ENTITY LISTS
+// ACTOR LISTS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-PositionedActorROMSpec AutomaticPauseSelectionScreenStageEntities[] =
+PositionedActorROMSpec AutomaticPauseSelectionScreenStageActors[] =
 {
 	{NULL, {0, 0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 };
 
-PositionedActorROMSpec AutomaticPauseSelectionScreenStageUiEntities[] =
+PositionedActorROMSpec AutomaticPauseSelectionScreenStageUiActors[] =
 {
 #if __PLUGIN_AUTOMATIC_PAUSE_SELECTION_SCREEN_USE_LOW_POWER_ENTITY
-	{&LowPowerIndicatorActorSpec, 	{__PLUGIN_LOW_POWER_ENTITY_X_POSITION, __PLUGIN_LOW_POWER_ENTITY_Y_POSITION, __PLUGIN_LOW_POWER_ENTITY_Z_POSITION}, 0, NULL, NULL, NULL, false},
+	{&LowPowerIndicatorActorSpec, 	{__PLUGIN_LOW_POWER_ACTOR_X_POSITION, __PLUGIN_LOW_POWER_ACTOR_Y_POSITION, __PLUGIN_LOW_POWER_ACTOR_Z_POSITION}, 0, NULL, NULL, NULL, false},
 #endif
 
 	{NULL, {0, 0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
@@ -112,7 +112,7 @@ StageROMSpec AutomaticPauseSelectionScreenStage =
 		// Padding to be added to camera's frustum when checking if a actor is
 		// out of the camera's range
 		16,
-		// Amount of actor descriptions to check for streaming in entities
+		// Amount of actor descriptions to check for streaming in actors
 		24,
 		// If true, actor instantiation is done over time
 		false,
@@ -247,16 +247,16 @@ StageROMSpec AutomaticPauseSelectionScreenStage =
 		(SoundSpec**)NULL,
 	},
 
-	// Entities
+	// Actors
 	{
 		// UI configuration
 		{
-			(PositionedActor*)AutomaticPauseSelectionScreenStageUiEntities,
+			(PositionedActor*)AutomaticPauseSelectionScreenStageUiActors,
 			__TYPE(UIContainer),
 		},
 
-		// Stage's children entities
-		(PositionedActor*)AutomaticPauseSelectionScreenStageEntities,
+		// Stage's children actors
+		(PositionedActor*)AutomaticPauseSelectionScreenStageActors,
 	},
 
 	// Post processing effects

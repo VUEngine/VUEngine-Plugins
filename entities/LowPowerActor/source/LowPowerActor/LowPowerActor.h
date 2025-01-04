@@ -7,8 +7,8 @@
  * that was distributed with this source code.
  */
 
-#ifndef LOW_POWER_ENTITY_H_
-#define LOW_POWER_ENTITY_H_
+#ifndef LOW_POWER_ACTOR_H_
+#define LOW_POWER_ACTOR_H_
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // INCLUDES

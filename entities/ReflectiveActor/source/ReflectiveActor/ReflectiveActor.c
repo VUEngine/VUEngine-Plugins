@@ -92,8 +92,8 @@ static uint32 ReflectiveActor::getNoise(int16 passes)
 
 static void ReflectiveActor::shiftPixels
 (
-	int32 pixelShift, REFLECTIVE_ENTITY_POINTER_TYPE* sourceValue, uint32 nextSourceValue, 
-	REFLECTIVE_ENTITY_POINTER_TYPE* remainderValue, uint32 reflectionMask, uint32 noise
+	int32 pixelShift, REFLECTIVE_ACTOR_POINTER_TYPE* sourceValue, uint32 nextSourceValue, 
+	REFLECTIVE_ACTOR_POINTER_TYPE* remainderValue, uint32 reflectionMask, uint32 noise
 )
 {
 	*sourceValue &= reflectionMask;
@@ -101,15 +101,15 @@ static void ReflectiveActor::shiftPixels
 
 	if(0 < pixelShift)
 	{
-		REFLECTIVE_ENTITY_POINTER_TYPE remainderValueTemp = *remainderValue;
-		*remainderValue = (*sourceValue >> (REFLECTIVE_ENTITY_BITS_PER_STEP - (pixelShift)));
+		REFLECTIVE_ACTOR_POINTER_TYPE remainderValueTemp = *remainderValue;
+		*remainderValue = (*sourceValue >> (REFLECTIVE_ACTOR_BITS_PER_STEP - (pixelShift)));
 		*sourceValue <<= (pixelShift);
 		*sourceValue |= remainderValueTemp | noise;
 	}
 	else if(0 > pixelShift)
 	{
 		*sourceValue >>= (-pixelShift );
-		*sourceValue |= (nextSourceValue << (REFLECTIVE_ENTITY_BITS_PER_STEP + pixelShift)) | noise;
+		*sourceValue |= (nextSourceValue << (REFLECTIVE_ACTOR_BITS_PER_STEP + pixelShift)) | noise;
 		*remainderValue = nextSourceValue >> (-pixelShift);
 	}
 }
@@ -230,7 +230,7 @@ void ReflectiveActor::drawReflection(uint32 currentDrawingFrameBufferSet,
 	{
 		if(__Y_AXIS & axisForReversing)
 		{
-			ySourceEnd -= ((_cameraFrustum->y0 - yOutputStart) - REFLECTIVE_ENTITY_Y_STEP_SIZE);
+			ySourceEnd -= ((_cameraFrustum->y0 - yOutputStart) - REFLECTIVE_ACTOR_Y_STEP_SIZE);
 		}
 		else
 		{
@@ -291,13 +291,13 @@ void ReflectiveActor::drawReflection(uint32 currentDrawingFrameBufferSet,
 
 	if(__Y_AXIS & axisForReversing)
 	{
-		int16 temp = ySourceEnd - REFLECTIVE_ENTITY_Y_STEP_SIZE;
+		int16 temp = ySourceEnd - REFLECTIVE_ACTOR_Y_STEP_SIZE;
 		ySourceEnd = ySourceStart;
 		ySourceStart = temp;
 		ySourceIncrement = -1;
 	}
 
-    int32 ySourceStartHelper = ySourceStart >> REFLECTIVE_ENTITY_Y_STEP_SIZE_2_EXP;
+    int32 ySourceStartHelper = ySourceStart >> REFLECTIVE_ACTOR_Y_STEP_SIZE_2_EXP;
 
 	int32 xSourceDistance = __ABS(xSourceEnd - xSourceStart);
 	int32 xOutputDistance = __ABS(xOutput - xOutputLimit);
@@ -374,12 +374,12 @@ void ReflectiveActor::drawReflection(uint32 currentDrawingFrameBufferSet,
 			int32 waveLutPixelDisplacement = waveLut[xIndex];
 
 			int32 ySource = ySourceStartHelper;
-			int32 yOutput = (yOutputStart + waveLutPixelDisplacement) >> REFLECTIVE_ENTITY_Y_STEP_SIZE_2_EXP;
+			int32 yOutput = (yOutputStart + waveLutPixelDisplacement) >> REFLECTIVE_ACTOR_Y_STEP_SIZE_2_EXP;
 
 			int32 pixelShift = 
 				(
 					__MODULO((yOutputStart + waveLutPixelDisplacement), 
-					REFLECTIVE_ENTITY_Y_STEP_SIZE) - __MODULO(ySourceStart, REFLECTIVE_ENTITY_Y_STEP_SIZE)
+					REFLECTIVE_ACTOR_Y_STEP_SIZE) - __MODULO(ySourceStart, REFLECTIVE_ACTOR_Y_STEP_SIZE)
 				) << 1;
 
 			reflectionMask = reflectionMaskSave;
@@ -397,55 +397,55 @@ void ReflectiveActor::drawReflection(uint32 currentDrawingFrameBufferSet,
 			}
 
 			uint32 effectiveContentMaskDisplacement = 
-				(__MODULO((yOutputStart + (flattenTop? 0 : waveLutPixelDisplacement)), REFLECTIVE_ENTITY_Y_STEP_SIZE) << 1);
+				(__MODULO((yOutputStart + (flattenTop? 0 : waveLutPixelDisplacement)), REFLECTIVE_ACTOR_Y_STEP_SIZE) << 1);
 			uint32 effectiveContentMask = 0xFFFFFFFF << effectiveContentMaskDisplacement;
 			uint32 effectiveBackgroundMask = ~effectiveContentMask;
 			effectiveContentMask &= ~(topBorderMask << effectiveContentMaskDisplacement);
 
-			REFLECTIVE_ENTITY_POINTER_TYPE* columnSourcePointerLeft = 
-				(REFLECTIVE_ENTITY_POINTER_TYPE*) (currentDrawingFrameBufferSet) + (xSource << REFLECTIVE_ENTITY_Y_SHIFT) + ySource;
+			REFLECTIVE_ACTOR_POINTER_TYPE* columnSourcePointerLeft = 
+				(REFLECTIVE_ACTOR_POINTER_TYPE*) (currentDrawingFrameBufferSet) + (xSource << REFLECTIVE_ACTOR_Y_SHIFT) + ySource;
 			
-			REFLECTIVE_ENTITY_POINTER_TYPE* columnSourcePointerRight = 
-				(REFLECTIVE_ENTITY_POINTER_TYPE*) (currentDrawingFrameBufferSet | 0x00010000) + 
-				(xSource << REFLECTIVE_ENTITY_Y_SHIFT) + ySource;
+			REFLECTIVE_ACTOR_POINTER_TYPE* columnSourcePointerRight = 
+				(REFLECTIVE_ACTOR_POINTER_TYPE*) (currentDrawingFrameBufferSet | 0x00010000) + 
+				(xSource << REFLECTIVE_ACTOR_Y_SHIFT) + ySource;
 			
-			REFLECTIVE_ENTITY_POINTER_TYPE* columnOutputPointerLeft = 
-				(REFLECTIVE_ENTITY_POINTER_TYPE*) (currentDrawingFrameBufferSet) + (leftColumn << REFLECTIVE_ENTITY_Y_SHIFT) + yOutput;
+			REFLECTIVE_ACTOR_POINTER_TYPE* columnOutputPointerLeft = 
+				(REFLECTIVE_ACTOR_POINTER_TYPE*) (currentDrawingFrameBufferSet) + (leftColumn << REFLECTIVE_ACTOR_Y_SHIFT) + yOutput;
 			
-			REFLECTIVE_ENTITY_POINTER_TYPE* columnOutputPointerRight = 
-				(REFLECTIVE_ENTITY_POINTER_TYPE*) (currentDrawingFrameBufferSet | 0x00010000) + 
-				(rightColumn << REFLECTIVE_ENTITY_Y_SHIFT) + yOutput;
+			REFLECTIVE_ACTOR_POINTER_TYPE* columnOutputPointerRight = 
+				(REFLECTIVE_ACTOR_POINTER_TYPE*) (currentDrawingFrameBufferSet | 0x00010000) + 
+				(rightColumn << REFLECTIVE_ACTOR_Y_SHIFT) + yOutput;
 
 			int32 columnSourcePointerLeftIncrement = ySourceIncrement;
 			int32 columnSourcePointerRightIncrement = ySourceIncrement;
 
-			REFLECTIVE_ENTITY_POINTER_TYPE sourceCurrentValueLeft = *columnSourcePointerLeft;
+			REFLECTIVE_ACTOR_POINTER_TYPE sourceCurrentValueLeft = *columnSourcePointerLeft;
 			columnSourcePointerLeft += columnSourcePointerLeftIncrement;
-			REFLECTIVE_ENTITY_POINTER_TYPE sourceNextValueLeft = *columnSourcePointerLeft;
+			REFLECTIVE_ACTOR_POINTER_TYPE sourceNextValueLeft = *columnSourcePointerLeft;
 
-			REFLECTIVE_ENTITY_POINTER_TYPE sourceCurrentValueRight = *columnSourcePointerRight;
+			REFLECTIVE_ACTOR_POINTER_TYPE sourceCurrentValueRight = *columnSourcePointerRight;
 			columnSourcePointerRight += columnSourcePointerRightIncrement;
 
-			REFLECTIVE_ENTITY_POINTER_TYPE sourceNextValueRight = *columnSourcePointerRight;
+			REFLECTIVE_ACTOR_POINTER_TYPE sourceNextValueRight = *columnSourcePointerRight;
 
-			REFLECTIVE_ENTITY_POINTER_TYPE outputValueLeft = *columnOutputPointerLeft;
-			REFLECTIVE_ENTITY_POINTER_TYPE outputValueRight = *columnOutputPointerRight;
+			REFLECTIVE_ACTOR_POINTER_TYPE outputValueLeft = *columnOutputPointerLeft;
+			REFLECTIVE_ACTOR_POINTER_TYPE outputValueRight = *columnOutputPointerRight;
 
 			if(__Y_AXIS & axisForReversing)
 			{
-				sourceCurrentValueLeft = ReflectiveActor::reverse(sourceCurrentValueLeft, REFLECTIVE_ENTITY_BITS_PER_STEP);
-				sourceCurrentValueRight = ReflectiveActor::reverse(sourceCurrentValueRight, REFLECTIVE_ENTITY_BITS_PER_STEP);
-				sourceNextValueLeft = ReflectiveActor::reverse(sourceNextValueLeft, REFLECTIVE_ENTITY_BITS_PER_STEP);
-				sourceNextValueRight = ReflectiveActor::reverse(sourceNextValueRight, REFLECTIVE_ENTITY_BITS_PER_STEP);
+				sourceCurrentValueLeft = ReflectiveActor::reverse(sourceCurrentValueLeft, REFLECTIVE_ACTOR_BITS_PER_STEP);
+				sourceCurrentValueRight = ReflectiveActor::reverse(sourceCurrentValueRight, REFLECTIVE_ACTOR_BITS_PER_STEP);
+				sourceNextValueLeft = ReflectiveActor::reverse(sourceNextValueLeft, REFLECTIVE_ACTOR_BITS_PER_STEP);
+				sourceNextValueRight = ReflectiveActor::reverse(sourceNextValueRight, REFLECTIVE_ACTOR_BITS_PER_STEP);
 			}
 
 			waveLutPixelDisplacement =  flattenBottom ? 0 : waveLutPixelDisplacement;
 
-			int32 yOutputRemainder = __MODULO((yOutputEnd + waveLutPixelDisplacement), REFLECTIVE_ENTITY_Y_STEP_SIZE) << 1;
-			int32 yOutputLimit = (yOutputEnd + waveLutPixelDisplacement) >> REFLECTIVE_ENTITY_Y_STEP_SIZE_2_EXP;
+			int32 yOutputRemainder = __MODULO((yOutputEnd + waveLutPixelDisplacement), REFLECTIVE_ACTOR_Y_STEP_SIZE) << 1;
+			int32 yOutputLimit = (yOutputEnd + waveLutPixelDisplacement) >> REFLECTIVE_ACTOR_Y_STEP_SIZE_2_EXP;
 
-			REFLECTIVE_ENTITY_POINTER_TYPE remainderLeftValue = yOutput >= yOutputLimit ? sourceCurrentValueLeft : 0;
-			REFLECTIVE_ENTITY_POINTER_TYPE remainderRightValue = yOutput >= yOutputLimit ? sourceCurrentValueRight : 0;
+			REFLECTIVE_ACTOR_POINTER_TYPE remainderLeftValue = yOutput >= yOutputLimit ? sourceCurrentValueLeft : 0;
+			REFLECTIVE_ACTOR_POINTER_TYPE remainderRightValue = yOutput >= yOutputLimit ? sourceCurrentValueRight : 0;
 
 			uint32 noise = ReflectiveActor::getNoise(noisePasses);
 
@@ -496,14 +496,14 @@ void ReflectiveActor::drawReflection(uint32 currentDrawingFrameBufferSet,
 
 				if(__Y_AXIS & axisForReversing)
 				{
-					sourceNextValueLeft = ReflectiveActor::reverse(sourceNextValueLeft, REFLECTIVE_ENTITY_BITS_PER_STEP);
-					sourceNextValueRight = ReflectiveActor::reverse(sourceNextValueRight, REFLECTIVE_ENTITY_BITS_PER_STEP);
+					sourceNextValueLeft = ReflectiveActor::reverse(sourceNextValueLeft, REFLECTIVE_ACTOR_BITS_PER_STEP);
+					sourceNextValueRight = ReflectiveActor::reverse(sourceNextValueRight, REFLECTIVE_ACTOR_BITS_PER_STEP);
 				}
 			}
 
 			if(yOutputRemainder)
 			{
-				uint32 maskDisplacement = (REFLECTIVE_ENTITY_BITS_PER_STEP - yOutputRemainder);
+				uint32 maskDisplacement = (REFLECTIVE_ACTOR_BITS_PER_STEP - yOutputRemainder);
 				effectiveContentMask = 0xFFFFFFFF >> maskDisplacement;
 				uint32 remainderContentMask = effectiveContentMask & ~(bottomBorderMask >> maskDisplacement);
 
@@ -520,8 +520,8 @@ void ReflectiveActor::drawReflection(uint32 currentDrawingFrameBufferSet,
 				}
 				else
 				{
-					remainderLeftValue |= (sourceNextValueLeft << (REFLECTIVE_ENTITY_BITS_PER_STEP + pixelShift));
-					remainderRightValue |= (sourceNextValueRight << (REFLECTIVE_ENTITY_BITS_PER_STEP + pixelShift));
+					remainderLeftValue |= (sourceNextValueLeft << (REFLECTIVE_ACTOR_BITS_PER_STEP + pixelShift));
+					remainderRightValue |= (sourceNextValueRight << (REFLECTIVE_ACTOR_BITS_PER_STEP + pixelShift));
 				}
 
 				remainderLeftValue &= reflectionMask;
@@ -587,12 +587,12 @@ void ReflectiveActor::drawReflection(uint32 currentDrawingFrameBufferSet,
 			int32 waveLutPixelDisplacement = waveLut[xIndex];
 
 			int32 ySource = ySourceStartHelper;
-			int32 yOutput = (yOutputStart + waveLutPixelDisplacement) >> REFLECTIVE_ENTITY_Y_STEP_SIZE_2_EXP;
+			int32 yOutput = (yOutputStart + waveLutPixelDisplacement) >> REFLECTIVE_ACTOR_Y_STEP_SIZE_2_EXP;
 
 			int32 pixelShift = 
 				(
-					__MODULO((yOutputStart + waveLutPixelDisplacement), REFLECTIVE_ENTITY_Y_STEP_SIZE) 
-					- __MODULO(ySourceStart, REFLECTIVE_ENTITY_Y_STEP_SIZE)
+					__MODULO((yOutputStart + waveLutPixelDisplacement), REFLECTIVE_ACTOR_Y_STEP_SIZE) 
+					- __MODULO(ySourceStart, REFLECTIVE_ACTOR_Y_STEP_SIZE)
 				) << 1;
 
 			reflectionMask = reflectionMaskSave;
@@ -610,48 +610,48 @@ void ReflectiveActor::drawReflection(uint32 currentDrawingFrameBufferSet,
 			}
 
 			uint32 effectiveContentMaskDisplacement = 
-				(__MODULO((yOutputStart + (flattenTop? 0 : waveLutPixelDisplacement)), REFLECTIVE_ENTITY_Y_STEP_SIZE) << 1);
+				(__MODULO((yOutputStart + (flattenTop? 0 : waveLutPixelDisplacement)), REFLECTIVE_ACTOR_Y_STEP_SIZE) << 1);
 			uint32 effectiveContentMask = 0xFFFFFFFF << effectiveContentMaskDisplacement;
 			uint32 effectiveBackgroundMask = ~effectiveContentMask;
 			effectiveContentMask &= ~(topBorderMask << effectiveContentMaskDisplacement);
 
-			REFLECTIVE_ENTITY_POINTER_TYPE* columnSourcePointerLeft = 
-				(REFLECTIVE_ENTITY_POINTER_TYPE*) (currentDrawingFrameBufferSet) + (xSource << REFLECTIVE_ENTITY_Y_SHIFT) + ySource;
+			REFLECTIVE_ACTOR_POINTER_TYPE* columnSourcePointerLeft = 
+				(REFLECTIVE_ACTOR_POINTER_TYPE*) (currentDrawingFrameBufferSet) + (xSource << REFLECTIVE_ACTOR_Y_SHIFT) + ySource;
 			
-			REFLECTIVE_ENTITY_POINTER_TYPE* columnSourcePointerRight = 
-				(REFLECTIVE_ENTITY_POINTER_TYPE*) (currentDrawingFrameBufferSet | 0x00010000) + 
-				(xSource << REFLECTIVE_ENTITY_Y_SHIFT) + ySource;
+			REFLECTIVE_ACTOR_POINTER_TYPE* columnSourcePointerRight = 
+				(REFLECTIVE_ACTOR_POINTER_TYPE*) (currentDrawingFrameBufferSet | 0x00010000) + 
+				(xSource << REFLECTIVE_ACTOR_Y_SHIFT) + ySource;
 			
-			REFLECTIVE_ENTITY_POINTER_TYPE* columnOutputPointerLeft = 
-				(REFLECTIVE_ENTITY_POINTER_TYPE*) (currentDrawingFrameBufferSet) + (leftColumn << REFLECTIVE_ENTITY_Y_SHIFT) + yOutput;
+			REFLECTIVE_ACTOR_POINTER_TYPE* columnOutputPointerLeft = 
+				(REFLECTIVE_ACTOR_POINTER_TYPE*) (currentDrawingFrameBufferSet) + (leftColumn << REFLECTIVE_ACTOR_Y_SHIFT) + yOutput;
 			
-			REFLECTIVE_ENTITY_POINTER_TYPE* columnOutputPointerRight = 
-				(REFLECTIVE_ENTITY_POINTER_TYPE*) (currentDrawingFrameBufferSet | 0x00010000) + 
-				(rightColumn << REFLECTIVE_ENTITY_Y_SHIFT) + yOutput;
+			REFLECTIVE_ACTOR_POINTER_TYPE* columnOutputPointerRight = 
+				(REFLECTIVE_ACTOR_POINTER_TYPE*) (currentDrawingFrameBufferSet | 0x00010000) + 
+				(rightColumn << REFLECTIVE_ACTOR_Y_SHIFT) + yOutput;
 
 			int32 columnSourcePointerLeftIncrement = ySourceIncrement;
 
-			REFLECTIVE_ENTITY_POINTER_TYPE sourceCurrentValueLeft = *columnSourcePointerLeft;
-			REFLECTIVE_ENTITY_POINTER_TYPE sourceCurrentValueRight = *columnSourcePointerRight;
+			REFLECTIVE_ACTOR_POINTER_TYPE sourceCurrentValueLeft = *columnSourcePointerLeft;
+			REFLECTIVE_ACTOR_POINTER_TYPE sourceCurrentValueRight = *columnSourcePointerRight;
 			columnSourcePointerLeft += columnSourcePointerLeftIncrement;
-			REFLECTIVE_ENTITY_POINTER_TYPE sourceNextValueLeft = *columnSourcePointerLeft;
+			REFLECTIVE_ACTOR_POINTER_TYPE sourceNextValueLeft = *columnSourcePointerLeft;
 
-			REFLECTIVE_ENTITY_POINTER_TYPE outputValueLeft = *columnOutputPointerLeft;
-			REFLECTIVE_ENTITY_POINTER_TYPE outputValueRight = *columnOutputPointerRight;
+			REFLECTIVE_ACTOR_POINTER_TYPE outputValueLeft = *columnOutputPointerLeft;
+			REFLECTIVE_ACTOR_POINTER_TYPE outputValueRight = *columnOutputPointerRight;
 
 			if(__Y_AXIS & axisForReversing)
 			{
-				sourceCurrentValueLeft = ReflectiveActor::reverse(sourceCurrentValueLeft, REFLECTIVE_ENTITY_BITS_PER_STEP);
-				sourceNextValueLeft = ReflectiveActor::reverse(sourceNextValueLeft, REFLECTIVE_ENTITY_BITS_PER_STEP);
+				sourceCurrentValueLeft = ReflectiveActor::reverse(sourceCurrentValueLeft, REFLECTIVE_ACTOR_BITS_PER_STEP);
+				sourceNextValueLeft = ReflectiveActor::reverse(sourceNextValueLeft, REFLECTIVE_ACTOR_BITS_PER_STEP);
 			}
 
 			waveLutPixelDisplacement =  flattenBottom ? 0 : waveLutPixelDisplacement;
 
-			int32 yOutputRemainder = __MODULO((yOutputEnd + waveLutPixelDisplacement), REFLECTIVE_ENTITY_Y_STEP_SIZE) << 1;
+			int32 yOutputRemainder = __MODULO((yOutputEnd + waveLutPixelDisplacement), REFLECTIVE_ACTOR_Y_STEP_SIZE) << 1;
 
-			int32 yOutputLimit = (yOutputEnd + waveLutPixelDisplacement) >> REFLECTIVE_ENTITY_Y_STEP_SIZE_2_EXP;
+			int32 yOutputLimit = (yOutputEnd + waveLutPixelDisplacement) >> REFLECTIVE_ACTOR_Y_STEP_SIZE_2_EXP;
 
-			REFLECTIVE_ENTITY_POINTER_TYPE remainderLeftValue = yOutput < yOutputLimit ? 0 : sourceCurrentValueLeft;
+			REFLECTIVE_ACTOR_POINTER_TYPE remainderLeftValue = yOutput < yOutputLimit ? 0 : sourceCurrentValueLeft;
 
 			uint32 noise = ReflectiveActor::getNoise(noisePasses);
 
@@ -691,13 +691,13 @@ void ReflectiveActor::drawReflection(uint32 currentDrawingFrameBufferSet,
 
 				if(__Y_AXIS & axisForReversing)
 				{
-					sourceNextValueLeft = ReflectiveActor::reverse(sourceNextValueLeft, REFLECTIVE_ENTITY_BITS_PER_STEP);
+					sourceNextValueLeft = ReflectiveActor::reverse(sourceNextValueLeft, REFLECTIVE_ACTOR_BITS_PER_STEP);
 				}
 			}
 
 			if(yOutputRemainder)
 			{
-				uint32 maskDisplacement = (REFLECTIVE_ENTITY_BITS_PER_STEP - yOutputRemainder);
+				uint32 maskDisplacement = (REFLECTIVE_ACTOR_BITS_PER_STEP - yOutputRemainder);
 				effectiveContentMask = 0xFFFFFFFF >> maskDisplacement;
 				uint32 remainderContentMask = effectiveContentMask & ~(bottomBorderMask >> maskDisplacement);
 
@@ -712,7 +712,7 @@ void ReflectiveActor::drawReflection(uint32 currentDrawingFrameBufferSet,
 				}
 				else
 				{
-					remainderLeftValue |= (sourceNextValueLeft << (REFLECTIVE_ENTITY_BITS_PER_STEP + pixelShift));
+					remainderLeftValue |= (sourceNextValueLeft << (REFLECTIVE_ACTOR_BITS_PER_STEP + pixelShift));
 				}
 
 				remainderLeftValue &= reflectionMask;

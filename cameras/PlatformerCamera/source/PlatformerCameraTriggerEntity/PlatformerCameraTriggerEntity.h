@@ -7,8 +7,8 @@
  * that was distributed with this source code.
  */
 
-#ifndef PLATFORMER_CAMERA_TRIGGER_ENTITY_H_
-#define PLATFORMER_CAMERA_TRIGGER_ENTITY_H_
+#ifndef PLATFORMER_CAMERA_TRIGGER_ACTOR_H_
+#define PLATFORMER_CAMERA_TRIGGER_ACTOR_H_
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // INCLUDES

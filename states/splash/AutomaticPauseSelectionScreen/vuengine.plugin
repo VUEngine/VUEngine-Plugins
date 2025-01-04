@@ -30,7 +30,7 @@
 		}
 	],
 	"dependencies": [
-		"vuengine//entities/LowPowerActor",
+		"vuengine//actors/LowPowerActor",
 		"vuengine//other/AutomaticPause",
 		"vuengine//other/I18n",
 		"vuengine//other/SaveDataManager",

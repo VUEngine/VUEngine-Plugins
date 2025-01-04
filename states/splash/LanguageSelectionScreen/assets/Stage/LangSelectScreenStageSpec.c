@@ -22,18 +22,18 @@ extern ActorSpec LowPowerIndicatorActorSpec;
 #endif
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-// ENTITY LISTS
+// ACTOR LISTS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-PositionedActorROMSpec LanguageSelectionScreenStageEntities[] =
+PositionedActorROMSpec LanguageSelectionScreenStageActors[] =
 {
 	{NULL, {0, 0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 };
 
-PositionedActorROMSpec LanguageSelectionScreenStageUiEntities[] =
+PositionedActorROMSpec LanguageSelectionScreenStageUiActors[] =
 {
 #if __PLUGIN_LANGUAGE_SELECTION_SCREEN_USE_LOW_POWER_ENTITY
-	{&LowPowerIndicatorActorSpec, 	{__PLUGIN_LOW_POWER_ENTITY_X_POSITION, __PLUGIN_LOW_POWER_ENTITY_Y_POSITION, __PLUGIN_LOW_POWER_ENTITY_Z_POSITION}, 0, NULL, NULL, NULL, false},
+	{&LowPowerIndicatorActorSpec, 	{__PLUGIN_LOW_POWER_ACTOR_X_POSITION, __PLUGIN_LOW_POWER_ACTOR_Y_POSITION, __PLUGIN_LOW_POWER_ACTOR_Z_POSITION}, 0, NULL, NULL, NULL, false},
 #endif
 
 	{NULL, {0, 0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
@@ -110,7 +110,7 @@ StageROMSpec LanguageSelectionScreenStage =
 		// Padding to be added to camera's frustum when checking if a actor is
 		// out of the camera's range
 		16,
-		// Amount of actor descriptions to check for streaming in entities
+		// Amount of actor descriptions to check for streaming in actors
 		64,
 		// If true, actor instantiation is done over time
 		false,
@@ -245,16 +245,16 @@ StageROMSpec LanguageSelectionScreenStage =
 		(SoundSpec**)NULL,
 	},
 
-	// Entities
+	// Actors
 	{
 		// UI configuration
 		{
-			(PositionedActor*)LanguageSelectionScreenStageUiEntities,
+			(PositionedActor*)LanguageSelectionScreenStageUiActors,
 			__TYPE(UIContainer),
 		},
 
-		// Stage's children entities
-		(PositionedActor*)LanguageSelectionScreenStageEntities,
+		// Stage's children actors
+		(PositionedActor*)LanguageSelectionScreenStageActors,
 	},
 
 	// Post processing effects

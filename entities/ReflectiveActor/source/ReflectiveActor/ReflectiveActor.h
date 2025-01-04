@@ -7,8 +7,8 @@
  * that was distributed with this source code.
  */
 
-#ifndef REFLECTIVE_ENTITY_H_
-#define REFLECTIVE_ENTITY_H_
+#ifndef REFLECTIVE_ACTOR_H_
+#define REFLECTIVE_ACTOR_H_
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // INCLUDES
@@ -22,24 +22,24 @@
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#ifndef REFLECTIVE_ENTITY_POINTER_TYPE
-#define REFLECTIVE_ENTITY_POINTER_TYPE			uint32 // sizeof(uint32) + (sizeof(uint32) / sizeof(REFLECTIVE_ENTITY_POINTER_TYPE) / 2)
+#ifndef REFLECTIVE_ACTOR_POINTER_TYPE
+#define REFLECTIVE_ACTOR_POINTER_TYPE			uint32 // sizeof(uint32) + (sizeof(uint32) / sizeof(REFLECTIVE_ACTOR_POINTER_TYPE) / 2)
 #endif
 
-#ifndef REFLECTIVE_ENTITY_Y_SHIFT
-#define REFLECTIVE_ENTITY_Y_SHIFT				4 // sizeof(REFLECTIVE_ENTITY_POINTER_TYPE) << 2
+#ifndef REFLECTIVE_ACTOR_Y_SHIFT
+#define REFLECTIVE_ACTOR_Y_SHIFT				4 // sizeof(REFLECTIVE_ACTOR_POINTER_TYPE) << 2
 #endif
 
-#ifndef REFLECTIVE_ENTITY_Y_STEP_SIZE
-#define REFLECTIVE_ENTITY_Y_STEP_SIZE			16
+#ifndef REFLECTIVE_ACTOR_Y_STEP_SIZE
+#define REFLECTIVE_ACTOR_Y_STEP_SIZE			16
 #endif
 
-#ifndef REFLECTIVE_ENTITY_Y_STEP_SIZE_2_EXP
-#define REFLECTIVE_ENTITY_Y_STEP_SIZE_2_EXP		4 // sizeof(REFLECTIVE_ENTITY_POINTER_TYPE) << 3
+#ifndef REFLECTIVE_ACTOR_Y_STEP_SIZE_2_EXP
+#define REFLECTIVE_ACTOR_Y_STEP_SIZE_2_EXP		4 // sizeof(REFLECTIVE_ACTOR_POINTER_TYPE) << 3
 #endif
 
-#ifndef REFLECTIVE_ENTITY_BITS_PER_STEP
-#define REFLECTIVE_ENTITY_BITS_PER_STEP 		32
+#ifndef REFLECTIVE_ACTOR_BITS_PER_STEP
+#define REFLECTIVE_ACTOR_BITS_PER_STEP 		32
 #endif
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
