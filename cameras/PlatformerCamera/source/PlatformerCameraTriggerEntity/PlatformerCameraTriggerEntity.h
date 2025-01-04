@@ -14,29 +14,29 @@
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#include <Entity.h>
+#include <Actor.h>
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' DATA
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-/// A PlatformerCameraTriggerEntity Spec
-/// @memberof PlatformerCameraTriggerEntity
-typedef struct PlatformerCameraTriggerEntitySpec
+/// A PlatformerCameraTriggerActor Spec
+/// @memberof PlatformerCameraTriggerActor
+typedef struct PlatformerCameraTriggerActorSpec
 {
-	Entity entitySpec;
+	Actor actorSpec;
 };
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' DECLARATION
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-/// Class PlatformerCameraTriggerEntity
+/// Class PlatformerCameraTriggerActor
 ///
-/// Inherits from Entity
+/// Inherits from Actor
 ///
-/// Entity that detectst when the camera's focus entity collides with it.
-class PlatformerCameraTriggerEntity : Entity
+/// Actor that detectst when the camera's focus actor collides with it.
+class PlatformerCameraTriggerActor : Actor
 {
 	/// @protectedsection
 
@@ -45,21 +45,21 @@ class PlatformerCameraTriggerEntity : Entity
 
 	/// @publicsection
 
-	/// @param cameraEntitySpec: Specification that determines how to configure the statefulActor
+	/// @param cameraActorSpec: Specification that determines how to configure the statefulActor
 	/// @param internalId: ID to keep track internally of the new instance
 	/// @param name: Name to assign to the new instance
-	void constructor(PlatformerCameraTriggerEntitySpec* cameraEntitySpec, int16 internalId, const char* const name);
+	void constructor(PlatformerCameraTriggerActorSpec* cameraActorSpec, int16 internalId, const char* const name);
 
 	/// Process a newly detected collision by one of the component colliders.
 	/// @param collisionInformation: Information struct about the collision to resolve 
 	/// @return True if the collider must keep track of the collision to detect if it persists and when it ends; false otherwise
 	override bool collisionStarts(const CollisionInformation* collisionInformation);
 
-	/// Make the animated entity ready to start operating once it has been completely intialized.
+	/// Make the animated actor ready to start operating once it has been completely intialized.
 	/// @param recursive: If true, the ready call is propagated to its children, grand children, etc.
 	override void ready(bool recursive);
 
-	/// Compute the entity's global transformation.
+	/// Compute the actor's global transformation.
 	/// @param environmentTransform: Reference environment for the local transformation
 	/// @param invalidateTransformationFlag: Flag that determines which transfomation's components 
 	/// must be recomputed
@@ -80,8 +80,8 @@ class PlatformerCameraTriggerEntity : Entity
 	Vector3DFlag getOverridePositionFlag();
 
 	/// Lock the movement on the provided axis.
-	/// @param axisToLockUp: Axis to lock the entity's position
-	/// @param locked: If true, the entity's position is locked on the provided axis
+	/// @param axisToLockUp: Axis to lock the actor's position
+	/// @param locked: If true, the actor's position is locked on the provided axis
 	void lockMovement(uint8 axisToLockUp, bool locked);
 }
 

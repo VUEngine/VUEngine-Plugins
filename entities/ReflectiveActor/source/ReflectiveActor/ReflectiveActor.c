@@ -17,7 +17,7 @@
 #include <Utilities.h>
 #include <VUEngine.h>
 
-#include "ReflectiveEntity.h"
+#include "ReflectiveActor.h"
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' PRIVATE STATIC METHODS
@@ -25,7 +25,7 @@
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-static inline uint32 ReflectiveEntity::reverse(uint32 number, int32 bits)
+static inline uint32 ReflectiveActor::reverse(uint32 number, int32 bits)
 {
     number = ((number & 0x55555555) << 1) | ((number & 0xAAAAAAAA) >> 1);
     number = ((number & 0x33333333) << 2) | ((number & 0xCCCCCCCC) >> 2);
@@ -37,7 +37,7 @@ static inline uint32 ReflectiveEntity::reverse(uint32 number, int32 bits)
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-static uint32 ReflectiveEntity::randomSeed()
+static uint32 ReflectiveActor::randomSeed()
 {
 	static uint32 seed = 7;
 
@@ -55,34 +55,34 @@ static uint32 ReflectiveEntity::randomSeed()
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-static void ReflectiveEntity::reflect(uint32 currentDrawingFrameBufferSet, GameObject gameObject)
+static void ReflectiveActor::reflect(uint32 currentDrawingFrameBufferSet, GameObject gameObject)
 {
-	ASSERT(gameObject, "ReflectiveEntity::reflect: null this");
+	ASSERT(gameObject, "ReflectiveActor::reflect: null this");
 
 	if(isDeleted(gameObject))
 	{
 		return;
 	}
 
-	ReflectiveEntity this = ReflectiveEntity::safeCast(gameObject);
+	ReflectiveActor this = ReflectiveActor::safeCast(gameObject);
 
-	ReflectiveEntity::applyReflection(this, currentDrawingFrameBufferSet);
+	ReflectiveActor::applyReflection(this, currentDrawingFrameBufferSet);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-static uint32 ReflectiveEntity::getNoise(int16 passes)
+static uint32 ReflectiveActor::getNoise(int16 passes)
 {
 	if(0 >= passes)
 	{
 		return 0;
 	}
 
-	uint32 noise = ReflectiveEntity::randomSeed();
+	uint32 noise = ReflectiveActor::randomSeed();
 
 	for(; 0 < --passes;)
 	{
-		noise &= ReflectiveEntity::randomSeed();
+		noise &= ReflectiveActor::randomSeed();
 	}
 
 	return noise;
@@ -90,7 +90,7 @@ static uint32 ReflectiveEntity::getNoise(int16 passes)
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-static void ReflectiveEntity::shiftPixels
+static void ReflectiveActor::shiftPixels
 (
 	int32 pixelShift, REFLECTIVE_ENTITY_POINTER_TYPE* sourceValue, uint32 nextSourceValue, 
 	REFLECTIVE_ENTITY_POINTER_TYPE* remainderValue, uint32 reflectionMask, uint32 noise
@@ -116,7 +116,7 @@ static void ReflectiveEntity::shiftPixels
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void ReflectiveEntity::drawReflection(uint32 currentDrawingFrameBufferSet,
+void ReflectiveActor::drawReflection(uint32 currentDrawingFrameBufferSet,
 	int16 xSourceStart, int16 ySourceStart,
 	int16 xOutputStart, int16 yOutputStart,
 	int16 width, int16 height,
@@ -433,10 +433,10 @@ void ReflectiveEntity::drawReflection(uint32 currentDrawingFrameBufferSet,
 
 			if(__Y_AXIS & axisForReversing)
 			{
-				sourceCurrentValueLeft = ReflectiveEntity::reverse(sourceCurrentValueLeft, REFLECTIVE_ENTITY_BITS_PER_STEP);
-				sourceCurrentValueRight = ReflectiveEntity::reverse(sourceCurrentValueRight, REFLECTIVE_ENTITY_BITS_PER_STEP);
-				sourceNextValueLeft = ReflectiveEntity::reverse(sourceNextValueLeft, REFLECTIVE_ENTITY_BITS_PER_STEP);
-				sourceNextValueRight = ReflectiveEntity::reverse(sourceNextValueRight, REFLECTIVE_ENTITY_BITS_PER_STEP);
+				sourceCurrentValueLeft = ReflectiveActor::reverse(sourceCurrentValueLeft, REFLECTIVE_ENTITY_BITS_PER_STEP);
+				sourceCurrentValueRight = ReflectiveActor::reverse(sourceCurrentValueRight, REFLECTIVE_ENTITY_BITS_PER_STEP);
+				sourceNextValueLeft = ReflectiveActor::reverse(sourceNextValueLeft, REFLECTIVE_ENTITY_BITS_PER_STEP);
+				sourceNextValueRight = ReflectiveActor::reverse(sourceNextValueRight, REFLECTIVE_ENTITY_BITS_PER_STEP);
 			}
 
 			waveLutPixelDisplacement =  flattenBottom ? 0 : waveLutPixelDisplacement;
@@ -447,16 +447,16 @@ void ReflectiveEntity::drawReflection(uint32 currentDrawingFrameBufferSet,
 			REFLECTIVE_ENTITY_POINTER_TYPE remainderLeftValue = yOutput >= yOutputLimit ? sourceCurrentValueLeft : 0;
 			REFLECTIVE_ENTITY_POINTER_TYPE remainderRightValue = yOutput >= yOutputLimit ? sourceCurrentValueRight : 0;
 
-			uint32 noise = ReflectiveEntity::getNoise(noisePasses);
+			uint32 noise = ReflectiveActor::getNoise(noisePasses);
 
 			for(; yOutput < yOutputLimit; yOutput++, ySource += ySourceIncrement)
 			{
-				ReflectiveEntity::shiftPixels
+				ReflectiveActor::shiftPixels
 				(
 					pixelShift, &sourceCurrentValueLeft, sourceNextValueLeft, &remainderLeftValue, reflectionMask, noise
 				);
 				
-				ReflectiveEntity::shiftPixels
+				ReflectiveActor::shiftPixels
 				(
 					pixelShift, &sourceCurrentValueRight, sourceNextValueRight, &remainderRightValue, reflectionMask, noise
 				);
@@ -496,8 +496,8 @@ void ReflectiveEntity::drawReflection(uint32 currentDrawingFrameBufferSet,
 
 				if(__Y_AXIS & axisForReversing)
 				{
-					sourceNextValueLeft = ReflectiveEntity::reverse(sourceNextValueLeft, REFLECTIVE_ENTITY_BITS_PER_STEP);
-					sourceNextValueRight = ReflectiveEntity::reverse(sourceNextValueRight, REFLECTIVE_ENTITY_BITS_PER_STEP);
+					sourceNextValueLeft = ReflectiveActor::reverse(sourceNextValueLeft, REFLECTIVE_ENTITY_BITS_PER_STEP);
+					sourceNextValueRight = ReflectiveActor::reverse(sourceNextValueRight, REFLECTIVE_ENTITY_BITS_PER_STEP);
 				}
 			}
 
@@ -641,8 +641,8 @@ void ReflectiveEntity::drawReflection(uint32 currentDrawingFrameBufferSet,
 
 			if(__Y_AXIS & axisForReversing)
 			{
-				sourceCurrentValueLeft = ReflectiveEntity::reverse(sourceCurrentValueLeft, REFLECTIVE_ENTITY_BITS_PER_STEP);
-				sourceNextValueLeft = ReflectiveEntity::reverse(sourceNextValueLeft, REFLECTIVE_ENTITY_BITS_PER_STEP);
+				sourceCurrentValueLeft = ReflectiveActor::reverse(sourceCurrentValueLeft, REFLECTIVE_ENTITY_BITS_PER_STEP);
+				sourceNextValueLeft = ReflectiveActor::reverse(sourceNextValueLeft, REFLECTIVE_ENTITY_BITS_PER_STEP);
 			}
 
 			waveLutPixelDisplacement =  flattenBottom ? 0 : waveLutPixelDisplacement;
@@ -653,11 +653,11 @@ void ReflectiveEntity::drawReflection(uint32 currentDrawingFrameBufferSet,
 
 			REFLECTIVE_ENTITY_POINTER_TYPE remainderLeftValue = yOutput < yOutputLimit ? 0 : sourceCurrentValueLeft;
 
-			uint32 noise = ReflectiveEntity::getNoise(noisePasses);
+			uint32 noise = ReflectiveActor::getNoise(noisePasses);
 
 			for(; yOutput < yOutputLimit; yOutput++, ySource += ySourceIncrement)
 			{
-				ReflectiveEntity::shiftPixels
+				ReflectiveActor::shiftPixels
 				(
 					pixelShift, &sourceCurrentValueLeft, sourceNextValueLeft, &remainderLeftValue, reflectionMask, noise
 				);
@@ -691,7 +691,7 @@ void ReflectiveEntity::drawReflection(uint32 currentDrawingFrameBufferSet,
 
 				if(__Y_AXIS & axisForReversing)
 				{
-					sourceNextValueLeft = ReflectiveEntity::reverse(sourceNextValueLeft, REFLECTIVE_ENTITY_BITS_PER_STEP);
+					sourceNextValueLeft = ReflectiveActor::reverse(sourceNextValueLeft, REFLECTIVE_ENTITY_BITS_PER_STEP);
 				}
 			}
 
@@ -743,26 +743,26 @@ void ReflectiveEntity::drawReflection(uint32 currentDrawingFrameBufferSet,
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void ReflectiveEntity::constructor(ReflectiveEntitySpec* reflectiveEntitySpec, int16 internalId, const char* const name)
+void ReflectiveActor::constructor(ReflectiveActorSpec* reflectiveActorSpec, int16 internalId, const char* const name)
 {
 	// Always explicitly call the base's constructor 
-	Base::constructor(&reflectiveEntitySpec->entitySpec, internalId, name);
+	Base::constructor(&reflectiveActorSpec->actorSpec, internalId, name);
 
 	this->waveLutIndex = 0;
 	this->waveLutIndexIncrement = 
 		__FIXED_MULT
 		(
-			reflectiveEntitySpec->waveLutThrottleFactor, 
-			__FIXED_DIV(__I_TO_FIXED(reflectiveEntitySpec->numberOfWaveLutEntries), __I_TO_FIXED(reflectiveEntitySpec->width))
+			reflectiveActorSpec->waveLutThrottleFactor, 
+			__FIXED_DIV(__I_TO_FIXED(reflectiveActorSpec->numberOfWaveLutEntries), __I_TO_FIXED(reflectiveActorSpec->width))
 		);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void ReflectiveEntity::destructor()
+void ReflectiveActor::destructor()
 {
 	// remove post processing effect
-	VUEngine::removePostProcessingEffect(VUEngine::getInstance(), ReflectiveEntity::reflect, GameObject::safeCast(this));
+	VUEngine::removePostProcessingEffect(VUEngine::getInstance(), ReflectiveActor::reflect, GameObject::safeCast(this));
 
 	// Always explicitly call the base's destructor 
 	Base::destructor();
@@ -770,39 +770,39 @@ void ReflectiveEntity::destructor()
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void ReflectiveEntity::ready(bool recursive)
+void ReflectiveActor::ready(bool recursive)
 {
 	Base::ready(this, recursive);
 
 	// add post processing effect
-	VUEngine::pushFrontPostProcessingEffect(VUEngine::getInstance(), ReflectiveEntity::reflect, GameObject::safeCast(this));
+	VUEngine::pushFrontPostProcessingEffect(VUEngine::getInstance(), ReflectiveActor::reflect, GameObject::safeCast(this));
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void ReflectiveEntity::suspend()
+void ReflectiveActor::suspend()
 {
 	Base::suspend(this);
 
 	// remove post processing effect
-	VUEngine::removePostProcessingEffect(VUEngine::getInstance(), ReflectiveEntity::reflect, GameObject::safeCast(this));
+	VUEngine::removePostProcessingEffect(VUEngine::getInstance(), ReflectiveActor::reflect, GameObject::safeCast(this));
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void ReflectiveEntity::resume()
+void ReflectiveActor::resume()
 {
 	Base::resume(this);
 
 	// add post processing effect
-	VUEngine::pushFrontPostProcessingEffect(VUEngine::getInstance(), ReflectiveEntity::reflect, GameObject::safeCast(this));
+	VUEngine::pushFrontPostProcessingEffect(VUEngine::getInstance(), ReflectiveActor::reflect, GameObject::safeCast(this));
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void ReflectiveEntity::applyReflection(uint32 currentDrawingFrameBufferSet)
+void ReflectiveActor::applyReflection(uint32 currentDrawingFrameBufferSet)
 {
-	ReflectiveEntitySpec* reflectiveEntitySpec = (ReflectiveEntitySpec*)this->entitySpec;
+	ReflectiveActorSpec* reflectiveActorSpec = (ReflectiveActorSpec*)this->actorSpec;
 
 /*
 	static fixed_t index = 0;
@@ -823,26 +823,26 @@ void ReflectiveEntity::applyReflection(uint32 currentDrawingFrameBufferSet)
 	}
 */
 
-	ReflectiveEntity::drawReflection(this,
+	ReflectiveActor::drawReflection(this,
 		currentDrawingFrameBufferSet,
-		this->position2D.x + reflectiveEntitySpec->sourceDisplacement.x,
-		this->position2D.y + reflectiveEntitySpec->sourceDisplacement.y,
-		this->position2D.x + reflectiveEntitySpec->outputDisplacement.x,
-		this->position2D.y + reflectiveEntitySpec->outputDisplacement.y,
-		reflectiveEntitySpec->width,
-		reflectiveEntitySpec->height,
-		reflectiveEntitySpec->reflectionMask,
-		reflectiveEntitySpec->axisForReversing,
-		reflectiveEntitySpec->transparency,
-		reflectiveEntitySpec->reflectParallax,
-		reflectiveEntitySpec->parallaxDisplacement,
-		reflectiveEntitySpec->waveLut,
-		reflectiveEntitySpec->numberOfWaveLutEntries,
-		reflectiveEntitySpec->waveLutThrottleFactor,
-		reflectiveEntitySpec->flattenTop, reflectiveEntitySpec->flattenBottom,
-		reflectiveEntitySpec->topBorder, reflectiveEntitySpec->bottomBorder,
-		reflectiveEntitySpec->leftBorder, reflectiveEntitySpec->rightBorder,
-		reflectiveEntitySpec->noisePasses
+		this->position2D.x + reflectiveActorSpec->sourceDisplacement.x,
+		this->position2D.y + reflectiveActorSpec->sourceDisplacement.y,
+		this->position2D.x + reflectiveActorSpec->outputDisplacement.x,
+		this->position2D.y + reflectiveActorSpec->outputDisplacement.y,
+		reflectiveActorSpec->width,
+		reflectiveActorSpec->height,
+		reflectiveActorSpec->reflectionMask,
+		reflectiveActorSpec->axisForReversing,
+		reflectiveActorSpec->transparency,
+		reflectiveActorSpec->reflectParallax,
+		reflectiveActorSpec->parallaxDisplacement,
+		reflectiveActorSpec->waveLut,
+		reflectiveActorSpec->numberOfWaveLutEntries,
+		reflectiveActorSpec->waveLutThrottleFactor,
+		reflectiveActorSpec->flattenTop, reflectiveActorSpec->flattenBottom,
+		reflectiveActorSpec->topBorder, reflectiveActorSpec->bottomBorder,
+		reflectiveActorSpec->leftBorder, reflectiveActorSpec->rightBorder,
+		reflectiveActorSpec->noisePasses
 	);
 }
 

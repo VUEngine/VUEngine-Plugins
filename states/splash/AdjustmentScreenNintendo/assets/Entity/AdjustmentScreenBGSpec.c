@@ -11,7 +11,7 @@
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#include <Entity.h>
+#include <Actor.h>
 #include <VIPManager.h>
 #include <BgmapSprite.h>
 
@@ -111,19 +111,19 @@ BgmapSpriteROMSpec AdjustmentScreenBgSpriteSpec =
 	__WORLD_ON,
 };
 
-ComponentSpec* const AdjustmentScreenBgEntityComponentSpecs[] = 
+ComponentSpec* const AdjustmentScreenBgActorComponentSpecs[] = 
 {
 	(ComponentSpec*)&AdjustmentScreenBgSpriteSpec,
 	NULL
 };
 
-EntityROMSpec AdjustmentScreenBgEntitySpec =
+ActorROMSpec AdjustmentScreenBgActorSpec =
 {
 	// Class allocator
-	__TYPE(Entity),
+	__TYPE(Actor),
 
 	// Component specs
-	(ComponentSpec**)AdjustmentScreenBgEntityComponentSpecs,
+	(ComponentSpec**)AdjustmentScreenBgActorComponentSpecs,
 
 	// Children specs
 	NULL,
@@ -135,7 +135,7 @@ EntityROMSpec AdjustmentScreenBgEntitySpec =
 	// If 0, it is computed from the visual components if any
 	{0, 0, 0},
 
-	// Entity's in-game type
+	// Actor's in-game type
 	kTypeNone,
 
 	// Pointer to animation functions array

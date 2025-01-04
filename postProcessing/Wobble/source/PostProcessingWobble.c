@@ -17,7 +17,7 @@
 #include <DirectDraw.h>
 #include <VUEngine.h>
 #include <Container.h>
-#include <Entity.h>
+#include <Actor.h>
 #include <VIPManager.h>
 #include <Camera.h>
 

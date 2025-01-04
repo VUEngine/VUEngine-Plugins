@@ -7,17 +7,17 @@
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 #include <BgmapSprite.h>
-#include <Entity.h>
+#include <Actor.h>
 #include <Texture.h>
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // DECLARATIONS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-extern uint32 AlignmentCheckEntityAlignmentCheckLeftTiles[];
-extern uint16 AlignmentCheckEntityAlignmentCheckLeftMap[];
-extern uint32 AlignmentCheckEntityAlignmentCheckRightTiles[];
-extern uint16 AlignmentCheckEntityAlignmentCheckRightMap[];
+extern uint32 AlignmentCheckActorAlignmentCheckLeftTiles[];
+extern uint16 AlignmentCheckActorAlignmentCheckLeftMap[];
+extern uint32 AlignmentCheckActorAlignmentCheckRightTiles[];
+extern uint16 AlignmentCheckActorAlignmentCheckRightMap[];
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // SPRITES
@@ -35,7 +35,7 @@ CharSetROMSpec AlignmentCheckSprite1CharsetSpec =
 	true,
 
 	// Tiles array
-	AlignmentCheckEntityAlignmentCheckLeftTiles,
+	AlignmentCheckActorAlignmentCheckLeftTiles,
 
 	// Frame offsets array
 	NULL,
@@ -47,7 +47,7 @@ TextureROMSpec AlignmentCheckSprite1TextureSpec =
 	(CharSetSpec*)&AlignmentCheckSprite1CharsetSpec,
 
 	// Pointer to the map array that defines how to use the tiles from the char set
-	AlignmentCheckEntityAlignmentCheckLeftMap,
+	AlignmentCheckActorAlignmentCheckLeftMap,
 
 	// Horizontal size in tiles of the texture (max. 64)
 	48,
@@ -119,7 +119,7 @@ CharSetROMSpec AlignmentCheckSprite2CharsetSpec =
 	true,
 
 	// Tiles array
-	AlignmentCheckEntityAlignmentCheckRightTiles,
+	AlignmentCheckActorAlignmentCheckRightTiles,
 
 	// Frame offsets array
 	NULL,
@@ -131,7 +131,7 @@ TextureROMSpec AlignmentCheckSprite2TextureSpec =
 	(CharSetSpec*)&AlignmentCheckSprite2CharsetSpec,
 
 	// Pointer to the map array that defines how to use the tiles from the char set
-	AlignmentCheckEntityAlignmentCheckRightMap,
+	AlignmentCheckActorAlignmentCheckRightMap,
 
 	// Horizontal size in tiles of the texture (max. 64)
 	16,
@@ -195,20 +195,20 @@ BgmapSpriteROMSpec AlignmentCheckSprite2SpriteSpec =
 // ENTITY
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-ComponentSpec* const AlignmentCheckEntityComponentSpecs[] = 
+ComponentSpec* const AlignmentCheckActorComponentSpecs[] = 
 {
 	(ComponentSpec*)&AlignmentCheckSprite1SpriteSpec,
 	(ComponentSpec*)&AlignmentCheckSprite2SpriteSpec,
 	NULL
 };
 
-EntityROMSpec AlignmentCheckEntitySpec =
+ActorROMSpec AlignmentCheckActorSpec =
 {
 	// Class allocator
-	__TYPE(Entity),
+	__TYPE(Actor),
 
 	// Component specs
-	(ComponentSpec**)AlignmentCheckEntityComponentSpecs,
+	(ComponentSpec**)AlignmentCheckActorComponentSpecs,
 
 	// Children specs
 	NULL,
@@ -220,7 +220,7 @@ EntityROMSpec AlignmentCheckEntitySpec =
 	// If 0, it is computed from the visual components if any
 	{ 0, 0, 0 },
 
-	// Entity's in-game type
+	// Actor's in-game type
 	kTypeNone,
 
 	// Pointer to animation functions array

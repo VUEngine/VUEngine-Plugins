@@ -11,7 +11,7 @@
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#include <Entity.h>
+#include <Actor.h>
 #include <VIPManager.h>
 #include <BgmapSprite.h>
 
@@ -110,19 +110,19 @@ BgmapSpriteROMSpec AutomaticPauseLogoSpriteSpec =
 	__WORLD_ON,
 };
 
-ComponentSpec* const AutomaticPauseLogoEntityComponentSpecs[] = 
+ComponentSpec* const AutomaticPauseLogoActorComponentSpecs[] = 
 {
 	(ComponentSpec*)&AutomaticPauseLogoSpriteSpec,
 	NULL
 };
 
-EntityROMSpec AutomaticPauseLogoEntitySpec =
+ActorROMSpec AutomaticPauseLogoActorSpec =
 {
 	// Class allocator
-	__TYPE(Entity),
+	__TYPE(Actor),
 
 	// Component specs
-	(ComponentSpec**)AutomaticPauseLogoEntityComponentSpecs,
+	(ComponentSpec**)AutomaticPauseLogoActorComponentSpecs,
 
 	// Children specs
 	NULL,
@@ -134,7 +134,7 @@ EntityROMSpec AutomaticPauseLogoEntitySpec =
 	// If 0, it is computed from the visual components if any
 	{0, 0, 0},
 
-	// Entity's in-game type
+	// Actor's in-game type
 	kTypeNone,
 
 	// Pointer to animation functions array

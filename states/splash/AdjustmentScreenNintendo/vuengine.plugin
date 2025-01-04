@@ -30,15 +30,15 @@
 		}
 	],
 	"dependencies": [
-		"vuengine//entities/LowPowerEntity",
+		"vuengine//entities/LowPowerActor",
 		"vuengine//other/LowPowerIndicator",
 		"vuengine//states/splash/SplashScreen"
 	],
 	"configuration": [
 		{
-			"name": "useLowPowerEntity",
+			"name": "useLowPowerActor",
 			"label": {
-				"en": "Use Low Power Entity"
+				"en": "Use Low Power Actor"
 			},
 			"dataType": "boolean",
 			"default": false
@@ -60,25 +60,25 @@
 			"default": 1
 		},
 		{
-			"name": "lowPowerEntityXPosition",
+			"name": "lowPowerActorXPosition",
 			"label": {
-				"en": "Low Power Entity X Position"
+				"en": "Low Power Actor X Position"
 			},
 			"dataType": "integer",
 			"default": -152
 		},
 		{
-			"name": "lowPowerEntityYPosition",
+			"name": "lowPowerActorYPosition",
 			"label": {
-				"en": "Low Power Entity Y Position"
+				"en": "Low Power Actor Y Position"
 			},
 			"dataType": "integer",
 			"default": -100
 		},
 		{
-			"name": "lowPowerEntityZPosition",
+			"name": "lowPowerActorZPosition",
 			"label": {
-				"en": "Low Power Entity Z Position"
+				"en": "Low Power Actor Z Position"
 			},
 			"dataType": "integer",
 			"default": 0

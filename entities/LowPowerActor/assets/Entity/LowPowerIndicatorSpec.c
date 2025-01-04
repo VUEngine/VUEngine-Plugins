@@ -11,7 +11,7 @@
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#include <LowPowerEntity.h>
+#include <LowPowerActor.h>
 #include <VIPManager.h>
 #include <BgmapAnimatedSprite.h>
 
@@ -164,22 +164,22 @@ BgmapSpriteROMSpec LowPowerIndicatorSpriteSpec =
 	__WORLD_ON,
 };
 
-ComponentSpec* const LowPowerIndicatorEntityComponentSpecs[] = 
+ComponentSpec* const LowPowerIndicatorActorComponentSpecs[] = 
 {
 	(ComponentSpec*)&LowPowerIndicatorSpriteSpec,
 	NULL
 };
 
-LowPowerEntityROMSpec LowPowerIndicatorEntitySpec =
+LowPowerActorROMSpec LowPowerIndicatorActorSpec =
 {
-	// animated entity
+	// animated actor
 	{
-		// entity
+		// actor
 		// Class allocator
-		__TYPE(LowPowerEntity),
+		__TYPE(LowPowerActor),
 
 		// Component specs
-		(ComponentSpec**)LowPowerIndicatorEntityComponentSpecs,
+		(ComponentSpec**)LowPowerIndicatorActorComponentSpecs,
 
 		// Children specs
 		NULL,
@@ -191,7 +191,7 @@ LowPowerEntityROMSpec LowPowerIndicatorEntitySpec =
 		// If 0, it is computed from the visual components if any
 		{0, 0, 0},
 
-		// Entity's in-game type
+		// Actor's in-game type
 		kTypeNone,
 
 		// Pointer to animation functions array

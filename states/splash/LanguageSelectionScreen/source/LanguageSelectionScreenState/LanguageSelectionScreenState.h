@@ -30,8 +30,8 @@ dynamic_singleton class LanguageSelectionScreenState: SplashScreenState
 {
 	/// @protectedsection
 
-	/// Entity for the selection cursor
-	Entity flagCursorEntity;
+	/// Actor for the selection cursor
+	Actor flagCursorActor;
 
 	/// Selector for the language
 	OptionsSelector languageSelector;

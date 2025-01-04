@@ -7,52 +7,49 @@
  * that was distributed with this source code.
  */
 
-#ifndef LOCALIZED_ENTITY_H_
-#define LOCALIZED_ENTITY_H_
+#ifndef LOW_POWER_ENTITY_H_
+#define LOW_POWER_ENTITY_H_
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#include <Entity.h>
+#include <Actor.h>
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' DATA
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-/// An LocalizedEntity Spec
-/// @memberof LocalizedEntity
-typedef struct LocalizedEntitySpec
+/// An LowPowerActor Spec
+/// @memberof LowPowerActor
+typedef struct LowPowerActorSpec
 {
-	EntitySpec entitySpec;
+	ActorSpec actorSpec;
 
-} LocalizedEntitySpec;
+} LowPowerActorSpec;
 
-/// A LocalizedEntity spec that is stored in ROM
-/// @memberof LocalizedEntity
-typedef const LocalizedEntitySpec LocalizedEntityROMSpec;
+/// A LowPowerActor spec that is stored in ROM
+/// @memberof LowPowerActor
+typedef const LowPowerActorSpec LowPowerActorROMSpec;
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' DECLARATION
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-/// Class LocalizedEntity
+/// Class LowPowerActor
 ///
-/// Inherits from Entity
+/// Inherits from Actor
 ///
-/// Implements localized visual elements, where each animation represents one translation to another language.
-class LocalizedEntity : Entity
+/// Implements localized visual elements, where each animation represents one translation to another
+/// language.
+class LowPowerActor : Actor
 {
-	/// @publicsection
-
-	/// @param localizedEntitySpec: Specification that determines how to configure the statefulActor
+	/// @param lowPowerActorSpec: Specification that determines how to configure the statefulActor
 	/// @param internalId: ID to keep track internally of the new instance
 	/// @param name: Name to assign to the new instance
-	void constructor(const LocalizedEntitySpec* localizedEntitySpec, int16 internalId, const char* const name);
-
-	/// Make the localized entity ready to start operating once it has been completely intialized.
-	/// @param recursive: If true, the ready call is propagated to its children, grand children, etc.
-	override void ready(bool recursive);
+	void constructor(
+		const LowPowerActorSpec* lowPowerActorSpec, int16 internalId, const char* const name
+	);
 }
 
 #endif

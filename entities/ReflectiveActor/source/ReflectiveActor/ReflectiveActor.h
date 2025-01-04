@@ -14,7 +14,7 @@
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#include <Entity.h>
+#include <Actor.h>
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
@@ -46,11 +46,11 @@
 // CLASS' DATA
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-/// A ReflectiveEntity Spec
-/// @memberof ReflectiveEntity
-typedef struct ReflectiveEntitySpec
+/// A ReflectiveActor Spec
+/// @memberof ReflectiveActor
+typedef struct ReflectiveActorSpec
 {
-	EntitySpec entitySpec;
+	ActorSpec actorSpec;
 
 	/// Starting point from where start to reflect data
 	/// relative to my position
@@ -112,11 +112,11 @@ typedef struct ReflectiveEntitySpec
 	/// Noise passes: higher values means less noise
 	int16 noisePasses;
 
-} ReflectiveEntitySpec;
+} ReflectiveActorSpec;
 
-/// A ReflectiveEntity Spec that is stored in ROM
-/// @memberof ReflectiveEntity
-typedef const ReflectiveEntitySpec ReflectiveEntityROMSpec;
+/// A ReflectiveActor Spec that is stored in ROM
+/// @memberof ReflectiveActor
+typedef const ReflectiveActorSpec ReflectiveActorROMSpec;
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' DECLARATION
@@ -124,10 +124,10 @@ typedef const ReflectiveEntitySpec ReflectiveEntityROMSpec;
 
 /// Class Sprite
 ///
-/// Inherits from Entity
+/// Inherits from Actor
 ///
-/// Implements an entity that can mirror other parts of the screen.
-class ReflectiveEntity : Entity
+/// Implements an actor that can mirror other parts of the screen.
+class ReflectiveActor : Actor
 {
 	/// @protectedsection
 
@@ -142,12 +142,12 @@ class ReflectiveEntity : Entity
 
 	/// @publicsection
 
-	/// @param reflectiveEntitySpec: Specification that determines how to configure the statefulActor
+	/// @param reflectiveActorSpec: Specification that determines how to configure the statefulActor
 	/// @param internalId: ID to keep track internally of the new instance
 	/// @param name: Name to assign to the new instance
-	void constructor(ReflectiveEntitySpec* reflectiveEntitySpec, int16 internalId, const char* const name);
+	void constructor(ReflectiveActorSpec* reflectiveActorSpec, int16 internalId, const char* const name);
 
-	/// Make the entity ready to start operating once it has been completely intialized.
+	/// Make the actor ready to start operating once it has been completely intialized.
 	/// @param recursive: If true, the ready call is propagated to its children, grand children, etc.
 	override void ready(bool recursive);
 

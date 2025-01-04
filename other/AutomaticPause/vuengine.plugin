@@ -61,9 +61,9 @@
 			"default": "Default"
 		},
 		{
-			"name": "useLowPowerEntity",
+			"name": "useLowPowerActor",
 			"label": {
-				"en": "Use Low Power Entity",
+				"en": "Use Low Power Actor",
 				"de": "Niedriger Batteriestand Entität benutzen",
 				"es": "Utilizar entidad de baja potencia"
 			},

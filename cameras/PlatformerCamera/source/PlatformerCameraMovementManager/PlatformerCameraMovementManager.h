@@ -16,16 +16,16 @@
 
 #include <CameraMovementManager.h>
 #include <Telegram.h>
-#include <Entity.h>
+#include <Actor.h>
 #include <Camera.h>
-#include <PlatformerCameraTriggerEntity.h>
+#include <PlatformerCameraTriggerActor.h>
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // FORWARD DECLARATIONS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 class Camera;
-class Entity;
+class Actor;
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' MACROS
@@ -71,17 +71,17 @@ singleton class PlatformerCameraMovementManager : CameraMovementManager
 	/// Pointer to the previous function that implements the required focusing
 	Vector3D (*previousFocusFunction)(void*, Camera, bool, uint32);
 
-	/// Entity spec used to configure the camera's trigger entity
-	PlatformerCameraTriggerEntitySpec platformerCameraTriggerEntitySpec;
+	/// Actor spec used to configure the camera's trigger actor
+	PlatformerCameraTriggerActorSpec platformerCameraTriggerActorSpec;
 
 	/// Displacement to add to the bounding box
 	Vector3D boundingBoxDisplacement;
 
-	/// Array of colliders for the camera's trigger entity
-	ColliderSpec platformerCameraTriggerEntityCollidersSpec[2];
+	/// Array of colliders for the camera's trigger actor
+	ColliderSpec platformerCameraTriggerActorCollidersSpec[2];
 
-	/// Entity that triggers the camera's focusing when colliding with the focus entity
-	Entity cameraTrigger;
+	/// Actor that triggers the camera's focusing when colliding with the focus actor
+	Actor cameraTrigger;
 
 	/// @publicsection
 
@@ -89,7 +89,7 @@ singleton class PlatformerCameraMovementManager : CameraMovementManager
 	/// @return CameraMovementManager singleton
 	static PlatformerCameraMovementManager getInstance();
 
-	/// Focus the camera on the focus entity if any.
+	/// Focus the camera on the focus actor if any.
 	/// @param camera: Camera to focus
 	override Vector3D focus(Camera camera);
 
@@ -105,10 +105,10 @@ singleton class PlatformerCameraMovementManager : CameraMovementManager
 	/// Disable the easing of the focusing.
 	void disableFocusEasing();
 
-	/// Alert when the camera is fully focused on the target entity.
+	/// Alert when the camera is fully focused on the target actor.
 	void alertWhenTargetFocused();
 
-	/// Don't when the camera is fully focused on the target entity.
+	/// Don't when the camera is fully focused on the target actor.
 	void dontAlertWhenTargetFocused();
 
 	/// Set the flags that enable the update of the camera's position.
@@ -125,14 +125,14 @@ singleton class PlatformerCameraMovementManager : CameraMovementManager
 	void lockMovement(uint8 axisToLockUp, bool locked);
 
 	/// Configure the camera manager.
-	/// @param focusEntity: Entity on which focus the camera
-	/// @param focusEntityLayer: Layer in which live the focus entity's colliders
-	/// @param cameraTriggerLayer: Layer in which live the camera trgger entity's colliders
-	/// @param boundingBoxSize: Bounding box inside of which the fouse entity can move without
+	/// @param focusActor: Actor on which focus the camera
+	/// @param focusActorLayer: Layer in which live the focus actor's colliders
+	/// @param cameraTriggerLayer: Layer in which live the camera trgger actor's colliders
+	/// @param boundingBoxSize: Bounding box inside of which the fouse actor can move without
 	/// triggering the focusing of the camera
 	/// @param boundingBoxDisplacement: Displacement to add to the bounding box
 	/// @param screenDisplacement: Displacement to add to the camera when focusing
-	void configure(Entity focusEntity, uint32 focusEntityLayer, uint32 cameraTriggerLayer, PixelSize boundingBoxSize, Vector3D boundingBoxDisplacement, Vector3D screenDisplacement);
+	void configure(Actor focusActor, uint32 focusActorLayer, uint32 cameraTriggerLayer, PixelSize boundingBoxSize, Vector3D boundingBoxDisplacement, Vector3D screenDisplacement);
 }
 
 #endif

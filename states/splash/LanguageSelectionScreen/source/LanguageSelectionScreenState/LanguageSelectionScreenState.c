@@ -29,8 +29,8 @@
 
 extern StageROMSpec LanguageSelectionScreenStage;
 extern LangROMSpec* _languages[];
-extern EntitySpec FlagCursorEntitySpec;
-extern EntitySpec FlagUnknownEntitySpec;
+extern ActorSpec FlagCursorActorSpec;
+extern ActorSpec FlagUnknownActorSpec;
 extern SoundSpec LanguageConfirmSoundSpec;
 extern SoundSpec LanguageSelectSoundSpec;
 
@@ -88,14 +88,14 @@ void LanguageSelectionScreenState::enter(void* owner)
 		// add flags to stage
 		this->flagsTotalHalfWidth = ((LanguageSelectionScreenState::getNumLangs(this) - 1) * (__PLUGIN_LANGUAGE_SELECTION_SCREEN_IMAGE_WIDTH)) >> 1;
 		uint8 i = 0;
-		this->flagCursorEntity = LanguageSelectionScreenState::addFlagToStage(this, &FlagCursorEntitySpec, 0);
+		this->flagCursorActor = LanguageSelectionScreenState::addFlagToStage(this, &FlagCursorActorSpec, 0);
 		for(i = 0; _languages[i]; i++)
 		{
 			// add flag
-			EntitySpec* entitySpec = (_languages[i]->entitySpec != NULL)
-				? _languages[i]->entitySpec
-				: &FlagUnknownEntitySpec;
-			LanguageSelectionScreenState::addFlagToStage(this, entitySpec, i);
+			ActorSpec* actorSpec = (_languages[i]->actorSpec != NULL)
+				? _languages[i]->actorSpec
+				: &FlagUnknownActorSpec;
+			LanguageSelectionScreenState::addFlagToStage(this, actorSpec, i);
 		}
 
 		LanguageSelectionScreenState::printSelection(this);
@@ -173,7 +173,7 @@ void LanguageSelectionScreenState::constructor()
 
 	// init members
 	this->stageSpec = (StageSpec*)&LanguageSelectionScreenStage;
-	this->flagCursorEntity = NULL;
+	this->flagCursorActor = NULL;
 	this->languageSelector = NULL;
 	this->selection = 0;
 	this->flagsTotalHalfWidth = 0;
@@ -212,7 +212,7 @@ void LanguageSelectionScreenState::printSelection()
 		#endif
 			0,
 		};
-		Entity::setLocalPosition(this->flagCursorEntity, &position);
+		Actor::setLocalPosition(this->flagCursorActor, &position);
 
 	#endif
 }
@@ -278,10 +278,10 @@ uint8 LanguageSelectionScreenState::getNumLangs()
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-Entity LanguageSelectionScreenState::addFlagToStage(EntitySpec* entitySpec, uint8 position)
+Actor LanguageSelectionScreenState::addFlagToStage(ActorSpec* actorSpec, uint8 position)
 {
-	PositionedEntity flagPositionedEntity = {
-		entitySpec,
+	PositionedActor flagPositionedActor = {
+		actorSpec,
 		{
 		#ifdef __LEGACY_COORDINATE_PROJECTION
 			LanguageSelectionScreenState::getFlagXPosition(this, position),
@@ -298,10 +298,10 @@ Entity LanguageSelectionScreenState::addFlagToStage(EntitySpec* entitySpec, uint
 	};
 
 #ifdef __LEGACY_COORDINATE_PROJECTION
-	return Stage::spawnChildEntity(VUEngine::getStage(VUEngine::getInstance()), &flagPositionedEntity, true);
+	return Stage::spawnChildActor(VUEngine::getStage(VUEngine::getInstance()), &flagPositionedActor, true);
 #else
 	UIContainer uiContainer = VUEngine::getUIContainer(VUEngine::getInstance());
-	return UIContainer::spawnChildEntity(uiContainer, &flagPositionedEntity);
+	return UIContainer::spawnChildActor(uiContainer, &flagPositionedActor);
 #endif
 }
 

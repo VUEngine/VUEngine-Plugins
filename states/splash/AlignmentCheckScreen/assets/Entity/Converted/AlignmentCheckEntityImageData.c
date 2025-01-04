@@ -2,12 +2,12 @@
 //                              THIS FILE WAS AUTO-GENERATED - DO NOT EDIT                               //
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
-const uint32 AlignmentCheckEntityAlignmentCheckLeftTiles[] __attribute__((aligned(4))) =
+const uint32 AlignmentCheckActorAlignmentCheckLeftTiles[] __attribute__((aligned(4))) =
 {
 	0x00000000,
 	0x00000000,0xFFFF0000,0x00000000,0x00000000,
 };
-const uint16 AlignmentCheckEntityAlignmentCheckLeftMap[] __attribute__((aligned(4))) =
+const uint16 AlignmentCheckActorAlignmentCheckLeftMap[] __attribute__((aligned(4))) =
 {
 	0x0000,0x0000,0x0000,0x0000,0x0000,0x0000,0x0000,0x0000,
 	0x0000,0x0000,0x0000,0x0000,0x0000,0x0000,0x0000,0x0000,
@@ -17,12 +17,12 @@ const uint16 AlignmentCheckEntityAlignmentCheckLeftMap[] __attribute__((aligned(
 	0x0000,0x0000,0x0000,0x0000,0x0000,0x0000,0x0000,0x0000,
 };
 
-const uint32 AlignmentCheckEntityAlignmentCheckRightTiles[] __attribute__((aligned(4))) =
+const uint32 AlignmentCheckActorAlignmentCheckRightTiles[] __attribute__((aligned(4))) =
 {
 	0x00000000,
 	0x00000000,0x00000000,0x00000000,0x00000000,0x02A002A0,0x02A002A0,0x02A002A0,0x02A002A0,
 };
-const uint16 AlignmentCheckEntityAlignmentCheckRightMap[] __attribute__((aligned(4))) =
+const uint16 AlignmentCheckActorAlignmentCheckRightMap[] __attribute__((aligned(4))) =
 {
 	0x0001,0x0000,0x0000,0x0000,0x0000,0x0000,0x0000,0x0000,
 	0x0000,0x0000,0x0000,0x0000,0x0000,0x0000,0x0000,0x0001,

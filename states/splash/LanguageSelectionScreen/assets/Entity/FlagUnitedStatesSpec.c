@@ -11,7 +11,7 @@
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#include <Entity.h>
+#include <Actor.h>
 #include <VIPManager.h>
 #include <BgmapSprite.h>
 
@@ -111,19 +111,19 @@ BgmapSpriteROMSpec FlagUnitedStatesSpriteSpec =
 	__WORLD_ON,
 };
 
-ComponentSpec* const FlagUnitedStatesEntityComponentSpecs[] = 
+ComponentSpec* const FlagUnitedStatesActorComponentSpecs[] = 
 {
 	(ComponentSpec*)&FlagUnitedStatesSpriteSpec,
 	NULL
 };
 
-EntityROMSpec FlagUnitedStatesEntitySpec =
+ActorROMSpec FlagUnitedStatesActorSpec =
 {
 	// Class allocator
-	__TYPE(Entity),
+	__TYPE(Actor),
 
 	// Component specs
-	(ComponentSpec**)FlagUnitedStatesEntityComponentSpecs,
+	(ComponentSpec**)FlagUnitedStatesActorComponentSpecs,
 
 	// Children specs
 	NULL,
@@ -135,7 +135,7 @@ EntityROMSpec FlagUnitedStatesEntitySpec =
 	// If 0, it is computed from the visual components if any
 	{0, 0, 0},
 
-	// Entity's in-game type
+	// Actor's in-game type
 	kTypeNone,
 
 	// Pointer to animation functions array

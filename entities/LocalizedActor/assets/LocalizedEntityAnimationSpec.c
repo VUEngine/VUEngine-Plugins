@@ -17,7 +17,7 @@
 // DEFINITIONS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-AnimationFunctionROMSpec LocalizedEntity0Animations =
+AnimationFunctionROMSpec LocalizedActor0Animations =
 {
 	// Number of frames that the texture supports of this animation function
 	1,
@@ -40,7 +40,7 @@ AnimationFunctionROMSpec LocalizedEntity0Animations =
 	"0",
 };
 
-AnimationFunctionROMSpec LocalizedEntity1Animations =
+AnimationFunctionROMSpec LocalizedActor1Animations =
 {
 	// Number of frames that the texture supports of this animation function
 	1,
@@ -63,7 +63,7 @@ AnimationFunctionROMSpec LocalizedEntity1Animations =
 	"1",
 };
 
-AnimationFunctionROMSpec LocalizedEntity2Animations =
+AnimationFunctionROMSpec LocalizedActor2Animations =
 {
 	// Number of frames that the texture supports of this animation function
 	1,
@@ -86,7 +86,7 @@ AnimationFunctionROMSpec LocalizedEntity2Animations =
 	"2",
 };
 
-AnimationFunctionROMSpec LocalizedEntity3Animations =
+AnimationFunctionROMSpec LocalizedActor3Animations =
 {
 	// Number of frames that the texture supports of this animation function
 	1,
@@ -109,7 +109,7 @@ AnimationFunctionROMSpec LocalizedEntity3Animations =
 	"3",
 };
 
-AnimationFunctionROMSpec LocalizedEntity4Animations =
+AnimationFunctionROMSpec LocalizedActor4Animations =
 {
 	// Number of frames that the texture supports of this animation function
 	1,
@@ -132,7 +132,7 @@ AnimationFunctionROMSpec LocalizedEntity4Animations =
 	"4",
 };
 
-AnimationFunctionROMSpec LocalizedEntity5Animations =
+AnimationFunctionROMSpec LocalizedActor5Animations =
 {
 	// Number of frames that the texture supports of this animation function
 	1,
@@ -155,7 +155,7 @@ AnimationFunctionROMSpec LocalizedEntity5Animations =
 	"5",
 };
 
-AnimationFunctionROMSpec LocalizedEntity6Animations =
+AnimationFunctionROMSpec LocalizedActor6Animations =
 {
 	// Number of frames that the texture supports of this animation function
 	1,
@@ -178,7 +178,7 @@ AnimationFunctionROMSpec LocalizedEntity6Animations =
 	"6",
 };
 
-AnimationFunctionROMSpec LocalizedEntity7Animations =
+AnimationFunctionROMSpec LocalizedActor7Animations =
 {
 	// Number of frames that the texture supports of this animation function
 	1,
@@ -201,7 +201,7 @@ AnimationFunctionROMSpec LocalizedEntity7Animations =
 	"7",
 };
 
-AnimationFunctionROMSpec LocalizedEntity8Animations =
+AnimationFunctionROMSpec LocalizedActor8Animations =
 {
 	// Number of frames that the texture supports of this animation function
 	1,
@@ -224,7 +224,7 @@ AnimationFunctionROMSpec LocalizedEntity8Animations =
 	"8",
 };
 
-AnimationFunctionROMSpec LocalizedEntity9Animations =
+AnimationFunctionROMSpec LocalizedActor9Animations =
 {
 	// Number of frames that the texture supports of this animation function
 	1,
@@ -247,7 +247,7 @@ AnimationFunctionROMSpec LocalizedEntity9Animations =
 	"9",
 };
 
-AnimationFunctionROMSpec LocalizedEntity10Animations =
+AnimationFunctionROMSpec LocalizedActor10Animations =
 {
 	// Number of frames that the texture supports of this animation function
 	1,
@@ -270,7 +270,7 @@ AnimationFunctionROMSpec LocalizedEntity10Animations =
 	"10",
 };
 
-AnimationFunctionROMSpec LocalizedEntity11Animations =
+AnimationFunctionROMSpec LocalizedActor11Animations =
 {
 	// Number of frames that the texture supports of this animation function
 	1,
@@ -293,7 +293,7 @@ AnimationFunctionROMSpec LocalizedEntity11Animations =
 	"11",
 };
 
-AnimationFunctionROMSpec LocalizedEntity12Animations =
+AnimationFunctionROMSpec LocalizedActor12Animations =
 {
 	// Number of frames that the texture supports of this animation function
 	1,
@@ -316,7 +316,7 @@ AnimationFunctionROMSpec LocalizedEntity12Animations =
 	"12",
 };
 
-AnimationFunctionROMSpec LocalizedEntity13Animations =
+AnimationFunctionROMSpec LocalizedActor13Animations =
 {
 	// Number of frames that the texture supports of this animation function
 	1,
@@ -339,7 +339,7 @@ AnimationFunctionROMSpec LocalizedEntity13Animations =
 	"13",
 };
 
-AnimationFunctionROMSpec LocalizedEntity14Animations =
+AnimationFunctionROMSpec LocalizedActor14Animations =
 {
 	// Number of frames that the texture supports of this animation function
 	1,
@@ -362,7 +362,7 @@ AnimationFunctionROMSpec LocalizedEntity14Animations =
 	"14",
 };
 
-AnimationFunctionROMSpec LocalizedEntity15Animations =
+AnimationFunctionROMSpec LocalizedActor15Animations =
 {
 	// Number of frames that the texture supports of this animation function
 	1,
@@ -386,38 +386,38 @@ AnimationFunctionROMSpec LocalizedEntity15Animations =
 };
 
 // an animation spec
-AnimationFunctionROMSpec* const LocalizedEntityAnimationSpecs[] =
+AnimationFunctionROMSpec* const LocalizedActorAnimationSpecs[] =
 {
-	&LocalizedEntity0Animations,
+	&LocalizedActor0Animations,
 	
-	&LocalizedEntity1Animations,
+	&LocalizedActor1Animations,
 		
-	&LocalizedEntity2Animations,
+	&LocalizedActor2Animations,
 		
-	&LocalizedEntity3Animations,
+	&LocalizedActor3Animations,
 		
-	&LocalizedEntity4Animations,
+	&LocalizedActor4Animations,
 		
-	&LocalizedEntity5Animations,
+	&LocalizedActor5Animations,
 		
-	&LocalizedEntity6Animations,
+	&LocalizedActor6Animations,
 		
-	&LocalizedEntity7Animations,
+	&LocalizedActor7Animations,
 		
-	&LocalizedEntity8Animations,
+	&LocalizedActor8Animations,
 		
-	&LocalizedEntity9Animations,
+	&LocalizedActor9Animations,
 		
-	&LocalizedEntity10Animations,
+	&LocalizedActor10Animations,
 		
-	&LocalizedEntity11Animations,
+	&LocalizedActor11Animations,
 		
-	&LocalizedEntity12Animations,
+	&LocalizedActor12Animations,
 		
-	&LocalizedEntity13Animations,
+	&LocalizedActor13Animations,
 		
-	&LocalizedEntity14Animations,
+	&LocalizedActor14Animations,
 		
-	&LocalizedEntity15Animations,
+	&LocalizedActor15Animations,
 		NULL,
 };

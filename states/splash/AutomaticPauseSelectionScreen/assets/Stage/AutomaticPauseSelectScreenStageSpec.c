@@ -20,22 +20,22 @@
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 #if __PLUGIN_AUTOMATIC_PAUSE_SELECTION_SCREEN_USE_LOW_POWER_ENTITY
-extern EntitySpec LowPowerIndicatorEntitySpec;
+extern ActorSpec LowPowerIndicatorActorSpec;
 #endif
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // ENTITY LISTS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-PositionedEntityROMSpec AutomaticPauseSelectionScreenStageEntities[] =
+PositionedActorROMSpec AutomaticPauseSelectionScreenStageEntities[] =
 {
 	{NULL, {0, 0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 };
 
-PositionedEntityROMSpec AutomaticPauseSelectionScreenStageUiEntities[] =
+PositionedActorROMSpec AutomaticPauseSelectionScreenStageUiEntities[] =
 {
 #if __PLUGIN_AUTOMATIC_PAUSE_SELECTION_SCREEN_USE_LOW_POWER_ENTITY
-	{&LowPowerIndicatorEntitySpec, 	{__PLUGIN_LOW_POWER_ENTITY_X_POSITION, __PLUGIN_LOW_POWER_ENTITY_Y_POSITION, __PLUGIN_LOW_POWER_ENTITY_Z_POSITION}, 0, NULL, NULL, NULL, false},
+	{&LowPowerIndicatorActorSpec, 	{__PLUGIN_LOW_POWER_ENTITY_X_POSITION, __PLUGIN_LOW_POWER_ENTITY_Y_POSITION, __PLUGIN_LOW_POWER_ENTITY_Z_POSITION}, 0, NULL, NULL, NULL, false},
 #endif
 
 	{NULL, {0, 0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
@@ -106,15 +106,15 @@ StageROMSpec AutomaticPauseSelectionScreenStage =
 
 	// Streaming
 	{
-		// Padding to be added to camera's frustum when checking if a entity spec
-		// describes an entity that is within the camera's range
+		// Padding to be added to camera's frustum when checking if a actor spec
+		// describes an actor that is within the camera's range
 		40,
-		// Padding to be added to camera's frustum when checking if a entity is
+		// Padding to be added to camera's frustum when checking if a actor is
 		// out of the camera's range
 		16,
-		// Amount of entity descriptions to check for streaming in entities
+		// Amount of actor descriptions to check for streaming in entities
 		24,
-		// If true, entity instantiation is done over time
+		// If true, actor instantiation is done over time
 		false,
 	},
 
@@ -251,12 +251,12 @@ StageROMSpec AutomaticPauseSelectionScreenStage =
 	{
 		// UI configuration
 		{
-			(PositionedEntity*)AutomaticPauseSelectionScreenStageUiEntities,
+			(PositionedActor*)AutomaticPauseSelectionScreenStageUiEntities,
 			__TYPE(UIContainer),
 		},
 
 		// Stage's children entities
-		(PositionedEntity*)AutomaticPauseSelectionScreenStageEntities,
+		(PositionedActor*)AutomaticPauseSelectionScreenStageEntities,
 	},
 
 	// Post processing effects

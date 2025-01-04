@@ -22,7 +22,7 @@
 {% for language in item.languages|sort(attribute='order') -%}
 extern LangROMSpec {{ language.name | sanitizeSpecName }}LanguageSpec;
 {% if language.flag -%}
-extern EntitySpec {{ language.flag }};
+extern ActorSpec {{ language.flag }};
 {% endif -%}
 {% endfor %}
 
@@ -51,7 +51,7 @@ const LangROMSpec {{ language.name | sanitizeSpecName }}LanguageSpec =
 	// language name
 	"{{ language.localizedName }}",
 
-	// flag entity
+	// flag actor
 	{% if language.flag -%}
 	&{{ language.flag }},
 	{% else -%}

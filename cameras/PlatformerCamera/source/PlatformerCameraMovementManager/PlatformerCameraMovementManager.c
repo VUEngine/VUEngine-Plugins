@@ -114,7 +114,7 @@ void PlatformerCameraMovementManager::lockMovement(uint8 axisToLockUp, bool lock
 {
 	if(!isDeleted(this->cameraTrigger))
 	{
-		PlatformerCameraTriggerEntity::lockMovement(this->cameraTrigger, axisToLockUp, locked);
+		PlatformerCameraTriggerActor::lockMovement(this->cameraTrigger, axisToLockUp, locked);
 	}
 }
 
@@ -122,11 +122,11 @@ void PlatformerCameraMovementManager::lockMovement(uint8 axisToLockUp, bool lock
 
 void PlatformerCameraMovementManager::configure
 (
-	Entity focusEntity, uint32 focusEntityLayer, uint32 cameraTriggerLayer, PixelSize boundingBoxSize, 
+	Actor focusActor, uint32 focusActorLayer, uint32 cameraTriggerLayer, PixelSize boundingBoxSize, 
 	Vector3D boundingBoxDisplacement, Vector3D screenDisplacement
 )
 {
-	this->platformerCameraTriggerEntityCollidersSpec[0] = (ColliderSpec)
+	this->platformerCameraTriggerActorCollidersSpec[0] = (ColliderSpec)
 	{
 		// collider
 		__TYPE(InverseBox),
@@ -150,16 +150,16 @@ void PlatformerCameraMovementManager::configure
 		cameraTriggerLayer,
 
 		/// Layers to ignore when checking for collisions
-		~(focusEntityLayer),
+		~(focusActorLayer),
 	};
 
-	this->platformerCameraTriggerEntityCollidersSpec[1] = 
+	this->platformerCameraTriggerActorCollidersSpec[1] = 
 		(ColliderSpec) {NULL, {0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0}, {0, 0, 0}, false, kLayerNone, kLayerNone};
 
-	this->platformerCameraTriggerEntitySpec = (PlatformerCameraTriggerEntitySpec)
+	this->platformerCameraTriggerActorSpec = (PlatformerCameraTriggerActorSpec)
 	{
 		// class allocator
-		__TYPE(PlatformerCameraTriggerEntity),
+		__TYPE(PlatformerCameraTriggerActor),
 
 		// children
 		NULL,
@@ -180,27 +180,27 @@ void PlatformerCameraMovementManager::configure
 		(WireframeSpec**)NULL,
 
 		// collision colliders
-		(ColliderSpec*)this->platformerCameraTriggerEntityCollidersSpec,
+		(ColliderSpec*)this->platformerCameraTriggerActorCollidersSpec,
 
 		// size
 		// if 0, width and height will be inferred from the first sprite's texture's size
 		{0, 0, 0},
 
 		// gameworld's character's type
-		!isDeleted(focusEntity) ? Entity::getInGameType(focusEntity) : kTypeNone
+		!isDeleted(focusActor) ? Actor::getInGameType(focusActor) : kTypeNone
 	};
 
-	if(!isDeleted(focusEntity))
+	if(!isDeleted(focusActor))
 	{
 		// Configure the camera
-		Camera::setFocusEntity(Camera::getInstance(), focusEntity);
-		Camera::setFocusEntityPositionDisplacement(Camera::getInstance(), screenDisplacement);
+		Camera::setFocusActor(Camera::getInstance(), focusActor);
+		Camera::setFocusActorPositionDisplacement(Camera::getInstance(), screenDisplacement);
 
 		// Configure the camera trigger
 		this->cameraTrigger = 
-			Entity::spawnChildEntity
+			Actor::spawnChildActor
 			(
-				focusEntity, (EntitySpec*)&this->platformerCameraTriggerEntitySpec, 0, NULL, &boundingBoxDisplacement, NULL
+				focusActor, (ActorSpec*)&this->platformerCameraTriggerActorSpec, 0, NULL, &boundingBoxDisplacement, NULL
 			);
 
 		// make sure that focusing gets completed immediately
@@ -247,13 +247,13 @@ void PlatformerCameraMovementManager::destructor()
 
 Vector3D PlatformerCameraMovementManager::doFocusWithNoEasing(Camera camera, uint32 introFocusing __attribute__ ((unused)))
 {
-	NormalizedDirection normalizedDirection = Entity::getNormalizedDirection(Entity::safeCast(Camera::getFocusEntity(camera)));
+	NormalizedDirection normalizedDirection = Actor::getNormalizedDirection(Actor::safeCast(Camera::getFocusActor(camera)));
 
 	return cameraPosition =
 	{
-		this->focusEntityPosition->x + normalizedDirection.x * Camera::getFocusEntityPositionDisplacement(camera).x - 
+		this->focusActorPosition->x + normalizedDirection.x * Camera::getFocusActorPositionDisplacement(camera).x - 
 		__PIXELS_TO_METERS(__SCREEN_WIDTH / 2),
-		this->focusEntityPosition->y + Camera::getFocusEntityPositionDisplacement(camera).y - 
+		this->focusActorPosition->y + Camera::getFocusActorPositionDisplacement(camera).y - 
 		__PIXELS_TO_METERS(__SCREEN_HEIGHT / 2),
 		0
 	};
@@ -270,37 +270,37 @@ Vector3D PlatformerCameraMovementManager::dontFocus(Camera camera __attribute__ 
 
 Vector3D PlatformerCameraMovementManager::doFocus(Camera camera, uint32 introFocusing __attribute__ ((unused)))
 {
-	// if focusEntity is defined
-	if(!Camera::getFocusEntity(camera))
+	// if focusActor is defined
+	if(!Camera::getFocusActor(camera))
 	{
 		return Camera::getPosition(camera);
 	}
 
-	StatefulActor focusStatefulActor = StatefulActor::safeCast(Camera::getFocusEntity(camera));
+	StatefulActor focusStatefulActor = StatefulActor::safeCast(Camera::getFocusActor(camera));
 
-	NormalizedDirection normalizedDirection = Entity::getNormalizedDirection(focusStatefulActor);
+	NormalizedDirection normalizedDirection = Actor::getNormalizedDirection(focusStatefulActor);
 
 	Vector3D cameraNewPosition = Camera::getPosition(camera);
 
 	Vector3DFlag reachedTargetFlag = {true, true, true};
 
-	Vector3D position3D = Vector3D::getRelativeToCamera(*this->focusEntityPosition);
+	Vector3D position3D = Vector3D::getRelativeToCamera(*this->focusActorPosition);
 	PixelVector position2D = PixelVector::projectVector3D(position3D, 0);
 
 	Size stageSize = Camera::getStageSize(camera);
 
 	{
-		bool focusEntityOutOfBounds = 
+		bool focusActorOutOfBounds = 
 			(unsigned)(position2D.x - _cameraFrustum->x0 - SCREEN_WIDTH_REDUCTION) 
 			>
 			(unsigned)(_cameraFrustum->x1 - _cameraFrustum->x0 - SCREEN_WIDTH_REDUCTION);
 
-		if(this->positionFlag.x | focusEntityOutOfBounds)
+		if(this->positionFlag.x | focusActorOutOfBounds)
 		{
 			// calculate the target position
 			fixed_t horizontalPosition = cameraNewPosition.x;
 			fixed_t horizontalTarget = 
-				this->focusEntityPosition->x + normalizedDirection.x * this->focusEntityPositionDisplacement.x - 
+				this->focusActorPosition->x + normalizedDirection.x * this->focusActorPositionDisplacement.x - 
 				__PIXELS_TO_METERS(__SCREEN_WIDTH / 2);
 
 			fixed_t easingDisplacement = __PIXELS_TO_METERS(7);
@@ -338,17 +338,17 @@ Vector3D PlatformerCameraMovementManager::doFocus(Camera camera, uint32 introFoc
 	}
 
 	{
-		bool focusEntityOutOfBounds = 
+		bool focusActorOutOfBounds = 
 			position2D.y > _cameraFrustum->y1 - SCREEN_HEIGHT_REDUCTION 
 			||
 			position2D.y < _cameraFrustum->y0 + SCREEN_HEIGHT_REDUCTION / 4;
 
-		if(this->positionFlag.y | focusEntityOutOfBounds)
+		if(this->positionFlag.y | focusActorOutOfBounds)
 		{
 			// calculate the target position
 			fixed_t verticalPosition = cameraNewPosition.y;
 			fixed_t verticalTarget = 
-				this->focusEntityPosition->y + this->focusEntityPositionDisplacement.y - __PIXELS_TO_METERS(__SCREEN_HEIGHT / 2);
+				this->focusActorPosition->y + this->focusActorPositionDisplacement.y - __PIXELS_TO_METERS(__SCREEN_HEIGHT / 2);
 
 			fixed_t downEasingDisplacement = __PIXELS_TO_METERS(3);
 			fixed_t upEasingDisplacement = __PIXELS_TO_METERS(3);
@@ -370,7 +370,7 @@ Vector3D PlatformerCameraMovementManager::doFocus(Camera camera, uint32 introFoc
 
 			reachedTargetFlag.y = false;
 
-			if(focusEntityOutOfBounds)
+			if(focusActorOutOfBounds)
 			{
 				this->positionFlag.y = true;
 			}
@@ -419,7 +419,7 @@ Vector3D PlatformerCameraMovementManager::doFocusAndAlertWhenTargetReached(Camer
 		NM_ASSERT
 		(
 			!isDeleted(EventManager::getInstance()), 
-			"PlatformerCameraMovementManager::doFocusAndAlertWhenTargetReached: deleted entity manager during kEventScreenFocused"
+			"PlatformerCameraMovementManager::doFocusAndAlertWhenTargetReached: deleted actor manager during kEventScreenFocused"
 		);
 	}
 

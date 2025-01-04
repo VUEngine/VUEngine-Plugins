@@ -11,7 +11,7 @@
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#include <Entity.h>
+#include <Actor.h>
 #include <VIPManager.h>
 #include <BgmapSprite.h>
 
@@ -144,19 +144,19 @@ BgmapSpriteROMSpec const AdjustmentScreenIconRSpriteSpec =
 	__WORLD_RON,
 };
 
-ComponentSpec* const AdjustmentScreenIconLEntityComponentSpecs[] = 
+ComponentSpec* const AdjustmentScreenIconLActorComponentSpecs[] = 
 {
 	(ComponentSpec*)&AdjustmentScreenIconLSpriteSpec,
 	NULL
 };
 
-EntityROMSpec AdjustmentScreenIconLEntitySpec =
+ActorROMSpec AdjustmentScreenIconLActorSpec =
 {
 	// Class allocator
-	__TYPE(Entity),
+	__TYPE(Actor),
 
 	// Component specs
-	(ComponentSpec**)AdjustmentScreenIconLEntityComponentSpecs,
+	(ComponentSpec**)AdjustmentScreenIconLActorComponentSpecs,
 
 	// Children specs
 	NULL,
@@ -168,7 +168,7 @@ EntityROMSpec AdjustmentScreenIconLEntitySpec =
 	// If 0, it is computed from the visual components if any
 	{0, 0, 0},
 
-	// Entity's in-game type
+	// Actor's in-game type
 	kTypeNone,
 
 	// Pointer to animation functions array
@@ -179,19 +179,19 @@ EntityROMSpec AdjustmentScreenIconLEntitySpec =
 };
 
 
-ComponentSpec* const AdjustmentScreenIconREntityComponentSpecs[] = 
+ComponentSpec* const AdjustmentScreenIconRActorComponentSpecs[] = 
 {
 	(ComponentSpec*)&AdjustmentScreenIconRSpriteSpec,
 	NULL
 };
 
-EntityROMSpec AdjustmentScreenIconREntitySpec =
+ActorROMSpec AdjustmentScreenIconRActorSpec =
 {
 	// Class allocator
-	__TYPE(Entity),
+	__TYPE(Actor),
 
 	// Component specs
-	(ComponentSpec**)AdjustmentScreenIconREntityComponentSpecs,
+	(ComponentSpec**)AdjustmentScreenIconRActorComponentSpecs,
 
 	// Children specs
 	NULL,
@@ -203,7 +203,7 @@ EntityROMSpec AdjustmentScreenIconREntitySpec =
 	// If 0, it is computed from the visual components if any
 	{0, 0, 0},
 
-	// Entity's in-game type
+	// Actor's in-game type
 	kTypeNone,
 
 	// Pointer to animation functions array

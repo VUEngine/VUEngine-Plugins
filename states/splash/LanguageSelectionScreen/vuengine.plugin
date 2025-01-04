@@ -35,16 +35,16 @@
 		}
 	],
 	"dependencies": [
-		"vuengine//entities/LowPowerEntity",
+		"vuengine//entities/LowPowerActor",
 		"vuengine//other/I18n",
 		"vuengine//other/SaveDataManager",
 		"vuengine//states/splash/SplashScreen"
 	],
 	"configuration": [
 		{
-			"name": "useLowPowerEntity",
+			"name": "useLowPowerActor",
 			"label": {
-				"en": "Use Low Power Entity"
+				"en": "Use Low Power Actor"
 			},
 			"dataType": "boolean",
 			"default": false

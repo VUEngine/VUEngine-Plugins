@@ -11,10 +11,11 @@
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#include <Events.h>
-#include <KeypadManager.h>
+#include <I18n.h>
+#include <Utilities.h>
+#include <VUEngine.h>
 
-#include "LowPowerEntity.h"
+#include "LocalizedActor.h"
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' PUBLIC METHODS
@@ -22,32 +23,42 @@
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void LowPowerEntity::constructor(const LowPowerEntitySpec* lowPowerEntitySpec, int16 internalId, const char* const name)
+void LocalizedActor::constructor(const LocalizedActorSpec* localizedActorSpec, int16 internalId, const char* const name)
 {
 	// Always explicitly call the base's constructor 
-	Base::constructor((EntitySpec*)&lowPowerEntitySpec->entitySpec, internalId, name);
+	Base::constructor((ActorSpec*)&localizedActorSpec->actorSpec, internalId, name);
 
-	// Add event listeners
-	KeypadManager::addEventListener
+	// add event listeners
+	GameState::addEventListener
 	(
-		KeypadManager::getInstance(), ListenerObject::safeCast(this), 
-		(EventListener)LowPowerEntity::onKeypadManagerRaisedPowerFlag, kEventKeypadManagerRaisedPowerFlag
+		VUEngine::getCurrentState(VUEngine::getInstance()), ListenerObject::safeCast(this), 
+		(EventListener)LocalizedActor::onLanguageChanged, kEventLanguageChanged
 	);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void LowPowerEntity::destructor()
+void LocalizedActor::destructor()
 {
 	// remove event listeners
-	KeypadManager::removeEventListener
+	GameState::removeEventListener
 	(
-		KeypadManager::getInstance(), ListenerObject::safeCast(this), 
-		(EventListener)LowPowerEntity::onKeypadManagerRaisedPowerFlag, kEventKeypadManagerRaisedPowerFlag
+		VUEngine::getCurrentState(VUEngine::getInstance()), ListenerObject::safeCast(this), 
+		(EventListener)LocalizedActor::onLanguageChanged, kEventLanguageChanged
 	);
 
 	// Always explicitly call the base's destructor 
 	Base::destructor();
+}
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+void LocalizedActor::ready(bool recursive)
+{
+	Base::ready(this, recursive);
+
+	// translate actor
+	LocalizedActor::localize(this);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -58,11 +69,20 @@ void LowPowerEntity::destructor()
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-bool LowPowerEntity::onKeypadManagerRaisedPowerFlag(ListenerObject eventFirer __attribute__ ((unused)))
+void LocalizedActor::localize()
 {
-	Entity::playAnimation(Entity::safeCast(this), "Flash");
+	char* language = Utilities::itoa(I18n::getActiveLanguage(I18n::getInstance()), 10, 1);
+	LocalizedActor::playAnimation(Actor::safeCast(this), language);
+}
 
-	return false;
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+bool LocalizedActor::onLanguageChanged(ListenerObject eventFirer __attribute__ ((unused)))
+{
+	// translate actor
+	LocalizedActor::localize(this);
+
+	return true;
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

@@ -18,23 +18,23 @@
 // DECLARATIONS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-extern EntitySpec AlignmentCheckEntitySpec;
+extern ActorSpec AlignmentCheckActorSpec;
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // ENTITY LISTS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-PositionedEntityROMSpec AlignmentCheckScreenStageEntities[] =
+PositionedActorROMSpec AlignmentCheckScreenStageEntities[] =
 {
 	{NULL, {0, 0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 };
 
-PositionedEntityROMSpec AlignmentCheckScreenStageUiEntities[] =
+PositionedActorROMSpec AlignmentCheckScreenStageUiEntities[] =
 {
 #ifdef __LEGACY_COORDINATE_PROJECTION
-	{&AlignmentCheckEntitySpec, 	{ 192, 112, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&AlignmentCheckActorSpec, 	{ 192, 112, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 #else
-	{&AlignmentCheckEntitySpec, 	{   0,   0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&AlignmentCheckActorSpec, 	{   0,   0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 #endif
 
 	{NULL, {0, 0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
@@ -110,15 +110,15 @@ StageROMSpec AlignmentCheckScreenStage =
 
 	// Streaming
 	{
-		// Padding to be added to camera's frustum when checking if a entity spec
-		// describes an entity that is within the camera's range
+		// Padding to be added to camera's frustum when checking if a actor spec
+		// describes an actor that is within the camera's range
 		40,
-		// Padding to be added to camera's frustum when checking if a entity is
+		// Padding to be added to camera's frustum when checking if a actor is
 		// out of the camera's range
 		16,
-		// Amount of entity descriptions to check for streaming in entities
+		// Amount of actor descriptions to check for streaming in entities
 		24,
-		// If true, entity instantiation is done over time
+		// If true, actor instantiation is done over time
 		false,
 	},
 
@@ -255,12 +255,12 @@ StageROMSpec AlignmentCheckScreenStage =
 	{
 		// UI configuration
 		{
-			(PositionedEntity*)AlignmentCheckScreenStageUiEntities,
+			(PositionedActor*)AlignmentCheckScreenStageUiEntities,
 			__TYPE(UIContainer),
 		},
 
 		// Stage's children entities
-		(PositionedEntity*)AlignmentCheckScreenStageEntities,
+		(PositionedActor*)AlignmentCheckScreenStageEntities,
 	},
 
 	// Post processing effects

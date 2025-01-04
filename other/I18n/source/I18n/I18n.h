@@ -15,7 +15,7 @@
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 #include <ListenerObject.h>
-#include <Entity.h>
+#include <Actor.h>
 #include <Events.h>
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -44,8 +44,8 @@ typedef struct LangSpec
 	/// Language's name
 	char name[__MAX_LANGUAGE_NAME_LENGTH];
 
-	/// Pointer to a representative entity (i.e. flag)
-	EntitySpec* entitySpec;
+	/// Pointer to a representative actor (i.e. flag)
+	ActorSpec* actorSpec;
 
 	/// Language strings
 	const char** language;

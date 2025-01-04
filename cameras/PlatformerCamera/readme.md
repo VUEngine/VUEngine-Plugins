@@ -1,12 +1,12 @@
-Implements a common platformer camera that follows an entity.
+Implements a common platformer camera that follows an actor.
 
 ## Usage
 
 To setup to your needs, call:
 
 	PlatformerCameraMovementManager::configure(
-		uint32 focusEntityInGameType,
-		uint32 focusEntityLayer,
+		uint32 focusActorInGameType,
+		uint32 focusActorLayer,
 		uint32 cameraTriggerLayer,
 		PixelSize boundingBoxSize,
 		Vector3D boundingBoxDisplacement
