@@ -14,7 +14,7 @@
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#include <GameObject.h>
+#include <Entity.h>
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' DECLARATION
@@ -30,8 +30,8 @@ static class PostProcessingDwarfPlanet : ListenerObject
 {
 	/// Apply the post processing effect.
 	/// @param currentDrawingFrameBufferSet: The framebuffer set that's currently being accessed
-	/// @param gameObject: Post-processing effect function's scope
-	static void dwarfPlanet(uint32 currentDrawingFrameBufferSet, GameObject gameObject);
+	/// @param entity: Post-processing effect function's scope
+	static void dwarfPlanet(uint32 currentDrawingFrameBufferSet, Entity entity);
 }
 
 #endif

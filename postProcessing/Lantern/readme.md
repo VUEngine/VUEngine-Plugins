@@ -1,7 +1,7 @@
-Adds a lantern like effect to any GameObject, where everything outside of a certain radius around the GameObject is rendered black. 
+Adds a lantern like effect to any Entity, where everything outside of a certain radius around the Entity is rendered black. 
 
 ![Preview Image](preview.png)
 
 ## Usage
 
-Add to any GameObject using either `VUEngine::pushFrontPostProcessingEffect` or `VUEngine::pushBackPostProcessingEffect`. 
+Add to any Entity using either `VUEngine::pushFrontPostProcessingEffect` or `VUEngine::pushBackPostProcessingEffect`. 

@@ -20,7 +20,7 @@
 // FORWARD DECLARATIONS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-class GameObject;
+class Entity;
 class VirtualList;
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -64,9 +64,9 @@ class AvoidSteeringBehavior : SteeringBehavior
 	VirtualList obstacles;
 
 	/// Class' constructor
-	/// @param owner: GameObject to which the behavior attaches to
+	/// @param owner: Entity to which the behavior attaches to
 	/// @param seekSteeringBehaviorSpec: Specification that determines how to configure the behavior
-	void constructor(GameObject owner, const AvoidSteeringBehaviorSpec* seekSteeringBehaviorSpec);
+	void constructor(Entity owner, const AvoidSteeringBehaviorSpec* seekSteeringBehaviorSpec);
 
 	/// Calculate the force vector to apply.
 	/// @param owner: Vehicle that owns the steering behavior
@@ -74,8 +74,8 @@ class AvoidSteeringBehavior : SteeringBehavior
 	override Vector3D calculate(Vehicle owner);
 
 	/// Add an obstacle to avoid.
-	/// @param gameObject: Obstacle to avoid
-	void addObstacle(GameObject gameObject);
+	/// @param entity: Obstacle to avoid
+	void addObstacle(Entity entity);
 
 	/// Remove all registerd obstacles.
 	void removeAllObstacles();

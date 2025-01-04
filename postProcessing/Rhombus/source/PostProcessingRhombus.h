@@ -14,7 +14,7 @@
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#include <GameObject.h>
+#include <Entity.h>
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' DECLARATION
@@ -24,13 +24,13 @@
 ///
 /// Inherits from ListenerObject
 ///
-/// Implements the drawing of a growing rhombus emitted from any GameObject.
+/// Implements the drawing of a growing rhombus emitted from any Entity.
 static class PostProcessingRhombus : ListenerObject
 {
 	/// Apply the post processing effect.
 	/// @param currentDrawingFrameBufferSet: The framebuffer set that's currently being accessed
-	/// @param gameObject: Post-processing effect function's scope
-	static void rhombus(uint32 currentDrawingFrameBufferSet, GameObject gameObject);
+	/// @param entity: Post-processing effect function's scope
+	static void rhombus(uint32 currentDrawingFrameBufferSet, Entity entity);
 }
 
 #endif

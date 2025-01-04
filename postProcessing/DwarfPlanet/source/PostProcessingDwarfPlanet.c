@@ -28,7 +28,7 @@
  */
 static void PostProcessingDwarfPlanet::dwarfPlanet
 (
-	uint32 currentDrawingFrameBufferSet, GameObject gameObject __attribute__ ((unused))
+	uint32 currentDrawingFrameBufferSet, Entity entity __attribute__ ((unused))
 )
 {
 	// look up table of bitshifts performed on rows

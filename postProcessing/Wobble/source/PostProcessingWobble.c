@@ -35,7 +35,7 @@
  */
 static void PostProcessingWobble::wobble
 (
-	uint32 currentDrawingFrameBufferSet, GameObject gameObject __attribute__ ((unused))
+	uint32 currentDrawingFrameBufferSet, Entity entity __attribute__ ((unused))
 )
 {
 	uint16 x = 0, y = 0;

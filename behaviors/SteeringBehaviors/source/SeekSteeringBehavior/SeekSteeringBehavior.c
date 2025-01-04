@@ -72,7 +72,7 @@ static Vector3D SeekSteeringBehavior::toTarget
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void SeekSteeringBehavior::constructor(GameObject owner, const SeekSteeringBehaviorSpec* seekSteeringBehaviorSpec)
+void SeekSteeringBehavior::constructor(Entity owner, const SeekSteeringBehaviorSpec* seekSteeringBehaviorSpec)
 {
 	// Always explicitly call the base's constructor 
 	Base::constructor(owner, &seekSteeringBehaviorSpec->steeringBehaviorSpec);

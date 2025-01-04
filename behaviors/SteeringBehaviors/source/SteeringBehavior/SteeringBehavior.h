@@ -97,9 +97,9 @@ class SteeringBehavior : Behavior
 	static Vector3D calculateForce(Vehicle vehicle, uint16 summingMethod);
 
 	/// Class' constructor
-	/// @param owner: GameObject to which the behavior attaches to
+	/// @param owner: Entity to which the behavior attaches to
 	/// @param steeringBehaviorSpec: Specification that determines how to configure the behavior
-	void constructor(GameObject owner, const SteeringBehaviorSpec* steeringBehaviorSpec);
+	void constructor(Entity owner, const SteeringBehaviorSpec* steeringBehaviorSpec);
 
 	/// Retrieve the specification used to configure the steering behavior.
 	/// @return Specification used to configure the steering behavior

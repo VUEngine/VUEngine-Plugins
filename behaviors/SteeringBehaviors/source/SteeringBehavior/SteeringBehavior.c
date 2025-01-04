@@ -236,7 +236,7 @@ static Vector3D SteeringBehavior::clampForce(Vector3D force, fixed_t maximumForc
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void SteeringBehavior::constructor(GameObject owner, const SteeringBehaviorSpec* steeringBehaviorSpec)
+void SteeringBehavior::constructor(Entity owner, const SteeringBehaviorSpec* steeringBehaviorSpec)
 {
 	// Always explicitly call the base's constructor 
 	Base::constructor(owner, &steeringBehaviorSpec->behaviorSpec);

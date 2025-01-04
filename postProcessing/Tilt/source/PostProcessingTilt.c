@@ -33,7 +33,7 @@
  */
 static void PostProcessingTilt::tiltScreen
 (
-	uint32 currentDrawingFrameBufferSet, GameObject gameObject __attribute__ ((unused))
+	uint32 currentDrawingFrameBufferSet, Entity entity __attribute__ ((unused))
 )
 {
 	uint8 buffer = 0, currentShift = 0;

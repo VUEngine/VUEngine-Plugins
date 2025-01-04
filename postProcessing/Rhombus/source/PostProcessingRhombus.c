@@ -27,7 +27,7 @@
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 /*
- * Uses directdraw to draw a rhombus around the gameObject.
+ * Uses directdraw to draw a rhombus around the entity.
  * This effect only writes to the framebuffers, but does not read them. Since write access is much quicker
  * than reading, and since only a few pixels are affected, this effect runs well on hardware.
  *
@@ -35,19 +35,19 @@
  */
 static void PostProcessingRhombus::rhombus
 (
-	uint32 currentDrawingFrameBufferSet __attribute__ ((unused)), GameObject gameObject
+	uint32 currentDrawingFrameBufferSet __attribute__ ((unused)), Entity entity
 )
 {
 	// runtime working variable
 	static int32 radius = 4;
 
-	if(isDeleted(gameObject))
+	if(isDeleted(entity))
 	{
 		return;
 	}
 
 	PixelVector screenPixelPosition = 
-		PixelVector::projectVector3D(Vector3D::getRelativeToCamera(*GameObject::getPosition(gameObject)), 0);
+		PixelVector::projectVector3D(Vector3D::getRelativeToCamera(*Entity::getPosition(entity)), 0);
 
 	// increase radius by 1 in each cycle
 	radius++;

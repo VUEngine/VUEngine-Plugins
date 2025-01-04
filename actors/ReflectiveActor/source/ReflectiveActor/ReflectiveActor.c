@@ -55,16 +55,16 @@ static uint32 ReflectiveActor::randomSeed()
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-static void ReflectiveActor::reflect(uint32 currentDrawingFrameBufferSet, GameObject gameObject)
+static void ReflectiveActor::reflect(uint32 currentDrawingFrameBufferSet, Entity entity)
 {
-	ASSERT(gameObject, "ReflectiveActor::reflect: null this");
+	ASSERT(entity, "ReflectiveActor::reflect: null this");
 
-	if(isDeleted(gameObject))
+	if(isDeleted(entity))
 	{
 		return;
 	}
 
-	ReflectiveActor this = ReflectiveActor::safeCast(gameObject);
+	ReflectiveActor this = ReflectiveActor::safeCast(entity);
 
 	ReflectiveActor::applyReflection(this, currentDrawingFrameBufferSet);
 }
@@ -762,7 +762,7 @@ void ReflectiveActor::constructor(ReflectiveActorSpec* reflectiveActorSpec, int1
 void ReflectiveActor::destructor()
 {
 	// remove post processing effect
-	VUEngine::removePostProcessingEffect(VUEngine::getInstance(), ReflectiveActor::reflect, GameObject::safeCast(this));
+	VUEngine::removePostProcessingEffect(VUEngine::getInstance(), ReflectiveActor::reflect, Entity::safeCast(this));
 
 	// Always explicitly call the base's destructor 
 	Base::destructor();
@@ -775,7 +775,7 @@ void ReflectiveActor::ready(bool recursive)
 	Base::ready(this, recursive);
 
 	// add post processing effect
-	VUEngine::pushFrontPostProcessingEffect(VUEngine::getInstance(), ReflectiveActor::reflect, GameObject::safeCast(this));
+	VUEngine::pushFrontPostProcessingEffect(VUEngine::getInstance(), ReflectiveActor::reflect, Entity::safeCast(this));
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -785,7 +785,7 @@ void ReflectiveActor::suspend()
 	Base::suspend(this);
 
 	// remove post processing effect
-	VUEngine::removePostProcessingEffect(VUEngine::getInstance(), ReflectiveActor::reflect, GameObject::safeCast(this));
+	VUEngine::removePostProcessingEffect(VUEngine::getInstance(), ReflectiveActor::reflect, Entity::safeCast(this));
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -795,7 +795,7 @@ void ReflectiveActor::resume()
 	Base::resume(this);
 
 	// add post processing effect
-	VUEngine::pushFrontPostProcessingEffect(VUEngine::getInstance(), ReflectiveActor::reflect, GameObject::safeCast(this));
+	VUEngine::pushFrontPostProcessingEffect(VUEngine::getInstance(), ReflectiveActor::reflect, Entity::safeCast(this));
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

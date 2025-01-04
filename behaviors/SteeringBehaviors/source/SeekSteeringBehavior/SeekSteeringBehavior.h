@@ -69,9 +69,9 @@ class SeekSteeringBehavior : SteeringBehavior
 	bool allowEasing;
 
 	/// Class' constructor
-	/// @param owner: GameObject to which the behavior attaches to
+	/// @param owner: Entity to which the behavior attaches to
 	/// @param seekSteeringBehaviorSpec: Specification that determines how to configure the behavior
-	void constructor(GameObject owner, const SeekSteeringBehaviorSpec* seekSteeringBehaviorSpec);
+	void constructor(Entity owner, const SeekSteeringBehaviorSpec* seekSteeringBehaviorSpec);
 
 	/// Calculate the force vector to apply.
 	/// @param owner: Vehicle that owns the steering behavior

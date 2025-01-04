@@ -14,7 +14,7 @@
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#include <GameObject.h>
+#include <Entity.h>
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' DECLARATION
@@ -24,14 +24,14 @@
 ///
 /// Inherits from ListenerObject
 ///
-/// Adds a lantern like effect to any GameObject, where everything outside of a 
-/// certain radius around the GameObject is rendered black.
+/// Adds a lantern like effect to any Entity, where everything outside of a 
+/// certain radius around the Entity is rendered black.
 static class PostProcessingLantern : ListenerObject
 {
 	/// Apply the post processing effect.
 	/// @param currentDrawingFrameBufferSet: The framebuffer set that's currently being accessed
-	/// @param gameObject: Post-processing effect function's scope
-	static void lantern(uint32 currentDrawingFrameBufferSet, GameObject gameObject);
+	/// @param entity: Post-processing effect function's scope
+	static void lantern(uint32 currentDrawingFrameBufferSet, Entity entity);
 }
 
 #endif

@@ -39,7 +39,7 @@
 
 static void PostProcessingRain::rain
 (
-	uint32 currentDrawingFrameBufferSet __attribute__ ((unused)), GameObject gameObject __attribute__ ((unused))
+	uint32 currentDrawingFrameBufferSet __attribute__ ((unused)), Entity entity __attribute__ ((unused))
 )
 {
  	#define POST_PROCESSING_RAIN_X_RANGE_1					383
@@ -138,7 +138,7 @@ static void PostProcessingRain::rain
 
 static void PostProcessingRain::thinRain
 (
-	uint32 currentDrawingFrameBufferSet __attribute__ ((unused)), GameObject gameObject __attribute__ ((unused))
+	uint32 currentDrawingFrameBufferSet __attribute__ ((unused)), Entity entity __attribute__ ((unused))
 )
 {
 	int32 width = __PLUGIN_RAIN_WIDTH;
@@ -147,9 +147,9 @@ static void PostProcessingRain::thinRain
 
 	Vector3D position = {__PLUGIN_RAIN_X_POSITION, __PLUGIN_RAIN_Y_POSITION, 0};
 
-	if(!isDeleted(gameObject))
+	if(!isDeleted(entity))
 	{
-		position = Vector3D::getRelativeToCamera(*GameObject::getPosition(gameObject));
+		position = Vector3D::getRelativeToCamera(*Entity::getPosition(entity));
 	}
 
 	static uint16 yStepIndex = 0;

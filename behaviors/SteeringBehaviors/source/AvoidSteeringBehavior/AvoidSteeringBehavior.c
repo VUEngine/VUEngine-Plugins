@@ -31,7 +31,7 @@ friend class VirtualNode;
 
 typedef struct Obstacle
 {
-	GameObject gameObject;
+	Entity entity;
 	const Vector3D* position;
 	fixed_t radius;
 
@@ -43,7 +43,7 @@ typedef struct Obstacle
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void AvoidSteeringBehavior::constructor(GameObject owner, const AvoidSteeringBehaviorSpec* avoidSteeringBehaviorSpec)
+void AvoidSteeringBehavior::constructor(Entity owner, const AvoidSteeringBehaviorSpec* avoidSteeringBehaviorSpec)
 {
 	// Always explicitly call the base's constructor 
 	Base::constructor(owner, &avoidSteeringBehaviorSpec->steeringBehaviorSpec);
@@ -81,18 +81,18 @@ Vector3D AvoidSteeringBehavior::calculate(Vehicle owner)
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void AvoidSteeringBehavior::addObstacle(GameObject gameObject)
+void AvoidSteeringBehavior::addObstacle(Entity entity)
 {
-	if(isDeleted(gameObject))
+	if(isDeleted(entity))
 	{
 		return;
 	}
 
 	Obstacle* obstacle = new Obstacle;
 
-	obstacle->gameObject = gameObject;
-	obstacle->position = GameObject::getPosition(gameObject);
-	obstacle->radius = GameObject::getRadius(gameObject);
+	obstacle->entity = entity;
+	obstacle->position = Entity::getPosition(entity);
+	obstacle->radius = Entity::getRadius(entity);
 
 	VirtualList::pushBack(this->obstacles, obstacle);
 }
@@ -182,7 +182,7 @@ Vector3D AvoidSteeringBehavior::awayFromObstacles(Vehicle vehicle)
 
 			desiredVelocity = 
 				Vector3D::sum(desiredVelocity, Vector3D::scalarProduct(desiredDirection, __FIXED_EXT_MULT(dotProduct, factor)));
-			fixed_t obstacleSpeed = GameObject::getSpeed(obstacle->gameObject);
+			fixed_t obstacleSpeed = Entity::getSpeed(obstacle->entity);
 
 			if(obstacleSpeed)
 			{

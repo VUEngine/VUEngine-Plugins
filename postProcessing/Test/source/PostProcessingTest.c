@@ -20,24 +20,24 @@
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 /*
- * Increases the palette index within a rectangular area around the gameObject, effectively
+ * Increases the palette index within a rectangular area around the entity, effectively
  * "lightening" it up. This effect reads and write only a small portion of the screen and is therefore
  * semi-feasible on hardware.
  *
  * @param currentDrawingFrameBufferSet	The framebuffer set that's currently being accessed
  */
-static void PostProcessingTest::lighting(uint32 currentDrawingFrameBufferSet, GameObject gameObject)
+static void PostProcessingTest::lighting(uint32 currentDrawingFrameBufferSet, Entity entity)
 {
 	// the currentDrawingFrameBufferSet dictates which frame buffer set (remember that there are 4 frame
 	// buffers, 2 per eye) has been written by the VPU and you can work on.
 
-	if(isDeleted(gameObject))
+	if(isDeleted(entity))
 	{
 		return;
 	}
 
 	PixelVector screenPixelPosition = 
-		PixelVector::projectVector3D(Vector3D::getRelativeToCamera(*GameObject::getPosition(gameObject)), 0);
+		PixelVector::projectVector3D(Vector3D::getRelativeToCamera(*Entity::getPosition(entity)), 0);
 
 	// the pixel in screen coordinates (x: 0 - 383, y: 0 - 223)
 	int32 x = 0;
@@ -106,7 +106,7 @@ static void PostProcessingTest::lighting(uint32 currentDrawingFrameBufferSet, Ga
 
 static void PostProcessingTest::dummy
 (
-	uint32 currentDrawingFrameBufferSet, GameObject gameObject __attribute__ ((unused))
+	uint32 currentDrawingFrameBufferSet, Entity entity __attribute__ ((unused))
 )
 {
 	uint16 x = 0, y = 0;

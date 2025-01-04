@@ -6,9 +6,9 @@
 	},
 	"author": "Team VUEngine",
 	"description": {
-		"en": "Simple test effect that lights up a rectangular area around any GameObject.",
-		"de": "Einfacher Testeffekt, der einen rechteckigen Bereich um ein beliebiges GameObject beleuchtet.",
-		"es": "Simple efecto de prueba que ilumina un área rectangular alrededor de cualquier GameObject."
+		"en": "Simple test effect that lights up a rectangular area around any Entity.",
+		"de": "Einfacher Testeffekt, der einen rechteckigen Bereich um ein beliebiges Entity beleuchtet.",
+		"es": "Simple efecto de prueba que ilumina un área rectangular alrededor de cualquier Entity."
 	},
 	"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/postProcessing/Test",
 	"license": "MIT",

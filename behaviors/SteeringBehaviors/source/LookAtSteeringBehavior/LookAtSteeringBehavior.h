@@ -69,9 +69,9 @@ class LookAtSteeringBehavior : SteeringBehavior
 	bool allowEasing;
 
 	/// Class' constructor
-	/// @param owner: GameObject to which the behavior attaches to
+	/// @param owner: Entity to which the behavior attaches to
 	/// @param lookAtSteeringBehaviorSpec: Specification that determines how to configure the behavior
-	void constructor(GameObject owner, const LookAtSteeringBehaviorSpec* lookAtSteeringBehaviorSpec);
+	void constructor(Entity owner, const LookAtSteeringBehaviorSpec* lookAtSteeringBehaviorSpec);
 
 	/// Calculate the force vector to apply.
 	/// @param owner: Vehicle that owns the steering behavior
