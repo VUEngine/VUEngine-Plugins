@@ -205,7 +205,8 @@ bool Vehicle::updateForce()
 
 	if(computeForce && NULL != this->steeringBehaviors)
 	{
-		totalForce = Vector3D::sum(totalForce, SteeringBehavior::calculateForce(this, ((VehicleSpec*)this->entitySpec)->summingMethod));
+		totalForce = 
+			Vector3D::sum(totalForce, SteeringBehavior::calculateForce(this, ((VehicleSpec*)this->entitySpec)->summingMethod));
 	}
 
 	Base::applyForce(this, &totalForce, this->checkIfCanMove);
