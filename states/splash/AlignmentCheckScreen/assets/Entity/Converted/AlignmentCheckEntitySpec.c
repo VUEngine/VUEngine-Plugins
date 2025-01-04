@@ -13,7 +13,6 @@
 #include <Texture.h>
 
 
-
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // DECLARATIONS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -25,11 +24,9 @@ extern uint32 AlignmentCheckEntityAlignmentCheckRightTiles[];
 extern uint16 AlignmentCheckEntityAlignmentCheckRightMap[];
 
 
-
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // SPRITES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-
 
 
 CharSetROMSpec AlignmentCheckSprite1CharsetSpec =
@@ -200,7 +197,6 @@ BgmapSpriteROMSpec AlignmentCheckSprite2SpriteSpec =
 	// Flag to indicate in which display to show the texture (__WORLD_ON, __WORLD_LON or __WORLD_RON)
 	__WORLD_RON,
 };
-
 
 
 
