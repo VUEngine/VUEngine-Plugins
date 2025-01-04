@@ -38,7 +38,6 @@ extern StageROMSpec AutomaticPauseScreenStage;
 
 void AutomaticPauseScreenState::enter(void* owner __attribute__ ((unused)))
 {
-	// call base
 	Base::enter(this, owner);
 
 	// load stage
@@ -99,7 +98,6 @@ void AutomaticPauseScreenState::enter(void* owner __attribute__ ((unused)))
 
 void AutomaticPauseScreenState::exit(void* owner __attribute__ ((unused)))
 {
-	// call base
 	Base::exit(this, owner);
 }
 

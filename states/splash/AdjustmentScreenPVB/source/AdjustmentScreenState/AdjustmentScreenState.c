@@ -26,7 +26,6 @@
 
 void AdjustmentScreenState::enter(void* owner)
 {
-	// call base
 	Base::enter(this, owner);
 
 	this->stream = false;
@@ -44,7 +43,6 @@ void AdjustmentScreenState::exit(void* owner)
 	// reset low power indicator position
 	AdjustmentScreenState::resetLowPowerIndicatorPosition(this);
 
-	// call base
 	Base::exit(this, owner);
 }
 
@@ -52,7 +50,6 @@ void AdjustmentScreenState::exit(void* owner)
 
 void AdjustmentScreenState::suspend(void* owner)
 {
-	// call base
 	Base::suspend(this, owner);
 
 	// set low power indicator position
@@ -63,7 +60,6 @@ void AdjustmentScreenState::suspend(void* owner)
 
 void AdjustmentScreenState::resume(void* owner)
 {
-	// call base
 	Base::resume(this, owner);
 
 	AdjustmentScreenState::init(this);

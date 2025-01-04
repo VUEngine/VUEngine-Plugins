@@ -55,7 +55,6 @@ void LocalizedEntity::destructor()
 
 void LocalizedEntity::ready(bool recursive)
 {
-	// call base
 	Base::ready(this, recursive);
 
 	// translate entity

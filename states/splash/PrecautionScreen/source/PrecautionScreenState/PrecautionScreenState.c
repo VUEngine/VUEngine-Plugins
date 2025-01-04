@@ -43,7 +43,6 @@ enum SplashScreenMessageTypes
 
 void PrecautionScreenState::enter(void* owner)
 {
-	// call base
 	Base::enter(this, owner);
 
 	// play start-up sound

@@ -45,7 +45,6 @@ void SplashScreenState::destructor()
 
 void SplashScreenState::enter(void* owner)
 {
-	// call base
 	Base::enter(this, owner);
 
 	if(NULL != this->stageSpec)
@@ -76,7 +75,6 @@ void SplashScreenState::enter(void* owner)
 
 void SplashScreenState::exit(void* owner)
 {
-	// call base
 	Base::exit(this, owner);
 
 	// destroy the state
@@ -90,7 +88,6 @@ void SplashScreenState::suspend(void* owner)
 	// do a fade out effect
 	Camera::startEffect(Camera::getInstance(), kFadeOut, __FADE_DELAY);
 
-	// call base
 	Base::suspend(this, owner);
 }
 

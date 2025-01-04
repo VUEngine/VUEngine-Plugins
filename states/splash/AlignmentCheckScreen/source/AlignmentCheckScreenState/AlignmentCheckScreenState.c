@@ -40,7 +40,6 @@ const uint32 AlignmentCheckButtonSequence[__PLUGIN_ALIGNMENT_CHECK_BUTTON_SEQUEN
 
 void AlignmentCheckScreenState::enter(void* owner)
 {
-	// call base
 	Base::enter(this, owner);
 
 	this->stream = false;

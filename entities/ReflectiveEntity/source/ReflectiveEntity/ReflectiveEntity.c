@@ -772,7 +772,6 @@ void ReflectiveEntity::destructor()
 
 void ReflectiveEntity::ready(bool recursive)
 {
-	// call base
 	Base::ready(this, recursive);
 
 	// add post processing effect
