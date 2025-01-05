@@ -27,7 +27,7 @@ singleton class LowPowerManager : ListenerObject
 {
 	/// @protectedsection
 
-	// low power indicator active flag
+	// Low power indicator active flag
 	bool isActive;
 	// low power indicator showing flag
 	bool isShowingIndicator;

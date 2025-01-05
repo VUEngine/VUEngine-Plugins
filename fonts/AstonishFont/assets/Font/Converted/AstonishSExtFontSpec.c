@@ -288,7 +288,7 @@ CharSetROMSpec AstonishSExtFontCharSet =
 	// Whether the tiles are optimized or not
 	false,
 
-	// char data
+	// Char data
 	(uint32*)AstonishSExtFontTiles,
 
 	// Frame offsets array

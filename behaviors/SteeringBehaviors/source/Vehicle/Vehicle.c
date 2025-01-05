@@ -34,11 +34,11 @@ friend class VirtualList;
 
 void Vehicle::constructor(VehicleSpec* vehicleSpec, int16 internalId, const char* const name)
 {
-	// construct base
+	// Construct base
 	// Always explicitly call the base's constructor 
 	Base::constructor((StatefulActorSpec*)&vehicleSpec->statefulActorSpec, internalId, name);
 
-	// save vehicle spec
+	// Save vehicle spec
 	this->steeringBehaviors = NULL;
 	this->evenCycle = vehicleSpec->runSteeringBehaviorsAtHalfSpeed ? 0 : -1;
 	this->accumulatedForce = Vector3D::zero();
@@ -94,7 +94,7 @@ void Vehicle::ready(bool recursive)
 		this->steeringBehaviors = new VirtualList();
 	}
 
-	// get steering behaviors to sort them based on their priority
+	// Get steering behaviors to sort them based on their priority
 	Vehicle::getComponentsOfClass(this, typeofclass(SteeringBehavior), this->steeringBehaviors, kBehaviorComponent);
 
 	if(NULL == this->steeringBehaviors->head)
@@ -114,7 +114,7 @@ void Vehicle::ready(bool recursive)
 	{
 		VirtualNode node = this->steeringBehaviors->head;
 
-		// just an easy bubble sort
+		// Just an easy bubble sort
 		for(; NULL != node; node = node->next)
 		{
 			SteeringBehavior steeringBehavior = SteeringBehavior::safeCast(node->data);
@@ -125,7 +125,7 @@ void Vehicle::ready(bool recursive)
 			{
 				SteeringBehavior auxSteeringBehavior = SteeringBehavior::safeCast(auxNode->data);
 
-				// check the priority and swap them to make the higher priority to come first in the array
+				// Check the priority and swap them to make the higher priority to come first in the array
 				if(SteeringBehavior::getPriority(steeringBehavior) < SteeringBehavior::getPriority(auxSteeringBehavior))
 				{
 					VirtualNode::swapData(node, auxNode);

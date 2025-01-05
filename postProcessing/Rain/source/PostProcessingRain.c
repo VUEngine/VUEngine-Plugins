@@ -105,7 +105,7 @@ static void PostProcessingRain::rain
 		*/
 	};
 
-	// must account for the camera displacement
+	// Must account for the camera displacement
 	yStepThrottle -= yScreenDisplacement;
 
 	PostProcessingRain::waterStream(
@@ -279,7 +279,7 @@ static void PostProcessingRain::waterStream(
 		x = x % xEnd;
 	}
 
-	// write to framebuffers for both screens
+	// Write to framebuffers for both screens
 	int32 counter = 1;
 
 	for(; counter <= xEnd; counter += xStep)
@@ -314,7 +314,7 @@ static void PostProcessingRain::waterStream(
 			continue;
 		}
 
-		// get pointer to currently manipulated 32 bits of framebuffer
+		// Get pointer to currently manipulated 32 bits of framebuffer
 		uint32* columnSourcePointerLeft = (uint32*) (currentDrawingFrameBufferSet) + (leftColumn << 4);
 		uint32* columnSourcePointerRight = (uint32*) (currentDrawingFrameBufferSet | 0x00010000) + (rightColumn << 4);
 
@@ -323,8 +323,8 @@ static void PostProcessingRain::waterStream(
 			continue;
 		}
 
-		// loop current column in steps of 16 pixels (32 bits)
-		// ignore the bottom 16 pixels of the screen (gui)
+		// Loop current column in steps of 16 pixels (32 bits)
+		// Ignore the bottom 16 pixels of the screen (gui)
 		uint32 yStep = (y[yIndex] + yStart) >> POST_PROCESSING_RAIN_Y_STEP_SIZE_2_EXP;
 		uint32 subY = __MODULO((y[yIndex] + yStart), POST_PROCESSING_RAIN_Y_STEP_SIZE);
 		uint32 dropletMask = 0xFFFFFFFF << (subY << 1);
@@ -450,7 +450,7 @@ static void PostProcessingRain::calculateRainPrecipitation
 		}
 	}
 
-	// multiply by the game cycle per second
+	// Multiply by the game cycle per second
 	int32 rainPeriod =  __I_TO_FIX19_13(((int32)timePeriod[timePeriodIndex] + previousTime % timePeriod[timePeriodIndex]) * 50);
 
 	*yStepThrottle += 

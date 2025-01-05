@@ -45,12 +45,12 @@ void PrecautionScreenState::enter(void* owner)
 {
 	Base::enter(this, owner);
 
-	// play start-up sound
+	// Play start-up sound
 	extern SoundSpec PrecautionScreenIntroSoundSpec;
 	SoundManager::playSound(SoundManager::getInstance(), &PrecautionScreenIntroSoundSpec, NULL, kSoundPlaybackNormal, NULL, NULL);
 
-	// show this screen for at least 2 seconds
-	// as defined by Nintendo in the official development manual (Appendix 1)
+	// Show this screen for at least 2 seconds
+	// As defined by Nintendo in the official development manual (Appendix 1)
 	VUEngine::disableKeypad(VUEngine::getInstance());
 	MessageDispatcher::dispatchMessage
 	(

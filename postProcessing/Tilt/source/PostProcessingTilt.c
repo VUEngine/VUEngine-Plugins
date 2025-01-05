@@ -40,23 +40,23 @@ static void PostProcessingTilt::tiltScreen
 	uint16 x = 0, y = 0;
 	uint32 previousSourcePointerValue = 0;
 
-	// write to framebuffers for both screens
+	// Write to framebuffers for both screens
 	for(; buffer < 2; buffer++)
 	{
-		// loop columns that shall be shifted
+		// Loop columns that shall be shifted
 		for(x = 0; x < 360; x++)
 		{
-			// get pointer to currently manipulated 32 bits of framebuffer
+			// Get pointer to currently manipulated 32 bits of framebuffer
 			uint32* columnSourcePointer = (uint32*) (currentDrawingFrameBufferSet | (buffer ? 0x00010000 : 0)) + (x << 4);
 
-			// the shifted out pixels on top should be black
+			// The shifted out pixels on top should be black
 			previousSourcePointerValue = 0;
 
-			// get shift for current column
+			// Get shift for current column
 			currentShift = 30 - ((x / 24) << 1);
 
-			// loop current column in steps of 16 pixels (32 bits)
-			// ignore the bottom 16 pixels of the screen (gui)
+			// Loop current column in steps of 16 pixels (32 bits)
+			// Ignore the bottom 16 pixels of the screen (gui)
 			for
 			(
 				y = ((__PLUGIN_TILT_STARTING_ROW * 2) / 8) / sizeof(uint32); 
@@ -93,26 +93,26 @@ static uint32 PostProcessingTilt::writeToFrameBuffer
 	uint16 y, uint16 shift, uint32* columnSourcePointer, uint32 previousSourcePointerValue
 )
 {
-	// pointer to currently manipulated 32 bits of framebuffer
+	// Pointer to currently manipulated 32 bits of framebuffer
 	uint32* sourcePointer = columnSourcePointer + y;
 
-	// save current pointer value to temp var and shift highest x bits of it, according to lut,
-	// to the lowest bits, since we want to insert these
+	// Save current pointer value to temp var and shift highest x bits of it, according to lut,
+	// To the lowest bits, since we want to insert these
 	uint32 sourcePointerCurrentValue = *sourcePointer;
 	uint32 previousSourcePointerLeftValueTemp = sourcePointerCurrentValue >> (32 - shift);
 
-	// manipulate current 32 bits in frame buffer
+	// Manipulate current 32 bits in frame buffer
 	*sourcePointer =
-		// shift bits according to wave lut
-		// it's two bits per pixel, so 2 bits shifted left = 1 pixel shifted down on screen
+		// Shift bits according to wave lut
+		// It's two bits per pixel, so 2 bits shifted left = 1 pixel shifted down on screen
 		(sourcePointerCurrentValue << shift)
 
-		// since the above shifting creates black pixels, we need to carry over these pixels
-		// from the previous loop
+		// Since the above shifting creates black pixels, we need to carry over these pixels
+		// From the previous loop
 		| previousSourcePointerValue;
 
-	// we need the current source pointer value from _before_ we modified it, therefore we save it
-	// it to a temp variable while modifying
+	// We need the current source pointer value from _before_ we modified it, therefore we save it
+	// It to a temp variable while modifying
 	return previousSourcePointerLeftValueTemp;
 }
 

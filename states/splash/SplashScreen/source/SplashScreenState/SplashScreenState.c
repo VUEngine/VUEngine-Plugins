@@ -28,7 +28,7 @@ void SplashScreenState::constructor()
 	// Always explicitly call the base's constructor 
 	Base::constructor();
 
-	// init class members
+	// Init class members
 	this->stageSpec = NULL;
 	this->nextState = NULL;
 }
@@ -54,12 +54,12 @@ void SplashScreenState::enter(void* owner)
 
 	SplashScreenState::print(this);
 
-	// start clocks to start animations
+	// Start clocks to start animations
 	SplashScreenState::startClocks(this);
 
 	VUEngine::disableKeypad(VUEngine::getInstance());
 
-	// start fade in effect
+	// Start fade in effect
 	Camera::startEffect(Camera::getInstance(), kHide);
 	Camera::startEffect(Camera::getInstance(),
 		kFadeTo, // effect type
@@ -77,7 +77,7 @@ void SplashScreenState::exit(void* owner)
 {
 	Base::exit(this, owner);
 
-	// destroy the state
+	// Destroy the state
 	delete this;
 }
 
@@ -85,7 +85,7 @@ void SplashScreenState::exit(void* owner)
 
 void SplashScreenState::suspend(void* owner)
 {
-	// do a fade out effect
+	// Do a fade out effect
 	Camera::startEffect(Camera::getInstance(), kFadeOut, __FADE_DELAY);
 
 	Base::suspend(this, owner);
@@ -101,7 +101,7 @@ void SplashScreenState::resume(void* owner)
 
 	VUEngine::disableKeypad(VUEngine::getInstance());
 
-	// start fade in effect
+	// Start fade in effect
 	Camera::startEffect(Camera::getInstance(), kHide);
 	Camera::startEffect(Camera::getInstance(),
 		kFadeTo, // effect type
@@ -141,10 +141,10 @@ void SplashScreenState::setNextState(GameState nextState)
 
 void SplashScreenState::loadNextState()
 {
-	// disable user input
+	// Disable user input
 	VUEngine::disableKeypad(VUEngine::getInstance());
 
-	// start fade out effect
+	// Start fade out effect
 	Brightness brightness = (Brightness){0, 0, 0};
 	Camera::startEffect(Camera::getInstance(),
 		kFadeTo, // effect type
@@ -171,7 +171,7 @@ void SplashScreenState::print()
 
 bool SplashScreenState::onFadeInComplete(ListenerObject eventFirer __attribute__ ((unused)))
 {
-	// enable user input
+	// Enable user input
 	VUEngine::enableKeypad(VUEngine::getInstance());
 
 	return false;
@@ -181,7 +181,7 @@ bool SplashScreenState::onFadeInComplete(ListenerObject eventFirer __attribute__
 
 bool SplashScreenState::onFadeOutComplete(ListenerObject eventFirer __attribute__ ((unused)))
 {
-	// switch to next stage
+	// Switch to next stage
 	VUEngine::changeState(VUEngine::getInstance(), this->nextState);
 
 	return false;

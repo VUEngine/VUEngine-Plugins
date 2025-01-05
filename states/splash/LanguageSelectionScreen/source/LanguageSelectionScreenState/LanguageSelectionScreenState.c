@@ -46,7 +46,7 @@ void LanguageSelectionScreenState::enter(void* owner)
 
 	ListenerObject saveDataManager = VUEngine::getSaveDataManager(VUEngine::getInstance());
 
-	// get active language from sram
+	// Get active language from sram
 	uint8 activeLanguage = I18n::getActiveLanguage(I18n::getInstance());
 	if(saveDataManager)
 	{
@@ -57,7 +57,7 @@ void LanguageSelectionScreenState::enter(void* owner)
 
 	#if(__PLUGIN_LANGUAGE_SELECTION_SCREEN_VARIANT == 0)
 
-		// create options selector and populate with language names
+		// Create options selector and populate with language names
 		this->languageSelector = new OptionsSelector(1, 8, __PLUGIN_LANGUAGE_SELECTION_SCREEN_LANGUAGE_NAME_FONT, NULL, NULL);
 		VirtualList languageNames = new VirtualList();
 		uint8 optionsWidth = 0;
@@ -76,7 +76,7 @@ void LanguageSelectionScreenState::enter(void* owner)
 		OptionsSelector::setOptions(this->languageSelector, languageNames);
 		delete languageNames;
 
-		// print options
+		// Print options
 		OptionsSelector::print(this->languageSelector, (__HALF_SCREEN_WIDTH_IN_CHARS) - (optionsWidth >> 1), 10, kOptionsAlignLeft, 0);
 		OptionsSelector::setSelectedOption(this->languageSelector, activeLanguage);
 
@@ -85,13 +85,13 @@ void LanguageSelectionScreenState::enter(void* owner)
 	#endif
 	#if(__PLUGIN_LANGUAGE_SELECTION_SCREEN_VARIANT == 1)
 
-		// add flags to stage
+		// Add flags to stage
 		this->flagsTotalHalfWidth = ((LanguageSelectionScreenState::getNumLangs(this) - 1) * (__PLUGIN_LANGUAGE_SELECTION_SCREEN_IMAGE_WIDTH)) >> 1;
 		uint8 i = 0;
 		this->flagCursorActor = LanguageSelectionScreenState::addFlagToStage(this, &FlagCursorActorSpec, 0);
 		for(i = 0; _languages[i]; i++)
 		{
-			// add flag
+			// Add flag
 			ActorSpec* actorSpec = (_languages[i]->actorSpec != NULL)
 				? _languages[i]->actorSpec
 				: &FlagUnknownActorSpec;
@@ -130,7 +130,7 @@ void LanguageSelectionScreenState::print()
 	const char* strTitle = I18n::getText(I18n::getInstance(), kStringLanguageSelectTitle);
 	#if(__PLUGIN_LANGUAGE_SELECTION_SCREEN_VARIANT == 0)
 
-		// print header
+		// Print header
 		FontSize strHeaderSize = Printing::getTextSize(Printing::getInstance(), strTitle, __PLUGIN_LANGUAGE_SELECTION_SCREEN_TITLE_TEXT_FONT);
 		uint8 strHeaderXPos = (__HALF_SCREEN_WIDTH_IN_CHARS) - (strHeaderSize.x >> 1);
 		uint8 strHeaderYPos = 9 - strHeaderSize.y;
@@ -140,14 +140,14 @@ void LanguageSelectionScreenState::print()
 	#endif
 	#if(__PLUGIN_LANGUAGE_SELECTION_SCREEN_VARIANT == 1)
 
-		// print header
+		// Print header
 		FontSize strHeaderSize = Printing::getTextSize(Printing::getInstance(), strTitle, __PLUGIN_LANGUAGE_SELECTION_SCREEN_TITLE_TEXT_FONT);
 		uint8 strHeaderXPos = (__HALF_SCREEN_WIDTH_IN_CHARS) - (strHeaderSize.x >> 1);
 		uint8 strHeaderYPos = 11 - strHeaderSize.y;
 		Printing::text(Printing::getInstance(), "                                                ", 0, strHeaderYPos, __PLUGIN_LANGUAGE_SELECTION_SCREEN_TITLE_TEXT_FONT);
 		Printing::text(Printing::getInstance(), strTitle, strHeaderXPos, strHeaderYPos, __PLUGIN_LANGUAGE_SELECTION_SCREEN_TITLE_TEXT_FONT);
 
-		// print language
+		// Print language
 		char* strLanguageName = I18n::getActiveLanguageName(I18n::getInstance());
 		FontSize strLanguageNameSize = Printing::getTextSize(Printing::getInstance(), strLanguageName, __PLUGIN_LANGUAGE_SELECTION_SCREEN_LANGUAGE_NAME_FONT);
 		int32 strLanguageNameXPos = (__HALF_SCREEN_WIDTH_IN_CHARS) - (strLanguageNameSize.x >> 1);
@@ -171,7 +171,7 @@ void LanguageSelectionScreenState::constructor()
 	// Always explicitly call the base's constructor 
 	Base::constructor();
 
-	// init members
+	// Init members
 	this->stageSpec = (StageSpec*)&LanguageSelectionScreenStage;
 	this->flagCursorActor = NULL;
 	this->languageSelector = NULL;
@@ -200,7 +200,7 @@ void LanguageSelectionScreenState::printSelection()
 
 	#if(__PLUGIN_LANGUAGE_SELECTION_SCREEN_VARIANT == 1)
 
-		// set cursor position
+		// Set cursor position
 		Vector3D position =
 		{
 		#ifdef __LEGACY_COORDINATE_PROJECTION

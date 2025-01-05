@@ -27,13 +27,13 @@
 // The save data default values 
 const SaveData SaveDataDefaults =
 {
-	// save stamp
+	// Save stamp
 	__PLUGIN_SAVE_DATA_MANAGER_SAVE_STAMP,
-	// checksum
+	// Checksum
 	0,
-	// active language id
+	// Active language id
 	0,
-	// auto pause status (0: on, 1: off)
+	// Auto pause status (0: on, 1: off)
 	0
 };
 
@@ -46,13 +46,13 @@ void SaveDataManager::constructor()
 	// Always explicitly call the base's constructor 
 	Base::constructor();
 
-	// init class variables
+	// Init class variables
 	this->sramAvailable = false;
 
-	// register with engine
+	// Register with engine
 	VUEngine::setSaveDataManager(VUEngine::getInstance(), ListenerObject::safeCast(this));
 
-	// initialize
+	// Initialize
 	SaveDataManager::initialize(this);
 }
 
@@ -66,7 +66,7 @@ bool SaveDataManager::verifySaveStamp()
 {
 	char saveStamp[__PLUGIN_SAVE_DATA_MANAGER_SAVE_STAMP_LENGTH];
 
-	// read save stamp
+	// Read save stamp
 	SRAMManager::read(SRAMManager::getInstance(), (BYTE*)&saveStamp, offsetof(struct SaveData, saveStamp), sizeof(saveStamp));
 
 	return !strncmp(saveStamp, __PLUGIN_SAVE_DATA_MANAGER_SAVE_STAMP, __PLUGIN_SAVE_DATA_MANAGER_SAVE_STAMP_LENGTH);
@@ -76,7 +76,7 @@ bool SaveDataManager::checkSRAM()
 {
 	char saveStamp[__PLUGIN_SAVE_DATA_MANAGER_SAVE_STAMP_LENGTH];
 
-	// write save stamp
+	// Write save stamp
 	SRAMManager::save
 	(
 		SRAMManager::getInstance(), (BYTE*)__PLUGIN_SAVE_DATA_MANAGER_SAVE_STAMP, offsetof(struct SaveData, saveStamp), sizeof(saveStamp)
@@ -89,7 +89,7 @@ uint32 SaveDataManager::computeChecksum()
 {
 	uint32 crc32 = ~0;
 
-	// iterate over whole save data, starting right after the previously saved checksum
+	// Iterate over whole save data, starting right after the previously saved checksum
 	int32 i = (offsetof(struct SaveData, checksum) + sizeof(crc32));
 	int16 saveDataSize = SaveDataManager::getSaveDataSize(this);
 
@@ -104,7 +104,7 @@ uint32 SaveDataManager::computeChecksum()
 
 	for(int16 limit = saveDataSize / sizeof(uint32); i < limit; i++)
 	{
-		// get the current byte
+		// Get the current byte
 		uint32 currentValue = 0;
 		SRAMManager::read(sramManager, (BYTE*)&currentValue, i, sizeof(currentValue));
 
@@ -139,25 +139,25 @@ bool SaveDataManager::verifyChecksum()
 
 void SaveDataManager::initialize()
 {
-	// first check if save data is from this game
+	// First check if save data is from this game
 	// (we have to do this before even checking for SRAM's existence because save stamp serves two
-	// purposes: marking a save as being from a certain game as well as checking for SRAM existence.
-	// checkSRAM() overwrites the previous save stamp, though.)
+	// Purposes: marking a save as being from a certain game as well as checking for SRAM existence.
+	// CheckSRAM() overwrites the previous save stamp, though.)
 	bool saveIsFromThisGame = SaveDataManager::verifySaveStamp(this);
 
-	// if existing save is from current game or sram is available
+	// If existing save is from current game or sram is available
 	if(saveIsFromThisGame || SaveDataManager::checkSRAM(this))
 	{
-		// set sram available flag
+		// Set sram available flag
 		this->sramAvailable = true;
 
-		// verify saved progress presence and integrity
+		// Verify saved progress presence and integrity
 		if(!saveIsFromThisGame || !SaveDataManager::verifyChecksum(this))
 		{
-			// if no previous save could be verified, write default save values
+			// If no previous save could be verified, write default save values
 			SaveDataManager::writeDefaults(this);
 
-			// write checksum
+			// Write checksum
 			SaveDataManager::writeChecksum(this);
 		}
 	}
@@ -223,8 +223,8 @@ bool SaveDataManager::getAutomaticPauseStatus()
 
 void SaveDataManager::setAutomaticPauseStatus(uint8 autoPauseStatus)
 {
-	// we save the inverted status, so that 0 = enabled, 1 = disabled.
-	// that way, a blank value means enabled, which is the standard setting.
+	// We save the inverted status, so that 0 = enabled, 1 = disabled.
+	// That way, a blank value means enabled, which is the standard setting.
 	autoPauseStatus = !autoPauseStatus;
 
 	SaveDataManager::setValue(this, (BYTE*)&autoPauseStatus, offsetof(struct SaveData, autoPauseStatus), sizeof(autoPauseStatus));

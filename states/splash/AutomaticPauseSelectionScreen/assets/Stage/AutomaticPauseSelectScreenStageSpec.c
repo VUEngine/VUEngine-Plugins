@@ -243,7 +243,7 @@ StageROMSpec AutomaticPauseSelectionScreenStage =
 		// Textures to preload
 		(TextureSpec**)NULL,
 
-		// background sounds
+		// Background sounds
 		(SoundSpec**)NULL,
 	},
 

@@ -247,7 +247,7 @@ StageROMSpec AlignmentCheckScreenStage =
 		// Textures to preload
 		(TextureSpec**)NULL,
 
-		// background sounds
+		// Background sounds
 		(SoundSpec**)AlignmentCheckScreenStageSoundSpecs,
 	},
 

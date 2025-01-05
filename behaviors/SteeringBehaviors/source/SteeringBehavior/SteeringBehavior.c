@@ -36,7 +36,7 @@ static Vector3D SteeringBehavior::calculateForce(Vehicle vehicle, uint16 summing
 {
 	Vector3D steeringForce = {0, 0, 0};
 
-	// otherwise it's just a velocity and add it
+	// Otherwise it's just a velocity and add it
 	switch(summingMethod)
 	{
 		case kPrioritized:

@@ -128,7 +128,7 @@ void PlatformerCameraMovementManager::configure
 {
 	this->platformerCameraTriggerActorCollidersSpec[0] = (ColliderSpec)
 	{
-		// collider
+		// Collider
 		__TYPE(InverseBox),
 
 		// Size (x, y, z)
@@ -158,35 +158,35 @@ void PlatformerCameraMovementManager::configure
 
 	this->platformerCameraTriggerActorSpec = (PlatformerCameraTriggerActorSpec)
 	{
-		// class allocator
+		// Class allocator
 		__TYPE(PlatformerCameraTriggerActor),
 
-		// children
+		// Children
 		NULL,
 
-		// behaviors
+		// Behaviors
 		NULL,
 
-		// extra
+		// Extra
 		NULL,
 
-		// sprites
+		// Sprites
 		NULL,
 
-		// use z displacement in projection
+		// Use z displacement in projection
 		false,
 
-		// wireframes
+		// Wireframes
 		(WireframeSpec**)NULL,
 
-		// collision colliders
+		// Collision colliders
 		(ColliderSpec*)this->platformerCameraTriggerActorCollidersSpec,
 
-		// size
-		// if 0, width and height will be inferred from the first sprite's texture's size
+		// Size
+		// If 0, width and height will be inferred from the first sprite's texture's size
 		{0, 0, 0},
 
-		// gameworld's character's type
+		// Gameworld's character's type
 		!isDeleted(focusActor) ? Actor::getInGameType(focusActor) : kTypeNone
 	};
 
@@ -203,7 +203,7 @@ void PlatformerCameraMovementManager::configure
 				focusActor, (ActorSpec*)&this->platformerCameraTriggerActorSpec, 0, NULL, &boundingBoxDisplacement, NULL
 			);
 
-		// make sure that focusing gets completed immediately
+		// Make sure that focusing gets completed immediately
 		PlatformerCameraMovementManager::enable(this);
 	}
 }
@@ -270,7 +270,7 @@ Vector3D PlatformerCameraMovementManager::dontFocus(Camera camera __attribute__ 
 
 Vector3D PlatformerCameraMovementManager::doFocus(Camera camera, uint32 introFocusing __attribute__ ((unused)))
 {
-	// if focusActor is defined
+	// If focusActor is defined
 	if(!Camera::getFocusActor(camera))
 	{
 		return Camera::getPosition(camera);
@@ -297,7 +297,7 @@ Vector3D PlatformerCameraMovementManager::doFocus(Camera camera, uint32 introFoc
 
 		if(this->positionFlag.x | focusActorOutOfBounds)
 		{
-			// calculate the target position
+			// Calculate the target position
 			fixed_t horizontalPosition = cameraNewPosition.x;
 			fixed_t horizontalTarget = 
 				this->focusActorPosition->x + normalizedDirection.x * this->focusActorPositionDisplacement.x - 
@@ -345,7 +345,7 @@ Vector3D PlatformerCameraMovementManager::doFocus(Camera camera, uint32 introFoc
 
 		if(this->positionFlag.y | focusActorOutOfBounds)
 		{
-			// calculate the target position
+			// Calculate the target position
 			fixed_t verticalPosition = cameraNewPosition.y;
 			fixed_t verticalTarget = 
 				this->focusActorPosition->y + this->focusActorPositionDisplacement.y - __PIXELS_TO_METERS(__SCREEN_HEIGHT / 2);

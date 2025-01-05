@@ -160,7 +160,7 @@ CharSetROMSpec BulkySFontCharSet =
 	// Whether the tiles are optimized or not
 	false,
 
-	// char data
+	// Char data
 	(uint32*)BulkySFontTiles,
 
 	// Frame offsets array

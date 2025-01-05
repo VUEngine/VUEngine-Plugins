@@ -43,11 +43,11 @@ static void AdjustmentScreenState::rhombusEmitterPostProcessingEffect
 	uint32 currentDrawingFrameBufferSet __attribute__ ((unused)), Entity entity __attribute__ ((unused))
 )
 {
-	// runtime working variables
-	// negative value to achieve an initial delay
+	// Runtime working variables
+	// Negative value to achieve an initial delay
 	static int32 radius = __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_RHOMBUS_INITIAL_VALUE;
 
-	// increase radius in each cycle
+	// Increase radius in each cycle
 	radius += 2;
 
 	if(radius < 68)
@@ -56,14 +56,14 @@ static void AdjustmentScreenState::rhombusEmitterPostProcessingEffect
 	}
 	else if(radius > 300)
 	{
-		// reset radius when reaching a certain length
+		// Reset radius when reaching a certain length
 		radius = __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_RHOMBUS_INITIAL_VALUE;
 		return;
 	}
 
-	// draw rhombus around object with given radius
+	// Draw rhombus around object with given radius
 
-	// top left line
+	// Top left line
 	DirectDraw::drawLine(
 		(PixelVector) {(192 - radius),	(112),			0, -((radius + __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_RHOMBUS_INITIAL_VALUE)>>5)},
 		(PixelVector) {(192),			(112 - radius),	0, -((radius + __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_RHOMBUS_INITIAL_VALUE)>>5)},
@@ -72,7 +72,7 @@ static void AdjustmentScreenState::rhombusEmitterPostProcessingEffect
 		false
 	);
 
-	// top right line
+	// Top right line
 	DirectDraw::drawLine(
 		(PixelVector) {(192 + radius),	(112),			0, -((radius + __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_RHOMBUS_INITIAL_VALUE)>>5)},
 		(PixelVector) {(192),			(112 - radius),	0, -((radius + __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_RHOMBUS_INITIAL_VALUE)>>5)},
@@ -81,7 +81,7 @@ static void AdjustmentScreenState::rhombusEmitterPostProcessingEffect
 		false
 	);
 
-	// bottom right line
+	// Bottom right line
 	DirectDraw::drawLine(
 		(PixelVector) {(192 + radius),	(112),			0, -((radius + __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_RHOMBUS_INITIAL_VALUE)>>5)},
 		(PixelVector) {(192),			(112 + radius),	0, -((radius + __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_RHOMBUS_INITIAL_VALUE)>>5)},
@@ -90,7 +90,7 @@ static void AdjustmentScreenState::rhombusEmitterPostProcessingEffect
 		false
 	);
 
-	// bottom left line
+	// Bottom left line
 	DirectDraw::drawLine(
 		(PixelVector) {(192 - radius),	(112),			0, -((radius + __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_RHOMBUS_INITIAL_VALUE)>>5)},
 		(PixelVector) {(192),			(112 + radius),	0, -((radius + __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_RHOMBUS_INITIAL_VALUE)>>5)},
@@ -124,7 +124,7 @@ void AdjustmentScreenState::enter(void* owner)
 
 void AdjustmentScreenState::exit(void* owner)
 {
-	// reset low power indicator position
+	// Reset low power indicator position
 	AdjustmentScreenState::resetLowPowerIndicatorPosition(this);
 
 	Base::exit(this, owner);
@@ -136,7 +136,7 @@ void AdjustmentScreenState::suspend(void* owner)
 {
 	Base::suspend(this, owner);
 
-	// set low power indicator position
+	// Set low power indicator position
 	AdjustmentScreenState::resetLowPowerIndicatorPosition(this);
 }
 
@@ -195,10 +195,10 @@ void AdjustmentScreenState::destructor()
 
 void AdjustmentScreenState::init()
 {
-	// add rhombus effect
+	// Add rhombus effect
 	VIPManager::pushBackPostProcessingEffect(VIPManager::getInstance(), AdjustmentScreenState::rhombusEmitterPostProcessingEffect, NULL);
 
-	// set low power indicator position
+	// Set low power indicator position
 	AdjustmentScreenState::setLowPowerIndicatorPosition(this);
 }
 

@@ -121,7 +121,7 @@ static void PostProcessingLantern::applyMask
 
 	for(; xStart <= xEnd; xStart++)
 	{
-		// get pointer to currently manipulated 32 bits of framebuffer
+		// Get pointer to currently manipulated 32 bits of framebuffer
 		uint32* columnSourcePointerLeft = (uint32*) (currentDrawingFrameBufferSet) + (xStart << 4);
 		uint32* columnSourcePointerRight = (uint32*) (currentDrawingFrameBufferSet | 0x00010000) + (xStart << 4);
 
@@ -147,7 +147,7 @@ static void PostProcessingLantern::ellipticalWindow
 {
  	int32 xPosition = position.x;
  	int32 yPosition = position.y;
-	// move y position to the closest 16 multiple
+	// Move y position to the closest 16 multiple
 	int32 tempYPosition = yPosition + (POST_PROCESSING_LANTERN_Y_STEP_SIZE >> 1);
 	yPosition = tempYPosition - __MODULO(tempYPosition, POST_PROCESSING_LANTERN_Y_STEP_SIZE);
 
@@ -157,7 +157,7 @@ static void PostProcessingLantern::ellipticalWindow
 
 	for(x = _cameraFrustum->x0; x < _cameraFrustum->x1; x++)
 	{
-		// get pointer to currently manipulated 32 bits of framebuffer
+		// Get pointer to currently manipulated 32 bits of framebuffer
 		uint32* columnSourcePointerLeft = (uint32*) (currentDrawingFrameBufferSet) + (x << 4);
 		uint32* columnSourcePointerRight = (uint32*) (currentDrawingFrameBufferSet | 0x00010000) + (x << 4);
 

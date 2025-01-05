@@ -28,8 +28,8 @@
  */
 static void PostProcessingTest::lighting(uint32 currentDrawingFrameBufferSet, Entity entity)
 {
-	// the currentDrawingFrameBufferSet dictates which frame buffer set (remember that there are 4 frame
-	// buffers, 2 per eye) has been written by the VPU and you can work on.
+	// The currentDrawingFrameBufferSet dictates which frame buffer set (remember that there are 4 frame
+	// Buffers, 2 per eye) has been written by the VPU and you can work on.
 
 	if(isDeleted(entity))
 	{
@@ -39,21 +39,21 @@ static void PostProcessingTest::lighting(uint32 currentDrawingFrameBufferSet, En
 	PixelVector screenPixelPosition = 
 		PixelVector::projectVector3D(Vector3D::getRelativeToCamera(*Entity::getPosition(entity)), 0);
 
-	// the pixel in screen coordinates (x: 0 - 383, y: 0 - 223)
+	// The pixel in screen coordinates (x: 0 - 383, y: 0 - 223)
 	int32 x = 0;
 	int32 y = 0;
 
-	// these will be used to dictate the size of the screen portion to be affected
+	// These will be used to dictate the size of the screen portion to be affected
 	int32 xCounter = 0;
 	int32 yCounter = 0;
 
 /*
-	// this is just a test, so that's why these are static
+	// This is just a test, so that's why these are static
 	static bool vibrate = false;
 	static int32 wait = 0;
 */
 
-	// write to framebuffers for both screens
+	// Write to framebuffers for both screens
 	uint32 buffer = 0;
 	for(; buffer < 2; buffer++)
 	{
@@ -65,35 +65,35 @@ static void PostProcessingTest::lighting(uint32 currentDrawingFrameBufferSet, En
 				sourcePointer += ((x << 6) + (y >> 2));
 
 /*
-				// negative
+				// Negative
 				*sourcePointer = ~*sourcePointer;
 */
 
 /*
-				// noise
+				// Noise
 				if(vibrate)
 				{
 					if(xCounter & 1)
 					{
-						// shift down one pixel
+						// Shift down one pixel
 						*sourcePointer = (*sourcePointer & 0x03) | (*sourcePointer << 2);
 					}
 					else
 					{
-						// shift up one pixel
+						// Shift up one pixel
 						*sourcePointer = (*sourcePointer & 0xC0) | (*sourcePointer >> 2);
 					}
 				}
 */
 
-				// add 1 to each pixel's color to "light it up"
+				// Add 1 to each pixel's color to "light it up"
 				*sourcePointer |= 0x55;
 			}
 		}
 	}
 
 /*
-	// this just creates a simple delay to not shift the pixels on each cycle
+	// This just creates a simple delay to not shift the pixels on each cycle
 	if(--wait < 0)
 	{
 		wait = 4;
@@ -113,20 +113,20 @@ static void PostProcessingTest::dummy
 	uint32 previousSourcePointerValueLeft = 0;
 	uint32 previousSourcePointerValueRight = 0;
 
-	// write to framebuffers for both screens
-	// loop columns
+	// Write to framebuffers for both screens
+	// Loop columns
 	for(x = 0; x < 384; x++)
 	{
-		// get pointer to currently manipulated 32 bits of framebuffer
+		// Get pointer to currently manipulated 32 bits of framebuffer
 		uint32* columnSourcePointerLeft = (uint32*) (currentDrawingFrameBufferSet) + (x << 4);
 		uint32* columnSourcePointerRight = (uint32*) (currentDrawingFrameBufferSet | 0x00010000) + (x << 4);
 
-		// the shifted out pixels on top should be black
+		// The shifted out pixels on top should be black
 		previousSourcePointerValueLeft = 0;
 		previousSourcePointerValueRight = 0;
 
-		// loop current column in steps of 16 pixels (32 bits)
-		// ignore the bottom 16 pixels of the screen (gui)
+		// Loop current column in steps of 16 pixels (32 bits)
+		// Ignore the bottom 16 pixels of the screen (gui)
 		for(y = 0; y < 13; y++)
 		{
 			previousSourcePointerValueLeft = 
@@ -159,26 +159,26 @@ static uint32 PostProcessingTest::writeToFrameBuffer
 	uint16 y, uint16 shift, uint32* columnSourcePointer, uint32 previousSourcePointerValue
 )
 {
-	// pointer to currently manipulated 32 bits of framebuffer
+	// Pointer to currently manipulated 32 bits of framebuffer
 	uint32* sourcePointer = columnSourcePointer + y;
 
-	// save current pointer value to temp var and shift highest x bits of it, according to lut,
-	// to the lowest bits, since we want to insert these
+	// Save current pointer value to temp var and shift highest x bits of it, according to lut,
+	// To the lowest bits, since we want to insert these
 	uint32 sourcePointerCurrentValue = *sourcePointer;
 	uint32 previousSourcePointerLeftValueTemp = sourcePointerCurrentValue >> (32 - shift);
 
-	// manipulate current 32 bits in frame buffer
+	// Manipulate current 32 bits in frame buffer
 	*sourcePointer =
-		// shift bits according to wave lut
-		// it's two bits per pixel, so 2 bits shifted left = 1 pixel shifted down on screen
+		// Shift bits according to wave lut
+		// It's two bits per pixel, so 2 bits shifted left = 1 pixel shifted down on screen
 		(sourcePointerCurrentValue << shift)
 
-		// since the above shifting creates black pixels, we need to carry over these pixels
-		// from the previous loop
+		// Since the above shifting creates black pixels, we need to carry over these pixels
+		// From the previous loop
 		| previousSourcePointerValue;
 
-	// we need the current source pointer value from _before_ we modified it, therefore we save it
-	// it to a temp variable while modifying
+	// We need the current source pointer value from _before_ we modified it, therefore we save it
+	// It to a temp variable while modifying
 	return previousSourcePointerLeftValueTemp;
 }
 

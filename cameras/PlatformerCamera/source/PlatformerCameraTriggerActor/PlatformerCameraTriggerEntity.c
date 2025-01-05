@@ -159,7 +159,7 @@ void PlatformerCameraTriggerActor::setOverridePositionFlag(Vector3DFlag override
 
 	Transformation* environmentTransform = Container::getTransform(this->parent);
 
-	// don't lock yet, allow the global position to be calculated before locking
+	// Don't lock yet, allow the global position to be calculated before locking
 	this->overridePositionFlag.y = false;
 	PlatformerCameraTriggerActor::transform(this, environmentTransform, __INVALIDATE_TRANSFORMATION);
 

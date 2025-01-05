@@ -27,16 +27,16 @@
 /// @memberof SaveDataManager
 typedef struct SaveData
 {
-	// flag to know if there is data from this game saved
+	// Flag to know if there is data from this game saved
 	uint8 saveStamp[__PLUGIN_SAVE_DATA_MANAGER_SAVE_STAMP_LENGTH];
 
-	// checksum over sram content to prevent save data manipulation
+	// Checksum over sram content to prevent save data manipulation
 	uint32 checksum;
 
-	// active language id
+	// Active language id
 	uint8 languageId;
 
-	// auto pause status (0: on, 1: off)
+	// Auto pause status (0: on, 1: off)
 	uint8 autoPauseStatus;
 
 } SaveData;
@@ -54,7 +54,7 @@ typedef struct SaveData
  */
 abstract class SaveDataManager : ListenerObject
 {
-	// flag that tells if sram is available on the current cartridge
+	// Flag that tells if sram is available on the current cartridge
 	bool sramAvailable;
 
 	void constructor();

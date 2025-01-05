@@ -30,19 +30,19 @@ void LowPowerManager::constructor()
 	// Always explicitly call the base's constructor 
 	Base::constructor();
 
-	// init class variables
+	// Init class variables
 	this->isShowingIndicator = false;
 	this->isActive = false;
 	this->lowPowerDuration = 0;
 	this->indicatorXPos = __PLUGIN_LOW_POWER_INDICATOR_X_POSITION;
 	this->indicatorYPos = __PLUGIN_LOW_POWER_INDICATOR_Y_POSITION;
 
-	// add event listeners
+	// Add event listeners
 }
 
 void LowPowerManager::destructor()
 {
-	// remove event listeners
+	// Remove event listeners
 	KeypadManager::removeEventListener
 	(
 		KeypadManager::getInstance(), ListenerObject::safeCast(this), 
@@ -114,7 +114,7 @@ void LowPowerManager::setPosition(uint8 x, uint8 y)
 
 bool LowPowerManager::onSecondChange(ListenerObject eventFirer __attribute__ ((unused)))
 {
-	// check low power flag
+	// Check low power flag
 	if(this->isActive)
 	{
 		if(this->lowPowerDuration >= __PLUGIN_LOW_POWER_INDICATOR_FLASH_DELAY - 1)

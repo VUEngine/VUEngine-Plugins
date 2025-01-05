@@ -80,7 +80,7 @@ CharSetROMSpec DefaultItalicFontCharSet =
 	// Whether the tiles are optimized or not
 	false,
 
-	// char data
+	// Char data
 	(uint32*)DefaultItalicFontTiles,
 
 	// Frame offsets array

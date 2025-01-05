@@ -40,10 +40,10 @@ void AutomaticPauseScreenState::enter(void* owner __attribute__ ((unused)))
 {
 	Base::enter(this, owner);
 
-	// load stage
+	// Load stage
 	GameState::configureStage(this, (StageSpec*)&AutomaticPauseScreenStage, NULL);
 
-	// print text
+	// Print text
 	const char* strTitle = I18n::getText(I18n::getInstance(), kStringAutomaticPauseTitle);
 	const char* strBody = I18n::getText(I18n::getInstance(), kStringAutomaticPauseBody);
 
@@ -83,13 +83,13 @@ void AutomaticPauseScreenState::enter(void* owner __attribute__ ((unused)))
 		__PLUGIN_AUTOMATIC_PAUSE_BODY_TEXT_FONT
 	);
 
-	// disable user input
+	// Disable user input
 	VUEngine::disableKeypad(VUEngine::getInstance());
 
-	// start clocks to start animations
+	// Start clocks to start animations
 	GameState::startClocks(this);
 
-	// fade in screen
+	// Fade in screen
 	Camera::startEffect(Camera::getInstance(), kHide);
 	
 	Camera::startEffect(Camera::getInstance(),
@@ -115,10 +115,10 @@ void AutomaticPauseScreenState::processUserInput(const UserInput*  userInput)
 {
 	if(K_STA & userInput->pressedKey)
 	{
-		// disable user input
+		// Disable user input
 		VUEngine::disableKeypad(VUEngine::getInstance());
 
-		// fade out screen
+		// Fade out screen
 		Brightness brightness = (Brightness){0, 0, 0};
 		Camera::startEffect(Camera::getInstance(),
 			kFadeTo, // effect type
@@ -157,7 +157,7 @@ void AutomaticPauseScreenState::destructor()
 
 bool AutomaticPauseScreenState::onFadeInComplete(ListenerObject eventFirer __attribute__ ((unused)))
 {
-	// re-enable user input
+	// Re-enable user input
 	VUEngine::enableKeypad(VUEngine::getInstance());
 
 	return false;
@@ -167,10 +167,10 @@ bool AutomaticPauseScreenState::onFadeInComplete(ListenerObject eventFirer __att
 
 bool AutomaticPauseScreenState::onFadeOutComplete(ListenerObject eventFirer __attribute__ ((unused)))
 {
-	// re-enable user input
+	// Re-enable user input
 	VUEngine::enableKeypad(VUEngine::getInstance());
 
-	// resume game
+	// Resume game
 	VUEngine::unpause(VUEngine::getInstance(), GameState::safeCast(this));
 
 	return false;

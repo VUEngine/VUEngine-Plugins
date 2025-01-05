@@ -320,7 +320,7 @@ CharSetROMSpec VirtualBoyFontCharSet =
 	// Whether the tiles are optimized or not
 	false,
 
-	// char data
+	// Char data
 	(uint32*)VirtualBoyFontTiles,
 
 	// Frame offsets array

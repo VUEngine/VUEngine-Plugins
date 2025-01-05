@@ -28,7 +28,7 @@ void LocalizedActor::constructor(const LocalizedActorSpec* localizedActorSpec, i
 	// Always explicitly call the base's constructor 
 	Base::constructor((ActorSpec*)&localizedActorSpec->actorSpec, internalId, name);
 
-	// add event listeners
+	// Add event listeners
 	GameState::addEventListener
 	(
 		VUEngine::getCurrentState(VUEngine::getInstance()), ListenerObject::safeCast(this), 
@@ -40,7 +40,7 @@ void LocalizedActor::constructor(const LocalizedActorSpec* localizedActorSpec, i
 
 void LocalizedActor::destructor()
 {
-	// remove event listeners
+	// Remove event listeners
 	GameState::removeEventListener
 	(
 		VUEngine::getCurrentState(VUEngine::getInstance()), ListenerObject::safeCast(this), 
@@ -57,7 +57,6 @@ void LocalizedActor::ready(bool recursive)
 {
 	Base::ready(this, recursive);
 
-	// translate actor
 	LocalizedActor::localize(this);
 }
 
@@ -71,15 +70,13 @@ void LocalizedActor::ready(bool recursive)
 
 void LocalizedActor::localize()
 {
-	char* language = Utilities::itoa(I18n::getActiveLanguage(I18n::getInstance()), 10, 1);
-	LocalizedActor::playAnimation(Actor::safeCast(this), language);
+	LocalizedActor::playAnimation(this, Utilities::itoa(I18n::getActiveLanguage(I18n::getInstance()), 10, 1));
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 bool LocalizedActor::onLanguageChanged(ListenerObject eventFirer __attribute__ ((unused)))
 {
-	// translate actor
 	LocalizedActor::localize(this);
 
 	return true;

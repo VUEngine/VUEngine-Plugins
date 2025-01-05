@@ -55,7 +55,7 @@ TextureROMSpec AlignmentCheckSprite1TextureSpec =
 	// Vertical size in tiles of the texture (max. 64)
 	1,
 
-	// padding for affine/hbias transformations
+	// Padding for affine/hbias transformations
 	{ 0, 0 },
 
 	// Number of frames that the texture supports
@@ -139,7 +139,7 @@ TextureROMSpec AlignmentCheckSprite2TextureSpec =
 	// Vertical size in tiles of the texture (max. 64)
 	3,
 
-	// padding for affine/hbias transformations
+	// Padding for affine/hbias transformations
 	{ 0, 0 },
 
 	// Number of frames that the texture supports

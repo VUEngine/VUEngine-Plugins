@@ -135,7 +135,7 @@ void AutomaticPauseSelectionScreenState::destructor()
 
 void AutomaticPauseSelectionScreenState::renderSelection()
 {
-	// get strings and determine sizes
+	// Get strings and determine sizes
 	const char* strOn = I18n::getText(I18n::getInstance(), kStringAutomaticPauseSelectionOn);
 	const char* strOff = I18n::getText(I18n::getInstance(), kStringAutomaticPauseSelectionOff);
 	
@@ -147,7 +147,7 @@ void AutomaticPauseSelectionScreenState::renderSelection()
 	
 	uint8 selectionStart = (48 - (strOnSize.x + __PLUGIN_AUTOMATIC_PAUSE_SELECTION_SCREEN_OPTIONS_GAP + strOffSize.x)) >> 1;
 
-	// clear options area
+	// Clear options area
 	Printing::text
 	(
 		Printing::getInstance(), "                                                ", 0, 
@@ -193,7 +193,7 @@ void AutomaticPauseSelectionScreenState::renderSelection()
 		}
 	}
 
-	// print options
+	// Print options
 	Printing::text
 	(
 		Printing::getInstance(), strOn, selectionStart, __PLUGIN_AUTOMATIC_PAUSE_SELECTION_SCREEN_OPTIONS_Y_POS + 1, 
@@ -206,7 +206,7 @@ void AutomaticPauseSelectionScreenState::renderSelection()
 		__PLUGIN_AUTOMATIC_PAUSE_SELECTION_SCREEN_OPTIONS_Y_POS + 1, __PLUGIN_AUTOMATIC_PAUSE_SELECTION_SCREEN_OPTIONS_TEXT_FONT
 	);
 
-	// print selector
+	// Print selector
 	uint8 optionStart = 
 		this->selection ? selectionStart : selectionStart + __PLUGIN_AUTOMATIC_PAUSE_SELECTION_SCREEN_OPTIONS_GAP + strOnSize.x;
 	

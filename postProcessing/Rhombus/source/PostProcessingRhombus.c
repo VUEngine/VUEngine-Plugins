@@ -38,7 +38,7 @@ static void PostProcessingRhombus::rhombus
 	uint32 currentDrawingFrameBufferSet __attribute__ ((unused)), Entity entity
 )
 {
-	// runtime working variable
+	// Runtime working variable
 	static int32 radius = 4;
 
 	if(isDeleted(entity))
@@ -49,21 +49,21 @@ static void PostProcessingRhombus::rhombus
 	PixelVector screenPixelPosition = 
 		PixelVector::projectVector3D(Vector3D::getRelativeToCamera(*Entity::getPosition(entity)), 0);
 
-	// increase radius by 1 in each cycle
+	// Increase radius by 1 in each cycle
 	radius++;
 
 	if(radius > 184)
 	{
-		// reset radius when reaching a certain length
+		// Reset radius when reaching a certain length
 		radius = 4;
 	}
 	else if(radius > 64)
 	{
-		// pause for a little bit before restarting
+		// Pause for a little bit before restarting
 		return;
 	}
 
-	// draw a rhombus around object with given radius and color
+	// Draw a rhombus around object with given radius and color
 	PostProcessingRhombus::drawRhombus((radius), __COLOR_BLACK, screenPixelPosition, -((radius + 4) >> 5));
 //	PostProcessingRhombus::drawRhombus((radius >> 1), __COLOR_BLACK, screenPixelPosition, -(((radius >> 1) + 4) >> 5));
 }

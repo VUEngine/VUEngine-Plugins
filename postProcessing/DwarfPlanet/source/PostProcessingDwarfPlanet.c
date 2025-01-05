@@ -31,7 +31,7 @@ static void PostProcessingDwarfPlanet::dwarfPlanet
 	uint32 currentDrawingFrameBufferSet, Entity entity __attribute__ ((unused))
 )
 {
-	// look up table of bitshifts performed on rows
+	// Look up table of bitshifts performed on rows
 	const uint32 lut[96] =
 	{
 		2,
@@ -53,26 +53,26 @@ static void PostProcessingDwarfPlanet::dwarfPlanet
 
 	int32 lutEntries = sizeof(lut) / sizeof(uint32);
 
-	// loop columns of outer fourths of affected area
+	// Loop columns of outer fourths of affected area
 	int32 counter = lutEntries;
 	for(; --counter;)
 	{
 		int32 x1 = __PLUGIN_DWARF_PLANET_STARTING_COLUMN - 1 + lutEntries - counter;
 		int32 x2 = __PLUGIN_DWARF_PLANET_ENDING_COLUMN - counter;
 
-		// get pointer to currently manipulated 32 bits of framebuffer
+		// Get pointer to currently manipulated 32 bits of framebuffer
 		uint32* columnSourcePointerLeft1 = (uint32*) (currentDrawingFrameBufferSet) + (x1 << 4);
 		uint32* columnSourcePointerRight1 = (uint32*) (currentDrawingFrameBufferSet | 0x00010000) + (x1 << 4);
 		uint32* columnSourcePointerLeft2 = (uint32*) (currentDrawingFrameBufferSet) + (x2 << 4);
 		uint32* columnSourcePointerRight2 = (uint32*) (currentDrawingFrameBufferSet | 0x00010000) + (x2 << 4);
 
-		// the shifted out pixels on top should be black
+		// The shifted out pixels on top should be black
 		uint32 previousSourcePointerValueLeft1 = 0;
 		uint32 previousSourcePointerValueRight1 = 0;
 		uint32 previousSourcePointerValueLeft2 = 0;
 		uint32 previousSourcePointerValueRight2 = 0;
 
-		// loop current column in steps of 16 pixels (32 bits)
+		// Loop current column in steps of 16 pixels (32 bits)
 		for(uint16 y = (__PLUGIN_DWARF_PLANET_STARTING_ROW / 16); y < (__PLUGIN_DWARF_PLANET_ENDING_ROW / 16); y++)
 		{
 			previousSourcePointerValueLeft1 = 
@@ -124,26 +124,26 @@ static uint32 PostProcessingDwarfPlanet::writeToFrameBuffer
 	uint16 y, uint16 shift, uint32* columnSourcePointer, uint32 previousSourcePointerValue
 )
 {
-	// pointer to currently manipulated 32 bits of framebuffer
+	// Pointer to currently manipulated 32 bits of framebuffer
 	uint32* sourcePointer = columnSourcePointer + y;
 
-	// save current pointer value to temp var and shift highest x bits of it, according to lut,
-	// to the lowest bits, since we want to insert these
+	// Save current pointer value to temp var and shift highest x bits of it, according to lut,
+	// To the lowest bits, since we want to insert these
 	uint32 sourcePointerCurrentValue = *sourcePointer;
 	uint32 previousSourcePointerLeftValueTemp = sourcePointerCurrentValue >> (32 - shift);
 
-	// manipulate current 32 bits in frame buffer
+	// Manipulate current 32 bits in frame buffer
 	*sourcePointer =
-		// shift bits according to wave lut
-		// it's two bits per pixel, so 2 bits shifted left = 1 pixel shifted down on screen
+		// Shift bits according to wave lut
+		// It's two bits per pixel, so 2 bits shifted left = 1 pixel shifted down on screen
 		(sourcePointerCurrentValue << shift)
 
-		// since the above shifting creates black pixels, we need to carry over these pixels
-		// from the previous loop
+		// Since the above shifting creates black pixels, we need to carry over these pixels
+		// From the previous loop
 		| previousSourcePointerValue;
 
-	// we need the current source pointer value from _before_ we modified it, therefore we save it
-	// it to a temp variable while modifying
+	// We need the current source pointer value from _before_ we modified it, therefore we save it
+	// It to a temp variable while modifying
 	return previousSourcePointerLeftValueTemp;
 }
 

@@ -39,7 +39,7 @@ void LowPowerActor::constructor(const LowPowerActorSpec* lowPowerActorSpec, int1
 
 void LowPowerActor::destructor()
 {
-	// remove event listeners
+	// Remove event listeners
 	KeypadManager::removeEventListener
 	(
 		KeypadManager::getInstance(), ListenerObject::safeCast(this), 

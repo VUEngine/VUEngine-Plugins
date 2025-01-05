@@ -49,7 +49,7 @@ void AutomaticPauseManager::setActive(bool active)
 	this->isActive = active;
 	this->elapsedTime = 0;
 
-	// set automatic pause state to default if it is not set yet
+	// Set automatic pause state to default if it is not set yet
 	if(this->automaticPauseState == NULL)
 	{
 		AutomaticPauseManager::setAutomaticPauseState(this, GameState::safeCast(AutomaticPauseScreenState::getInstance()));
@@ -57,12 +57,12 @@ void AutomaticPauseManager::setActive(bool active)
 
 	if(this->isActive)
 	{
-		// add event listeners
+		// Add event listeners
 		Clock::addEventListener(VUEngine::getClock(VUEngine::getInstance()), ListenerObject::safeCast(this), (EventListener)AutomaticPauseManager::onMinuteChange, kEventMinuteChanged);
 	}
 	else
 	{
-		// remove event listeners
+		// Remove event listeners
 		Clock::removeEventListener(VUEngine::getClock(VUEngine::getInstance()), ListenerObject::safeCast(this), (EventListener)AutomaticPauseManager::onMinuteChange, kEventMinuteChanged);
 	}
 }
@@ -87,7 +87,7 @@ void AutomaticPauseManager::constructor()
 	// Always explicitly call the base's constructor 
 	Base::constructor();
 
-	// init members
+	// Init members
 	this->automaticPauseState = NULL;
 	this->isActive = false;
 	this->elapsedTime = 0;
@@ -98,7 +98,7 @@ void AutomaticPauseManager::constructor()
 
 void AutomaticPauseManager::destructor()
 {
-	// remove event listeners
+	// Remove event listeners
 	Clock::removeEventListener(VUEngine::getClock(VUEngine::getInstance()), ListenerObject::safeCast(this), (EventListener)AutomaticPauseManager::onMinuteChange, kEventMinuteChanged);
 
 	// Always explicitly call the base's destructor 
@@ -113,7 +113,7 @@ bool AutomaticPauseManager::onMinuteChange(ListenerObject eventFirer __attribute
 	{
 		this->elapsedTime++;
 
-		// only pause if no more than one state is active
+		// Only pause if no more than one state is active
 		if((this->elapsedTime >= this->autoPauseDelay) &&
 			(1 == StateMachine::getStackSize(VUEngine::getStateMachine(VUEngine::getInstance()))))
 		{

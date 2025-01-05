@@ -147,7 +147,7 @@ void ReflectiveActor::drawReflection(uint32 currentDrawingFrameBufferSet,
 	int16 xOutputEndTemp = xOutputEnd;
 	int16 yOutputEndTemp = yOutputEnd;
 */
-	// check if source and destination are not out of bounds
+	// Check if source and destination are not out of bounds
 	if((xSourceStart > _cameraFrustum->x1) | (ySourceStart > _cameraFrustum->y1)
 		|
 		(xSourceEnd < _cameraFrustum->x0) | (ySourceEnd < _cameraFrustum->y0)
@@ -166,7 +166,7 @@ void ReflectiveActor::drawReflection(uint32 currentDrawingFrameBufferSet,
 	int32 xClamping = 0;
 	int32 xOutputStartSave = xOutputStart;
 
-	// clamp values to not write out of the camera
+	// Clamp values to not write out of the camera
 	if(xSourceStart < _cameraFrustum->x0)
 	{
 		xClamping = _cameraFrustum->x0 - xSourceStart;
@@ -193,7 +193,7 @@ void ReflectiveActor::drawReflection(uint32 currentDrawingFrameBufferSet,
 		ySourceEnd = _cameraFrustum->y1;
 	}
 
-	// must clamp the output too, but moving the wave lut index accordingly
+	// Must clamp the output too, but moving the wave lut index accordingly
 	if(xOutputStart < _cameraFrustum->x0)
 	{
 		xClamping = _cameraFrustum->x0 - xOutputStart;
@@ -225,7 +225,7 @@ void ReflectiveActor::drawReflection(uint32 currentDrawingFrameBufferSet,
 		return;
 	}
 
-	// must clamp the output too, but moving the wave lut index accordingly
+	// Must clamp the output too, but moving the wave lut index accordingly
 	if(yOutputStart < _cameraFrustum->y0)
 	{
 		if(__Y_AXIS & axisForReversing)
@@ -761,7 +761,7 @@ void ReflectiveActor::constructor(ReflectiveActorSpec* reflectiveActorSpec, int1
 
 void ReflectiveActor::destructor()
 {
-	// remove post processing effect
+	// Remove post processing effect
 	VUEngine::removePostProcessingEffect(VUEngine::getInstance(), ReflectiveActor::reflect, Entity::safeCast(this));
 
 	// Always explicitly call the base's destructor 
@@ -774,7 +774,7 @@ void ReflectiveActor::ready(bool recursive)
 {
 	Base::ready(this, recursive);
 
-	// add post processing effect
+	// Add post processing effect
 	VUEngine::pushFrontPostProcessingEffect(VUEngine::getInstance(), ReflectiveActor::reflect, Entity::safeCast(this));
 }
 
@@ -784,7 +784,7 @@ void ReflectiveActor::suspend()
 {
 	Base::suspend(this);
 
-	// remove post processing effect
+	// Remove post processing effect
 	VUEngine::removePostProcessingEffect(VUEngine::getInstance(), ReflectiveActor::reflect, Entity::safeCast(this));
 }
 
@@ -794,7 +794,7 @@ void ReflectiveActor::resume()
 {
 	Base::resume(this);
 
-	// add post processing effect
+	// Add post processing effect
 	VUEngine::pushFrontPostProcessingEffect(VUEngine::getInstance(), ReflectiveActor::reflect, Entity::safeCast(this));
 }
 

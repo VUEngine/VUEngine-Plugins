@@ -36,7 +36,7 @@ friend class CharSet;
 
 void ShaderSprite::constructor(Entity owner, const ShaderSpriteSpec* shaderSpriteSpec)
 {
-	// construct base
+	// Construct base
 	// Always explicitly call the base's constructor 
 	Base::constructor(owner, &shaderSpriteSpec->bgmapSpriteSpec);
 
@@ -287,7 +287,7 @@ void ShaderSprite::drawLine(WORD* bufferAddress, PixelVector fromPoint, PixelVec
 		fromCoordinate = &fromPointY;
 		toCoordinate = &toPointY;
 
-		// make sure that no software based divisions is introduced
+		// Make sure that no software based divisions is introduced
 		stepX = __FIXED_TO_FIX19_13(__FIXED_DIV(__FIX19_13_TO_FIXED(dx), __FIX19_13_TO_FIXED(dy)));
 		stepY = __I_TO_FIX19_13(1);
 
