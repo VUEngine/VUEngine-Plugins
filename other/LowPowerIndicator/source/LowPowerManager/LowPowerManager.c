@@ -45,7 +45,8 @@ void LowPowerManager::destructor()
 	// Remove event listeners
 	KeypadManager::removeEventListener
 	(
-		KeypadManager::getInstance(), ListenerObject::safeCast(this), 
+		KeypadManager::getInstance(),
+		ListenerObject::safeCast(this), 
 		(EventListener)LowPowerManager::onKeypadManagerRaisedPowerFlag, kEventKeypadManagerRaisedPowerFlag
 	);
 
@@ -69,7 +70,8 @@ void LowPowerManager::setActive(bool active)
 	{
 		KeypadManager::addEventListener
 		(
-			KeypadManager::getInstance(), ListenerObject::safeCast(this), 
+			KeypadManager::getInstance(),
+			ListenerObject::safeCast(this), 
 			(EventListener)LowPowerManager::onKeypadManagerRaisedPowerFlag, kEventKeypadManagerRaisedPowerFlag
 		);
 	}
@@ -77,7 +79,8 @@ void LowPowerManager::setActive(bool active)
 	{
 		KeypadManager::removeEventListener
 		(
-			KeypadManager::getInstance(), ListenerObject::safeCast(this), 
+			KeypadManager::getInstance(),
+			ListenerObject::safeCast(this), 
 			(EventListener)LowPowerManager::onKeypadManagerRaisedPowerFlag, kEventKeypadManagerRaisedPowerFlag
 		);
 		
@@ -141,7 +144,7 @@ bool LowPowerManager::onSecondChange(ListenerObject eventFirer __attribute__ ((u
 void LowPowerManager::printLowPowerIndicator(bool showIndicator)
 {
 	Printing::text(
-		Printing::getInstance(),
+		
 		(showIndicator) ? __PLUGIN_LOW_POWER_INDICATOR_ON_TEXT : __PLUGIN_LOW_POWER_INDICATOR_OFF_TEXT,
 		this->indicatorXPos,
 		this->indicatorYPos,

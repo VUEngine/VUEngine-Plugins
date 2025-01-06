@@ -51,7 +51,7 @@ void PlatformerCameraTriggerActor::constructor
 
 void PlatformerCameraTriggerActor::destructor()
 {
-	Camera::setFocusActor(Camera::getInstance(), NULL);
+	Camera::setFocusActor(NULL);
 
 	// Always explicitly call the base's destructor 
 	Base::destructor();
@@ -143,7 +143,7 @@ void PlatformerCameraTriggerActor::resume()
 {
 	Base::resume(this);
 
-	Camera::focus(Camera::getInstance());
+	Camera::focus();
 
 	Vector3DFlag positionFlag = {true, true, true};
 	PlatformerCameraMovementManager::setPositionFlag(PlatformerCameraMovementManager::getInstance(), positionFlag);

@@ -193,8 +193,8 @@ void PlatformerCameraMovementManager::configure
 	if(!isDeleted(focusActor))
 	{
 		// Configure the camera
-		Camera::setFocusActor(Camera::getInstance(), focusActor);
-		Camera::setFocusActorPositionDisplacement(Camera::getInstance(), screenDisplacement);
+		Camera::setFocusActor(focusActor);
+		Camera::setFocusActorPositionDisplacement(screenDisplacement);
 
 		// Configure the camera trigger
 		this->cameraTrigger = 

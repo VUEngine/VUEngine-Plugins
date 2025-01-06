@@ -49,14 +49,12 @@ void AutomaticPauseScreenState::enter(void* owner __attribute__ ((unused)))
 
 	FontSize strAutomaticPauseSize = Printing::getTextSize
 	(
-		Printing::getInstance(),
 		strTitle,
 		__PLUGIN_AUTOMATIC_PAUSE_TITLE_TEXT_FONT
 	);
 
 	FontSize strAutomaticPauseTextSize = Printing::getTextSize
 	(
-		Printing::getInstance(),
 		strBody,
 		__PLUGIN_AUTOMATIC_PAUSE_BODY_TEXT_FONT
 	);
@@ -65,7 +63,6 @@ void AutomaticPauseScreenState::enter(void* owner __attribute__ ((unused)))
 	
 	Printing::text
 	(
-		Printing::getInstance(),
 		strTitle,
 		strHeaderXPos,
 		18,
@@ -76,7 +73,6 @@ void AutomaticPauseScreenState::enter(void* owner __attribute__ ((unused)))
 	
 	Printing::text
 	(
-		Printing::getInstance(),
 		strBody,
 		strTextXPos,
 		19 + strAutomaticPauseSize.y,

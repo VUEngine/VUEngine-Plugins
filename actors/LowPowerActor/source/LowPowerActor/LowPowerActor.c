@@ -30,7 +30,8 @@ void LowPowerActor::constructor(const LowPowerActorSpec* lowPowerActorSpec, int1
 	// Add event listeners
 	KeypadManager::addEventListener
 	(
-		KeypadManager::getInstance(), ListenerObject::safeCast(this), 
+		KeypadManager::getInstance(),
+		ListenerObject::safeCast(this), 
 		(EventListener)LowPowerActor::onKeypadManagerRaisedPowerFlag, kEventKeypadManagerRaisedPowerFlag
 	);
 }
@@ -42,7 +43,8 @@ void LowPowerActor::destructor()
 	// Remove event listeners
 	KeypadManager::removeEventListener
 	(
-		KeypadManager::getInstance(), ListenerObject::safeCast(this), 
+		KeypadManager::getInstance(),
+		ListenerObject::safeCast(this), 
 		(EventListener)LowPowerActor::onKeypadManagerRaisedPowerFlag, kEventKeypadManagerRaisedPowerFlag
 	);
 
