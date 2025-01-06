@@ -86,9 +86,10 @@ void AutomaticPauseScreenState::enter(void* owner __attribute__ ((unused)))
 	GameState::startClocks(this);
 
 	// Fade in screen
-	Camera::startEffect(Camera::getInstance(), kHide);
+	Camera::startEffect(kHide);
 	
-	Camera::startEffect(Camera::getInstance(),
+	Camera::startEffect
+	(
 		kFadeTo, // effect type
 		0, // initial delay (in ms)
 		NULL, // target brightness
@@ -116,7 +117,8 @@ void AutomaticPauseScreenState::processUserInput(const UserInput*  userInput)
 
 		// Fade out screen
 		Brightness brightness = (Brightness){0, 0, 0};
-		Camera::startEffect(Camera::getInstance(),
+		Camera::startEffect
+		(
 			kFadeTo, // effect type
 			0, // initial delay (in ms)
 			&brightness, // target brightness

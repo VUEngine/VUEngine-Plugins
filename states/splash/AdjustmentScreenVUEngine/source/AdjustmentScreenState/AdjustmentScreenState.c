@@ -196,7 +196,7 @@ void AdjustmentScreenState::destructor()
 void AdjustmentScreenState::init()
 {
 	// Add rhombus effect
-	VIPManager::pushBackPostProcessingEffect(VIPManager::getInstance(), AdjustmentScreenState::rhombusEmitterPostProcessingEffect, NULL);
+	VIPManager::pushBackPostProcessingEffect(AdjustmentScreenState::rhombusEmitterPostProcessingEffect, NULL);
 
 	// Set low power indicator position
 	AdjustmentScreenState::setLowPowerIndicatorPosition(this);
