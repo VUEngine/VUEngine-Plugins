@@ -58,12 +58,12 @@ void AutomaticPauseManager::setActive(bool active)
 	if(this->isActive)
 	{
 		// Add event listeners
-		Clock::addEventListener(VUEngine::getClock(VUEngine::getInstance()), ListenerObject::safeCast(this), (EventListener)AutomaticPauseManager::onMinuteChange, kEventMinuteChanged);
+		Clock::addEventListener(VUEngine::getClock(), ListenerObject::safeCast(this), (EventListener)AutomaticPauseManager::onMinuteChange, kEventMinuteChanged);
 	}
 	else
 	{
 		// Remove event listeners
-		Clock::removeEventListener(VUEngine::getClock(VUEngine::getInstance()), ListenerObject::safeCast(this), (EventListener)AutomaticPauseManager::onMinuteChange, kEventMinuteChanged);
+		Clock::removeEventListener(VUEngine::getClock(), ListenerObject::safeCast(this), (EventListener)AutomaticPauseManager::onMinuteChange, kEventMinuteChanged);
 	}
 }
 
@@ -99,7 +99,7 @@ void AutomaticPauseManager::constructor()
 void AutomaticPauseManager::destructor()
 {
 	// Remove event listeners
-	Clock::removeEventListener(VUEngine::getClock(VUEngine::getInstance()), ListenerObject::safeCast(this), (EventListener)AutomaticPauseManager::onMinuteChange, kEventMinuteChanged);
+	Clock::removeEventListener(VUEngine::getClock(), ListenerObject::safeCast(this), (EventListener)AutomaticPauseManager::onMinuteChange, kEventMinuteChanged);
 
 	// Always explicitly call the base's destructor 
 	Base::destructor();
@@ -109,15 +109,15 @@ void AutomaticPauseManager::destructor()
 
 bool AutomaticPauseManager::onMinuteChange(ListenerObject eventFirer __attribute__ ((unused)))
 {
-	if(this->automaticPauseState && this->isActive && !VUEngine::isPaused(VUEngine::getInstance()))
+	if(this->automaticPauseState && this->isActive && !VUEngine::isPaused())
 	{
 		this->elapsedTime++;
 
 		// Only pause if no more than one state is active
 		if((this->elapsedTime >= this->autoPauseDelay) &&
-			(1 == StateMachine::getStackSize(VUEngine::getStateMachine(VUEngine::getInstance()))))
+			(1 == StateMachine::getStackSize(VUEngine::getStateMachine())))
 		{
-			VUEngine::pause(VUEngine::getInstance(), this->automaticPauseState);
+			VUEngine::pause(this->automaticPauseState);
 			this->elapsedTime = 0;
 		}
 	}

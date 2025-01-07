@@ -39,9 +39,9 @@ void I18n::setActiveLanguage(uint8 languageId)
 
 	this->activeLanguage = languageId;
 
-	if(VUEngine::getCurrentState(VUEngine::getInstance()))
+	if(VUEngine::getCurrentState())
 	{
-		GameState currentGameState = VUEngine::getCurrentState(VUEngine::getInstance());
+		GameState currentGameState = VUEngine::getCurrentState();
 		GameState::fireEvent(currentGameState, kEventLanguageChanged);
 	}
 }

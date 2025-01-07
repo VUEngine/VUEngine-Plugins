@@ -44,7 +44,7 @@ void LanguageSelectionScreenState::enter(void* owner)
 {
 	Base::enter(this, owner);
 
-	ListenerObject saveDataManager = VUEngine::getSaveDataManager(VUEngine::getInstance());
+	ListenerObject saveDataManager = VUEngine::getSaveDataManager();
 
 	// Get active language from sram
 	uint8 activeLanguage = I18n::getActiveLanguage(I18n::getInstance());
@@ -254,7 +254,7 @@ void LanguageSelectionScreenState::select(bool next)
 
 void LanguageSelectionScreenState::persistChoice()
 {
-	ListenerObject saveDataManager = VUEngine::getSaveDataManager(VUEngine::getInstance());
+	ListenerObject saveDataManager = VUEngine::getSaveDataManager();
 
 	I18n::setActiveLanguage(I18n::getInstance(), this->selection);
 	if(saveDataManager)
@@ -298,9 +298,9 @@ Actor LanguageSelectionScreenState::addFlagToStage(ActorSpec* actorSpec, uint8 p
 	};
 
 #ifdef __LEGACY_COORDINATE_PROJECTION
-	return Stage::spawnChildActor(VUEngine::getStage(VUEngine::getInstance()), &flagPositionedActor, true);
+	return Stage::spawnChildActor(VUEngine::getStage(), &flagPositionedActor, true);
 #else
-	UIContainer uiContainer = VUEngine::getUIContainer(VUEngine::getInstance());
+	UIContainer uiContainer = VUEngine::getUIContainer();
 	return UIContainer::spawnChildActor(uiContainer, &flagPositionedActor);
 #endif
 }

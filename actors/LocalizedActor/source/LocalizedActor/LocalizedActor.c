@@ -31,7 +31,7 @@ void LocalizedActor::constructor(const LocalizedActorSpec* localizedActorSpec, i
 	// Add event listeners
 	GameState::addEventListener
 	(
-		VUEngine::getCurrentState(VUEngine::getInstance()), ListenerObject::safeCast(this), 
+		VUEngine::getCurrentState(), ListenerObject::safeCast(this), 
 		(EventListener)LocalizedActor::onLanguageChanged, kEventLanguageChanged
 	);
 }
@@ -43,7 +43,7 @@ void LocalizedActor::destructor()
 	// Remove event listeners
 	GameState::removeEventListener
 	(
-		VUEngine::getCurrentState(VUEngine::getInstance()), ListenerObject::safeCast(this), 
+		VUEngine::getCurrentState(), ListenerObject::safeCast(this), 
 		(EventListener)LocalizedActor::onLanguageChanged, kEventLanguageChanged
 	);
 

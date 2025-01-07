@@ -52,7 +52,7 @@ void LowPowerManager::destructor()
 
 	Clock::removeEventListener
 	(
-		VUEngine::getClock(VUEngine::getInstance()), ListenerObject::safeCast(this), 
+		VUEngine::getClock(), ListenerObject::safeCast(this), 
 		(EventListener)LowPowerManager::onSecondChange, kEventSecondChanged
 	);
 
@@ -86,7 +86,7 @@ void LowPowerManager::setActive(bool active)
 		
 		Clock::removeEventListener
 		(
-			VUEngine::getClock(VUEngine::getInstance()), ListenerObject::safeCast(this), 
+			VUEngine::getClock(), ListenerObject::safeCast(this), 
 			(EventListener)LowPowerManager::onSecondChange, kEventSecondChanged
 		);
 	}
@@ -98,7 +98,7 @@ bool LowPowerManager::onKeypadManagerRaisedPowerFlag(ListenerObject eventFirer _
 {
 	Clock::addEventListener
 	(
-		VUEngine::getClock(VUEngine::getInstance()), ListenerObject::safeCast(this), 
+		VUEngine::getClock(), ListenerObject::safeCast(this), 
 		(EventListener)LowPowerManager::onSecondChange, kEventSecondChanged
 	);
 

@@ -428,12 +428,12 @@ static void PostProcessingRain::calculateRainPrecipitation
 		1, 0, -1, 0,
 	};
 
-	if(isDeleted(VUEngine::getCurrentState(VUEngine::getInstance())))
+	if(isDeleted(VUEngine::getCurrentState()))
 	{
 		return;
 	}
 
-	uint32 currentTime = Clock::getMilliseconds(GameState::getLogicsClock(VUEngine::getCurrentState(VUEngine::getInstance())));
+	uint32 currentTime = Clock::getMilliseconds(GameState::getLogicsClock(VUEngine::getCurrentState()));
 
 	if((currentTime - previousTime) / 1000 > timePeriod[timePeriodIndex])
 	{

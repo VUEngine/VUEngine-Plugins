@@ -48,7 +48,7 @@ void AutomaticPauseSelectionScreenState::processUserInput(const UserInput* userI
 	}
 	else if(userInput->pressedKey & (K_A | K_STA))
 	{
-		ListenerObject saveDataManager = VUEngine::getSaveDataManager(VUEngine::getInstance());
+		ListenerObject saveDataManager = VUEngine::getSaveDataManager();
 
 		AutomaticPauseManager::setActive(AutomaticPauseManager::getInstance(), this->selection);
 		
@@ -67,7 +67,7 @@ void AutomaticPauseSelectionScreenState::processUserInput(const UserInput* userI
 
 void AutomaticPauseSelectionScreenState::print()
 {
-	ListenerObject saveDataManager = VUEngine::getSaveDataManager(VUEngine::getInstance());
+	ListenerObject saveDataManager = VUEngine::getSaveDataManager();
 
 	this->selection = saveDataManager
 		? SaveDataManager::getAutomaticPauseStatus(saveDataManager)

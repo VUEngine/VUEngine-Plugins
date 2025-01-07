@@ -57,7 +57,7 @@ void SplashScreenState::enter(void* owner)
 	// Start clocks to start animations
 	SplashScreenState::startClocks(this);
 
-	VUEngine::disableKeypad(VUEngine::getInstance());
+	VUEngine::disableKeypad();
 
 	// Start fade in effect
 	Camera::startEffect(kHide);
@@ -99,7 +99,7 @@ void SplashScreenState::resume(void* owner)
 
 	SplashScreenState::print(this);
 
-	VUEngine::disableKeypad(VUEngine::getInstance());
+	VUEngine::disableKeypad();
 
 	// Start fade in effect
 	Camera::startEffect(kHide);
@@ -142,7 +142,7 @@ void SplashScreenState::setNextState(GameState nextState)
 void SplashScreenState::loadNextState()
 {
 	// Disable user input
-	VUEngine::disableKeypad(VUEngine::getInstance());
+	VUEngine::disableKeypad();
 
 	// Start fade out effect
 	Brightness brightness = (Brightness){0, 0, 0};
@@ -172,7 +172,7 @@ void SplashScreenState::print()
 bool SplashScreenState::onFadeInComplete(ListenerObject eventFirer __attribute__ ((unused)))
 {
 	// Enable user input
-	VUEngine::enableKeypad(VUEngine::getInstance());
+	VUEngine::enableKeypad();
 
 	return false;
 }
@@ -182,7 +182,7 @@ bool SplashScreenState::onFadeInComplete(ListenerObject eventFirer __attribute__
 bool SplashScreenState::onFadeOutComplete(ListenerObject eventFirer __attribute__ ((unused)))
 {
 	// Switch to next stage
-	VUEngine::changeState(VUEngine::getInstance(), this->nextState);
+	VUEngine::changeState(this->nextState);
 
 	return false;
 }

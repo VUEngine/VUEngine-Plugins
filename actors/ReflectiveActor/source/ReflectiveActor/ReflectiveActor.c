@@ -762,7 +762,7 @@ void ReflectiveActor::constructor(ReflectiveActorSpec* reflectiveActorSpec, int1
 void ReflectiveActor::destructor()
 {
 	// Remove post processing effect
-	VUEngine::removePostProcessingEffect(VUEngine::getInstance(), ReflectiveActor::reflect, Entity::safeCast(this));
+	VUEngine::removePostProcessingEffect(ReflectiveActor::reflect, Entity::safeCast(this));
 
 	// Always explicitly call the base's destructor 
 	Base::destructor();
@@ -775,7 +775,7 @@ void ReflectiveActor::ready(bool recursive)
 	Base::ready(this, recursive);
 
 	// Add post processing effect
-	VUEngine::pushFrontPostProcessingEffect(VUEngine::getInstance(), ReflectiveActor::reflect, Entity::safeCast(this));
+	VUEngine::pushFrontPostProcessingEffect(ReflectiveActor::reflect, Entity::safeCast(this));
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -785,7 +785,7 @@ void ReflectiveActor::suspend()
 	Base::suspend(this);
 
 	// Remove post processing effect
-	VUEngine::removePostProcessingEffect(VUEngine::getInstance(), ReflectiveActor::reflect, Entity::safeCast(this));
+	VUEngine::removePostProcessingEffect(ReflectiveActor::reflect, Entity::safeCast(this));
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -795,7 +795,7 @@ void ReflectiveActor::resume()
 	Base::resume(this);
 
 	// Add post processing effect
-	VUEngine::pushFrontPostProcessingEffect(VUEngine::getInstance(), ReflectiveActor::reflect, Entity::safeCast(this));
+	VUEngine::pushFrontPostProcessingEffect(ReflectiveActor::reflect, Entity::safeCast(this));
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

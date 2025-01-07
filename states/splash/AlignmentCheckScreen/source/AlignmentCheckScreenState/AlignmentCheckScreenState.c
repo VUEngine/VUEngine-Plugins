@@ -55,10 +55,10 @@ void AlignmentCheckScreenState::processUserInput(const UserInput* userInput)
 	// Any button quits the screen
 	if(userInput->pressedKey & ~K_PWR)
 	{
-		if(VUEngine::isPaused(VUEngine::getInstance()))
+		if(VUEngine::isPaused())
 		{
 			Camera::startEffect(kFadeOut, __FADE_DELAY);
-			VUEngine::unpause(VUEngine::getInstance(), GameState::safeCast(this));
+			VUEngine::unpause(GameState::safeCast(this));
 		}
 		else
 		{
