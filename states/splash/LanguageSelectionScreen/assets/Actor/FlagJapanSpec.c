@@ -100,8 +100,7 @@ BgmapSpriteROMSpec FlagJapanSpriteSpec =
 		{0, 0, 0, 0},
 	},
 
-	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
-	// make sure to use the proper corresponding sprite type throughout the spec (BgmapSprite or ObjectSprite)
+	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE or __WORLD_HBIAS)
 	__WORLD_BGMAP,
 
 	// Pointer to affine/hbias manipulation function
@@ -144,4 +143,3 @@ ActorROMSpec FlagJapanActorSpec =
 	// Animation to play automatically
 	NULL
 };
-

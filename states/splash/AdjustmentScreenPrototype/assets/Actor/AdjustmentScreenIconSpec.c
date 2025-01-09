@@ -100,8 +100,7 @@ BgmapSpriteROMSpec AdjustmentScreenIconLSpriteSpec =
 		{0, 0, 0, 0},
 	},
 
-	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
-	// make sure to use the proper corresponding sprite type throughout the spec (BgmapSprite or ObjectSprite)
+	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE or __WORLD_HBIAS)
 	__WORLD_BGMAP,
 
 	// Pointer to affine/hbias manipulation function
@@ -133,8 +132,7 @@ BgmapSpriteROMSpec const AdjustmentScreenIconRSpriteSpec =
 		{0, 0, 0, 0},
 	},
 
-	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
-	// make sure to use the proper corresponding sprite type throughout the spec (BgmapSprite or ObjectSprite)
+	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE or __WORLD_HBIAS)
 	__WORLD_BGMAP,
 
 	// Pointer to affine/hbias manipulation function
@@ -178,7 +176,6 @@ ActorROMSpec AdjustmentScreenIconLActorSpec =
 	NULL
 };
 
-
 ComponentSpec* const AdjustmentScreenIconRActorComponentSpecs[] = 
 {
 	(ComponentSpec*)&AdjustmentScreenIconRSpriteSpec,
@@ -212,4 +209,3 @@ ActorROMSpec AdjustmentScreenIconRActorSpec =
 	// Animation to play automatically
 	NULL
 };
-
