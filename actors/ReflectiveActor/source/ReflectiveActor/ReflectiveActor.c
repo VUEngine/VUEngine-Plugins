@@ -27,12 +27,12 @@
 
 static inline uint32 ReflectiveActor::reverse(uint32 number, int32 bits)
 {
-    number = ((number & 0x55555555) << 1) | ((number & 0xAAAAAAAA) >> 1);
-    number = ((number & 0x33333333) << 2) | ((number & 0xCCCCCCCC) >> 2);
-    number = ((number & 0x0F0F0F0F) << 4) | ((number & 0xF0F0F0F0) >> 4);
-    number = ((number & 0x00FF00FF) << 8) | ((number & 0xFF00FF00) >> 8);
-    number = ((number & 0x0000FFFF) << 16) | ((number & 0xFFFF0000) >> 16);
-    return number >> ((sizeof(uint32) << 3) - bits);
+	number = ((number & 0x55555555) << 1) | ((number & 0xAAAAAAAA) >> 1);
+	number = ((number & 0x33333333) << 2) | ((number & 0xCCCCCCCC) >> 2);
+	number = ((number & 0x0F0F0F0F) << 4) | ((number & 0xF0F0F0F0) >> 4);
+	number = ((number & 0x00FF00FF) << 8) | ((number & 0xFF00FF00) >> 8);
+	number = ((number & 0x0000FFFF) << 16) | ((number & 0xFFFF0000) >> 16);
+	return number >> ((sizeof(uint32) << 3) - bits);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -131,19 +131,19 @@ void ReflectiveActor::drawReflection(uint32 currentDrawingFrameBufferSet,
 	uint32 rightBorderMask,
 	int16 noisePasses)
 {
-    int16 xSourceEnd = xSourceStart + width;
-    int16 ySourceEnd = ySourceStart + height;
+	int16 xSourceEnd = xSourceStart + width;
+	int16 ySourceEnd = ySourceStart + height;
 	int16 xOutputEnd = xOutputStart + width;
 	int16 yOutputEnd = yOutputStart + height;
 
 /*
-    int16 xSourceStartTemp = xSourceStart;
-    int16 ySourceStartTemp = ySourceStart;
+	int16 xSourceStartTemp = xSourceStart;
+	int16 ySourceStartTemp = ySourceStart;
 	int16 xOutputStartTemp = xOutputStart;
 	int16 yOutputStartTemp = yOutputStart;
 
-    int16 xSourceEndTemp = xSourceEnd;
-    int16 ySourceEndTemp = ySourceEnd;
+	int16 xSourceEndTemp = xSourceEnd;
+	int16 ySourceEndTemp = ySourceEnd;
 	int16 xOutputEndTemp = xOutputEnd;
 	int16 yOutputEndTemp = yOutputEnd;
 */
@@ -297,7 +297,7 @@ void ReflectiveActor::drawReflection(uint32 currentDrawingFrameBufferSet,
 		ySourceIncrement = -1;
 	}
 
-    int32 ySourceStartHelper = ySourceStart >> REFLECTIVE_ACTOR_Y_STEP_SIZE_2_EXP;
+	int32 ySourceStartHelper = ySourceStart >> REFLECTIVE_ACTOR_Y_STEP_SIZE_2_EXP;
 
 	int32 xSourceDistance = __ABS(xSourceEnd - xSourceStart);
 	int32 xOutputDistance = __ABS(xOutput - xOutputLimit);

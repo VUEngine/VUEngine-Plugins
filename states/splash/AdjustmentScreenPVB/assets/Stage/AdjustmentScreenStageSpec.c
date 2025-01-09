@@ -43,16 +43,16 @@ PositionedActorROMSpec AdjustmentScreenStageUiActors[] =
 #endif
 
 #ifdef __LEGACY_COORDINATE_PROJECTION
-	{&AdjustmentScreenIconLActorSpec, 	{   8,    8,  0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&AdjustmentScreenIconLActorSpec, 	{   8,	8,  0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 	{&AdjustmentScreenIconRActorSpec, 	{   8,  216,  0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 	{&AdjustmentScreenBgActorSpec, 	{ 192,  112, 16}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 	{&AdjustmentScreenLogoActorSpec, 	{ 192,  110,  0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 	{&AdjustmentScreenIconLActorSpec, 	{ 376,  216,  0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
-	{&AdjustmentScreenIconRActorSpec, 	{ 376,    8,  0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&AdjustmentScreenIconRActorSpec, 	{ 376,	8,  0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 #else
 	{&AdjustmentScreenIconLActorSpec, 	{-184, -104,  0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 	{&AdjustmentScreenIconRActorSpec, 	{-184,  104,  0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
-	{&AdjustmentScreenBgActorSpec, 	{   0,    0, 16}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&AdjustmentScreenBgActorSpec, 	{   0,	0, 16}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 	{&AdjustmentScreenLogoActorSpec, 	{   0,   -2,  0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 	{&AdjustmentScreenIconLActorSpec, 	{ 184,  104,  0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 	{&AdjustmentScreenIconRActorSpec, 	{ 184, -104,  0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
@@ -116,20 +116,20 @@ StageROMSpec AdjustmentScreenStage =
 		},
 
 		// Camera's frustum
-        {
-        	// x0
-        	0,
-        	// y0
+		{
+			// x0
+			0,
+			// y0
 			0,
 			// z0
 			-10,
-        	// x1
-        	__SCREEN_WIDTH,
-        	// y1
-        	__SCREEN_HEIGHT,
-        	// z1
-        	__SCREEN_WIDTH * 5,
-        }
+			// x1
+			__SCREEN_WIDTH,
+			// y1
+			__SCREEN_HEIGHT,
+			// z1
+			__SCREEN_WIDTH * 5,
+		}
 	},
 
 	// Streaming

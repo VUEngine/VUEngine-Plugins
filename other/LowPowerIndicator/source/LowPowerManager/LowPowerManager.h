@@ -46,12 +46,12 @@ singleton class LowPowerManager : ListenerObject
 
 	/// De/activate indicator.
 	/// @param active	Set as active or inactive?
-    void setActive(bool active);
+	void setActive(bool active);
 
 	/// Sets the position of the low power indicator.
 	/// @param x: X position (in tiles)
 	/// @param y: Y position (in tiles)
-    void setPosition(uint8 x, uint8 y);
+	void setPosition(uint8 x, uint8 y);
 
 	/// @privatesection
 

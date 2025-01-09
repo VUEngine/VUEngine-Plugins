@@ -63,7 +63,7 @@ singleton class AutomaticPauseManager : ListenerObject
 	/// Activate/deactivate the automatic pause feature.
 	/// @param active: If true, the game will pause automatically after the
 	/// configured elapsed time
-    void setActive(bool active);
+	void setActive(bool active);
 
 	/// Retrieve the activation state for the automatic pause feature.
 	/// @return True if the the automatic pause feature is enabled; false otherwise

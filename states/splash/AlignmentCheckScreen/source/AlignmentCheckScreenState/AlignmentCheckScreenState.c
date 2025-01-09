@@ -29,7 +29,7 @@ extern StageROMSpec AlignmentCheckScreenStage;
 
 const uint32 AlignmentCheckButtonSequence[__PLUGIN_ALIGNMENT_CHECK_BUTTON_SEQUENCE_LENGTH] =
 {
-    K_RL, K_B, K_RD, K_A, K_RU
+	K_RL, K_B, K_RD, K_A, K_RU
 };
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

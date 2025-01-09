@@ -89,20 +89,20 @@ StageROMSpec LanguageSelectionScreenStage =
 		},
 
 		// Camera's frustum
-        {
-        	// x0
-        	0,
-        	// y0
+		{
+			// x0
+			0,
+			// y0
 			0,
 			// z0
 			-10,
-        	// x1
-        	__SCREEN_WIDTH,
-        	// y1
-        	__SCREEN_HEIGHT,
-        	// z1
-        	__SCREEN_WIDTH * 5,
-        }
+			// x1
+			__SCREEN_WIDTH,
+			// y1
+			__SCREEN_HEIGHT,
+			// z1
+			__SCREEN_WIDTH * 5,
+		}
 	},
 
 	// Streaming
