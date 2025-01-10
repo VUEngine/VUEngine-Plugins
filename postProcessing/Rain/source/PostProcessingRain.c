@@ -108,7 +108,8 @@ static void PostProcessingRain::rain
 	// Must account for the camera displacement
 	yStepThrottle -= yScreenDisplacement;
 
-	PostProcessingRain::waterStream(
+	PostProcessingRain::waterStream
+	(
 		currentDrawingFrameBufferSet,
 		0,
 		__SCREEN_WIDTH - 1,
@@ -190,7 +191,8 @@ static void PostProcessingRain::thinRain
 		8, 5, 7, 3, 4, 4, 7, 8, 4, 7, 5, 3,
 	};
 
-	PostProcessingRain::waterStream(
+	PostProcessingRain::waterStream
+	(
 		currentDrawingFrameBufferSet,
 		__METERS_TO_PIXELS(position.x) - (width >> 1),
 		__METERS_TO_PIXELS(position.x) + (width >> 1),

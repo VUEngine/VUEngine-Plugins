@@ -74,13 +74,15 @@ bool PrecautionScreenState::processMessage(void* owner __attribute__ ((unused)),
 void PrecautionScreenState::print()
 {
 	const char* strBody = I18n::getText(I18n::getInstance(), kStringPrecautionScreenBody);
-	FontSize textSize = Printing::getTextSize(
+	FontSize textSize = Printing::getTextSize
+	(
 		
 		strBody,
 		__PLUGIN_PRECAUTION_SCREEN_TEXT_FONT
 	);
 
-	Printing::text(
+	Printing::text
+	(
 		
 		strBody,
 		(__HALF_SCREEN_WIDTH_IN_CHARS) - (textSize.x >> 1),

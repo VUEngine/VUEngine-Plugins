@@ -142,7 +142,7 @@ class ReflectiveActor : Actor
 
 	/// @publicsection
 
-	/// @param reflectiveActorSpec: Specification that determines how to configure the statefulActor
+	/// @param reflectiveActorSpec: Specification that determines how to configure the actor
 	/// @param internalId: ID to keep track internally of the new instance
 	/// @param name: Name to assign to the new instance
 	void constructor(ReflectiveActorSpec* reflectiveActorSpec, int16 internalId, const char* const name);

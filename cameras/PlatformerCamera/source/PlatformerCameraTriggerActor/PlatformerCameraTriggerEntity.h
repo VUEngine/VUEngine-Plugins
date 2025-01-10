@@ -45,7 +45,7 @@ class PlatformerCameraTriggerActor : Actor
 
 	/// @publicsection
 
-	/// @param cameraActorSpec: Specification that determines how to configure the statefulActor
+	/// @param cameraActorSpec: Specification that determines how to configure the actor
 	/// @param internalId: ID to keep track internally of the new instance
 	/// @param name: Name to assign to the new instance
 	void constructor(PlatformerCameraTriggerActorSpec* cameraActorSpec, int16 internalId, const char* const name);

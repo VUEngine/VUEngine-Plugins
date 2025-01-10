@@ -44,10 +44,11 @@ typedef const LowPowerActorSpec LowPowerActorROMSpec;
 /// language.
 class LowPowerActor : Actor
 {
-	/// @param lowPowerActorSpec: Specification that determines how to configure the statefulActor
+	/// @param lowPowerActorSpec: Specification that determines how to configure the actor
 	/// @param internalId: ID to keep track internally of the new instance
 	/// @param name: Name to assign to the new instance
-	void constructor(
+	void constructor
+	(
 		const LowPowerActorSpec* lowPowerActorSpec, int16 internalId, const char* const name
 	);
 }

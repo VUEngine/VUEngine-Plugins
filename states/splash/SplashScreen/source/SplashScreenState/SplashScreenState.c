@@ -61,7 +61,8 @@ void SplashScreenState::enter(void* owner)
 
 	// Start fade in effect
 	Camera::startEffect(kHide);
-	Camera::startEffect(
+	Camera::startEffect
+	(
 		kFadeTo, // effect type
 		0, // initial delay (in ms)
 		NULL, // target brightness
@@ -103,7 +104,8 @@ void SplashScreenState::resume(void* owner)
 
 	// Start fade in effect
 	Camera::startEffect(kHide);
-	Camera::startEffect(
+	Camera::startEffect
+	(
 		kFadeTo, // effect type
 		0, // initial delay (in ms)
 		NULL, // target brightness
@@ -146,7 +148,8 @@ void SplashScreenState::loadNextState()
 
 	// Start fade out effect
 	Brightness brightness = (Brightness){0, 0, 0};
-	Camera::startEffect(
+	Camera::startEffect
+	(
 		kFadeTo, // effect type
 		0, // initial delay (in ms)
 		&brightness, // target brightness

@@ -101,7 +101,8 @@ void ShaderSprite::processEffects()
 
 void ShaderSprite::copyBufferTo(WORD* bufferAddress, WORD* destinationAddress)
 {
-	Mem::copyWORD(
+	Mem::copyWORD
+	(
 		destinationAddress,
 		bufferAddress,
 		__BYTES_PER_CHARS(CharSet::getNumberOfChars(this->charSet)) / sizeof(WORD)
@@ -124,7 +125,8 @@ void ShaderSprite::clear(WORD* destinationAddress)
 {
 	extern uint32 ShaderTiles[];
 
-	ShaderSprite::addWORD(
+	ShaderSprite::addWORD
+	(
 		destinationAddress,
 		(WORD*)(ShaderTiles),
 		__BYTES_PER_CHARS(CharSet::getNumberOfChars(this->charSet)) / sizeof(WORD),
@@ -141,7 +143,8 @@ void ShaderSprite::drawRandom(WORD* destinationAddress)
 	static int32 increment = 0;
 	increment++;
 
-	ShaderSprite::addWORD(
+	ShaderSprite::addWORD
+	(
 		destinationAddress,
 		(WORD*)(ShaderTiles),
 		__BYTES_PER_CHARS(CharSet::getNumberOfChars(this->charSet)) / sizeof(WORD),
@@ -222,7 +225,8 @@ void ShaderSprite::drawPixel(WORD* bufferAddress, uint16 x, uint16 y, int32 colo
 	//	newTile[tileRow] = 0x0F0F;
 	}
 
-	Mem::copyWORD(
+	Mem::copyWORD
+	(
 		(WORD*)(bufferAddress + (tile << 2)),
 		(WORD*)newTile,
 		__BYTES_PER_CHARS(1) / sizeof(WORD)

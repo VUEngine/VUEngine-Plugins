@@ -45,7 +45,7 @@ class LocalizedActor : Actor
 {
 	/// @publicsection
 
-	/// @param localizedActorSpec: Specification that determines how to configure the statefulActor
+	/// @param localizedActorSpec: Specification that determines how to configure the actor
 	/// @param internalId: ID to keep track internally of the new instance
 	/// @param name: Name to assign to the new instance
 	void constructor(const LocalizedActorSpec* localizedActorSpec, int16 internalId, const char* const name);

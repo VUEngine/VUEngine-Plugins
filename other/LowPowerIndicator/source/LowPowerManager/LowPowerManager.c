@@ -140,7 +140,8 @@ bool LowPowerManager::onSecondChange(ListenerObject eventFirer __attribute__ ((u
 
 void LowPowerManager::printLowPowerIndicator(bool showIndicator)
 {
-	Printing::text(
+	Printing::text
+	(
 		
 		(showIndicator) ? __PLUGIN_LOW_POWER_INDICATOR_ON_TEXT : __PLUGIN_LOW_POWER_INDICATOR_OFF_TEXT,
 		this->indicatorXPos,

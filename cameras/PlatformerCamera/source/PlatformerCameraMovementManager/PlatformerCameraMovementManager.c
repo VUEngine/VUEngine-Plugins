@@ -14,7 +14,7 @@
 #include <Optics.h>
 #include <Camera.h>
 #include <MessageDispatcher.h>
-#include <StatefulActor.h>
+#include <Actor.h>
 #include <VUEngine.h>
 #include <BodyManager.h>
 #include <InverseBox.h>
@@ -276,9 +276,9 @@ Vector3D PlatformerCameraMovementManager::doFocus(Camera camera, uint32 introFoc
 		return Camera::getPosition(camera);
 	}
 
-	StatefulActor focusStatefulActor = StatefulActor::safeCast(Camera::getFocusActor(camera));
+	Actor focusActor = Actor::safeCast(Camera::getFocusActor(camera));
 
-	NormalizedDirection normalizedDirection = Actor::getNormalizedDirection(focusStatefulActor);
+	NormalizedDirection normalizedDirection = Actor::getNormalizedDirection(focusActor);
 
 	Vector3D cameraNewPosition = Camera::getPosition(camera);
 
@@ -360,7 +360,7 @@ Vector3D PlatformerCameraMovementManager::doFocus(Camera camera, uint32 introFoc
 			}
 			else
 			{
-				Vector3D velocity = *StatefulActor::getVelocity(focusStatefulActor);
+				Vector3D velocity = *Actor::getVelocity(focusActor);
 
 				if(0 < velocity.y)
 				{
