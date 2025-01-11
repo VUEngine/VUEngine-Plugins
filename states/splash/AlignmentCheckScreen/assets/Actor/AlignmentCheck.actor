@@ -1,6 +1,6 @@
 {
     "_id": "Ev2ACaNDcK0JNc9J",
-    "_version": "0.6.0",
+    "_version": "1.0.0",
     "animations": {
         "default": 0,
         "multiframe": false,
@@ -184,5 +184,8 @@
             "z": 0
         },
         "rotationAxes": []
+    },
+    "sprites": {
+        "type": "Bgmap"
     }
 }
