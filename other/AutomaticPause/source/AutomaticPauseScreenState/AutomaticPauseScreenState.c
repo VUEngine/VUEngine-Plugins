@@ -44,8 +44,8 @@ void AutomaticPauseScreenState::enter(void* owner __attribute__ ((unused)))
 	GameState::configureStage(this, (StageSpec*)&AutomaticPauseScreenStage, NULL);
 
 	// Print text
-	const char* strTitle = I18n::getText(I18n::getInstance(), kStringAutomaticPauseTitle);
-	const char* strBody = I18n::getText(I18n::getInstance(), kStringAutomaticPauseBody);
+	const char* strTitle = I18n::getText(I18n::getInstance(NULL), kStringAutomaticPauseTitle);
+	const char* strBody = I18n::getText(I18n::getInstance(NULL), kStringAutomaticPauseBody);
 
 	FontSize strAutomaticPauseSize = Printing::getTextSize
 	(

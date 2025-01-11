@@ -31,7 +31,7 @@ dynamic_singleton class AdjustmentScreenState : SplashScreenState
 
 	/// Method to retrieve the singleton instance
 	/// @return AdjustmentScreenState singleton
-	static AdjustmentScreenState getInstance(void);
+	static AdjustmentScreenState getInstance(ClassPointer requesterClass);
 
 	/// Prepares the object to enter this state.
 	/// @param owner: Object that is entering in this state

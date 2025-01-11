@@ -42,7 +42,7 @@ singleton class LowPowerManager : ListenerObject
 
 	/// Method to retrieve the singleton instance
 	/// @return Error singleton
-	static LowPowerManager getInstance();
+	static LowPowerManager getInstance(ClassPointer requesterClass);
 
 	/// De/activate indicator.
 	/// @param active	Set as active or inactive?

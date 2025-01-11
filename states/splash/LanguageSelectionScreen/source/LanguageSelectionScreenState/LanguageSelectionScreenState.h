@@ -46,7 +46,7 @@ dynamic_singleton class LanguageSelectionScreenState: SplashScreenState
 
 	/// Method to retrieve the singleton instance
 	/// @return LanguageSelectionScreenState singleton
-	static LanguageSelectionScreenState getInstance();
+	static LanguageSelectionScreenState getInstance(ClassPointer requesterClass);
 
 	/// Prepares the object to enter this state.
 	/// @param owner: Object that is entering in this state

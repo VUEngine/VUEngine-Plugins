@@ -47,12 +47,12 @@ void LanguageSelectionScreenState::enter(void* owner)
 	ListenerObject saveDataManager = VUEngine::getSaveDataManager();
 
 	// Get active language from sram
-	uint8 activeLanguage = I18n::getActiveLanguage(I18n::getInstance());
+	uint8 activeLanguage = I18n::getActiveLanguage(I18n::getInstance(NULL));
 	if(saveDataManager)
 	{
 		activeLanguage = SaveDataManager::getLanguage(saveDataManager);
 	}
-	I18n::setActiveLanguage(I18n::getInstance(), activeLanguage);
+	I18n::setActiveLanguage(I18n::getInstance(NULL), activeLanguage);
 	this->selection = activeLanguage;
 
 	#if(__PLUGIN_LANGUAGE_SELECTION_SCREEN_VARIANT == 0)
@@ -127,7 +127,7 @@ void LanguageSelectionScreenState::processUserInput(const UserInput* userInput)
 
 void LanguageSelectionScreenState::print()
 {
-	const char* strTitle = I18n::getText(I18n::getInstance(), kStringLanguageSelectTitle);
+	const char* strTitle = I18n::getText(I18n::getInstance(NULL), kStringLanguageSelectTitle);
 	#if(__PLUGIN_LANGUAGE_SELECTION_SCREEN_VARIANT == 0)
 
 		// Print header
@@ -148,7 +148,7 @@ void LanguageSelectionScreenState::print()
 		Printing::text(strTitle, strHeaderXPos, strHeaderYPos, __PLUGIN_LANGUAGE_SELECTION_SCREEN_TITLE_TEXT_FONT);
 
 		// Print language
-		char* strLanguageName = I18n::getActiveLanguageName(I18n::getInstance());
+		char* strLanguageName = I18n::getActiveLanguageName(I18n::getInstance(NULL));
 		FontSize strLanguageNameSize = Printing::getTextSize(strLanguageName, __PLUGIN_LANGUAGE_SELECTION_SCREEN_LANGUAGE_NAME_FONT);
 		int32 strLanguageNameXPos = (__HALF_SCREEN_WIDTH_IN_CHARS) - (strLanguageNameSize.x >> 1);
 		int32 strLanguageNameYPos = ((LanguageSelectionScreenState::getFlagYPosition(this) + __PLUGIN_LANGUAGE_SELECTION_SCREEN_IMAGE_HEIGHT) >> 3) - 1;
@@ -256,7 +256,7 @@ void LanguageSelectionScreenState::persistChoice()
 {
 	ListenerObject saveDataManager = VUEngine::getSaveDataManager();
 
-	I18n::setActiveLanguage(I18n::getInstance(), this->selection);
+	I18n::setActiveLanguage(I18n::getInstance(NULL), this->selection);
 	if(saveDataManager)
 	{
 		SaveDataManager::setLanguage(saveDataManager, this->selection);

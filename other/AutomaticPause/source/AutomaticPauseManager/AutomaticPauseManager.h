@@ -46,7 +46,7 @@ singleton class AutomaticPauseManager : ListenerObject
 
 	/// Method to retrieve the singleton instance
 	/// @return AutomaticPauseManager singleton
-	static AutomaticPauseManager getInstance();
+	static AutomaticPauseManager getInstance(ClassPointer requesterClass);
 
 	/// Set the state that the game must transition to when pausing it.
 	/// @param automaticPauseState: State that the game must transition to when pausing it

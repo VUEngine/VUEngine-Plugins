@@ -87,7 +87,7 @@ singleton class PlatformerCameraMovementManager : CameraMovementManager
 
 	/// Method to retrieve the singleton instance
 	/// @return CameraMovementManager singleton
-	static PlatformerCameraMovementManager getInstance();
+	static PlatformerCameraMovementManager getInstance(ClassPointer requesterClass);
 
 	/// Focus the camera on the focus actor if any.
 	/// @param camera: Camera to focus

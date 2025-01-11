@@ -70,7 +70,7 @@ void LocalizedActor::ready(bool recursive)
 
 void LocalizedActor::localize()
 {
-	LocalizedActor::playAnimation(this, Utilities::itoa(I18n::getActiveLanguage(I18n::getInstance()), 10, 1));
+	LocalizedActor::playAnimation(this, Utilities::itoa(I18n::getActiveLanguage(I18n::getInstance(NULL)), 10, 1));
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

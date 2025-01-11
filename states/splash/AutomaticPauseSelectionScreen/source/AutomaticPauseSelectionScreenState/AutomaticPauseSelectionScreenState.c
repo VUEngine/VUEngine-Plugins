@@ -50,7 +50,7 @@ void AutomaticPauseSelectionScreenState::processUserInput(const UserInput* userI
 	{
 		ListenerObject saveDataManager = VUEngine::getSaveDataManager();
 
-		AutomaticPauseManager::setActive(AutomaticPauseManager::getInstance(), this->selection);
+		AutomaticPauseManager::setActive(AutomaticPauseManager::getInstance(NULL), this->selection);
 		
 		if(saveDataManager)
 		{
@@ -73,14 +73,14 @@ void AutomaticPauseSelectionScreenState::print()
 		? SaveDataManager::getAutomaticPauseStatus(saveDataManager)
 		: 0;
 
-	const char* strAutomaticPauseTitle = I18n::getText(I18n::getInstance(), kStringAutomaticPauseSelectionTitle);
+	const char* strAutomaticPauseTitle = I18n::getText(I18n::getInstance(NULL), kStringAutomaticPauseSelectionTitle);
 	FontSize strAutomaticPauseSize = 
 		Printing::getTextSize
 		(
 			strAutomaticPauseTitle, __PLUGIN_AUTOMATIC_PAUSE_SELECTION_SCREEN_TITLE_TEXT_FONT
 		);
 
-	const char* strAutomaticPauseExplanation = I18n::getText(I18n::getInstance(), kStringAutomaticPauseSelectionBody);
+	const char* strAutomaticPauseExplanation = I18n::getText(I18n::getInstance(NULL), kStringAutomaticPauseSelectionBody);
 	FontSize strAutomaticPauseExplanationSize = 
 		Printing::getTextSize
 		(
@@ -136,8 +136,8 @@ void AutomaticPauseSelectionScreenState::destructor()
 void AutomaticPauseSelectionScreenState::renderSelection()
 {
 	// Get strings and determine sizes
-	const char* strOn = I18n::getText(I18n::getInstance(), kStringAutomaticPauseSelectionOn);
-	const char* strOff = I18n::getText(I18n::getInstance(), kStringAutomaticPauseSelectionOff);
+	const char* strOn = I18n::getText(I18n::getInstance(NULL), kStringAutomaticPauseSelectionOn);
+	const char* strOff = I18n::getText(I18n::getInstance(NULL), kStringAutomaticPauseSelectionOff);
 	
 	FontSize strOnSize = 
 		Printing::getTextSize(strOn, __PLUGIN_AUTOMATIC_PAUSE_SELECTION_SCREEN_OPTIONS_TEXT_FONT);

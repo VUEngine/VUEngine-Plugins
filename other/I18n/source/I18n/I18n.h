@@ -79,7 +79,7 @@ singleton class I18n : ListenerObject
 
 	/// Method to retrieve the singleton instance
 	/// @return I18n singleton
-	static I18n getInstance();
+	static I18n getInstance(ClassPointer requesterClass);
 
 	/// Set the active language.
 	/// @param languageId: ID of the language to make active

@@ -146,7 +146,7 @@ void PlatformerCameraTriggerActor::resume()
 	Camera::focus();
 
 	Vector3DFlag positionFlag = {true, true, true};
-	PlatformerCameraMovementManager::setPositionFlag(PlatformerCameraMovementManager::getInstance(), positionFlag);
+	PlatformerCameraMovementManager::setPositionFlag(PlatformerCameraMovementManager::getInstance(NULL), positionFlag);
 
 	PlatformerCameraTriggerActor::lockMovement(this, __X_AXIS | __Y_AXIS, true);
 }
@@ -179,7 +179,7 @@ void PlatformerCameraTriggerActor::lockMovement(uint8 axisToLockUp, bool locked)
 {
 	Vector3DFlag overridePositionFlag = PlatformerCameraTriggerActor::getOverridePositionFlag(this);
 
-	Vector3DFlag positionFlag = PlatformerCameraMovementManager::getPositionFlag(PlatformerCameraMovementManager::getInstance());
+	Vector3DFlag positionFlag = PlatformerCameraMovementManager::getPositionFlag(PlatformerCameraMovementManager::getInstance(NULL));
 
 	if(__X_AXIS & axisToLockUp)
 	{
@@ -194,7 +194,7 @@ void PlatformerCameraTriggerActor::lockMovement(uint8 axisToLockUp, bool locked)
 	}
 
 	PlatformerCameraTriggerActor::setOverridePositionFlag(this, overridePositionFlag);
-	PlatformerCameraMovementManager::setPositionFlag(PlatformerCameraMovementManager::getInstance(), positionFlag);
+	PlatformerCameraMovementManager::setPositionFlag(PlatformerCameraMovementManager::getInstance(NULL), positionFlag);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
