@@ -81,7 +81,7 @@ bool ShaderSprite::hasSpecialEffects()
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void ShaderSprite::processEffects()
+void ShaderSprite::processEffects(int32 maximumParamTableRowsToComputePerCall)
 {
 	if(isDeleted(this->charSet))
 	{

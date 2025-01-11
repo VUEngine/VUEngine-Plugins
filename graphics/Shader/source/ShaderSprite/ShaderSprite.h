@@ -71,7 +71,9 @@ class ShaderSprite : BgmapSprite
 	override bool hasSpecialEffects();
 
 	/// Process special effects.
-	override void processEffects();
+	/// @param maximumParamTableRowsToComputePerCall: Used to defer param table computations 
+	/// (-1 to compute the whole table)
+	override void processEffects(int32 maximumParamTableRowsToComputePerCall);
 }
 
 #endif
