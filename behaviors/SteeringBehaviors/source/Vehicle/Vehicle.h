@@ -76,7 +76,7 @@ class Vehicle : Actor
 	/// @param vehicleSpec: Specification that determines how to configure the vehicle
 	/// @param internalId: ID to keep track internally of the new instance
 	/// @param name: Name to assign to the new instance
-	void constructor(VehicleSpec* vehicleSpec, int16 internalId, const char* const name);
+	void constructor(const VehicleSpec* vehicleSpec, int16 internalId, const char* const name);
 
 	/// Retrieve the object's radius.
 	/// @return Radius

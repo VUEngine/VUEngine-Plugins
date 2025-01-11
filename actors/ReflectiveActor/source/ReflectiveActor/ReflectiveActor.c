@@ -743,7 +743,7 @@ void ReflectiveActor::drawReflection(uint32 currentDrawingFrameBufferSet,
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void ReflectiveActor::constructor(ReflectiveActorSpec* reflectiveActorSpec, int16 internalId, const char* const name)
+void ReflectiveActor::constructor(const ReflectiveActorSpec* reflectiveActorSpec, int16 internalId, const char* const name)
 {
 	// Always explicitly call the base's constructor 
 	Base::constructor(&reflectiveActorSpec->actorSpec, internalId, name);

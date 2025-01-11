@@ -145,7 +145,7 @@ class ReflectiveActor : Actor
 	/// @param reflectiveActorSpec: Specification that determines how to configure the actor
 	/// @param internalId: ID to keep track internally of the new instance
 	/// @param name: Name to assign to the new instance
-	void constructor(ReflectiveActorSpec* reflectiveActorSpec, int16 internalId, const char* const name);
+	void constructor(const ReflectiveActorSpec* reflectiveActorSpec, int16 internalId, const char* const name);
 
 	/// Make the actor ready to start operating once it has been completely intialized.
 	/// @param recursive: If true, the ready call is propagated to its children, grand children, etc.

@@ -32,7 +32,7 @@ friend class VirtualList;
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void Vehicle::constructor(VehicleSpec* vehicleSpec, int16 internalId, const char* const name)
+void Vehicle::constructor(const VehicleSpec* vehicleSpec, int16 internalId, const char* const name)
 {
 	// Construct base
 	// Always explicitly call the base's constructor 

@@ -48,7 +48,7 @@ class PlatformerCameraTriggerActor : Actor
 	/// @param cameraActorSpec: Specification that determines how to configure the actor
 	/// @param internalId: ID to keep track internally of the new instance
 	/// @param name: Name to assign to the new instance
-	void constructor(PlatformerCameraTriggerActorSpec* cameraActorSpec, int16 internalId, const char* const name);
+	void constructor(const PlatformerCameraTriggerActorSpec* cameraActorSpec, int16 internalId, const char* const name);
 
 	/// Process a newly detected collision by one of the component colliders.
 	/// @param collisionInformation: Information struct about the collision to resolve 
