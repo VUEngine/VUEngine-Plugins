@@ -43,10 +43,10 @@ void LowPowerManager::constructor()
 void LowPowerManager::destructor()
 {
 	// Remove event listeners
-	KeypadManager::unregisterEventListener
+	KeypadManager::addEventListener
 	(
-		ListenerObject::safeCast(this), (EventListener)LowPowerManager::onKeypadManagerRaisedPowerFlag, 
-		kEventKeypadManagerRaisedPowerFlag
+		KeypadManager::getInstance(), ListenerObject::safeCast(this), 
+		(EventListener)LowPowerManager::onKeypadManagerRaisedPowerFlag, kEventKeypadManagerRaisedPowerFlag
 	);
 
 	Clock::removeEventListener
@@ -67,18 +67,19 @@ void LowPowerManager::setActive(bool active)
 
 	if(this->isActive)
 	{
-		KeypadManager::registerEventListener
+		KeypadManager::addEventListener
 		(
-			ListenerObject::safeCast(this), 
+			KeypadManager::getInstance(), ListenerObject::safeCast(this), 
 			(EventListener)LowPowerManager::onKeypadManagerRaisedPowerFlag, kEventKeypadManagerRaisedPowerFlag
 		);
+
 	}
 	else
 	{
-		KeypadManager::unregisterEventListener
+		KeypadManager::removeEventListener
 		(
-			ListenerObject::safeCast(this), (EventListener)LowPowerManager::onKeypadManagerRaisedPowerFlag, 
-			kEventKeypadManagerRaisedPowerFlag
+			KeypadManager::getInstance(), ListenerObject::safeCast(this), 
+			(EventListener)LowPowerManager::onKeypadManagerRaisedPowerFlag, kEventKeypadManagerRaisedPowerFlag
 		);
 		
 		Clock::removeEventListener
