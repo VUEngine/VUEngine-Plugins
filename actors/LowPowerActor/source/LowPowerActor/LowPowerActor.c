@@ -28,9 +28,10 @@ void LowPowerActor::constructor(const LowPowerActorSpec* lowPowerActorSpec, int1
 	Base::constructor((ActorSpec*)&lowPowerActorSpec->actorSpec, internalId, name);
 
 	// Add event listeners
-	KeypadManager::registerEventListener
+	KeypadManager::addEventListener
 	(
-		ListenerObject::safeCast(this), (EventListener)LowPowerActor::onKeypadManagerRaisedPowerFlag, kEventKeypadManagerRaisedPowerFlag
+		KeypadManager::getInstance(), ListenerObject::safeCast(this), 
+		(EventListener)LowPowerActor::onKeypadManagerRaisedPowerFlag, kEventKeypadManagerRaisedPowerFlag
 	);
 }
 
@@ -39,9 +40,10 @@ void LowPowerActor::constructor(const LowPowerActorSpec* lowPowerActorSpec, int1
 void LowPowerActor::destructor()
 {
 	// Remove event listeners
-	KeypadManager::unregisterEventListener
+	KeypadManager::removeEventListener
 	(
-		ListenerObject::safeCast(this), (EventListener)LowPowerActor::onKeypadManagerRaisedPowerFlag, kEventKeypadManagerRaisedPowerFlag
+		KeypadManager::getInstance(), ListenerObject::safeCast(this), 
+		(EventListener)LowPowerActor::onKeypadManagerRaisedPowerFlag, kEventKeypadManagerRaisedPowerFlag
 	);
 
 	// Always explicitly call the base's destructor 

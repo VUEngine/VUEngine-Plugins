@@ -85,10 +85,6 @@ singleton class PlatformerCameraMovementManager : CameraMovementManager
 
 	/// @publicsection
 
-	/// Method to retrieve the singleton instance
-	/// @return CameraMovementManager singleton
-	static PlatformerCameraMovementManager getInstance();
-
 	/// Focus the camera on the focus actor if any.
 	/// @param camera: Camera to focus
 	override Vector3D focus(Camera camera);

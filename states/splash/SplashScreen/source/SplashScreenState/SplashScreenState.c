@@ -60,9 +60,10 @@ void SplashScreenState::enter(void* owner)
 	VUEngine::disableKeypad();
 
 	// Start fade in effect
-	Camera::startEffect(kHide);
+	Camera::startEffect(Camera::getInstance(), kHide);
 	Camera::startEffect
 	(
+		Camera::getInstance(),
 		kFadeTo, // effect type
 		0, // initial delay (in ms)
 		NULL, // target brightness
@@ -87,7 +88,7 @@ void SplashScreenState::exit(void* owner)
 void SplashScreenState::suspend(void* owner)
 {
 	// Do a fade out effect
-	Camera::startEffect(kFadeOut, __FADE_DELAY);
+	Camera::startEffect(Camera::getInstance(), kFadeOut, __FADE_DELAY);
 
 	Base::suspend(this, owner);
 }
@@ -103,9 +104,10 @@ void SplashScreenState::resume(void* owner)
 	VUEngine::disableKeypad();
 
 	// Start fade in effect
-	Camera::startEffect(kHide);
+	Camera::startEffect(Camera::getInstance(), kHide);
 	Camera::startEffect
 	(
+		Camera::getInstance(),
 		kFadeTo, // effect type
 		0, // initial delay (in ms)
 		NULL, // target brightness
@@ -150,6 +152,7 @@ void SplashScreenState::loadNextState()
 	Brightness brightness = (Brightness){0, 0, 0};
 	Camera::startEffect
 	(
+		Camera::getInstance(),
 		kFadeTo, // effect type
 		0, // initial delay (in ms)
 		&brightness, // target brightness

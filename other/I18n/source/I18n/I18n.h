@@ -77,10 +77,6 @@ singleton class I18n : ListenerObject
 
 	/// @publicsection
 
-	/// Method to retrieve the singleton instance
-	/// @return I18n singleton
-	static I18n getInstance();
-
 	/// Set the active language.
 	/// @param languageId: ID of the language to make active
 	void setActiveLanguage(uint8 languageId);

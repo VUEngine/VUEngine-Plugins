@@ -73,7 +73,7 @@ void AdjustmentScreenState::processUserInput(const UserInput*  userInput)
 	{
 		if(VUEngine::isPaused())
 		{
-			Camera::startEffect(kFadeOut, __FADE_DELAY);
+			Camera::startEffect(Camera::getInstance(), kFadeOut, __FADE_DELAY);
 			VUEngine::unpause(GameState::safeCast(this));
 		}
 		else

@@ -34,10 +34,6 @@ dynamic_singleton class AutomaticPauseSelectionScreenState: SplashScreenState
 
 	/// @publicsection
 
-	/// Method to retrieve the singleton instance
-	/// @return AdjustmentScreenState singleton
-	static AutomaticPauseSelectionScreenState getInstance();
-
 	/// Process the provided user input.
 	/// @param userInput: Struct with the current user input information
 	override void processUserInput(const UserInput* userInput);
