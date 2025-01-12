@@ -44,8 +44,8 @@ void AutomaticPauseScreenState::enter(void* owner __attribute__ ((unused)))
 	GameState::configureStage(this, (StageSpec*)&AutomaticPauseScreenStage, NULL);
 
 	// Print text
-	const char* strTitle = I18n::getText(I18n::getInstance(NULL), kStringAutomaticPauseTitle);
-	const char* strBody = I18n::getText(I18n::getInstance(NULL), kStringAutomaticPauseBody);
+	const char* strTitle = I18n::getText(I18n::getInstance(), kStringAutomaticPauseTitle);
+	const char* strBody = I18n::getText(I18n::getInstance(), kStringAutomaticPauseBody);
 
 	FontSize strAutomaticPauseSize = Printing::getTextSize
 	(
@@ -86,10 +86,11 @@ void AutomaticPauseScreenState::enter(void* owner __attribute__ ((unused)))
 	GameState::startClocks(this);
 
 	// Fade in screen
-	Camera::startEffect(kHide);
+	Camera::startEffect(Camera::getInstance(), kHide);
 	
 	Camera::startEffect
 	(
+		Camera::getInstance(),
 		kFadeTo, // effect type
 		0, // initial delay (in ms)
 		NULL, // target brightness
@@ -119,6 +120,7 @@ void AutomaticPauseScreenState::processUserInput(const UserInput*  userInput)
 		Brightness brightness = (Brightness){0, 0, 0};
 		Camera::startEffect
 		(
+			Camera::getInstance(),
 			kFadeTo, // effect type
 			0, // initial delay (in ms)
 			&brightness, // target brightness

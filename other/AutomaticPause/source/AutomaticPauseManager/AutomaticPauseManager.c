@@ -52,7 +52,7 @@ void AutomaticPauseManager::setActive(bool active)
 	// Set automatic pause state to default if it is not set yet
 	if(this->automaticPauseState == NULL)
 	{
-		AutomaticPauseManager::setAutomaticPauseState(this, GameState::safeCast(AutomaticPauseScreenState::getInstance(NULL)));
+		AutomaticPauseManager::setAutomaticPauseState(this, GameState::safeCast(AutomaticPauseScreenState::getInstance()));
 	}
 
 	if(this->isActive)

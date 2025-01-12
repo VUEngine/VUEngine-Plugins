@@ -72,7 +72,7 @@ void AdjustmentScreenState::processUserInput(const UserInput*  userInput)
 	{
 		if(VUEngine::isPaused())
 		{
-			Camera::startEffect(kFadeOut, __FADE_DELAY);
+			Camera::startEffect(Camera::getInstance(), kFadeOut, __FADE_DELAY);
 			VUEngine::unpause(GameState::safeCast(this));
 		}
 		else
@@ -120,7 +120,7 @@ void AdjustmentScreenState::setLowPowerIndicatorPosition()
 {
 	LowPowerManager::setPosition
 	(
-		LowPowerManager::getInstance(NULL), __PLUGIN_ADJUSTMENT_SCREEN_PROTOTYPE_LOW_POWER_INDICATOR_X_POSITION, 
+		LowPowerManager::getInstance(), __PLUGIN_ADJUSTMENT_SCREEN_PROTOTYPE_LOW_POWER_INDICATOR_X_POSITION, 
 		__PLUGIN_ADJUSTMENT_SCREEN_PROTOTYPE_LOW_POWER_INDICATOR_Y_POSITION
 	);
 }
@@ -131,7 +131,7 @@ void AdjustmentScreenState::resetLowPowerIndicatorPosition()
 {
 	LowPowerManager::setPosition
 	(
-		LowPowerManager::getInstance(NULL), __PLUGIN_LOW_POWER_INDICATOR_X_POSITION, __PLUGIN_LOW_POWER_INDICATOR_Y_POSITION
+		LowPowerManager::getInstance(), __PLUGIN_LOW_POWER_INDICATOR_X_POSITION, __PLUGIN_LOW_POWER_INDICATOR_Y_POSITION
 	);
 }
 

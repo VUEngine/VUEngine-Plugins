@@ -37,10 +37,6 @@ dynamic_singleton class AlignmentCheckScreenState : SplashScreenState
 {
 	/// @publicsection
 
-	/// Method to retrieve the singleton instance
-	/// @return AlignmentCheckScreenState singleton
-	static AlignmentCheckScreenState getInstance(ClassPointer requesterClass);
-
 	/// Prepares the object to enter this state.
 	/// @param owner: Object that is entering in this state
 	override void enter(void* owner);
