@@ -300,8 +300,7 @@ Actor LanguageSelectionScreenState::addFlagToStage(ActorSpec* actorSpec, uint8 p
 #ifdef __LEGACY_COORDINATE_PROJECTION
 	return Stage::spawnChildActor(VUEngine::getStage(), &flagPositionedActor, true);
 #else
-	UIContainer uiContainer = VUEngine::getUIContainer();
-	return UIContainer::spawnChildActor(uiContainer, &flagPositionedActor);
+	return UIContainer::spawnChildActor(this->uiContainer, &flagPositionedActor);
 #endif
 }
 

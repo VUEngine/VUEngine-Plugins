@@ -114,8 +114,7 @@ bool AutomaticPauseManager::onMinuteChange(ListenerObject eventFirer __attribute
 		this->elapsedTime++;
 
 		// Only pause if no more than one state is active
-		if((this->elapsedTime >= this->autoPauseDelay) &&
-			(1 == StateMachine::getStackSize(VUEngine::getStateMachine())))
+		if((this->elapsedTime >= this->autoPauseDelay) && !VUEngine::isPaused())
 		{
 			VUEngine::pause(this->automaticPauseState);
 			this->elapsedTime = 0;
