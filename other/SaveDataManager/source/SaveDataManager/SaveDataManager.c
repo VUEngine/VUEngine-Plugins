@@ -67,7 +67,7 @@ bool SaveDataManager::verifySaveStamp()
 	char saveStamp[__PLUGIN_SAVE_DATA_MANAGER_SAVE_STAMP_LENGTH];
 
 	// Read save stamp
-	SRAMManager::read(SRAMManager::getInstance(), (BYTE*)&saveStamp, offsetof(struct SaveData, saveStamp), sizeof(saveStamp));
+	SRAMManager::read((BYTE*)&saveStamp, offsetof(struct SaveData, saveStamp), sizeof(saveStamp));
 
 	return !strncmp(saveStamp, __PLUGIN_SAVE_DATA_MANAGER_SAVE_STAMP, __PLUGIN_SAVE_DATA_MANAGER_SAVE_STAMP_LENGTH);
 }
@@ -79,7 +79,7 @@ bool SaveDataManager::checkSRAM()
 	// Write save stamp
 	SRAMManager::save
 	(
-		SRAMManager::getInstance(), (BYTE*)__PLUGIN_SAVE_DATA_MANAGER_SAVE_STAMP, offsetof(struct SaveData, saveStamp), sizeof(saveStamp)
+		(BYTE*)__PLUGIN_SAVE_DATA_MANAGER_SAVE_STAMP, offsetof(struct SaveData, saveStamp), sizeof(saveStamp)
 	);
 
 	return SaveDataManager::verifySaveStamp(this);
@@ -104,7 +104,7 @@ uint32 SaveDataManager::computeChecksum()
 	{
 		// Get the current byte
 		uint32 currentValue = 0;
-		SRAMManager::read(SRAMManager::getInstance(), (BYTE*)&currentValue, i, sizeof(currentValue));
+		SRAMManager::read((BYTE*)&currentValue, i, sizeof(currentValue));
 
 		crc32 += currentValue ^ __PLUGIN_SAVE_DATA_MANAGER_CRC_MASK;
 	}
@@ -120,7 +120,7 @@ uint32 SaveDataManager::computeChecksum()
 void SaveDataManager::writeChecksum()
 {
 	uint32 checksum = SaveDataManager::computeChecksum(this);
-	SRAMManager::save(SRAMManager::getInstance(), (BYTE*)&checksum, offsetof(struct SaveData, checksum), sizeof(checksum));
+	SRAMManager::save((BYTE*)&checksum, offsetof(struct SaveData, checksum), sizeof(checksum));
 }
 
 /*
@@ -130,7 +130,7 @@ bool SaveDataManager::verifyChecksum()
 {
 	uint32 computedChecksum = SaveDataManager::computeChecksum(this);
 	uint32 savedChecksum = 0;
-	SRAMManager::read(SRAMManager::getInstance(), (BYTE*)&savedChecksum, offsetof(struct SaveData, checksum), sizeof(savedChecksum));
+	SRAMManager::read((BYTE*)&savedChecksum, offsetof(struct SaveData, checksum), sizeof(savedChecksum));
 
 	return (computedChecksum == savedChecksum);
 }
@@ -167,14 +167,14 @@ void SaveDataManager::restoreSettings()
 
 void SaveDataManager::writeDefaults()
 {
-	SRAMManager::save(SRAMManager::getInstance(), (BYTE*)&SaveDataDefaults, 0, sizeof(SaveDataDefaults));
+	SRAMManager::save((BYTE*)&SaveDataDefaults, 0, sizeof(SaveDataDefaults));
 }
 
 void SaveDataManager::getValue(BYTE* destination, int32 memberOffset, int32 dataSize)
 {
 	if(this->sramAvailable)
 	{
-		SRAMManager::read(SRAMManager::getInstance(), destination, memberOffset, dataSize);
+		SRAMManager::read(destination, memberOffset, dataSize);
 	}
 }
 
@@ -182,7 +182,7 @@ void SaveDataManager::setValue(const BYTE* const source, int32 memberOffset, int
 {
 	if(this->sramAvailable)
 	{
-		SRAMManager::save(SRAMManager::getInstance(), source, memberOffset, dataSize);
+		SRAMManager::save(source, memberOffset, dataSize);
 		SaveDataManager::writeChecksum(this);
 	}
 }
