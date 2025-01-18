@@ -73,7 +73,7 @@ void AdjustmentScreenState::processUserInput(const UserInput*  userInput)
 	{
 		if(VUEngine::isPaused())
 		{
-C			VUEngine::unpause(GameState::safeCast(this));
+			VUEngine::unpause(GameState::safeCast(this));
 		}
 		else
 		{
