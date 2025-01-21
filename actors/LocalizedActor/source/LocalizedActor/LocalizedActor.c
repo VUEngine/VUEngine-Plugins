@@ -29,11 +29,7 @@ void LocalizedActor::constructor(const LocalizedActorSpec* localizedActorSpec, i
 	Base::constructor((ActorSpec*)&localizedActorSpec->actorSpec, internalId, name);
 
 	// Add event listeners
-	GameState::addEventListener
-	(
-		VUEngine::getCurrentState(), ListenerObject::safeCast(this), 
-		(EventListener)LocalizedActor::onLanguageChanged, kEventLanguageChanged
-	);
+	GameState::addEventListener(VUEngine::getCurrentState(), ListenerObject::safeCast(this), kEventLanguageChanged);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -41,14 +37,27 @@ void LocalizedActor::constructor(const LocalizedActorSpec* localizedActorSpec, i
 void LocalizedActor::destructor()
 {
 	// Remove event listeners
-	GameState::removeEventListener
-	(
-		VUEngine::getCurrentState(), ListenerObject::safeCast(this), 
-		(EventListener)LocalizedActor::onLanguageChanged, kEventLanguageChanged
-	);
+	GameState::removeEventListener(VUEngine::getCurrentState(), ListenerObject::safeCast(this), kEventLanguageChanged);
 
 	// Always explicitly call the base's destructor 
 	Base::destructor();
+}
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+bool LocalizedActor::onEvent(ListenerObject eventFirer __attribute__((unused)), uint32 eventCode)
+{
+	switch(eventCode)
+	{
+		case kEventLanguageChanged:
+		{
+			LocalizedActor::localize(this);
+
+			return true;
+		}
+	}
+
+	return Base::onEvent(this, eventFirer, eventCode);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -71,15 +80,6 @@ void LocalizedActor::ready(bool recursive)
 void LocalizedActor::localize()
 {
 	LocalizedActor::playAnimation(this, Utilities::itoa(I18n::getActiveLanguage(I18n::getInstance()), 10, 1));
-}
-
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-
-bool LocalizedActor::onLanguageChanged(ListenerObject eventFirer __attribute__ ((unused)))
-{
-	LocalizedActor::localize(this);
-
-	return true;
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

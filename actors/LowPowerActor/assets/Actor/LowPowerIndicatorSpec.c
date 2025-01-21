@@ -42,9 +42,6 @@ AnimationFunctionROMSpec LowPowerIndicatorHideAnimationSpec =
 	// Whether to play it in loop or not
 	false,
 
-	// Callback on animation completion
-	NULL,
-
 	// Animation's name
 	"Hide",
 };
@@ -64,9 +61,6 @@ AnimationFunctionROMSpec LowPowerIndicatorFlashAnimationSpec =
 
 	// Whether to play it in loop or not
 	true,
-
-	// Callback on animation completion
-	NULL,
 
 	// Animation's name
 	"Flash",

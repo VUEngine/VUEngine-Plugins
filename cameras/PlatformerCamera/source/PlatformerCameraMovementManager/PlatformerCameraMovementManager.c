@@ -415,11 +415,11 @@ Vector3D PlatformerCameraMovementManager::doFocusAndAlertWhenTargetReached(Camer
 {
 	if(PlatformerCameraMovementManager::doFocus(this, camera, true))
 	{
-		EventManager::fireEvent(EventManager::getInstance(), kEventScreenFocused);
+		EventManager::fireEvent(EventManager::getInstance(), kEventPlatformerCameraScreenFocused);
 		NM_ASSERT
 		(
 			!isDeleted(EventManager::getInstance()), 
-			"PlatformerCameraMovementManager::doFocusAndAlertWhenTargetReached: deleted actor manager during kEventScreenFocused"
+			"PlatformerCameraMovementManager::doFocusAndAlertWhenTargetReached: deleted actor manager during kEventPlatformerCameraScreenFocused"
 		);
 	}
 

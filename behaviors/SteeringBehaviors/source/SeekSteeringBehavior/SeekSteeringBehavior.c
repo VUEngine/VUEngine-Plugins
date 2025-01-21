@@ -37,7 +37,7 @@ static Vector3D SeekSteeringBehavior::toTarget
 
 		if(!isDeleted(seekSteeringBehavior->events))
 		{
-			SeekSteeringBehavior::fireEvent(seekSteeringBehavior, kTargetReached);
+			SeekSteeringBehavior::fireEvent(seekSteeringBehavior, kEventSteeringTargetReached);
 		}
 
 		return Vector3D::zero();

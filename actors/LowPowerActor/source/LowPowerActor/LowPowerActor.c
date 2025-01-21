@@ -28,11 +28,7 @@ void LowPowerActor::constructor(const LowPowerActorSpec* lowPowerActorSpec, int1
 	Base::constructor((ActorSpec*)&lowPowerActorSpec->actorSpec, internalId, name);
 
 	// Add event listeners
-	KeypadManager::addEventListener
-	(
-		KeypadManager::getInstance(), ListenerObject::safeCast(this), 
-		(EventListener)LowPowerActor::onKeypadManagerRaisedPowerFlag, kEventKeypadManagerRaisedPowerFlag
-	);
+	KeypadManager::addEventListener(KeypadManager::getInstance(), ListenerObject::safeCast(this), kEventKeypadManagerRaisedPowerFlag);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -40,11 +36,7 @@ void LowPowerActor::constructor(const LowPowerActorSpec* lowPowerActorSpec, int1
 void LowPowerActor::destructor()
 {
 	// Remove event listeners
-	KeypadManager::removeEventListener
-	(
-		KeypadManager::getInstance(), ListenerObject::safeCast(this), 
-		(EventListener)LowPowerActor::onKeypadManagerRaisedPowerFlag, kEventKeypadManagerRaisedPowerFlag
-	);
+	KeypadManager::removeEventListener(KeypadManager::getInstance(), ListenerObject::safeCast(this), kEventKeypadManagerRaisedPowerFlag);
 
 	// Always explicitly call the base's destructor 
 	Base::destructor();
@@ -52,17 +44,20 @@ void LowPowerActor::destructor()
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-// CLASS' PRIVATE METHODS
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-
-bool LowPowerActor::onKeypadManagerRaisedPowerFlag(ListenerObject eventFirer __attribute__ ((unused)))
+bool LowPowerActor::onEvent(ListenerObject eventFirer __attribute__((unused)), uint32 eventCode)
 {
-	Actor::playAnimation(Actor::safeCast(this), "Flash");
+	switch(eventCode)
+	{
+		case kEventKeypadManagerRaisedPowerFlag:
+		{
+			LowPowerActor::playAnimation(this, "Flash");
 
-	return false;
+			return false;
+		}
+
+	}
+
+	return Base::onEvent(this, eventFirer, eventCode);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

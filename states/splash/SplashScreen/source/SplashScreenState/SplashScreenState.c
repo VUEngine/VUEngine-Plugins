@@ -43,6 +43,32 @@ void SplashScreenState::destructor()
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
+bool SplashScreenState::onEvent(ListenerObject eventFirer __attribute__((unused)), uint32 eventCode)
+{
+	switch(eventCode)
+	{
+		case kEventEffectFadeInComplete:
+		{
+			// Enable user input
+			KeypadManager::enable();
+
+			return false;
+		}
+
+		case kEventEffectFadeOutComplete:
+		{
+			// Switch to next stage
+			VUEngine::changeState(this->nextState);
+
+			return false;
+		}
+	}
+
+	return Base::onEvent(this, eventFirer, eventCode);
+}
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 void SplashScreenState::enter(void* owner)
 {
 	Base::enter(this, owner);
@@ -68,7 +94,6 @@ void SplashScreenState::enter(void* owner)
 		0, // initial delay (in ms)
 		NULL, // target brightness
 		__FADE_DELAY, // delay between fading steps (in ms)
-		(void (*)(ListenerObject, ListenerObject))SplashScreenState::onFadeInComplete, // callback function
 		ListenerObject::safeCast(this) // callback scope
 	);
 }
@@ -112,7 +137,6 @@ void SplashScreenState::resume(void* owner)
 		0, // initial delay (in ms)
 		NULL, // target brightness
 		__FADE_DELAY, // delay between fading steps (in ms)
-		(void (*)(ListenerObject, ListenerObject))SplashScreenState::onFadeInComplete, // callback function
 		ListenerObject::safeCast(this) // callback scope
 	);
 }
@@ -157,7 +181,6 @@ void SplashScreenState::loadNextState()
 		0, // initial delay (in ms)
 		&brightness, // target brightness
 		__FADE_DELAY, // delay between fading steps (in ms)
-		(void (*)(ListenerObject, ListenerObject))SplashScreenState::onFadeOutComplete, // callback function
 		ListenerObject::safeCast(this) // callback scope
 	);
 }
@@ -166,31 +189,5 @@ void SplashScreenState::loadNextState()
 
 void SplashScreenState::print()
 {}
-
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-// CLASS' PRIVATE METHODS
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-
-bool SplashScreenState::onFadeInComplete(ListenerObject eventFirer __attribute__ ((unused)))
-{
-	// Enable user input
-	KeypadManager::enable();
-
-	return false;
-}
-
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-
-bool SplashScreenState::onFadeOutComplete(ListenerObject eventFirer __attribute__ ((unused)))
-{
-	// Switch to next stage
-	VUEngine::changeState(this->nextState);
-
-	return false;
-}
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

@@ -29,7 +29,7 @@ class Vehicle;
 
 enum SteeringBehaviorEvents
 {
-	kTargetReached = kEventEngineLast + 1,
+	kEventSteeringTargetReached = kEventPluginsFirst + 1,
 };
 
 enum SummingMethod

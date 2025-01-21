@@ -47,10 +47,13 @@ class LowPowerActor : Actor
 	/// @param lowPowerActorSpec: Specification that determines how to configure the actor
 	/// @param internalId: ID to keep track internally of the new instance
 	/// @param name: Name to assign to the new instance
-	void constructor
-	(
-		const LowPowerActorSpec* lowPowerActorSpec, int16 internalId, const char* const name
-	);
+	void constructor(const LowPowerActorSpec* lowPowerActorSpec, int16 internalId, const char* const name);
+
+	/// Process an event that the instance is listen for.
+	/// @param eventFirer: ListenerObject that signals the event
+	/// @param eventCode: Code of the firing event
+	/// @return False if the listener has to be removed; true to keep it
+	override bool onEvent(ListenerObject eventFirer __attribute__((unused)), uint32 eventCode);
 }
 
 #endif

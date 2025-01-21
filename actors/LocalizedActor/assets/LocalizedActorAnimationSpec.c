@@ -33,9 +33,6 @@ AnimationFunctionROMSpec LocalizedActor0Animations =
 	// Whether to play it in loop or not
 	false,
 
-	// Callback on animation completion
-	NULL,
-
 	// Animation's name
 	"0",
 };
@@ -55,9 +52,6 @@ AnimationFunctionROMSpec LocalizedActor1Animations =
 
 	// Whether to play it in loop or not
 	false,
-
-	// Callback on animation completion
-	NULL,
 
 	// Animation's name
 	"1",
@@ -79,9 +73,6 @@ AnimationFunctionROMSpec LocalizedActor2Animations =
 	// Whether to play it in loop or not
 	false,
 
-	// Callback on animation completion
-	NULL,
-
 	// Animation's name
 	"2",
 };
@@ -101,9 +92,6 @@ AnimationFunctionROMSpec LocalizedActor3Animations =
 
 	// Whether to play it in loop or not
 	false,
-
-	// Callback on animation completion
-	NULL,
 
 	// Animation's name
 	"3",
@@ -125,9 +113,6 @@ AnimationFunctionROMSpec LocalizedActor4Animations =
 	// Whether to play it in loop or not
 	false,
 
-	// Callback on animation completion
-	NULL,
-
 	// Animation's name
 	"4",
 };
@@ -147,9 +132,6 @@ AnimationFunctionROMSpec LocalizedActor5Animations =
 
 	// Whether to play it in loop or not
 	false,
-
-	// Callback on animation completion
-	NULL,
 
 	// Animation's name
 	"5",
@@ -171,9 +153,6 @@ AnimationFunctionROMSpec LocalizedActor6Animations =
 	// Whether to play it in loop or not
 	false,
 
-	// Callback on animation completion
-	NULL,
-
 	// Animation's name
 	"6",
 };
@@ -193,9 +172,6 @@ AnimationFunctionROMSpec LocalizedActor7Animations =
 
 	// Whether to play it in loop or not
 	false,
-
-	// Callback on animation completion
-	NULL,
 
 	// Animation's name
 	"7",
@@ -217,9 +193,6 @@ AnimationFunctionROMSpec LocalizedActor8Animations =
 	// Whether to play it in loop or not
 	false,
 
-	// Callback on animation completion
-	NULL,
-
 	// Animation's name
 	"8",
 };
@@ -239,9 +212,6 @@ AnimationFunctionROMSpec LocalizedActor9Animations =
 
 	// Whether to play it in loop or not
 	false,
-
-	// Callback on animation completion
-	NULL,
 
 	// Animation's name
 	"9",
@@ -263,9 +233,6 @@ AnimationFunctionROMSpec LocalizedActor10Animations =
 	// Whether to play it in loop or not
 	false,
 
-	// Callback on animation completion
-	NULL,
-
 	// Animation's name
 	"10",
 };
@@ -285,9 +252,6 @@ AnimationFunctionROMSpec LocalizedActor11Animations =
 
 	// Whether to play it in loop or not
 	false,
-
-	// Callback on animation completion
-	NULL,
 
 	// Animation's name
 	"11",
@@ -309,9 +273,6 @@ AnimationFunctionROMSpec LocalizedActor12Animations =
 	// Whether to play it in loop or not
 	false,
 
-	// Callback on animation completion
-	NULL,
-
 	// Animation's name
 	"12",
 };
@@ -331,9 +292,6 @@ AnimationFunctionROMSpec LocalizedActor13Animations =
 
 	// Whether to play it in loop or not
 	false,
-
-	// Callback on animation completion
-	NULL,
 
 	// Animation's name
 	"13",
@@ -355,9 +313,6 @@ AnimationFunctionROMSpec LocalizedActor14Animations =
 	// Whether to play it in loop or not
 	false,
 
-	// Callback on animation completion
-	NULL,
-
 	// Animation's name
 	"14",
 };
@@ -377,9 +332,6 @@ AnimationFunctionROMSpec LocalizedActor15Animations =
 
 	// Whether to play it in loop or not
 	false,
-
-	// Callback on animation completion
-	NULL,
 
 	// Animation's name
 	"15",

@@ -45,7 +45,7 @@ class Actor;
 
 enum PlatformerCameraMovementManagerEvents
 {
-	kEventScreenFocused = kEventEngineLast + 1
+	kEventPlatformerCameraScreenFocused = kEventPluginsFirst + 1
 };
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

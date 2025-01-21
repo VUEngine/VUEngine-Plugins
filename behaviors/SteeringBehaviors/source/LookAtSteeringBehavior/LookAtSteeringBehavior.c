@@ -34,11 +34,11 @@ static Vector3D LookAtSteeringBehavior::toTarget
 	if(!length || length < reachedDistanceThreshold)
 	{
 		LookAtSteeringBehavior->reachedTarget = true;
-		LookAtSteeringBehavior::fireEvent(LookAtSteeringBehavior, kTargetReached);
+		LookAtSteeringBehavior::fireEvent(LookAtSteeringBehavior, kEventSteeringTargetReached);
 		NM_ASSERT
 		(
 			!isDeleted(LookAtSteeringBehavior), 
-			"LookAtSteeringBehavior::toTarget: deleted LookAtSteeringBehavior during kTargetReached"
+			"LookAtSteeringBehavior::toTarget: deleted LookAtSteeringBehavior during kEventSteeringTargetReached"
 		);
 
 		return Vector3D::zero();

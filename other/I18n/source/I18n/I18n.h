@@ -34,7 +34,7 @@
 
 enum I18nEvents
 {
-	kEventLanguageChanged = kEventEngineLast + 1
+	kEventLanguageChanged = kEventPluginsFirst + 1
 };
 
 /// A Lang Spec

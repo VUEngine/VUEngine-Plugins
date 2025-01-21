@@ -27,18 +27,28 @@ singleton class LowPowerManager : ListenerObject
 {
 	/// @protectedsection
 
-	// Low power indicator active flag
+	/// Low power indicator active flag
 	bool isActive;
-	// low power indicator showing flag
+
+	/// low power indicator showing flag
 	bool isShowingIndicator;
-	// x position of the low power indicator
+	
+	/// x position of the low power indicator
 	uint8 indicatorXPos;
-	// y position of the low power indicator
+	
+	/// y position of the low power indicator
 	uint8 indicatorYPos;
-	// number of seconds of receiving the low power signal
+	
+	/// number of seconds of receiving the low power signal
 	uint8 lowPowerDuration;
 
 	/// @publicsection
+
+	/// Process an event that the instance is listen for.
+	/// @param eventFirer: ListenerObject that signals the event
+	/// @param eventCode: Code of the firing event
+	/// @return False if the listener has to be removed; true to keep it
+	override bool onEvent(ListenerObject eventFirer __attribute__((unused)), uint32 eventCode);
 
 	/// De/activate indicator.
 	/// @param active	Set as active or inactive?

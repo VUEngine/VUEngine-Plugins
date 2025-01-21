@@ -47,7 +47,7 @@ void PrecautionScreenState::enter(void* owner)
 
 	// Play start-up sound
 	extern SoundSpec PrecautionScreenIntroSoundSpec;
-	SoundManager::playSound(&PrecautionScreenIntroSoundSpec, NULL, kSoundPlaybackNormal, NULL, NULL);
+	SoundManager::playSound(&PrecautionScreenIntroSoundSpec, NULL, kSoundPlaybackNormal, NULL);
 
 	// Show this screen for at least 2 seconds
 	// As defined by Nintendo in the official development manual (Appendix 1)
@@ -62,6 +62,7 @@ bool PrecautionScreenState::processMessage(void* owner __attribute__ ((unused)),
 	switch(Telegram::getMessage(telegram))
 	{
 		case kMessageAllowUserInput:
+
 			KeypadManager::enable();
 			break;
 	}

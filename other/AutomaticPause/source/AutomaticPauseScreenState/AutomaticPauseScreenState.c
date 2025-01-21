@@ -36,6 +36,35 @@ extern StageROMSpec AutomaticPauseScreenStage;
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
+bool AutomaticPauseScreenState::onEvent(ListenerObject eventFirer __attribute__((unused)), uint32 eventCode)
+{
+	switch(eventCode)
+	{
+		case kEventEffectFadeInComplete:
+		{
+			// Re-enable user input
+			KeypadManager::enable();
+
+			return false;
+		}
+
+		case kEventEffectFadeOutComplete:
+		{
+			// Re-enable user input
+			KeypadManager::enable();
+
+			// Resume game
+			VUEngine::unpause(GameState::safeCast(this));
+
+			return false;
+		}
+	}
+
+	return Base::onEvent(this, eventFirer, eventCode);
+}
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 void AutomaticPauseScreenState::enter(void* owner __attribute__ ((unused)))
 {
 	Base::enter(this, owner);
@@ -95,7 +124,6 @@ void AutomaticPauseScreenState::enter(void* owner __attribute__ ((unused)))
 		0, // initial delay (in ms)
 		NULL, // target brightness
 		__FADE_DELAY, // delay between fading steps (in ms)
-		(void (*)(ListenerObject, ListenerObject))AutomaticPauseScreenState::onFadeInComplete, // callback function
 		ListenerObject::safeCast(this) // callback scope
 	);
 }
@@ -125,7 +153,6 @@ void AutomaticPauseScreenState::processUserInput(const UserInput*  userInput)
 			0, // initial delay (in ms)
 			&brightness, // target brightness
 			__FADE_DELAY, // delay between fading steps (in ms)
-			(void (*)(ListenerObject, ListenerObject))AutomaticPauseScreenState::onFadeOutComplete, // callback function
 			ListenerObject::safeCast(this) // callback scope
 		);
 	}
@@ -151,29 +178,6 @@ void AutomaticPauseScreenState::destructor()
 {
 	// Always explicitly call the base's destructor 
 	Base::destructor();
-}
-
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-
-bool AutomaticPauseScreenState::onFadeInComplete(ListenerObject eventFirer __attribute__ ((unused)))
-{
-	// Re-enable user input
-	KeypadManager::enable();
-
-	return false;
-}
-
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-
-bool AutomaticPauseScreenState::onFadeOutComplete(ListenerObject eventFirer __attribute__ ((unused)))
-{
-	// Re-enable user input
-	KeypadManager::enable();
-
-	// Resume game
-	VUEngine::unpause(GameState::safeCast(this));
-
-	return false;
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

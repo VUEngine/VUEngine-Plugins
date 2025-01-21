@@ -58,12 +58,12 @@ void AutomaticPauseManager::setActive(bool active)
 	if(this->isActive)
 	{
 		// Add event listeners
-		Clock::addEventListener(VUEngine::getClock(), ListenerObject::safeCast(this), (EventListener)AutomaticPauseManager::onMinuteChange, kEventMinuteChanged);
+		Clock::addEventListener(VUEngine::getClock(), ListenerObject::safeCast(this), kEventMinuteChanged);
 	}
 	else
 	{
 		// Remove event listeners
-		Clock::removeEventListener(VUEngine::getClock(), ListenerObject::safeCast(this), (EventListener)AutomaticPauseManager::onMinuteChange, kEventMinuteChanged);
+		Clock::removeEventListener(VUEngine::getClock(), ListenerObject::safeCast(this), kEventMinuteChanged);
 	}
 }
 
@@ -99,7 +99,7 @@ void AutomaticPauseManager::constructor()
 void AutomaticPauseManager::destructor()
 {
 	// Remove event listeners
-	Clock::removeEventListener(VUEngine::getClock(), ListenerObject::safeCast(this), (EventListener)AutomaticPauseManager::onMinuteChange, kEventMinuteChanged);
+	Clock::removeEventListener(VUEngine::getClock(), ListenerObject::safeCast(this), kEventMinuteChanged);
 
 	// Always explicitly call the base's destructor 
 	Base::destructor();
@@ -107,21 +107,29 @@ void AutomaticPauseManager::destructor()
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-bool AutomaticPauseManager::onMinuteChange(ListenerObject eventFirer __attribute__ ((unused)))
+bool AutomaticPauseManager::onEvent(ListenerObject eventFirer __attribute__((unused)), uint32 eventCode)
 {
-	if(this->automaticPauseState && this->isActive && !VUEngine::isPaused())
+	switch(eventCode)
 	{
-		this->elapsedTime++;
-
-		// Only pause if no more than one state is active
-		if((this->elapsedTime >= this->autoPauseDelay) && !VUEngine::isPaused())
+		case kEventMinuteChanged:
 		{
-			VUEngine::pause(this->automaticPauseState);
-			this->elapsedTime = 0;
+			if(this->automaticPauseState && this->isActive && !VUEngine::isPaused())
+			{
+				this->elapsedTime++;
+
+				// Only pause if no more than one state is active
+				if((this->elapsedTime >= this->autoPauseDelay) && !VUEngine::isPaused())
+				{
+					VUEngine::pause(this->automaticPauseState);
+					this->elapsedTime = 0;
+				}
+			}
+
+			return true;
 		}
 	}
 
-	return true;
+	return Base::onEvent(this, eventFirer, eventCode);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

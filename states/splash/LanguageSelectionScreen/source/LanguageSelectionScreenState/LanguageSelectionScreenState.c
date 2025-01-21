@@ -117,7 +117,7 @@ void LanguageSelectionScreenState::processUserInput(const UserInput* userInput)
 	}
 	else if(userInput->pressedKey & (K_A | K_STA))
 	{
-		SoundManager::playSound(&LanguageConfirmSoundSpec, NULL, kSoundPlaybackNormal, NULL, NULL);
+		SoundManager::playSound(&LanguageConfirmSoundSpec, NULL, kSoundPlaybackNormal, NULL);
 
 		SplashScreenState::loadNextState(SplashScreenState::safeCast(this));
 	}
@@ -247,7 +247,7 @@ void LanguageSelectionScreenState::select(bool next)
 	LanguageSelectionScreenState::persistChoice(this);
 	LanguageSelectionScreenState::printSelection(this);
 
-	SoundManager::playSound(&LanguageSelectSoundSpec, NULL, kSoundPlaybackNormal, NULL, NULL);
+	SoundManager::playSound(&LanguageSelectSoundSpec, NULL, kSoundPlaybackNormal, NULL);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
