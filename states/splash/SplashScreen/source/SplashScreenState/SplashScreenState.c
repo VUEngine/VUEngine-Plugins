@@ -43,7 +43,7 @@ void SplashScreenState::destructor()
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-bool SplashScreenState::onEvent(ListenerObject eventFirer __attribute__((unused)), uint32 eventCode)
+bool SplashScreenState::onEvent(ListenerObject eventFirer __attribute__((unused)), uint16 eventCode)
 {
 	switch(eventCode)
 	{

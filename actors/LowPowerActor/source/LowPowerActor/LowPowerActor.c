@@ -44,7 +44,7 @@ void LowPowerActor::destructor()
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-bool LowPowerActor::onEvent(ListenerObject eventFirer __attribute__((unused)), uint32 eventCode)
+bool LowPowerActor::onEvent(ListenerObject eventFirer __attribute__((unused)), uint16 eventCode)
 {
 	switch(eventCode)
 	{

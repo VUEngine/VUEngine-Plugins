@@ -48,7 +48,7 @@ singleton class AutomaticPauseManager : ListenerObject
 	/// @param eventFirer: ListenerObject that signals the event
 	/// @param eventCode: Code of the firing event
 	/// @return False if the listener has to be removed; true to keep it
-	override bool onEvent(ListenerObject eventFirer __attribute__((unused)), uint32 eventCode);
+	override bool onEvent(ListenerObject eventFirer, uint16 eventCode);
 
 	/// Set the state that the game must transition to when pausing it.
 	/// @param automaticPauseState: State that the game must transition to when pausing it

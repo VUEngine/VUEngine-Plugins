@@ -48,7 +48,7 @@ singleton class LowPowerManager : ListenerObject
 	/// @param eventFirer: ListenerObject that signals the event
 	/// @param eventCode: Code of the firing event
 	/// @return False if the listener has to be removed; true to keep it
-	override bool onEvent(ListenerObject eventFirer __attribute__((unused)), uint32 eventCode);
+	override bool onEvent(ListenerObject eventFirer, uint16 eventCode);
 
 	/// De/activate indicator.
 	/// @param active	Set as active or inactive?

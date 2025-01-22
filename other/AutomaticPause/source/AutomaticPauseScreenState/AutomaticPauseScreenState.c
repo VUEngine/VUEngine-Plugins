@@ -36,7 +36,7 @@ extern StageROMSpec AutomaticPauseScreenStage;
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-bool AutomaticPauseScreenState::onEvent(ListenerObject eventFirer __attribute__((unused)), uint32 eventCode)
+bool AutomaticPauseScreenState::onEvent(ListenerObject eventFirer __attribute__((unused)), uint16 eventCode)
 {
 	switch(eventCode)
 	{
