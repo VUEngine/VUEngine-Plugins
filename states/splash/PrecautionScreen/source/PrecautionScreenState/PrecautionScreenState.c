@@ -16,7 +16,6 @@
 #include <MessageDispatcher.h>
 #include <SoundManager.h>
 #include <Telegram.h>
-#include <VUEngine.h>
 
 #include "PrecautionScreenState.h"
 
@@ -52,7 +51,7 @@ void PrecautionScreenState::enter(void* owner)
 	// Show this screen for at least 2 seconds
 	// As defined by Nintendo in the official development manual (Appendix 1)
 	KeypadManager::disable();
-	PrecautionScreenState::sendMessageTo(this, ListenerObject::safeCast(VUEngine::getInstance()), kMessageAllowUserInput, 2000, 0);
+	PrecautionScreenState::sendMessageTo(this, (owner), kMessageAllowUserInput, 2000, 0);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
