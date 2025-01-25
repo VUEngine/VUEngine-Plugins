@@ -90,6 +90,9 @@ BgmapSpriteROMSpec FlagUnitedStatesSpriteSpec =
 			kSpriteComponent
 		},
 
+		// Is animated?
+		false,
+
 		// Spec for the texture to display
 		(TextureSpec*)&FlagUnitedStatesTexture,
 

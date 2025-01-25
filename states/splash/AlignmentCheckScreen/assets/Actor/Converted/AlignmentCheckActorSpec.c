@@ -86,6 +86,9 @@ BgmapSpriteROMSpec AlignmentCheckSprite1SpriteSpec =
 			kSpriteComponent
 		},
 
+		// Is animated?
+		false,
+
 		// Spec for the texture to display
 		(TextureSpec*)&AlignmentCheckSprite1TextureSpec,
 
@@ -168,6 +171,9 @@ BgmapSpriteROMSpec AlignmentCheckSprite2SpriteSpec =
 			// Component type
 			kSpriteComponent
 		},
+
+		// Is animated?
+		false,
 
 		// Spec for the texture to display
 		(TextureSpec*)&AlignmentCheckSprite2TextureSpec,

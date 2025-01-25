@@ -90,6 +90,9 @@ BgmapSpriteROMSpec FlagCursorSpriteSpec =
 			kSpriteComponent
 		},
 
+		// Is animated?
+		false,
+
 		// Spec for the texture to display
 		(TextureSpec*)&FlagCursorTexture,
 

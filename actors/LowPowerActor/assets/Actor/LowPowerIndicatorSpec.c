@@ -13,7 +13,7 @@
 
 #include <LowPowerActor.h>
 #include <VIPManager.h>
-#include <BgmapAnimatedSprite.h>
+#include <BgmapSprite.h>
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // DECLARATIONS
@@ -131,11 +131,14 @@ BgmapSpriteROMSpec LowPowerIndicatorSpriteSpec =
 		// Component
 		{
 			// Allocator
-			__TYPE(BgmapAnimatedSprite),
+			__TYPE(BgmapSprite),
 
 			// Component type
 			kSpriteComponent
 		},
+
+		// Is animated?
+		true,
 
 		// Spec for the texture to display
 		(TextureSpec*)&LowPowerIndicatorTextureSpec,

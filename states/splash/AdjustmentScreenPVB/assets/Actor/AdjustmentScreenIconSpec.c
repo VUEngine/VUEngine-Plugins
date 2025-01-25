@@ -90,6 +90,9 @@ BgmapSpriteROMSpec AdjustmentScreenIconLSpriteSpec =
 			kSpriteComponent
 		},
 
+		// Is animated?
+		false,
+
 		// Spec for the texture to display
 		(TextureSpec*)&AdjustmentScreenIconTexture,
 
@@ -121,6 +124,9 @@ BgmapSpriteROMSpec const AdjustmentScreenIconRSpriteSpec =
 			// Component type
 			kSpriteComponent
 		},
+
+		// Is animated?
+		false,
 
 		// Spec for the texture to display
 		(TextureSpec*)&AdjustmentScreenIconTexture,
