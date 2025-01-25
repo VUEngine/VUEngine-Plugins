@@ -12,6 +12,7 @@
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 #include <AutomaticPauseManager.h>
+#include <Singleton.h>
 #include <StateMachine.h>
 #include <VUEngine.h>
 

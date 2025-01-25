@@ -17,6 +17,7 @@
 #include <Languages.h>
 #include <Printer.h>
 #include <SaveDataManager.h>
+#include <Singleton.h>
 #include <SoundManager.h>
 #include <VirtualList.h>
 #include <VUEngine.h>

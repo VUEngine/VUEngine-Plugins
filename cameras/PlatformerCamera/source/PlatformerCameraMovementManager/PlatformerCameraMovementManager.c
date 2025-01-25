@@ -11,15 +11,16 @@
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#include <Optics.h>
-#include <Camera.h>
-#include <MessageDispatcher.h>
 #include <Actor.h>
-#include <VUEngine.h>
 #include <BodyManager.h>
-#include <InverseBox.h>
+#include <Camera.h>
 #include <EventManager.h>
+#include <InverseBox.h>
+#include <MessageDispatcher.h>
+#include <Optics.h>
+#include <Singleton.h>
 #include <Utilities.h>
+#include <VUEngine.h>
 
 #include "PlatformerCameraMovementManager.h"
 

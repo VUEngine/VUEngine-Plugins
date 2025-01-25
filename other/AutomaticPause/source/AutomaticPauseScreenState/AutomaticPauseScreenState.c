@@ -13,13 +13,14 @@
 
 #include <string.h>
 
+#include <BodyManager.h>
 #include <Camera.h>
 #include <CameraEffectManager.h>
 #include <I18n.h>
 #include <Languages.h>
 #include <MessageDispatcher.h>
 #include <Printer.h>
-#include <BodyManager.h>
+#include <Singleton.h>
 #include <VUEngine.h>
 
 #include "AutomaticPauseScreenState.h"

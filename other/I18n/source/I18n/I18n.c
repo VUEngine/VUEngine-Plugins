@@ -13,6 +13,7 @@
 
 #include <string.h>
 
+#include <Singleton.h>
 #include <Utilities.h>
 #include <VUEngine.h>
 

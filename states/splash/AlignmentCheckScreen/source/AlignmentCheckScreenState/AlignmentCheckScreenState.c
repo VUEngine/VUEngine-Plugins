@@ -13,6 +13,7 @@
 
 #include <Camera.h>
 #include <CameraEffectManager.h>
+#include <Singleton.h>
 #include <VUEngine.h>
 
 #include "AlignmentCheckScreenState.h"

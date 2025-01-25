@@ -14,6 +14,7 @@
 #include <Camera.h>
 #include <CameraEffectManager.h>
 #include <LowPowerManager.h>
+#include <Singleton.h>
 #include <VUEngine.h>
 
 #include "AdjustmentScreenState.h"

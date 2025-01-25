@@ -15,6 +15,7 @@
 #include <CameraEffectManager.h>
 #include <FrameBufferManager.h>
 #include <LowPowerManager.h>
+#include <Singleton.h>
 #include <SoundManager.h>
 #include <VUEngine.h>
 

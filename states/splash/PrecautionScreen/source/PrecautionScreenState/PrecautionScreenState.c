@@ -14,6 +14,7 @@
 #include <I18n.h>
 #include <Languages.h>
 #include <MessageDispatcher.h>
+#include <Singleton.h>
 #include <SoundManager.h>
 #include <Telegram.h>
 

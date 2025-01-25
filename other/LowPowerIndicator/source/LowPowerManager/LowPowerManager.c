@@ -13,6 +13,7 @@
 
 #include <KeypadManager.h>
 #include <Printer.h>
+#include <Singleton.h>
 #include <VirtualList.h>
 #include <VirtualNode.h>
 #include <VUEngine.h>
