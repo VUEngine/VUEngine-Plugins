@@ -13,7 +13,7 @@
 
 #include <Camera.h>
 #include <CameraEffectManager.h>
-#include <DirectDraw.h>
+#include <FrameBufferManager.h>
 #include <LowPowerManager.h>
 #include <SoundManager.h>
 #include <VUEngine.h>
@@ -64,7 +64,7 @@ static void AdjustmentScreenState::rhombusEmitterPostProcessingEffect
 	// Draw rhombus around object with given radius
 
 	// Top left line
-	DirectDraw::drawLine
+	FrameBufferManager::drawLine
 	(
 		(PixelVector) {(192 - radius),	(112),			0, -((radius + __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_RHOMBUS_INITIAL_VALUE)>>5)},
 		(PixelVector) {(192),			(112 - radius),	0, -((radius + __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_RHOMBUS_INITIAL_VALUE)>>5)},
@@ -74,7 +74,7 @@ static void AdjustmentScreenState::rhombusEmitterPostProcessingEffect
 	);
 
 	// Top right line
-	DirectDraw::drawLine
+	FrameBufferManager::drawLine
 	(
 		(PixelVector) {(192 + radius),	(112),			0, -((radius + __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_RHOMBUS_INITIAL_VALUE)>>5)},
 		(PixelVector) {(192),			(112 - radius),	0, -((radius + __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_RHOMBUS_INITIAL_VALUE)>>5)},
@@ -84,7 +84,7 @@ static void AdjustmentScreenState::rhombusEmitterPostProcessingEffect
 	);
 
 	// Bottom right line
-	DirectDraw::drawLine
+	FrameBufferManager::drawLine
 	(
 		(PixelVector) {(192 + radius),	(112),			0, -((radius + __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_RHOMBUS_INITIAL_VALUE)>>5)},
 		(PixelVector) {(192),			(112 + radius),	0, -((radius + __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_RHOMBUS_INITIAL_VALUE)>>5)},
@@ -94,7 +94,7 @@ static void AdjustmentScreenState::rhombusEmitterPostProcessingEffect
 	);
 
 	// Bottom left line
-	DirectDraw::drawLine
+	FrameBufferManager::drawLine
 	(
 		(PixelVector) {(192 - radius),	(112),			0, -((radius + __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_RHOMBUS_INITIAL_VALUE)>>5)},
 		(PixelVector) {(192),			(112 + radius),	0, -((radius + __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_RHOMBUS_INITIAL_VALUE)>>5)},

@@ -12,7 +12,7 @@
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 #include <Camera.h>
-#include <DirectDraw.h>
+#include <FrameBufferManager.h>
 #include <Optics.h>
 #include <Utilities.h>
 #include <VUEngine.h>

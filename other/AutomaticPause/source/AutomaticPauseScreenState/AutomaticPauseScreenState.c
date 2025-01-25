@@ -18,7 +18,7 @@
 #include <I18n.h>
 #include <Languages.h>
 #include <MessageDispatcher.h>
-#include <Printing.h>
+#include <Printer.h>
 #include <BodyManager.h>
 #include <VUEngine.h>
 
@@ -76,13 +76,13 @@ void AutomaticPauseScreenState::enter(void* owner __attribute__ ((unused)))
 	const char* strTitle = I18n::getText(I18n::getInstance(), kStringAutomaticPauseTitle);
 	const char* strBody = I18n::getText(I18n::getInstance(), kStringAutomaticPauseBody);
 
-	FontSize strAutomaticPauseSize = Printing::getTextSize
+	FontSize strAutomaticPauseSize = Printer::getTextSize
 	(
 		strTitle,
 		__PLUGIN_AUTOMATIC_PAUSE_TITLE_TEXT_FONT
 	);
 
-	FontSize strAutomaticPauseTextSize = Printing::getTextSize
+	FontSize strAutomaticPauseTextSize = Printer::getTextSize
 	(
 		strBody,
 		__PLUGIN_AUTOMATIC_PAUSE_BODY_TEXT_FONT
@@ -90,7 +90,7 @@ void AutomaticPauseScreenState::enter(void* owner __attribute__ ((unused)))
 
 	uint8 strHeaderXPos = ((__HALF_SCREEN_WIDTH_IN_CHARS) - (strAutomaticPauseSize.x >> 1));
 	
-	Printing::text
+	Printer::text
 	(
 		strTitle,
 		strHeaderXPos,
@@ -100,7 +100,7 @@ void AutomaticPauseScreenState::enter(void* owner __attribute__ ((unused)))
 
 	uint8 strTextXPos = (__HALF_SCREEN_WIDTH_IN_CHARS) - (strAutomaticPauseTextSize.x >> 1);
 	
-	Printing::text
+	Printer::text
 	(
 		strBody,
 		strTextXPos,

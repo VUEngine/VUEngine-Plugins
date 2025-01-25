@@ -13,7 +13,7 @@
 
 #include <Camera.h>
 #include <Clock.h>
-#include <DirectDraw.h>
+#include <FrameBufferManager.h>
 #include <GameState.h>
 #include <Optics.h>
 #include <Utilities.h>

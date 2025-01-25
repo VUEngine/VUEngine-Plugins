@@ -12,7 +12,7 @@
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 #include <Camera.h>
-#include <DirectDraw.h>
+#include <FrameBufferManager.h>
 #include <Optics.h>
 #include <Utilities.h>
 #include <VIPManager.h>
@@ -27,7 +27,7 @@
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 /*
- * Uses directdraw to draw a rhombus around the entity.
+ * Uses FrameBufferManager to draw a rhombus around the entity.
  * This effect only writes to the framebuffers, but does not read them. Since write access is much quicker
  * than reading, and since only a few pixels are affected, this effect runs well on hardware.
  *
@@ -85,7 +85,7 @@ static void PostProcessingRhombus::rhombus
  */
 static void PostProcessingRhombus::drawRhombus(int32 radius, uint32 color, PixelVector screenPixelPosition, int32 parallax)
 {
-	DirectDraw::drawLine
+	FrameBufferManager::drawLine
 	(
 		(PixelVector) {screenPixelPosition.x - radius,	screenPixelPosition.y,			0, parallax},
 		(PixelVector) {screenPixelPosition.x,			screenPixelPosition.y - radius,	0, parallax},
@@ -94,7 +94,7 @@ static void PostProcessingRhombus::drawRhombus(int32 radius, uint32 color, Pixel
 		false
 	);
 
-	DirectDraw::drawLine
+	FrameBufferManager::drawLine
 	(
 		(PixelVector) {screenPixelPosition.x + radius,	screenPixelPosition.y,			0, parallax},
 		(PixelVector) {screenPixelPosition.x,			screenPixelPosition.y - radius,	0, parallax},
@@ -103,7 +103,7 @@ static void PostProcessingRhombus::drawRhombus(int32 radius, uint32 color, Pixel
 		false
 	);
 
-	DirectDraw::drawLine
+	FrameBufferManager::drawLine
 	(
 		(PixelVector) {screenPixelPosition.x + radius,	screenPixelPosition.y,			0, parallax},
 		(PixelVector) {screenPixelPosition.x,			screenPixelPosition.y + radius,	0, parallax},
@@ -112,7 +112,7 @@ static void PostProcessingRhombus::drawRhombus(int32 radius, uint32 color, Pixel
 		false
 	);
 
-	DirectDraw::drawLine
+	FrameBufferManager::drawLine
 	(
 		(PixelVector) {screenPixelPosition.x - radius,	screenPixelPosition.y,			0, parallax},
 		(PixelVector) {screenPixelPosition.x,			screenPixelPosition.y + radius,	0, parallax},

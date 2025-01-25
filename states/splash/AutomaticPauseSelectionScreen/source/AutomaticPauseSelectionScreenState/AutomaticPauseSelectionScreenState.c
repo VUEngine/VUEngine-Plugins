@@ -16,7 +16,7 @@
 #include <AutomaticPauseManager.h>
 #include <I18n.h>
 #include <Languages.h>
-#include <Printing.h>
+#include <Printer.h>
 #include <SaveDataManager.h>
 #include <SoundManager.h>
 #include <VUEngine.h>
@@ -74,20 +74,20 @@ void AutomaticPauseSelectionScreenState::print()
 
 	const char* strAutomaticPauseTitle = I18n::getText(I18n::getInstance(), kStringAutomaticPauseSelectionTitle);
 	FontSize strAutomaticPauseSize = 
-		Printing::getTextSize
+		Printer::getTextSize
 		(
 			strAutomaticPauseTitle, __PLUGIN_AUTOMATIC_PAUSE_SELECTION_SCREEN_TITLE_TEXT_FONT
 		);
 
 	const char* strAutomaticPauseExplanation = I18n::getText(I18n::getInstance(), kStringAutomaticPauseSelectionBody);
 	FontSize strAutomaticPauseExplanationSize = 
-		Printing::getTextSize
+		Printer::getTextSize
 		(
 			strAutomaticPauseExplanation, __PLUGIN_AUTOMATIC_PAUSE_SELECTION_SCREEN_BODY_TEXT_FONT
 		);
 
 	uint8 strHeaderXPos = (__HALF_SCREEN_WIDTH_IN_CHARS) - (strAutomaticPauseSize.x >> 1);
-	Printing::text
+	Printer::text
 	(
 		strAutomaticPauseTitle,
 		strHeaderXPos,
@@ -96,7 +96,7 @@ void AutomaticPauseSelectionScreenState::print()
 	);
 
 	uint8 strExplanationXPos = (__HALF_SCREEN_WIDTH_IN_CHARS) - (strAutomaticPauseExplanationSize.x >> 1);
-	Printing::text
+	Printer::text
 	(
 		strAutomaticPauseExplanation, strExplanationXPos, 9 + strAutomaticPauseSize.y, 
 		__PLUGIN_AUTOMATIC_PAUSE_SELECTION_SCREEN_BODY_TEXT_FONT
@@ -139,27 +139,27 @@ void AutomaticPauseSelectionScreenState::renderSelection()
 	const char* strOff = I18n::getText(I18n::getInstance(), kStringAutomaticPauseSelectionOff);
 	
 	FontSize strOnSize = 
-		Printing::getTextSize(strOn, __PLUGIN_AUTOMATIC_PAUSE_SELECTION_SCREEN_OPTIONS_TEXT_FONT);
+		Printer::getTextSize(strOn, __PLUGIN_AUTOMATIC_PAUSE_SELECTION_SCREEN_OPTIONS_TEXT_FONT);
 	
 	FontSize strOffSize = 
-		Printing::getTextSize(strOff, __PLUGIN_AUTOMATIC_PAUSE_SELECTION_SCREEN_OPTIONS_TEXT_FONT);
+		Printer::getTextSize(strOff, __PLUGIN_AUTOMATIC_PAUSE_SELECTION_SCREEN_OPTIONS_TEXT_FONT);
 	
 	uint8 selectionStart = (48 - (strOnSize.x + __PLUGIN_AUTOMATIC_PAUSE_SELECTION_SCREEN_OPTIONS_GAP + strOffSize.x)) >> 1;
 
 	// Clear options area
-	Printing::text
+	Printer::text
 	(
 		"                                                ", 0, 
 		__PLUGIN_AUTOMATIC_PAUSE_SELECTION_SCREEN_OPTIONS_Y_POS, NULL
 	);
 	
-	Printing::text
+	Printer::text
 	(
 		"                                                ", 0, 
 		__PLUGIN_AUTOMATIC_PAUSE_SELECTION_SCREEN_OPTIONS_Y_POS + 1, NULL
 	);
 
-	Printing::text
+	Printer::text
 	(
 		"                                                ", 0, 
 		__PLUGIN_AUTOMATIC_PAUSE_SELECTION_SCREEN_OPTIONS_Y_POS + 2, NULL
@@ -167,7 +167,7 @@ void AutomaticPauseSelectionScreenState::renderSelection()
 	
 	if(strOnSize.y > 1) 
 	{
-		Printing::text
+		Printer::text
 		(
 			"                                                ", 0, 
 			__PLUGIN_AUTOMATIC_PAUSE_SELECTION_SCREEN_OPTIONS_Y_POS + 3, NULL
@@ -175,7 +175,7 @@ void AutomaticPauseSelectionScreenState::renderSelection()
 	
 		if(strOnSize.y > 2)
 		{
-			Printing::text
+			Printer::text
 			(
 				"                                                ", 0, 
 				__PLUGIN_AUTOMATIC_PAUSE_SELECTION_SCREEN_OPTIONS_Y_POS + 4, NULL
@@ -183,7 +183,7 @@ void AutomaticPauseSelectionScreenState::renderSelection()
 			
 			if(strOnSize.y > 3) 
 			{
-				Printing::text
+				Printer::text
 				(
 					"                                                ", 0, 
 					__PLUGIN_AUTOMATIC_PAUSE_SELECTION_SCREEN_OPTIONS_Y_POS + 5, NULL
@@ -193,13 +193,13 @@ void AutomaticPauseSelectionScreenState::renderSelection()
 	}
 
 	// Print options
-	Printing::text
+	Printer::text
 	(
 		strOn, selectionStart, __PLUGIN_AUTOMATIC_PAUSE_SELECTION_SCREEN_OPTIONS_Y_POS + 1, 
 		__PLUGIN_AUTOMATIC_PAUSE_SELECTION_SCREEN_OPTIONS_TEXT_FONT
 	);
 	
-	Printing::text
+	Printer::text
 	(
 		strOff, selectionStart + 3 + strOnSize.x, 
 		__PLUGIN_AUTOMATIC_PAUSE_SELECTION_SCREEN_OPTIONS_Y_POS + 1, __PLUGIN_AUTOMATIC_PAUSE_SELECTION_SCREEN_OPTIONS_TEXT_FONT
@@ -212,47 +212,47 @@ void AutomaticPauseSelectionScreenState::renderSelection()
 	uint8 optionEnd = this->selection ? optionStart + strOnSize.x : optionStart + strOffSize.x;
 	optionStart--;
 	
-	Printing::text
+	Printer::text
 	(
 		"\x03\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08", 
 		optionStart, __PLUGIN_AUTOMATIC_PAUSE_SELECTION_SCREEN_OPTIONS_Y_POS, NULL
 	);
 	
-	Printing::text
+	Printer::text
 	(
 		"\x04               ", optionEnd, __PLUGIN_AUTOMATIC_PAUSE_SELECTION_SCREEN_OPTIONS_Y_POS, NULL
 	);
 	
-	Printing::text("\x07", optionStart, __PLUGIN_AUTOMATIC_PAUSE_SELECTION_SCREEN_OPTIONS_Y_POS + 1, NULL);
+	Printer::text("\x07", optionStart, __PLUGIN_AUTOMATIC_PAUSE_SELECTION_SCREEN_OPTIONS_Y_POS + 1, NULL);
 	
-	Printing::text("\x07", optionEnd, __PLUGIN_AUTOMATIC_PAUSE_SELECTION_SCREEN_OPTIONS_Y_POS + 1, NULL);
+	Printer::text("\x07", optionEnd, __PLUGIN_AUTOMATIC_PAUSE_SELECTION_SCREEN_OPTIONS_Y_POS + 1, NULL);
 	
 	if(strOnSize.y > 1) 
 	{
-		Printing::text("\x07", optionStart, __PLUGIN_AUTOMATIC_PAUSE_SELECTION_SCREEN_OPTIONS_Y_POS + 2, NULL);
+		Printer::text("\x07", optionStart, __PLUGIN_AUTOMATIC_PAUSE_SELECTION_SCREEN_OPTIONS_Y_POS + 2, NULL);
 		
-		Printing::text("\x07", optionEnd, __PLUGIN_AUTOMATIC_PAUSE_SELECTION_SCREEN_OPTIONS_Y_POS + 2, NULL);
+		Printer::text("\x07", optionEnd, __PLUGIN_AUTOMATIC_PAUSE_SELECTION_SCREEN_OPTIONS_Y_POS + 2, NULL);
 		
 		if(strOnSize.y > 2) 
 		{
-			Printing::text
+			Printer::text
 			(
 				"\x07", optionStart, __PLUGIN_AUTOMATIC_PAUSE_SELECTION_SCREEN_OPTIONS_Y_POS + 3, NULL
 			);
 			
-			Printing::text
+			Printer::text
 			(
 				"\x07", optionEnd, __PLUGIN_AUTOMATIC_PAUSE_SELECTION_SCREEN_OPTIONS_Y_POS + 3, NULL
 			);
 			
 			if(strOnSize.y > 3)
 			{
-				Printing::text
+				Printer::text
 				(
 					"\x07", optionStart, __PLUGIN_AUTOMATIC_PAUSE_SELECTION_SCREEN_OPTIONS_Y_POS + 4, NULL
 				);
 				
-				Printing::text
+				Printer::text
 				(
 					"\x07", optionEnd, __PLUGIN_AUTOMATIC_PAUSE_SELECTION_SCREEN_OPTIONS_Y_POS + 4, NULL
 				);
@@ -260,13 +260,13 @@ void AutomaticPauseSelectionScreenState::renderSelection()
 		}
 	}
 
-	Printing::text
+	Printer::text
 	(
 		"\x05\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08", 
 		optionStart, __PLUGIN_AUTOMATIC_PAUSE_SELECTION_SCREEN_OPTIONS_Y_POS + 1 + strOnSize.y, NULL
 	);
 	
-	Printing::text
+	Printer::text
 	(
 		"\x06               ", optionEnd, 
 		__PLUGIN_AUTOMATIC_PAUSE_SELECTION_SCREEN_OPTIONS_Y_POS + 1 + strOnSize.y, NULL

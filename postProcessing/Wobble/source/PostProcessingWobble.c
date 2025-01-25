@@ -14,7 +14,7 @@
 #include <PostProcessingWobble.h>
 #include <Optics.h>
 #include <Utilities.h>
-#include <DirectDraw.h>
+#include <FrameBufferManager.h>
 #include <VUEngine.h>
 #include <Container.h>
 #include <Actor.h>

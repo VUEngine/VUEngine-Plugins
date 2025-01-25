@@ -12,7 +12,7 @@
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 #include <KeypadManager.h>
-#include <Printing.h>
+#include <Printer.h>
 #include <VirtualList.h>
 #include <VirtualNode.h>
 #include <VUEngine.h>
@@ -126,7 +126,7 @@ void LowPowerManager::setPosition(uint8 x, uint8 y)
 
 void LowPowerManager::printLowPowerIndicator(bool showIndicator)
 {
-	Printing::text
+	Printer::text
 	(
 		
 		(showIndicator) ? __PLUGIN_LOW_POWER_INDICATOR_ON_TEXT : __PLUGIN_LOW_POWER_INDICATOR_OFF_TEXT,
