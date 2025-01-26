@@ -16,9 +16,9 @@
 #include <FrameBufferManager.h>
 #include <GameState.h>
 #include <Optics.h>
+#include <TimerManager.h>
 #include <Utilities.h>
 #include <VIPManager.h>
-#include <VUEngine.h>
 
 #include "PostProcessingRain.h"
 
@@ -430,12 +430,7 @@ static void PostProcessingRain::calculateRainPrecipitation
 		1, 0, -1, 0,
 	};
 
-	if(isDeleted(VUEngine::getCurrentState()))
-	{
-		return;
-	}
-
-	uint32 currentTime = Clock::getMilliseconds(GameState::getLogicsClock(VUEngine::getCurrentState()));
+	uint32 currentTime = TimerManager::getTotalElapsedMilliseconds();
 
 	if((currentTime - previousTime) / 1000 > timePeriod[timePeriodIndex])
 	{
