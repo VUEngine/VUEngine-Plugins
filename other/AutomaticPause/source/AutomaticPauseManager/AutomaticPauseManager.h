@@ -14,6 +14,7 @@
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
+#include <Clock.h>
 #include <ListenerObject.h>
 #include <GameState.h>
 
@@ -32,6 +33,9 @@ singleton class AutomaticPauseManager : ListenerObject
 
 	/// Auto pause state
 	GameState automaticPauseState;
+
+	/// Clock to keep track of how much passed since activation
+	Clock clock;
 
 	/// Auto pause active flag
 	bool isActive;

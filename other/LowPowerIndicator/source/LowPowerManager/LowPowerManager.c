@@ -32,6 +32,7 @@ void LowPowerManager::constructor()
 	Base::constructor();
 
 	// Init class variables
+	this->clock = NULL;
 	this->isShowingIndicator = false;
 	this->isActive = false;
 	this->lowPowerDuration = 0;
@@ -45,9 +46,14 @@ void LowPowerManager::constructor()
 
 void LowPowerManager::destructor()
 {
+	if(!isDeleted(this->clock))
+	{
+		delete this->clock;
+		this->clock = NULL;
+	}
+
 	// Remove event listeners
 	KeypadManager::removeEventListener(KeypadManager::getInstance(), ListenerObject::safeCast(this), kEventKeypadManagerRaisedPowerFlag);
-	Clock::removeEventListener(VUEngine::getClock(), ListenerObject::safeCast(this), kEventSecondChanged);
 
 	// Always explicitly call the base's destructor 
 	Base::destructor();
@@ -61,8 +67,13 @@ bool LowPowerManager::onEvent(ListenerObject eventFirer __attribute__((unused)),
 	{
 		case kEventKeypadManagerRaisedPowerFlag:
 		{
-			Clock::addEventListener(VUEngine::getClock(), ListenerObject::safeCast(this), kEventSecondChanged);
+			if(isDeleted(this->clock))
+			{
+				this->clock = new Clock();
+				Clock::start(this->clock);
+			}
 
+			Clock::addEventListener(this->clock, ListenerObject::safeCast(this), kEventSecondChanged);
 			return false;
 		}
 
@@ -111,7 +122,11 @@ void LowPowerManager::setActive(bool active)
 			KeypadManager::getInstance(), ListenerObject::safeCast(this), kEventKeypadManagerRaisedPowerFlag
 		);
 		
-		Clock::removeEventListener(VUEngine::getClock(), ListenerObject::safeCast(this), kEventSecondChanged);
+		if(!isDeleted(this->clock))
+		{
+			delete this->clock;
+			this->clock = NULL;
+		}
 	}
 }
 

@@ -14,6 +14,7 @@
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
+#include <Clock.h>
 #include <ListenerObject.h>
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -24,6 +25,9 @@
 singleton class LowPowerManager : ListenerObject
 {
 	/// @protectedsection
+
+	/// Clock to keep track of how much passed since activation
+	Clock clock;
 
 	/// Low power indicator active flag
 	bool isActive;

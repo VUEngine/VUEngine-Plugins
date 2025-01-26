@@ -58,13 +58,21 @@ void AutomaticPauseManager::setActive(bool active)
 
 	if(this->isActive)
 	{
-		// Add event listeners
-		Clock::addEventListener(VUEngine::getClock(), ListenerObject::safeCast(this), kEventMinuteChanged);
+		if(isDeleted(this->clock))
+		{
+			this->clock = new Clock();
+			Clock::start(this->clock);
+		}
+
+		Clock::addEventListener(this->clock, ListenerObject::safeCast(this), kEventMinuteChanged);
 	}
 	else
 	{
-		// Remove event listeners
-		Clock::removeEventListener(VUEngine::getClock(), ListenerObject::safeCast(this), kEventMinuteChanged);
+		if(!isDeleted(this->clock))
+		{
+			delete this->clock;
+			this->clock = NULL;
+		}
 	}
 }
 
@@ -93,14 +101,18 @@ void AutomaticPauseManager::constructor()
 	this->isActive = false;
 	this->elapsedTime = 0;
 	this->autoPauseDelay = 30;
+	this->clock = NULL;
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 void AutomaticPauseManager::destructor()
 {
-	// Remove event listeners
-	Clock::removeEventListener(VUEngine::getClock(), ListenerObject::safeCast(this), kEventMinuteChanged);
+	if(!isDeleted(this->clock))
+	{
+		delete this->clock;
+		this->clock = NULL;
+	}
 
 	// Always explicitly call the base's destructor 
 	Base::destructor();
