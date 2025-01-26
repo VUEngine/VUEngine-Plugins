@@ -29,7 +29,7 @@ void LocalizedActor::constructor(const LocalizedActorSpec* localizedActorSpec, i
 	Base::constructor((ActorSpec*)&localizedActorSpec->actorSpec, internalId, name);
 
 	// Add event listeners
-	GameState::addEventListener(VUEngine::getCurrentState(), ListenerObject::safeCast(this), kEventLanguageChanged);
+	I18n::addEventListener(I18n::getInstance(), ListenerObject::safeCast(this), kEventLanguageChanged);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -37,7 +37,7 @@ void LocalizedActor::constructor(const LocalizedActorSpec* localizedActorSpec, i
 void LocalizedActor::destructor()
 {
 	// Remove event listeners
-	GameState::removeEventListener(VUEngine::getCurrentState(), ListenerObject::safeCast(this), kEventLanguageChanged);
+	I18n::addEventListener(I18n::getInstance(), ListenerObject::safeCast(this), kEventLanguageChanged);
 
 	// Always explicitly call the base's destructor 
 	Base::destructor();
