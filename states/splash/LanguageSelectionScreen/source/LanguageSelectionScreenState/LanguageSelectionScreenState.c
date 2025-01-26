@@ -299,7 +299,7 @@ Actor LanguageSelectionScreenState::addFlagToStage(ActorSpec* actorSpec, uint8 p
 	};
 
 #ifdef __LEGACY_COORDINATE_PROJECTION
-	return Stage::spawnChildActor(VUEngine::getStage(), &flagPositionedActor, true);
+	return Stage::spawnChildActor(this->stage, &flagPositionedActor, true);
 #else
 	return UIContainer::spawnChildActor(this->uiContainer, &flagPositionedActor);
 #endif
