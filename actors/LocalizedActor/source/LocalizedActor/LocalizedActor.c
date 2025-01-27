@@ -37,7 +37,7 @@ void LocalizedActor::constructor(const LocalizedActorSpec* localizedActorSpec, i
 void LocalizedActor::destructor()
 {
 	// Remove event listeners
-	I18n::addEventListener(I18n::getInstance(), ListenerObject::safeCast(this), kEventLanguageChanged);
+	I18n::removeEventListener(I18n::getInstance(), ListenerObject::safeCast(this), kEventLanguageChanged);
 
 	// Always explicitly call the base's destructor 
 	Base::destructor();
