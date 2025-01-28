@@ -1,10 +1,11 @@
-{%- set projectTranslations = project.items.Translations | values -%}
+{%- set projectTranslations = project.items.Translations.project -%}
+{%- set allTranslations = project.items.Translations | values -%}
 {%- set translationIds = [] -%}
-{%- set allTranslations = {} -%}
-{%- for translation in projectTranslations -%}
+{%- set combinedTranslations = {} -%}
+{%- for translation in allTranslations -%}
     {%- for translationId, translations in translation.translations %}
         {%- set translationIds = (translationIds.push(translationId), translationIds) -%}
-		{%- set allTranslations = allTranslations | setAttribute(translationId, translations) -%}
+		{%- set combinedTranslations = combinedTranslations | setAttribute(translationId, translations) -%}
     {%- endfor -%}
 {%- endfor %}
 {%- set translationIds = translationIds | unique | sort -%}
@@ -16,33 +17,32 @@
 #include <I18n.h>
 #include <Languages.h>
 
-{% if item.languages | length -%}
+{% if projectTranslations.languages | length -%}
 {{ macros.sectionHeader('Declarations') }}
 
-{% for language in item.languages|sort(attribute='order') -%}
+{% for language in projectTranslations.languages|sort(attribute='order') -%}
 extern LangROMSpec {{ language.name | sanitizeSpecName }}LanguageSpec;
 {% if language.flag -%}
 extern ActorSpec {{ language.flag }};
 {% endif -%}
 {% endfor %}
-
 {% endif -%}
 {{ macros.sectionHeader('Definitions') }}
 
 LangROMSpec* const _languages[] =
 {
-	{% for language in item.languages|sort(attribute='order') -%}
+	{% for language in projectTranslations.languages|sort(attribute='order') -%}
 	&{{ language.name | sanitizeSpecName }}LanguageSpec,
 	{% endfor %}
 	NULL
 };
-{%- for language in item.languages %}
+{%- for language in projectTranslations.languages %}
 
 const char* const {{ language.name | sanitizeSpecName }}LanguageStrings[] =
 {
     {%- for translationId in translationIds %}
     /* kString{{ translationId | sanitizeSpecName }}: */
-    "{{ allTranslations[translationId][language.code] | replace('\n', '\\n') | replace('\"', '\\"') | safe }}",
+    "{{ combinedTranslations[translationId][language.code] | replace('\n', '\\n') | replace('\"', '\\"') | safe }}",
     {%- endfor %}
 };
 

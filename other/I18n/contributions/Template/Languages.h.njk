@@ -1,3 +1,4 @@
+{%- set projectTranslations = project.items.Translations.project -%}
 {%- set allLanguages = project.items.Translations | values -%}
 {%- import 'templates/partials/macros.njk' as macros -%}
 {% include('templates/partials/fileHeader/fileHeader.h.njk') %}
@@ -7,10 +8,10 @@
 
 {{ macros.sectionHeader('Definitions') }}
 
-{% if item.languages | length -%}
+{% if projectTranslations.languages | length -%}
 enum LanguageIdentifiers
 {
-	{% for language in item.languages|sort(attribute='order') -%}
+	{% for language in projectTranslations.languages|sort(attribute='order') -%}
 	kLanguage{{ language.name | sanitizeSpecName }},
 	{%- if not loop.last -%}{{ '\n	' }}{%- endif -%}
 	{%- endfor %}
@@ -34,5 +35,5 @@ enum LanguageStrings
 	{%- endfor %}
 };
 
-{% endif %}
+{% endif -%}
 #endif
