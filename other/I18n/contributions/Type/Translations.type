@@ -42,7 +42,7 @@
 		"type": "TranslationsEditor",
 		"scope": "#"
 	},
-	"icon": "fa fa-language",
+	"icon": "codicon codicon-comment-discussion",
 	"templates": [
 		"LanguagesC",
 		"LanguagesH"
