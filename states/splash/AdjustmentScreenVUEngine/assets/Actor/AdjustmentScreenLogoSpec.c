@@ -81,17 +81,19 @@ TextureROMSpec AdjustmentScreenLogoTexture =
 BgmapSpriteROMSpec AdjustmentScreenLogoSpriteSpec =
 {
 	{
-		// Component
 		{
-			// Allocator
-			__TYPE(BgmapSprite),
+			// Component
+			{
+				// Allocator
+				__TYPE(BgmapSprite),
 
-			// Component type
-			kSpriteComponent
+				// Component type
+				kSpriteComponent
+			},
+
+			// Array of function animations
+			(const AnimationFunction**)NULL
 		},
-
-		// Is animated?
-		false,
 
 		// Spec for the texture to display
 		(TextureSpec*)&AdjustmentScreenLogoTexture,
@@ -139,9 +141,6 @@ ActorROMSpec AdjustmentScreenLogoActorSpec =
 
 	// Actor's in-game type
 	kTypeNone,
-
-	// Pointer to animation functions array
-	NULL,
 
 	// Animation to play automatically
 	NULL

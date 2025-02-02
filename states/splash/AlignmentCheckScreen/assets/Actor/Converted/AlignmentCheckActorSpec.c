@@ -77,17 +77,19 @@ TextureROMSpec AlignmentCheckSprite1TextureSpec =
 BgmapSpriteROMSpec AlignmentCheckSprite1SpriteSpec =
 {
 	{
-		// Component
 		{
-			// Allocator
-			__TYPE(BgmapSprite),
+			// Component
+			{
+				// Allocator
+				__TYPE(BgmapSprite),
 
-			// Component type
-			kSpriteComponent
+				// Component type
+				kSpriteComponent
+			},
+
+			// Array of function animations
+			(const AnimationFunction**)NULL
 		},
-
-		// Is animated?
-		false,
 
 		// Spec for the texture to display
 		(TextureSpec*)&AlignmentCheckSprite1TextureSpec,
@@ -163,17 +165,19 @@ TextureROMSpec AlignmentCheckSprite2TextureSpec =
 BgmapSpriteROMSpec AlignmentCheckSprite2SpriteSpec =
 {
 	{
-		// Component
 		{
-			// Allocator
-			__TYPE(BgmapSprite),
+			// Component
+			{
+				// Allocator
+				__TYPE(BgmapSprite),
 
-			// Component type
-			kSpriteComponent
+				// Component type
+				kSpriteComponent
+			},
+
+			// Array of function animations
+			(const AnimationFunction**)NULL
 		},
-
-		// Is animated?
-		false,
 
 		// Spec for the texture to display
 		(TextureSpec*)&AlignmentCheckSprite2TextureSpec,
@@ -225,9 +229,6 @@ ActorROMSpec AlignmentCheckActorSpec =
 
 	// Actor's in-game type
 	kTypeNone,
-
-	// Pointer to animation functions array
-	NULL,
 
 	// Animation to play automatically
 	NULL

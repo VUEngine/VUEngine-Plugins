@@ -128,17 +128,21 @@ TextureROMSpec LowPowerIndicatorTextureSpec =
 BgmapSpriteROMSpec LowPowerIndicatorSpriteSpec =
 {
 	{
-		// Component
 		{
-			// Allocator
-			__TYPE(BgmapSprite),
+			// Component
+			{
+				// Allocator
+				__TYPE(BgmapSprite),
 
-			// Component type
-			kSpriteComponent
+				// Component type
+				kSpriteComponent
+			},
+
+			// Array of function animations
+			(const AnimationFunction**)LowPowerIndicatorAnimationSpecs
 		},
 
-		// Is animated?
-		true,
+		//ANIMATION_HERE
 
 		// Spec for the texture to display
 		(TextureSpec*)&LowPowerIndicatorTextureSpec,
@@ -189,9 +193,6 @@ LowPowerActorROMSpec LowPowerIndicatorActorSpec =
 
 		// Actor's in-game type
 		kTypeNone,
-
-		// Pointer to animation functions array
-		(const AnimationFunction**)LowPowerIndicatorAnimationSpecs,
 
 		// Animation to play automatically
 		"Hide",
