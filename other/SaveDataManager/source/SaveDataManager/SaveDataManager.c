@@ -212,7 +212,6 @@ void SaveDataManager::setLanguage(uint8 languageId)
 
 bool SaveDataManager::getAutomaticPauseStatus()
 {
-
 	uint8 autoPauseStatus = 0;
 	SaveDataManager::getValue(this, (BYTE*)&autoPauseStatus, offsetof(struct SaveData, autoPauseStatus), sizeof(autoPauseStatus));
 
