@@ -1,56 +1,66 @@
 {
-	"displayName": {
-		"en": "Precaution Screen",
-		"de": "Vorsichtsbildschirm",
-		"es": "Pantalla de precaución"
-	},
-	"author": "Team VUEngine",
-	"description": {
-		"en": "A recreation of Nintendo's official precaution screen.",
-		"de": "Eine Nachbildung von Nintendos offiziellem Vorsichtsbildschirm.",
-		"es": "Una recreación de la pantalla de precaución oficial de Nintendo."
-	},
-	"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/states/splash/PrecautionScreen",
-	"license": "MIT",
-	"tags": [
-		{
-			"en": "Essentials",
-			"de": "Essentiell",
-			"es": "Esenciales"
-		},
-		{
-			"en": "Splash",
-			"de": "Splash",
-			"es": "Splash"
-		},
-		{
-			"en": "State",
-			"de": "Zustand",
-			"es": "Estado"
-		}
-	],
-	"dependencies": [
-		"vuengine//actors/LowPowerActor",
-		"vuengine//other/I18n",
-		"vuengine//states/splash/SplashScreen"
-	],
-	"configuration": [
-		{
-			"name": "useLowPowerActor",
-			"label": {
-				"en": "Use Low Power Actor"
-			},
-			"dataType": "boolean",
-			"default": false
-		},
-		{
-			"name": "textFont",
-			"label": {
-				"en": "Text Font"
-			},
-			"dataType": "type",
-			"type": "Font",
-			"default": "Default"
-		}
-	]
+    "_version": "0.6.0",
+    "author": "Team VUEngine",
+    "configuration": [
+        {
+            "dataType": "boolean",
+            "default": false,
+            "description": "",
+            "label": {
+                "en": "Use Low Power Actor"
+            },
+            "max": 0,
+            "min": 0,
+            "name": "useLowPowerActor",
+            "step": 0,
+            "type": ""
+        },
+        {
+            "dataType": "type",
+            "default": "Default",
+            "description": "",
+            "label": {
+                "en": "Text Font"
+            },
+            "max": 0,
+            "min": 0,
+            "name": "textFont",
+            "step": 0,
+            "type": "Font"
+        }
+    ],
+    "dependencies": [
+        "vuengine//actors/LowPowerActor",
+        "vuengine//other/I18n",
+        "vuengine//states/splash/SplashScreen"
+    ],
+    "description": {
+        "de": "Eine Nachbildung von Nintendos offiziellem Warnungsbildschirm.",
+        "en": "A recreation of Nintendo's official precaution screen.",
+        "es": "Una recreación de la pantalla de precaución oficial de Nintendo."
+    },
+    "displayName": {
+        "de": "Warnungsbildschirm",
+        "en": "Precaution Screen",
+        "es": "Pantalla de precaución"
+    },
+    "license": "MIT",
+    "repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/states/splash/PrecautionScreen",
+    "tags": [
+        {
+            "de": "Essentiell",
+            "en": "Essentials",
+            "es": "Esenciales"
+        },
+        {
+            "de": "Splash",
+            "en": "Splash",
+            "es": "Splash"
+        },
+        {
+            "de": "Zustand",
+            "en": "State",
+            "es": "Estado"
+        }
+    ]
 }

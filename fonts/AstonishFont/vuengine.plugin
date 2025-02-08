@@ -1,23 +1,25 @@
 {
-	"displayName": {
-		"en": "Astonish Font",
-		"de": "Astonish Schriftart",
-		"es": "Astonish Fuente"
-	},
-	"author": "Team VUEngine",
-	"description": {
-		"en": "A beautiful 8x16 pixel font for medium size text.",
-		"de": "Eine schöne 8x16 Pixel große Schriftart für mittelgroßen Text.",
-		"es": "Una hermosa fuente de 8x16 píxeles para textos de tamaño medio."
-	},
-	"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/fonts/AstonishFont",
-	"license": "MIT",
-	"tags": [
-		{
-			"en": "Font",
-			"de": "Schriftart",
-			"es": "Fuente"
-		}
-	],
-	"dependencies": []
+    "_version": "0.6.0",
+    "author": "Team VUEngine",
+    "configuration": [],
+    "dependencies": [],
+    "description": {
+        "de": "Eine schöne 8x16 Pixel große Schriftart für mittelgroßen Text.",
+        "en": "A beautiful 8x16 pixel font for medium size text.",
+        "es": "Una hermosa fuente de 8x16 píxeles para textos de tamaño medio."
+    },
+    "displayName": {
+        "de": "Astonish Schriftart",
+        "en": "Astonish Font",
+        "es": "Astonish Fuente"
+    },
+    "license": "MIT",
+    "repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/fonts/AstonishFont",
+    "tags": [
+        {
+            "de": "Schriftart",
+            "en": "Font",
+            "es": "Fuente"
+        }
+    ]
 }

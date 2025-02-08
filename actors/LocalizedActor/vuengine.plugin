@@ -1,26 +1,32 @@
 {
-	"displayName": {
-		"en": "Localized Actor",
-		"de": "Lokalisierte Entität",
-		"es": "Entidad localizada"
-	},
-	"author": "Team VUEngine",
-	"description": {
-		"en": "Uses an Actor to implement localized Sprites.",
-		"de": "Verwendet eine Actor zur Implementierung lokalisierter Sprites.",
-		"es": "Utiliza una Actor para implementar Sprites localizados."
-	},
-	"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/actors/LocalizedActor",
-	"license": "MIT",
-	"tags": [
-		{
-			"en": "Actor",
-			"de": "Entität",
-			"es": "Entidad"
-		},
-		"I18n"
-	],
-	"dependencies": [
-		"vuengine//other/I18n"
-	]
+    "_version": "0.6.0",
+    "author": "Team VUEngine",
+    "configuration": [],
+    "dependencies": [
+        "vuengine//other/I18n"
+    ],
+    "description": {
+        "de": "Verwendet eine Actor zur Implementierung lokalisierter Sprites.",
+        "en": "Uses an Actor to implement localized Sprites.",
+        "es": "Utiliza una Actor para implementar Sprites localizados."
+    },
+    "displayName": {
+        "de": "Lokalisierter Akteur",
+        "en": "Localized Actor",
+        "es": "Actor localizada"
+    },
+    "license": "MIT",
+    "repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/actors/LocalizedActor",
+    "tags": [
+        {
+            "de": "Akteur",
+            "en": "Actor",
+            "es": "Actor"
+        },
+        {
+            "de": "I18n",
+            "en": "I18n",
+            "es": "I18n"
+        }
+    ]
 }

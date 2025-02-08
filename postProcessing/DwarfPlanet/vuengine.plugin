@@ -1,57 +1,78 @@
 {
-	"displayName": {
-		"en": "Dwarf Planet Effect",
-		"de": "Zwergplaneten-Effekt",
-		"es": "Efecto Planeta Enano"
-	},
-	"author": "Team VUEngine",
-	"description": {
-		"en": "\"Bends down\" the left and right edges of the screen to make the game world look like a very small planet.",
-		"de": "\"Biegt\" den linken und rechten Rand des Bildschirms nach unten, wodurch die Spielwelt wie ein sehr kleiner Planet aussieht.",
-		"es": "Dobla los bordes izquierdo y derecho de la pantalla para que el mundo del juego parezca un planeta muy pequeño."
-	},
-	"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/postProcessing/DwarfPlanet",
-	"license": "MIT",
-	"tags": [
-		{
-			"en": "Post Processing",
-			"de": "Nachbearbeitung",
-			"es": "Postproceso"
-		}
-	],
-	"dependencies": [],
-	"configuration": [
-		{
-			"name": "startingRow",
-			"label": {
-				"en": "Starting Row"
-			},
-			"dataType": "integer",
-			"default": 0
-		},
-		{
-			"name": "endingRow",
-			"label": {
-				"en": "Ending Row"
-			},
-			"dataType": "integer",
-			"default": 224
-		},
-		{
-			"name": "startingColumn",
-			"label": {
-				"en": "Starting Column"
-			},
-			"dataType": "integer",
-			"default": 0
-		},
-		{
-			"name": "endingColumn",
-			"label": {
-				"en": "Ending Column"
-			},
-			"dataType": "integer",
-			"default": 384
-		}
-	]
+    "_version": "0.6.0",
+    "author": "Team VUEngine",
+    "configuration": [
+        {
+            "dataType": "integer",
+            "default": 0,
+            "description": "",
+            "label": {
+                "en": "Starting Row"
+            },
+            "max": 0,
+            "min": 0,
+            "name": "startingRow",
+            "step": 0,
+            "type": ""
+        },
+        {
+            "dataType": "integer",
+            "default": 224,
+            "description": "",
+            "label": {
+                "en": "Ending Row"
+            },
+            "max": 0,
+            "min": 0,
+            "name": "endingRow",
+            "step": 0,
+            "type": ""
+        },
+        {
+            "dataType": "integer",
+            "default": 0,
+            "description": "",
+            "label": {
+                "en": "Starting Column"
+            },
+            "max": 0,
+            "min": 0,
+            "name": "startingColumn",
+            "step": 0,
+            "type": ""
+        },
+        {
+            "dataType": "integer",
+            "default": 384,
+            "description": "",
+            "label": {
+                "en": "Ending Column"
+            },
+            "max": 0,
+            "min": 0,
+            "name": "endingColumn",
+            "step": 0,
+            "type": ""
+        }
+    ],
+    "dependencies": [],
+    "description": {
+        "de": "\"Biegt\" den linken und rechten Rand des Bildschirms nach unten, wodurch die Spielwelt wie ein sehr kleiner Planet aussieht.",
+        "en": "\"Bends down\" the left and right edges of the screen to make the game world look like a very small planet.",
+        "es": "Dobla los bordes izquierdo y derecho de la pantalla para que el mundo del juego parezca un planeta muy pequeño."
+    },
+    "displayName": {
+        "de": "Zwergplaneten-Effekt",
+        "en": "Dwarf Planet Effect",
+        "es": "Efecto Planeta Enano"
+    },
+    "license": "MIT",
+    "repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/postProcessing/DwarfPlanet",
+    "tags": [
+        {
+            "de": "Nachbearbeitung",
+            "en": "Post Processing",
+            "es": "Postproceso"
+        }
+    ]
 }

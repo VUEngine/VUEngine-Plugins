@@ -1,65 +1,91 @@
 {
-	"displayName": {
-		"en": "Rain Effect",
-		"de": "Regen-Effekt",
-		"es": "Efecto lluvia"
-	},
-	"author": "Team VUEngine",
-	"description": {
-		"en": "Dynamic full screen rain effect.",
-		"de": "Dynamischer Vollbild-Regeneffekt.",
-		"es": "Efecto de lluvia dinámico a pantalla completa."
-	},
-	"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/postProcessing/Rain",
-	"license": "MIT",
-	"tags": [
-		{
-			"en": "Post Processing",
-			"de": "Nachbearbeitung",
-			"es": "Postproceso"
-		}
-	],
-	"dependencies": [],
-	"configuration": [
-		{
-			"name": "xPosition",
-			"label": {
-				"en": "X Position"
-			},
-			"dataType": "integer",
-			"default": 768
-		},
-		{
-			"name": "yPosition",
-			"label": {
-				"en": "Y Position"
-			},
-			"dataType": "integer",
-			"default": 448
-		},
-		{
-			"name": "width",
-			"label": {
-				"en": "Width"
-			},
-			"dataType": "integer",
-			"default": 200
-		},
-		{
-			"name": "height",
-			"label": {
-				"en": "Height"
-			},
-			"dataType": "integer",
-			"default": 100
-		},
-		{
-			"name": "yStepThrottle",
-			"label": {
-				"en": "Y Step Throttle"
-			},
-			"dataType": "integer",
-			"default": 0
-		}
-	]
+    "_version": "0.6.0",
+    "author": "Team VUEngine",
+    "configuration": [
+        {
+            "dataType": "integer",
+            "default": 768,
+            "description": "",
+            "label": {
+                "en": "X Position"
+            },
+            "max": 0,
+            "min": 0,
+            "name": "xPosition",
+            "step": 0,
+            "type": ""
+        },
+        {
+            "dataType": "integer",
+            "default": 448,
+            "description": "",
+            "label": {
+                "en": "Y Position"
+            },
+            "max": 0,
+            "min": 0,
+            "name": "yPosition",
+            "step": 0,
+            "type": ""
+        },
+        {
+            "dataType": "integer",
+            "default": 200,
+            "description": "",
+            "label": {
+                "en": "Width"
+            },
+            "max": 0,
+            "min": 0,
+            "name": "width",
+            "step": 0,
+            "type": ""
+        },
+        {
+            "dataType": "integer",
+            "default": 100,
+            "description": "",
+            "label": {
+                "en": "Height"
+            },
+            "max": 0,
+            "min": 0,
+            "name": "height",
+            "step": 0,
+            "type": ""
+        },
+        {
+            "dataType": "integer",
+            "default": 0,
+            "description": "",
+            "label": {
+                "en": "Y Step Throttle"
+            },
+            "max": 0,
+            "min": 0,
+            "name": "yStepThrottle",
+            "step": 0,
+            "type": ""
+        }
+    ],
+    "dependencies": [],
+    "description": {
+        "de": "Dynamischer Vollbild-Regeneffekt.",
+        "en": "Dynamic full screen rain effect.",
+        "es": "Efecto de lluvia dinámico a pantalla completa."
+    },
+    "displayName": {
+        "de": "Regen-Effekt",
+        "en": "Rain Effect",
+        "es": "Efecto lluvia"
+    },
+    "license": "MIT",
+    "repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/postProcessing/Rain",
+    "tags": [
+        {
+            "de": "Nachbearbeitung",
+            "en": "Post Processing",
+            "es": "Postproceso"
+        }
+    ]
 }

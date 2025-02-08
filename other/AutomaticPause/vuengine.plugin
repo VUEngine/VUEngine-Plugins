@@ -1,74 +1,86 @@
 {
-	"displayName": {
-		"en": "Automatic Pause",
-		"de": "Automatische Pause",
-		"es": "Pausa Automática"
-	},
-	"author": "Team VUEngine",
-	"description": {
-		"en": "Automatically pauses the game after a definable amount of time.",
-		"de": "Pausiert das Spiel automatisch nach einer einstellbaren Zeitspanne.",
-		"es": "Pone el juego en pausa automáticamente después de una cantidad de tiempo definible."
-	},
-	"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/other/AutomaticPause",
-	"license": "MIT",
-	"tags": [
-		{
-			"en": "Essentials",
-			"de": "Essentiell",
-			"es": "Esenciales"
-		},
-		{
-			"en": "State",
-			"de": "Zustand",
-			"es": "Estado"
-		}
-	],
-	"dependencies": [
-		"vuengine//other/I18n"
-	],
-	"configuration": [
-		{
-			"name": "titleTextFont",
-			"label": {
-				"en": "Title Font",
-				"de": "Schriftart Titel",
-				"es": "Fuente del título"
-			},
-			"description": {
-				"en": "The font to use for the \"Automatic Pause\" title.",
-				"de": "Die für den Titel \"Automatische Pause\" zu verwendende Schriftart.",
-				"es": "Tipo de letra para el título \"Pausa Automática\"."
-			},
-			"dataType": "type",
-			"type": "Font",
-			"default": "Default"
-		},
-		{
-			"name": "bodyTextFont",
-			"label": {
-				"en": "Body Text Font",
-				"de": "Schriftart Erklärtext",
-				"es": "Fuente del cuerpo"
-			},
-			"description": {
-				"en": "The font to use for the explanatory text.",
-				"de": "Die für den erklärenden Text zu verwendende Schriftart.",
-				"es": "El tipo de letra que se utilizará para el texto explicativo."
-			},
-			"dataType": "type",
-			"type": "Font",
-			"default": "Default"
-		},
-		{
-			"name": "useLowPowerActor",
-			"label": {
-				"en": "Use Low Power Actor",
-				"de": "Niedriger Batteriestand Entität benutzen",
-				"es": "Utilizar entidad de baja potencia"
-			},
-			"dataType": "boolean",
-			"default": false
-		}
-	]
+    "_version": "0.6.0",
+    "author": "Team VUEngine",
+    "configuration": [
+        {
+            "dataType": "type",
+            "default": "Default",
+            "description": {
+                "de": "Die für den Titel \"Automatische Pause\" zu verwendende Schriftart.",
+                "en": "The font to use for the \"Automatic Pause\" title.",
+                "es": "Tipo de letra para el título \"Pausa Automática\"."
+            },
+            "label": {
+                "de": "Schriftart Titel",
+                "en": "Title Font",
+                "es": "Fuente del título"
+            },
+            "max": 0,
+            "min": 0,
+            "name": "titleTextFont",
+            "step": 0,
+            "type": "Font"
+        },
+        {
+            "dataType": "type",
+            "default": "Default",
+            "description": {
+                "de": "Die für den erklärenden Text zu verwendende Schriftart.",
+                "en": "The font to use for the explanatory text.",
+                "es": "El tipo de letra que se utilizará para el texto explicativo."
+            },
+            "label": {
+                "de": "Schriftart Erklärtext",
+                "en": "Body Text Font",
+                "es": "Fuente del cuerpo"
+            },
+            "max": 0,
+            "min": 0,
+            "name": "bodyTextFont",
+            "step": 0,
+            "type": "Font"
+        },
+        {
+            "dataType": "boolean",
+            "default": false,
+            "description": "",
+            "label": {
+                "de": "Niedriger Batteriestand Entität benutzen",
+                "en": "Use Low Power Actor",
+                "es": "Utilizar entidad de baja potencia"
+            },
+            "max": 0,
+            "min": 0,
+            "name": "useLowPowerActor",
+            "step": 0,
+            "type": ""
+        }
+    ],
+    "dependencies": [
+        "vuengine//other/I18n"
+    ],
+    "description": {
+        "de": "Pausiert das Spiel automatisch nach einer einstellbaren Zeitspanne.",
+        "en": "Automatically pauses the game after a definable amount of time.",
+        "es": "Pone el juego en pausa automáticamente después de una cantidad de tiempo definible."
+    },
+    "displayName": {
+        "de": "Automatische Pause",
+        "en": "Automatic Pause",
+        "es": "Pausa Automática"
+    },
+    "license": "MIT",
+    "repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/other/AutomaticPause",
+    "tags": [
+        {
+            "de": "Essentiell",
+            "en": "Essentials",
+            "es": "Esenciales"
+        },
+        {
+            "de": "Zustand",
+            "en": "State",
+            "es": "Estado"
+        }
+    ]
 }

@@ -1,87 +1,118 @@
 {
-	"displayName": {
-		"en": "Adjustment Screen (Nintendo)",
-		"de": "Anpassungsbildschirm (Nintendo)",
-		"es": "Pantalla de ajuste (Nintendo)"
-	},
-	"author": "Team VUEngine",
-	"description": {
-		"en": "A recreation of Nintendo's official IPD/focus adjustment screen.",
-		"de": "Eine Nachbildung von Nintendos offiziellem IPD/Fokus-Anpassungsbildschirm.",
-		"es": "Una recreación de la pantalla oficial de ajuste de IPD/enfoque de Nintendo."
-	},
-	"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/states/splash/AdjustmentScreenNintendo",
-	"license": "MIT",
-	"tags": [
-		{
-			"en": "Essentials",
-			"de": "Essentiell",
-			"es": "Esenciales"
-		},
-		{
-			"en": "Splash",
-			"de": "Splash",
-			"es": "Splash"
-		},
-		{
-			"en": "State",
-			"de": "Zustand",
-			"es": "Estado"
-		}
-	],
-	"dependencies": [
-		"vuengine//actors/LowPowerActor",
-		"vuengine//other/LowPowerIndicator",
-		"vuengine//states/splash/SplashScreen"
-	],
-	"configuration": [
-		{
-			"name": "useLowPowerActor",
-			"label": {
-				"en": "Use Low Power Actor"
-			},
-			"dataType": "boolean",
-			"default": false
-		},
-		{
-			"name": "lowPowerIndicatorXPosition",
-			"label": {
-				"en": "Low Power Indicator X Position"
-			},
-			"dataType": "integer",
-			"default": 4
-		},
-		{
-			"name": "lowPowerIndicatorYPosition",
-			"label": {
-				"en": "Low Power Indicator Y Position"
-			},
-			"dataType": "integer",
-			"default": 1
-		},
-		{
-			"name": "lowPowerActorXPosition",
-			"label": {
-				"en": "Low Power Actor X Position"
-			},
-			"dataType": "integer",
-			"default": -152
-		},
-		{
-			"name": "lowPowerActorYPosition",
-			"label": {
-				"en": "Low Power Actor Y Position"
-			},
-			"dataType": "integer",
-			"default": -100
-		},
-		{
-			"name": "lowPowerActorZPosition",
-			"label": {
-				"en": "Low Power Actor Z Position"
-			},
-			"dataType": "integer",
-			"default": 0
-		}
-	]
+    "_version": "0.6.0",
+    "author": "Team VUEngine",
+    "configuration": [
+        {
+            "dataType": "boolean",
+            "default": false,
+            "description": "",
+            "label": {
+                "en": "Use Low Power Actor"
+            },
+            "max": 0,
+            "min": 0,
+            "name": "useLowPowerActor",
+            "step": 0,
+            "type": ""
+        },
+        {
+            "dataType": "integer",
+            "default": 4,
+            "description": "",
+            "label": {
+                "en": "Low Power Indicator X Position"
+            },
+            "max": 0,
+            "min": 0,
+            "name": "lowPowerIndicatorXPosition",
+            "step": 0,
+            "type": ""
+        },
+        {
+            "dataType": "integer",
+            "default": 1,
+            "description": "",
+            "label": {
+                "en": "Low Power Indicator Y Position"
+            },
+            "max": 0,
+            "min": 0,
+            "name": "lowPowerIndicatorYPosition",
+            "step": 0,
+            "type": ""
+        },
+        {
+            "dataType": "integer",
+            "default": -152,
+            "description": "",
+            "label": {
+                "en": "Low Power Actor X Position"
+            },
+            "max": 0,
+            "min": 0,
+            "name": "lowPowerActorXPosition",
+            "step": 0,
+            "type": ""
+        },
+        {
+            "dataType": "integer",
+            "default": -100,
+            "description": "",
+            "label": {
+                "en": "Low Power Actor Y Position"
+            },
+            "max": 0,
+            "min": 0,
+            "name": "lowPowerActorYPosition",
+            "step": 0,
+            "type": ""
+        },
+        {
+            "dataType": "integer",
+            "default": 0,
+            "description": "",
+            "label": {
+                "en": "Low Power Actor Z Position"
+            },
+            "max": 0,
+            "min": 0,
+            "name": "lowPowerActorZPosition",
+            "step": 0,
+            "type": ""
+        }
+    ],
+    "dependencies": [
+        "vuengine//actors/LowPowerActor",
+        "vuengine//other/LowPowerIndicator",
+        "vuengine//states/splash/SplashScreen"
+    ],
+    "description": {
+        "de": "Eine Nachbildung von Nintendos offiziellem IPD/Fokus-Anpassungsbildschirm.",
+        "en": "A recreation of Nintendo's official IPD/focus adjustment screen.",
+        "es": "Una recreación de la pantalla oficial de ajuste de IPD/enfoque de Nintendo."
+    },
+    "displayName": {
+        "de": "Anpassungsbildschirm (Nintendo)",
+        "en": "Adjustment Screen (Nintendo)",
+        "es": "Pantalla de ajuste (Nintendo)"
+    },
+    "license": "MIT",
+    "repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/states/splash/AdjustmentScreenNintendo",
+    "tags": [
+        {
+            "de": "Essentiell",
+            "en": "Essentials",
+            "es": "Esenciales"
+        },
+        {
+            "de": "Splash",
+            "en": "Splash",
+            "es": "Splash"
+        },
+        {
+            "de": "Zustand",
+            "en": "State",
+            "es": "Estado"
+        }
+    ]
 }

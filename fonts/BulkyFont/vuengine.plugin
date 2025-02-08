@@ -1,23 +1,25 @@
 {
-	"displayName": {
-		"en": "Bulky Font",
-		"de": "Bulky Schriftart",
-		"es": "Bulky Fuente"
-	},
-	"author": "Team VUEngine",
-	"description": {
-		"en": "A bulky 16x16 pixel font.",
-		"de": "Eine 16x16-Pixel-Schrift.",
-		"es": "Una fuente voluminosa de 16x16 píxeles."
-	},
-	"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/fonts/BulkyFont",
-	"license": "MIT",
-	"tags": [
-		{
-			"en": "Font",
-			"de": "Schriftart",
-			"es": "Fuente"
-		}
-	],
-	"dependencies": []
+    "_version": "0.6.0",
+    "author": "Team VUEngine",
+    "configuration": [],
+    "dependencies": [],
+    "description": {
+        "de": "Eine 16x16-Pixel-Schrift.",
+        "en": "A bulky 16x16 pixel font.",
+        "es": "Una fuente voluminosa de 16x16 píxeles."
+    },
+    "displayName": {
+        "de": "Bulky Schriftart",
+        "en": "Bulky Font",
+        "es": "Bulky Fuente"
+    },
+    "license": "MIT",
+    "repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/fonts/BulkyFont",
+    "tags": [
+        {
+            "de": "Schriftart",
+            "en": "Font",
+            "es": "Fuente"
+        }
+    ]
 }

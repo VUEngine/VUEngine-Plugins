@@ -1,100 +1,126 @@
 {
-	"displayName": {
-		"en": "Language Selection Screen",
-		"de": "Sprach-Auswahlbildschirm",
-		"es": "Pantalla de selección de idioma"
-	},
-	"author": "Team VUEngine",
-	"description": {
-		"en": "Splash screen that allows the user to select a language.",
-		"de": "Splashsbildschirm, auf dem der Benutzer eine Sprache auswählen kann.",
-		"es": "Pantalla de bienvenida que permite al usuario seleccionar un idioma."
-	},
-	"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/states/splash/LanguageSelectionScreen",
-	"license": "MIT",
-	"tags": [
-		{
-			"en": "Essentials",
-			"de": "Essentiell",
-			"es": "Esenciales"
-		},
-		{
-			"en": "I18n",
-			"de": "I18n",
-			"es": "I18n"
-		},
-		{
-			"en": "Splash",
-			"de": "Splash",
-			"es": "Splash"
-		},
-		{
-			"en": "State",
-			"de": "Zustand",
-			"es": "Estado"
-		}
-	],
-	"dependencies": [
-		"vuengine//actors/LowPowerActor",
-		"vuengine//other/I18n",
-		"vuengine//other/SaveDataManager",
-		"vuengine//states/splash/SplashScreen"
-	],
-	"configuration": [
-		{
-			"name": "useLowPowerActor",
-			"label": {
-				"en": "Use Low Power Actor"
-			},
-			"dataType": "boolean",
-			"default": false
-		},
-		{
-			"name": "variant",
-			"label": {
-				"en": "Variant"
-			},
-			"description": {
-				"en": "The language select screen variant to use (0: simple list, 1: flags)."
-			},
-			"dataType": "integer",
-			"default": 0,
-			"min": 0,
-			"max": 1
-		},
-		{
-			"name": "titleTextFont",
-			"label": {
-				"en": "Title Text Font"
-			},
-			"dataType": "type",
-			"type": "Font",
-			"default": "Default"
-		},
-		{
-			"name": "languageNameFont",
-			"label": {
-				"en": "Language Name Font"
-			},
-			"dataType": "type",
-			"type": "Font",
-			"default": "Default"
-		},
-		{
-			"name": "imageWidth",
-			"label": {
-				"en": "Image Width"
-			},
-			"dataType": "integer",
-			"default": 44
-		},
-		{
-			"name": "imageHeight",
-			"label": {
-				"en": "Image Height"
-			},
-			"dataType": "integer",
-			"default": 32
-		}
-	]
+    "_version": "0.6.0",
+    "author": "Team VUEngine",
+    "configuration": [
+        {
+            "dataType": "boolean",
+            "default": false,
+            "description": "",
+            "label": {
+                "en": "Use Low Power Actor"
+            },
+            "max": 0,
+            "min": 0,
+            "name": "useLowPowerActor",
+            "step": 0,
+            "type": ""
+        },
+        {
+            "dataType": "integer",
+            "default": 0,
+            "description": {
+                "en": "The language select screen variant to use (0: simple list, 1: flags)."
+            },
+            "label": {
+                "en": "Variant"
+            },
+            "max": 1,
+            "min": 0,
+            "name": "variant",
+            "step": 0,
+            "type": ""
+        },
+        {
+            "dataType": "type",
+            "default": "Default",
+            "description": "",
+            "label": {
+                "en": "Title Text Font"
+            },
+            "max": 0,
+            "min": 0,
+            "name": "titleTextFont",
+            "step": 0,
+            "type": "Font"
+        },
+        {
+            "dataType": "type",
+            "default": "Default",
+            "description": "",
+            "label": {
+                "en": "Language Name Font"
+            },
+            "max": 0,
+            "min": 0,
+            "name": "languageNameFont",
+            "step": 0,
+            "type": "Font"
+        },
+        {
+            "dataType": "integer",
+            "default": 44,
+            "description": "",
+            "label": {
+                "en": "Image Width"
+            },
+            "max": 0,
+            "min": 0,
+            "name": "imageWidth",
+            "step": 0,
+            "type": ""
+        },
+        {
+            "dataType": "integer",
+            "default": 32,
+            "description": "",
+            "label": {
+                "en": "Image Height"
+            },
+            "max": 0,
+            "min": 0,
+            "name": "imageHeight",
+            "step": 0,
+            "type": ""
+        }
+    ],
+    "dependencies": [
+        "vuengine//actors/LowPowerActor",
+        "vuengine//other/I18n",
+        "vuengine//other/SaveDataManager",
+        "vuengine//states/splash/SplashScreen"
+    ],
+    "description": {
+        "de": "Splashsbildschirm, auf dem der Benutzer eine Sprache auswählen kann.",
+        "en": "Splash screen that allows the user to select a language.",
+        "es": "Pantalla de bienvenida que permite al usuario seleccionar un idioma."
+    },
+    "displayName": {
+        "de": "Sprach-Auswahlbildschirm",
+        "en": "Language Selection Screen",
+        "es": "Pantalla de selección de idioma"
+    },
+    "license": "MIT",
+    "repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/states/splash/LanguageSelectionScreen",
+    "tags": [
+        {
+            "de": "Essentiell",
+            "en": "Essentials",
+            "es": "Esenciales"
+        },
+        {
+            "de": "I18n",
+            "en": "I18n",
+            "es": "I18n"
+        },
+        {
+            "de": "Splash",
+            "en": "Splash",
+            "es": "Splash"
+        },
+        {
+            "de": "Zustand",
+            "en": "State",
+            "es": "Estado"
+        }
+    ]
 }

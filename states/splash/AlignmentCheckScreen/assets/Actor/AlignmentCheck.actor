@@ -1,17 +1,30 @@
 {
     "_id": "Ev2ACaNDcK0JNc9J",
-    "_version": "1.0.0",
+    "_version": "0.6.0",
     "animations": {
         "default": 0,
         "multiframe": false,
         "totalFrames": 1
     },
+    "body": {
+        "bounciness": 0,
+        "enabled": false,
+        "friction": 0,
+        "gravityAxes": [],
+        "mass": 0,
+        "maximumSpeed": 0,
+        "maximumVelocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        },
+        "rotationAxes": []
+    },
     "components": {
         "animations": [],
-        "behaviors": [],
         "children": [],
         "colliders": [],
-        "scripts": [],
+        "mutators": [],
         "sprites": [
             {
                 "_imageData": {
@@ -53,6 +66,7 @@
                     "minimumColorDistanceToDither": 0,
                     "serpentine": false
                 },
+                "isAnimated": true,
                 "manipulationFunction": "",
                 "name": "Left",
                 "optimizeTiles": true,
@@ -125,6 +139,7 @@
                     "minimumColorDistanceToDither": 0,
                     "serpentine": false
                 },
+                "isAnimated": true,
                 "manipulationFunction": "",
                 "name": "Right",
                 "optimizeTiles": true,
@@ -161,7 +176,6 @@
         "wireframes": []
     },
     "extraProperties": {
-        "customAllocator": "",
         "enabled": false,
         "extraInfo": "",
         "pixelSize": {
@@ -171,19 +185,10 @@
         }
     },
     "inGameType": "None",
-    "physics": {
-        "bounciness": 0,
-        "enabled": false,
-        "friction": 0,
-        "gravityAxes": [],
-        "mass": 0,
-        "maximumSpeed": 0,
-        "maximumVelocity": {
-            "x": 0,
-            "y": 0,
-            "z": 0
-        },
-        "rotationAxes": []
+    "logic": {
+        "configuration": {},
+        "customAllocator": "",
+        "enabled": false
     },
     "sprites": {
         "type": "Bgmap"

@@ -1,28 +1,30 @@
 {
-	"displayName": {
-		"en": "Splash Screen",
-		"de": "Splashbildschirm",
-		"es": "Pantalla de salpicaduras"
-	},
-	"author": "Team VUEngine",
-	"description": {
-		"en": "A simple generic base class for splash screens.",
-		"de": "Eine einfache generische Basisklasse für Splashbildschirme.",
-		"es": "Una simple clase base genérica para pantallas de bienvenida."
-	},
-	"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/states/splash/SplashScreen",
-	"license": "MIT",
-	"tags": [
-		{
-			"en": "Splash",
-			"de": "Splash",
-			"es": "Splash"
-		},
-		{
-			"en": "State",
-			"de": "Zustand",
-			"es": "Estado"
-		}
-	],
-	"dependencies": []
+    "_version": "0.6.0",
+    "author": "Team VUEngine",
+    "configuration": [],
+    "dependencies": [],
+    "description": {
+        "de": "Eine einfache generische Basisklasse für Splashbildschirme.",
+        "en": "A simple generic base class for splash screens.",
+        "es": "Una simple clase base genérica para pantallas de bienvenida."
+    },
+    "displayName": {
+        "de": "Splashbildschirm",
+        "en": "Splash Screen",
+        "es": "Pantalla de salpicaduras"
+    },
+    "license": "MIT",
+    "repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/states/splash/SplashScreen",
+    "tags": [
+        {
+            "de": "Splash",
+            "en": "Splash",
+            "es": "Splash"
+        },
+        {
+            "de": "Zustand",
+            "en": "State",
+            "es": "Estado"
+        }
+    ]
 }

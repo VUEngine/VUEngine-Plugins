@@ -15,11 +15,11 @@
     },
     "license": "MIT",
     "repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/cameras/PlatformerCamera",
-	"tags": [
-		{
-			"en": "Camera",
-			"de": "Kamera",
-			"es": "Cámara"
-		}
-	]
+    "tags": [
+        {
+            "de": "Kamera",
+            "en": "Camera",
+            "es": "Cámara"
+        }
+    ]
 }

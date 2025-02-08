@@ -1,82 +1,110 @@
 {
-	"displayName": {
-		"en": "Low Power Indicator",
-		"de": "Niedriger Batteriestand Anzeige",
-		"es": "Indicador de baja potencia"
-	},
-	"author": "Team VUEngine",
-	"description": {
-		"en": "Printing layer based indicator that flashes when the system power is low.",
-		"de": "Auf der Druckebene basierende Anzeige, die blinkt, wenn die Energie des Systems niedrig ist.",
-		"es": "Indicador basado en la capa de impresión que parpadea cuando la energía del sistema es baja."
-	},
-	"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/other/LowPowerIndicator",
-	"license": "MIT",
-	"tags": [
-		{
-			"en": "Essentials",
-			"de": "Essentiell",
-			"es": "Esenciales"
-		}
-	],
-	"dependencies": [],
-	"configuration": [
-		{
-			"name": "flashDelay",
-			"label": {
-				"en": "FlashDelay"
-			},
-			"description": {
-				"en": "Show low power indicator after this many seconds of receiving the low power signal."
-			},
-			"dataType": "integer",
-			"default": 2
-		},
-		{
-			"name": "font",
-			"label": {
-				"en": "Font",
-				"de": "Schriftart",
-				"es": "Fuente"
-			},
-			"description": {
-				"en": "The font to use for the low power indicator."
-			},
-			"dataType": "type",
-			"type": "Font",
-			"default": "Default"
-		},
-		{
-			"name": "onText",
-			"label": {
-				"en": "\"On\" Text"
-			},
-			"dataType": "string",
-			"default": "\\x01\\x02"
-		},
-		{
-			"name": "offText",
-			"label": {
-				"en": "\"Off\" Text"
-			},
-			"dataType": "string",
-			"default": "  "
-		},
-		{
-			"name": "xPosition",
-			"label": {
-				"en": "X Position"
-			},
-			"dataType": "integer",
-			"default": 1
-		},
-		{
-			"name": "yPosition",
-			"label": {
-				"en": "Y Position"
-			},
-			"dataType": "integer",
-			"default": 1
-		}
-	]
+    "_version": "0.6.0",
+    "author": "Team VUEngine",
+    "configuration": [
+        {
+            "dataType": "integer",
+            "default": 2,
+            "description": {
+                "en": "Show low power indicator after this many seconds of receiving the low power signal."
+            },
+            "label": {
+                "en": "FlashDelay"
+            },
+            "max": 0,
+            "min": 0,
+            "name": "flashDelay",
+            "step": 0,
+            "type": ""
+        },
+        {
+            "dataType": "type",
+            "default": "Default",
+            "description": {
+                "en": "The font to use for the low power indicator."
+            },
+            "label": {
+                "de": "Schriftart",
+                "en": "Font",
+                "es": "Fuente"
+            },
+            "max": 0,
+            "min": 0,
+            "name": "font",
+            "step": 0,
+            "type": "Font"
+        },
+        {
+            "dataType": "string",
+            "default": "\\x01\\x02",
+            "description": "",
+            "label": {
+                "en": "\"On\" Text"
+            },
+            "max": 0,
+            "min": 0,
+            "name": "onText",
+            "step": 0,
+            "type": ""
+        },
+        {
+            "dataType": "string",
+            "default": "  ",
+            "description": "",
+            "label": {
+                "en": "\"Off\" Text"
+            },
+            "max": 0,
+            "min": 0,
+            "name": "offText",
+            "step": 0,
+            "type": ""
+        },
+        {
+            "dataType": "integer",
+            "default": 1,
+            "description": "",
+            "label": {
+                "en": "X Position"
+            },
+            "max": 0,
+            "min": 0,
+            "name": "xPosition",
+            "step": 0,
+            "type": ""
+        },
+        {
+            "dataType": "integer",
+            "default": 1,
+            "description": "",
+            "label": {
+                "en": "Y Position"
+            },
+            "max": 0,
+            "min": 0,
+            "name": "yPosition",
+            "step": 0,
+            "type": ""
+        }
+    ],
+    "dependencies": [],
+    "description": {
+        "de": "Auf der Druckebene basierende Anzeige, die blinkt, wenn die Energie des Systems niedrig ist.",
+        "en": "Printing layer based indicator that flashes when the system power is low.",
+        "es": "Indicador basado en la capa de impresión que parpadea cuando la energía del sistema es baja."
+    },
+    "displayName": {
+        "de": "Niedriger Batteriestand Anzeige",
+        "en": "Low Power Indicator",
+        "es": "Indicador de baja potencia"
+    },
+    "license": "MIT",
+    "repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/other/LowPowerIndicator",
+    "tags": [
+        {
+            "de": "Essentiell",
+            "en": "Essentials",
+            "es": "Esenciales"
+        }
+    ]
 }

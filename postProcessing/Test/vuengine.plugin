@@ -1,23 +1,25 @@
 {
-	"displayName": {
-		"en": "Test Effect",
-		"de": "Test-Effekt",
-		"es": "Efecto de la prueba"
-	},
-	"author": "Team VUEngine",
-	"description": {
-		"en": "Simple test effect that lights up a rectangular area around any Entity.",
-		"de": "Einfacher Testeffekt, der einen rechteckigen Bereich um ein beliebiges Entity beleuchtet.",
-		"es": "Simple efecto de prueba que ilumina un área rectangular alrededor de cualquier Entity."
-	},
-	"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/postProcessing/Test",
-	"license": "MIT",
-	"tags": [
-		{
-			"en": "Post Processing",
-			"de": "Nachbearbeitung",
-			"es": "Postproceso"
-		}
-	],
-	"dependencies": []
+    "_version": "0.6.0",
+    "author": "Team VUEngine",
+    "configuration": [],
+    "dependencies": [],
+    "description": {
+        "de": "Einfacher Testeffekt, der einen rechteckigen Bereich um ein beliebiges Entity beleuchtet.",
+        "en": "Simple test effect that lights up a rectangular area around any Entity.",
+        "es": "Simple efecto de prueba que ilumina un área rectangular alrededor de cualquier Entity."
+    },
+    "displayName": {
+        "de": "Test-Effekt",
+        "en": "Test Effect",
+        "es": "Efecto de la prueba"
+    },
+    "license": "MIT",
+    "repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/postProcessing/Test",
+    "tags": [
+        {
+            "de": "Nachbearbeitung",
+            "en": "Post Processing",
+            "es": "Postproceso"
+        }
+    ]
 }

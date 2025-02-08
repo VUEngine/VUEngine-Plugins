@@ -1,94 +1,122 @@
 {
-	"displayName": {
-		"en": "Automatic Pause Selection Screen",
-		"de": "Automatische Pause Auswahlbildschirm",
-		"es": "Pantalla de selección de pausa automática"
-	},
-	"author": "Team VUEngine",
-	"description": {
-		"en": "Splash screen that allows the user to turn Automatic Pause on or off.",
-		"de": "Splashbildschirm, auf dem der Benutzer die automatische Pause ein- oder ausschalten kann.",
-		"es": "Pantalla de bienvenida que permite al usuario activar o desactivar la Pausa Automática."
-	},
-	"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/states/splash/AutomaticPauseSelectionScreen",
-	"license": "MIT",
-	"tags": [
-		{
-			"en": "Essentials",
-			"de": "Essentiell",
-			"es": "Esenciales"
-		},
-		{
-			"en": "Splash",
-			"de": "Splash",
-			"es": "Splash"
-		},
-		{
-			"en": "State",
-			"de": "Zustand",
-			"es": "Estado"
-		}
-	],
-	"dependencies": [
-		"vuengine//actors/LowPowerActor",
-		"vuengine//other/AutomaticPause",
-		"vuengine//other/I18n",
-		"vuengine//other/SaveDataManager",
-		"vuengine//states/splash/SplashScreen"
-	],
-	"configuration": [
-		{
-			"name": "useLowPowerActor",
-			"label": {
-				"en": "Use Low Power Actor"
-			},
-			"dataType": "boolean",
-			"default": false
-		},
-		{
-			"name": "optionsGap",
-			"label": {
-				"en": "Options Gap"
-			},
-			"dataType": "integer",
-			"default": 3
-		},
-		{
-			"name": "optionsYPos",
-			"label": {
-				"en": "Options Y Position"
-			},
-			"dataType": "integer",
-			"default": 15
-		},
-		{
-			"name": "titleTextFont",
-			"label": {
-				"en": "Title Font",
-				"de": "Schriftart Titel",
-				"es": "Fuente del título"
-			},
-			"dataType": "type",
-			"type": "Font",
-			"default": "Default"
-		},
-		{
-			"name": "bodyTextFont",
-			"label": {
-				"en": "Body Text Font"
-			},
-			"dataType": "type",
-			"type": "Font",
-			"default": "Default"
-		},
-		{
-			"name": "optionsTextFont",
-			"label": {
-				"en": "Options Font"
-			},
-			"dataType": "type",
-			"type": "Font",
-			"default": "Default"
-		}
-	]
+    "_version": "0.6.0",
+    "author": "Team VUEngine",
+    "configuration": [
+        {
+            "dataType": "boolean",
+            "default": false,
+            "description": "",
+            "label": {
+                "en": "Use Low Power Actor"
+            },
+            "max": 0,
+            "min": 0,
+            "name": "useLowPowerActor",
+            "step": 0,
+            "type": ""
+        },
+        {
+            "dataType": "integer",
+            "default": 3,
+            "description": "",
+            "label": {
+                "en": "Options Gap"
+            },
+            "max": 0,
+            "min": 0,
+            "name": "optionsGap",
+            "step": 0,
+            "type": ""
+        },
+        {
+            "dataType": "integer",
+            "default": 15,
+            "description": "",
+            "label": {
+                "en": "Options Y Position"
+            },
+            "max": 0,
+            "min": 0,
+            "name": "optionsYPos",
+            "step": 0,
+            "type": ""
+        },
+        {
+            "dataType": "type",
+            "default": "Default",
+            "description": "",
+            "label": {
+                "de": "Schriftart Titel",
+                "en": "Title Font",
+                "es": "Fuente del título"
+            },
+            "max": 0,
+            "min": 0,
+            "name": "titleTextFont",
+            "step": 0,
+            "type": "Font"
+        },
+        {
+            "dataType": "type",
+            "default": "Default",
+            "description": "",
+            "label": {
+                "en": "Body Text Font"
+            },
+            "max": 0,
+            "min": 0,
+            "name": "bodyTextFont",
+            "step": 0,
+            "type": "Font"
+        },
+        {
+            "dataType": "type",
+            "default": "Default",
+            "description": "",
+            "label": {
+                "en": "Options Font"
+            },
+            "max": 0,
+            "min": 0,
+            "name": "optionsTextFont",
+            "step": 0,
+            "type": "Font"
+        }
+    ],
+    "dependencies": [
+        "vuengine//actors/LowPowerActor",
+        "vuengine//other/AutomaticPause",
+        "vuengine//other/I18n",
+        "vuengine//other/SaveDataManager",
+        "vuengine//states/splash/SplashScreen"
+    ],
+    "description": {
+        "de": "Splashbildschirm, auf dem der Benutzer die automatische Pause ein- oder ausschalten kann.",
+        "en": "Splash screen that allows the user to turn Automatic Pause on or off.",
+        "es": "Pantalla de bienvenida que permite al usuario activar o desactivar la Pausa Automática."
+    },
+    "displayName": {
+        "de": "Automatische Pause Auswahlbildschirm",
+        "en": "Automatic Pause Selection Screen",
+        "es": "Pantalla de selección de pausa automática"
+    },
+    "license": "MIT",
+    "repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/states/splash/AutomaticPauseSelectionScreen",
+    "tags": [
+        {
+            "de": "Essentiell",
+            "en": "Essentials",
+            "es": "Esenciales"
+        },
+        {
+            "de": "Splash",
+            "en": "Splash",
+            "es": "Splash"
+        },
+        {
+            "de": "Zustand",
+            "en": "State",
+            "es": "Estado"
+        }
+    ]
 }

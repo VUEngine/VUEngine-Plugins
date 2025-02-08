@@ -1,23 +1,25 @@
 {
-	"displayName": {
-		"en": "Rhombus Effect",
-		"de": "Rhombus-Effekt",
-		"es": "Efecto Rombo"
-	},
-	"author": "Team VUEngine",
-	"description": {
-		"en": "Draws a growing rhombus emitted from any Entity.",
-		"de": "Zeichnet einen wachsenden Rhombus, der von einem beliebigen Entity ausgeht.",
-		"es": "Dibuja un rombo creciente emitido desde cualquier Entity."
-	},
-	"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/postProcessing/Rhombus",
-	"license": "MIT",
-	"tags": [
-		{
-			"en": "Post Processing",
-			"de": "Nachbearbeitung",
-			"es": "Postproceso"
-		}
-	],
-	"dependencies": []
+    "_version": "0.6.0",
+    "author": "Team VUEngine",
+    "configuration": [],
+    "dependencies": [],
+    "description": {
+        "de": "Zeichnet einen wachsenden Rhombus, der von einem beliebigen Entity ausgeht.",
+        "en": "Draws a growing rhombus emitted from any Entity.",
+        "es": "Dibuja un rombo creciente emitido desde cualquier Entity."
+    },
+    "displayName": {
+        "de": "Rhombus-Effekt",
+        "en": "Rhombus Effect",
+        "es": "Efecto Rombo"
+    },
+    "license": "MIT",
+    "repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/postProcessing/Rhombus",
+    "tags": [
+        {
+            "de": "Nachbearbeitung",
+            "en": "Post Processing",
+            "es": "Postproceso"
+        }
+    ]
 }

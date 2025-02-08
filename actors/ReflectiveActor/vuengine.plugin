@@ -1,23 +1,25 @@
 {
-	"displayName": {
-		"en": "Reflective Actor",
-		"de": "Reflektierende Entität",
-		"es": "Entidad reflexiva"
-	},
-	"author": "Team VUEngine",
-	"description": {
-		"en": "An Actor that can mirror other parts of the virtual screen.",
-		"de": "Eine Entität, die andere Teile des virtuellen Bildschirms spiegeln kann.",
-		"es": "Una entidad que puede reflejar otras partes de la pantalla virtual."
-	},
-	"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/actors/ReflectiveActor",
-	"license": "MIT",
-	"tags": [
-		{
-			"en": "Actor",
-			"de": "Entität",
-			"es": "Entidad"
-		}
-	],
-	"dependencies": []
+    "_version": "0.6.0",
+    "author": "Team VUEngine",
+    "configuration": [],
+    "dependencies": [],
+    "description": {
+        "de": "Ein Akteur, der andere Teile des virtuellen Bildschirms spiegeln kann.",
+        "en": "An Actor that can mirror other parts of the virtual screen.",
+        "es": "Una entidad que puede reflejar otras partes de la pantalla virtual."
+    },
+    "displayName": {
+        "de": "Reflektierender Akteur",
+        "en": "Reflective Actor",
+        "es": "Actor reflexiva"
+    },
+    "license": "MIT",
+    "repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/actors/ReflectiveActor",
+    "tags": [
+        {
+            "de": "Akteur",
+            "en": "Actor",
+            "es": "Actor"
+        }
+    ]
 }

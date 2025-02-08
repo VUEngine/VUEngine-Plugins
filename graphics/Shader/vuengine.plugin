@@ -1,19 +1,25 @@
 {
-	"displayName": "Shader",
-	"author": "Team VUEngine",
-	"description": {
-		"en": "A sprite that renders to a texture.",
-		"de": "Ein Sprite, das in eine Textur rendert.",
-		"es": "Un sprite que se renderiza en una textura."
-	},
-	"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/graphics/Shader",
-	"license": "MIT",
-	"tags": [
-		{
-			"en": "Actor",
-			"de": "Entität",
-			"es": "Entidad"
-		}
-	],
-	"dependencies": []
+    "_version": "0.6.0",
+    "author": "Team VUEngine",
+    "configuration": [],
+    "dependencies": [],
+    "description": {
+        "de": "Ein Sprite, das in eine Textur rendert.",
+        "en": "A sprite that renders to a texture.",
+        "es": "Un sprite que se renderiza en una textura."
+    },
+    "displayName": {
+        "de": "Shader",
+        "en": "Shader",
+        "es": "Shader"
+    },
+    "license": "MIT",
+    "repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/graphics/Shader",
+    "tags": [
+        {
+            "de": "Entität",
+            "en": "Actor",
+            "es": "Entidad"
+        }
+    ]
 }

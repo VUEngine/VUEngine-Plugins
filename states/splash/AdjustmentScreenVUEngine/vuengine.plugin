@@ -1,87 +1,118 @@
 {
-	"displayName": {
-		"en": "Adjustment Screen (VUEngine)",
-		"de": "Anpassungsbildschirm (VUEngine)",
-		"es": "Pantalla de ajuste (VUEngine)"
-	},
-	"author": "Team VUEngine",
-	"description": {
-		"en": "VUEngine IPD/focus adjustment screen that resembles a circuit board.",
-		"de": "VUEngine IPD/Fokus-Anpassungsbildschirm, welcher einer Platine ähnelt.",
-		"es": "Pantalla de ajuste de IPD/enfoque de VUEngine que se asemeja a una placa de circuito."
-	},
-	"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/states/splash/AdjustmentScreenVUEngine",
-	"license": "MIT",
-	"tags": [
-		{
-			"en": "Essentials",
-			"de": "Essentiell",
-			"es": "Esenciales"
-		},
-		{
-			"en": "Splash",
-			"de": "Splash",
-			"es": "Splash"
-		},
-		{
-			"en": "State",
-			"de": "Zustand",
-			"es": "Estado"
-		}
-	],
-	"dependencies": [
-		"vuengine//actors/LowPowerActor",
-		"vuengine//other/LowPowerIndicator",
-		"vuengine//states/splash/SplashScreen"
-	],
-	"configuration": [
-		{
-			"name": "useLowPowerActor",
-			"label": {
-				"en": "Use Low Power Actor"
-			},
-			"dataType": "boolean",
-			"default": false
-		},
-		{
-			"name": "lowPowerIndicatorXPosition",
-			"label": {
-				"en": "Low Power Indicator X Position"
-			},
-			"dataType": "integer",
-			"default": 4
-		},
-		{
-			"name": "lowPowerIndicatorYPosition",
-			"label": {
-				"en": "Low Power Indicator Y Position"
-			},
-			"dataType": "integer",
-			"default": 1
-		},
-		{
-			"name": "lowPowerActorXPosition",
-			"label": {
-				"en": "Low Power Actor X Position"
-			},
-			"dataType": "integer",
-			"default": -152
-		},
-		{
-			"name": "lowPowerActorYPosition",
-			"label": {
-				"en": "Low Power Actor Y Position"
-			},
-			"dataType": "integer",
-			"default": -100
-		},
-		{
-			"name": "lowPowerActorZPosition",
-			"label": {
-				"en": "Low Power Actor Z Position"
-			},
-			"dataType": "integer",
-			"default": 0
-		}
-	]
+    "_version": "0.6.0",
+    "author": "Team VUEngine",
+    "configuration": [
+        {
+            "dataType": "boolean",
+            "default": false,
+            "description": "",
+            "label": {
+                "en": "Use Low Power Actor"
+            },
+            "max": 0,
+            "min": 0,
+            "name": "useLowPowerActor",
+            "step": 0,
+            "type": ""
+        },
+        {
+            "dataType": "integer",
+            "default": 4,
+            "description": "",
+            "label": {
+                "en": "Low Power Indicator X Position"
+            },
+            "max": 0,
+            "min": 0,
+            "name": "lowPowerIndicatorXPosition",
+            "step": 0,
+            "type": ""
+        },
+        {
+            "dataType": "integer",
+            "default": 1,
+            "description": "",
+            "label": {
+                "en": "Low Power Indicator Y Position"
+            },
+            "max": 0,
+            "min": 0,
+            "name": "lowPowerIndicatorYPosition",
+            "step": 0,
+            "type": ""
+        },
+        {
+            "dataType": "integer",
+            "default": -152,
+            "description": "",
+            "label": {
+                "en": "Low Power Actor X Position"
+            },
+            "max": 0,
+            "min": 0,
+            "name": "lowPowerActorXPosition",
+            "step": 0,
+            "type": ""
+        },
+        {
+            "dataType": "integer",
+            "default": -100,
+            "description": "",
+            "label": {
+                "en": "Low Power Actor Y Position"
+            },
+            "max": 0,
+            "min": 0,
+            "name": "lowPowerActorYPosition",
+            "step": 0,
+            "type": ""
+        },
+        {
+            "dataType": "integer",
+            "default": 0,
+            "description": "",
+            "label": {
+                "en": "Low Power Actor Z Position"
+            },
+            "max": 0,
+            "min": 0,
+            "name": "lowPowerActorZPosition",
+            "step": 0,
+            "type": ""
+        }
+    ],
+    "dependencies": [
+        "vuengine//actors/LowPowerActor",
+        "vuengine//other/LowPowerIndicator",
+        "vuengine//states/splash/SplashScreen"
+    ],
+    "description": {
+        "de": "VUEngine IPD/Fokus-Anpassungsbildschirm, welcher einer Platine ähnelt.",
+        "en": "VUEngine IPD/focus adjustment screen that resembles a circuit board.",
+        "es": "Pantalla de ajuste de IPD/enfoque de VUEngine que se asemeja a una placa de circuito."
+    },
+    "displayName": {
+        "de": "Anpassungsbildschirm (VUEngine)",
+        "en": "Adjustment Screen (VUEngine)",
+        "es": "Pantalla de ajuste (VUEngine)"
+    },
+    "license": "MIT",
+    "repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/states/splash/AdjustmentScreenVUEngine",
+    "tags": [
+        {
+            "de": "Essentiell",
+            "en": "Essentials",
+            "es": "Esenciales"
+        },
+        {
+            "de": "Splash",
+            "en": "Splash",
+            "es": "Splash"
+        },
+        {
+            "de": "Zustand",
+            "en": "State",
+            "es": "Estado"
+        }
+    ]
 }

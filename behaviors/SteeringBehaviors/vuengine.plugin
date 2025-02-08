@@ -15,11 +15,11 @@
     },
     "license": "MIT",
     "repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/behaviors/SteeringBehaviors",
-	"tags": [
-		{
-			"en": "Behavior",
-			"de": "Verhalten",
-			"es": "Comportamiento"
-		}
-	]
+    "tags": [
+        {
+            "de": "Verhalten",
+            "en": "Behavior",
+            "es": "Comportamiento"
+        }
+    ]
 }

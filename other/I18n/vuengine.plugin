@@ -1,15 +1,25 @@
 {
-	"displayName": "I18n",
-	"author": "Team VUEngine",
-	"description": {
-		"en": "Allows you to add multiple selectable languages to your project.",
-		"de": "Ermöglicht es Ihnen, Ihrem Projekt mehrere auswählbare Sprachen hinzuzufügen.",
-		"es": "Le permite añadir varios idiomas seleccionables a su proyecto."
-	},
-	"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/other/I18n",
-	"license": "MIT",
-	"tags": [
-		"I18n"
-	],
-	"dependencies": []
+    "_version": "0.6.0",
+    "author": "Team VUEngine",
+    "configuration": [],
+    "dependencies": [],
+    "description": {
+        "de": "Ermöglicht es Ihnen, Ihrem Projekt mehrere auswählbare Sprachen hinzuzufügen.",
+        "en": "Allows you to add multiple selectable languages to your project.",
+        "es": "Le permite añadir varios idiomas seleccionables a su proyecto."
+    },
+    "displayName": {
+        "de": "I18n",
+        "en": "I18n",
+        "es": "I18n"
+    },
+    "license": "MIT",
+    "repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/other/I18n",
+    "tags": [
+        {
+            "de": "I18n",
+            "en": "I18n",
+            "es": "I18n"
+        }
+    ]
 }

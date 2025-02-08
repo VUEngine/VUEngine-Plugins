@@ -1,23 +1,25 @@
 {
-	"displayName": {
-		"en": "Lantern Effect",
-		"de": "Laternen-Effekt",
-		"es": "Efecto linterna"
-	},
-	"author": "Team VUEngine",
-	"description": {
-		"en": "Adds a lantern-like effect to any Entity, where everything outside of a certain radius is rendered black.",
-		"de": "Fügt jedem Entity einen laternenartigen Effekt hinzu, bei dem alles außerhalb eines bestimmten Radius schwarz dargestellt wird.",
-		"es": "Añade un efecto de linterna a cualquier Entity, en el que todo lo que está fuera de un determinado radio se vuelve negro."
-	},
-	"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/postProcessing/Lantern",
-	"license": "MIT",
-	"tags": [
-		{
-			"en": "Post Processing",
-			"de": "Nachbearbeitung",
-			"es": "Postproceso"
-		}
-	],
-	"dependencies": []
+    "_version": "0.6.0",
+    "author": "Team VUEngine",
+    "configuration": [],
+    "dependencies": [],
+    "description": {
+        "de": "Fügt jedem Entity einen laternenartigen Effekt hinzu, bei dem alles außerhalb eines bestimmten Radius schwarz dargestellt wird.",
+        "en": "Adds a lantern-like effect to any Entity, where everything outside of a certain radius is rendered black.",
+        "es": "Añade un efecto de linterna a cualquier Entity, en el que todo lo que está fuera de un determinado radio se vuelve negro."
+    },
+    "displayName": {
+        "de": "Laternen-Effekt",
+        "en": "Lantern Effect",
+        "es": "Efecto linterna"
+    },
+    "license": "MIT",
+    "repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/postProcessing/Lantern",
+    "tags": [
+        {
+            "de": "Nachbearbeitung",
+            "en": "Post Processing",
+            "es": "Postproceso"
+        }
+    ]
 }

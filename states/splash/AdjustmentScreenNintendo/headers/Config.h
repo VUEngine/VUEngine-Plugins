@@ -1,6 +1,6 @@
-///////////////////////////////////////////////////////////////////////////////////////////////////////////
-//							  THIS FILE WAS AUTO-GENERATED - DO NOT EDIT							   //
-///////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////  THIS FILE WAS AUTO-GENERATED - DO NOT EDIT  ///////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #ifndef __PLUGIN_ADJUSTMENT_SCREEN_NINTENDO_CONFIG_H_
 #define __PLUGIN_ADJUSTMENT_SCREEN_NINTENDO_CONFIG_H_
@@ -9,8 +9,8 @@
 // CONFIGURATION MACROS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#ifndef __PLUGIN_ADJUSTMENT_SCREEN_NINTENDO_USE_LOW_POWER_ENTITY
-#define __PLUGIN_ADJUSTMENT_SCREEN_NINTENDO_USE_LOW_POWER_ENTITY (false)
+#ifndef __PLUGIN_ADJUSTMENT_SCREEN_NINTENDO_USE_LOW_POWER_ACTOR
+#define __PLUGIN_ADJUSTMENT_SCREEN_NINTENDO_USE_LOW_POWER_ACTOR (false)
 #endif
 
 #ifndef __PLUGIN_ADJUSTMENT_SCREEN_NINTENDO_LOW_POWER_INDICATOR_X_POSITION
@@ -32,5 +32,6 @@
 #ifndef __PLUGIN_ADJUSTMENT_SCREEN_NINTENDO_LOW_POWER_ACTOR_Z_POSITION
 #define __PLUGIN_ADJUSTMENT_SCREEN_NINTENDO_LOW_POWER_ACTOR_Z_POSITION (0)
 #endif
+
 
 #endif

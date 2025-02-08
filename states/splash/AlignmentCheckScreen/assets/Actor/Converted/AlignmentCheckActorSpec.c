@@ -1,13 +1,14 @@
-///////////////////////////////////////////////////////////////////////////////////////////////////////////
-//							  THIS FILE WAS AUTO-GENERATED - DO NOT EDIT							   //
-///////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////  THIS FILE WAS AUTO-GENERATED - DO NOT EDIT  ///////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#include <BgmapSprite.h>
 #include <Actor.h>
+#include <BgmapSprite.h>
+#include <InGameTypes.h>
 #include <Texture.h>
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -16,6 +17,7 @@
 
 extern uint32 AlignmentCheckActorAlignmentCheckLeftTiles[];
 extern uint16 AlignmentCheckActorAlignmentCheckLeftMap[];
+
 extern uint32 AlignmentCheckActorAlignmentCheckRightTiles[];
 extern uint16 AlignmentCheckActorAlignmentCheckRightMap[];
 
@@ -25,7 +27,7 @@ extern uint16 AlignmentCheckActorAlignmentCheckRightMap[];
 
 CharSetROMSpec AlignmentCheckSprite1CharsetSpec =
 {
-	// Number of chars in function or the number of frames to load at the same time
+	// Number of CHARs in function of the number of frames to load at the same time
 	1,
 
 	// Whether it is shared or not
@@ -38,7 +40,7 @@ CharSetROMSpec AlignmentCheckSprite1CharsetSpec =
 	AlignmentCheckActorAlignmentCheckLeftTiles,
 
 	// Frame offsets array
-	NULL,
+	NULL
 };
 
 TextureROMSpec AlignmentCheckSprite1TextureSpec =
@@ -55,8 +57,8 @@ TextureROMSpec AlignmentCheckSprite1TextureSpec =
 	// Vertical size in tiles of the texture (max. 64)
 	1,
 
-	// Padding for affine/hbias transformations
-	{ 0, 0 },
+	// padding for affine/hbias transformations
+	{0, 0},
 
 	// Number of frames that the texture supports
 	1,
@@ -71,12 +73,13 @@ TextureROMSpec AlignmentCheckSprite1TextureSpec =
 	false,
 
 	// Flag to horizontally flip the image
-	false,
+	false
 };
 
 BgmapSpriteROMSpec AlignmentCheckSprite1SpriteSpec =
 {
 	{
+		// VisualComponent
 		{
 			// Component
 			{
@@ -87,7 +90,7 @@ BgmapSpriteROMSpec AlignmentCheckSprite1SpriteSpec =
 				kSpriteComponent
 			},
 
-			// Array of function animations
+			// Array of animation functions
 			(const AnimationFunction**)NULL
 		},
 
@@ -98,22 +101,23 @@ BgmapSpriteROMSpec AlignmentCheckSprite1SpriteSpec =
 		__TRANSPARENCY_NONE,
 
 		// Displacement added to the sprite's position
-		{ 0, 0, 0, 0 },
+		{0, 0, 0, 0}
 	},
 
 	// Flag to indicate in which display to show the texture (__WORLD_ON, __WORLD_LON or __WORLD_RON)
 	__WORLD_LON,
 
-	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE or __WORLD_HBIAS)
+	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
 	__WORLD_BGMAP,
-
+	
 	// Pointer to affine/hbias manipulation function
 	NULL
 };
 
+
 CharSetROMSpec AlignmentCheckSprite2CharsetSpec =
 {
-	// Number of chars in function or the number of frames to load at the same time
+	// Number of CHARs in function of the number of frames to load at the same time
 	2,
 
 	// Whether it is shared or not
@@ -126,7 +130,7 @@ CharSetROMSpec AlignmentCheckSprite2CharsetSpec =
 	AlignmentCheckActorAlignmentCheckRightTiles,
 
 	// Frame offsets array
-	NULL,
+	NULL
 };
 
 TextureROMSpec AlignmentCheckSprite2TextureSpec =
@@ -143,8 +147,8 @@ TextureROMSpec AlignmentCheckSprite2TextureSpec =
 	// Vertical size in tiles of the texture (max. 64)
 	3,
 
-	// Padding for affine/hbias transformations
-	{ 0, 0 },
+	// padding for affine/hbias transformations
+	{0, 0},
 
 	// Number of frames that the texture supports
 	1,
@@ -159,12 +163,13 @@ TextureROMSpec AlignmentCheckSprite2TextureSpec =
 	false,
 
 	// Flag to horizontally flip the image
-	false,
+	false
 };
 
 BgmapSpriteROMSpec AlignmentCheckSprite2SpriteSpec =
 {
 	{
+		// VisualComponent
 		{
 			// Component
 			{
@@ -175,7 +180,7 @@ BgmapSpriteROMSpec AlignmentCheckSprite2SpriteSpec =
 				kSpriteComponent
 			},
 
-			// Array of function animations
+			// Array of animation functions
 			(const AnimationFunction**)NULL
 		},
 
@@ -186,23 +191,24 @@ BgmapSpriteROMSpec AlignmentCheckSprite2SpriteSpec =
 		__TRANSPARENCY_NONE,
 
 		// Displacement added to the sprite's position
-		{ 0, 0, 0, 0 },
+		{0, 0, 0, 0}
 	},
 
 	// Flag to indicate in which display to show the texture (__WORLD_ON, __WORLD_LON or __WORLD_RON)
 	__WORLD_RON,
 
-	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE or __WORLD_HBIAS)
+	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
 	__WORLD_BGMAP,
-
+	
 	// Pointer to affine/hbias manipulation function
 	NULL
 };
 
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————// ACTOR
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+// ACTOR
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-ComponentSpec* const AlignmentCheckActorComponentSpecs[] = 
+ComponentSpec* const AlignmentCheckComponentSpecs[] = 
 {
 	(ComponentSpec*)&AlignmentCheckSprite1SpriteSpec,
 	(ComponentSpec*)&AlignmentCheckSprite2SpriteSpec,
@@ -215,7 +221,7 @@ ActorROMSpec AlignmentCheckActorSpec =
 	__TYPE(Actor),
 
 	// Component specs
-	(ComponentSpec**)AlignmentCheckActorComponentSpecs,
+	(ComponentSpec**)AlignmentCheckComponentSpecs,
 
 	// Children specs
 	NULL,
@@ -225,11 +231,12 @@ ActorROMSpec AlignmentCheckActorSpec =
 
 	// Size
 	// If 0, it is computed from the visual components if any
-	{ 0, 0, 0 },
+	{0, 0, 0},
 
 	// Actor's in-game type
 	kTypeNone,
 
 	// Animation to play automatically
 	NULL
+	
 };

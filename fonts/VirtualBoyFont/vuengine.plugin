@@ -1,23 +1,25 @@
 {
-	"displayName": {
-		"en": "Virtual Boy Font",
-		"de": "Virtual Boy Schriftart",
-		"es": "Virtual Boy Fuente"
-	},
-	"author": "Team VUEngine",
-	"description": {
-		"en": "Large font based on the \"Virtual Boy\" writing on the official IPD/Focus adjustment screen.",
-		"de": "Große Schrift in Anlehnung an den \"Virtual Boy\" Schriftzug auf dem offiziellen IPD/Fokus-Einstellbildschirm.",
-		"es": "Letra grande basada en la escritura \"Virtual Boy\" en la pantalla oficial de ajuste de IPD/Enfoque."
-	},
-	"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/fonts/VirtualBoyFont",
-	"license": "MIT",
-	"tags": [
-		{
-			"en": "Font",
-			"de": "Schriftart",
-			"es": "Fuente"
-		}
-	],
-	"dependencies": []
+    "_version": "0.6.0",
+    "author": "Team VUEngine",
+    "configuration": [],
+    "dependencies": [],
+    "description": {
+        "de": "Große Schrift in Anlehnung an den \"Virtual Boy\" Schriftzug auf dem offiziellen IPD/Fokus-Einstellbildschirm.",
+        "en": "Large font based on the \"Virtual Boy\" writing on the official IPD/Focus adjustment screen.",
+        "es": "Letra grande basada en la escritura \"Virtual Boy\" en la pantalla oficial de ajuste de IPD/Enfoque."
+    },
+    "displayName": {
+        "de": "Virtual Boy Schriftart",
+        "en": "Virtual Boy Font",
+        "es": "Virtual Boy Fuente"
+    },
+    "license": "MIT",
+    "repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/fonts/VirtualBoyFont",
+    "tags": [
+        {
+            "de": "Schriftart",
+            "en": "Font",
+            "es": "Fuente"
+        }
+    ]
 }
