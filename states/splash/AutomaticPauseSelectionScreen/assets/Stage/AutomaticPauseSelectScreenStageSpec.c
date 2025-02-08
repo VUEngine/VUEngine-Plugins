@@ -19,7 +19,7 @@
 // DECLARATIONS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#if __PLUGIN_AUTOMATIC_PAUSE_SELECTION_SCREEN_USE_LOW_POWER_ENTITY
+#if __PLUGIN_AUTOMATIC_PAUSE_SELECTION_SCREEN_USE_LOW_POWER_ACTOR
 extern ActorSpec LowPowerIndicatorActorSpec;
 #endif
 
@@ -34,8 +34,8 @@ PositionedActorROMSpec AutomaticPauseSelectionScreenStageActors[] =
 
 PositionedActorROMSpec AutomaticPauseSelectionScreenStageUiActors[] =
 {
-#if __PLUGIN_AUTOMATIC_PAUSE_SELECTION_SCREEN_USE_LOW_POWER_ENTITY
-	{&LowPowerIndicatorActorSpec, 	{__PLUGIN_LOW_POWER_ACTOR_X_POSITION, __PLUGIN_LOW_POWER_ACTOR_Y_POSITION, __PLUGIN_LOW_POWER_ACTOR_Z_POSITION}, 0, NULL, NULL, NULL, false},
+#if __PLUGIN_AUTOMATIC_PAUSE_SELECTION_SCREEN_USE_LOW_POWER_ACTOR
+	{&LowPowerIndicatorActorSpec, 	{__PLUGIN_LOW_POWER_ACTOR_X_POSITION, __PLUGIN_LOW_POWER_ACTOR_Y_POSITION, __PLUGIN_LOW_POWER_ACTOR_Z_POSITION}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 #endif
 
 	{NULL, {0, 0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},

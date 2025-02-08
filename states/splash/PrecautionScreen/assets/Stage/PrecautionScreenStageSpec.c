@@ -17,7 +17,7 @@
 // DECLARATIONS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#if __PLUGIN_PRECAUTION_SCREEN_USE_LOW_POWER_ENTITY
+#if __PLUGIN_PRECAUTION_SCREEN_USE_LOW_POWER_ACTOR
 extern ActorSpec LowPowerIndicatorActorSpec;
 #endif
 
@@ -27,15 +27,15 @@ extern ActorSpec LowPowerIndicatorActorSpec;
 
 PositionedActorROMSpec PrecautionScreenStageActors[] =
 {
-#if __PLUGIN_PRECAUTION_SCREEN_USE_LOW_POWER_ENTITY
-	{&LowPowerIndicatorActorSpec, 	{__PLUGIN_LOW_POWER_ACTOR_X_POSITION, __PLUGIN_LOW_POWER_ACTOR_Y_POSITION, __PLUGIN_LOW_POWER_ACTOR_Z_POSITION}, 0, NULL, NULL, NULL, false},
-#endif
-
 	{NULL, {0, 0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 };
 
 PositionedActorROMSpec PrecautionScreenStageUiActors[] =
 {
+#if __PLUGIN_PRECAUTION_SCREEN_USE_LOW_POWER_ACTOR
+	{&LowPowerIndicatorActorSpec, 	{__PLUGIN_LOW_POWER_ACTOR_X_POSITION, __PLUGIN_LOW_POWER_ACTOR_Y_POSITION, __PLUGIN_LOW_POWER_ACTOR_Z_POSITION}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+#endif
+
 	{NULL, {0, 0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 };
 

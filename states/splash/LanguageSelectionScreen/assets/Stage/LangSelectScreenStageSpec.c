@@ -17,7 +17,7 @@
 // DECLARATIONS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#if __PLUGIN_LANGUAGE_SELECTION_SCREEN_USE_LOW_POWER_ENTITY
+#if __PLUGIN_LANGUAGE_SELECTION_SCREEN_USE_LOW_POWER_ACTOR
 extern ActorSpec LowPowerIndicatorActorSpec;
 #endif
 
@@ -32,7 +32,7 @@ PositionedActorROMSpec LanguageSelectionScreenStageActors[] =
 
 PositionedActorROMSpec LanguageSelectionScreenStageUiActors[] =
 {
-#if __PLUGIN_LANGUAGE_SELECTION_SCREEN_USE_LOW_POWER_ENTITY
+#if __PLUGIN_LANGUAGE_SELECTION_SCREEN_USE_LOW_POWER_ACTOR
 	{&LowPowerIndicatorActorSpec, 	{__PLUGIN_LOW_POWER_ACTOR_X_POSITION, __PLUGIN_LOW_POWER_ACTOR_Y_POSITION, __PLUGIN_LOW_POWER_ACTOR_Z_POSITION}, 0, NULL, NULL, NULL, false},
 #endif
 

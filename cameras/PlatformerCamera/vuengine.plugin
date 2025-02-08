@@ -4,7 +4,7 @@
     "configuration": [],
     "dependencies": [],
     "description": {
-        "de": "Eine gewöhnliche Jump'n'Run-Kamera, die einer Entität folgt.",
+        "de": "Eine gewöhnliche Jump'n'Run-Kamera, die einem Akteur folgt.",
         "en": "A common platformer camera that follows an actor.",
         "es": "Una cámara común de plataformas que sigue a una entidad."
     },

@@ -4,7 +4,7 @@
     "configuration": [],
     "dependencies": [],
     "description": {
-        "de": "Verschiedene physikbasierte Verhaltensweisen zur Steuerung von KI-Entitäten.",
+        "de": "Verschiedene physikbasierte Verhaltensweisen zur Steuerung von KI-Akteuren.",
         "en": "Various physics based behaviors to steer AI actors.",
         "es": "Varios comportamientos basados en la física para dirigir las entidades de la IA."
     },

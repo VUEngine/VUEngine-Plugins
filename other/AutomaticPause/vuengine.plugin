@@ -45,7 +45,7 @@
             "default": false,
             "description": "",
             "label": {
-                "de": "Niedriger Batteriestand Entität benutzen",
+                "de": "Niedriger Batteriestand Akteur benutzen",
                 "en": "Use Low Power Actor",
                 "es": "Utilizar entidad de baja potencia"
             },
@@ -54,6 +54,22 @@
             "name": "useLowPowerActor",
             "step": 0,
             "type": ""
+        },
+        {
+            "name": "delay",
+            "label": {
+                "de": "Verzögerung",
+                "en": "Delay"
+            },
+            "description": {
+                "de": "Verzögerung bevor der Automatische Pause Bildschirm angezeigt wird (in Minuten)",
+                "en": "Delay before showing the Automatic Pause screen (in minutes)"
+            },
+            "dataType": "integer",
+            "default": "30",
+            "min": 1,
+            "max": 240,
+            "step": 1
         }
     ],
     "dependencies": [

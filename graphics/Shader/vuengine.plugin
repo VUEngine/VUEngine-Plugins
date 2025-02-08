@@ -17,9 +17,9 @@
     "repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/graphics/Shader",
     "tags": [
         {
-            "de": "Entität",
+            "de": "Akteur",
             "en": "Actor",
-            "es": "Entidad"
+            "es": "Actor"
         }
     ]
 }

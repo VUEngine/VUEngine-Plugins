@@ -100,7 +100,7 @@ void AutomaticPauseManager::constructor()
 	this->automaticPauseState = NULL;
 	this->isActive = false;
 	this->elapsedTime = 0;
-	this->autoPauseDelay = 30;
+	this->autoPauseDelay = __PLUGIN_AUTOMATIC_PAUSE_DELAY;
 	this->clock = NULL;
 }
 

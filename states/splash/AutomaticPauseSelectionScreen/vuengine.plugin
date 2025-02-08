@@ -7,7 +7,9 @@
             "default": false,
             "description": "",
             "label": {
-                "en": "Use Low Power Actor"
+                "de": "Niedriger Batteriestand Akteur benutzen",
+                "en": "Use Low Power Actor",
+                "es": "Utilizar entidad de baja potencia"
             },
             "max": 0,
             "min": 0,

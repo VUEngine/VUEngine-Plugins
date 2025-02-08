@@ -1,0 +1,123 @@
+{
+    "_id": "UDruoXS7PbWBJGru",
+    "_version": "0.6.0",
+    "animations": {
+        "default": 0,
+        "multiframe": false,
+        "totalFrames": 1
+    },
+    "body": {
+        "bounciness": 0,
+        "enabled": false,
+        "friction": 0,
+        "gravityAxes": [],
+        "mass": 0,
+        "maximumSpeed": 0,
+        "maximumVelocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        },
+        "rotationAxes": []
+    },
+    "components": {
+        "animations": [],
+        "children": [],
+        "colliders": [],
+        "mutators": [],
+        "sprites": [
+            {
+                "_imageData": {
+                    "images": [
+                        {
+                            "animation": {
+                                "frames": 1
+                            },
+                            "maps": [
+                                {
+                                    "data": "H4sIAAAAAAAAE4tWMjAwMFDSAVGGGJQRXM4IQhlDKBOInDGEMkIoMYQIGkOUGKMoMYQYZgwxGoMyUIoFAFtuMjWNAAAA",
+                                    "height": "4",
+                                    "width": "5",
+                                    "name": "FlagJapan"
+                                }
+                            ],
+                            "tiles": {
+                                "count": 5,
+                                "data": "H4sIAAAAAAAAE4tWMoACJR0lU1NTEyjTzc3NBIRRmahqTRFqwQCDicUEnEzsJsCYTm5ubk6YChwdYUxHKEBmxgIAOYbc890AAAA=",
+                                "name": "FlagJapan"
+                            }
+                        }
+                    ]
+                },
+                "bgmapMode": "Bgmap",
+                "colorMode": 0,
+                "compression": "none",
+                "displacement": {
+                    "parallax": 0,
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "displayMode": "Mono",
+                "displays": "ON",
+                "imageProcessingSettings": {
+                    "colorDistanceFormula": "euclidean",
+                    "imageQuantizationAlgorithm": "nearest",
+                    "minimumColorDistanceToDither": 0,
+                    "serpentine": false
+                },
+                "isAnimated": true,
+                "manipulationFunction": "",
+                "name": "FlagJapan",
+                "optimizeTiles": true,
+                "section": "rom",
+                "sourceType": "image",
+                "texture": {
+                    "files": [
+                        "FlagJapan.png"
+                    ],
+                    "files2": [],
+                    "flip": {
+                        "x": false,
+                        "y": false
+                    },
+                    "padding": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "palette": 0,
+                    "recycleable": false,
+                    "repeat": {
+                        "mode": "1x1",
+                        "size": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "x": false,
+                        "y": false
+                    }
+                },
+                "transparency": "None"
+            }
+        ],
+        "wireframes": []
+    },
+    "extraProperties": {
+        "enabled": false,
+        "extraInfo": "",
+        "pixelSize": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        }
+    },
+    "inGameType": "None",
+    "logic": {
+        "configuration": {},
+        "customAllocator": "",
+        "enabled": false
+    },
+    "sprites": {
+        "type": "Bgmap"
+    }
+}

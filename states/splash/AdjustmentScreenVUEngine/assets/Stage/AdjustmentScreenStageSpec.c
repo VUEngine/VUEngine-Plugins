@@ -23,7 +23,7 @@ extern ActorSpec AdjustmentScreenIconLActorSpec;
 extern ActorSpec AdjustmentScreenIconRActorSpec;
 extern ActorSpec AdjustmentScreenLogoActorSpec;
 
-#if __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_USE_LOW_POWER_ENTITY
+#if __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_USE_LOW_POWER_ACTOR
 extern ActorSpec LowPowerIndicatorActorSpec;
 #endif
 
@@ -38,31 +38,22 @@ PositionedActorROMSpec AdjustmentScreenStageActors[] =
 
 PositionedActorROMSpec AdjustmentScreenStageUiActors[] =
 {
-#if __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_USE_LOW_POWER_ENTITY
-	{&LowPowerIndicatorActorSpec, 	{__PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_LOW_POWER_ACTOR_X_POSITION, __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_LOW_POWER_ACTOR_Y_POSITION, __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_LOW_POWER_ACTOR_Z_POSITION, __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_LOW_POWER_ACTOR_Z_DISPLACEMENT}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
-#endif
-
-#ifdef __LEGACY_COORDINATE_PROJECTION
-	{&AdjustmentScreenIconLActorSpec, 	{  12,   12, 0}, {0, 0, 0}, {1, 1, 1},  0, NULL, NULL, NULL, false},
-	{&AdjustmentScreenIconRActorSpec, 	{  12,  212, 0}, {0, 0, 0}, {1, 1, 1},  0, NULL, NULL, NULL, false},
-	{&AdjustmentScreenBgActorSpec, 	{ 192,  112, 16}, {0, 0, 0}, {1, 1, 1},  0, NULL, NULL, NULL, false},
-	{&AdjustmentScreenLogoActorSpec, 	{ 192,  112, 0}, {0, 0, 0}, {1, 1, 1},  0, NULL, NULL, NULL, false},
-	{&AdjustmentScreenIconLActorSpec, 	{ 372,  212, 0}, {0, 0, 0}, {1, 1, 1},  0, NULL, NULL, NULL, false},
-	{&AdjustmentScreenIconRActorSpec, 	{ 372,   12, 0}, {0, 0, 0}, {1, 1, 1},  0, NULL, NULL, NULL, false},
-#else
 	{&AdjustmentScreenIconLActorSpec, 	{-180, -100, 0}, {0, 0, 0}, {1, 1, 1},  0, NULL, NULL, NULL, false},
 	{&AdjustmentScreenIconRActorSpec, 	{-180,  100, 0}, {0, 0, 0}, {1, 1, 1},  0, NULL, NULL, NULL, false},
-	{&AdjustmentScreenBgActorSpec, 	{   0,	0, 16}, {0, 0, 0}, {1, 1, 1},  0, NULL, NULL, NULL, false},
+	{&AdjustmentScreenBgActorSpec, 		{   0,	0, 16}, {0, 0, 0}, {1, 1, 1},  0, NULL, NULL, NULL, false},
 	{&AdjustmentScreenLogoActorSpec, 	{   0,	0, 0}, {0, 0, 0}, {1, 1, 1},  0, NULL, NULL, NULL, false},
 	{&AdjustmentScreenIconLActorSpec, 	{ 180,  100, 0}, {0, 0, 0}, {1, 1, 1},  0, NULL, NULL, NULL, false},
 	{&AdjustmentScreenIconRActorSpec, 	{ 180, -100, 0}, {0, 0, 0}, {1, 1, 1},  0, NULL, NULL, NULL, false},
-#endif
 
 	{NULL, {0, 0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 };
 
 SoundROMSpec* const AdjustmentScreenStageSoundSpecs[] =
 {
+#if __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_USE_LOW_POWER_ACTOR
+	{&LowPowerIndicatorActorSpec, 	{__PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_LOW_POWER_ACTOR_X_POSITION, __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_LOW_POWER_ACTOR_Y_POSITION, __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_LOW_POWER_ACTOR_Z_POSITION, __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_LOW_POWER_ACTOR_Z_DISPLACEMENT}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+#endif
+
 	NULL
 };
 
