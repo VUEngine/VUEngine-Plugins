@@ -10,7 +10,7 @@
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 #ifndef __PLUGIN_PRECAUTION_SCREEN_USE_LOW_POWER_ACTOR
-#define __PLUGIN_PRECAUTION_SCREEN_USE_LOW_POWER_ACTOR (false)
+#define __PLUGIN_PRECAUTION_SCREEN_USE_LOW_POWER_ACTOR (0)
 #endif
 
 #ifndef __PLUGIN_PRECAUTION_SCREEN_TEXT_FONT

@@ -10,7 +10,7 @@
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 #ifndef __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_USE_LOW_POWER_ACTOR
-#define __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_USE_LOW_POWER_ACTOR (false)
+#define __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_USE_LOW_POWER_ACTOR (0)
 #endif
 
 #ifndef __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_LOW_POWER_INDICATOR_X_POSITION
