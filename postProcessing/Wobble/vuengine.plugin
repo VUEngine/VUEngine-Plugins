@@ -9,10 +9,10 @@
             "label": {
                 "en": "Starting Row"
             },
-            "max": 0,
+            "max": 224,
             "min": 0,
             "name": "startingRow",
-            "step": 0,
+            "step": 1,
             "type": ""
         },
         {
@@ -22,10 +22,10 @@
             "label": {
                 "en": "Ending Row"
             },
-            "max": 0,
+            "max": 224,
             "min": 0,
             "name": "endingRow",
-            "step": 0,
+            "step": 1,
             "type": ""
         }
     ],

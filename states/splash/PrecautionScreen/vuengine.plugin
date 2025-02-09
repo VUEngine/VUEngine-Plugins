@@ -14,7 +14,7 @@
             "max": 0,
             "min": 0,
             "name": "useLowPowerActor",
-            "step": 0,
+            "step": 1,
             "type": ""
         },
         {
@@ -27,7 +27,7 @@
             "max": 0,
             "min": 0,
             "name": "textFont",
-            "step": 0,
+            "step": 1,
             "type": "Font"
         }
     ],

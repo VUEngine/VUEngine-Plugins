@@ -9,10 +9,10 @@
             "label": {
                 "en": "X Position"
             },
-            "max": 0,
-            "min": 0,
+            "max": 512,
+            "min": -512,
             "name": "xPosition",
-            "step": 0,
+            "step": 1,
             "type": ""
         },
         {
@@ -22,10 +22,10 @@
             "label": {
                 "en": "Y Position"
             },
-            "max": 0,
-            "min": 0,
+            "max": 512,
+            "min": -512,
             "name": "yPosition",
-            "step": 0,
+            "step": 1,
             "type": ""
         },
         {
@@ -35,10 +35,10 @@
             "label": {
                 "en": "Z Position"
             },
-            "max": 0,
-            "min": 0,
+            "max": 512,
+            "min": -512,
             "name": "zPosition",
-            "step": 0,
+            "step": 1,
             "type": ""
         }
     ],

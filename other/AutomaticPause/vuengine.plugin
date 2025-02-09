@@ -18,7 +18,7 @@
             "max": 0,
             "min": 0,
             "name": "titleTextFont",
-            "step": 0,
+            "step": 1,
             "type": "Font"
         },
         {
@@ -37,7 +37,7 @@
             "max": 0,
             "min": 0,
             "name": "bodyTextFont",
-            "step": 0,
+            "step": 1,
             "type": "Font"
         },
         {
@@ -52,7 +52,7 @@
             "max": 0,
             "min": 0,
             "name": "useLowPowerActor",
-            "step": 0,
+            "step": 1,
             "type": ""
         },
         {

@@ -11,10 +11,10 @@
             "label": {
                 "en": "FlashDelay"
             },
-            "max": 0,
+            "max": 4096,
             "min": 0,
             "name": "flashDelay",
-            "step": 0,
+            "step": 1,
             "type": ""
         },
         {
@@ -31,7 +31,7 @@
             "max": 0,
             "min": 0,
             "name": "font",
-            "step": 0,
+            "step": 1,
             "type": "Font"
         },
         {
@@ -44,7 +44,7 @@
             "max": 0,
             "min": 0,
             "name": "onText",
-            "step": 0,
+            "step": 1,
             "type": ""
         },
         {
@@ -57,7 +57,7 @@
             "max": 0,
             "min": 0,
             "name": "offText",
-            "step": 0,
+            "step": 1,
             "type": ""
         },
         {
@@ -67,10 +67,10 @@
             "label": {
                 "en": "X Position"
             },
-            "max": 0,
+            "max": 47,
             "min": 0,
             "name": "xPosition",
-            "step": 0,
+            "step": 1,
             "type": ""
         },
         {
@@ -80,10 +80,10 @@
             "label": {
                 "en": "Y Position"
             },
-            "max": 0,
+            "max": 27,
             "min": 0,
             "name": "yPosition",
-            "step": 0,
+            "step": 1,
             "type": ""
         }
     ],

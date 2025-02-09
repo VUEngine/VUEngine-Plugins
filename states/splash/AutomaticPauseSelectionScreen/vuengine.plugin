@@ -14,7 +14,7 @@
             "max": 0,
             "min": 0,
             "name": "useLowPowerActor",
-            "step": 0,
+            "step": 1,
             "type": ""
         },
         {
@@ -24,10 +24,10 @@
             "label": {
                 "en": "Options Gap"
             },
-            "max": 0,
+            "max": 64,
             "min": 0,
             "name": "optionsGap",
-            "step": 0,
+            "step": 1,
             "type": ""
         },
         {
@@ -37,10 +37,10 @@
             "label": {
                 "en": "Options Y Position"
             },
-            "max": 0,
+            "max": 27,
             "min": 0,
             "name": "optionsYPos",
-            "step": 0,
+            "step": 1,
             "type": ""
         },
         {
@@ -55,7 +55,7 @@
             "max": 0,
             "min": 0,
             "name": "titleTextFont",
-            "step": 0,
+            "step": 1,
             "type": "Font"
         },
         {
@@ -68,7 +68,7 @@
             "max": 0,
             "min": 0,
             "name": "bodyTextFont",
-            "step": 0,
+            "step": 1,
             "type": "Font"
         },
         {
@@ -81,7 +81,7 @@
             "max": 0,
             "min": 0,
             "name": "optionsTextFont",
-            "step": 0,
+            "step": 1,
             "type": "Font"
         }
     ],
