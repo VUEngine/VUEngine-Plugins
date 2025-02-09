@@ -38,6 +38,9 @@ PositionedActorROMSpec AdjustmentScreenStageActors[] =
 
 PositionedActorROMSpec AdjustmentScreenStageUiActors[] =
 {
+#if __PLUGIN_ADJUSTMENT_SCREEN_PROTOTYPE_USE_LOW_POWER_ACTOR
+	{&LowPowerIndicatorActorSpec, {__PLUGIN_ADJUSTMENT_SCREEN_PROTOTYPE_LOW_POWER_ACTOR_X_POSITION, __PLUGIN_ADJUSTMENT_SCREEN_PROTOTYPE_LOW_POWER_ACTOR_Y_POSITION, __PLUGIN_ADJUSTMENT_SCREEN_PROTOTYPE_LOW_POWER_ACTOR_Z_POSITION}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+#endif
 	{&AdjustmentScreenIconLActorSpec, 	{-184, -104,  0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 	{&AdjustmentScreenIconRActorSpec, 	{-184,  104,  0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 	{&AdjustmentScreenBgActorSpec, 	{   0,	0,  1}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
@@ -50,10 +53,6 @@ PositionedActorROMSpec AdjustmentScreenStageUiActors[] =
 
 SoundROMSpec* const AdjustmentScreenStageSoundSpecs[] =
 {
-#if __PLUGIN_ADJUSTMENT_SCREEN_PROTOTYPE_USE_LOW_POWER_ACTOR
-	{&LowPowerIndicatorActorSpec, 	{__PLUGIN_ADJUSTMENT_SCREEN_PROTOTYPE_LOW_POWER_ACTOR_X_POSITION, __PLUGIN_ADJUSTMENT_SCREEN_PROTOTYPE_LOW_POWER_ACTOR_Y_POSITION, __PLUGIN_ADJUSTMENT_SCREEN_PROTOTYPE_LOW_POWER_ACTOR_Z_POSITION, __PLUGIN_ADJUSTMENT_SCREEN_PROTOTYPE_LOW_POWER_ACTOR_Z_DISPLACEMENT}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
-#endif
-
 	NULL
 };
 
