@@ -12,7 +12,7 @@
             "max": 0,
             "min": 0,
             "name": "startingRow",
-            "step": 0,
+            "step": 1,
             "type": ""
         },
         {
@@ -22,10 +22,10 @@
             "label": {
                 "en": "Ending Row"
             },
-            "max": 0,
+            "max": 224,
             "min": 0,
             "name": "endingRow",
-            "step": 0,
+            "step": 1,
             "type": ""
         },
         {
@@ -35,10 +35,10 @@
             "label": {
                 "en": "Starting Column"
             },
-            "max": 0,
+            "max": 384,
             "min": 0,
             "name": "startingColumn",
-            "step": 0,
+            "step": 1,
             "type": ""
         },
         {
@@ -48,10 +48,10 @@
             "label": {
                 "en": "Ending Column"
             },
-            "max": 0,
+            "max": 384,
             "min": 0,
             "name": "endingColumn",
-            "step": 0,
+            "step": 1,
             "type": ""
         }
     ],

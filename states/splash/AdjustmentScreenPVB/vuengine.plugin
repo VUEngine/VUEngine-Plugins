@@ -14,7 +14,7 @@
             "max": 0,
             "min": 0,
             "name": "useLowPowerActor",
-            "step": 0,
+            "step": 1,
             "type": ""
         },
         {
@@ -24,10 +24,10 @@
             "label": {
                 "en": "Low Power Indicator X Position"
             },
-            "max": 0,
+            "max": 47,
             "min": 0,
             "name": "lowPowerIndicatorXPosition",
-            "step": 0,
+            "step": 1,
             "type": ""
         },
         {
@@ -37,10 +37,10 @@
             "label": {
                 "en": "Low Power Indicator Y Position"
             },
-            "max": 0,
+            "max": 27,
             "min": 0,
             "name": "lowPowerIndicatorYPosition",
-            "step": 0,
+            "step": 1,
             "type": ""
         },
         {
@@ -50,10 +50,10 @@
             "label": {
                 "en": "Low Power Actor X Position"
             },
-            "max": 0,
-            "min": 0,
+            "max": 512,
+            "min": -512,
             "name": "lowPowerActorXPosition",
-            "step": 0,
+            "step": 1,
             "type": ""
         },
         {
@@ -63,10 +63,10 @@
             "label": {
                 "en": "Low Power Actor Y Position"
             },
-            "max": 0,
-            "min": 0,
+            "max": 512,
+            "min": -512,
             "name": "lowPowerActorYPosition",
-            "step": 0,
+            "step": 1,
             "type": ""
         },
         {
@@ -76,10 +76,10 @@
             "label": {
                 "en": "Low Power Actor Z Position"
             },
-            "max": 0,
-            "min": 0,
+            "max": 512,
+            "min": -512,
             "name": "lowPowerActorZPosition",
-            "step": 0,
+            "step": 1,
             "type": ""
         }
     ],

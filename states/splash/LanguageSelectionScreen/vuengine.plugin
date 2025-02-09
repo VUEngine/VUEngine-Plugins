@@ -14,7 +14,7 @@
             "max": 0,
             "min": 0,
             "name": "useLowPowerActor",
-            "step": 0,
+            "step": 1,
             "type": ""
         },
         {
@@ -29,7 +29,7 @@
             "max": 1,
             "min": 0,
             "name": "variant",
-            "step": 0,
+            "step": 1,
             "type": ""
         },
         {
@@ -42,7 +42,7 @@
             "max": 0,
             "min": 0,
             "name": "titleTextFont",
-            "step": 0,
+            "step": 1,
             "type": "Font"
         },
         {
@@ -55,7 +55,7 @@
             "max": 0,
             "min": 0,
             "name": "languageNameFont",
-            "step": 0,
+            "step": 1,
             "type": "Font"
         },
         {
@@ -65,10 +65,10 @@
             "label": {
                 "en": "Image Width"
             },
-            "max": 0,
+            "max": 512,
             "min": 0,
             "name": "imageWidth",
-            "step": 0,
+            "step": 1,
             "type": ""
         },
         {
@@ -78,10 +78,10 @@
             "label": {
                 "en": "Image Height"
             },
-            "max": 0,
+            "max": 512,
             "min": 0,
             "name": "imageHeight",
-            "step": 0,
+            "step": 1,
             "type": ""
         }
     ],
