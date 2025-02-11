@@ -101,6 +101,7 @@
                 "name": "LowPowerIndicator",
                 "optimizeTiles": true,
                 "section": "rom",
+                "shareTiles": true,
                 "sourceType": "image",
                 "texture": {
                     "files": [
@@ -144,8 +145,8 @@
     "inGameType": "None",
     "logic": {
         "configuration": {},
-        "customAllocator": "",
-        "enabled": false
+        "customAllocator": "LowPowerActor",
+        "enabled": true
     },
     "sprites": {
         "type": "Bgmap"
