@@ -9,3 +9,7 @@ According to Nintendo's mandatory programming requirements, this screen should b
 - Right D-Pad Up
 
 ![Preview Image](preview.png)
+
+## Usage
+
+Extend your title screen's State from `AlignmentCheckBaseGameState` instead of `GameState`. This abstract base state contains the checks for the button sequence to be entered.

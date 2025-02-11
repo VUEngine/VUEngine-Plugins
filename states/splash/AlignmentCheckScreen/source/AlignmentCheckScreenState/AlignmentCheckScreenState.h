@@ -17,21 +17,6 @@
 #include <SplashScreenState.h>
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-// CLASS' MACROS
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-
-#define __PLUGIN_ALIGNMENT_CHECK_BUTTON_SEQUENCE_LENGTH		5
-
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-// CLASS' DATA
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-
-static const uint32 _alignmentCheckButtonSequence[__PLUGIN_ALIGNMENT_CHECK_BUTTON_SEQUENCE_LENGTH] __attribute__((unused)) =
-{
-	K_RL, K_B, K_RD, K_A, K_RU
-};
-
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' DECLARATION
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
@@ -45,6 +30,10 @@ static const uint32 _alignmentCheckButtonSequence[__PLUGIN_ALIGNMENT_CHECK_BUTTO
 dynamic_singleton class AlignmentCheckScreenState : SplashScreenState
 {
 	/// @publicsection
+
+	/// Method to get the singleton instance
+	/// @return AlignmentCheckScreenState singleton
+	static AlignmentCheckScreenState getInstance();
 
 	/// Prepares the object to enter this state.
 	/// @param owner: Object that is entering in this state
