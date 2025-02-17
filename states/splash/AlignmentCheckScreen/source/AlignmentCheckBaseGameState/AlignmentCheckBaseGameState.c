@@ -22,7 +22,7 @@
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void AlignmentCheckBaseGameState::enter(void* owner __attribute__((unused)))
+void AlignmentCheckBaseGameState::enter(void* owner)
 {
 	Base::enter(this, owner);
 
