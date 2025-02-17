@@ -45,7 +45,7 @@ void LocalizedActor::destructor()
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-bool LocalizedActor::onEvent(ListenerObject eventFirer __attribute__((unused)), uint16 eventCode)
+bool LocalizedActor::onEvent(ListenerObject eventFirer, uint16 eventCode)
 {
 	switch(eventCode)
 	{
