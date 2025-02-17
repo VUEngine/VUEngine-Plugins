@@ -40,14 +40,16 @@ static Vector3D SteeringBehavior::calculateForce(Vehicle vehicle, uint16 summing
 	switch(summingMethod)
 	{
 		case kPrioritized:
-
+		{
 			steeringForce = SteeringBehavior::calculatePrioritized(vehicle);
 			break;
+		}
 
 		case kWeightedAverage:
-
+		{
 			steeringForce = SteeringBehavior::calculateWeightedSum(vehicle);
 			break;
+		}
 	}
 
 	return steeringForce;

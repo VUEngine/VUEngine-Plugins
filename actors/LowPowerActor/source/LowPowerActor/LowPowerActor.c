@@ -54,7 +54,6 @@ bool LowPowerActor::onEvent(ListenerObject eventFirer, uint16 eventCode)
 
 			return false;
 		}
-
 	}
 
 	return Base::onEvent(this, eventFirer, eventCode);

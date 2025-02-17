@@ -62,9 +62,10 @@ bool PrecautionScreenState::processMessage(void* owner __attribute__ ((unused)),
 	switch(Telegram::getMessage(telegram))
 	{
 		case kMessageAllowUserInput:
-
+		{
 			KeypadManager::enable();
 			break;
+		}
 	}
 
 	return false;
