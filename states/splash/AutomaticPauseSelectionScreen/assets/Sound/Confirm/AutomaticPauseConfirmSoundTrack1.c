@@ -45,7 +45,7 @@ const uint8 AutomaticPauseConfirmSoundTrack1SxEV1[] =
 
 const int8* const AutomaticPauseConfirmSoundTrack1SxRAM[] =
 {
-	SawtoothWaveForm,
+	SawWaveForm,
 };
 
 const uint8 AutomaticPauseConfirmSoundTrack1SxSWP[] =

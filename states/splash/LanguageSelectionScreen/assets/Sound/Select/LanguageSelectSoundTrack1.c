@@ -45,7 +45,7 @@ const uint8 LanguageSelectSoundTrack1SxEV1[] =
 
 const int8* const LanguageSelectSoundTrack1SxRAM[] =
 {
-	SawtoothWaveForm,
+	SawWaveForm,
 };
 
 const uint8 LanguageSelectSoundTrack1SxSWP[] =
