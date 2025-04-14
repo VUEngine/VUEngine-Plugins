@@ -45,7 +45,7 @@ const uint8 PrecautionScreenIntroSoundTrack1SxEV1[] =
 
 const int8* const PrecautionScreenIntroSoundTrack1SxRAM[] =
 {
-	SquareWaveForm,
+	SawWaveForm,
 };
 
 const uint8 PrecautionScreenIntroSoundTrack1SxSWP[] =

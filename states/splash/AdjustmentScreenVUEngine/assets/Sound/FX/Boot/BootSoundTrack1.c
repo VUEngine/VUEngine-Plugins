@@ -45,7 +45,7 @@ const uint8 BootSoundTrack1SxEV1[] =
 
 const int8* const BootSoundTrack1SxRAM[] =
 {
-	SquareWaveForm,
+	SawWaveForm,
 };
 
 const uint8 BootSoundTrack1SxSWP[] =
