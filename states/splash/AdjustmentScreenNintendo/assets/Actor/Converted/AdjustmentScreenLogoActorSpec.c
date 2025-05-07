@@ -8,6 +8,7 @@
 
 #include <Actor.h>
 #include <BgmapSprite.h>
+#include <InGameTypes.h>
 #include <Texture.h>
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -60,7 +61,7 @@ TextureROMSpec AdjustmentScreenLogoSprite1TextureSpec =
 	1,
 
 	// Palette index to use by the graphical data (0 - 3)
-	0,
+	1,
 
 	// Flag to recycle the texture with a different map
 	false,
@@ -103,7 +104,7 @@ BgmapSpriteROMSpec AdjustmentScreenLogoSprite1SpriteSpec =
 	// Flag to indicate in which display to show the texture (__WORLD_ON, __WORLD_LON or __WORLD_RON)
 	__WORLD_ON,
 
-	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
+	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE or __WORLD_HBIAS)
 	__WORLD_BGMAP,
 	
 	// Pointer to affine/hbias manipulation function
