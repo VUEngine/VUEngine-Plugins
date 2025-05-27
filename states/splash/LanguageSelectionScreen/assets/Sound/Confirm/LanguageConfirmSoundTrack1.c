@@ -43,9 +43,9 @@ const uint8 LanguageConfirmSoundTrack1SxEV1[] =
 	0x01
 };
 
-const int8* const LanguageConfirmSoundTrack1SxRAM[] =
+const WaveformData* const LanguageConfirmSoundTrack1SxRAM[] =
 {
-	SawWaveForm,
+	&SawWaveForm,
 };
 
 const uint8 LanguageConfirmSoundTrack1SxSWP[] =
@@ -94,7 +94,7 @@ SoundTrackROMSpec LanguageConfirmSoundTrack1 =
 	(uint8*)LanguageConfirmSoundTrack1SxEV1,
 
 	/// SxRAM pointers
-	(int8**)LanguageConfirmSoundTrack1SxRAM,
+	(WaveformData**)LanguageConfirmSoundTrack1SxRAM,
 
 	/// SxSWP values
 	(uint8*)LanguageConfirmSoundTrack1SxSWP,

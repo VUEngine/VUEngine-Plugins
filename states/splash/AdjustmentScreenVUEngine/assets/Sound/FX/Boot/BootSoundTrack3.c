@@ -43,9 +43,9 @@ const uint8 BootSoundTrack3SxEV1[] =
 	0x01
 };
 
-const int8* const BootSoundTrack3SxRAM[] =
+const WaveformData* const BootSoundTrack3SxRAM[] =
 {
-	SawWaveForm,
+	&SawWaveForm,
 };
 
 const uint8 BootSoundTrack3SxSWP[] =
@@ -94,7 +94,7 @@ SoundTrackROMSpec BootSoundTrack3 =
 	(uint8*)BootSoundTrack3SxEV1,
 
 	/// SxRAM pointers
-	(int8**)BootSoundTrack3SxRAM,
+	(WaveformData**)BootSoundTrack3SxRAM,
 
 	/// SxSWP values
 	(uint8*)BootSoundTrack3SxSWP,

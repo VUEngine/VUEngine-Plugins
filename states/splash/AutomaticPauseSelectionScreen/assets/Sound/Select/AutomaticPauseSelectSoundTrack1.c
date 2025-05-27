@@ -43,9 +43,9 @@ const uint8 AutomaticPauseSelectSoundTrack1SxEV1[] =
 	0x00, 0x01
 };
 
-const int8* const AutomaticPauseSelectSoundTrack1SxRAM[] =
+const WaveformData* const AutomaticPauseSelectSoundTrack1SxRAM[] =
 {
-	SawWaveForm,
+	&SawWaveForm,
 };
 
 const uint8 AutomaticPauseSelectSoundTrack1SxSWP[] =
@@ -93,7 +93,7 @@ SoundTrackROMSpec AutomaticPauseSelectSoundTrack1 =
 	(uint8*)AutomaticPauseSelectSoundTrack1SxEV1,
 
 	/// SxRAM pointers
-	(int8**)AutomaticPauseSelectSoundTrack1SxRAM,
+	(WaveformData**)AutomaticPauseSelectSoundTrack1SxRAM,
 
 	/// SxSWP values
 	(uint8*)AutomaticPauseSelectSoundTrack1SxSWP,

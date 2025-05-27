@@ -43,9 +43,9 @@ const uint8 PrecautionScreenIntroSoundTrack1SxEV1[] =
 	0x00, 0x01
 };
 
-const int8* const PrecautionScreenIntroSoundTrack1SxRAM[] =
+const WaveformData* const PrecautionScreenIntroSoundTrack1SxRAM[] =
 {
-	SawWaveForm,
+	&SawWaveForm,
 };
 
 const uint8 PrecautionScreenIntroSoundTrack1SxSWP[] =
@@ -93,7 +93,7 @@ SoundTrackROMSpec PrecautionScreenIntroSoundTrack1 =
 	(uint8*)PrecautionScreenIntroSoundTrack1SxEV1,
 
 	/// SxRAM pointers
-	(int8**)PrecautionScreenIntroSoundTrack1SxRAM,
+	(WaveformData**)PrecautionScreenIntroSoundTrack1SxRAM,
 
 	/// SxSWP values
 	(uint8*)PrecautionScreenIntroSoundTrack1SxSWP,
