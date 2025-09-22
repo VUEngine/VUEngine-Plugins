@@ -61,7 +61,7 @@ static void PostProcessingTest::lighting(uint32 currentDrawingFrameBufferSet, En
 		{
 			for(yCounter = 64, y = screenPixelPosition.y - (yCounter >> 1); yCounter >= 0; yCounter -= 4, y += 4)
 			{
-				BYTE* sourcePointer = (BYTE*) (currentDrawingFrameBufferSet | (buffer ? 0x00010000 : 0));
+				uint8* sourcePointer = (uint8*) (currentDrawingFrameBufferSet | (buffer ? 0x00010000 : 0));
 				sourcePointer += ((x << 6) + (y >> 2));
 
 /*

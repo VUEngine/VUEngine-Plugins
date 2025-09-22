@@ -67,7 +67,7 @@ bool SaveDataManager::verifySaveStamp()
 	char saveStamp[__PLUGIN_SAVE_DATA_MANAGER_SAVE_STAMP_LENGTH];
 
 	// Read save stamp
-	SRAMManager::read((BYTE*)&saveStamp, offsetof(struct SaveData, saveStamp), sizeof(saveStamp));
+	SRAMManager::read((uint8*)&saveStamp, offsetof(struct SaveData, saveStamp), sizeof(saveStamp));
 
 	return !strncmp(saveStamp, __PLUGIN_SAVE_DATA_MANAGER_SAVE_STAMP, __PLUGIN_SAVE_DATA_MANAGER_SAVE_STAMP_LENGTH);
 }
@@ -79,7 +79,7 @@ bool SaveDataManager::checkSRAM()
 	// Write save stamp
 	SRAMManager::save
 	(
-		(BYTE*)__PLUGIN_SAVE_DATA_MANAGER_SAVE_STAMP, offsetof(struct SaveData, saveStamp), sizeof(saveStamp)
+		(uint8*)__PLUGIN_SAVE_DATA_MANAGER_SAVE_STAMP, offsetof(struct SaveData, saveStamp), sizeof(saveStamp)
 	);
 
 	return SaveDataManager::verifySaveStamp(this);
@@ -90,8 +90,8 @@ uint32 SaveDataManager::computeChecksum()
 	uint32 crc32 = ~0;
 
 	// Iterate over whole save data, starting right after the previously saved checksum
-	int32 i = (offsetof(struct SaveData, checksum) + sizeof(crc32));
-	int16 saveDataSize = SaveDataManager::getSaveDataSize(this);
+	uint32 i = (offsetof(struct SaveData, checksum) + sizeof(crc32));
+	uint32 saveDataSize = SaveDataManager::getSaveDataSize(this);
 
 	if(__PLUGIN_SAVE_DATA_MANAGER_CRC_CHECK_RANGE < saveDataSize)
 	{
@@ -100,11 +100,11 @@ uint32 SaveDataManager::computeChecksum()
 
 	HardwareManager::suspendInterrupts();
 
-	for(int16 limit = saveDataSize / sizeof(uint32); i < limit; i++)
+	for(uint32 limit = saveDataSize / sizeof(uint32); i < limit; i++)
 	{
 		// Get the current byte
 		uint32 currentValue = 0;
-		SRAMManager::read((BYTE*)&currentValue, i, sizeof(currentValue));
+		SRAMManager::read((uint8*)&currentValue, i, sizeof(currentValue));
 
 		crc32 += currentValue ^ __PLUGIN_SAVE_DATA_MANAGER_CRC_MASK;
 	}
@@ -120,7 +120,7 @@ uint32 SaveDataManager::computeChecksum()
 void SaveDataManager::writeChecksum()
 {
 	uint32 checksum = SaveDataManager::computeChecksum(this);
-	SRAMManager::save((BYTE*)&checksum, offsetof(struct SaveData, checksum), sizeof(checksum));
+	SRAMManager::save((uint8*)&checksum, offsetof(struct SaveData, checksum), sizeof(checksum));
 }
 
 /*
@@ -130,7 +130,7 @@ bool SaveDataManager::verifyChecksum()
 {
 	uint32 computedChecksum = SaveDataManager::computeChecksum(this);
 	uint32 savedChecksum = 0;
-	SRAMManager::read((BYTE*)&savedChecksum, offsetof(struct SaveData, checksum), sizeof(savedChecksum));
+	SRAMManager::read((uint8*)&savedChecksum, offsetof(struct SaveData, checksum), sizeof(savedChecksum));
 
 	return (computedChecksum == savedChecksum);
 }
@@ -162,15 +162,14 @@ void SaveDataManager::initialize()
 }
 
 void SaveDataManager::restoreSettings()
-{
-}
+{}
 
 void SaveDataManager::writeDefaults()
 {
-	SRAMManager::save((BYTE*)&SaveDataDefaults, 0, sizeof(SaveDataDefaults));
+	SRAMManager::save((uint8*)&SaveDataDefaults, 0, sizeof(SaveDataDefaults));
 }
 
-void SaveDataManager::getValue(BYTE* destination, int32 memberOffset, int32 dataSize)
+void SaveDataManager::getValue(uint8* destination, int32 memberOffset, int32 dataSize)
 {
 	if(this->sramAvailable)
 	{
@@ -178,7 +177,7 @@ void SaveDataManager::getValue(BYTE* destination, int32 memberOffset, int32 data
 	}
 }
 
-void SaveDataManager::setValue(const BYTE* const source, int32 memberOffset, int32 dataSize)
+void SaveDataManager::setValue(const uint8* const source, int32 memberOffset, int32 dataSize)
 {
 	if(this->sramAvailable)
 	{
@@ -200,20 +199,20 @@ int32 SaveDataManager::getSaveDataSize()
 uint8 SaveDataManager::getLanguage()
 {
 	uint8 languageId = 0;
-	SaveDataManager::getValue(this, (BYTE*)&languageId, offsetof(struct SaveData, languageId), sizeof(languageId));
+	SaveDataManager::getValue(this, (uint8*)&languageId, offsetof(struct SaveData, languageId), sizeof(languageId));
 
 	return languageId;
 }
 
 void SaveDataManager::setLanguage(uint8 languageId)
 {
-	SaveDataManager::setValue(this, (BYTE*)&languageId, offsetof(struct SaveData, languageId), sizeof(languageId));
+	SaveDataManager::setValue(this, (uint8*)&languageId, offsetof(struct SaveData, languageId), sizeof(languageId));
 }
 
 bool SaveDataManager::getAutomaticPauseStatus()
 {
 	uint8 autoPauseStatus = 0;
-	SaveDataManager::getValue(this, (BYTE*)&autoPauseStatus, offsetof(struct SaveData, autoPauseStatus), sizeof(autoPauseStatus));
+	SaveDataManager::getValue(this, (uint8*)&autoPauseStatus, offsetof(struct SaveData, autoPauseStatus), sizeof(autoPauseStatus));
 
 	return autoPauseStatus;
 }
@@ -224,5 +223,5 @@ void SaveDataManager::setAutomaticPauseStatus(uint8 autoPauseStatus)
 	// That way, a blank value means enabled, which is the standard setting.
 	autoPauseStatus = !autoPauseStatus;
 
-	SaveDataManager::setValue(this, (BYTE*)&autoPauseStatus, offsetof(struct SaveData, autoPauseStatus), sizeof(autoPauseStatus));
+	SaveDataManager::setValue(this, (uint8*)&autoPauseStatus, offsetof(struct SaveData, autoPauseStatus), sizeof(autoPauseStatus));
 }

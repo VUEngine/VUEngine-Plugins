@@ -65,7 +65,7 @@ int16 ShaderSprite::doRender(int16 index)
 {
 	if(Base::doRender(this, index) == index)
 	{
-//		ShaderSprite::renderToTexture(this, (WORD*)(buffer[this->buffer]));
+//		ShaderSprite::renderToTexture(this, (uint32*)(buffer[this->buffer]));
 		return index;
 	}
 
@@ -88,7 +88,7 @@ void ShaderSprite::processEffects(int32 maximumParamTableRowsToComputePerCall)
 		return;
 	}
 
-	ShaderSprite::renderToTexture(this, (WORD*)(__CHAR_SPACE_BASE_ADDRESS + (((uint32)this->charSet->offset) << 4)));
+	ShaderSprite::renderToTexture(this, (uint32*)(__CHAR_SPACE_BASE_ADDRESS + (((uint32)this->charSet->offset) << 4)));
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -99,19 +99,19 @@ void ShaderSprite::processEffects(int32 maximumParamTableRowsToComputePerCall)
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void ShaderSprite::copyBufferTo(WORD* bufferAddress, WORD* destinationAddress)
+void ShaderSprite::copyBufferTo(uint32* bufferAddress, uint32* destinationAddress)
 {
 	Mem::copyWORD
 	(
 		destinationAddress,
 		bufferAddress,
-		__BYTES_PER_CHARS(CharSet::getNumberOfChars(this->charSet)) / sizeof(WORD)
+		__BYTES_PER_CHARS(CharSet::getNumberOfChars(this->charSet)) / sizeof(uint32)
 	);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // TODO: Should use the Mem::copyWORD, but this is way faster on hardware somehow
-static void ShaderSprite::addWORD(WORD* destination, const WORD* source, uint32 numberOfWORDS, uint32 increment)
+static void ShaderSprite::addWORD(uint32* destination, const uint32* source, uint32 numberOfWORDS, uint32 increment)
 {
 	for(; 0 < numberOfWORDS; numberOfWORDS--)
 	{
@@ -121,22 +121,22 @@ static void ShaderSprite::addWORD(WORD* destination, const WORD* source, uint32 
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void ShaderSprite::clear(WORD* destinationAddress)
+void ShaderSprite::clear(uint32* destinationAddress)
 {
 	extern uint32 ShaderTiles[];
 
 	ShaderSprite::addWORD
 	(
 		destinationAddress,
-		(WORD*)(ShaderTiles),
-		__BYTES_PER_CHARS(CharSet::getNumberOfChars(this->charSet)) / sizeof(WORD),
+		(uint32*)(ShaderTiles),
+		__BYTES_PER_CHARS(CharSet::getNumberOfChars(this->charSet)) / sizeof(uint32),
 		0
 	);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void ShaderSprite::drawRandom(WORD* destinationAddress)
+void ShaderSprite::drawRandom(uint32* destinationAddress)
 {
 	extern uint32 ShaderTiles[];
 
@@ -146,15 +146,15 @@ void ShaderSprite::drawRandom(WORD* destinationAddress)
 	ShaderSprite::addWORD
 	(
 		destinationAddress,
-		(WORD*)(ShaderTiles),
-		__BYTES_PER_CHARS(CharSet::getNumberOfChars(this->charSet)) / sizeof(WORD),
+		(uint32*)(ShaderTiles),
+		__BYTES_PER_CHARS(CharSet::getNumberOfChars(this->charSet)) / sizeof(uint32),
 		increment
 	);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void ShaderSprite::renderToTexture(WORD* bufferAddress)
+void ShaderSprite::renderToTexture(uint32* bufferAddress)
 {
 	if(isDeleted(this->charSet))
 	{
@@ -172,7 +172,7 @@ void ShaderSprite::renderToTexture(WORD* bufferAddress)
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void ShaderSprite::renderClock(WORD* bufferAddress)
+void ShaderSprite::renderClock(uint32* bufferAddress)
 {
 	Vector3D fromVector = 
 	{
@@ -203,7 +203,7 @@ void ShaderSprite::renderClock(WORD* bufferAddress)
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void ShaderSprite::drawPixel(WORD* bufferAddress, uint16 x, uint16 y, int32 color)
+void ShaderSprite::drawPixel(uint32* bufferAddress, uint16 x, uint16 y, int32 color)
 {
 	int32 cols = Texture::getCols(this->texture);
 
@@ -214,28 +214,28 @@ void ShaderSprite::drawPixel(WORD* bufferAddress, uint16 x, uint16 y, int32 colo
 
 //	tile = 0;
 
-//	HWORD newTile[__BYTES_PER_CHARS(1) / sizeof(HWORD)] = {0x0F0F, 0, 0, 0x0F0F, 0, 0, 0x0F0F, 0};
-//	HWORD newTile[__BYTES_PER_CHARS(1) / sizeof(HWORD)] = {0x0F0F, 0, 0, 0, 0, 0, 0, 0};
-	static HWORD newTile[__BYTES_PER_CHARS(1) / sizeof(HWORD)] = {0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF};
+//	uint16 newTile[__BYTES_PER_CHARS(1) / sizeof(uint16)] = {0x0F0F, 0, 0, 0x0F0F, 0, 0, 0x0F0F, 0};
+//	uint16 newTile[__BYTES_PER_CHARS(1) / sizeof(uint16)] = {0x0F0F, 0, 0, 0, 0, 0, 0, 0};
+	static uint16 newTile[__BYTES_PER_CHARS(1) / sizeof(uint16)] = {0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF};
 
 	// TODO: actually render 3D pixels
-//	for(uint16 tileRow = 0; tileRow < __BYTES_PER_CHARS(1) / sizeof(HWORD); tileRow++)
+//	for(uint16 tileRow = 0; tileRow < __BYTES_PER_CHARS(1) / sizeof(uint16); tileRow++)
 	{
-	//	newTile[tileRow] = *(HWORD*)(__CHAR_SPACE_BASE_ADDRESS + ((((uint32)charSet->offset) << 4) + ((tile << 4) + tileRow)));
+	//	newTile[tileRow] = *(uint16*)(__CHAR_SPACE_BASE_ADDRESS + ((((uint32)charSet->offset) << 4) + ((tile << 4) + tileRow)));
 	//	newTile[tileRow] = 0x0F0F;
 	}
 
 	Mem::copyWORD
 	(
-		(WORD*)(bufferAddress + (tile << 2)),
-		(WORD*)newTile,
-		__BYTES_PER_CHARS(1) / sizeof(WORD)
+		(uint32*)(bufferAddress + (tile << 2)),
+		(uint32*)newTile,
+		__BYTES_PER_CHARS(1) / sizeof(uint32)
 	);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void ShaderSprite::drawLine(WORD* bufferAddress, PixelVector fromPoint, PixelVector toPoint, int32 color)
+void ShaderSprite::drawLine(uint32* bufferAddress, PixelVector fromPoint, PixelVector toPoint, int32 color)
 {
 	fix19_13 fromPointX = __I_TO_FIX19_13(fromPoint.x);
 	fix19_13 fromPointY = __I_TO_FIX19_13(fromPoint.y);

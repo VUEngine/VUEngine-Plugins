@@ -57,8 +57,8 @@ abstract class SaveDataManager : ListenerObject
 
 	void constructor();
 
-	void getValue(BYTE* destination, int32 memberOffset, int32 dataSize);
-	void setValue(const BYTE* const source, int32 memberOffset, int32 dataSize);
+	void getValue(uint8* destination, int32 memberOffset, int32 dataSize);
+	void setValue(const uint8* const source, int32 memberOffset, int32 dataSize);
 	bool verifyChecksum();
 	void writeChecksum();
 	uint32 computeChecksum();
