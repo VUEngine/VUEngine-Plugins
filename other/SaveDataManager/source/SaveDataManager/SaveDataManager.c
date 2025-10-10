@@ -51,9 +51,6 @@ void SaveDataManager::constructor()
 
 	// Register with engine
 	VUEngine::setSaveDataManager(ListenerObject::safeCast(this));
-
-	// Initialize
-	SaveDataManager::initialize(this);
 }
 
 void SaveDataManager::destructor()
@@ -162,7 +159,9 @@ void SaveDataManager::initialize()
 }
 
 void SaveDataManager::restoreSettings()
-{}
+{
+	SaveDataManager::initialize(this);
+}
 
 void SaveDataManager::writeDefaults()
 {
