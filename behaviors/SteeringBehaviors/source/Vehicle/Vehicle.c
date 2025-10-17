@@ -44,15 +44,6 @@ void Vehicle::constructor(const VehicleSpec* vehicleSpec, int16 internalId, cons
 	this->accumulatedForce = Vector3D::zero();
 	this->radius = 0;
 	this->checkIfCanMove = false;
-
-	if(isDeleted(this->body))
-	{
-		this->frictionMassRatio = 0;
-	}
-	else
-	{
-		this->frictionMassRatio = Body::getFrictionCoefficient(this->body) + Body::getMass(this->body);
-	}
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -173,7 +164,7 @@ VirtualList Vehicle::getSteeringBehaviors()
 
 fixed_t Vehicle::getFrictionMassRatio()
 {
-	return this->frictionMassRatio;
+	return Body::getFrictionCoefficient(this->body) + Body::getMass(this->body);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

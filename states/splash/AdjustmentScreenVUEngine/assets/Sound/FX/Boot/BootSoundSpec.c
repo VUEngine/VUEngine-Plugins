@@ -37,6 +37,15 @@ SoundTrackROMSpec* const BootSoundTracks[] =
 
 SoundROMSpec BootSoundSpec =
 {
+	// Component
+	{
+		// Allocator
+		__TYPE(Sound),
+
+		// Component type
+		kSoundComponent
+	},
+
 	// Name
 	"Boot Sound",
 

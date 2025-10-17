@@ -58,9 +58,6 @@ class Vehicle : Actor
 	/// Cache the vehicle's radius
 	fixed_t radius;
 
-	/// Cache the friction to mass ratio
-	fixed_t frictionMassRatio;
-
 	/// If true, a collision check is performed before trying to move the vehicle
 	bool checkIfCanMove;
 

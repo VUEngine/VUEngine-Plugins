@@ -33,6 +33,15 @@ SoundTrackROMSpec* const PrecautionScreenIntroSoundTracks[] =
 
 SoundROMSpec PrecautionScreenIntroSoundSpec =
 {
+	// Component
+	{
+		// Allocator
+		__TYPE(Sound),
+
+		// Component type
+		kSoundComponent
+	},
+
 	// Name
 	"Intro Sound",
 

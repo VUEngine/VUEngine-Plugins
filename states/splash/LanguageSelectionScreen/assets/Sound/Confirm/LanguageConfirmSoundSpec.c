@@ -33,6 +33,15 @@ SoundTrackROMSpec* const LanguageConfirmSoundTracks[] =
 
 SoundROMSpec LanguageConfirmSoundSpec =
 {
+	// Component
+	{
+		// Allocator
+		__TYPE(Sound),
+
+		// Component type
+		kSoundComponent
+	},
+
 	// Name
 	"Language confirm",
 

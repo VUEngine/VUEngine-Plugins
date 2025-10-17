@@ -19,7 +19,7 @@
 #include <Printer.h>
 #include <SaveDataManager.h>
 #include <Singleton.h>
-#include <SoundManager.h>
+#include <Sound.h>
 #include <VUEngine.h>
 
 #include "AutomaticPauseSelectionScreenState.h"
@@ -44,7 +44,7 @@ void AutomaticPauseSelectionScreenState::processUserInput(const UserInput* userI
 	{
 		this->selection = !this->selection;
 		AutomaticPauseSelectionScreenState::renderSelection(this);
-		SoundManager::playSound(&AutomaticPauseSelectSoundSpec,  NULL, kSoundPlaybackNormal, NULL);
+		Sound::playSound(&AutomaticPauseSelectSoundSpec,  NULL, kSoundPlaybackNormal, NULL);
 	}
 	else if(userInput->pressedKey & (K_A | K_STA))
 	{
@@ -57,7 +57,7 @@ void AutomaticPauseSelectionScreenState::processUserInput(const UserInput* userI
 			SaveDataManager::setAutomaticPauseStatus(saveDataManager, this->selection);
 		}
 
-		SoundManager::playSound(&AutomaticPauseConfirmSoundSpec, NULL, kSoundPlaybackNormal, NULL);
+		Sound::playSound(&AutomaticPauseConfirmSoundSpec, NULL, kSoundPlaybackNormal, NULL);
 
 		SplashScreenState::loadNextState(SplashScreenState::safeCast(this));
 	}

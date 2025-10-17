@@ -18,7 +18,7 @@
 #include <Printer.h>
 #include <SaveDataManager.h>
 #include <Singleton.h>
-#include <SoundManager.h>
+#include <Sound.h>
 #include <VirtualList.h>
 #include <VUEngine.h>
 
@@ -118,7 +118,7 @@ void LanguageSelectionScreenState::processUserInput(const UserInput* userInput)
 	}
 	else if(userInput->pressedKey & (K_A | K_STA))
 	{
-		SoundManager::playSound(&LanguageConfirmSoundSpec, NULL, kSoundPlaybackNormal, NULL);
+		Sound::playSound(&LanguageConfirmSoundSpec, NULL, kSoundPlaybackNormal, NULL);
 
 		SplashScreenState::loadNextState(SplashScreenState::safeCast(this));
 	}
@@ -248,7 +248,7 @@ void LanguageSelectionScreenState::select(bool next)
 	LanguageSelectionScreenState::persistChoice(this);
 	LanguageSelectionScreenState::printSelection(this);
 
-	SoundManager::playSound(&LanguageSelectSoundSpec, NULL, kSoundPlaybackNormal, NULL);
+	Sound::playSound(&LanguageSelectSoundSpec, NULL, kSoundPlaybackNormal, NULL);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

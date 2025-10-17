@@ -33,6 +33,15 @@ SoundTrackROMSpec* const LanguageSelectSoundTracks[] =
 
 SoundROMSpec LanguageSelectSoundSpec =
 {
+	// Component
+	{
+		// Allocator
+		__TYPE(Sound),
+
+		// Component type
+		kSoundComponent
+	},
+
 	// Name
 	"Language select",
 

@@ -16,7 +16,7 @@
 #include <FrameBufferManager.h>
 #include <LowPowerManager.h>
 #include <Singleton.h>
-#include <SoundManager.h>
+#include <Sound.h>
 #include <VUEngine.h>
 
 #include "AdjustmentScreenState.h"

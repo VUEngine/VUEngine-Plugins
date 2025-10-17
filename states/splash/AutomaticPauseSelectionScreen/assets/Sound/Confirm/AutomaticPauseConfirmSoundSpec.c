@@ -33,6 +33,15 @@ SoundTrackROMSpec* const AutomaticPauseConfirmSoundTracks[] =
 
 SoundROMSpec AutomaticPauseConfirmSoundSpec =
 {
+	// Component
+	{
+		// Allocator
+		__TYPE(Sound),
+
+		// Component type
+		kSoundComponent
+	},
+
 	// Name
 	"AutomaticPause confirm",
 
