@@ -45,7 +45,7 @@ const uint8 LanguageConfirmSoundTrack1SxEV1[] =
 
 const WaveformData* const LanguageConfirmSoundTrack1SxRAM[] =
 {
-	&SawWaveForm,
+	NULL,
 };
 
 const uint8 LanguageConfirmSoundTrack1SxSWP[] =

@@ -45,7 +45,7 @@ const uint8 PrecautionScreenIntroSoundTrack1SxEV1[] =
 
 const WaveformData* const PrecautionScreenIntroSoundTrack1SxRAM[] =
 {
-	&SawWaveForm,
+	NULL,
 };
 
 const uint8 PrecautionScreenIntroSoundTrack1SxSWP[] =
