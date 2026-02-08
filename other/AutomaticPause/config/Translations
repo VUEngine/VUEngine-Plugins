@@ -3,23 +3,23 @@
 	"languages": [
 		{
 			"code": "en",
-			"flagActorId": "",
+			"flagActorId": "y00jkkvzi3Ah6KaR",
 			"name": "English"
 		},
 		{
 			"code": "de",
-			"flagActorId": "",
-			"name": "German"
+			"flagActorId": "8N3qMrFmfimZtdG9",
+			"name": "Deutsch"
 		},
 		{
 			"code": "es",
-			"flagActorId": "",
-			"name": "Spanish"
+			"flagActorId": "Ce8LW23XBQx4Tkbl",
+			"name": "Español"
 		},
 		{
 			"code": "fr",
-			"flagActorId": "",
-			"name": "French"
+			"flagActorId": "8uaehoYBaiePjsGy",
+			"name": "Français"
 		}
 	],
 	"translations": {
