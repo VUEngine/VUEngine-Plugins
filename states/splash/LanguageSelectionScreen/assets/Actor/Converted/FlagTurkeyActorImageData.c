@@ -1,0 +1,20 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////  THIS FILE WAS AUTO-GENERATED - DO NOT EDIT  ///////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	
+const uint32 FlagTurkeyActorFlagTurkeyTiles[] __attribute__((aligned(4))) =
+{
+	0x00000000,
+	0x00000000,0x55540000,0xAAA4AAA4,0xAAA4AAA4,0x00000000,0x55550000,0xAAAAAAAA,0xAAAAAAAA,
+	0xAAA4AAA4,0xAAA4AAA4,0xAAA4AAA4,0xEAA4AAA4,0xAAAAAAAA,0xFFFABFAA,0xAABFEBFE,0xAAAFAAAF,
+	0xAAAAAAAA,0xAAAAAAAA,0xAAAEAAAB,0xAAEAAAAA,0xAAAAAAAA,0xAAAAAAAA,0xAAAAAAAA,0xAAAAAAAA,
+	0x1AAA1AAA,0x1AAA1AAA,0x1AAA1AAA,0x1AAA1AAA,0xEAA4EAA4,0xAAA4AAA4,0xAAA4AAA4,0xAAA4AAA4,
+	0xAAAFAAAF,0xAABFAAAF,0xFFFAEBFE,0xAAAABFAA,0xAAEAABFA,0xAAAEAAAA,0xAAAAAAAB,0xAAAAAAAA,
+};
+
+const uint16 FlagTurkeyActorFlagTurkeyMap[] __attribute__((aligned(4))) =
+{
+	0x0000,0x0001,0x0001,0x0001,0x2000,0x0002,0x0003,0x0004,
+	0x0005,0x0006,0x0007,0x0008,0x0009,0x0005,0x0006,0x1000,
+	0x3001,0x3001,0x3001,0x3000,
+};
