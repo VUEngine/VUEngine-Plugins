@@ -1,123 +1,110 @@
 {
-    "_id": "1CQ831i58pMK0jvu",
-    "_version": "0.6.0",
-    "animations": {
-        "default": 0,
-        "multiframe": false,
-        "totalFrames": 1
-    },
-    "body": {
-        "bounciness": 0,
-        "enabled": false,
-        "friction": 0,
-        "gravityAxes": [],
-        "mass": 0,
-        "maximumSpeed": 0,
-        "maximumVelocity": {
-            "x": 0,
-            "y": 0,
-            "z": 0
-        },
-        "rotationAxes": []
-    },
-    "components": {
-        "animations": [],
-        "children": [],
-        "colliders": [],
-        "mutators": [],
-        "sprites": [
-            {
-                "_imageData": {
-                    "images": [
-                        {
-                            "animation": {
-                                "frames": 1
-                            },
-                            "maps": [
-                                {
-                                    "data": "H4sIAAAAAAAAE72TTVbCQBCE78LaxVR1I7BU1Ev4vP81fPANykiI+SFZ1UvS3fV1zeRzU0opm6dJIsQT22faBpLIdi3bZ2SH7JHDchCt7UuPPBRiuG0rr8hxZdtW3sYm8Rjb0cfR2r4jH2cRJaJE/GPizos7L0aLdnEjxY3UoQeia1tV4fzE+YkgBZkgM1PMFENmyAyZt/eT8Mk2fl5SYuANvPnm+g0kg2SQDJJBCpACpPDvaGGkJoLg6S9EsEOwQ9AQpBQABoBBX9Q+AOP4j20rdyAuLKwZrBmsmbTnaU1fSq77Bth2QpSSvh6WJJEkkbWEJHJ3dq8l02xvIIgu96P+sZm2Y45jMdvhEAva9kGsZtsJMcv26xu+nuZL3QgAAA==",
-                                    "height": "18",
-                                    "width": "18",
-                                    "name": "AdjustmentScreenLogo"
-                                }
-                            ],
-                            "tiles": {
-                                "count": 73,
-                                "data": "H4sIAAAAAAAAE51VQY7kMAj8S859oFcNaR/LovnEaP//jRXgxE7SyUSbkaVqplKhANs/E7VnevwvfHdob6LPL6/9WeHTiGieHhPsTfUTUcDeqB+HAhhQP9NjYgAMVH/tCRAJpsf0BEACxGtgQYPVqXyVw7PnACKS0xzQc0A+nsMn00GPXkJX0OkxKQsKR9RY4D8bt1pET71B7n/tCxx1ZdX1gnFC6Ybu1IyJKOr7ZCFih08WEPPy4dnuJsm8wGIKmJ5yOToccDbGbHKuy11XYebrQnflms3m65xbum4183VLV1HN7uYguM316brJrSl7i4uo2E0uqlxy0WuGqj7swZ2jKN7ukpYlGhvBXgfJdqvMGRUzluRKNZVUSGboDu3+FQ7t/hUqgNZuBbMehisITVfCRM1o9Z9ZkrDvUFHBCYOco1zFi3kBwfJpDfB6FOM8rtQsN07fQ95uXwnVV4e7qOeArC/cxrCztHVT44SInZX5hLcqmhDbKLdoVXbPAc2Wzte03KPuQonIr4927ryubpE0mTtAIt0lXz1Mn7TPtaPY6dvDfOAqD6MRRV24liM3cDdTIuOpYSZ73dIHZntqHA+QqqglZ8eU51nXJI+brLidWTId5uFEPHJ9C0pW3ZhZe82O3DY7Phoz8zJG37kx0yV6zKaMWc910QeGeWYss3OquwxMH6Po2p4rIjJAfwIWNDhyWZbTKP5fIB2WA/errmscdGUDZb1jWWQ/k/76ys0vR3SFG13+mgMijb0uuMP465D3NxkW3VJESinSoiVLMuZQSllfK0W4LFFfhxtdtlD2cOB+g9mfFQpfcMvo4lvqI1fWzjv0dZ5Dd3xmc8ihyABbJbfcRQzMhMKv2AFEhV+0tblzfDQ/2Nw5PpofbO4cH80PNneOj+YHmzvHX8171VNBGSj5YSVAX3FnEQEvmv7+A221idONDAAA",
-                                "name": "AdjustmentScreenLogo"
-                            }
-                        }
-                    ]
-                },
-                "bgmapMode": "Bgmap",
-                "colorMode": 0,
-                "compression": "none",
-                "displacement": {
-                    "parallax": 0,
-                    "x": 0,
-                    "y": 0,
-                    "z": 0
-                },
-                "displayMode": "Mono",
-                "displays": "ON",
-                "imageProcessingSettings": {
-                    "colorDistanceFormula": "euclidean",
-                    "imageQuantizationAlgorithm": "nearest",
-                    "minimumColorDistanceToDither": 0,
-                    "serpentine": false
-                },
-                "isAnimated": true,
-                "manipulationFunction": "",
-                "name": "AdjustmentScreenLogo",
-                "optimizeTiles": true,
-                "section": "rom",
-                "sourceType": "image",
-                "texture": {
-                    "files": [
-                        "AdjustmentScreenLogo.png"
-                    ],
-                    "files2": [],
-                    "flip": {
-                        "x": false,
-                        "y": false
-                    },
-                    "padding": {
-                        "x": 0,
-                        "y": 0
-                    },
-                    "palette": 0,
-                    "recycleable": false,
-                    "repeat": {
-                        "mode": "1x1",
-                        "size": {
-                            "x": 0,
-                            "y": 0
-                        },
-                        "x": false,
-                        "y": false
-                    }
-                },
-                "transparency": "None"
-            }
-        ],
-        "wireframes": []
-    },
-    "extraProperties": {
-        "enabled": false,
-        "extraInfo": "",
-        "pixelSize": {
-            "x": 0,
-            "y": 0,
-            "z": 0
-        }
-    },
-    "inGameType": "None",
-    "logic": {
-        "configuration": {},
-        "customAllocator": "",
-        "enabled": false
-    },
-    "sprites": {
-        "type": "Bgmap"
-    }
+	"_id": "1CQ831i58pMK0jvu",
+	"_version": "0.7.0",
+	"animations": {
+		"default": 0,
+		"multiframe": false,
+		"totalFrames": 1
+	},
+	"components": {
+		"animations": [],
+		"bodies": [],
+		"children": [],
+		"colliders": [],
+		"mutators": [],
+		"sounds": [],
+		"sprites": [
+			{
+				"_imageData": {
+					"images": [
+						{
+							"animation": {
+								"frames": 1
+							},
+							"maps": [
+								{
+									"data": "H4sIAAAAAAAAE72TTVbCQBCE78LaxVR1I7BU1Ev4vP81fPANykiI+SFZ1UvS3fV1zeRzU0opm6dJIsQT22faBpLIdi3bZ2SH7JHDchCt7UuPPBRiuG0rr8hxZdtW3sYm8Rjb0cfR2r4jH2cRJaJE/GPizos7L0aLdnEjxY3UoQeia1tV4fzE+YkgBZkgM1PMFENmyAyZt/eT8Mk2fl5SYuANvPnm+g0kg2SQDJJBCpACpPDvaGGkJoLg6S9EsEOwQ9AQpBQABoBBX9Q+AOP4j20rdyAuLKwZrBmsmbTnaU1fSq77Bth2QpSSvh6WJJEkkbWEJHJ3dq8l02xvIIgu96P+sZm2Y45jMdvhEAva9kGsZtsJMcv26xu+nuZL3QgAAA==",
+									"height": "18",
+									"width": "18",
+									"name": "AdjustmentScreenLogo"
+								}
+							],
+							"tiles": {
+								"count": 73,
+								"data": "H4sIAAAAAAAAE51VQY7kMAj8S859oFcNaR/LovnEaP//jRXgxE7SyUSbkaVqplKhANs/E7VnevwvfHdob6LPL6/9WeHTiGieHhPsTfUTUcDeqB+HAhhQP9NjYgAMVH/tCRAJpsf0BEACxGtgQYPVqXyVw7PnACKS0xzQc0A+nsMn00GPXkJX0OkxKQsKR9RY4D8bt1pET71B7n/tCxx1ZdX1gnFC6Ybu1IyJKOr7ZCFih08WEPPy4dnuJsm8wGIKmJ5yOToccDbGbHKuy11XYebrQnflms3m65xbum4183VLV1HN7uYguM316brJrSl7i4uo2E0uqlxy0WuGqj7swZ2jKN7ukpYlGhvBXgfJdqvMGRUzluRKNZVUSGboDu3+FQ7t/hUqgNZuBbMehisITVfCRM1o9Z9ZkrDvUFHBCYOco1zFi3kBwfJpDfB6FOM8rtQsN07fQ95uXwnVV4e7qOeArC/cxrCztHVT44SInZX5hLcqmhDbKLdoVXbPAc2Wzte03KPuQonIr4927ryubpE0mTtAIt0lXz1Mn7TPtaPY6dvDfOAqD6MRRV24liM3cDdTIuOpYSZ73dIHZntqHA+QqqglZ8eU51nXJI+brLidWTId5uFEPHJ9C0pW3ZhZe82O3DY7Phoz8zJG37kx0yV6zKaMWc910QeGeWYss3OquwxMH6Po2p4rIjJAfwIWNDhyWZbTKP5fIB2WA/errmscdGUDZb1jWWQ/k/76ys0vR3SFG13+mgMijb0uuMP465D3NxkW3VJESinSoiVLMuZQSllfK0W4LFFfhxtdtlD2cOB+g9mfFQpfcMvo4lvqI1fWzjv0dZ5Dd3xmc8ihyABbJbfcRQzMhMKv2AFEhV+0tblzfDQ/2Nw5PpofbO4cH80PNneOj+YHmzvHX8171VNBGSj5YSVAX3FnEQEvmv7+A221idONDAAA",
+								"name": "AdjustmentScreenLogo"
+							}
+						}
+					]
+				},
+				"bgmapMode": "Bgmap",
+				"colorMode": 0,
+				"compression": "none",
+				"displacement": {
+					"parallax": 0,
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				"displayMode": "Mono",
+				"displays": "ON",
+				"imageProcessingSettings": {
+					"colorDistanceFormula": "euclidean",
+					"imageQuantizationAlgorithm": "nearest",
+					"minimumColorDistanceToDither": 0,
+					"serpentine": false
+				},
+				"isAnimated": true,
+				"manipulationFunction": "",
+				"name": "AdjustmentScreenLogo",
+				"optimizeTiles": true,
+				"section": "rom",
+				"shareTiles": true,
+				"sourceType": "image",
+				"texture": {
+					"files": [
+						"AdjustmentScreenLogo.png"
+					],
+					"files2": [],
+					"flip": {
+						"x": false,
+						"y": false
+					},
+					"padding": {
+						"x": 0,
+						"y": 0
+					},
+					"palette": 0,
+					"recycleable": false,
+					"repeat": {
+						"mode": "1x1",
+						"size": {
+							"x": 0,
+							"y": 0
+						},
+						"x": false,
+						"y": false
+					}
+				},
+				"transparency": "None"
+			}
+		],
+		"wireframes": []
+	},
+	"extraProperties": {
+		"extraInfo": "",
+		"pixelSize": {
+			"x": 0,
+			"y": 0,
+			"z": 0
+		}
+	},
+	"inGameType": "None",
+	"logic": {
+		"configuration": {},
+		"customAllocator": ""
+	},
+	"sprites": {
+		"type": "Bgmap"
+	}
 }
