@@ -1,28 +1,25 @@
 {
+	"_version": "0.7.0",
 	"languages": [
 		{
 			"code": "en",
-			"flag": "",
-			"localizedName": "English",
+			"flagActorId": "y00jkkvzi3Ah6KaR",
 			"name": "English"
 		},
 		{
 			"code": "de",
-			"flag": "",
-			"localizedName": "Deutsch",
-			"name": "German"
+			"flagActorId": "8N3qMrFmfimZtdG9",
+			"name": "Deutsch"
 		},
 		{
 			"code": "es",
-			"flag": "",
-			"localizedName": "Español",
-			"name": "Spanish"
+			"flagActorId": "Ce8LW23XBQx4Tkbl",
+			"name": "Español"
 		},
 		{
 			"code": "fr",
-			"flag": "",
-			"localizedName": "Français",
-			"name": "French"
+			"flagActorId": "8uaehoYBaiePjsGy",
+			"name": "Français"
 		}
 	],
 	"translations": {

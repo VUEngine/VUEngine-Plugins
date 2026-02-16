@@ -1,42 +1,39 @@
 {
+	"_version": "0.7.0",
 	"languages": [
 		{
 			"code": "en",
-			"flag": "",
-			"localizedName": "English",
+			"flagActorId": "y00jkkvzi3Ah6KaR",
 			"name": "English"
 		},
 		{
 			"code": "de",
-			"flag": "",
-			"localizedName": "Deutsch",
-			"name": "German"
+			"flagActorId": "8N3qMrFmfimZtdG9",
+			"name": "Deutsch"
 		},
 		{
 			"code": "es",
-			"flag": "",
-			"localizedName": "Español",
-			"name": "Spanish"
+			"flagActorId": "Ce8LW23XBQx4Tkbl",
+			"name": "Español"
 		},
 		{
 			"code": "fr",
-			"flag": "",
-			"localizedName": "Français",
-			"name": "French"
+			"flagActorId": "8uaehoYBaiePjsGy",
+			"name": "Français"
 		}
 	],
 	"translations": {
-		"AutomaticPauseTitle": {
-			"en": "AUTOMATIC PAUSE",
-			"de": "AUTOMATISCHE PAUSE",
-			"es": "PAUSA AUTOMÁTICA",
-			"fr": "PAUSE AUTOMATIQUE"
-		},
 		"AutomaticPauseBody": {
-			"en": "Please take a rest!",
 			"de": "Bitte mache eine Pause!",
+			"en": "Please take a rest!",
 			"es": "¡Por favor, tómese un descanso!",
 			"fr": "Se il vous plaît, prendre un repos!"
+		},
+		"AutomaticPauseTitle": {
+			"de": "AUTOMATISCHE PAUSE",
+			"en": "AUTOMATIC PAUSE",
+			"es": "PAUSA AUTOMÁTICA",
+			"fr": "PAUSE AUTOMATIQUE"
 		}
 	}
 }

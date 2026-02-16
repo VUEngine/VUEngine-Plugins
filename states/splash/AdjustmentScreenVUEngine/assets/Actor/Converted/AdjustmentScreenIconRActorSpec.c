@@ -8,14 +8,15 @@
 
 #include <Actor.h>
 #include <BgmapSprite.h>
+#include <InGameTypes.h>
 #include <Texture.h>
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // DECLARATIONS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-extern uint32 AdjustmentScreenIconRActorAdjustmentScreenIconTiles[];
 extern uint16 AdjustmentScreenIconRActorAdjustmentScreenIconMap[];
+extern uint32 AdjustmentScreenIconRActorAdjustmentScreenIconTiles[];
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // SPRITES
@@ -103,7 +104,7 @@ BgmapSpriteROMSpec AdjustmentScreenIconRSprite1SpriteSpec =
 	// Flag to indicate in which display to show the texture (__WORLD_ON, __WORLD_LON or __WORLD_RON)
 	__WORLD_RON,
 
-	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
+	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE or __WORLD_HBIAS)
 	__WORLD_BGMAP,
 	
 	// Pointer to affine/hbias manipulation function

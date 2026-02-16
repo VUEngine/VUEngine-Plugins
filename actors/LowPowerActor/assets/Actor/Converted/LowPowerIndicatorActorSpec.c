@@ -15,8 +15,8 @@
 // DECLARATIONS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-extern uint32 LowPowerIndicatorActorLowPowerIndicatorTiles[];
 extern uint16 LowPowerIndicatorActorLowPowerIndicatorMap[];
+extern uint32 LowPowerIndicatorActorLowPowerIndicatorTiles[];
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // ANIMATIONS

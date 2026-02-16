@@ -1,0 +1,110 @@
+{
+	"_id": "EUqYk8DwGAoWRG5b",
+	"_version": "0.7.0",
+	"animations": {
+		"default": 0,
+		"multiframe": false,
+		"totalFrames": 1
+	},
+	"components": {
+		"animations": [],
+		"bodies": [],
+		"children": [],
+		"colliders": [],
+		"mutators": [],
+		"sounds": [],
+		"sprites": [
+			{
+				"_imageData": {
+					"images": [
+						{
+							"animation": {
+								"frames": 1
+							},
+							"maps": [
+								{
+									"data": "H4sIAAAAAAAAE4tWMjAwMFDSAVGGEMoIQhkr6SgZweVMIJQphDKDUOYQJVA5CwhlCaEcIZQTRAlUzhlCuWBQRiC5WAC6Eln1jQAAAA==",
+									"height": "4",
+									"width": "5",
+									"name": "FlagCroatia"
+								}
+							],
+							"tiles": {
+								"count": 14,
+								"data": "H4sIAAAAAAAAE42RQQrDMAwE/+JzDj14BT6q0P1E6f+/UTZW7Ig4tAoLg9ngwXqXR0zZCoAa6O5VyZi7mN19ylZs4s8uADO0v7rurQ1cmZGsSkbp2PjtwCdJJaOhNWVeLKT3T6fBXceU0d2RfLnSkcqtmZ5aybg2Q0zGtRmdLU7Vc3fcmmkB6lyuWJhpJSc8LetqFl2cu58vAbz6LWkCAAA=",
+								"name": "FlagCroatia"
+							}
+						}
+					]
+				},
+				"bgmapMode": "Bgmap",
+				"colorMode": 0,
+				"compression": "none",
+				"displacement": {
+					"parallax": 0,
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				"displayMode": "Mono",
+				"displays": "ON",
+				"imageProcessingSettings": {
+					"colorDistanceFormula": "euclidean",
+					"imageQuantizationAlgorithm": "nearest",
+					"minimumColorDistanceToDither": 0,
+					"serpentine": false
+				},
+				"isAnimated": true,
+				"manipulationFunction": "",
+				"name": "FlagCroatia",
+				"optimizeTiles": true,
+				"section": "rom",
+				"shareTiles": true,
+				"sourceType": "image",
+				"texture": {
+					"files": [
+						"FlagCroatia.png"
+					],
+					"files2": [],
+					"flip": {
+						"x": false,
+						"y": false
+					},
+					"padding": {
+						"x": 0,
+						"y": 0
+					},
+					"palette": 0,
+					"recycleable": false,
+					"repeat": {
+						"mode": "1x1",
+						"size": {
+							"x": 0,
+							"y": 0
+						},
+						"x": false,
+						"y": false
+					}
+				},
+				"transparency": "None"
+			}
+		],
+		"wireframes": []
+	},
+	"extraProperties": {
+		"extraInfo": "",
+		"pixelSize": {
+			"x": 0,
+			"y": 0,
+			"z": 0
+		}
+	},
+	"inGameType": "None",
+	"logic": {
+		"configuration": {},
+		"customAllocator": ""
+	},
+	"sprites": {
+		"type": "Bgmap"
+	}
+}

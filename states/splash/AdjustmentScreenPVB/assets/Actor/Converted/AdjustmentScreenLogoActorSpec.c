@@ -15,8 +15,8 @@
 // DECLARATIONS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-extern uint32 AdjustmentScreenLogoActorAdjustmentScreenLogoTiles[];
 extern uint16 AdjustmentScreenLogoActorAdjustmentScreenLogoMap[];
+extern uint32 AdjustmentScreenLogoActorAdjustmentScreenLogoTiles[];
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // SPRITES

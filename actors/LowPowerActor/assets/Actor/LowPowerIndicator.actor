@@ -1,154 +1,129 @@
 {
-    "_id": "vPkcQG6qL3heR1iJ",
-    "_version": "0.6.0",
-    "animations": {
-        "default": 0,
-        "multiframe": false,
-        "totalFrames": 4
-    },
-    "body": {
-        "bounciness": 0,
-        "enabled": false,
-        "friction": 0,
-        "gravityAxes": [],
-        "mass": 0,
-        "maximumSpeed": 0,
-        "maximumVelocity": {
-            "x": 0,
-            "y": 0,
-            "z": 0
-        },
-        "rotationAxes": []
-    },
-    "components": {
-        "animations": [
-            {
-                "callback": "",
-                "cycles": 4,
-                "frames": [
-                    0
-                ],
-                "loop": false,
-                "name": "Hide"
-            },
-            {
-                "callback": "",
-                "cycles": 4,
-                "frames": [
-                    0,
-                    0,
-                    0,
-                    0,
-                    3,
-                    2,
-                    1,
-                    1,
-                    1,
-                    1,
-                    2,
-                    3
-                ],
-                "loop": true,
-                "name": "Flash"
-            }
-        ],
-        "children": [],
-        "colliders": [],
-        "mutators": [],
-        "sprites": [
-            {
-                "_imageData": {
-                    "images": [
-                        {
-                            "animation": {
-                                "frames": 4
-                            },
-                            "maps": [
-                                {
-                                    "data": "H4sIAAAAAAAAE4tWMjAwMFDSAVGGEMoIQhlDKBMIZQqhzCCUuVIsAEG9bDA5AAAA",
-                                    "height": "4",
-                                    "width": "2",
-                                    "name": "LowPowerIndicator"
-                                }
-                            ],
-                            "tiles": {
-                                "count": 8,
-                                "data": "H4sIAAAAAAAAE63MwQnEMBBD0V509kG2I/BVBNTEsv23sUzipIIdEPzDYz7gPrS/5zxngoaZTCYTDUlm3kyhsifJXDYnWbtz7mQYns/fsYaNhmEP2gMNtoffdKGyi6Qv60XW7hw7aZrr+duPLqGhS51SR4OkrjdVqOxBUpfVQdbu7DspqhC+P0L8LnBhAQAA",
-                                "name": "LowPowerIndicator"
-                            }
-                        }
-                    ]
-                },
-                "bgmapMode": "Bgmap",
-                "colorMode": 0,
-                "compression": "none",
-                "displacement": {
-                    "parallax": 0,
-                    "x": 0,
-                    "y": 0,
-                    "z": 0
-                },
-                "displayMode": "Mono",
-                "displays": "ON",
-                "imageProcessingSettings": {
-                    "colorDistanceFormula": "euclidean",
-                    "imageQuantizationAlgorithm": "nearest",
-                    "minimumColorDistanceToDither": 0,
-                    "serpentine": false
-                },
-                "isAnimated": true,
-                "manipulationFunction": "",
-                "name": "LowPowerIndicator",
-                "optimizeTiles": true,
-                "section": "rom",
-                "shareTiles": true,
-                "sourceType": "image",
-                "texture": {
-                    "files": [
-                        "LowPowerIndicator.png"
-                    ],
-                    "files2": [],
-                    "flip": {
-                        "x": false,
-                        "y": false
-                    },
-                    "padding": {
-                        "x": 0,
-                        "y": 0
-                    },
-                    "palette": 0,
-                    "recycleable": false,
-                    "repeat": {
-                        "mode": "1x1",
-                        "size": {
-                            "x": 0,
-                            "y": 0
-                        },
-                        "x": false,
-                        "y": false
-                    }
-                },
-                "transparency": "None"
-            }
-        ],
-        "wireframes": []
-    },
-    "extraProperties": {
-        "enabled": false,
-        "extraInfo": "",
-        "pixelSize": {
-            "x": 0,
-            "y": 0,
-            "z": 0
-        }
-    },
-    "inGameType": "None",
-    "logic": {
-        "configuration": {},
-        "customAllocator": "LowPowerActor",
-        "enabled": true
-    },
-    "sprites": {
-        "type": "Bgmap"
-    }
+	"_id": "vPkcQG6qL3heR1iJ",
+	"_version": "0.7.0",
+	"animations": {
+		"default": 0,
+		"multiframe": false,
+		"totalFrames": 4
+	},
+	"components": {
+		"animations": [
+			{
+				"callback": "",
+				"cycles": 4,
+				"frames": [
+					0
+				],
+				"loop": false,
+				"name": "Hide"
+			},
+			{
+				"callback": "",
+				"cycles": 4,
+				"frames": [
+					0,0,0,0,3,2,1,1,1,1,2,3
+				],
+				"loop": true,
+				"name": "Flash"
+			}
+		],
+		"bodies": [],
+		"children": [],
+		"colliders": [],
+		"mutators": [],
+		"sounds": [],
+		"sprites": [
+			{
+				"_imageData": {
+					"images": [
+						{
+							"animation": {
+								"frames": 4
+							},
+							"maps": [
+								{
+									"data": "H4sIAAAAAAAAE4tWMjAwMFDSAVGGEMoIQhlDKBMIZQqhzCCUuVIsAEG9bDA5AAAA",
+									"height": "4",
+									"width": "2",
+									"name": "LowPowerIndicator"
+								}
+							],
+							"tiles": {
+								"count": 8,
+								"data": "H4sIAAAAAAAAE63MwQnEMBBD0V509kG2I/BVBNTEsv23sUzipIIdEPzDYz7gPrS/5zxngoaZTCYTDUlm3kyhsifJXDYnWbtz7mQYns/fsYaNhmEP2gMNtoffdKGyi6Qv60XW7hw7aZrr+duPLqGhS51SR4OkrjdVqOxBUpfVQdbu7DspqhC+P0L8LnBhAQAA",
+								"name": "LowPowerIndicator"
+							}
+						}
+					]
+				},
+				"bgmapMode": "Bgmap",
+				"colorMode": 0,
+				"compression": "none",
+				"displacement": {
+					"parallax": 0,
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				"displayMode": "Mono",
+				"displays": "ON",
+				"imageProcessingSettings": {
+					"colorDistanceFormula": "euclidean",
+					"imageQuantizationAlgorithm": "nearest",
+					"minimumColorDistanceToDither": 0,
+					"serpentine": false
+				},
+				"isAnimated": true,
+				"manipulationFunction": "",
+				"name": "LowPowerIndicator",
+				"optimizeTiles": true,
+				"section": "rom",
+				"shareTiles": true,
+				"sourceType": "image",
+				"texture": {
+					"files": [
+						"LowPowerIndicator.png"
+					],
+					"files2": [],
+					"flip": {
+						"x": false,
+						"y": false
+					},
+					"padding": {
+						"x": 0,
+						"y": 0
+					},
+					"palette": 0,
+					"recycleable": false,
+					"repeat": {
+						"mode": "1x1",
+						"size": {
+							"x": 0,
+							"y": 0
+						},
+						"x": false,
+						"y": false
+					}
+				},
+				"transparency": "None"
+			}
+		],
+		"wireframes": []
+	},
+	"extraProperties": {
+		"extraInfo": "",
+		"pixelSize": {
+			"x": 0,
+			"y": 0,
+			"z": 0
+		}
+	},
+	"inGameType": "None",
+	"logic": {
+		"configuration": {},
+		"customAllocator": "LowPowerActor"
+	},
+	"sprites": {
+		"type": "Bgmap"
+	}
 }

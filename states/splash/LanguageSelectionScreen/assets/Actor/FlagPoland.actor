@@ -1,0 +1,110 @@
+{
+	"_id": "j0cwWsf9rz5NWu1L",
+	"_version": "0.7.0",
+	"animations": {
+		"default": 0,
+		"multiframe": false,
+		"totalFrames": 1
+	},
+	"components": {
+		"animations": [],
+		"bodies": [],
+		"children": [],
+		"colliders": [],
+		"mutators": [],
+		"sounds": [],
+		"sprites": [
+			{
+				"_imageData": {
+					"images": [
+						{
+							"animation": {
+								"frames": 1
+							},
+							"maps": [
+								{
+									"data": "H4sIAAAAAAAAE4tWMjAwMFDSAVGGGJQRXM4IQhljUEZwORMIZYpBGcHlzCCUOQZlBJKLBQDfmKVgjQAAAA==",
+									"height": "4",
+									"width": "5",
+									"name": "FlagPoland"
+								}
+							],
+							"tiles": {
+								"count": 8,
+								"data": "H4sIAAAAAAAAE4tWMoACJR0lU1NTEyjTzc3NBIRRmahqTRFqwQCDicUEnEzsJmBhOjo6moAwkUwwIJKJxQSQF0HBgup57CZA1Zoiq40FAGRuAi5hAQAA",
+								"name": "FlagPoland"
+							}
+						}
+					]
+				},
+				"bgmapMode": "Bgmap",
+				"colorMode": 0,
+				"compression": "none",
+				"displacement": {
+					"parallax": 0,
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				"displayMode": "Mono",
+				"displays": "ON",
+				"imageProcessingSettings": {
+					"colorDistanceFormula": "euclidean",
+					"imageQuantizationAlgorithm": "nearest",
+					"minimumColorDistanceToDither": 0,
+					"serpentine": false
+				},
+				"isAnimated": true,
+				"manipulationFunction": "",
+				"name": "FlagPoland",
+				"optimizeTiles": true,
+				"section": "rom",
+				"shareTiles": true,
+				"sourceType": "image",
+				"texture": {
+					"files": [
+						"FlagPoland.png"
+					],
+					"files2": [],
+					"flip": {
+						"x": false,
+						"y": false
+					},
+					"padding": {
+						"x": 0,
+						"y": 0
+					},
+					"palette": 0,
+					"recycleable": false,
+					"repeat": {
+						"mode": "1x1",
+						"size": {
+							"x": 0,
+							"y": 0
+						},
+						"x": false,
+						"y": false
+					}
+				},
+				"transparency": "None"
+			}
+		],
+		"wireframes": []
+	},
+	"extraProperties": {
+		"extraInfo": "",
+		"pixelSize": {
+			"x": 0,
+			"y": 0,
+			"z": 0
+		}
+	},
+	"inGameType": "None",
+	"logic": {
+		"configuration": {},
+		"customAllocator": ""
+	},
+	"sprites": {
+		"type": "Bgmap"
+	}
+}

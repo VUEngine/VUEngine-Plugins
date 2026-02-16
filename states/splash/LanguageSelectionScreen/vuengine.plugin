@@ -1,128 +1,125 @@
 {
-    "_version": "0.6.0",
-    "author": "Team VUEngine",
-    "configuration": [
-        {
-            "dataType": "boolean",
-            "default": false,
-            "description": "",
-            "label": {
-                "de": "Niedriger Batteriestand Akteur benutzen",
-                "en": "Use Low Power Actor",
-                "es": "Utilizar entidad de baja potencia"
-            },
-            "max": 0,
-            "min": 0,
-            "name": "useLowPowerActor",
-            "step": 1,
-            "type": ""
-        },
-        {
-            "dataType": "integer",
-            "default": 0,
-            "description": {
-                "en": "The language select screen variant to use (0: simple list, 1: flags)."
-            },
-            "label": {
-                "en": "Variant"
-            },
-            "max": 1,
-            "min": 0,
-            "name": "variant",
-            "step": 1,
-            "type": ""
-        },
-        {
-            "dataType": "type",
-            "default": "Default",
-            "description": "",
-            "label": {
-                "en": "Title Text Font"
-            },
-            "max": 0,
-            "min": 0,
-            "name": "titleTextFont",
-            "step": 1,
-            "type": "Font"
-        },
-        {
-            "dataType": "type",
-            "default": "Default",
-            "description": "",
-            "label": {
-                "en": "Language Name Font"
-            },
-            "max": 0,
-            "min": 0,
-            "name": "languageNameFont",
-            "step": 1,
-            "type": "Font"
-        },
-        {
-            "dataType": "integer",
-            "default": 44,
-            "description": "",
-            "label": {
-                "en": "Image Width"
-            },
-            "max": 512,
-            "min": 0,
-            "name": "imageWidth",
-            "step": 1,
-            "type": ""
-        },
-        {
-            "dataType": "integer",
-            "default": 32,
-            "description": "",
-            "label": {
-                "en": "Image Height"
-            },
-            "max": 512,
-            "min": 0,
-            "name": "imageHeight",
-            "step": 1,
-            "type": ""
-        }
-    ],
-    "dependencies": [
-        "vuengine//actors/LowPowerActor",
-        "vuengine//other/I18n",
-        "vuengine//other/SaveDataManager",
-        "vuengine//states/splash/SplashScreen"
-    ],
-    "description": {
-        "de": "Splashsbildschirm, auf dem der Benutzer eine Sprache auswählen kann.",
-        "en": "Splash screen that allows the user to select a language.",
-        "es": "Pantalla de bienvenida que permite al usuario seleccionar un idioma."
-    },
-    "displayName": {
-        "de": "Sprach-Auswahlbildschirm",
-        "en": "Language Selection Screen",
-        "es": "Pantalla de selección de idioma"
-    },
-    "license": "MIT",
-    "repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/states/splash/LanguageSelectionScreen",
-    "tags": [
-        {
-            "de": "Essentiell",
-            "en": "Essentials",
-            "es": "Esenciales"
-        },
-        {
-            "de": "I18n",
-            "en": "I18n",
-            "es": "I18n"
-        },
-        {
-            "de": "Splash",
-            "en": "Splash",
-            "es": "Splash"
-        },
-        {
-            "de": "Zustand",
-            "en": "State",
-            "es": "Estado"
-        }
-    ]
+	"_version": "0.7.0",
+	"author": "Team VUEngine",
+	"configuration": [
+		{
+			"dataType": "boolean",
+			"default": false,
+			"description": "",
+			"label": {
+				"de": "Niedriger Batteriestand Akteur benutzen",
+				"en": "Use Low Power Actor",
+				"es": "Utilizar entidad de baja potencia"
+			},
+			"max": 0,
+			"min": 0,
+			"name": "useLowPowerActor",
+			"step": 1,
+			"type": ""
+		},
+		{
+			"dataType": "integer",
+			"default": 0,
+			"description": {
+				"en": "The language select screen variant to use (0: simple list, 1: flags)."
+			},
+			"label": {
+				"en": "Variant"
+			},
+			"max": 1,
+			"min": 0,
+			"name": "variant",
+			"step": 1,
+			"type": ""
+		},
+		{
+			"dataType": "type",
+			"default": "Default",
+			"description": "",
+			"label": {
+				"en": "Title Text Font"
+			},
+			"max": 0,
+			"min": 0,
+			"name": "titleTextFont",
+			"step": 1,
+			"type": "Font"
+		},
+		{
+			"dataType": "type",
+			"default": "Default",
+			"description": "",
+			"label": {
+				"en": "Language Name Font"
+			},
+			"max": 0,
+			"min": 0,
+			"name": "languageNameFont",
+			"step": 1,
+			"type": "Font"
+		},
+		{
+			"dataType": "integer",
+			"default": 44,
+			"description": "",
+			"label": {
+				"en": "Image Width"
+			},
+			"max": 512,
+			"min": 0,
+			"name": "imageWidth",
+			"step": 1,
+			"type": ""
+		},
+		{
+			"dataType": "integer",
+			"default": 32,
+			"description": "",
+			"label": {
+				"en": "Image Height"
+			},
+			"max": 512,
+			"min": 0,
+			"name": "imageHeight",
+			"step": 1,
+			"type": ""
+		}
+	],
+	"dependencies": [
+		"vuengine//actors/LowPowerActor","vuengine//other/I18n","vuengine//other/SaveDataManager","vuengine//states/splash/SplashScreen"
+	],
+	"description": {
+		"de": "Splashbildschirm, auf dem der Benutzer eine Sprache auswählen kann.",
+		"en": "Splash screen that allows the user to select a language.",
+		"es": "Pantalla de bienvenida que permite al usuario seleccionar un idioma."
+	},
+	"displayName": {
+		"de": "Sprach-Auswahlbildschirm",
+		"en": "Language Selection Screen",
+		"es": "Pantalla de selección de idioma"
+	},
+	"license": "MIT",
+	"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/states/splash/LanguageSelectionScreen",
+	"tags": [
+		{
+			"de": "Essentiell",
+			"en": "Essentials",
+			"es": "Esenciales"
+		},
+		{
+			"de": "I18n",
+			"en": "I18n",
+			"es": "I18n"
+		},
+		{
+			"de": "Splash",
+			"en": "Splash",
+			"es": "Splash"
+		},
+		{
+			"de": "Zustand",
+			"en": "State",
+			"es": "Estado"
+		}
+	]
 }

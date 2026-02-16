@@ -1,70 +1,72 @@
 {
-    "_version": "0.6.0",
-    "author": "Team VUEngine",
-    "configuration": [
-        {
-            "dataType": "integer",
-            "default": -176,
-            "description": "",
-            "label": {
-                "en": "X Position"
-            },
-            "max": 512,
-            "min": -512,
-            "name": "xPosition",
-            "step": 1,
-            "type": ""
-        },
-        {
-            "dataType": "integer",
-            "default": -100,
-            "description": "",
-            "label": {
-                "en": "Y Position"
-            },
-            "max": 512,
-            "min": -512,
-            "name": "yPosition",
-            "step": 1,
-            "type": ""
-        },
-        {
-            "dataType": "integer",
-            "default": 0,
-            "description": "",
-            "label": {
-                "en": "Z Position"
-            },
-            "max": 512,
-            "min": -512,
-            "name": "zPosition",
-            "step": 1,
-            "type": ""
-        }
-    ],
-    "dependencies": [],
-    "description": {
-        "de": "Akteur-basierte Anzeige, die blinkt, wenn die Systemleistung niedrig ist.",
-        "en": "Actor based indicator that flashes when the system power is low.",
-        "es": "Indicador basado en la entidad que parpadea cuando la energía del sistema es baja."
-    },
-    "displayName": {
-        "de": "Niedriger Batteriestand Akteur",
-        "en": "Low Power Actor",
-        "es": "Actor de baja potencia"
-    },
-    "license": "MIT",
-    "repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/actors/LowPowerActor",
-    "tags": [
-        {
-            "de": "Akteur",
-            "en": "Actor",
-            "es": "Actor"
-        },
-        {
-            "de": "Essentiell",
-            "en": "Essentials",
-            "es": "Esenciales"
-        }
-    ]
+	"_version": "0.7.0",
+	"author": "Team VUEngine",
+	"configuration": [
+		{
+			"dataType": "integer",
+			"default": -176,
+			"description": "",
+			"label": {
+				"en": "X Position"
+			},
+			"max": 512,
+			"min": -512,
+			"name": "xPosition",
+			"step": 1,
+			"type": ""
+		},
+		{
+			"dataType": "integer",
+			"default": -100,
+			"description": "",
+			"label": {
+				"en": "Y Position"
+			},
+			"max": 512,
+			"min": -512,
+			"name": "yPosition",
+			"step": 1,
+			"type": ""
+		},
+		{
+			"dataType": "integer",
+			"default": 0,
+			"description": "",
+			"label": {
+				"en": "Z Position"
+			},
+			"max": 512,
+			"min": -512,
+			"name": "zPosition",
+			"step": 1,
+			"type": ""
+		}
+	],
+	"dependencies": [
+		"vuengine//other/LowPowerIndicator"
+	],
+	"description": {
+		"de": "Akteur-basierte Anzeige, die blinkt, wenn die Systemleistung niedrig ist.",
+		"en": "Actor based indicator that flashes when the system power is low.",
+		"es": "Indicador basado en la entidad que parpadea cuando la energía del sistema es baja."
+	},
+	"displayName": {
+		"de": "Niedriger Batteriestand Akteur",
+		"en": "Low Power Actor",
+		"es": "Actor de baja potencia"
+	},
+	"license": "MIT",
+	"repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/actors/LowPowerActor",
+	"tags": [
+		{
+			"de": "Akteur",
+			"en": "Actor",
+			"es": "Actor"
+		},
+		{
+			"de": "Essentiell",
+			"en": "Essentials",
+			"es": "Esenciales"
+		}
+	]
 }
