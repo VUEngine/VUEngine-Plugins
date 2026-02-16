@@ -45,7 +45,7 @@ const uint8 PrecautionScreenIntroSoundTrack1SxEV1[] =
 
 const WaveformData* const PrecautionScreenIntroSoundTrack1SxRAM[] =
 {
-	&SawWaveForm,
+	NULL,
 };
 
 const uint8 PrecautionScreenIntroSoundTrack1SxSWP[] =
@@ -62,8 +62,8 @@ const SoundTrackKeyframe PrecautionScreenIntroSoundTrack1Keyframes[] =
 
 SoundTrackROMSpec PrecautionScreenIntroSoundTrack1 =
 {
-	/// kTrackNative, kTrackPCM
-	kTrackNative,
+	/// Priority for sound channel usage
+	1,
 
 	/// Skip if no sound source available?
 	false,

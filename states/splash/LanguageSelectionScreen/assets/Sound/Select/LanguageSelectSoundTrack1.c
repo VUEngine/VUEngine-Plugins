@@ -45,7 +45,7 @@ const uint8 LanguageSelectSoundTrack1SxEV1[] =
 
 const WaveformData* const LanguageSelectSoundTrack1SxRAM[] =
 {
-	&SawWaveForm,
+	NULL,
 };
 
 const uint8 LanguageSelectSoundTrack1SxSWP[] =
@@ -62,8 +62,8 @@ const SoundTrackKeyframe LanguageSelectSoundTrack1Keyframes[] =
 
 SoundTrackROMSpec LanguageSelectSoundTrack1 =
 {
-	/// kTrackNative, kTrackPCM
-	kTrackNative,
+	/// Priority for sound channel usage
+	1,
 
 	/// Skip if no sound source available?
 	false,

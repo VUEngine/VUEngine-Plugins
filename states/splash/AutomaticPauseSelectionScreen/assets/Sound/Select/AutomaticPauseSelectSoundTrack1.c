@@ -45,7 +45,7 @@ const uint8 AutomaticPauseSelectSoundTrack1SxEV1[] =
 
 const WaveformData* const AutomaticPauseSelectSoundTrack1SxRAM[] =
 {
-	&SawWaveForm,
+	NULL,
 };
 
 const uint8 AutomaticPauseSelectSoundTrack1SxSWP[] =
@@ -62,8 +62,8 @@ const SoundTrackKeyframe AutomaticPauseSelectSoundTrack1Keyframes[] =
 
 SoundTrackROMSpec AutomaticPauseSelectSoundTrack1 =
 {
-	/// kTrackNative, kTrackPCM
-	kTrackNative,
+	/// Priority for sound channel usage
+	1,
 
 	/// Skip if no sound source available?
 	false,

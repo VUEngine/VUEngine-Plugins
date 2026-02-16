@@ -45,7 +45,7 @@ const uint8 BootSoundTrack2SxEV1[] =
 
 const WaveformData* const BootSoundTrack2SxRAM[] =
 {
-	&SawWaveForm,
+	NULL,
 };
 
 const uint8 BootSoundTrack2SxSWP[] =
@@ -63,8 +63,8 @@ const SoundTrackKeyframe BootSoundTrack2Keyframes[] =
 
 SoundTrackROMSpec BootSoundTrack2 =
 {
-	/// kTrackNative, kTrackPCM
-	kTrackNative,
+	/// Priority for sound channel usage
+	1,
 
 	/// Skip if no sound source available?
 	false,
