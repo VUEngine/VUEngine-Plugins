@@ -55,5 +55,8 @@ SoundROMSpec LanguageSelectSoundSpec =
 	1000,
 
 	// Tracks
-	(SoundTrackSpec**)LanguageSelectSoundTracks
+	(SoundTrackSpec**)LanguageSelectSoundTracks,
+
+	// Sound group
+	kSoundGroupEffects
 };

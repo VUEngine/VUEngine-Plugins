@@ -55,5 +55,8 @@ SoundROMSpec PrecautionScreenIntroSoundSpec =
 	1000,
 
 	// Tracks
-	(SoundTrackSpec**)PrecautionScreenIntroSoundTracks
+	(SoundTrackSpec**)PrecautionScreenIntroSoundTracks,
+
+	// Sound group
+	kSoundGroupEffects
 };

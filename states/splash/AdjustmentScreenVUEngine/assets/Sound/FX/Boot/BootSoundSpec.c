@@ -59,5 +59,8 @@ SoundROMSpec BootSoundSpec =
 	1000,
 
 	// Tracks
-	(SoundTrackSpec**)NULL
+	(SoundTrackSpec**)NULL,
+
+	// Sound group
+	kSoundGroupEffects
 };

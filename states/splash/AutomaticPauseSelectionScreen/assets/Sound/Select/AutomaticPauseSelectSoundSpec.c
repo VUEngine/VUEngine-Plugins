@@ -55,5 +55,8 @@ SoundROMSpec AutomaticPauseSelectSoundSpec =
 	1000,
 
 	// Tracks
-	(SoundTrackSpec**)AutomaticPauseSelectSoundTracks
+	(SoundTrackSpec**)AutomaticPauseSelectSoundTracks,
+
+	// Sound group
+	kSoundGroupEffects
 };
