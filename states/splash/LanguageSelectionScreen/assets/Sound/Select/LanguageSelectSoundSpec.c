@@ -42,8 +42,11 @@ SoundROMSpec LanguageSelectSoundSpec =
 		kSoundComponent
 	},
 
-	// Name
+	// Song/Sound's name
 	"Language select",
+
+	// Author's name
+	NULL,
 
 	// Play in loop
 	false,

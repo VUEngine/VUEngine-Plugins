@@ -42,8 +42,11 @@ SoundROMSpec PrecautionScreenIntroSoundSpec =
 		kSoundComponent
 	},
 
-	// Name
+	// Song/Sound's name
 	"Intro Sound",
+
+	// Author's name
+	NULL,
 
 	// Play in loop
 	false,

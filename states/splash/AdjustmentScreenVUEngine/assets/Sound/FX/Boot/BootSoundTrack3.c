@@ -69,9 +69,6 @@ SoundTrackROMSpec BootSoundTrack3 =
 	/// Skip if no sound source available?
 	false,
 
-	/// Total number of samples (0 if not PCM)
-	0,
-
 	/// Loop back point (cursor)
 	0,
 

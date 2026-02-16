@@ -46,8 +46,11 @@ SoundROMSpec BootSoundSpec =
 		kSoundComponent
 	},
 
-	// Name
+	// Song/Sound's name
 	"Boot Sound",
+
+	// Author's name
+	NULL,
 
 	// Play in loop
 	false,

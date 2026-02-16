@@ -42,8 +42,11 @@ SoundROMSpec AutomaticPauseSelectSoundSpec =
 		kSoundComponent
 	},
 
-	// Name
+	// Song/Sound's name
 	"AutomaticPause select",
+
+	// Author's name
+	NULL,
 
 	// Play in loop
 	false,

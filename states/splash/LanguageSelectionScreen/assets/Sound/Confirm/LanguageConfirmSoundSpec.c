@@ -42,8 +42,11 @@ SoundROMSpec LanguageConfirmSoundSpec =
 		kSoundComponent
 	},
 
-	// Name
+	// Song/Sound's name
 	"Language confirm",
+
+	// Author's name
+	NULL,
 
 	// Play in loop
 	false,
