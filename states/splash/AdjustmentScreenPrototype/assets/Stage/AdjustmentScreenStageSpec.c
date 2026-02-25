@@ -51,7 +51,7 @@ PositionedActorROMSpec AdjustmentScreenStageUiActors[] =
 	{NULL, {0, 0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 };
 
-SoundROMSpec* const AdjustmentScreenStageSoundSpecs[] =
+SoundROMSpec* const const AdjustmentScreenStageSoundSpecs[] =
 {
 	NULL
 };
@@ -73,12 +73,6 @@ StageROMSpec AdjustmentScreenStage =
 		10,
 		// Timer interrupt's target time units
 		kMS
-	},
-
-	// Sound config
-	{
-		// Target refresh rate for PCM playback
-		__DEFAULT_PCM_HZ
 	},
 
 	// General stage's attributes

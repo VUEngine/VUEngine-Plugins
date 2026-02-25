@@ -40,7 +40,7 @@ PositionedActorROMSpec AlignmentCheckScreenStageUiActors[] =
 	{NULL, {0, 0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 };
 
-SoundROMSpec* const AlignmentCheckScreenStageSoundSpecs[] =
+SoundROMSpec* const const AlignmentCheckScreenStageSoundSpecs[] =
 {
 	NULL
 };
@@ -62,12 +62,6 @@ StageROMSpec AlignmentCheckScreenStage =
 		1000,
 		// Timer interrupt's target time units
 		kMS
-	},
-
-	// Sound config
-	{
-		// Target refresh rate for PCM playback
-		__DEFAULT_PCM_HZ
 	},
 
 	// General stage's attributes
