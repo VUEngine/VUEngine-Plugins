@@ -29,7 +29,7 @@ void LowPowerActor::constructor(const LowPowerActorSpec* lowPowerActorSpec, int1
 	Base::constructor((ActorSpec*)&lowPowerActorSpec->actorSpec, internalId, name);
 
 	// Add event listeners
-	VUEngine::addEventListener(VUEngine::getInstance(), ListenerObject::safeCast(this), kEventKeypadManagerRaisedPowerFlag);
+	KeypadManager::addEventListener(KeypadManager::getInstance(), ListenerObject::safeCast(this), kEventKeypadManagerRaisedPowerFlag);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -37,7 +37,7 @@ void LowPowerActor::constructor(const LowPowerActorSpec* lowPowerActorSpec, int1
 void LowPowerActor::destructor()
 {
 	// Remove event listeners
-	VUEngine::removeEventListener(VUEngine::getInstance(), ListenerObject::safeCast(this), kEventKeypadManagerRaisedPowerFlag);
+	KeypadManager::removeEventListener(KeypadManager::getInstance(), ListenerObject::safeCast(this), kEventKeypadManagerRaisedPowerFlag);
 
 	// Always explicitly call the base's destructor 
 	Base::destructor();

@@ -53,7 +53,7 @@ void LowPowerManager::destructor()
 	}
 
 	// Remove event listeners
-	VUEngine::removeEventListener(VUEngine::getInstance(), ListenerObject::safeCast(this), kEventKeypadManagerRaisedPowerFlag);
+	KeypadManager::removeEventListener(KeypadManager::getInstance(), ListenerObject::safeCast(this), kEventKeypadManagerRaisedPowerFlag);
 
 	// Always explicitly call the base's destructor 
 	Base::destructor();
@@ -113,13 +113,13 @@ void LowPowerManager::setActive(bool active)
 
 	if(this->isActive)
 	{
-		VUEngine::addEventListener(VUEngine::getInstance(), ListenerObject::safeCast(this), kEventKeypadManagerRaisedPowerFlag);
+		KeypadManager::addEventListener(KeypadManager::getInstance(), ListenerObject::safeCast(this), kEventKeypadManagerRaisedPowerFlag);
 	}
 	else
 	{
-		VUEngine::removeEventListener
+		KeypadManager::removeEventListener
 		(
-			VUEngine::getInstance(), ListenerObject::safeCast(this), kEventKeypadManagerRaisedPowerFlag
+			KeypadManager::getInstance(), ListenerObject::safeCast(this), kEventKeypadManagerRaisedPowerFlag
 		);
 
 		if(!isDeleted(this->clock))
