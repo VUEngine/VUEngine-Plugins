@@ -119,6 +119,7 @@ static void ReflectiveActor::shiftPixels
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 void ReflectiveActor::drawReflection(
+	uint32 currentDrawingFrameBufferSet,
 	int16 xSourceStart, int16 ySourceStart,
 	int16 xOutputStart, int16 yOutputStart,
 	int16 width, int16 height,
@@ -133,7 +134,6 @@ void ReflectiveActor::drawReflection(
 	uint32 rightBorderMask,
 	int16 noisePasses)
 {
-	uint32 currentDrawingFrameBufferSet = DisplayUnit::getCurrentDrawingFrameBufferSet();
 	int16 xSourceEnd = xSourceStart + width;
 	int16 ySourceEnd = ySourceStart + height;
 	int16 xOutputEnd = xOutputStart + width;
