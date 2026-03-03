@@ -2,7 +2,7 @@
 ###############################################  THIS FILE WAS AUTO-GENERATED - DO NOT EDIT  ###############################################
 ############################################################################################################################################
 
-PLUGINS	  = platform//VirtualBoy \
+PLUGINS	  = platforms//VirtualBoy \
 			vuengine//actors/LowPowerActor \
 			vuengine//other/AutomaticPause \
 			vuengine//other/I18n \
