@@ -14,11 +14,11 @@
 #include <PostProcessingWobble.h>
 #include <Optics.h>
 #include <Utilities.h>
-#include <FrameBufferManager.h>
+#include <FrameBuffers.h>
 #include <VUEngine.h>
 #include <Container.h>
 #include <Actor.h>
-#include <VIPManager.h>
+#include <DisplayUnit.h>
 #include <Camera.h>
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -33,11 +33,9 @@
  *
  * @param currentDrawingFrameBufferSet	The framebuffer set that's currently being accessed
  */
-static void PostProcessingWobble::wobble
-(
-	uint32 currentDrawingFrameBufferSet, Entity entity __attribute__ ((unused))
-)
+static void PostProcessingWobble::wobble(Entity entity __attribute__ ((unused)))
 {
+	uint32 currentDrawingFrameBufferSet = DisplayUnit::getCurrentDrawingFrameBufferSet();
 	uint16 x = 0, y = 0;
 	uint32 previousSourcePointerValueLeft = 0;
 	uint32 previousSourcePointerValueRight = 0;

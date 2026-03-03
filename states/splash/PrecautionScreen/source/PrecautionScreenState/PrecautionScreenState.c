@@ -51,7 +51,7 @@ void PrecautionScreenState::enter(void* owner)
 
 	// Show this screen for at least 2 seconds
 	// As defined by Nintendo in the official development manual (Appendix 1)
-	KeypadManager::disable();
+	Keypad::disable();
 	PrecautionScreenState::sendMessageTo(this, (owner), kMessageAllowUserInput, 2000, 0);
 }
 
@@ -63,7 +63,7 @@ bool PrecautionScreenState::processMessage(void* owner __attribute__ ((unused)),
 	{
 		case kMessageAllowUserInput:
 		{
-			KeypadManager::enable();
+			Keypad::enable();
 			break;
 		}
 	}

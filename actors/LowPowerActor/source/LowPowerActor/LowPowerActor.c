@@ -12,7 +12,7 @@
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 #include <Events.h>
-#include <KeypadManager.h>
+#include <Keypad.h>
 #include <VUEngine.h>
 
 #include "LowPowerActor.h"
@@ -29,7 +29,7 @@ void LowPowerActor::constructor(const LowPowerActorSpec* lowPowerActorSpec, int1
 	Base::constructor((ActorSpec*)&lowPowerActorSpec->actorSpec, internalId, name);
 
 	// Add event listeners
-	KeypadManager::addEventListener(KeypadManager::getInstance(), ListenerObject::safeCast(this), kEventKeypadManagerRaisedPowerFlag);
+	Keypad::addEventListener(Keypad::getInstance(), ListenerObject::safeCast(this), kEventKeypadRaisedPowerFlag);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -37,7 +37,7 @@ void LowPowerActor::constructor(const LowPowerActorSpec* lowPowerActorSpec, int1
 void LowPowerActor::destructor()
 {
 	// Remove event listeners
-	KeypadManager::removeEventListener(KeypadManager::getInstance(), ListenerObject::safeCast(this), kEventKeypadManagerRaisedPowerFlag);
+	Keypad::removeEventListener(Keypad::getInstance(), ListenerObject::safeCast(this), kEventKeypadRaisedPowerFlag);
 
 	// Always explicitly call the base's destructor 
 	Base::destructor();
@@ -49,7 +49,7 @@ bool LowPowerActor::onEvent(ListenerObject eventFirer, uint16 eventCode)
 {
 	switch(eventCode)
 	{
-		case kEventKeypadManagerRaisedPowerFlag:
+		case kEventKeypadRaisedPowerFlag:
 		{
 			LowPowerActor::playAnimation(this, "Flash");
 

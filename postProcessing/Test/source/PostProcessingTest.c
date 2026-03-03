@@ -26,10 +26,11 @@
  *
  * @param currentDrawingFrameBufferSet	The framebuffer set that's currently being accessed
  */
-static void PostProcessingTest::lighting(uint32 currentDrawingFrameBufferSet, Entity entity)
+static void PostProcessingTest::lighting(Entity entity)
 {
 	// The currentDrawingFrameBufferSet dictates which frame buffer set (remember that there are 4 frame
 	// Buffers, 2 per eye) has been written by the VPU and you can work on.
+	uint32 currentDrawingFrameBufferSet = DisplayUnit::getCurrentDrawingFrameBufferSet();
 
 	if(isDeleted(entity))
 	{

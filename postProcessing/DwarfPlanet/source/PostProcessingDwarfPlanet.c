@@ -26,11 +26,10 @@
  *
  * @param currentDrawingFrameBufferSet	The framebuffer set that's currently being accessed
  */
-static void PostProcessingDwarfPlanet::dwarfPlanet
-(
-	uint32 currentDrawingFrameBufferSet, Entity entity __attribute__ ((unused))
-)
+static void PostProcessingDwarfPlanet::dwarfPlanet(Entity entity __attribute__ ((unused)))
 {
+	uint32 currentDrawingFrameBufferSet = DisplayUnit::getCurrentDrawingFrameBufferSet();
+
 	// Look up table of bitshifts performed on rows
 	const uint32 lut[96] =
 	{

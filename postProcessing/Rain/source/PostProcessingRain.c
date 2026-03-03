@@ -13,12 +13,12 @@
 
 #include <Camera.h>
 #include <Clock.h>
-#include <FrameBufferManager.h>
+#include <FrameBuffers.h>
 #include <GameState.h>
 #include <Optics.h>
-#include <TimerManager.h>
+#include <Timer.h>
 #include <Utilities.h>
-#include <VIPManager.h>
+#include <DisplayUnit.h>
 
 #include "PostProcessingRain.h"
 
@@ -37,10 +37,7 @@
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-static void PostProcessingRain::rain
-(
-	uint32 currentDrawingFrameBufferSet __attribute__ ((unused)), Entity entity __attribute__ ((unused))
-)
+static void PostProcessingRain::rain(Entity entity __attribute__ ((unused)))
 {
  	#define POST_PROCESSING_RAIN_X_RANGE_1					383
  	#define POST_PROCESSING_RAIN_MINIMUM_DROPLET_LENGTH		3
@@ -137,10 +134,7 @@ static void PostProcessingRain::rain
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-static void PostProcessingRain::thinRain
-(
-	uint32 currentDrawingFrameBufferSet __attribute__ ((unused)), Entity entity __attribute__ ((unused))
-)
+static void PostProcessingRain::thinRain(Entity entity __attribute__ ((unused)))
 {
 	int32 width = __PLUGIN_RAIN_WIDTH;
 	int32 height = __PLUGIN_RAIN_HEIGHT;
@@ -224,8 +218,8 @@ static void PostProcessingRain::thinRain
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-static void PostProcessingRain::waterStream(
-	uint32 currentDrawingFrameBufferSet,
+static void PostProcessingRain::waterStream
+(
 	int16 xStart,
 	int16 xEnd,
 	int16 xDisplacement,
@@ -247,6 +241,8 @@ static void PostProcessingRain::waterStream(
 	uint16 numberOfDropletParallax
 )
 {
+	uint32 currentDrawingFrameBufferSet = DisplayUnit::getCurrentDrawingFrameBufferSet();
+
 	int32 yIndex = 0;
 
 	if(xStart < _cameraFrustum->x0)
@@ -430,7 +426,7 @@ static void PostProcessingRain::calculateRainPrecipitation
 		1, 0, -1, 0,
 	};
 
-	uint32 currentTime = TimerManager::getTotalElapsedMilliseconds();
+	uint32 currentTime = Timer::getTotalElapsedMilliseconds();
 
 	if((currentTime - previousTime) / 1000 > timePeriod[timePeriodIndex])
 	{

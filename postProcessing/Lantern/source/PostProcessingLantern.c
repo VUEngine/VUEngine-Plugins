@@ -30,11 +30,10 @@
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-static void PostProcessingLantern::lantern
-(
-	uint32 currentDrawingFrameBufferSet, Entity entity __attribute__ ((unused))
-)
+static void PostProcessingLantern::lantern(Entity entity __attribute__ ((unused)))
 {
+	uint32 currentDrawingFrameBufferSet = DisplayUnit::getCurrentDrawingFrameBufferSet();
+
  	static bool ellipsisArcCalculated = false;
 
 	if(isDeleted(entity))

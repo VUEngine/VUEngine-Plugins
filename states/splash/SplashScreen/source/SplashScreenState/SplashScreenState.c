@@ -50,7 +50,7 @@ bool SplashScreenState::onEvent(ListenerObject eventFirer, uint16 eventCode)
 		case kEventEffectFadeInComplete:
 		{
 			// Enable user input
-			KeypadManager::enable();
+			Keypad::enable();
 
 			return false;
 		}
@@ -83,7 +83,7 @@ void SplashScreenState::enter(void* owner)
 	// Start clocks to start animations
 	SplashScreenState::startClocks(this);
 
-	KeypadManager::disable();
+	Keypad::disable();
 
 	// Start fade in effect
 	Camera::startEffect(Camera::getInstance(), kHide);
@@ -126,7 +126,7 @@ void SplashScreenState::resume(void* owner)
 
 	SplashScreenState::print(this);
 
-	KeypadManager::disable();
+	Keypad::disable();
 
 	// Start fade in effect
 	Camera::startEffect(Camera::getInstance(), kHide);
@@ -170,7 +170,7 @@ void SplashScreenState::setNextState(GameState nextState)
 void SplashScreenState::loadNextState()
 {
 	// Disable user input
-	KeypadManager::disable();
+	Keypad::disable();
 
 	// Start fade out effect
 	Brightness brightness = (Brightness){0, 0, 0};

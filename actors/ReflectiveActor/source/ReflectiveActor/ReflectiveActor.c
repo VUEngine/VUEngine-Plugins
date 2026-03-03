@@ -12,7 +12,7 @@
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 #include <Camera.h>
-#include <FrameBufferManager.h>
+#include <FrameBuffers.h>
 #include <Optics.h>
 #include <Utilities.h>
 #include <VUEngine.h>
@@ -55,8 +55,10 @@ static uint32 ReflectiveActor::randomSeed()
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-static void ReflectiveActor::reflect(uint32 currentDrawingFrameBufferSet, Entity entity)
+static void ReflectiveActor::reflect(Entity entity)
 {
+	uint32 currentDrawingFrameBufferSet = DisplayUnit::getCurrentDrawingFrameBufferSet();
+
 	ASSERT(entity, "ReflectiveActor::reflect: null this");
 
 	if(isDeleted(entity))
@@ -116,7 +118,7 @@ static void ReflectiveActor::shiftPixels
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void ReflectiveActor::drawReflection(uint32 currentDrawingFrameBufferSet,
+void ReflectiveActor::drawReflection(
 	int16 xSourceStart, int16 ySourceStart,
 	int16 xOutputStart, int16 yOutputStart,
 	int16 width, int16 height,
@@ -131,6 +133,7 @@ void ReflectiveActor::drawReflection(uint32 currentDrawingFrameBufferSet,
 	uint32 rightBorderMask,
 	int16 noisePasses)
 {
+	uint32 currentDrawingFrameBufferSet = DisplayUnit::getCurrentDrawingFrameBufferSet();
 	int16 xSourceEnd = xSourceStart + width;
 	int16 ySourceEnd = ySourceStart + height;
 	int16 xOutputEnd = xOutputStart + width;
@@ -762,7 +765,7 @@ void ReflectiveActor::constructor(const ReflectiveActorSpec* reflectiveActorSpec
 void ReflectiveActor::destructor()
 {
 	// Remove post processing effect
-	VIPManager::removePostProcessingEffect(ReflectiveActor::reflect, Entity::safeCast(this));
+	DisplayUnit::removePostProcessingEffect(ReflectiveActor::reflect, Entity::safeCast(this));
 
 	// Always explicitly call the base's destructor 
 	Base::destructor();
@@ -775,7 +778,7 @@ void ReflectiveActor::ready(bool recursive)
 	Base::ready(this, recursive);
 
 	// Add post processing effect
-	VIPManager::pushFrontPostProcessingEffect(ReflectiveActor::reflect, Entity::safeCast(this));
+	DisplayUnit::pushFrontPostProcessingEffect(ReflectiveActor::reflect, Entity::safeCast(this));
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -785,7 +788,7 @@ void ReflectiveActor::suspend()
 	Base::suspend(this);
 
 	// Remove post processing effect
-	VIPManager::removePostProcessingEffect(ReflectiveActor::reflect, Entity::safeCast(this));
+	DisplayUnit::removePostProcessingEffect(ReflectiveActor::reflect, Entity::safeCast(this));
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -795,7 +798,7 @@ void ReflectiveActor::resume()
 	Base::resume(this);
 
 	// Add post processing effect
-	VIPManager::pushFrontPostProcessingEffect(ReflectiveActor::reflect, Entity::safeCast(this));
+	DisplayUnit::pushFrontPostProcessingEffect(ReflectiveActor::reflect, Entity::safeCast(this));
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

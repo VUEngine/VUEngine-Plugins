@@ -13,7 +13,7 @@
 
 #include <BgmapSprite.h>
 #include <Stage.h>
-#include <VIPManager.h>
+#include <DisplayUnit.h>
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // DECLARATIONS

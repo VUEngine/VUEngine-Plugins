@@ -11,7 +11,7 @@
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#include <KeypadManager.h>
+#include <Keypad.h>
 #include <Printer.h>
 #include <Singleton.h>
 #include <VirtualList.h>
@@ -53,7 +53,7 @@ void LowPowerManager::destructor()
 	}
 
 	// Remove event listeners
-	KeypadManager::removeEventListener(KeypadManager::getInstance(), ListenerObject::safeCast(this), kEventKeypadManagerRaisedPowerFlag);
+	Keypad::removeEventListener(Keypad::getInstance(), ListenerObject::safeCast(this), kEventKeypadRaisedPowerFlag);
 
 	// Always explicitly call the base's destructor 
 	Base::destructor();
@@ -65,7 +65,7 @@ bool LowPowerManager::onEvent(ListenerObject eventFirer, uint16 eventCode)
 {
 	switch(eventCode)
 	{
-		case kEventKeypadManagerRaisedPowerFlag:
+		case kEventKeypadRaisedPowerFlag:
 		{
 			if(isDeleted(this->clock))
 			{
@@ -113,13 +113,13 @@ void LowPowerManager::setActive(bool active)
 
 	if(this->isActive)
 	{
-		KeypadManager::addEventListener(KeypadManager::getInstance(), ListenerObject::safeCast(this), kEventKeypadManagerRaisedPowerFlag);
+		Keypad::addEventListener(Keypad::getInstance(), ListenerObject::safeCast(this), kEventKeypadRaisedPowerFlag);
 	}
 	else
 	{
-		KeypadManager::removeEventListener
+		Keypad::removeEventListener
 		(
-			KeypadManager::getInstance(), ListenerObject::safeCast(this), kEventKeypadManagerRaisedPowerFlag
+			Keypad::getInstance(), ListenerObject::safeCast(this), kEventKeypadRaisedPowerFlag
 		);
 
 		if(!isDeleted(this->clock))

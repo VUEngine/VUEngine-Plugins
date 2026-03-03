@@ -13,7 +13,7 @@
 
 #include <Camera.h>
 #include <CameraEffectManager.h>
-#include <FrameBufferManager.h>
+#include <FrameBuffers.h>
 #include <LowPowerManager.h>
 #include <Singleton.h>
 #include <Sound.h>
@@ -39,10 +39,7 @@ extern StageROMSpec AdjustmentScreenStage;
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-static void AdjustmentScreenState::rhombusEmitterPostProcessingEffect
-(
-	uint32 currentDrawingFrameBufferSet __attribute__ ((unused)), Entity entity __attribute__ ((unused))
-)
+static void AdjustmentScreenState::rhombusEmitterPostProcessingEffect(Entity entity __attribute__ ((unused)))
 {
 	// Runtime working variables
 	// Negative value to achieve an initial delay
@@ -65,7 +62,7 @@ static void AdjustmentScreenState::rhombusEmitterPostProcessingEffect
 	// Draw rhombus around object with given radius
 
 	// Top left line
-	FrameBufferManager::drawLine
+	FrameBuffers::drawLine
 	(
 		(PixelVector) {(192 - radius),	(112),			0, -((radius + __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_RHOMBUS_INITIAL_VALUE)>>5)},
 		(PixelVector) {(192),			(112 - radius),	0, -((radius + __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_RHOMBUS_INITIAL_VALUE)>>5)},
@@ -75,7 +72,7 @@ static void AdjustmentScreenState::rhombusEmitterPostProcessingEffect
 	);
 
 	// Top right line
-	FrameBufferManager::drawLine
+	FrameBuffers::drawLine
 	(
 		(PixelVector) {(192 + radius),	(112),			0, -((radius + __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_RHOMBUS_INITIAL_VALUE)>>5)},
 		(PixelVector) {(192),			(112 - radius),	0, -((radius + __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_RHOMBUS_INITIAL_VALUE)>>5)},
@@ -85,7 +82,7 @@ static void AdjustmentScreenState::rhombusEmitterPostProcessingEffect
 	);
 
 	// Bottom right line
-	FrameBufferManager::drawLine
+	FrameBuffers::drawLine
 	(
 		(PixelVector) {(192 + radius),	(112),			0, -((radius + __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_RHOMBUS_INITIAL_VALUE)>>5)},
 		(PixelVector) {(192),			(112 + radius),	0, -((radius + __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_RHOMBUS_INITIAL_VALUE)>>5)},
@@ -95,7 +92,7 @@ static void AdjustmentScreenState::rhombusEmitterPostProcessingEffect
 	);
 
 	// Bottom left line
-	FrameBufferManager::drawLine
+	FrameBuffers::drawLine
 	(
 		(PixelVector) {(192 - radius),	(112),			0, -((radius + __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_RHOMBUS_INITIAL_VALUE)>>5)},
 		(PixelVector) {(192),			(112 + radius),	0, -((radius + __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_RHOMBUS_INITIAL_VALUE)>>5)},
@@ -201,7 +198,7 @@ void AdjustmentScreenState::destructor()
 void AdjustmentScreenState::init()
 {
 	// Add rhombus effect
-	VIPManager::pushBackPostProcessingEffect(AdjustmentScreenState::rhombusEmitterPostProcessingEffect, NULL);
+	DisplayUnit::pushBackPostProcessingEffect(AdjustmentScreenState::rhombusEmitterPostProcessingEffect, NULL);
 
 	// Set low power indicator position
 	AdjustmentScreenState::setLowPowerIndicatorPosition(this);

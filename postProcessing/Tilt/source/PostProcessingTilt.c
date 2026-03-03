@@ -14,7 +14,7 @@
 #include <Camera.h>
 #include <Optics.h>
 #include <Utilities.h>
-#include <VIPManager.h>
+#include <DisplayUnit.h>
 #include <VUEngine.h>
 
 #include "PostProcessingTilt.h"

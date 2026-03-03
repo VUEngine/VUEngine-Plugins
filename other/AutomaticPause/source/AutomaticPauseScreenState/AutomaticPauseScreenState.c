@@ -44,7 +44,7 @@ bool AutomaticPauseScreenState::onEvent(ListenerObject eventFirer, uint16 eventC
 		case kEventEffectFadeInComplete:
 		{
 			// Re-enable user input
-			KeypadManager::enable();
+			Keypad::enable();
 
 			return false;
 		}
@@ -52,7 +52,7 @@ bool AutomaticPauseScreenState::onEvent(ListenerObject eventFirer, uint16 eventC
 		case kEventEffectFadeOutComplete:
 		{
 			// Re-enable user input
-			KeypadManager::enable();
+			Keypad::enable();
 
 			// Resume game
 			VUEngine::unpause(GameState::safeCast(this));
@@ -110,7 +110,7 @@ void AutomaticPauseScreenState::enter(void* owner __attribute__ ((unused)))
 	);
 
 	// Disable user input
-	KeypadManager::disable();
+	Keypad::disable();
 
 	// Start clocks to start animations
 	GameState::startClocks(this);
@@ -143,7 +143,7 @@ void AutomaticPauseScreenState::processUserInput(const UserInput*  userInput)
 	if(K_STA & userInput->pressedKey)
 	{
 		// Disable user input
-		KeypadManager::disable();
+		Keypad::disable();
 
 		// Fade out screen
 		Brightness brightness = (Brightness){0, 0, 0};

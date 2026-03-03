@@ -12,10 +12,10 @@
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 #include <Camera.h>
-#include <FrameBufferManager.h>
+#include <FrameBuffers.h>
 #include <Optics.h>
 #include <Utilities.h>
-#include <VIPManager.h>
+#include <DisplayUnit.h>
 #include <VUEngine.h>
 
 #include "PostProcessingRhombus.h"
@@ -27,16 +27,13 @@
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 /*
- * Uses FrameBufferManager to draw a rhombus around the entity.
+ * Uses FrameBuffers to draw a rhombus around the entity.
  * This effect only writes to the framebuffers, but does not read them. Since write access is much quicker
  * than reading, and since only a few pixels are affected, this effect runs well on hardware.
  *
  * @param currentDrawingFrameBufferSet	The framebuffer set that's currently being accessed
  */
-static void PostProcessingRhombus::rhombus
-(
-	uint32 currentDrawingFrameBufferSet __attribute__ ((unused)), Entity entity
-)
+static void PostProcessingRhombus::rhombus(Entity entity)
 {
 	// Runtime working variable
 	static int32 radius = 4;
@@ -85,7 +82,7 @@ static void PostProcessingRhombus::rhombus
  */
 static void PostProcessingRhombus::drawRhombus(int32 radius, uint32 color, PixelVector screenPixelPosition, int32 parallax)
 {
-	FrameBufferManager::drawLine
+	FrameBuffers::drawLine
 	(
 		(PixelVector) {screenPixelPosition.x - radius,	screenPixelPosition.y,			0, parallax},
 		(PixelVector) {screenPixelPosition.x,			screenPixelPosition.y - radius,	0, parallax},
@@ -94,7 +91,7 @@ static void PostProcessingRhombus::drawRhombus(int32 radius, uint32 color, Pixel
 		false
 	);
 
-	FrameBufferManager::drawLine
+	FrameBuffers::drawLine
 	(
 		(PixelVector) {screenPixelPosition.x + radius,	screenPixelPosition.y,			0, parallax},
 		(PixelVector) {screenPixelPosition.x,			screenPixelPosition.y - radius,	0, parallax},
@@ -103,7 +100,7 @@ static void PostProcessingRhombus::drawRhombus(int32 radius, uint32 color, Pixel
 		false
 	);
 
-	FrameBufferManager::drawLine
+	FrameBuffers::drawLine
 	(
 		(PixelVector) {screenPixelPosition.x + radius,	screenPixelPosition.y,			0, parallax},
 		(PixelVector) {screenPixelPosition.x,			screenPixelPosition.y + radius,	0, parallax},
@@ -112,7 +109,7 @@ static void PostProcessingRhombus::drawRhombus(int32 radius, uint32 color, Pixel
 		false
 	);
 
-	FrameBufferManager::drawLine
+	FrameBuffers::drawLine
 	(
 		(PixelVector) {screenPixelPosition.x - radius,	screenPixelPosition.y,			0, parallax},
 		(PixelVector) {screenPixelPosition.x,			screenPixelPosition.y + radius,	0, parallax},

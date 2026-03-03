@@ -28,9 +28,8 @@
 static class PostProcessingTilt : ListenerObject
 {
 	/// Apply the post processing effect.
-	/// @param currentDrawingFrameBufferSet: The framebuffer set that's currently being accessed
 	/// @param entity: Post-processing effect function's scope
-	static void tiltScreen(uint32 currentDrawingFrameBufferSet, Entity entity);
+	static void tiltScreen(Entity entity);
 }
 
 #endif
