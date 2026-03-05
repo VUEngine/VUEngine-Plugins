@@ -69,7 +69,7 @@ int16 ShaderSprite::doRender(int16 index)
 		return index;
 	}
 
-	return __NO_RENDER_INDEX;
+	return 0;
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -81,7 +81,7 @@ bool ShaderSprite::hasSpecialEffects()
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void ShaderSprite::processEffects(int32 maximumParamTableRowsToComputePerCall)
+void ShaderSprite::processEffects(int32 specialEffectsRowsPerFrame)
 {
 	if(isDeleted(this->charSet))
 	{
