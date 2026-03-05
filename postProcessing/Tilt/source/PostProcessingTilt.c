@@ -31,11 +31,9 @@
  *
  * @param currentDrawingFrameBufferSet	The framebuffer set that's currently being accessed
  */
-static void PostProcessingTilt::tiltScreen
-(
-	uint32 currentDrawingFrameBufferSet, Entity entity __attribute__ ((unused))
-)
+static void PostProcessingTilt::tiltScreen(Entity entity __attribute__ ((unused)))
 {
+	uint32 currentDrawingFrameBufferSet = DisplayUnit::getCurrentDrawingFrameBufferSet();
 	uint8 buffer = 0, currentShift = 0;
 	uint16 x = 0, y = 0;
 	uint32 previousSourcePointerValue = 0;

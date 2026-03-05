@@ -52,6 +52,7 @@ static void PostProcessingRain::rain(Entity entity __attribute__ ((unused)))
  	static Vector3D cameraPreviousPosition = {0, 0, 0};
  	static int32 cumulativeX = 0;
  	fix19_13 yScreenDisplacement = __I_TO_FIX19_13(__METERS_TO_PIXELS(_cameraPosition->y - cameraPreviousPosition.y));
+	uint32 currentDrawingFrameBufferSet = DisplayUnit::getCurrentDrawingFrameBufferSet();
 
  	cumulativeX += __METERS_TO_PIXELS(_cameraPosition->x - cameraPreviousPosition.x);
 	PostProcessingRain::calculateRainPrecipitation
@@ -136,6 +137,7 @@ static void PostProcessingRain::rain(Entity entity __attribute__ ((unused)))
 
 static void PostProcessingRain::thinRain(Entity entity __attribute__ ((unused)))
 {
+	uint32 currentDrawingFrameBufferSet = DisplayUnit::getCurrentDrawingFrameBufferSet();
 	int32 width = __PLUGIN_RAIN_WIDTH;
 	int32 height = __PLUGIN_RAIN_HEIGHT;
 	int32 yStepThrottle = __PLUGIN_RAIN_Y_STEP_THROTTLE;
@@ -220,6 +222,7 @@ static void PostProcessingRain::thinRain(Entity entity __attribute__ ((unused)))
 
 static void PostProcessingRain::waterStream
 (
+	uint32 currentDrawingFrameBufferSet,
 	int16 xStart,
 	int16 xEnd,
 	int16 xDisplacement,
@@ -241,8 +244,6 @@ static void PostProcessingRain::waterStream
 	uint16 numberOfDropletParallax
 )
 {
-	uint32 currentDrawingFrameBufferSet = DisplayUnit::getCurrentDrawingFrameBufferSet();
-
 	int32 yIndex = 0;
 
 	if(xStart < _cameraFrustum->x0)
