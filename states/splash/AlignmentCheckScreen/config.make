@@ -2,4 +2,5 @@
 ###############################################  THIS FILE WAS AUTO-GENERATED - DO NOT EDIT  ###############################################
 ############################################################################################################################################
 
-PLUGINS =	vuengine//states/splash/SplashScreen
+PLUGINS = 	platforms//VirtualBoy \
+			vuengine//states/splash/SplashScreen
