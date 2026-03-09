@@ -66,7 +66,7 @@ int16 ShaderSprite::doRender(int16 index)
 	if(Base::doRender(this, index) == index)
 	{
 //		ShaderSprite::renderToTexture(this, (uint32*)(buffer[this->buffer]));
-		return index;
+		return 1;
 	}
 
 	return 0;
