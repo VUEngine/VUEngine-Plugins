@@ -116,17 +116,7 @@ void AutomaticPauseScreenState::enter(void* owner __attribute__ ((unused)))
 	GameState::startClocks(this);
 
 	// Fade in screen
-	Camera::startEffect(Camera::getInstance(), kHide);
-	
-	Camera::startEffect
-	(
-		Camera::getInstance(),
-		kFadeTo, // effect type
-		0, // initial delay (in ms)
-		NULL, // target brightness
-		__FADE_DELAY, // delay between fading steps (in ms)
-		ListenerObject::safeCast(this) // callback scope
-	);
+	AutomaticPauseScreenState::fadeIn(this, __FADE_DELAY);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

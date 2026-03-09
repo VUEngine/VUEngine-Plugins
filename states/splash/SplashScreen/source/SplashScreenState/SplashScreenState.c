@@ -86,16 +86,7 @@ void SplashScreenState::enter(void* owner)
 	Keypad::disable();
 
 	// Start fade in effect
-	Camera::startEffect(Camera::getInstance(), kHide);
-	Camera::startEffect
-	(
-		Camera::getInstance(),
-		kFadeTo, // effect type
-		0, // initial delay (in ms)
-		NULL, // target brightness
-		__FADE_DELAY, // delay between fading steps (in ms)
-		ListenerObject::safeCast(this) // callback scope
-	);
+	SplashScreenState::fadeIn(this, __FADE_DELAY);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -113,7 +104,7 @@ void SplashScreenState::exit(void* owner)
 void SplashScreenState::suspend(void* owner)
 {
 	// Do a fade out effect
-	Camera::startEffect(Camera::getInstance(), kFadeOut, __FADE_DELAY);
+	SplashScreenState::fadeOut(this, __FADE_DELAY);
 
 	Base::suspend(this, owner);
 }
@@ -123,22 +114,9 @@ void SplashScreenState::suspend(void* owner)
 void SplashScreenState::resume(void* owner)
 {
 	Base::resume(this, owner);
-
 	SplashScreenState::print(this);
-
 	Keypad::disable();
-
-	// Start fade in effect
-	Camera::startEffect(Camera::getInstance(), kHide);
-	Camera::startEffect
-	(
-		Camera::getInstance(),
-		kFadeTo, // effect type
-		0, // initial delay (in ms)
-		NULL, // target brightness
-		__FADE_DELAY, // delay between fading steps (in ms)
-		ListenerObject::safeCast(this) // callback scope
-	);
+	SplashScreenState::fadeIn(this, __FADE_DELAY);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -172,17 +150,7 @@ void SplashScreenState::loadNextState()
 	// Disable user input
 	Keypad::disable();
 
-	// Start fade out effect
-	Brightness brightness = (Brightness){0, 0, 0};
-	Camera::startEffect
-	(
-		Camera::getInstance(),
-		kFadeTo, // effect type
-		0, // initial delay (in ms)
-		&brightness, // target brightness
-		__FADE_DELAY, // delay between fading steps (in ms)
-		ListenerObject::safeCast(this) // callback scope
-	);
+	SplashScreenState::fadeOut(this, __FADE_DELAY);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
