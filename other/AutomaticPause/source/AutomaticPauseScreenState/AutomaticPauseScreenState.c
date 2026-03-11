@@ -136,16 +136,7 @@ void AutomaticPauseScreenState::processUserInput(const UserInput*  userInput)
 		Keypad::disable();
 
 		// Fade out screen
-		Brightness brightness = (Brightness){0, 0, 0};
-		Camera::startEffect
-		(
-			Camera::getInstance(),
-			kFadeTo, // effect type
-			0, // initial delay (in ms)
-			&brightness, // target brightness
-			__FADE_DELAY, // delay between fading steps (in ms)
-			ListenerObject::safeCast(this) // callback scope
-		);
+		AutomaticPauseScreenState::fadeOut(this, __FADE_DELAY);
 	}
 }
 
