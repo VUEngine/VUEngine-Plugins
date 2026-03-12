@@ -11,7 +11,7 @@
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#include <VBSoundTrack.h>
+#include <VSUSoundTrack.h>
 #include <WaveForms.h>
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -61,12 +61,12 @@ const SoundTrackKeyframe AutomaticPauseConfirmSoundTrack1Keyframes[] =
 	{0, kSoundTrackEventEnd},	
 };
 
-VBSoundTrackROMSpec AutomaticPauseConfirmSoundTrack1 =
+VSUSoundTrackROMSpec AutomaticPauseConfirmSoundTrack1 =
 {
 	// SoundTrack
 	{
 		// Allocator
-		__TYPE(VBSoundTrack),
+		__TYPE(VSUSoundTrack),
 		
 		/// Priority for sound channel usage
 		1,

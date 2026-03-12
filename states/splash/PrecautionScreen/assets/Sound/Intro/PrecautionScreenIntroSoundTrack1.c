@@ -11,7 +11,7 @@
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#include <VBSoundTrack.h>
+#include <VSUSoundTrack.h>
 #include <WaveForms.h>
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -60,12 +60,12 @@ const SoundTrackKeyframe PrecautionScreenIntroSoundTrack1Keyframes[] =
 	{0, kSoundTrackEventEnd},	
 };
 
-VBSoundTrackROMSpec PrecautionScreenIntroSoundTrack1 =
+VSUSoundTrackROMSpec PrecautionScreenIntroSoundTrack1 =
 {
 	// SoundTrack
 	{
 		// Allocator
-		__TYPE(VBSoundTrack),
+		__TYPE(VSUSoundTrack),
 		
 		/// Priority for sound channel usage
 		1,

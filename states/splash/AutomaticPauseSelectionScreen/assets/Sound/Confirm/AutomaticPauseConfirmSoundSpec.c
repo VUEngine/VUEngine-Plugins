@@ -12,20 +12,20 @@
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 #include <Sound.h>
-#include <VBSoundTrack.h>
+#include <VSUSoundTrack.h>
 #include <WaveForms.h>
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // DECLARATIONS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-extern VBSoundTrackROMSpec AutomaticPauseConfirmSoundTrack1;
+extern VSUSoundTrackROMSpec AutomaticPauseConfirmSoundTrack1;
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // DEFINITIONS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-VBSoundTrackROMSpec* const AutomaticPauseConfirmSoundTracks[] =
+VSUSoundTrackROMSpec* const AutomaticPauseConfirmSoundTracks[] =
 {
 	&AutomaticPauseConfirmSoundTrack1,
 	NULL

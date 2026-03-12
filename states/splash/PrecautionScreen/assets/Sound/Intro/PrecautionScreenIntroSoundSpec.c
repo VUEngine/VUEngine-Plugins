@@ -12,20 +12,20 @@
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 #include <Sound.h>
-#include <VBSoundTrack.h>
+#include <VSUSoundTrack.h>
 #include <WaveForms.h>
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // DECLARATIONS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-extern VBSoundTrackROMSpec PrecautionScreenIntroSoundTrack1;
+extern VSUSoundTrackROMSpec PrecautionScreenIntroSoundTrack1;
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // DEFINITIONS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-VBSoundTrackROMSpec* const PrecautionScreenIntroSoundTracks[] =
+VSUSoundTrackROMSpec* const PrecautionScreenIntroSoundTracks[] =
 {
 	&PrecautionScreenIntroSoundTrack1,
 	NULL

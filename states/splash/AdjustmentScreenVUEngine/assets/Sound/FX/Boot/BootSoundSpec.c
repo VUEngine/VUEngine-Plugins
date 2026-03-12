@@ -12,22 +12,22 @@
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 #include <Sound.h>
-#include <VBSoundTrack.h>
+#include <VSUSoundTrack.h>
 #include <WaveForms.h>
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // DECLARATIONS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-extern VBSoundTrackROMSpec BootSoundTrack1;
-extern VBSoundTrackROMSpec BootSoundTrack2;
-extern VBSoundTrackROMSpec BootSoundTrack3;
+extern VSUSoundTrackROMSpec BootSoundTrack1;
+extern VSUSoundTrackROMSpec BootSoundTrack2;
+extern VSUSoundTrackROMSpec BootSoundTrack3;
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // DEFINITIONS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-VBSoundTrackROMSpec* const BootSoundTracks[] =
+VSUSoundTrackROMSpec* const BootSoundTracks[] =
 {
 	&BootSoundTrack1,
 	&BootSoundTrack2,
