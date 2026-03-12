@@ -45,7 +45,7 @@ const uint8 AutomaticPauseConfirmSoundTrack1SxEV1[] =
 
 const WaveformData* const AutomaticPauseConfirmSoundTrack1SxRAM[] =
 {
-	NULL,
+	&SawWaveForm,
 };
 
 const uint8 AutomaticPauseConfirmSoundTrack1SxSWP[] =
