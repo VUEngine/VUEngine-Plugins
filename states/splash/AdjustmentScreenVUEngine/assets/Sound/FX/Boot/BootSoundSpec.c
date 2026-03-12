@@ -12,16 +12,16 @@
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 #include <Sound.h>
-#include <SoundTrack.h>
+#include <VBSoundTrack.h>
 #include <WaveForms.h>
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // DECLARATIONS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-extern SoundTrackROMSpec BootSoundTrack1;
-extern SoundTrackROMSpec BootSoundTrack2;
-extern SoundTrackROMSpec BootSoundTrack3;
+extern VBSoundTrackROMSpec BootSoundTrack1;
+extern VBSoundTrackROMSpec BootSoundTrack2;
+extern VBSoundTrackROMSpec BootSoundTrack3;
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // DEFINITIONS
