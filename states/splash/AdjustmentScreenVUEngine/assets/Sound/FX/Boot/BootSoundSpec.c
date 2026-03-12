@@ -27,7 +27,7 @@ extern SoundTrackROMSpec BootSoundTrack3;
 // DEFINITIONS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-SoundTrackROMSpec* const BootSoundTracks[] =
+VBSoundTrackROMSpec* const BootSoundTracks[] =
 {
 	&BootSoundTrack1,
 	&BootSoundTrack2,

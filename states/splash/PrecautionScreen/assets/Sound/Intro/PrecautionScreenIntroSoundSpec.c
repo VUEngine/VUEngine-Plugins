@@ -25,7 +25,7 @@ extern SoundTrackROMSpec PrecautionScreenIntroSoundTrack1;
 // DEFINITIONS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-SoundTrackROMSpec* const PrecautionScreenIntroSoundTracks[] =
+VBSoundTrackROMSpec* const PrecautionScreenIntroSoundTracks[] =
 {
 	&PrecautionScreenIntroSoundTrack1,
 	NULL

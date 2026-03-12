@@ -25,7 +25,7 @@ extern SoundTrackROMSpec LanguageConfirmSoundTrack1;
 // DEFINITIONS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-SoundTrackROMSpec* const LanguageConfirmSoundTracks[] =
+VBSoundTrackROMSpec* const LanguageConfirmSoundTracks[] =
 {
 	&LanguageConfirmSoundTrack1,
 	NULL

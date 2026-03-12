@@ -25,7 +25,7 @@ extern SoundTrackROMSpec AutomaticPauseConfirmSoundTrack1;
 // DEFINITIONS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-SoundTrackROMSpec* const AutomaticPauseConfirmSoundTracks[] =
+VBSoundTrackROMSpec* const AutomaticPauseConfirmSoundTracks[] =
 {
 	&AutomaticPauseConfirmSoundTrack1,
 	NULL

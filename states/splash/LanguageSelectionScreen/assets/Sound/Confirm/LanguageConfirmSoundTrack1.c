@@ -11,7 +11,7 @@
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#include <SoundTrack.h>
+#include <VBSoundTrack.h>
 #include <WaveForms.h>
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -61,19 +61,25 @@ const SoundTrackKeyframe LanguageConfirmSoundTrack1Keyframes[] =
 	{0, kSoundTrackEventEnd},	
 };
 
-SoundTrackROMSpec LanguageConfirmSoundTrack1 =
+VBSoundTrackROMSpec LanguageConfirmSoundTrack1 =
 {
-	/// Priority for sound channel usage
-	1,
+	// SoundTrack
+	{
+		// Allocator
+		__TYPE(VBSoundTrack),
+		
+		/// Priority for sound channel usage
+		1,
 
-	/// Skip if no sound source available?
-	false,
+		/// Skip if no sound source available?
+		false,
 
-	/// Loop back point (cursor)
-	0,
+		/// Loop back point (cursor)
+		0,
 
-	/// Keyframes that define the track
-	(SoundTrackKeyframe*)LanguageConfirmSoundTrack1Keyframes,
+		/// Keyframes that define the track
+		(SoundTrackKeyframe*)LanguageConfirmSoundTrack1Keyframes,
+	},
 
 	/// SxINT values
 	(uint8*)LanguageConfirmSoundTrack1SxINT,
