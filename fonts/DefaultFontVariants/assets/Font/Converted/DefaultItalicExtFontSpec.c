@@ -133,7 +133,7 @@ const uint32 DefaultItalicExtFontTiles[] __attribute__((aligned(4))) =
 // DEFINITIONS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-CharSetROMSpec DefaultItalicExtFontCharSet =
+TileSetROMSpec DefaultItalicExtFontTileSet =
 {
 	// Number of chars in function of the number of frames to load at the same time
 	224,
@@ -154,7 +154,7 @@ CharSetROMSpec DefaultItalicExtFontCharSet =
 FontROMSpec DefaultItalicExtFontSpec =
 {
 	// Pointer to the char spec that the font uses
-	(CharSetSpec*)&DefaultItalicExtFontCharSet,
+	(TileSetSpec*)&DefaultItalicExtFontTileSet,
 
 	// Offset at which character number the font starts
 	32,
@@ -162,7 +162,7 @@ FontROMSpec DefaultItalicExtFontSpec =
 	// Number of characters in this font
 	224,
 
-	// Number of characters per line in charset
+	// Number of characters per line in tileSet
 	1,
 
 	// Size of a single character (in chars) ({width, height})

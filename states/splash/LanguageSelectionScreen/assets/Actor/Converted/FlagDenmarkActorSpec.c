@@ -22,7 +22,7 @@ extern uint32 FlagDenmarkActorFlagDenmarkTiles[];
 // SPRITES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-CharSetROMSpec FlagDenmarkSprite1CharsetSpec =
+TileSetROMSpec FlagDenmarkSprite1CharsetSpec =
 {
 	// Number of CHARs in function of the number of frames to load at the same time
 	6,
@@ -43,7 +43,7 @@ CharSetROMSpec FlagDenmarkSprite1CharsetSpec =
 TextureROMSpec FlagDenmarkSprite1TextureSpec =
 {
 	// Pointer to the char spec that the texture uses
-	(CharSetSpec*)&FlagDenmarkSprite1CharsetSpec,
+	(TileSetSpec*)&FlagDenmarkSprite1CharsetSpec,
 
 	// Pointer to the map array that defines how to use the tiles from the char set
 	FlagDenmarkActorFlagDenmarkMap,

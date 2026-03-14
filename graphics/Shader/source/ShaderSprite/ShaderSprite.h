@@ -48,8 +48,8 @@ class ShaderSprite : BgmapSprite
 {
 	/// @protectedsection
 
-	/// CharSet to write into
-	CharSet charSet;
+	/// TileSet to write into
+	TileSet charSet;
 
 	/// Frame buffer to use
 	int32 buffer;

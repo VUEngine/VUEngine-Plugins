@@ -149,7 +149,7 @@ const uint32 AstonishSFontTiles[] __attribute__((aligned(4))) =
 // DEFINITIONS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-CharSetROMSpec AstonishSFontCharSet =
+TileSetROMSpec AstonishSFontTileSet =
 {
 	// Number of chars in function of the number of frames to load at the same time
 	256,
@@ -170,7 +170,7 @@ CharSetROMSpec AstonishSFontCharSet =
 FontROMSpec AstonishSFontSpec =
 {
 	// Pointer to the char spec that the font uses
-	(CharSetSpec*)&AstonishSFontCharSet,
+	(TileSetSpec*)&AstonishSFontTileSet,
 
 	// Offset at which character number the font starts
 	0,
@@ -178,7 +178,7 @@ FontROMSpec AstonishSFontSpec =
 	// Number of characters in this font
 	128,
 
-	// Number of characters per line in charset
+	// Number of characters per line in tileSet
 	1,
 
 	// Size of a single character (in chars) ({width, height})

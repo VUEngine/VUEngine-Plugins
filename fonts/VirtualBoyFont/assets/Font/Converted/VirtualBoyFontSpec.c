@@ -309,7 +309,7 @@ const uint32 VirtualBoyFontTiles[] __attribute__((aligned(4))) =
 // DEFINITIONS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-CharSetROMSpec VirtualBoyFontCharSet =
+TileSetROMSpec VirtualBoyFontTileSet =
 {
 	// Number of chars in function of the number of frames to load at the same time
 	576,
@@ -330,7 +330,7 @@ CharSetROMSpec VirtualBoyFontCharSet =
 FontROMSpec VirtualBoyFontSpec =
 {
 	// Pointer to the char spec that the font uses
-	(CharSetSpec*)&VirtualBoyFontCharSet,
+	(TileSetSpec*)&VirtualBoyFontTileSet,
 
 	// Offset at which character number the font starts
 	32,
@@ -338,7 +338,7 @@ FontROMSpec VirtualBoyFontSpec =
 	// Number of characters in this font
 	96,
 
-	// Number of characters per line in charset
+	// Number of characters per line in tileSet
 	1,
 
 	// Size of a single character (in chars) ({width, height})

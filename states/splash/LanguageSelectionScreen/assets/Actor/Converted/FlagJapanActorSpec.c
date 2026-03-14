@@ -22,7 +22,7 @@ extern uint32 FlagJapanActorFlagJapanTiles[];
 // SPRITES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-CharSetROMSpec FlagJapanSprite1CharsetSpec =
+TileSetROMSpec FlagJapanSprite1CharsetSpec =
 {
 	// Number of CHARs in function of the number of frames to load at the same time
 	5,
@@ -43,7 +43,7 @@ CharSetROMSpec FlagJapanSprite1CharsetSpec =
 TextureROMSpec FlagJapanSprite1TextureSpec =
 {
 	// Pointer to the char spec that the texture uses
-	(CharSetSpec*)&FlagJapanSprite1CharsetSpec,
+	(TileSetSpec*)&FlagJapanSprite1CharsetSpec,
 
 	// Pointer to the map array that defines how to use the tiles from the char set
 	FlagJapanActorFlagJapanMap,

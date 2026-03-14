@@ -22,7 +22,7 @@ extern uint32 AdjustmentScreenIconRActorAdjustmentScreenIconTiles[];
 // SPRITES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-CharSetROMSpec AdjustmentScreenIconRSprite1CharsetSpec =
+TileSetROMSpec AdjustmentScreenIconRSprite1CharsetSpec =
 {
 	// Number of CHARs in function of the number of frames to load at the same time
 	4,
@@ -43,7 +43,7 @@ CharSetROMSpec AdjustmentScreenIconRSprite1CharsetSpec =
 TextureROMSpec AdjustmentScreenIconRSprite1TextureSpec =
 {
 	// Pointer to the char spec that the texture uses
-	(CharSetSpec*)&AdjustmentScreenIconRSprite1CharsetSpec,
+	(TileSetSpec*)&AdjustmentScreenIconRSprite1CharsetSpec,
 
 	// Pointer to the map array that defines how to use the tiles from the char set
 	AdjustmentScreenIconRActorAdjustmentScreenIconMap,

@@ -22,7 +22,7 @@ extern uint32 AdjustmentScreenLogoActorAdjustmentScreenLogoTiles[];
 // SPRITES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-CharSetROMSpec AdjustmentScreenLogoSprite1CharsetSpec =
+TileSetROMSpec AdjustmentScreenLogoSprite1CharsetSpec =
 {
 	// Number of CHARs in function of the number of frames to load at the same time
 	73,
@@ -43,7 +43,7 @@ CharSetROMSpec AdjustmentScreenLogoSprite1CharsetSpec =
 TextureROMSpec AdjustmentScreenLogoSprite1TextureSpec =
 {
 	// Pointer to the char spec that the texture uses
-	(CharSetSpec*)&AdjustmentScreenLogoSprite1CharsetSpec,
+	(TileSetSpec*)&AdjustmentScreenLogoSprite1CharsetSpec,
 
 	// Pointer to the map array that defines how to use the tiles from the char set
 	AdjustmentScreenLogoActorAdjustmentScreenLogoMap,

@@ -149,7 +149,7 @@ const uint32 BulkyFontTiles[] __attribute__((aligned(4))) =
 // DEFINITIONS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-CharSetROMSpec BulkyFontCharSet =
+TileSetROMSpec BulkyFontTileSet =
 {
 	// Number of chars in function of the number of frames to load at the same time
 	256,
@@ -170,7 +170,7 @@ CharSetROMSpec BulkyFontCharSet =
 FontROMSpec BulkyFontSpec =
 {
 	// Pointer to the char spec that the font uses
-	(CharSetSpec*)&BulkyFontCharSet,
+	(TileSetSpec*)&BulkyFontTileSet,
 
 	// Offset at which character number the font starts
 	32,
@@ -178,7 +178,7 @@ FontROMSpec BulkyFontSpec =
 	// Number of characters in this font
 	64,
 
-	// Number of characters per line in charset
+	// Number of characters per line in tileSet
 	1,
 
 	// Size of a single character (in chars) ({width, height})

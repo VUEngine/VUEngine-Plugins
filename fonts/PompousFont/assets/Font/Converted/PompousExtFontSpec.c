@@ -277,7 +277,7 @@ const uint32 PompousExtFontTiles[] __attribute__((aligned(4))) =
 // DEFINITIONS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-CharSetROMSpec PompousExtFontCharSet =
+TileSetROMSpec PompousExtFontTileSet =
 {
 	// Number of chars in function of the number of frames to load at the same time
 	512,
@@ -298,7 +298,7 @@ CharSetROMSpec PompousExtFontCharSet =
 FontROMSpec PompousExtFontSpec =
 {
 	// Pointer to the char spec that the font uses
-	(CharSetSpec*)&PompousExtFontCharSet,
+	(TileSetSpec*)&PompousExtFontTileSet,
 
 	// Offset at which character number the font starts
 	0,
@@ -306,7 +306,7 @@ FontROMSpec PompousExtFontSpec =
 	// Number of characters in this font
 	256,
 
-	// Number of characters per line in charset
+	// Number of characters per line in tileSet
 	1,
 
 	// Size of a single character (in chars) ({width, height})

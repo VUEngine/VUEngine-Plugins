@@ -22,7 +22,7 @@ extern uint32 FlagCursorActorFlagCursorTiles[];
 // SPRITES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-CharSetROMSpec FlagCursorSprite1CharsetSpec =
+TileSetROMSpec FlagCursorSprite1CharsetSpec =
 {
 	// Number of CHARs in function of the number of frames to load at the same time
 	4,
@@ -43,7 +43,7 @@ CharSetROMSpec FlagCursorSprite1CharsetSpec =
 TextureROMSpec FlagCursorSprite1TextureSpec =
 {
 	// Pointer to the char spec that the texture uses
-	(CharSetSpec*)&FlagCursorSprite1CharsetSpec,
+	(TileSetSpec*)&FlagCursorSprite1CharsetSpec,
 
 	// Pointer to the map array that defines how to use the tiles from the char set
 	FlagCursorActorFlagCursorMap,

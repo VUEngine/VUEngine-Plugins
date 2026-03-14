@@ -24,7 +24,7 @@ extern uint32 AlignmentCheckActorAlignmentCheckRightTiles[];
 // SPRITES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-CharSetROMSpec AlignmentCheckSprite1CharsetSpec =
+TileSetROMSpec AlignmentCheckSprite1CharsetSpec =
 {
 	// Number of CHARs in function of the number of frames to load at the same time
 	1,
@@ -45,7 +45,7 @@ CharSetROMSpec AlignmentCheckSprite1CharsetSpec =
 TextureROMSpec AlignmentCheckSprite1TextureSpec =
 {
 	// Pointer to the char spec that the texture uses
-	(CharSetSpec*)&AlignmentCheckSprite1CharsetSpec,
+	(TileSetSpec*)&AlignmentCheckSprite1CharsetSpec,
 
 	// Pointer to the map array that defines how to use the tiles from the char set
 	AlignmentCheckActorAlignmentCheckLeftMap,
@@ -114,7 +114,7 @@ BgmapSpriteROMSpec AlignmentCheckSprite1SpriteSpec =
 };
 
 
-CharSetROMSpec AlignmentCheckSprite2CharsetSpec =
+TileSetROMSpec AlignmentCheckSprite2CharsetSpec =
 {
 	// Number of CHARs in function of the number of frames to load at the same time
 	2,
@@ -135,7 +135,7 @@ CharSetROMSpec AlignmentCheckSprite2CharsetSpec =
 TextureROMSpec AlignmentCheckSprite2TextureSpec =
 {
 	// Pointer to the char spec that the texture uses
-	(CharSetSpec*)&AlignmentCheckSprite2CharsetSpec,
+	(TileSetSpec*)&AlignmentCheckSprite2CharsetSpec,
 
 	// Pointer to the map array that defines how to use the tiles from the char set
 	AlignmentCheckActorAlignmentCheckRightMap,

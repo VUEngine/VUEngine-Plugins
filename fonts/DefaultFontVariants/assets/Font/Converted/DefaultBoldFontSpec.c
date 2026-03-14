@@ -69,7 +69,7 @@ const uint32 DefaultBoldFontTiles[] __attribute__((aligned(4))) =
 // DEFINITIONS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-CharSetROMSpec DefaultBoldFontCharSet =
+TileSetROMSpec DefaultBoldFontTileSet =
 {
 	// Number of chars in function of the number of frames to load at the same time
 	96,
@@ -90,7 +90,7 @@ CharSetROMSpec DefaultBoldFontCharSet =
 FontROMSpec DefaultBoldFontSpec =
 {
 	// Pointer to the char spec that the font uses
-	(CharSetSpec*)&DefaultBoldFontCharSet,
+	(TileSetSpec*)&DefaultBoldFontTileSet,
 
 	// Offset at which character number the font starts
 	32,
@@ -98,7 +98,7 @@ FontROMSpec DefaultBoldFontSpec =
 	// Number of characters in this font
 	96,
 
-	// Number of characters per line in charset
+	// Number of characters per line in tileSet
 	1,
 
 	// Size of a single character (in chars) ({width, height})

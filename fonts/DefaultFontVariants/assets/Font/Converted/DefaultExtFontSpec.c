@@ -149,7 +149,7 @@ const uint32 DefaultExtFontTiles[] __attribute__((aligned(4))) =
 // DEFINITIONS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-CharSetROMSpec DefaultExtFontCharSet =
+TileSetROMSpec DefaultExtFontTileSet =
 {
 	// Number of chars in function of the number of frames to load at the same time
 	256,
@@ -170,7 +170,7 @@ CharSetROMSpec DefaultExtFontCharSet =
 FontROMSpec DefaultExtFontSpec =
 {
 	// Pointer to the char spec that the font uses
-	(CharSetSpec*)&DefaultExtFontCharSet,
+	(TileSetSpec*)&DefaultExtFontTileSet,
 
 	// Offset at which character number the font starts
 	0,
@@ -178,7 +178,7 @@ FontROMSpec DefaultExtFontSpec =
 	// Number of characters in this font
 	256,
 
-	// Number of characters per line in charset
+	// Number of characters per line in tileSet
 	1,
 
 	// Size of a single character (in chars) ({width, height})

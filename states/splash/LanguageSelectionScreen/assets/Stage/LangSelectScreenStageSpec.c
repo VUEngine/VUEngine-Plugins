@@ -227,8 +227,8 @@ StageROMSpec LanguageSelectionScreenStage =
 		// Fonts to preload
 		(FontSpec**)NULL,
 
-		// CharSets to preload
-		(CharSetSpec**)NULL,
+		// TileSets to preload
+		(TileSetSpec**)NULL,
 
 		// Textures to preload
 		(TextureSpec**)NULL,

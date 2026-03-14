@@ -20,7 +20,7 @@
 // CLASS' DECLARATIONS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-friend class CharSet;
+friend class TileSet;
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' MACROS
@@ -45,7 +45,7 @@ void ShaderSprite::constructor(Entity owner, const ShaderSpriteSpec* shaderSprit
 
 	if(!isDeleted(this->texture))
 	{
-		this->charSet = Texture::getCharSet(this->texture, true);
+		this->charSet = Texture::getTileSet(this->texture, true);
 	}
 }
 
@@ -105,7 +105,7 @@ void ShaderSprite::copyBufferTo(uint32* bufferAddress, uint32* destinationAddres
 	(
 		destinationAddress,
 		bufferAddress,
-		__BYTES_PER_CHARS(CharSet::getNumberOfChars(this->charSet)) / sizeof(uint32)
+		__BYTES_PER_CHARS(TileSet::getNumberOfChars(this->charSet)) / sizeof(uint32)
 	);
 }
 
@@ -129,7 +129,7 @@ void ShaderSprite::clear(uint32* destinationAddress)
 	(
 		destinationAddress,
 		(uint32*)(ShaderTiles),
-		__BYTES_PER_CHARS(CharSet::getNumberOfChars(this->charSet)) / sizeof(uint32),
+		__BYTES_PER_CHARS(TileSet::getNumberOfChars(this->charSet)) / sizeof(uint32),
 		0
 	);
 }
@@ -147,7 +147,7 @@ void ShaderSprite::drawRandom(uint32* destinationAddress)
 	(
 		destinationAddress,
 		(uint32*)(ShaderTiles),
-		__BYTES_PER_CHARS(CharSet::getNumberOfChars(this->charSet)) / sizeof(uint32),
+		__BYTES_PER_CHARS(TileSet::getNumberOfChars(this->charSet)) / sizeof(uint32),
 		increment
 	);
 }

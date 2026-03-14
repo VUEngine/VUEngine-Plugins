@@ -22,7 +22,7 @@ extern uint32 FlagCroatiaActorFlagCroatiaTiles[];
 // SPRITES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-CharSetROMSpec FlagCroatiaSprite1CharsetSpec =
+TileSetROMSpec FlagCroatiaSprite1CharsetSpec =
 {
 	// Number of CHARs in function of the number of frames to load at the same time
 	14,
@@ -43,7 +43,7 @@ CharSetROMSpec FlagCroatiaSprite1CharsetSpec =
 TextureROMSpec FlagCroatiaSprite1TextureSpec =
 {
 	// Pointer to the char spec that the texture uses
-	(CharSetSpec*)&FlagCroatiaSprite1CharsetSpec,
+	(TileSetSpec*)&FlagCroatiaSprite1CharsetSpec,
 
 	// Pointer to the map array that defines how to use the tiles from the char set
 	FlagCroatiaActorFlagCroatiaMap,
