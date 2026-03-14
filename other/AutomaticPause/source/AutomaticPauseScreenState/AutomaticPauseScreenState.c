@@ -89,7 +89,7 @@ void AutomaticPauseScreenState::enter(void* owner __attribute__ ((unused)))
 		__PLUGIN_AUTOMATIC_PAUSE_BODY_TEXT_FONT
 	);
 
-	uint8 strHeaderXPos = ((__HALF_SCREEN_WIDTH_IN_CHARS) - (strAutomaticPauseSize.x >> 1));
+	uint8 strHeaderXPos = ((__HALF_SCREEN_WIDTH_IN_TILES) - (strAutomaticPauseSize.x >> 1));
 	
 	Printer::text
 	(
@@ -99,7 +99,7 @@ void AutomaticPauseScreenState::enter(void* owner __attribute__ ((unused)))
 		__PLUGIN_AUTOMATIC_PAUSE_TITLE_TEXT_FONT
 	);
 
-	uint8 strTextXPos = (__HALF_SCREEN_WIDTH_IN_CHARS) - (strAutomaticPauseTextSize.x >> 1);
+	uint8 strTextXPos = (__HALF_SCREEN_WIDTH_IN_TILES) - (strAutomaticPauseTextSize.x >> 1);
 	
 	Printer::text
 	(

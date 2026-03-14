@@ -26,7 +26,7 @@ extern uint32 AlignmentCheckActorAlignmentCheckRightTiles[];
 
 TileSetROMSpec AlignmentCheckSprite1CharsetSpec =
 {
-	// Number of CHARs in function of the number of frames to load at the same time
+	// Number of TILEs in function of the number of frames to load at the same time
 	1,
 
 	// Whether it is shared or not
@@ -116,7 +116,7 @@ BgmapSpriteROMSpec AlignmentCheckSprite1SpriteSpec =
 
 TileSetROMSpec AlignmentCheckSprite2CharsetSpec =
 {
-	// Number of CHARs in function of the number of frames to load at the same time
+	// Number of TILEs in function of the number of frames to load at the same time
 	2,
 
 	// Whether it is shared or not

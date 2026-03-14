@@ -23,7 +23,7 @@ extern uint16 AdjustmentScreenIconActorAdjustmentScreenIconMap[];
 
 TileSetROMSpec AdjustmentScreenIconSprite1CharsetSpec =
 {
-	// Number of CHARs in function of the number of frames to load at the same time
+	// Number of TILEs in function of the number of frames to load at the same time
 	4,
 
 	// Whether it is shared or not

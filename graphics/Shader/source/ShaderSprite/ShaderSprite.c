@@ -26,7 +26,7 @@ friend class TileSet;
 // CLASS' MACROS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#define CHARS_PER_BUFFER (__CHAR_MEMORY_TOTAL_CHARS / 2)
+#define TILES_PER_BUFFER (__TILE_MEMORY_TOTAL_TILES / 2)
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' PUBLIC METHODS
@@ -88,7 +88,7 @@ void ShaderSprite::processEffects(int32 specialEffectsRowsPerFrame)
 		return;
 	}
 
-	ShaderSprite::renderToTexture(this, (uint32*)(__CHAR_SPACE_BASE_ADDRESS + (((uint32)this->charSet->offset) << 4)));
+	ShaderSprite::renderToTexture(this, (uint32*)(__TILE_SPACE_BASE_ADDRESS + (((uint32)this->charSet->offset) << 4)));
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -105,7 +105,7 @@ void ShaderSprite::copyBufferTo(uint32* bufferAddress, uint32* destinationAddres
 	(
 		destinationAddress,
 		bufferAddress,
-		__BYTES_PER_CHARS(TileSet::getNumberOfChars(this->charSet)) / sizeof(uint32)
+		__BYTES_PER_TILES(TileSet::getNumberOfChars(this->charSet)) / sizeof(uint32)
 	);
 }
 
@@ -129,7 +129,7 @@ void ShaderSprite::clear(uint32* destinationAddress)
 	(
 		destinationAddress,
 		(uint32*)(ShaderTiles),
-		__BYTES_PER_CHARS(TileSet::getNumberOfChars(this->charSet)) / sizeof(uint32),
+		__BYTES_PER_TILES(TileSet::getNumberOfChars(this->charSet)) / sizeof(uint32),
 		0
 	);
 }
@@ -147,7 +147,7 @@ void ShaderSprite::drawRandom(uint32* destinationAddress)
 	(
 		destinationAddress,
 		(uint32*)(ShaderTiles),
-		__BYTES_PER_CHARS(TileSet::getNumberOfChars(this->charSet)) / sizeof(uint32),
+		__BYTES_PER_TILES(TileSet::getNumberOfChars(this->charSet)) / sizeof(uint32),
 		increment
 	);
 }
@@ -214,14 +214,14 @@ void ShaderSprite::drawPixel(uint32* bufferAddress, uint16 x, uint16 y, int32 co
 
 //	tile = 0;
 
-//	uint16 newTile[__BYTES_PER_CHARS(1) / sizeof(uint16)] = {0x0F0F, 0, 0, 0x0F0F, 0, 0, 0x0F0F, 0};
-//	uint16 newTile[__BYTES_PER_CHARS(1) / sizeof(uint16)] = {0x0F0F, 0, 0, 0, 0, 0, 0, 0};
-	static uint16 newTile[__BYTES_PER_CHARS(1) / sizeof(uint16)] = {0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF};
+//	uint16 newTile[__BYTES_PER_TILES(1) / sizeof(uint16)] = {0x0F0F, 0, 0, 0x0F0F, 0, 0, 0x0F0F, 0};
+//	uint16 newTile[__BYTES_PER_TILES(1) / sizeof(uint16)] = {0x0F0F, 0, 0, 0, 0, 0, 0, 0};
+	static uint16 newTile[__BYTES_PER_TILES(1) / sizeof(uint16)] = {0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF};
 
 	// TODO: actually render 3D pixels
-//	for(uint16 tileRow = 0; tileRow < __BYTES_PER_CHARS(1) / sizeof(uint16); tileRow++)
+//	for(uint16 tileRow = 0; tileRow < __BYTES_PER_TILES(1) / sizeof(uint16); tileRow++)
 	{
-	//	newTile[tileRow] = *(uint16*)(__CHAR_SPACE_BASE_ADDRESS + ((((uint32)charSet->offset) << 4) + ((tile << 4) + tileRow)));
+	//	newTile[tileRow] = *(uint16*)(__TILE_SPACE_BASE_ADDRESS + ((((uint32)charSet->offset) << 4) + ((tile << 4) + tileRow)));
 	//	newTile[tileRow] = 0x0F0F;
 	}
 
@@ -229,7 +229,7 @@ void ShaderSprite::drawPixel(uint32* bufferAddress, uint16 x, uint16 y, int32 co
 	(
 		(uint32*)(bufferAddress + (tile << 2)),
 		(uint32*)newTile,
-		__BYTES_PER_CHARS(1) / sizeof(uint32)
+		__BYTES_PER_TILES(1) / sizeof(uint32)
 	);
 }
 

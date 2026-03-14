@@ -87,8 +87,8 @@ void PrecautionScreenState::print()
 	(
 		
 		strBody,
-		(__HALF_SCREEN_WIDTH_IN_CHARS) - (textSize.x >> 1),
-		(__HALF_SCREEN_HEIGHT_IN_CHARS) - (textSize.y >> 1),
+		(__HALF_SCREEN_WIDTH_IN_TILES) - (textSize.x >> 1),
+		(__HALF_SCREEN_HEIGHT_IN_TILES) - (textSize.y >> 1),
 		__PLUGIN_PRECAUTION_SCREEN_TEXT_FONT
 	);
 }

@@ -24,7 +24,7 @@ extern uint32 FlagHungaryActorFlagHungaryTiles[];
 
 TileSetROMSpec FlagHungarySprite1CharsetSpec =
 {
-	// Number of CHARs in function of the number of frames to load at the same time
+	// Number of TILEs in function of the number of frames to load at the same time
 	8,
 
 	// Whether it is shared or not

@@ -87,7 +87,7 @@ void AutomaticPauseSelectionScreenState::print()
 			strAutomaticPauseExplanation, __PLUGIN_AUTOMATIC_PAUSE_SELECTION_SCREEN_BODY_TEXT_FONT
 		);
 
-	uint8 strHeaderXPos = (__HALF_SCREEN_WIDTH_IN_CHARS) - (strAutomaticPauseSize.x >> 1);
+	uint8 strHeaderXPos = (__HALF_SCREEN_WIDTH_IN_TILES) - (strAutomaticPauseSize.x >> 1);
 	Printer::text
 	(
 		strAutomaticPauseTitle,
@@ -96,7 +96,7 @@ void AutomaticPauseSelectionScreenState::print()
 		__PLUGIN_AUTOMATIC_PAUSE_SELECTION_SCREEN_TITLE_TEXT_FONT
 	);
 
-	uint8 strExplanationXPos = (__HALF_SCREEN_WIDTH_IN_CHARS) - (strAutomaticPauseExplanationSize.x >> 1);
+	uint8 strExplanationXPos = (__HALF_SCREEN_WIDTH_IN_TILES) - (strAutomaticPauseExplanationSize.x >> 1);
 	Printer::text
 	(
 		strAutomaticPauseExplanation, strExplanationXPos, 9 + strAutomaticPauseSize.y, 

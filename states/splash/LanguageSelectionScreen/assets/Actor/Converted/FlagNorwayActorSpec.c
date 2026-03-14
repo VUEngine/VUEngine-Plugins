@@ -24,7 +24,7 @@ extern uint32 FlagNorwayActorFlagNorwayTiles[];
 
 TileSetROMSpec FlagNorwaySprite1CharsetSpec =
 {
-	// Number of CHARs in function of the number of frames to load at the same time
+	// Number of TILEs in function of the number of frames to load at the same time
 	6,
 
 	// Whether it is shared or not

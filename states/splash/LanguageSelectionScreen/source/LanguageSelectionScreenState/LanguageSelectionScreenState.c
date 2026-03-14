@@ -78,7 +78,7 @@ void LanguageSelectionScreenState::enter(void* owner)
 		delete languageNames;
 
 		// Print options
-		OptionsSelector::print(this->languageSelector, (__HALF_SCREEN_WIDTH_IN_CHARS) - (optionsWidth >> 1), 10, kOptionsAlignLeft, 0);
+		OptionsSelector::print(this->languageSelector, (__HALF_SCREEN_WIDTH_IN_TILES) - (optionsWidth >> 1), 10, kOptionsAlignLeft, 0);
 		OptionsSelector::setSelectedOption(this->languageSelector, activeLanguage);
 
 		LanguageSelectionScreenState::printSelection(this);
@@ -133,7 +133,7 @@ void LanguageSelectionScreenState::print()
 
 		// Print header
 		FontSize strHeaderSize = Printer::getTextSize(strTitle, __PLUGIN_LANGUAGE_SELECTION_SCREEN_TITLE_TEXT_FONT);
-		uint8 strHeaderXPos = (__HALF_SCREEN_WIDTH_IN_CHARS) - (strHeaderSize.x >> 1);
+		uint8 strHeaderXPos = (__HALF_SCREEN_WIDTH_IN_TILES) - (strHeaderSize.x >> 1);
 		uint8 strHeaderYPos = 9 - strHeaderSize.y;
 		Printer::text("                                                ", 0, strHeaderYPos, __PLUGIN_LANGUAGE_SELECTION_SCREEN_TITLE_TEXT_FONT);
 		Printer::text(strTitle, strHeaderXPos, strHeaderYPos, __PLUGIN_LANGUAGE_SELECTION_SCREEN_TITLE_TEXT_FONT);
@@ -143,7 +143,7 @@ void LanguageSelectionScreenState::print()
 
 		// Print header
 		FontSize strHeaderSize = Printer::getTextSize(strTitle, __PLUGIN_LANGUAGE_SELECTION_SCREEN_TITLE_TEXT_FONT);
-		uint8 strHeaderXPos = (__HALF_SCREEN_WIDTH_IN_CHARS) - (strHeaderSize.x >> 1);
+		uint8 strHeaderXPos = (__HALF_SCREEN_WIDTH_IN_TILES) - (strHeaderSize.x >> 1);
 		uint8 strHeaderYPos = 11 - strHeaderSize.y;
 		Printer::text("                                                ", 0, strHeaderYPos, __PLUGIN_LANGUAGE_SELECTION_SCREEN_TITLE_TEXT_FONT);
 		Printer::text(strTitle, strHeaderXPos, strHeaderYPos, __PLUGIN_LANGUAGE_SELECTION_SCREEN_TITLE_TEXT_FONT);
@@ -151,7 +151,7 @@ void LanguageSelectionScreenState::print()
 		// Print language
 		char* strLanguageName = I18n::getActiveLanguageName(I18n::getInstance());
 		FontSize strLanguageNameSize = Printer::getTextSize(strLanguageName, __PLUGIN_LANGUAGE_SELECTION_SCREEN_LANGUAGE_NAME_FONT);
-		int32 strLanguageNameXPos = (__HALF_SCREEN_WIDTH_IN_CHARS) - (strLanguageNameSize.x >> 1);
+		int32 strLanguageNameXPos = (__HALF_SCREEN_WIDTH_IN_TILES) - (strLanguageNameSize.x >> 1);
 		int32 strLanguageNameYPos = ((LanguageSelectionScreenState::getFlagYPosition(this) + __PLUGIN_LANGUAGE_SELECTION_SCREEN_IMAGE_HEIGHT) >> 3) - 1;
 		Printer::text("                                                ", 0, strLanguageNameYPos, __PLUGIN_LANGUAGE_SELECTION_SCREEN_LANGUAGE_NAME_FONT);
 		Printer::text(strLanguageName, strLanguageNameXPos, strLanguageNameYPos, __PLUGIN_LANGUAGE_SELECTION_SCREEN_LANGUAGE_NAME_FONT);
