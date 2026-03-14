@@ -74,7 +74,7 @@ AnimationFunctionROMSpec* LowPowerIndicatorAnimationSpecs[] =
 // SPRITES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-TileSetROMSpec LowPowerIndicatorSprite1CharsetSpec =
+TileSetROMSpec LowPowerIndicatorSprite1TileSetSpec =
 {
 	// Number of TILEs in function of the number of frames to load at the same time
 	2,
@@ -95,7 +95,7 @@ TileSetROMSpec LowPowerIndicatorSprite1CharsetSpec =
 TextureROMSpec LowPowerIndicatorSprite1TextureSpec =
 {
 	// Pointer to the char spec that the texture uses
-	(TileSetSpec*)&LowPowerIndicatorSprite1CharsetSpec,
+	(TileSetSpec*)&LowPowerIndicatorSprite1TileSetSpec,
 
 	// Pointer to the map array that defines how to use the tiles from the char set
 	LowPowerIndicatorActorLowPowerIndicatorMap,

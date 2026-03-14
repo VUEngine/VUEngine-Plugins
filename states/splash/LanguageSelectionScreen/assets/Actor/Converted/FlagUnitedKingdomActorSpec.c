@@ -22,7 +22,7 @@ extern uint32 FlagUnitedKingdomActorFlagUnitedKingdomTiles[];
 // SPRITES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-TileSetROMSpec FlagUnitedKingdomSprite1CharsetSpec =
+TileSetROMSpec FlagUnitedKingdomSprite1TileSetSpec =
 {
 	// Number of TILEs in function of the number of frames to load at the same time
 	10,
@@ -43,7 +43,7 @@ TileSetROMSpec FlagUnitedKingdomSprite1CharsetSpec =
 TextureROMSpec FlagUnitedKingdomSprite1TextureSpec =
 {
 	// Pointer to the char spec that the texture uses
-	(TileSetSpec*)&FlagUnitedKingdomSprite1CharsetSpec,
+	(TileSetSpec*)&FlagUnitedKingdomSprite1TileSetSpec,
 
 	// Pointer to the map array that defines how to use the tiles from the char set
 	FlagUnitedKingdomActorFlagUnitedKingdomMap,

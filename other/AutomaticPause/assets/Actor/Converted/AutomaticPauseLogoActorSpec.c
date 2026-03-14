@@ -22,7 +22,7 @@ extern uint32 AutomaticPauseLogoActorAutomaticPauseLogoTiles[];
 // SPRITES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-TileSetROMSpec AutomaticPauseLogoSprite1CharsetSpec =
+TileSetROMSpec AutomaticPauseLogoSprite1TileSetSpec =
 {
 	// Number of TILEs in function of the number of frames to load at the same time
 	76,
@@ -43,7 +43,7 @@ TileSetROMSpec AutomaticPauseLogoSprite1CharsetSpec =
 TextureROMSpec AutomaticPauseLogoSprite1TextureSpec =
 {
 	// Pointer to the char spec that the texture uses
-	(TileSetSpec*)&AutomaticPauseLogoSprite1CharsetSpec,
+	(TileSetSpec*)&AutomaticPauseLogoSprite1TileSetSpec,
 
 	// Pointer to the map array that defines how to use the tiles from the char set
 	AutomaticPauseLogoActorAutomaticPauseLogoMap,
