@@ -134,6 +134,11 @@ bool SaveDataManager::verifyChecksum()
 
 void SaveDataManager::initialize()
 {
+	if(this->sramAvailable)
+	{
+		return;
+	}
+	
 	// First check if save data is from this game
 	// (we have to do this before even checking for SRAM's existence because save stamp serves two
 	// Purposes: marking a save as being from a certain game as well as checking for SRAM existence.
