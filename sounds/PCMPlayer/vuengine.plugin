@@ -1,0 +1,19 @@
+{
+    "_version": "0.6.0",
+    "author": "Team VUEngine",
+    "configuration": [],
+    "dependencies": [],
+    "description": {
+        "en": "Plays PCM sounds on the Virtual Boy"
+    },
+    "displayName": {
+        "en": "PCM Player"
+    },
+    "license": "MIT",
+    "repository": "https://github.com/VUEngine/VUEngine-Plugins/tree/master/sounds/PCMPlayer",
+    "tags": [
+        {
+            "en": "Sound"
+        }
+    ]
+}
