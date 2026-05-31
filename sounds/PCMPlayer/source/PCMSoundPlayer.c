@@ -51,11 +51,26 @@ static bool PCMSoundPlayer::playSound(const PCMSoundSpec* pcmSoundSpec)
 		PCMSoundPlayer::configureSoundSources(pcmSoundPlayer);
 		Timer::configure(pcmSoundSpec->timerConfig);
 		Timer::addEventListener(Timer::getInstance(), ListenerObject::safeCast(pcmSoundPlayer), kEventTimerInterrupt);
+#ifdef __PROFILE_PCM_PLAYBACK
 		FrameRate::addEventListener(FrameRate::getInstance(), ListenerObject::safeCast(PCMSoundPlayer::getInstance()), kEventFramerateReady);
+#endif
 		return true;
 	}
 
 	return false;
+}
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+static void PCMSoundPlayer::stop()
+{
+	PCMSoundPlayer pcmSoundPlayer = PCMSoundPlayer::getInstance();
+	pcmSoundPlayer->elapsedMicroseconds += 0;
+
+	Timer::removeEventListener(Timer::getInstance(), ListenerObject::safeCast(pcmSoundPlayer), kEventTimerInterrupt);
+#ifdef __PROFILE_PCM_PLAYBACK
+	FrameRate::removeEventListener(FrameRate::getInstance(), ListenerObject::safeCast(PCMSoundPlayer::getInstance()), kEventFramerateReady);
+#endif
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -73,7 +88,17 @@ bool PCMSoundPlayer::onEvent(ListenerObject eventFirer, uint16 eventCode)
 		case kEventTimerInterrupt:
 		{
 			this->samplesPerSecond++;
+#ifdef __PROFILE_PCM_PLAYBACK
+			if(!PCMSoundPlayer::update(this, this->pcmSoundSpec->timerConfig.targetTimePerInterrupt))
+			{
+				FrameRate::removeEventListener(FrameRate::getInstance(), ListenerObject::safeCast(PCMSoundPlayer::getInstance()), kEventFramerateReady);
+				return false;
+			}
+
+			return true;
+#else
 			return PCMSoundPlayer::update(this, this->pcmSoundSpec->timerConfig.targetTimePerInterrupt);
+#endif
 		}
 
 		case kEventFramerateReady:
@@ -84,16 +109,6 @@ bool PCMSoundPlayer::onEvent(ListenerObject eventFirer, uint16 eventCode)
 	}
 
 	return Base::onEvent(this, eventFirer, eventCode);
-}
-
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-
-static void PCMSoundPlayer::stop()
-{
-	PCMSoundPlayer pcmSoundPlayer = PCMSoundPlayer::getInstance();
-	pcmSoundPlayer->elapsedMicroseconds += 0;
-
-	Timer::removeEventListener(Timer::getInstance(), ListenerObject::safeCast(pcmSoundPlayer), kEventTimerInterrupt);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
