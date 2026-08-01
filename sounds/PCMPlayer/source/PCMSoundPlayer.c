@@ -13,6 +13,7 @@
 
 #include <FrameRate.h>
 #include <Platform.h>
+#include <Printer.h>
 #include <Singleton.h>
 #include <SoundUnit.h>
 #include <WaveForms.h>
