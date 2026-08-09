@@ -64,7 +64,7 @@ bool SaveDataManager::verifySaveStamp()
 	char saveStamp[__PLUGIN_SAVE_DATA_MANAGER_SAVE_STAMP_LENGTH];
 
 	// Read save stamp
-	SRAM::read((uint8*)&saveStamp, offsetof(struct SaveData, saveStamp), sizeof(saveStamp));
+	SRAM::read((uint8*)&saveStamp, offsetof(struct SaveData, saveStamp), sizeof(saveStamp), false);
 
 	return !strncmp(saveStamp, __PLUGIN_SAVE_DATA_MANAGER_SAVE_STAMP, __PLUGIN_SAVE_DATA_MANAGER_SAVE_STAMP_LENGTH);
 }
@@ -101,7 +101,7 @@ uint32 SaveDataManager::computeChecksum()
 	{
 		// Get the current byte
 		uint32 currentValue = 0;
-		SRAM::read((uint8*)&currentValue, i, sizeof(currentValue));
+		SRAM::read((uint8*)&currentValue, i, sizeof(currentValue), false);
 
 		crc32 += currentValue ^ __PLUGIN_SAVE_DATA_MANAGER_CRC_MASK;
 	}
@@ -127,7 +127,7 @@ bool SaveDataManager::verifyChecksum()
 {
 	uint32 computedChecksum = SaveDataManager::computeChecksum(this);
 	uint32 savedChecksum = 0;
-	SRAM::read((uint8*)&savedChecksum, offsetof(struct SaveData, checksum), sizeof(savedChecksum));
+	SRAM::read((uint8*)&savedChecksum, offsetof(struct SaveData, checksum), sizeof(savedChecksum), false);
 
 	return (computedChecksum == savedChecksum);
 }
@@ -177,7 +177,7 @@ void SaveDataManager::getValue(uint8* destination, int32 memberOffset, int32 dat
 {
 	if(this->sramAvailable)
 	{
-		SRAM::read(destination, memberOffset, dataSize);
+		SRAM::read(destination, memberOffset, dataSize, false);
 	}
 }
 
