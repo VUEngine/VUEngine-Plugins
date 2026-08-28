@@ -176,26 +176,26 @@ ComponentSpec* const LowPowerIndicatorComponentSpecs[] =
 LowPowerActorROMSpec LowPowerIndicatorActorSpec =
 {
 	{
-	// Class allocator
-	__TYPE(LowPowerActor),
+		// Class allocator
+		__TYPE(LowPowerActor),
 
-	// Component specs
-	(ComponentSpec**)LowPowerIndicatorComponentSpecs,
+		// Component specs
+		(ComponentSpec**)LowPowerIndicatorComponentSpecs,
 
-	// Children specs
-	NULL,
+		// Children specs
+		NULL,
 
-	// Extra info
-	NULL,
+		// Extra info
+		NULL,
 
-	// Size
-	// If 0, it is computed from the visual components if any
-	{0, 0, 0},
+		// Size
+		// If 0, it is computed from the visual components if any
+		{0, 0, 0},
 
-	// Actor's in-game type
-	kTypeNone,
+		// Actor's in-game type
+		kTypeNone,
 
-	// Animation to play automatically
-	"Hide"
+		// Animation to play automatically
+		"Hide"
 	},
 };
