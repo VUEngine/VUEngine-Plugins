@@ -21,6 +21,13 @@
 #include "PCMSoundPlayer.h"
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+// CLASS' MACROS
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+#define AUDIO_INTERRUPT_FIXED_OVERHEAD_US			15.0f
+#define AUDIO_INTERRUPT_VARIABLE_OVERHEAD_SCALE		0.2f
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' ATTRIBUTES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
@@ -44,10 +51,17 @@ static bool PCMSoundPlayer::playSound(const PCMSoundSpec* pcmSoundSpec)
 	if(NULL != pcmSoundSpec)
 	{
 		SoundUnit::stopAllSounds();
+
+		float overhead = 
+			AUDIO_INTERRUPT_FIXED_OVERHEAD_US + 
+			(AUDIO_INTERRUPT_VARIABLE_OVERHEAD_SCALE * pcmSoundSpec->timerConfig.targetTimePerInterrupt);
+
+		uint16 adjustedTimePerInterrupt = pcmSoundSpec->timerConfig.targetTimePerInterrupt - overhead;
 		
 		pcmSoundPlayer->pcmSoundSpec = pcmSoundSpec;
-		pcmSoundPlayer->elapsedMicroseconds = 0;
 		pcmSoundPlayer->samplesPerSecond = 0;
+		pcmSoundPlayer->step = __F_TO_FIX7_9_EXT(10 * adjustedTimePerInterrupt * (float)pcmSoundSpec->targetPCMUpdates / __MICROSECONDS_PER_SECOND);
+		pcmSoundPlayer->cursor = 0;
 
 		PCMSoundPlayer::configureSoundSources(pcmSoundPlayer);
 #ifdef __RELEASE
@@ -68,7 +82,7 @@ static bool PCMSoundPlayer::playSound(const PCMSoundSpec* pcmSoundSpec)
 static void PCMSoundPlayer::stop()
 {
 	PCMSoundPlayer pcmSoundPlayer = PCMSoundPlayer::getInstance();
-	pcmSoundPlayer->elapsedMicroseconds += 0;
+	pcmSoundPlayer->cursor = 0;
 
 	Timer::removeEventListener(Timer::getInstance(), ListenerObject::safeCast(pcmSoundPlayer), kEventTimerInterrupt);
 #ifdef __PROFILE_PCM_PLAYBACK
@@ -92,7 +106,7 @@ bool PCMSoundPlayer::onEvent(ListenerObject eventFirer, uint16 eventCode)
 		{
 			this->samplesPerSecond++;
 #ifdef __PROFILE_PCM_PLAYBACK
-			if(!PCMSoundPlayer::update(this, this->pcmSoundSpec->timerConfig.targetTimePerInterrupt))
+			if(!PCMSoundPlayer::update(this))
 			{
 				FrameRate::removeEventListener(FrameRate::getInstance(), ListenerObject::safeCast(PCMSoundPlayer::getInstance()), kEventFramerateReady);
 				return false;
@@ -100,7 +114,7 @@ bool PCMSoundPlayer::onEvent(ListenerObject eventFirer, uint16 eventCode)
 
 			return true;
 #else
-			return PCMSoundPlayer::update(this, this->pcmSoundSpec->timerConfig.targetTimePerInterrupt);
+			return PCMSoundPlayer::update(this);
 #endif
 		}
 
@@ -142,7 +156,7 @@ void PCMSoundPlayer::destructor()
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-bool PCMSoundPlayer::update(uint32 elapsedMicroseconds)
+bool PCMSoundPlayer::update()
 {
 	if(NULL == this->pcmSoundSpec)
 	{
@@ -151,35 +165,47 @@ bool PCMSoundPlayer::update(uint32 elapsedMicroseconds)
 	
 	CACHE_ENABLE;
 
-	this->elapsedMicroseconds += elapsedMicroseconds;
-	uint32 cursor = this->elapsedMicroseconds / this->pcmSoundSpec->targetPCMUpdates;
+	uint32 cursor = __FIX7_9_EXT_TO_I(this->cursor);
+
+	if(cursor >= this->pcmSoundSpec->samples)
+	{
+		if(this->pcmSoundSpec->loop)
+		{
+			this->cursor = 0;
+			cursor = 0;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	this->cursor += this->step;
+
 	int8 sample = this->pcmSoundSpec->SxLRV[cursor];
 	int16 vsuSoundSourceIndex = 0;
-	
-	while(true)
+
+	do	
 	{
 		if(__MAXIMUM_VOLUME <= sample)
 		{
 			_soundSources[vsuSoundSourceIndex].SxLRV = 0xFF;
 			sample -= __MAXIMUM_VOLUME;
 		}
-		else
+		else if(0 < sample)
 		{
 			_soundSources[vsuSoundSourceIndex].SxLRV = ((sample << 4) | sample);
-			break;
+		}
+		else
+		{
+			_soundSources[vsuSoundSourceIndex].SxLRV = 0;
 		}
 
-		vsuSoundSourceIndex++;
-	}
+	} while(++vsuSoundSourceIndex < __TOTAL_POTENTIAL_NORMAL_CHANNELS);
 
 	CACHE_DISABLE;
 
-	if(this->pcmSoundSpec->loop && cursor >= this->pcmSoundSpec->samples)
-	{
-		this->elapsedMicroseconds += 0;
-	}
-
-	return cursor < this->pcmSoundSpec->samples;
+	return true;
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -228,7 +254,7 @@ void PCMSoundPlayer::printStats(int x, int y)
 //	PRINT_TEXT("TIMER STATUS", x, y++);
 	PRINT_TEXT("Inter./sec.:          ", x, y);
 	PRINT_INT(this->samplesPerSecond, x + 17, y);
-	PRINT_INT(this->elapsedMicroseconds, x + 27, y);
+	PRINT_INT(this->cursor, x + 27, y);
 
 	this->samplesPerSecond = 0;
 }

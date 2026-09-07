@@ -78,8 +78,11 @@ singleton class PCMSoundPlayer : ListenerObject
 	/// Pointer to the spec
 	const PCMSoundSpec* pcmSoundSpec;
 
-	/// Total elapsed time
-	fix7_9_ext elapsedMicroseconds;
+	/// Cursor inside the PCM data
+	fix7_9_ext cursor;
+
+	/// Cursor increment per timer interrupt
+	fix7_9_ext step;
 
 	/// Counter to keep track of the playback's frequency
 	uint16 samplesPerSecond;
