@@ -219,6 +219,14 @@ void PCMSoundPlayer::configureSoundSources()
 {
 	__SSTOP = 0x01;
 
+	uint8* wave = (uint8*)__WAVE_ADDRESS(0);
+
+	// Set the wave data
+	for(uint32 i = 0; i < 32; i++)
+	{
+		wave[(i << 2)] = 63;
+	}
+
 	for(int16 i = 0; i < __TOTAL_SOUND_SOURCES; i++)
 	{
 		_soundSources[i].SxLRV = 0;
@@ -241,14 +249,6 @@ void PCMSoundPlayer::configureSoundSources()
 		_soundSources[i].SxRAM = 0;
 		_soundSources[i].SxSWP = 0;
 		_soundSources[i].SxINT = 0x80;
-	}
-
-	uint8* wave = (uint8*)__WAVE_ADDRESS(0);
-
-	// Set the wave data
-	for(uint32 i = 0; i < 32; i++)
-	{
-		wave[(i << 2)] = 63;
 	}
 }
 
