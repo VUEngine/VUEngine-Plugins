@@ -189,7 +189,7 @@ bool PCMSoundPlayer::update()
 		sample = __TOTAL_POTENTIAL_NORMAL_CHANNELS * __MAXIMUM_VOLUME - 1;
 	}
 
-	do	
+	do
 	{
 		if(__MAXIMUM_VOLUME <= sample)
 		{
@@ -207,21 +207,6 @@ bool PCMSoundPlayer::update()
 		sample -= __MAXIMUM_VOLUME;
 
 	} while(++vsuSoundSourceIndex < __TOTAL_POTENTIAL_NORMAL_CHANNELS);
-
-/*
-	while(__MAXIMUM_VOLUME < sample)
-	{
-		sample -= __MAXIMUM_VOLUME;
-	}
-
-	sample = ((sample << 4) | sample);
-
-	do	
-	{
-		_soundSources[vsuSoundSourceIndex].SxLRV = sample;
-
-	} while(++vsuSoundSourceIndex < __TOTAL_POTENTIAL_NORMAL_CHANNELS);
-*/
 
 	CACHE_DISABLE;
 
