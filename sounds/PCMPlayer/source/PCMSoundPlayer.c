@@ -21,17 +21,21 @@
 #include "PCMSoundPlayer.h"
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-// CLASS' MACROS
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-
-#define AUDIO_INTERRUPT_OVERHEAD_BASE_US			4.0f
-#define AUDIO_INTERRUPT_OVERHEAD_FACTOR				20.0f
-
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' ATTRIBUTES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
+/// Pointer to the hardware's sound registers
 static SoundSource* _soundSources = (SoundSource*)__SOUND_SOURCES_ADRESS;
+
+/// Pointer to the spec
+static const PCMSoundSpec* _pcmSoundSpec = NULL;
+
+/// Elapsed time during playback
+static uint32 _elapsedMicroseconds = 0;
+
+/// Counter to keep track of the playback's frequency
+static uint16 _samplesPerSecond = 0;
+
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' PUBLIC STATIC METHODS
@@ -43,7 +47,7 @@ static bool PCMSoundPlayer::playSound(const PCMSoundSpec* pcmSoundSpec)
 {
 	PCMSoundPlayer pcmSoundPlayer = PCMSoundPlayer::getInstance();
 
-	if(pcmSoundPlayer->lock || NULL == pcmSoundSpec)
+	if(NULL == pcmSoundSpec)
 	{
 		return false;
 	}
@@ -52,16 +56,11 @@ static bool PCMSoundPlayer::playSound(const PCMSoundSpec* pcmSoundSpec)
 	{
 		SoundUnit::stopAllSounds();
 
-		float overhead = AUDIO_INTERRUPT_OVERHEAD_FACTOR / pcmSoundSpec->timerConfig.targetTimePerInterrupt;
+		_pcmSoundSpec = pcmSoundSpec;
+		_samplesPerSecond = 0;
+		_elapsedMicroseconds = 0;
 
-		uint16 adjustedTimePerInterrupt = pcmSoundSpec->timerConfig.targetTimePerInterrupt + AUDIO_INTERRUPT_OVERHEAD_BASE_US / overhead;
-		
-		pcmSoundPlayer->pcmSoundSpec = pcmSoundSpec;
-		pcmSoundPlayer->samplesPerSecond = 0;
-		pcmSoundPlayer->step = __F_TO_FIX7_9_EXT(adjustedTimePerInterrupt * (float)pcmSoundSpec->targetPCMUpdates / __MICROSECONDS_PER_SECOND);
-		pcmSoundPlayer->cursor = 0;
-
-		PCMSoundPlayer::configureSoundSources(pcmSoundPlayer);
+		PCMSoundPlayer::configureSoundSources();
 #ifdef __RELEASE
 		Timer::configure(pcmSoundSpec->timerConfig);
 #endif
@@ -83,8 +82,8 @@ static bool PCMSoundPlayer::playSound(const PCMSoundSpec* pcmSoundSpec)
 
 static void PCMSoundPlayer::stop()
 {
+	_elapsedMicroseconds = 0;
 	PCMSoundPlayer pcmSoundPlayer = PCMSoundPlayer::getInstance();
-	pcmSoundPlayer->cursor = 0;
 
 	Timer::removeEventListener(Timer::getInstance(), ListenerObject::safeCast(pcmSoundPlayer), kEventTimerInterrupt);
 #ifdef __PROFILE_PCM_PLAYBACK
@@ -106,9 +105,9 @@ bool PCMSoundPlayer::onEvent(ListenerObject eventFirer, uint16 eventCode)
 	{
 		case kEventTimerInterrupt:
 		{
-			this->samplesPerSecond++;
+			_samplesPerSecond++;
 #ifdef __PROFILE_PCM_PLAYBACK
-			if(!PCMSoundPlayer::update(this))
+			if(!PCMSoundPlayer::update())
 			{
 				FrameRate::removeEventListener(FrameRate::getInstance(), ListenerObject::safeCast(PCMSoundPlayer::getInstance()), kEventFramerateReady);
 				return false;
@@ -116,13 +115,13 @@ bool PCMSoundPlayer::onEvent(ListenerObject eventFirer, uint16 eventCode)
 
 			return true;
 #else
-			return PCMSoundPlayer::update(this);
+			return PCMSoundPlayer::update();
 #endif
 		}
 
 		case kEventFramerateReady:
 		{
-			PCMSoundPlayer::printStats(this, 1, 0);
+			PCMSoundPlayer::printStats(1, 0);
 			return true;
 		}
 	}
@@ -133,35 +132,17 @@ bool PCMSoundPlayer::onEvent(ListenerObject eventFirer, uint16 eventCode)
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-// CLASS' PRIVATE METHODS
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+// CLASS' PRIVATE STATIC METHODS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void PCMSoundPlayer::constructor()
-{
-	// Always explicitly call the base's constructor 
-	Base::constructor();
-
-	this->pcmSoundSpec = NULL;
-	this->lock = false;
-	this->samplesPerSecond = 0;
-}
-
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-
-void PCMSoundPlayer::destructor()
-{
-	// Always explicitly call the base's destructor 
-	Base::destructor();
-}
-
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-
-bool PCMSoundPlayer::update()
+static bool PCMSoundPlayer::update()
 {
 #ifndef __RELEASE
-	if(NULL == this->pcmSoundSpec)
+	if(NULL == _pcmSoundSpec)
 	{
 		return false;
 	}
@@ -169,13 +150,15 @@ bool PCMSoundPlayer::update()
 	
 	CACHE_ENABLE;
 
-	uint32 cursor = __FIX7_9_EXT_TO_I(this->cursor);
+	_elapsedMicroseconds += Timer::getMicrosecondsPerInterrupt();
 
-	if(cursor >= this->pcmSoundSpec->samples)
+ 	uint32 cursor = _elapsedMicroseconds / _pcmSoundSpec->targetPCMUpdates;
+
+	if(cursor >= _pcmSoundSpec->samples)
 	{
-		if(this->pcmSoundSpec->loop)
+		if(_pcmSoundSpec->loop)
 		{
-			this->cursor = 0;
+			_elapsedMicroseconds = 0;
 			cursor = 0;
 		}
 		else
@@ -184,9 +167,7 @@ bool PCMSoundPlayer::update()
 		}
 	}
 
-	this->cursor += this->step;
-
-	int8 sample = this->pcmSoundSpec->SxLRV[cursor];
+	int8 sample = _pcmSoundSpec->SxLRV[cursor];
 	int16 vsuSoundSourceIndex = 0;
 
 #ifndef __RELEASE
@@ -226,7 +207,7 @@ bool PCMSoundPlayer::update()
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void PCMSoundPlayer::configureSoundSources()
+static void PCMSoundPlayer::configureSoundSources()
 {
 	__SSTOP = 0x01;
 
@@ -265,14 +246,36 @@ void PCMSoundPlayer::configureSoundSources()
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void PCMSoundPlayer::printStats(int x, int y)
+static void PCMSoundPlayer::printStats(int x, int y)
 {
 //	PRINT_TEXT("TIMER STATUS", x, y++);
 	PRINT_TEXT("Inter./sec.:          ", x, y);
-	PRINT_INT(this->samplesPerSecond, x + 17, y);
-	PRINT_INT(this->cursor, x + 27, y);
+	PRINT_INT(_samplesPerSecond, x + 17, y);
+	PRINT_INT(_elapsedMicroseconds, x + 27, y);
 
-	this->samplesPerSecond = 0;
+	_samplesPerSecond = 0;
+}
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+// CLASS' PRIVATE METHODS
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+void PCMSoundPlayer::constructor()
+{
+	// Always explicitly call the base's constructor 
+	Base::constructor();
+}
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+void PCMSoundPlayer::destructor()
+{
+	// Always explicitly call the base's destructor 
+	Base::destructor();
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

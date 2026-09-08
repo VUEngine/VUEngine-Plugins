@@ -73,23 +73,6 @@ typedef const PCMSoundSpec PCMSoundROMSpec;
 /// Plays PCM Data.
 singleton class PCMSoundPlayer : ListenerObject
 {
-	/// @protectedsection
-
-	/// Pointer to the spec
-	const PCMSoundSpec* pcmSoundSpec;
-
-	/// Cursor inside the PCM data
-	fix7_9_ext cursor;
-
-	/// Cursor increment per timer interrupt
-	fix7_9_ext step;
-
-	/// Counter to keep track of the playback's frequency
-	uint16 samplesPerSecond;
-
-	/// If raised, no petitions to play a sound are processed
-	bool lock;
-
 	/// @publicsection
 
 	/// Play a sound defined by the provided spec.
