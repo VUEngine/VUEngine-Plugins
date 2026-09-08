@@ -24,8 +24,8 @@
 // CLASS' MACROS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#define AUDIO_INTERRUPT_FIXED_OVERHEAD_US			15.0f
-#define AUDIO_INTERRUPT_VARIABLE_OVERHEAD_SCALE		0.2f
+#define AUDIO_INTERRUPT_OVERHEAD_BASE_US			11.0f
+#define AUDIO_INTERRUPT_OVERHEAD_FACTOR				100.0f
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' ATTRIBUTES
@@ -52,15 +52,14 @@ static bool PCMSoundPlayer::playSound(const PCMSoundSpec* pcmSoundSpec)
 	{
 		SoundUnit::stopAllSounds();
 
-		float overhead = 
-			AUDIO_INTERRUPT_FIXED_OVERHEAD_US + 
-			(AUDIO_INTERRUPT_VARIABLE_OVERHEAD_SCALE * pcmSoundSpec->timerConfig.targetTimePerInterrupt);
+		float overhead = AUDIO_INTERRUPT_OVERHEAD_FACTOR / pcmSoundSpec->timerConfig.targetTimePerInterrupt;
+		overhead = overhead * overhead;
 
-		uint16 adjustedTimePerInterrupt = pcmSoundSpec->timerConfig.targetTimePerInterrupt - overhead;
+		uint16 adjustedTimePerInterrupt = pcmSoundSpec->timerConfig.targetTimePerInterrupt + AUDIO_INTERRUPT_OVERHEAD_BASE_US / overhead;
 		
 		pcmSoundPlayer->pcmSoundSpec = pcmSoundSpec;
 		pcmSoundPlayer->samplesPerSecond = 0;
-		pcmSoundPlayer->step = __F_TO_FIX7_9_EXT(10 * adjustedTimePerInterrupt * (float)pcmSoundSpec->targetPCMUpdates / __MICROSECONDS_PER_SECOND);
+		pcmSoundPlayer->step = __F_TO_FIX7_9_EXT(adjustedTimePerInterrupt * (float)pcmSoundSpec->targetPCMUpdates / __MICROSECONDS_PER_SECOND);
 		pcmSoundPlayer->cursor = 0;
 
 		PCMSoundPlayer::configureSoundSources(pcmSoundPlayer);
@@ -189,7 +188,7 @@ bool PCMSoundPlayer::update()
 	{
 		sample = __TOTAL_POTENTIAL_NORMAL_CHANNELS * __MAXIMUM_VOLUME - 1;
 	}
-	
+
 	do	
 	{
 		if(__MAXIMUM_VOLUME <= sample)
@@ -208,6 +207,21 @@ bool PCMSoundPlayer::update()
 		sample -= __MAXIMUM_VOLUME;
 
 	} while(++vsuSoundSourceIndex < __TOTAL_POTENTIAL_NORMAL_CHANNELS);
+
+/*
+	while(__MAXIMUM_VOLUME < sample)
+	{
+		sample -= __MAXIMUM_VOLUME;
+	}
+
+	sample = ((sample << 4) | sample);
+
+	do	
+	{
+		_soundSources[vsuSoundSourceIndex].SxLRV = sample;
+
+	} while(++vsuSoundSourceIndex < __TOTAL_POTENTIAL_NORMAL_CHANNELS);
+*/
 
 	CACHE_DISABLE;
 
