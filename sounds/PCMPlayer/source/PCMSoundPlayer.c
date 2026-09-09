@@ -69,9 +69,6 @@ static bool PCMSoundPlayer::playSound(const PCMSoundSpec* pcmSoundSpec)
 		FrameRate::addEventListener(FrameRate::getInstance(), ListenerObject::safeCast(PCMSoundPlayer::getInstance()), kEventFramerateReady);
 #endif
 
-		CACHE_DISABLE;
-		CACHE_CLEAR;
-
 		return true;
 	}
 
@@ -147,8 +144,6 @@ static bool PCMSoundPlayer::update()
 		return false;
 	}
 #endif
-	
-	CACHE_ENABLE;
 
 	_elapsedMicroseconds += Timer::getMicrosecondsPerInterrupt();
 
@@ -199,8 +194,6 @@ static bool PCMSoundPlayer::update()
 		sample -= __MAXIMUM_VOLUME;
 
 	} while(++vsuSoundSourceIndex < __TOTAL_POTENTIAL_NORMAL_CHANNELS);
-
-	CACHE_DISABLE;
 
 	return true;
 }
