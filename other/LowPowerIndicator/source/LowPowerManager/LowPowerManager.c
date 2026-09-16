@@ -117,10 +117,7 @@ void LowPowerManager::setActive(bool active)
 	}
 	else
 	{
-		Keypad::removeEventListener
-		(
-			Keypad::getInstance(), ListenerObject::safeCast(this), kEventKeypadRaisedPowerFlag
-		);
+		Keypad::removeEventListener(Keypad::getInstance(), ListenerObject::safeCast(this), kEventKeypadRaisedPowerFlag);
 
 		if(!isDeleted(this->clock))
 		{
