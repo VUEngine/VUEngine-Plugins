@@ -61,9 +61,7 @@ static bool PCMSoundPlayer::playSound(const PCMSoundSpec* pcmSoundSpec)
 		_elapsedMicroseconds = 0;
 
 		PCMSoundPlayer::configureSoundSources();
-#ifdef __RELEASE
 		Timer::configure(pcmSoundSpec->timerConfig);
-#endif
 		Timer::addEventListener(Timer::getInstance(), ListenerObject::safeCast(pcmSoundPlayer), kEventTimerInterrupt);
 #ifdef __PROFILE_PCM_PLAYBACK
 		FrameRate::addEventListener(FrameRate::getInstance(), ListenerObject::safeCast(PCMSoundPlayer::getInstance()), kEventFramerateReady);
