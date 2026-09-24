@@ -111,7 +111,7 @@ bool PCMSoundPlayer::onEvent(ListenerObject eventFirer, uint16 eventCode)
 		case kEventTimerInterrupt:
 		{
 			_samplesPerSecond++;
-			bool playing = PCMSoundPlayer::update();
+			bool playing = PCMSoundPlayer::update(Timer::getMicrosecondsPerInterrupt());
 
 #ifdef __PROFILE_PCM_PLAYBACK
 			if(!playing)
@@ -147,16 +147,14 @@ bool PCMSoundPlayer::onEvent(ListenerObject eventFirer, uint16 eventCode)
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-static bool PCMSoundPlayer::update()
+static bool PCMSoundPlayer::update(uint32 elapsedMicroseconds)
 {
-#ifndef __RELEASE
 	if(NULL == _pcmSoundSpec)
 	{
 		return false;
 	}
-#endif
 
-	_elapsedMicroseconds += Timer::getMicrosecondsPerInterrupt();
+	_elapsedMicroseconds += elapsedMicroseconds;
 
  	uint32 cursor = _elapsedMicroseconds / _pcmSoundSpec->targetPCMUpdates;
 
@@ -188,22 +186,14 @@ static bool PCMSoundPlayer::update()
 		if(__MAXIMUM_VOLUME <= sample)
 		{
 			_soundSources[vsuSoundSourceIndex].SxLRV = 0xFF;
+			sample -= __MAXIMUM_VOLUME;
 		}
-		else if(0 < sample)
-		{
-			_soundSources[vsuSoundSourceIndex].SxLRV = ((sample << 4) | sample);
-#ifdef __RELEASE
-			break;		
-#endif
-		}
-#ifndef __RELEASE
 		else
 		{
-			_soundSources[vsuSoundSourceIndex].SxLRV = 0;
+			_soundSources[vsuSoundSourceIndex].SxLRV = ((sample << 4) | sample);
+			sample = 0;
 		}
-#endif
-		sample -= __MAXIMUM_VOLUME;
-
+		
 	} while(++vsuSoundSourceIndex < __TOTAL_POTENTIAL_NORMAL_CHANNELS);
 
 	return true;
