@@ -11,6 +11,7 @@
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
+#include <DisplayUnit.h>
 #include <FrameRate.h>
 #include <Platform.h>
 #include <Printer.h>
@@ -63,6 +64,8 @@ static bool PCMSoundPlayer::playSound(const PCMSoundSpec* pcmSoundSpec)
 		PCMSoundPlayer::configureSoundSources();
 		Timer::configure(pcmSoundSpec->timerConfig);
 		Timer::addEventListener(Timer::getInstance(), ListenerObject::safeCast(pcmSoundPlayer), kEventTimerInterrupt);
+		DisplayUnit::enableMultiplexedInterrupts(kVIPOnlyNonVIPMultiplexedInterrupts);
+
 #ifdef __PROFILE_PCM_PLAYBACK
 		FrameRate::addEventListener(FrameRate::getInstance(), ListenerObject::safeCast(PCMSoundPlayer::getInstance()), kEventFramerateReady);
 #endif
@@ -80,7 +83,9 @@ static void PCMSoundPlayer::stop()
 	_elapsedMicroseconds = 0;
 	PCMSoundPlayer pcmSoundPlayer = PCMSoundPlayer::getInstance();
 
+	DisplayUnit::enableMultiplexedInterrupts(kVIPNoMultiplexedInterrupts);
 	Timer::removeEventListener(Timer::getInstance(), ListenerObject::safeCast(pcmSoundPlayer), kEventTimerInterrupt);
+
 #ifdef __PROFILE_PCM_PLAYBACK
 	FrameRate::removeEventListener(FrameRate::getInstance(), ListenerObject::safeCast(PCMSoundPlayer::getInstance()), kEventFramerateReady);
 #endif
