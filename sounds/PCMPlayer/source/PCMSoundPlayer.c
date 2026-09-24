@@ -44,7 +44,7 @@ static uint16 _samplesPerSecond = 0;
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-static bool PCMSoundPlayer::playSound(const PCMSoundSpec* pcmSoundSpec)
+static bool PCMSoundPlayer::playSound(const PCMSoundSpec* pcmSoundSpec, ListenerObject scope)
 {
 	PCMSoundPlayer pcmSoundPlayer = PCMSoundPlayer::getInstance();
 
@@ -60,6 +60,11 @@ static bool PCMSoundPlayer::playSound(const PCMSoundSpec* pcmSoundSpec)
 		_pcmSoundSpec = pcmSoundSpec;
 		_samplesPerSecond = 0;
 		_elapsedMicroseconds = 0;
+
+		if(!isDeleted(scope))
+		{
+			PCMSoundPlayer::addEventListener(pcmSoundPlayer, scope, kEventSoundFinished);
+		}
 
 		PCMSoundPlayer::configureSoundSources();
 		Timer::configure(pcmSoundSpec->timerConfig);
@@ -106,17 +111,20 @@ bool PCMSoundPlayer::onEvent(ListenerObject eventFirer, uint16 eventCode)
 		case kEventTimerInterrupt:
 		{
 			_samplesPerSecond++;
+			bool playing = PCMSoundPlayer::update();
+
 #ifdef __PROFILE_PCM_PLAYBACK
-			if(!PCMSoundPlayer::update())
+			if(!playing)
 			{
-				FrameRate::removeEventListener(FrameRate::getInstance(), ListenerObject::safeCast(PCMSoundPlayer::getInstance()), kEventFramerateReady);
-				return false;
+				FrameRate::removeEventListener(FrameRate::getInstance(), ListenerObject::safeCast(this), kEventFramerateReady);
+			}
+#endif
+			if(!playing)
+			{
+				PCMSoundPlayer::fireEvent(this, kEventSoundFinished);
 			}
 
-			return true;
-#else
-			return PCMSoundPlayer::update();
-#endif
+			return playing;
 		}
 
 		case kEventFramerateReady:

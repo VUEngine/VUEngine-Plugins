@@ -77,7 +77,8 @@ singleton class PCMSoundPlayer : ListenerObject
 
 	/// Play a sound defined by the provided spec.
 	/// @param pcmSoundSpec: Spec that defines the sound to play
-	static bool playSound(const PCMSoundSpec* pcmSoundSpec);
+	/// @param scope: Object that will be notified of communication events
+	static bool playSound(const PCMSoundSpec* pcmSoundSpec, ListenerObject scope);
 
 	/// Mute playing sound.
 	static void mute();
