@@ -36,7 +36,7 @@
 typedef struct PCMSoundSpec
 {
 	/// Timer configuration
-    TimerConfig timerConfig;
+    TimerConfiguration timerConfiguration;
 
 	/// Name
 	char* name;

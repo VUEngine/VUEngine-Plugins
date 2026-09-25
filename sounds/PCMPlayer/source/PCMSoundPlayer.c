@@ -25,6 +25,9 @@
 // CLASS' ATTRIBUTES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
+/// Timer configuration to restore
+static TimerConfiguration _timerConfiguration;
+
 /// Pointer to the hardware's sound registers
 static SoundSource* _soundSources = (SoundSource*)__SOUND_SOURCES_ADRESS;
 
@@ -66,8 +69,10 @@ static bool PCMSoundPlayer::playSound(const PCMSoundSpec* pcmSoundSpec, Listener
 			PCMSoundPlayer::addEventListener(pcmSoundPlayer, scope, kEventSoundFinished);
 		}
 
+		_timerConfiguration = Timer::getConfiguration();
+
 		PCMSoundPlayer::configureSoundSources();
-		Timer::configure(pcmSoundSpec->timerConfig);
+		Timer::setConfiguration(pcmSoundSpec->timerConfiguration);
 		Timer::addEventListener(Timer::getInstance(), ListenerObject::safeCast(pcmSoundPlayer), kEventTimerInterrupt);
 		DisplayUnit::enableMultiplexedInterrupts(kVIPOnlyNonVIPMultiplexedInterrupts);
 
@@ -89,6 +94,7 @@ static void PCMSoundPlayer::stop()
 	PCMSoundPlayer pcmSoundPlayer = PCMSoundPlayer::getInstance();
 
 	DisplayUnit::enableMultiplexedInterrupts(kVIPNoMultiplexedInterrupts);
+	Timer::setConfiguration(_timerConfiguration);
 	Timer::removeEventListener(Timer::getInstance(), ListenerObject::safeCast(pcmSoundPlayer), kEventTimerInterrupt);
 
 #ifdef __PROFILE_PCM_PLAYBACK
@@ -110,7 +116,6 @@ bool PCMSoundPlayer::onEvent(ListenerObject eventFirer, uint16 eventCode)
 	{
 		case kEventTimerInterrupt:
 		{
-			_samplesPerSecond++;
 			bool playing = PCMSoundPlayer::update(Timer::getMicrosecondsPerInterrupt());
 
 #ifdef __PROFILE_PCM_PLAYBACK
@@ -121,6 +126,7 @@ bool PCMSoundPlayer::onEvent(ListenerObject eventFirer, uint16 eventCode)
 #endif
 			if(!playing)
 			{
+				PCMSoundPlayer::stop();
 				PCMSoundPlayer::fireEvent(this, kEventSoundFinished);
 			}
 
@@ -195,6 +201,8 @@ static bool PCMSoundPlayer::update(uint32 elapsedMicroseconds)
 		}
 		
 	} while(++vsuSoundSourceIndex < __TOTAL_POTENTIAL_NORMAL_CHANNELS);
+
+	_samplesPerSecond++;
 
 	return true;
 }
