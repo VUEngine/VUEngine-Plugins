@@ -64,7 +64,7 @@ const SoundTrackKeyframe BootSoundTrack3Keyframes[] =
 VSUSoundTrackROMSpec BootSoundTrack3 =
 {
 	// SoundTrack
-	{		
+	{
 		// Allocator
 		__TYPE(VSUSoundTrack),
 		
