@@ -96,6 +96,7 @@ static void PCMSoundPlayer::stop()
 	DisplayUnit::enableMultiplexedInterrupts(kVIPNoMultiplexedInterrupts);
 	Timer::setConfiguration(_timerConfiguration);
 	Timer::removeEventListener(Timer::getInstance(), ListenerObject::safeCast(pcmSoundPlayer), kEventTimerInterrupt);
+	PCMSoundPlayer::removeAllEventListeners(pcmSoundPlayer);
 
 #ifdef __PROFILE_PCM_PLAYBACK
 	FrameRate::removeEventListener(FrameRate::getInstance(), ListenerObject::safeCast(PCMSoundPlayer::getInstance()), kEventFramerateReady);
