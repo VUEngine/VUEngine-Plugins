@@ -44,7 +44,7 @@ void AlignmentCheckBaseGameState::resume(void* owner)
 
 void AlignmentCheckBaseGameState::processUserInput(const UserInput* userInput)
 {
-	if(userInput->pressedKey & ~K_PWR)
+	if(0 != ((~K_PWR) & userInput->releasedKey))
 	{
 		AlignmentCheckBaseGameState::recordLastInput(this, userInput);
 		AlignmentCheckBaseGameState::matchButtonCode(this);
