@@ -45,7 +45,7 @@ void AlignmentCheckScreenState::enter(void* owner)
 void AlignmentCheckScreenState::processUserInput(const UserInput* userInput)
 {
 	// Any button quits the screen
-	if(0 != ((~K_PWR) & userInput->releasedKey))
+	if(0 != ((~K_PWR) & userInput->pressedKey))
 	{
 		if(VUEngine::isPaused())
 		{
