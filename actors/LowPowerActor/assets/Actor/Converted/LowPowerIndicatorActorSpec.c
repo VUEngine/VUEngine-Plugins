@@ -150,7 +150,10 @@ BgmapSpriteROMSpec LowPowerIndicatorSprite1SpriteSpec =
 		__TRANSPARENCY_NONE,
 
 		// Displacement added to the sprite's position
-		{0, 0, 0, 0}
+		{0, 0, 0, 0},
+
+		// Flag that determines which transformation elements affect the sprite (position, rotation, scale)
+		__INVALIDATE_POSITION		
 	},
 
 	// Flag to indicate in which display to show the texture (__WORLD_ON, __WORLD_LON or __WORLD_RON)
