@@ -32,7 +32,7 @@ extern StageROMSpec PrecautionScreenStage;
 
 enum SplashScreenMessageTypes
 {
-	kMessageAllowUserInput = kMessageLastEngine + 1
+	kMessageAllowUserInput = kMessagePluginsFirst + 1
 };
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
